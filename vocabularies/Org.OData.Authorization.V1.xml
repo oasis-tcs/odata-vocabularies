@@ -44,7 +44,7 @@
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Authorization" Alias="Auth">
       <Annotation Term="Core.Description" String="The Authorization Vocabulary provides terms for describing a web authorization flow"/>
 
-      <Term Name="Authorizations" Type="Collection(Auth.Authorization)" AppliesTo="EntityContainer EntitySet NavigationProperty">
+      <Term Name="Authorizations" Type="Collection(Auth.Authorization)" AppliesTo="EntityContainer EntitySet Singleton NavigationProperty Action Function">
         <Annotation Term="Core.Description" String="Lists the methods available to authorize access to the annotated resource."/>
       </Term>
 
@@ -56,6 +56,7 @@
       <ComplexType Name="OpenIDConnect" BaseType="Auth.Authorization">
         <Property Name="IssuerUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Issuer location for the OpenID Provider. Configuration information can be obtained by appending /.well-known/openid-configuration to this Url."/>
+          <Annotation Term="Core.IsURL"/>
         </Property>
       </ComplexType>
 
