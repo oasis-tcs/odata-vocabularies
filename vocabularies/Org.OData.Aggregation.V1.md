@@ -22,7 +22,6 @@ Terms to describe which data in a given entity model can be aggregated, and how.
 <td>Defines a recursive hierarchy.</td></tr>
 <tr><td>AvailableOnAggregates</td>
 <td>This action or function is available on aggregated entities if the RequiredProperties are still defined</td></tr>
-
 </tbody></table>
 
 [XML Source](Org.OData.Aggregation.V1.xml)

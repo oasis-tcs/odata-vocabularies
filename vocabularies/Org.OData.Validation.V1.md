@@ -18,7 +18,6 @@ Terms describing validation rules
 <td>A collection of valid values for the annotated property, parameter, or type definition</td></tr>
 <tr><td>MultipleOf</td>
 <td>The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds.</td></tr>
-
 </tbody></table>
 
 [XML Source](Org.OData.Validation.V1.xml)

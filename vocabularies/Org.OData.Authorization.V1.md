@@ -8,7 +8,6 @@ The Authorization Vocabulary provides terms for describing a web authorization f
 <tbody><tr><th><strong>Term</strong></th><th><strong>Description</strong></th></tr>
 <tr><td>Authorizations</td>
 <td>Lists the methods available to authorize access to the annotated resource.</td></tr>
-
 </tbody></table>
 
 [XML Source](Org.OData.Authorization.xml)

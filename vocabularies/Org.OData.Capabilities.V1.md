@@ -58,7 +58,6 @@ Terms describing capabilities of a service
 <td>Restrictions on update operations</td></tr>
 <tr><td>DeleteRestrictions</td>
 <td>Restrictions on delete operations</td></tr>
-
 </tbody></table>
 
 [XML Source](Org.OData.Capabilities.V1.xml)

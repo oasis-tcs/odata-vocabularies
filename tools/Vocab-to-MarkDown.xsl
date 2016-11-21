@@ -103,7 +103,6 @@
         </tr>
         <xsl:text>&#xA;</xsl:text>
         <xsl:apply-templates select="//edm:Term" />
-        <xsl:text>&#xA;</xsl:text>
       </tbody>
     </table>
     <xsl:text>&#xA;&#xA;</xsl:text>

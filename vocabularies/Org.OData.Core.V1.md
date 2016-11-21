@@ -62,7 +62,6 @@ Core terms needed to write vocabularies
 <td>Items can be inserted at a given ordinal index.</td></tr>
 <tr><td>AlternateKeys</td>
 <td>Communicates available alternate keys</td></tr>
-
 </tbody></table>
 
 [XML Source](Org.OData.Core.V1.xml)
