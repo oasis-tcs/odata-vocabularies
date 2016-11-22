@@ -6,7 +6,10 @@
     This style sheet transforms OData 4.0 XML Vocabulary documents into HTML / MarkDown
 
     TODO:
-    - everything
+    - Extract next level of information
+    - - technical type
+    - - structure components for structured types with description
+    - - non-abstract nodes of inheritance hierarchies with unified list of properties collected along base type chain
   -->
 
   <xsl:output method="html" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
@@ -90,22 +93,10 @@
     <xsl:value-of select="//edm:Schema/@Namespace" />
     <xsl:text>**&#xA;&#xA;</xsl:text>
 
-    <table border="1" style="border: 1px solid #000000;" width="100%">
-      <xsl:text>&#xA;</xsl:text>
-      <tbody>
-        <tr>
-          <th>
-            <strong>Term</strong>
-          </th>
-          <th>
-            <strong>Description</strong>
-          </th>
-        </tr>
-        <xsl:text>&#xA;</xsl:text>
-        <xsl:apply-templates select="//edm:Term" />
-      </tbody>
-    </table>
-    <xsl:text>&#xA;&#xA;</xsl:text>
+    <xsl:text>Term|Description&#xA;</xsl:text>
+    <xsl:text>----|-----------&#xA;</xsl:text>
+    <xsl:apply-templates select="//edm:Term" />
+    <xsl:text>&#xA;</xsl:text>
 
     <xsl:text>[XML Source](</xsl:text>
     <xsl:value-of select="//edm:Schema/@Namespace" />
@@ -114,17 +105,15 @@
   </xsl:template>
 
   <xsl:template match="edm:Term">
-    <tr>
-      <td>
-        <xsl:value-of select="@Name" />
-      </td>
-      <xsl:text>&#xA;</xsl:text>
-      <td>
+    <xsl:value-of select="@Name" />
+    <xsl:text>|</xsl:text>
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string">
         <xsl:call-template name="Core.Description">
           <xsl:with-param name="node" select="." />
         </xsl:call-template>
-      </td>
-    </tr>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -159,5 +148,35 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
+
+  <xsl:template name="escape">
+    <xsl:param name="string" />
+    <xsl:choose>
+      <xsl:when test="contains($string,'|')">
+        <xsl:call-template name="escape-one">
+          <xsl:with-param name="string" select="$string" />
+          <xsl:with-param name="old" select="'|'" />
+          <xsl:with-param name="new" select="'\|'" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$string" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
+
+  <xsl:template name="escape-one">
+    <xsl:param name="string" />
+    <xsl:param name="old" />
+    <xsl:param name="new" />
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="substring-before($string,$old)" />
+    </xsl:call-template>
+    <xsl:value-of select="$new" />
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="substring-after($string,$old)" />
+    </xsl:call-template>
+  </xsl:template>
+
 
 </xsl:stylesheet>
