@@ -1,8 +1,8 @@
-# OData Vocabulary
+# Authorization Vocabulary
 
 The Authorization Vocabulary provides terms for describing a web authorization flow
 
-**Namespace: Org.OData.Authorization**
+**Namespace: Org.OData.Authorization.V1**
 
 <table width="100%" style="border: 1px solid #000000;" border="1">
 <tbody><tr><th><strong>Term</strong></th><th><strong>Description</strong></th></tr>
