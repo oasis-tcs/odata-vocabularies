@@ -36,9 +36,21 @@ PositionalInsert|Tag|Items can be inserted at a given ordinal index.
 AlternateKeys|\[AlternateKey\]|Communicates available alternate keys
 
 
+## <a name="ValueException"></a>ValueException
+
+
 ## <a name="MessageType"></a>MessageType
 
 
+## <a name="MessageSeverity"></a>MessageSeverity
+
+
+## <a name="Tag"></a>Tag
+
+This is the type to use for all tagging terms
+## <a name="QualifiedTypeName"></a>QualifiedTypeName
+
+The qualified name of a type in scope.
 ## <a name="AlternateKey"></a>AlternateKey
 
 

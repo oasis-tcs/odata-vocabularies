@@ -61,6 +61,9 @@ A non-empty collection lists the full set of supported protocols. A empty collec
 ## <a name="FilterExpressionRestrictionType"></a>FilterExpressionRestrictionType
 
 
+## <a name="FilterExpressionType"></a>FilterExpressionType
+
+
 ## <a name="SortRestrictionsType"></a>SortRestrictionsType
 
 
