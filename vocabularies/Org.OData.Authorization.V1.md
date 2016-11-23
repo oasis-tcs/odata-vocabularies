@@ -6,12 +6,12 @@ The Authorization Vocabulary provides terms for describing a web authorization f
 
 Term|Type|Description
 ----|----|-----------
-Authorizations|Collection(Auth.Authorization)|Lists the methods available to authorize access to the annotated resource.
+Authorizations|\[Authorization\]|Lists the methods available to authorize access to the annotated resource.
 
 
 ## <a name="Authorization"></a>Authorization
 
-
+Base type for all Authorization types.
 ## <a name="OpenIDConnect"></a>OpenIDConnect
 
 
