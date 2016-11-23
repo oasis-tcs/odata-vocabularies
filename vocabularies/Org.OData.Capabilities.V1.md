@@ -33,3 +33,51 @@ DeepInsertSupport|Capabilities.DeepInsertSupportType|Deep Insert Support for the
 UpdateRestrictions|Capabilities.UpdateRestrictionsType|Restrictions on update operations
 DeleteRestrictions|Capabilities.DeleteRestrictionsType|Restrictions on delete operations
 
+
+## <a name="CallbackType"></a>CallbackType
+
+
+## <a name="CallbackProtocol"></a>CallbackProtocol
+
+
+## <a name="ChangeTrackingType"></a>ChangeTrackingType
+
+
+## <a name="CountRestrictionsType"></a>CountRestrictionsType
+
+
+## <a name="NavigationRestrictionsType"></a>NavigationRestrictionsType
+
+
+## <a name="NavigationPropertyRestriction"></a>NavigationPropertyRestriction
+
+
+## <a name="BatchSupportType"></a>BatchSupportType
+
+
+## <a name="FilterRestrictionsType"></a>FilterRestrictionsType
+
+
+## <a name="FilterExpressionRestrictionType"></a>FilterExpressionRestrictionType
+
+
+## <a name="SortRestrictionsType"></a>SortRestrictionsType
+
+
+## <a name="ExpandRestrictionsType"></a>ExpandRestrictionsType
+
+
+## <a name="SearchRestrictionsType"></a>SearchRestrictionsType
+
+
+## <a name="InsertRestrictionsType"></a>InsertRestrictionsType
+
+
+## <a name="DeepInsertSupportType"></a>DeepInsertSupportType
+
+
+## <a name="UpdateRestrictionsType"></a>UpdateRestrictionsType
+
+
+## <a name="DeleteRestrictionsType"></a>DeleteRestrictionsType
+

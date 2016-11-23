@@ -100,12 +100,14 @@
     <xsl:text>----|----|-----------&#xA;</xsl:text>
     <xsl:apply-templates select="//edm:Term" mode="overview" />
     <xsl:text>&#xA;</xsl:text>
+
+    <xsl:apply-templates select="//edm:ComplexType" />
   </xsl:template>
 
   <xsl:template match="edm:Term" mode="overview">
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
-    <xsl:value-of select="@Type" />
+    <xsl:apply-templates select="@Type" />
     <xsl:text>|</xsl:text>
     <xsl:call-template name="escape">
       <xsl:with-param name="string">
@@ -115,6 +117,24 @@
       </xsl:with-param>
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
+  </xsl:template>
+  
+  <xsl:template match="@Type">
+    <xsl:value-of select="." />
+  </xsl:template>
+
+  <xsl:template match="edm:ComplexType">
+    <xsl:text>&#xA;## </xsl:text>
+    <a>
+      <xsl:attribute name="name">
+        <xsl:value-of select="@Name" />
+      </xsl:attribute>
+    </a>
+    <xsl:value-of select="@Name" />
+    <xsl:text>&#xA;&#xA;</xsl:text>
+
+    <!-- TODO: attributes -->
+    <!-- TODO: properties -->
   </xsl:template>
 
   <!-- helper functions -->

@@ -8,3 +8,33 @@ Term|Type|Description
 ----|----|-----------
 Authorizations|Collection(Auth.Authorization)|Lists the methods available to authorize access to the annotated resource.
 
+
+## <a name="Authorization"></a>Authorization
+
+
+## <a name="OpenIDConnect"></a>OpenIDConnect
+
+
+## <a name="Http"></a>Http
+
+
+## <a name="OAuthAuthorization"></a>OAuthAuthorization
+
+
+## <a name="OAuth2ClientCredentials"></a>OAuth2ClientCredentials
+
+
+## <a name="OAuth2Implicit"></a>OAuth2Implicit
+
+
+## <a name="OAuth2Password"></a>OAuth2Password
+
+
+## <a name="OAuth2AuthCode"></a>OAuth2AuthCode
+
+
+## <a name="AuthorizationScope"></a>AuthorizationScope
+
+
+## <a name="ApiKey"></a>ApiKey
+

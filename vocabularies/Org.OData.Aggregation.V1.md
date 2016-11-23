@@ -15,3 +15,12 @@ LeveledHierarchy|Collection(Edm.PropertyPath)|Defines a leveled hierarchy by def
 RecursiveHierarchy|Aggregation.RecursiveHierarchyType|Defines a recursive hierarchy.
 AvailableOnAggregates|Aggregation.AvailableOnAggregatesType|This action or function is available on aggregated entities if the RequiredProperties are still defined
 
+
+## <a name="ApplySupportedType"></a>ApplySupportedType
+
+
+## <a name="RecursiveHierarchyType"></a>RecursiveHierarchyType
+
+
+## <a name="AvailableOnAggregatesType"></a>AvailableOnAggregatesType
+

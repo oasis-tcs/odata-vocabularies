@@ -13,3 +13,6 @@ Exclusive|Core.Tag|Tags a Minimum or Maximum as exclusive, i.e. an open interval
 AllowedValues|Collection(Validation.AllowedValue)|A collection of valid values for the annotated property, parameter, or type definition
 MultipleOf|Edm.Decimal|The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds.
 
+
+## <a name="AllowedValue"></a>AllowedValue
+

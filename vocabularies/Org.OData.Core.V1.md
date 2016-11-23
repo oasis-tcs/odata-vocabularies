@@ -35,3 +35,12 @@ Ordered|Core.Tag|Collection has a stable order. Ordered collections of primitive
 PositionalInsert|Core.Tag|Items can be inserted at a given ordinal index.
 AlternateKeys|Collection(Core.AlternateKey)|Communicates available alternate keys
 
+
+## <a name="MessageType"></a>MessageType
+
+
+## <a name="AlternateKey"></a>AlternateKey
+
+
+## <a name="PropertyRef"></a>PropertyRef
+
