@@ -7,6 +7,7 @@
 
     TODO:
     - Extract next level of information
+    - - h2 sections for terms
     - - technical type
     - - structure components for structured types with description
     - - non-abstract nodes of inheritance hierarchies with unified list of properties collected along base type chain
@@ -89,23 +90,22 @@
       </p>
     -->
 
-    <xsl:text>**Namespace: </xsl:text>
+    <xsl:text>**Namespace: [</xsl:text>
     <xsl:value-of select="//edm:Schema/@Namespace" />
-    <xsl:text>**&#xA;&#xA;</xsl:text>
+    <xsl:text>](</xsl:text>
+    <xsl:value-of select="//edm:Schema/@Namespace" />
+    <xsl:text>.xml)**&#xA;&#xA;</xsl:text>
 
-    <xsl:text>Term|Description&#xA;</xsl:text>
-    <xsl:text>----|-----------&#xA;</xsl:text>
-    <xsl:apply-templates select="//edm:Term" />
+    <xsl:text>Term|Type|Description&#xA;</xsl:text>
+    <xsl:text>----|----|-----------&#xA;</xsl:text>
+    <xsl:apply-templates select="//edm:Term" mode="overview" />
     <xsl:text>&#xA;</xsl:text>
-
-    <xsl:text>[XML Source](</xsl:text>
-    <xsl:value-of select="//edm:Schema/@Namespace" />
-    <xsl:text>.xml)</xsl:text>
-
   </xsl:template>
 
-  <xsl:template match="edm:Term">
+  <xsl:template match="edm:Term" mode="overview">
     <xsl:value-of select="@Name" />
+    <xsl:text>|</xsl:text>
+    <xsl:value-of select="@Type" />
     <xsl:text>|</xsl:text>
     <xsl:call-template name="escape">
       <xsl:with-param name="string">
