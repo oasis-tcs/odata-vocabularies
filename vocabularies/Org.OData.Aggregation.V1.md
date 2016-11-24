@@ -1,8 +1,7 @@
 # Aggregation Vocabulary
+**Namespace: [Org.OData.Aggregation.V1](Org.OData.Aggregation.V1.xml)**
 
 Terms to describe which data in a given entity model can be aggregated, and how.
-
-**Namespace: [Org.OData.Aggregation.V1](Org.OData.Aggregation.V1.xml)**
 
 Term|Type|Description
 ----|----|-----------
@@ -15,13 +14,12 @@ LeveledHierarchy|\[*PropertyPath*\]|Defines a leveled hierarchy by defining an o
 RecursiveHierarchy|[RecursiveHierarchyType](#RecursiveHierarchyType)|Defines a recursive hierarchy.
 AvailableOnAggregates|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|This action or function is available on aggregated entities if the RequiredProperties are still defined
 
-
 ## <a name="ApplySupportedType"></a>ApplySupportedType
 
 
 ## <a name="RollupType"></a>RollupType
-
 The number of rollup operators allowed in a groupby transformation
+
 ## <a name="RecursiveHierarchyType"></a>RecursiveHierarchyType
 
 

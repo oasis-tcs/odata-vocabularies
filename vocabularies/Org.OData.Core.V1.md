@@ -1,8 +1,7 @@
 # Core Vocabulary
+**Namespace: [Org.OData.Core.V1](Org.OData.Core.V1.xml)**
 
 Core terms needed to write vocabularies
-
-**Namespace: [Org.OData.Core.V1](Org.OData.Core.V1.xml)**
 
 Term|Type|Description
 ----|----|-----------
@@ -35,25 +34,32 @@ Ordered|[Tag](#Tag)|Collection has a stable order. Ordered collections of primit
 PositionalInsert|[Tag](#Tag)|Items can be inserted at a given ordinal index.
 AlternateKeys|\[[AlternateKey](#AlternateKey)\]|Communicates available alternate keys
 
-
 ## <a name="ValueException"></a>ValueException
+**Type:** *String*
+
 
 
 ## <a name="MessageType"></a>MessageType
 
 
 ## <a name="MessageSeverity"></a>MessageSeverity
+**Type:** *String*
+
 
 
 ## <a name="Tag"></a>Tag
+**Type:** *Boolean*
 
 This is the type to use for all tagging terms
+
 ## <a name="Permission"></a>Permission
 
 
 ## <a name="QualifiedTypeName"></a>QualifiedTypeName
+**Type:** *String*
 
 The qualified name of a type in scope.
+
 ## <a name="AlternateKey"></a>AlternateKey
 
 

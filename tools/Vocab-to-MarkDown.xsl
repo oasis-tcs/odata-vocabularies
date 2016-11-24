@@ -75,7 +75,13 @@
       <xsl:with-param name="marker" select="'.'" />
     </xsl:call-template>
     <xsl:text> Vocabulary</xsl:text>
-    <xsl:text>&#xA;&#xA;</xsl:text>
+    <xsl:text>&#xA;</xsl:text>
+
+    <xsl:text>**Namespace: [</xsl:text>
+    <xsl:value-of select="//edm:Schema/@Namespace" />
+    <xsl:text>](</xsl:text>
+    <xsl:value-of select="//edm:Schema/@Namespace" />
+    <xsl:text>.xml)**&#xA;&#xA;</xsl:text>
 
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="//edm:Schema" />
@@ -90,16 +96,9 @@
       </p>
     -->
 
-    <xsl:text>**Namespace: [</xsl:text>
-    <xsl:value-of select="//edm:Schema/@Namespace" />
-    <xsl:text>](</xsl:text>
-    <xsl:value-of select="//edm:Schema/@Namespace" />
-    <xsl:text>.xml)**&#xA;&#xA;</xsl:text>
-
     <xsl:text>Term|Type|Description&#xA;</xsl:text>
     <xsl:text>----|----|-----------&#xA;</xsl:text>
     <xsl:apply-templates select="//edm:Term" mode="overview" />
-    <xsl:text>&#xA;</xsl:text>
 
     <xsl:apply-templates select="//edm:ComplexType|//edm:EnumType|//edm:TypeDefinition" />
   </xsl:template>
@@ -127,7 +126,7 @@
       </xsl:attribute>
     </a>
     <xsl:value-of select="@Name" />
-    <xsl:text>&#xA;&#xA;</xsl:text>
+    <xsl:text>&#xA;</xsl:text>
 
     <xsl:call-template name="escape">
       <xsl:with-param name="string">
@@ -136,6 +135,7 @@
         </xsl:call-template>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:text>&#xA;</xsl:text>
 
     <!-- TODO: attributes -->
     <!-- TODO: properties -->
@@ -149,7 +149,7 @@
       </xsl:attribute>
     </a>
     <xsl:value-of select="@Name" />
-    <xsl:text>&#xA;&#xA;</xsl:text>
+    <xsl:text>&#xA;</xsl:text>
 
     <xsl:call-template name="escape">
       <xsl:with-param name="string">
@@ -158,6 +158,7 @@
         </xsl:call-template>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:text>&#xA;</xsl:text>
 
     <!-- TODO: attributes -->
     <!-- TODO: members -->
@@ -171,6 +172,8 @@
       </xsl:attribute>
     </a>
     <xsl:value-of select="@Name" />
+    <xsl:text>&#xA;**Type:** </xsl:text>
+    <xsl:apply-templates select="@UnderlyingType" />
     <xsl:text>&#xA;&#xA;</xsl:text>
 
     <xsl:call-template name="escape">
@@ -180,11 +183,12 @@
         </xsl:call-template>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:text>&#xA;</xsl:text>
 
-    <!-- TODO: attributes, annotations -->
+    <!-- TODO: annotations -->
   </xsl:template>
 
-  <xsl:template match="@Type">
+  <xsl:template match="@Type|@UnderlyingType">
     <xsl:variable name="singleType">
       <xsl:choose>
         <xsl:when test="starts-with(.,'Collection(')">

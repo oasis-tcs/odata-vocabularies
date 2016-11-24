@@ -1,8 +1,7 @@
 # Capabilities Vocabulary
+**Namespace: [Org.OData.Capabilities.V1](Org.OData.Capabilities.V1.xml)**
 
 Terms describing capabilities of a service
-
-**Namespace: [Org.OData.Capabilities.V1](Org.OData.Capabilities.V1.xml)**
 
 Term|Type|Description
 ----|----|-----------
@@ -33,7 +32,6 @@ DeepInsertSupport|[DeepInsertSupportType](#DeepInsertSupportType)|Deep Insert Su
 UpdateRestrictions|[UpdateRestrictionsType](#UpdateRestrictionsType)|Restrictions on update operations
 DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restrictions on delete operations
 
-
 ## <a name="ConformanceLevelType"></a>ConformanceLevelType
 
 
@@ -41,8 +39,8 @@ DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restriction
 
 
 ## <a name="CallbackType"></a>CallbackType
-
 A non-empty collection lists the full set of supported protocols. A empty collection means 'only HTTP is supported'
+
 ## <a name="CallbackProtocol"></a>CallbackProtocol
 
 
@@ -71,6 +69,8 @@ A non-empty collection lists the full set of supported protocols. A empty collec
 
 
 ## <a name="FilterExpressionType"></a>FilterExpressionType
+**Type:** *String*
+
 
 
 ## <a name="SortRestrictionsType"></a>SortRestrictionsType
