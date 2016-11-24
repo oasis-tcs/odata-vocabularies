@@ -55,6 +55,14 @@ This is the type to use for all tagging terms
 ## <a name="Permission"></a>Permission
 
 
+Name|Value|Description
+----|-----|-----------
+`None`|0|
+`Read`|1|
+`Write`|2|
+`ReadWrite`|3|
+`Invoke`|4|
+
 ## <a name="QualifiedTypeName"></a>QualifiedTypeName
 **Type:** *String*
 

@@ -20,6 +20,12 @@ AvailableOnAggregates|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|Th
 ## <a name="RollupType"></a>RollupType
 The number of rollup operators allowed in a groupby transformation
 
+Name|Value|Description
+----|-----|-----------
+`None`|0|
+`SingleHierarchy`|1|
+`MultipleHierarchies`|2|
+
 ## <a name="RecursiveHierarchyType"></a>RecursiveHierarchyType
 
 

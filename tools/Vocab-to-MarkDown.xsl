@@ -7,8 +7,8 @@
 
     TODO:
     - Extract next level of information
-    - - h2 sections for terms
-    - - technical type
+    - - members of enum types
+    - - special annotations: AllowedValues
     - - structure components for structured types with description
     - - non-abstract nodes of inheritance hierarchies with unified list of properties collected along base type chain
   -->
@@ -86,7 +86,7 @@
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="//edm:Schema" />
     </xsl:call-template>
-    <xsl:text>&#xA;&#xA;</xsl:text>
+    <xsl:text>&#xA;</xsl:text>
 
     <!--
       <p>
@@ -96,14 +96,16 @@
       </p>
     -->
 
-    <xsl:text>Term|Type|Description&#xA;</xsl:text>
-    <xsl:text>----|----|-----------&#xA;</xsl:text>
-    <xsl:apply-templates select="//edm:Term" mode="overview" />
+    <xsl:apply-templates select="//edm:Term" />
 
     <xsl:apply-templates select="//edm:ComplexType|//edm:EnumType|//edm:TypeDefinition" />
   </xsl:template>
 
-  <xsl:template match="edm:Term" mode="overview">
+  <xsl:template match="edm:Term">
+    <xsl:if test="position()=1">
+      <xsl:text>&#xA;Term|Type|Description</xsl:text>
+      <xsl:text>&#xA;----|----|-----------&#xA;</xsl:text>
+    </xsl:if>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
     <xsl:apply-templates select="@Type" />
@@ -160,9 +162,38 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
-    <!-- TODO: attributes -->
-    <!-- TODO: members -->
+    <!-- TODO: @IsFlags, @UnderlyingType? -->
+
+    <xsl:apply-templates select="edm:Member" />
   </xsl:template>
+
+  <xsl:template match="edm:Member">
+    <xsl:if test="position()=1">
+      <xsl:text>&#xA;Name|Value|Description</xsl:text>
+      <xsl:text>&#xA;----|-----|-----------&#xA;</xsl:text>
+    </xsl:if>
+    <xsl:text>`</xsl:text>
+    <xsl:value-of select="@Name" />
+    <xsl:text>`|</xsl:text>
+    <xsl:choose>
+      <xsl:when test="@Value">
+        <xsl:value-of select="@Value" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="position()-1" />
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text>|</xsl:text>
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string">
+        <xsl:call-template name="Core.Description">
+          <xsl:with-param name="node" select="." />
+        </xsl:call-template>
+      </xsl:with-param>
+    </xsl:call-template>
+    <xsl:text>&#xA;</xsl:text>
+  </xsl:template>
+
 
   <xsl:template match="edm:TypeDefinition">
     <xsl:text>&#xA;## </xsl:text>
@@ -185,6 +216,7 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
+    <!-- TODO: facets? -->
     <!-- TODO: annotations -->
   </xsl:template>
 

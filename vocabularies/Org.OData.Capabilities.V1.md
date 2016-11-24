@@ -35,8 +35,18 @@ DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restriction
 ## <a name="ConformanceLevelType"></a>ConformanceLevelType
 
 
+Name|Value|Description
+----|-----|-----------
+`Minimal`|0|
+`Intermediate`|1|
+`Advanced`|2|
+
 ## <a name="IsolationLevel"></a>IsolationLevel
 
+
+Name|Value|Description
+----|-----|-----------
+`Snapshot`|1|
 
 ## <a name="CallbackType"></a>CallbackType
 A non-empty collection lists the full set of supported protocols. A empty collection means 'only HTTP is supported'
@@ -58,6 +68,12 @@ A non-empty collection lists the full set of supported protocols. A empty collec
 
 ## <a name="NavigationType"></a>NavigationType
 
+
+Name|Value|Description
+----|-----|-----------
+`Recursive`|0|Navigation properties can be recursively navigated
+`Single`|1|Navigation properties can be navigated to a single level
+`None`|2|Navigation properties are not navigable
 
 ## <a name="BatchSupportType"></a>BatchSupportType
 
@@ -84,6 +100,15 @@ A non-empty collection lists the full set of supported protocols. A empty collec
 
 ## <a name="SearchExpressions"></a>SearchExpressions
 
+
+Name|Value|Description
+----|-----|-----------
+`none`|0|
+`AND`|1|
+`OR`|2|
+`NOT`|4|
+`phrase`|8|
+`group`|16|
 
 ## <a name="InsertRestrictionsType"></a>InsertRestrictionsType
 

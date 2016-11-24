@@ -39,3 +39,8 @@ Base type for all Authorization types.
 
 ## <a name="KeyLocation"></a>KeyLocation
 
+
+Name|Value|Description
+----|-----|-----------
+`Header`|0|
+`QueryOption`|1|
