@@ -6,8 +6,8 @@ Terms to describe which data in a given entity model can be aggregated, and how.
 Term|Type|Description
 ----|----|-----------
 ApplySupported|[ApplySupportedType](#ApplySupportedType)|This structured type or entity container supports the $apply system query option
-Groupable|[Tag](./Org.OData.Core.V1.md#Tag)|This property can be used in the groupby transformation
-Aggregatable|[Tag](./Org.OData.Core.V1.md#Tag)|This property can be used in the aggregate transformation
+Groupable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the groupby transformation
+Aggregatable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the aggregate transformation
 CustomAggregate|*String*|Dynamic property that can be used in the aggregate transformation
 ContextDefiningProperties|\[*PropertyPath*\]|The annotated property or custom aggregate is only well-defined in the context of these properties
 LeveledHierarchy|\[*PropertyPath*\]|Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy

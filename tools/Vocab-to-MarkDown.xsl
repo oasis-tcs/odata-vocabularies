@@ -274,7 +274,7 @@
         </xsl:variable>
         <xsl:text>[</xsl:text>
         <xsl:value-of select="$type" />
-        <xsl:text>](./</xsl:text>
+        <xsl:text>](</xsl:text>
         <xsl:value-of select="$namespace" />
         <xsl:text>.md#</xsl:text>
         <xsl:value-of select="$type" />

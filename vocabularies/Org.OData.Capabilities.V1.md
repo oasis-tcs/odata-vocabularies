@@ -9,18 +9,18 @@ ConformanceLevel|[ConformanceLevelType](#ConformanceLevelType)|The conformance l
 SupportedFormats|\[*String*\]|Media types of supported formats, including format parameters
 SupportedMetadataFormats|\[*String*\]|Media types of supported formats for $metadata, including format parameters
 AcceptableEncodings|\[*String*\]|List of acceptable compression methods for ($batch) requests, e.g. gzip
-AsynchronousRequestsSupported|[Tag](./Org.OData.Core.V1.md#Tag)|Service supports the asynchronous request preference
-BatchContinueOnErrorSupported|[Tag](./Org.OData.Core.V1.md#Tag)|Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.
+AsynchronousRequestsSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the asynchronous request preference
+BatchContinueOnErrorSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.
 IsolationSupported|[IsolationLevel](#IsolationLevel)|Supported odata.isolation levels
 CallbackSupported|[CallbackType](#CallbackType)|Supports callbacks for the specified protocols
-CrossJoinSupported|[Tag](./Org.OData.Core.V1.md#Tag)|Supports cross joins for the entity sets in this container
+CrossJoinSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports cross joins for the entity sets in this container
 ChangeTracking|[ChangeTrackingType](#ChangeTrackingType)|Change tracking capabilities of this service or entity set
 CountRestrictions|[CountRestrictionsType](#CountRestrictionsType)|Restrictions on /$count path suffix and $count=true system query option
 NavigationRestrictions|[NavigationRestrictionsType](#NavigationRestrictionsType)|Restrictions on navigating properties according to OData URL conventions
-IndexableByKey|[Tag](./Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
-TopSupported|[Tag](./Org.OData.Core.V1.md#Tag)|Supports $top
-SkipSupported|[Tag](./Org.OData.Core.V1.md#Tag)|Supports $skip
-BatchSupported|[Tag](./Org.OData.Core.V1.md#Tag)|Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.
+IndexableByKey|[Tag](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
+TopSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
+SkipSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
+BatchSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.
 BatchSupport|[BatchSupportType](#BatchSupportType)|Batch Support for the service
 FilterFunctions|\[*String*\]|List of functions and operators supported in $filter
 FilterRestrictions|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on $filter expressions
