@@ -8,7 +8,6 @@
     TODO:
     - Extract next level of information
     - - special annotations: AllowedValues
-    - - structure components for structured types with description
     - - non-abstract nodes of inheritance hierarchies with unified list of properties collected along base type chain
   -->
 
@@ -58,11 +57,6 @@
 
 
   <xsl:template match="edmx:Edmx">
-    <!--
-      <xsl:message><xsl:value-of select="$commonAlias"/></xsl:message>
-      <xsl:message><xsl:value-of select="$commonNamespace"/></xsl:message>
-    -->
-
     <xsl:text># </xsl:text>
     <xsl:call-template name="substring-after-last">
       <xsl:with-param name="input">
@@ -107,7 +101,10 @@
     </xsl:if>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
-    <xsl:apply-templates select="@Type" />
+    <xsl:call-template name="type-link">
+      <xsl:with-param name="type" select="@Type" />
+    </xsl:call-template>
+
     <xsl:text>|</xsl:text>
     <xsl:call-template name="escape">
       <xsl:with-param name="string">
@@ -146,22 +143,29 @@
     <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
       mode="inheritance" />
 
-    <!-- TODO: attributes, annotations, inheritance -->
+    <!-- TODO: attributes, annotations -->
     <xsl:apply-templates select="edm:Property" />
   </xsl:template>
 
   <xsl:template match="edm:ComplexType" mode="inheritance">
+    <xsl:param name="indent" select="''" />
     <xsl:text>- </xsl:text>
     <xsl:if test="@Abstract='true'">
       <xsl:text>*</xsl:text>
     </xsl:if>
-    <xsl:value-of select="@Name" />
+    <xsl:call-template name="type-link">
+      <xsl:with-param name="type" select="concat(../@Namespace,'.',@Name)" />
+    </xsl:call-template>
     <xsl:if test="@Abstract='true'">
       <xsl:text>*</xsl:text>
     </xsl:if>
     <xsl:text>&#xA;</xsl:text>
 
     <!-- TODO: recursive indented -->
+    <xsl:variable name="namespaceQualifiedName" select="concat(../@Namespace,'.',@Name)" />
+    <xsl:variable name="aliasQualifiedName" select="concat(../@Alias,'.',@Name)" />
+    <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
+      mode="inheritance" />
   </xsl:template>
 
   <xsl:template match="edm:Property">
@@ -171,7 +175,9 @@
     </xsl:if>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
-    <xsl:apply-templates select="@Type" />
+    <xsl:call-template name="type-link">
+      <xsl:with-param name="type" select="@Type" />
+    </xsl:call-template>
     <xsl:text>|</xsl:text>
     <xsl:call-template name="escape">
       <xsl:with-param name="string">
@@ -243,7 +249,9 @@
     </a>
     <xsl:value-of select="@Name" />
     <xsl:text>&#xA;**Type:** </xsl:text>
-    <xsl:apply-templates select="@UnderlyingType" />
+    <xsl:call-template name="type-link">
+      <xsl:with-param name="type" select="@UnderlyingType" />
+    </xsl:call-template>
     <xsl:text>&#xA;&#xA;</xsl:text>
 
     <xsl:call-template name="escape">
@@ -259,18 +267,19 @@
     <!-- TODO: annotations -->
   </xsl:template>
 
-  <xsl:template match="@Type|@UnderlyingType">
+  <xsl:template name="type-link">
+    <xsl:param name="type" />
+    <xsl:variable name="collection" select="starts-with($type,'Collection(')" />
     <xsl:variable name="singleType">
       <xsl:choose>
-        <xsl:when test="starts-with(.,'Collection(')">
-          <xsl:value-of select="substring-before(substring-after(.,'('),')')" />
+        <xsl:when test="$collection">
+          <xsl:value-of select="substring-before(substring-after($type,'('),')')" />
         </xsl:when>
         <xsl:otherwise>
-          <xsl:value-of select="." />
+          <xsl:value-of select="$type" />
         </xsl:otherwise>
       </xsl:choose>
     </xsl:variable>
-    <xsl:variable name="collection" select="starts-with(.,'Collection(')" />
     <xsl:variable name="qualifier">
       <xsl:call-template name="substring-before-last">
         <xsl:with-param name="input" select="$singleType" />

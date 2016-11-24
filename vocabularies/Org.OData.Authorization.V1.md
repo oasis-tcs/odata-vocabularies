@@ -11,10 +11,14 @@ Authorizations|\[[Authorization](#Authorization)\]|Lists the methods available t
 Base type for all Authorization types.
 
 **Derived Types:**
-- OpenIDConnect
-- Http
-- *OAuthAuthorization*
-- ApiKey
+- [OpenIDConnect](#OpenIDConnect)
+- [Http](#Http)
+- *[OAuthAuthorization](#OAuthAuthorization)*
+- [OAuth2ClientCredentials](#OAuth2ClientCredentials)
+- [OAuth2Implicit](#OAuth2Implicit)
+- [OAuth2Password](#OAuth2Password)
+- [OAuth2AuthCode](#OAuth2AuthCode)
+- [ApiKey](#ApiKey)
 
 Property|Type|Description
 --------|----|-----------
@@ -39,10 +43,10 @@ BearerFormat|*String*|Format of the bearer token.
 
 
 **Derived Types:**
-- OAuth2ClientCredentials
-- OAuth2Implicit
-- OAuth2Password
-- OAuth2AuthCode
+- [OAuth2ClientCredentials](#OAuth2ClientCredentials)
+- [OAuth2Implicit](#OAuth2Implicit)
+- [OAuth2Password](#OAuth2Password)
+- [OAuth2AuthCode](#OAuth2AuthCode)
 
 Property|Type|Description
 --------|----|-----------
