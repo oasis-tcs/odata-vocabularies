@@ -14,3 +14,7 @@ MultipleOf|*Decimal*|The value of the annotated property, parameter, or term mus
 
 ## <a name="AllowedValue"></a>AllowedValue
 
+
+Property|Type|Description
+--------|----|-----------
+Value|*PrimitiveType*|An allowed value for the property, parameter, or type definition

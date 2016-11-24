@@ -42,6 +42,14 @@ AlternateKeys|\[[AlternateKey](#AlternateKey)\]|Communicates available alternate
 ## <a name="MessageType"></a>MessageType
 
 
+Property|Type|Description
+--------|----|-----------
+code|*String*|
+message|*String*|
+severity|[MessageSeverity](#MessageSeverity)|
+target|*String*|A path to the target of the message detail, relative to the annotated instance
+details|\[[MessageType](#MessageType)\]|
+
 ## <a name="MessageSeverity"></a>MessageSeverity
 **Type:** *String*
 
@@ -56,7 +64,7 @@ This is the type to use for all tagging terms
 
 
 Name|Value|Description
-----|-----|-----------
+----|----:|-----------
 `None`|0|
 `Read`|1|
 `Write`|2|
@@ -71,5 +79,14 @@ The qualified name of a type in scope.
 ## <a name="AlternateKey"></a>AlternateKey
 
 
+Property|Type|Description
+--------|----|-----------
+Key|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
+
 ## <a name="PropertyRef"></a>PropertyRef
 
+
+Property|Type|Description
+--------|----|-----------
+Name|*PropertyPath*|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
+Alias|*String*|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
