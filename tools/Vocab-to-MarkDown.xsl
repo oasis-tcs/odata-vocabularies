@@ -138,8 +138,30 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
+    <xsl:variable name="namespaceQualifiedName" select="concat(../@Namespace,'.',@Name)" />
+    <xsl:variable name="aliasQualifiedName" select="concat(../@Alias,'.',@Name)" />
+    <xsl:if test="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]">
+      <xsl:text>&#xA;**Derived Types:**&#xA;</xsl:text>
+    </xsl:if>
+    <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
+      mode="inheritance" />
+
     <!-- TODO: attributes, annotations, inheritance -->
     <xsl:apply-templates select="edm:Property" />
+  </xsl:template>
+
+  <xsl:template match="edm:ComplexType" mode="inheritance">
+    <xsl:text>- </xsl:text>
+    <xsl:if test="@Abstract='true'">
+      <xsl:text>*</xsl:text>
+    </xsl:if>
+    <xsl:value-of select="@Name" />
+    <xsl:if test="@Abstract='true'">
+      <xsl:text>*</xsl:text>
+    </xsl:if>
+    <xsl:text>&#xA;</xsl:text>
+
+    <!-- TODO: recursive indented -->
   </xsl:template>
 
   <xsl:template match="edm:Property">

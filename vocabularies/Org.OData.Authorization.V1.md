@@ -10,6 +10,12 @@ Authorizations|\[[Authorization](#Authorization)\]|Lists the methods available t
 ## <a name="Authorization"></a>Authorization
 Base type for all Authorization types.
 
+**Derived Types:**
+- OpenIDConnect
+- Http
+- *OAuthAuthorization*
+- ApiKey
+
 Property|Type|Description
 --------|----|-----------
 Description|*String*|
@@ -31,6 +37,12 @@ BearerFormat|*String*|Format of the bearer token.
 
 ## <a name="OAuthAuthorization"></a>OAuthAuthorization
 
+
+**Derived Types:**
+- OAuth2ClientCredentials
+- OAuth2Implicit
+- OAuth2Password
+- OAuth2AuthCode
 
 Property|Type|Description
 --------|----|-----------
