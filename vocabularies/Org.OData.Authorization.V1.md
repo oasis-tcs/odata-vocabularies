@@ -7,39 +7,39 @@ Term|Type|Description
 ----|----|-----------
 Authorizations|\[[Authorization](#Authorization)\]|Lists the methods available to authorize access to the annotated resource.
 
-## <a name="Authorization"></a>Authorization
+## <a name="Authorization"></a>*Authorization*
 Base type for all Authorization types.
 
 **Derived Types:**
 - [OpenIDConnect](#OpenIDConnect)
 - [Http](#Http)
 - *[OAuthAuthorization](#OAuthAuthorization)*
-- [OAuth2ClientCredentials](#OAuth2ClientCredentials)
-- [OAuth2Implicit](#OAuth2Implicit)
-- [OAuth2Password](#OAuth2Password)
-- [OAuth2AuthCode](#OAuth2AuthCode)
+  - [OAuth2ClientCredentials](#OAuth2ClientCredentials)
+  - [OAuth2Implicit](#OAuth2Implicit)
+  - [OAuth2Password](#OAuth2Password)
+  - [OAuth2AuthCode](#OAuth2AuthCode)
 - [ApiKey](#ApiKey)
 
 Property|Type|Description
 --------|----|-----------
-Description|*String*|
+Description|String|
 
-## <a name="OpenIDConnect"></a>OpenIDConnect
-
-
-Property|Type|Description
---------|----|-----------
-IssuerUrl|*String*|Issuer location for the OpenID Provider. Configuration information can be obtained by appending /.well-known/openid-configuration to this Url.
-
-## <a name="Http"></a>Http
+## <a name="OpenIDConnect"></a>OpenIDConnect: [Authorization](#Authorization)
 
 
 Property|Type|Description
 --------|----|-----------
-Scheme|*String*|HTTP Authorization scheme to be used in the Authorization header, as per RFC7235.
-BearerFormat|*String*|Format of the bearer token.
+IssuerUrl|String|Issuer location for the OpenID Provider. Configuration information can be obtained by appending /.well-known/openid-configuration to this Url.
 
-## <a name="OAuthAuthorization"></a>OAuthAuthorization
+## <a name="Http"></a>Http: [Authorization](#Authorization)
+
+
+Property|Type|Description
+--------|----|-----------
+Scheme|String|HTTP Authorization scheme to be used in the Authorization header, as per RFC7235.
+BearerFormat|String|Format of the bearer token.
+
+## <a name="OAuthAuthorization"></a>*OAuthAuthorization*: [Authorization](#Authorization)
 
 
 **Derived Types:**
@@ -51,51 +51,51 @@ BearerFormat|*String*|Format of the bearer token.
 Property|Type|Description
 --------|----|-----------
 Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-RefreshUrl|*String*|Refresh Url.
+RefreshUrl|String|Refresh Url.
 
-## <a name="OAuth2ClientCredentials"></a>OAuth2ClientCredentials
-
-
-Property|Type|Description
---------|----|-----------
-TokenUrl|*String*|Token Url.
-
-## <a name="OAuth2Implicit"></a>OAuth2Implicit
+## <a name="OAuth2ClientCredentials"></a>OAuth2ClientCredentials: [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
 --------|----|-----------
-AuthorizationUrl|*String*|Authorization URL.
+TokenUrl|String|Token Url.
 
-## <a name="OAuth2Password"></a>OAuth2Password
-
-
-Property|Type|Description
---------|----|-----------
-TokenUrl|*String*|Token Url.
-
-## <a name="OAuth2AuthCode"></a>OAuth2AuthCode
+## <a name="OAuth2Implicit"></a>OAuth2Implicit: [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
 --------|----|-----------
-AuthorizationUrl|*String*|Authorization URL.
-TokenUrl|*String*|Token Url.
+AuthorizationUrl|String|Authorization URL.
+
+## <a name="OAuth2Password"></a>OAuth2Password: [OAuthAuthorization](#OAuthAuthorization)
+
+
+Property|Type|Description
+--------|----|-----------
+TokenUrl|String|Token Url.
+
+## <a name="OAuth2AuthCode"></a>OAuth2AuthCode: [OAuthAuthorization](#OAuthAuthorization)
+
+
+Property|Type|Description
+--------|----|-----------
+AuthorizationUrl|String|Authorization URL.
+TokenUrl|String|Token Url.
 
 ## <a name="AuthorizationScope"></a>AuthorizationScope
 
 
 Property|Type|Description
 --------|----|-----------
-Scope|*String*|Scope name.
-Description|*String*|Description of the scope.
+Scope|String|Scope name.
+Description|String|Description of the scope.
 
-## <a name="ApiKey"></a>ApiKey
+## <a name="ApiKey"></a>ApiKey: [Authorization](#Authorization)
 
 
 Property|Type|Description
 --------|----|-----------
-KeyName|*String*|The name of the header or query parameter
+KeyName|String|The name of the header or query parameter
 Location|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
 
 ## <a name="KeyLocation"></a>KeyLocation
@@ -103,5 +103,5 @@ Location|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header
 
 Name|Value|Description
 ----|----:|-----------
-`Header`|0|
-`QueryOption`|1|
+Header|0|
+QueryOption|1|

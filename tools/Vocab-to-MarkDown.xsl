@@ -123,7 +123,19 @@
         <xsl:value-of select="@Name" />
       </xsl:attribute>
     </a>
+    <xsl:if test="@Abstract='true'">
+      <xsl:text>*</xsl:text>
+    </xsl:if>
     <xsl:value-of select="@Name" />
+    <xsl:if test="@Abstract='true'">
+      <xsl:text>*</xsl:text>
+    </xsl:if>
+    <xsl:if test="@BaseType">
+      <xsl:text>: </xsl:text>
+      <xsl:call-template name="type-link">
+        <xsl:with-param name="type" select="@BaseType" />
+      </xsl:call-template>
+    </xsl:if>
     <xsl:text>&#xA;</xsl:text>
 
     <xsl:call-template name="escape">
@@ -143,12 +155,12 @@
     <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
       mode="inheritance" />
 
-    <!-- TODO: attributes, annotations -->
     <xsl:apply-templates select="edm:Property" />
   </xsl:template>
 
   <xsl:template match="edm:ComplexType" mode="inheritance">
     <xsl:param name="indent" select="''" />
+    <xsl:value-of select="$indent" />
     <xsl:text>- </xsl:text>
     <xsl:if test="@Abstract='true'">
       <xsl:text>*</xsl:text>
@@ -161,11 +173,13 @@
     </xsl:if>
     <xsl:text>&#xA;</xsl:text>
 
-    <!-- TODO: recursive indented -->
     <xsl:variable name="namespaceQualifiedName" select="concat(../@Namespace,'.',@Name)" />
     <xsl:variable name="aliasQualifiedName" select="concat(../@Alias,'.',@Name)" />
     <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
-      mode="inheritance" />
+      mode="inheritance"
+    >
+      <xsl:with-param name="indent" select="concat($indent,'  ')" />
+    </xsl:apply-templates>
   </xsl:template>
 
   <xsl:template match="edm:Property">
@@ -218,9 +232,8 @@
       <xsl:text>&#xA;Name|Value|Description</xsl:text>
       <xsl:text>&#xA;----|----:|-----------&#xA;</xsl:text>
     </xsl:if>
-    <xsl:text>`</xsl:text>
     <xsl:value-of select="@Name" />
-    <xsl:text>`|</xsl:text>
+    <xsl:text>|</xsl:text>
     <xsl:choose>
       <xsl:when test="@Value">
         <xsl:value-of select="@Value" />
@@ -298,9 +311,7 @@
     <!-- TODO: create hyperlink locally or externally -->
     <xsl:choose>
       <xsl:when test="$qualifier='Edm'">
-        <xsl:text>*</xsl:text>
         <xsl:value-of select="$type" />
-        <xsl:text>*</xsl:text>
       </xsl:when>
       <xsl:when test="$qualifier=ancestor::edm:Schema/@Alias or $qualifier=ancestor::edm:Schema/@Namespace">
         <xsl:text>[</xsl:text>
