@@ -101,7 +101,7 @@
     <xsl:apply-templates select="//edm:Term" mode="overview" />
     <xsl:text>&#xA;</xsl:text>
 
-    <xsl:apply-templates select="//edm:ComplexType" />
+    <xsl:apply-templates select="//edm:ComplexType|//edm:EnumType|//edm:TypeDefinition" />
   </xsl:template>
 
   <xsl:template match="edm:Term" mode="overview">
@@ -118,10 +118,6 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
-  
-  <xsl:template match="@Type">
-    <xsl:value-of select="." />
-  </xsl:template>
 
   <xsl:template match="edm:ComplexType">
     <xsl:text>&#xA;## </xsl:text>
@@ -133,8 +129,130 @@
     <xsl:value-of select="@Name" />
     <xsl:text>&#xA;&#xA;</xsl:text>
 
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string">
+        <xsl:call-template name="Core.Description">
+          <xsl:with-param name="node" select="." />
+        </xsl:call-template>
+      </xsl:with-param>
+    </xsl:call-template>
+
     <!-- TODO: attributes -->
     <!-- TODO: properties -->
+  </xsl:template>
+
+  <xsl:template match="edm:EnumType">
+    <xsl:text>&#xA;## </xsl:text>
+    <a>
+      <xsl:attribute name="name">
+        <xsl:value-of select="@Name" />
+      </xsl:attribute>
+    </a>
+    <xsl:value-of select="@Name" />
+    <xsl:text>&#xA;&#xA;</xsl:text>
+
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string">
+        <xsl:call-template name="Core.Description">
+          <xsl:with-param name="node" select="." />
+        </xsl:call-template>
+      </xsl:with-param>
+    </xsl:call-template>
+
+    <!-- TODO: attributes -->
+    <!-- TODO: members -->
+  </xsl:template>
+
+  <xsl:template match="edm:TypeDefinition">
+    <xsl:text>&#xA;## </xsl:text>
+    <a>
+      <xsl:attribute name="name">
+        <xsl:value-of select="@Name" />
+      </xsl:attribute>
+    </a>
+    <xsl:value-of select="@Name" />
+    <xsl:text>&#xA;&#xA;</xsl:text>
+
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string">
+        <xsl:call-template name="Core.Description">
+          <xsl:with-param name="node" select="." />
+        </xsl:call-template>
+      </xsl:with-param>
+    </xsl:call-template>
+
+    <!-- TODO: attributes, annotations -->
+  </xsl:template>
+
+  <xsl:template match="@Type">
+    <xsl:variable name="singleType">
+      <xsl:choose>
+        <xsl:when test="starts-with(.,'Collection(')">
+          <xsl:value-of select="substring-before(substring-after(.,'('),')')" />
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="." />
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <xsl:variable name="collection" select="starts-with(.,'Collection(')" />
+    <xsl:variable name="qualifier">
+      <xsl:call-template name="substring-before-last">
+        <xsl:with-param name="input" select="$singleType" />
+        <xsl:with-param name="marker" select="'.'" />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="type">
+      <xsl:call-template name="substring-after-last">
+        <xsl:with-param name="input" select="$singleType" />
+        <xsl:with-param name="marker" select="'.'" />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:if test="$collection">
+      <xsl:text>\[</xsl:text>
+    </xsl:if>
+    <!-- TODO: create hyperlink locally or externally -->
+    <xsl:choose>
+      <xsl:when test="$qualifier='Edm'">
+        <xsl:text>*</xsl:text>
+        <xsl:value-of select="$type" />
+        <xsl:text>*</xsl:text>
+      </xsl:when>
+      <xsl:when test="$qualifier=ancestor::edm:Schema/@Alias or $qualifier=ancestor::edm:Schema/@Namespace">
+        <xsl:text>[</xsl:text>
+        <xsl:value-of select="$type" />
+        <xsl:text>](#</xsl:text>
+        <xsl:value-of select="$type" />
+        <xsl:text>)</xsl:text>
+      </xsl:when>
+      <xsl:when test="$qualifier=//edmx:Include/@Alias or $qualifier=//edmx:Include/@Namespace">
+        <xsl:variable name="namespace">
+          <xsl:choose>
+            <xsl:when test="$qualifier=//edmx:Include/@Alias">
+              <xsl:value-of select="//edmx:Include[@Alias=$qualifier]/@Namespace" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$qualifier" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
+        <xsl:text>[</xsl:text>
+        <xsl:value-of select="$type" />
+        <xsl:text>](./</xsl:text>
+        <xsl:value-of select="$namespace" />
+        <xsl:text>.md#</xsl:text>
+        <xsl:value-of select="$type" />
+        <xsl:text>)</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:text>??</xsl:text>
+        <xsl:value-of select="$type" />
+        <xsl:text>??</xsl:text>
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:if test="$collection">
+      <xsl:text>\]</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <!-- helper functions -->

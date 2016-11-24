@@ -9,7 +9,7 @@ set done=false
 for %%F in (..\vocabularies\*.xml) do (
   echo %%~nF
   java.exe org.apache.xalan.xslt.Process -XSL Vocab-to-MarkDown.xsl -IN %%F -OUT ..\vocabularies\%%~nF.md
-  git.exe diff ..\vocabularies\%%~nF.md
+  git.exe --no-pager diff ..\vocabularies\%%~nF.md
 )
 
 endlocal
