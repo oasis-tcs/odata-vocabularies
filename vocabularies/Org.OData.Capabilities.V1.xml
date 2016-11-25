@@ -95,9 +95,15 @@ supported:
         <Annotation Term="Core.Description" String="The conformance level achieved by this service" />
       </Term>
       <EnumType Name="ConformanceLevelType">
-        <Member Name="Minimal" />
-        <Member Name="Intermediate" />
-        <Member Name="Advanced" />
+        <Member Name="Minimal">
+          <Annotation Term="Core.Description" String="Minimal conformance level" />
+        </Member>
+        <Member Name="Intermediate">
+          <Annotation Term="Core.Description" String="Intermediate conformance level" />
+        </Member>
+        <Member Name="Advanced">
+          <Annotation Term="Core.Description" String="Advanced conformance level" />
+        </Member>
       </EnumType>
 
       <!-- Request Capabilities -->
@@ -131,17 +137,23 @@ supported:
         <Annotation Term="Core.Description" String="Supported odata.isolation levels" />
       </Term>
       <EnumType Name="IsolationLevel" IsFlags="true">
-        <Member Name="Snapshot" Value="1" />
+        <Member Name="Snapshot" Value="1">
+          <Annotation Term="Core.Description"
+            String="All data returned for a request, including multiple requests within a batch or results retrieved across multiple pages, will be consistent as of a single point in time" />
+        </Member>
       </EnumType>
+
+      <Term Name="CrossJoinSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container" />
+      </Term>
 
       <Term Name="CallbackSupported" Type="Capabilities.CallbackType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Supports callbacks for the specified protocols" />
       </Term>
-      <Term Name="CrossJoinSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container" />
-      </Term>
       <ComplexType Name="CallbackType">
-        <Property Name="CallbackProtocols" Type="Collection(Capabilities.CallbackProtocol)" Nullable="false" />
+        <Property Name="CallbackProtocols" Type="Collection(Capabilities.CallbackProtocol)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of supported callback protocols, e.g. `http` or `wss`" />
+        </Property>
         <Annotation Term="Core.Description"
           String="A non-empty collection lists the full set of supported protocols. A empty collection means 'only HTTP is supported'" />
       </ComplexType>
@@ -198,7 +210,9 @@ supported:
         <Property Name="Navigability" Type="Capabilities.NavigationType">
           <Annotation Term="Core.Description" String="Supported Navigability" />
         </Property>
-        <Property Name="RestrictedProperties" Type="Collection(Capabilities.NavigationPropertyRestriction)" Nullable="false" />
+        <Property Name="RestrictedProperties" Type="Collection(Capabilities.NavigationPropertyRestriction)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of navigation properties with restrictions" />
+        </Property>
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
@@ -285,8 +299,12 @@ supported:
         </Property>
       </ComplexType>
       <ComplexType Name="FilterExpressionRestrictionType">
-        <Property Name="Property" Type="Edm.PropertyPath" />
-        <Property Name="AllowedExpressions" Type="Capabilities.FilterExpressionType" />
+        <Property Name="Property" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Path to the restricted property" />
+        </Property>
+        <Property Name="AllowedExpressions" Type="Capabilities.FilterExpressionType">
+          <Annotation Term="Core.Description" String="Allowed subset of expressions" />
+        </Property>
       </ComplexType>
       <TypeDefinition Name="FilterExpressionType" UnderlyingType="Edm.String">
         <Annotation Term="Validation.AllowedValues">
@@ -349,12 +367,24 @@ supported:
         </Property>
       </ComplexType>
       <EnumType Name="SearchExpressions" IsFlags="true">
-        <Member Name="none" Value="0" />
-        <Member Name="AND" Value="1" />
-        <Member Name="OR" Value="2" />
-        <Member Name="NOT" Value="4" />
-        <Member Name="phrase" Value="8" />
-        <Member Name="group" Value="16" />
+        <Member Name="none" Value="0">
+          <Annotation Term="Core.Description" String="Single search term" />
+        </Member>
+        <Member Name="AND" Value="1">
+          <Annotation Term="Core.Description" String="Multiple search terms separated by AND" />
+        </Member>
+        <Member Name="OR" Value="2">
+          <Annotation Term="Core.Description" String="Multiple search terms separated by OR" />
+        </Member>
+        <Member Name="NOT" Value="4">
+          <Annotation Term="Core.Description" String="Search terms preceded by NOT" />
+        </Member>
+        <Member Name="phrase" Value="8">
+          <Annotation Term="Core.Description" String="Search phrases enclosed in double quotes" />
+        </Member>
+        <Member Name="group" Value="16">
+          <Annotation Term="Core.Description" String="Precedence grouping of search expressions with parentheses" />
+        </Member>
       </EnumType>
 
       <!-- Data Modification Capabilities -->
