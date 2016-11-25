@@ -42,7 +42,7 @@ supported:
         
 
 Term|Type|Description
-----|----|-----------
+:---|:---|:----------
 ConformanceLevel|[ConformanceLevelType](#ConformanceLevelType)|The conformance level achieved by this service
 SupportedFormats|\[MediaType\]|Media types of supported formats, including format parameters
 SupportedMetadataFormats|\[MediaType\]|Media types of supported formats for $metadata, including format parameters
@@ -74,7 +74,7 @@ DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restriction
 
 
 Member|Value|Description
-------|----:|-----------
+:-----|----:|:----------
 Minimal|0|Minimal conformance level
 Intermediate|1|Intermediate conformance level
 Advanced|2|Advanced conformance level
@@ -83,21 +83,21 @@ Advanced|2|Advanced conformance level
 
 
 Flag Member|Value|Description
-------|----:|-----------
+:-----|----:|:----------
 Snapshot|1|All data returned for a request, including multiple requests within a batch or results retrieved across multiple pages, will be consistent as of a single point in time
 
 ## <a name="CallbackType"></a>CallbackType
 A non-empty collection lists the full set of supported protocols. A empty collection means 'only HTTP is supported'
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 CallbackProtocols|\[[CallbackProtocol](#CallbackProtocol)\]|List of supported callback protocols, e.g. `http` or `wss`
 
 ## <a name="CallbackProtocol"></a>CallbackProtocol
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Id|String|Protocol Identifier
 UrlTemplate|String|URL Template including parameters. Parameters are enclosed in curly braces {} as defined in RFC6570
 DocumentationUrl|URL|Human readable description of the meaning of the URL Template parameters
@@ -106,7 +106,7 @@ DocumentationUrl|URL|Human readable description of the meaning of the URL Templa
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Supported|Boolean|This entity set supports the odata.track-changes preference
 FilterableProperties|\[PropertyPath\]|Change tracking supports filters on these properties
 ExpandableProperties|\[NavigationPropertyPath\]|Change tracking supports these properties expanded
@@ -115,7 +115,7 @@ ExpandableProperties|\[NavigationPropertyPath\]|Change tracking supports these p
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Countable|Boolean|Entities can be counted
 NonCountableProperties|\[PropertyPath\]|These collection properties do not allow /$count segments
 NonCountableNavigationProperties|\[NavigationPropertyPath\]|These navigation properties do not allow /$count segments
@@ -124,7 +124,7 @@ NonCountableNavigationProperties|\[NavigationPropertyPath\]|These navigation pro
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Navigability|[NavigationType](#NavigationType)|Supported Navigability
 RestrictedProperties|\[[NavigationPropertyRestriction](#NavigationPropertyRestriction)\]|List of navigation properties with restrictions
 
@@ -132,7 +132,7 @@ RestrictedProperties|\[[NavigationPropertyRestriction](#NavigationPropertyRestri
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 NavigationProperty|NavigationPropertyPath|Navigation properties can be navigated
 Navigability|[NavigationType](#NavigationType)|Navigation properties can be navigated to this level
 
@@ -140,7 +140,7 @@ Navigability|[NavigationType](#NavigationType)|Navigation properties can be navi
 
 
 Member|Value|Description
-------|----:|-----------
+:-----|----:|:----------
 Recursive|0|Navigation properties can be recursively navigated
 Single|1|Navigation properties can be navigated to a single level
 None|2|Navigation properties are not navigable
@@ -149,7 +149,7 @@ None|2|Navigation properties are not navigable
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Supported|Boolean|Service supports requests to $batch
 ContinueOnErrorSupported|Boolean|Service supports the continue on error preference
 ReferencesInRequestBodiesSupported|Boolean|Service supports Content-ID referencing in request bodies
@@ -160,7 +160,7 @@ EtagReferencesSupported|Boolean|Service supports referencing Etags from previous
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Filterable|Boolean|$filter is supported
 RequiresFilter|Boolean|$filter is required
 RequiredProperties|\[PropertyPath\]|These properties must be specified in the $filter clause (properties of derived types are not allowed here)
@@ -171,7 +171,7 @@ FilterExpressionRestrictions|\[[FilterExpressionRestrictionType](#FilterExpressi
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Property|PropertyPath|Path to the restricted property
 AllowedExpressions|[FilterExpressionType](#FilterExpressionType)|Allowed subset of expressions
 
@@ -180,7 +180,7 @@ AllowedExpressions|[FilterExpressionType](#FilterExpressionType)|Allowed subset 
 
 
 Allowed Value|Description
--------------|-----------
+:------------|:----------
 SingleValue|Property can be used in a single eq clause
 MultiValue|Property can be used in a single in clause
 SingleRange|Property can be used in at most one ge and/or one le clause, separated by and
@@ -189,7 +189,7 @@ SingleRange|Property can be used in at most one ge and/or one le clause, separat
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Sortable|Boolean|$orderby is supported
 AscendingOnlyProperties|\[PropertyPath\]|These properties can only be used for sorting in Ascending order
 DescendingOnlyProperties|\[PropertyPath\]|These properties can only be used for sorting in Descending order
@@ -199,7 +199,7 @@ NonSortableProperties|\[AnyPropertyPath\]|These structural or navigation propert
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Expandable|Boolean|$expand is supported
 NonExpandableProperties|\[NavigationPropertyPath\]|These properties cannot be used in $expand expressions
 
@@ -207,7 +207,7 @@ NonExpandableProperties|\[NavigationPropertyPath\]|These properties cannot be us
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Searchable|Boolean|$search is supported
 UnsupportedExpressions|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
 
@@ -215,7 +215,7 @@ UnsupportedExpressions|[SearchExpressions](#SearchExpressions)|Expressions not s
 
 
 Flag Member|Value|Description
-------|----:|-----------
+:-----|----:|:----------
 none|0|Single search term
 AND|1|Multiple search terms separated by AND
 OR|2|Multiple search terms separated by OR
@@ -227,7 +227,7 @@ group|16|Precedence grouping of search expressions with parentheses
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Insertable|Boolean|Entities can be inserted
 NonInsertableNavigationProperties|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
 
@@ -235,7 +235,7 @@ NonInsertableNavigationProperties|\[NavigationPropertyPath\]|These navigation pr
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Supported|Boolean|Service supports deep inserts
 ContentIDSupported|Boolean|Service supports accepting and returning nested entities annotated with the contentID instance annotation.
 
@@ -243,7 +243,7 @@ ContentIDSupported|Boolean|Service supports accepting and returning nested entit
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Updatable|Boolean|Entities can be updated
 NonUpdatableNavigationProperties|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
 
@@ -251,6 +251,6 @@ NonUpdatableNavigationProperties|\[NavigationPropertyPath\]|These navigation pro
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Deletable|Boolean|Entities can be deleted
 NonDeletableNavigationProperties|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests

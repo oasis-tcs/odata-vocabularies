@@ -5,7 +5,7 @@ Core terms needed to write vocabularies
 
 
 Term|Type|Description
-----|----|-----------
+:---|:---|:----------
 ODataVersions|String|A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed.
 SchemaVersion|String|Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case.
 Description|String|A brief description of a model element
@@ -40,7 +40,7 @@ AlternateKeys|\[[AlternateKey](#AlternateKey)\]|Communicates available alternate
 
 
 Allowed Value|Description
--------------|-----------
+:------------|:----------
 INF|The value is greater than the largest number for the prescribed numeric type
 -INF|The value is less than smallest number for the prescribed numeric type
 NaN|The value is not representable in the prescribed numeric type
@@ -49,7 +49,7 @@ NaN|The value is not representable in the prescribed numeric type
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 code|String|Machine-readable, language-independent message code
 message|String|Human-readable, language-dependent message text
 severity|[MessageSeverity](#MessageSeverity)|Severity of the message
@@ -61,7 +61,7 @@ details|\[[MessageType](#MessageType)\]|List of detail messages
 
 
 Allowed Value|Description
--------------|-----------
+:------------|:----------
 success|Positive feedback - no action required
 info|Additional information - no action required
 warning|Warning - action may be required
@@ -76,7 +76,7 @@ This is the type to use for all tagging terms
 
 
 Flag Member|Value|Description
-------|----:|-----------
+:-----|----:|:----------
 None|0|No permissions
 Read|1|Read permission
 Write|2|Write permission
@@ -92,13 +92,13 @@ The qualified name of a type in scope.
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Key|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
 ## <a name="PropertyRef"></a>PropertyRef
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Name|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
 Alias|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs

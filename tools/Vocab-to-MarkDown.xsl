@@ -74,7 +74,7 @@
   <xsl:template match="edm:Term">
     <xsl:if test="position()=1">
       <xsl:text>&#xA;Term|Type|Description</xsl:text>
-      <xsl:text>&#xA;----|----|-----------&#xA;</xsl:text>
+      <xsl:text>&#xA;:---|:---|:----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
@@ -131,7 +131,7 @@
     </xsl:variable>
     <xsl:if test="$properties">
       <xsl:text>&#xA;Property|Type|Description</xsl:text>
-      <xsl:text>&#xA;--------|----|-----------&#xA;</xsl:text>
+      <xsl:text>&#xA;:-------|:---|:----------&#xA;</xsl:text>
       <xsl:value-of select="$properties" />
     </xsl:if>
   </xsl:template>
@@ -233,7 +233,7 @@
         <xsl:text>Flag </xsl:text>
       </xsl:if>
       <xsl:text>Member|Value|Description&#xA;</xsl:text>
-      <xsl:text>------|----:|-----------&#xA;</xsl:text>
+      <xsl:text>:-----|----:|:----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
@@ -279,7 +279,7 @@
       select="edm:Annotation[(@Term=concat($validationNamespace,'.AllowedValues') or @Term=concat($validationAlias,'.AllowedValues')) and not(@Qualifier)]" />
     <xsl:if test="$allowedValues">
       <xsl:text>Allowed Value|Description&#xA;</xsl:text>
-      <xsl:text>-------------|-----------&#xA;</xsl:text>
+      <xsl:text>:------------|:----------&#xA;</xsl:text>
       <xsl:apply-templates select="$allowedValues/edm:Collection/edm:Record" mode="allowedValues" />
     </xsl:if>
   </xsl:template>

@@ -5,7 +5,7 @@ Terms to describe which data in a given entity model can be aggregated, and how.
 
 
 Term|Type|Description
-----|----|-----------
+:---|:---|:----------
 ApplySupported|[ApplySupportedType](#ApplySupportedType)|This structured type or entity container supports the $apply system query option
 Groupable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the groupby transformation
 Aggregatable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the aggregate transformation
@@ -19,7 +19,7 @@ AvailableOnAggregates|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|Th
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 Transformations|\[String\]|Transformations that can be used in $apply
 CustomAggregationMethods|\[String\]|Qualified names of custom aggregation methods that can be used in aggregate(...with...)
 Rollup|[RollupType](#RollupType)|The service supports rollup hierarchies in a groupby transformation
@@ -29,7 +29,7 @@ PropertyRestrictions|Boolean|Only properties tagged as Groupable can be used in 
 The number of rollup operators allowed in a groupby transformation
 
 Member|Value|Description
-------|----:|-----------
+:-----|----:|:----------
 None|0|No rollup support
 SingleHierarchy|1|Only one rollup operator per groupby
 MultipleHierarchies|2|Full rollup support
@@ -38,7 +38,7 @@ MultipleHierarchies|2|Full rollup support
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 NodeProperty|PropertyPath|Property holding the hierarchy node value
 ParentNavigationProperty|NavigationPropertyPath|Property for navigating to the parent node
 DistanceFromRootProperty|PropertyPath|Property holding the number of edges between the node and the root node
@@ -48,5 +48,5 @@ IsLeafProperty|PropertyPath|Property indicating whether the node is a leaf of th
 
 
 Property|Type|Description
---------|----|-----------
+:-------|:---|:----------
 RequiredProperties|\[PropertyPath\]|Properties required to apply this action or function
