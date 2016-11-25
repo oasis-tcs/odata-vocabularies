@@ -69,9 +69,15 @@
 
       <EnumType Name="RollupType">
         <Annotation Term="Core.Description" String="The number of rollup operators allowed in a groupby transformation" />
-        <Member Name="None" />
-        <Member Name="SingleHierarchy" />
-        <Member Name="MultipleHierarchies" />
+        <Member Name="None">
+          <Annotation Term="Core.Description" String="No rollup support" />
+        </Member>
+        <Member Name="SingleHierarchy">
+          <Annotation Term="Core.Description" String="Only one rollup operator per groupby" />
+        </Member>
+        <Member Name="MultipleHierarchies">
+          <Annotation Term="Core.Description" String="Full rollup support" />
+        </Member>
       </EnumType>
 
       <Term Name="Groupable" Type="Core.Tag" AppliesTo="Property NavigationProperty" DefaultValue="true">
@@ -170,7 +176,9 @@
           String="This action or function is available on aggregated entities if the RequiredProperties are still defined" />
       </Term>
       <ComplexType Name="AvailableOnAggregatesType">
-        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false" />
+        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties required to apply this action or function" />
+        </Property>
       </ComplexType>
 
     </Schema>

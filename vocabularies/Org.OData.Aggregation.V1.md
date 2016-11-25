@@ -29,9 +29,9 @@ The number of rollup operators allowed in a groupby transformation
 
 Member|Value|Description
 ------|----:|-----------
-None|0|
-SingleHierarchy|1|
-MultipleHierarchies|2|
+None|0|No rollup support
+SingleHierarchy|1|Only one rollup operator per groupby
+MultipleHierarchies|2|Full rollup support
 
 ## <a name="RecursiveHierarchyType"></a>RecursiveHierarchyType
 
@@ -48,4 +48,4 @@ IsLeafProperty|PropertyPath|Property indicating whether the node is a leaf of th
 
 Property|Type|Description
 --------|----|-----------
-RequiredProperties|\[PropertyPath\]|
+RequiredProperties|\[PropertyPath\]|Properties required to apply this action or function
