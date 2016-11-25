@@ -27,8 +27,8 @@ PropertyRestrictions|Boolean|Only properties tagged as Groupable can be used in 
 ## <a name="RollupType"></a>RollupType
 The number of rollup operators allowed in a groupby transformation
 
-Name|Value|Description
-----|----:|-----------
+Member|Value|Description
+------|----:|-----------
 None|0|
 SingleHierarchy|1|
 MultipleHierarchies|2|

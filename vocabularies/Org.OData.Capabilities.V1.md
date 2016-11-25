@@ -35,8 +35,8 @@ DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restriction
 ## <a name="ConformanceLevelType"></a>ConformanceLevelType
 
 
-Name|Value|Description
-----|----:|-----------
+Member|Value|Description
+------|----:|-----------
 Minimal|0|
 Intermediate|1|
 Advanced|2|
@@ -44,8 +44,8 @@ Advanced|2|
 ## <a name="IsolationLevel"></a>IsolationLevel
 
 
-Name|Value|Description
-----|----:|-----------
+Member|Value|Description
+------|----:|-----------
 Snapshot|1|
 
 ## <a name="CallbackType"></a>CallbackType
@@ -101,8 +101,8 @@ Navigability|[NavigationType](#NavigationType)|Navigation properties can be navi
 ## <a name="NavigationType"></a>NavigationType
 
 
-Name|Value|Description
-----|----:|-----------
+Member|Value|Description
+------|----:|-----------
 Recursive|0|Navigation properties can be recursively navigated
 Single|1|Navigation properties can be navigated to a single level
 None|2|Navigation properties are not navigable
@@ -171,8 +171,8 @@ UnsupportedExpressions|[SearchExpressions](#SearchExpressions)|Expressions not s
 ## <a name="SearchExpressions"></a>SearchExpressions
 
 
-Name|Value|Description
-----|----:|-----------
+Member|Value|Description
+------|----:|-----------
 none|0|
 AND|1|
 OR|2|

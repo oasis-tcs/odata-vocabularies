@@ -3,12 +3,10 @@
   xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" exclude-result-prefixes="edmx edm"
 >
   <!--
-    This style sheet transforms OData 4.0 XML Vocabulary documents into HTML / MarkDown
+    This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
 
     TODO:
-    - Extract next level of information
-    - - special annotations: AllowedValues, IsUrl, IsMediaType?
-    - - non-abstract nodes of inheritance hierarchies with unified list of properties collected along base type chain
+    - special annotations: AllowedValues, IsUrl, IsMediaType?
   -->
 
   <xsl:output method="html" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
@@ -151,7 +149,19 @@
     <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
       mode="inheritance" />
 
-    <xsl:apply-templates select="edm:Property" />
+    <!-- TODO
+      <xsl:apply-templates select="edm:Property" />
+    -->
+    <xsl:variable name="properties">
+      <xsl:call-template name="properties">
+        <xsl:with-param name="complexType" select="." />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:if test="$properties">
+      <xsl:text>&#xA;Property|Type|Description</xsl:text>
+      <xsl:text>&#xA;--------|----|-----------&#xA;</xsl:text>
+      <xsl:value-of select="$properties" />
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="edm:ComplexType" mode="inheritance">
@@ -178,12 +188,43 @@
     </xsl:apply-templates>
   </xsl:template>
 
+  <xsl:template name="properties">
+    <xsl:param name="complexType" />
+    <xsl:param name="parent" select="false()" />
+    <xsl:if test="$complexType/@BaseType">
+      <xsl:variable name="qualifier">
+        <xsl:call-template name="substring-before-last">
+          <xsl:with-param name="input" select="$complexType/@BaseType" />
+          <xsl:with-param name="marker" select="'.'" />
+        </xsl:call-template>
+      </xsl:variable>
+      <xsl:variable name="name">
+        <xsl:call-template name="substring-after-last">
+          <xsl:with-param name="input" select="$complexType/@BaseType" />
+          <xsl:with-param name="marker" select="'.'" />
+        </xsl:call-template>
+      </xsl:variable>
+      <!-- recurse to base type -->
+      <xsl:call-template name="properties">
+        <xsl:with-param name="complexType"
+          select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
+        <xsl:with-param name="parent" select="true()" />
+      </xsl:call-template>
+    </xsl:if>
+    <xsl:apply-templates select="$complexType/edm:Property">
+      <xsl:with-param name="parent" select="$parent" />
+    </xsl:apply-templates>
+  </xsl:template>
+
   <xsl:template match="edm:Property">
-    <xsl:if test="position()=1">
-      <xsl:text>&#xA;Property|Type|Description</xsl:text>
-      <xsl:text>&#xA;--------|----|-----------&#xA;</xsl:text>
+    <xsl:param name="parent" />
+    <xsl:if test="$parent">
+      <xsl:text>*</xsl:text>
     </xsl:if>
     <xsl:value-of select="@Name" />
+    <xsl:if test="$parent">
+      <xsl:text>*</xsl:text>
+    </xsl:if>
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
@@ -217,8 +258,8 @@
 
   <xsl:template match="edm:Member">
     <xsl:if test="position()=1">
-      <xsl:text>&#xA;Name|Value|Description</xsl:text>
-      <xsl:text>&#xA;----|----:|-----------&#xA;</xsl:text>
+      <xsl:text>&#xA;Member|Value|Description</xsl:text>
+      <xsl:text>&#xA;------|----:|-----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>

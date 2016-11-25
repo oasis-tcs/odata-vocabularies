@@ -63,8 +63,8 @@ This is the type to use for all tagging terms
 ## <a name="Permission"></a>Permission
 
 
-Name|Value|Description
-----|----:|-----------
+Member|Value|Description
+------|----:|-----------
 None|0|
 Read|1|
 Write|2|

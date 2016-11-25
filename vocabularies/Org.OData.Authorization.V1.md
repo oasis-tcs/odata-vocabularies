@@ -29,7 +29,7 @@ Description|String|
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
+*Description*|String|
 IssuerUrl|String|Issuer location for the OpenID Provider. Configuration information can be obtained by appending /.well-known/openid-configuration to this Url.
 
 ## <a name="Http"></a>Http: [Authorization](#Authorization)
@@ -37,7 +37,7 @@ IssuerUrl|String|Issuer location for the OpenID Provider. Configuration informat
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
+*Description*|String|
 Scheme|String|HTTP Authorization scheme to be used in the Authorization header, as per RFC7235.
 BearerFormat|String|Format of the bearer token.
 
@@ -52,7 +52,7 @@ BearerFormat|String|Format of the bearer token.
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
+*Description*|String|
 Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
 RefreshUrl|String|Refresh Url.
 
@@ -61,9 +61,9 @@ RefreshUrl|String|Refresh Url.
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
-Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-RefreshUrl|String|Refresh Url.
+*Description*|String|
+*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
+*RefreshUrl*|String|Refresh Url.
 TokenUrl|String|Token Url.
 
 ## <a name="OAuth2Implicit"></a>OAuth2Implicit: [OAuthAuthorization](#OAuthAuthorization)
@@ -71,9 +71,9 @@ TokenUrl|String|Token Url.
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
-Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-RefreshUrl|String|Refresh Url.
+*Description*|String|
+*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
+*RefreshUrl*|String|Refresh Url.
 AuthorizationUrl|String|Authorization URL.
 
 ## <a name="OAuth2Password"></a>OAuth2Password: [OAuthAuthorization](#OAuthAuthorization)
@@ -81,9 +81,9 @@ AuthorizationUrl|String|Authorization URL.
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
-Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-RefreshUrl|String|Refresh Url.
+*Description*|String|
+*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
+*RefreshUrl*|String|Refresh Url.
 TokenUrl|String|Token Url.
 
 ## <a name="OAuth2AuthCode"></a>OAuth2AuthCode: [OAuthAuthorization](#OAuthAuthorization)
@@ -91,9 +91,9 @@ TokenUrl|String|Token Url.
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
-Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-RefreshUrl|String|Refresh Url.
+*Description*|String|
+*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
+*RefreshUrl*|String|Refresh Url.
 AuthorizationUrl|String|Authorization URL.
 TokenUrl|String|Token Url.
 
@@ -110,14 +110,14 @@ Description|String|Description of the scope.
 
 Property|Type|Description
 --------|----|-----------
-Description|String|
+*Description*|String|
 KeyName|String|The name of the header or query parameter
 Location|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
 
 ## <a name="KeyLocation"></a>KeyLocation
 
 
-Name|Value|Description
-----|----:|-----------
+Member|Value|Description
+------|----:|-----------
 Header|0|
 QueryOption|1|
