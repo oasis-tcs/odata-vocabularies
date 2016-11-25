@@ -38,6 +38,11 @@ AlternateKeys|\[[AlternateKey](#AlternateKey)\]|Communicates available alternate
 **Type:** String
 
 
+Allowed Value|Description
+-------------|-----------
+INF|The value is greater than the largest number for the prescribed numeric type
+-INF|The value is less than smallest number for the prescribed numeric type
+NaN|The value is not representable in the prescribed numeric type
 
 ## <a name="MessageType"></a>MessageType
 
@@ -54,6 +59,12 @@ details|\[[MessageType](#MessageType)\]|
 **Type:** String
 
 
+Allowed Value|Description
+-------------|-----------
+success|
+info|
+warning|
+error|
 
 ## <a name="Tag"></a>Tag
 **Type:** Boolean
