@@ -75,7 +75,7 @@ This is the type to use for all tagging terms
 ## <a name="Permission"></a>Permission
 
 
-Member|Value|Description
+Flag Member|Value|Description
 ------|----:|-----------
 None|0|No permissions
 Read|1|Read permission

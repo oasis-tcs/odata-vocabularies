@@ -32,12 +32,7 @@
     <xsl:param name="node" />
     <xsl:variable name="description"
       select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string" select="normalize-space($description/@String)" />
-    </xsl:call-template>
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string" select="normalize-space($description/edm:String)" />
-    </xsl:call-template>
+    <xsl:value-of select="$description/@String|$description/edm:String" />
   </xsl:template>
 
 
@@ -66,13 +61,10 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
-    <!--
-      <p>
-      <xsl:call-template name="Core.LongDescription">
+    <xsl:call-template name="Core.LongDescription">
       <xsl:with-param name="node" select="//edm:Schema" />
-      </xsl:call-template>
-      </p>
-    -->
+    </xsl:call-template>
+    <xsl:text>&#xA;</xsl:text>
 
     <xsl:apply-templates select="//edm:Term" />
 
@@ -132,9 +124,6 @@
     <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
       mode="inheritance" />
 
-    <!-- TODO
-      <xsl:apply-templates select="edm:Property" />
-    -->
     <xsl:variable name="properties">
       <xsl:call-template name="properties">
         <xsl:with-param name="complexType" select="." />
@@ -234,15 +223,17 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
-    <!-- TODO: @IsFlags, @UnderlyingType? -->
-
     <xsl:apply-templates select="edm:Member" />
   </xsl:template>
 
   <xsl:template match="edm:Member">
     <xsl:if test="position()=1">
-      <xsl:text>&#xA;Member|Value|Description</xsl:text>
-      <xsl:text>&#xA;------|----:|-----------&#xA;</xsl:text>
+      <xsl:text>&#xA;</xsl:text>
+      <xsl:if test="../@IsFlags='true'">
+        <xsl:text>Flag </xsl:text>
+      </xsl:if>
+      <xsl:text>Member|Value|Description&#xA;</xsl:text>
+      <xsl:text>------|----:|-----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
@@ -280,7 +271,6 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
-    <!-- TODO: annotations -->
     <xsl:call-template name="allowedValues" />
   </xsl:template>
 

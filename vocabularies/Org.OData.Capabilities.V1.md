@@ -82,7 +82,7 @@ Advanced|2|Advanced conformance level
 ## <a name="IsolationLevel"></a>IsolationLevel
 
 
-Member|Value|Description
+Flag Member|Value|Description
 ------|----:|-----------
 Snapshot|1|All data returned for a request, including multiple requests within a batch or results retrieved across multiple pages, will be consistent as of a single point in time
 
@@ -214,7 +214,7 @@ UnsupportedExpressions|[SearchExpressions](#SearchExpressions)|Expressions not s
 ## <a name="SearchExpressions"></a>SearchExpressions
 
 
-Member|Value|Description
+Flag Member|Value|Description
 ------|----:|-----------
 none|0|Single search term
 AND|1|Multiple search terms separated by AND
