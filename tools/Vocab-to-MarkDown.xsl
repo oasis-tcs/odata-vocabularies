@@ -7,7 +7,7 @@
 
     TODO:
     - Extract next level of information
-    - - special annotations: AllowedValues
+    - - special annotations: AllowedValues, IsUrl, IsMediaType?
     - - non-abstract nodes of inheritance hierarchies with unified list of properties collected along base type chain
   -->
 
@@ -31,21 +31,25 @@
     <xsl:param name="node" />
     <xsl:variable name="description"
       select="$node/edm:Annotation[(@Term=$coreDescription or @Term=$coreDescriptionAliased) and not(@Qualifier)]/@String|$node/edm:Annotation[(@Term=$coreDescription or @Term=$coreDescriptionAliased) and not(@Qualifier)]/edm:String" />
-    <xsl:value-of select="normalize-space($description)" />
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="normalize-space($description)" />
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="Core.LongDescription">
     <xsl:param name="node" />
     <xsl:variable name="description"
       select="$node/edm:Annotation[(@Term=$coreLongDescription or @Term=$coreLongDescriptionAliased) and not(@Qualifier)]/@String|$node/edm:Annotation[(@Term=$coreLongDescription or @Term=$coreLongDescriptionAliased) and not(@Qualifier)]/edm:String" />
-    <xsl:value-of select="normalize-space($description)" />
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="normalize-space($description)" />
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="Core-Annotation">
     <xsl:param name="node" />
     <xsl:param name="term" />
     <xsl:value-of
-      select="$node/edm:Annotation[(@Term=concat('Org.OData.Core.V1.',$term) or @Term=concat($coreAlias,'.',$term)) and not(@Qualifier)]/@String|$node/edm:Annotation[(@Term=concat('Org.OData.Core.V1.',$term) or @Term=concat($coreAlias,'.',$term)) and not(@Qualifier)]/edm:String" />
+      select="$node/edm:Annotation[(@Term=concat('Org.OData.Core.V1.',$term) or @Term=concat($coreAlias,'.',$term)) and not(@Qualifier)]|$node/edm:Annotation[(@Term=concat('Org.OData.Core.V1.',$term) or @Term=concat($coreAlias,'.',$term)) and not(@Qualifier)]" />
   </xsl:template>
 
   <xsl:template name="Common.Label">
@@ -106,12 +110,8 @@
     </xsl:call-template>
 
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string">
-        <xsl:call-template name="Core.Description">
-          <xsl:with-param name="node" select="." />
-        </xsl:call-template>
-      </xsl:with-param>
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
@@ -138,12 +138,8 @@
     </xsl:if>
     <xsl:text>&#xA;</xsl:text>
 
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string">
-        <xsl:call-template name="Core.Description">
-          <xsl:with-param name="node" select="." />
-        </xsl:call-template>
-      </xsl:with-param>
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
@@ -193,12 +189,8 @@
       <xsl:with-param name="type" select="@Type" />
     </xsl:call-template>
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string">
-        <xsl:call-template name="Core.Description">
-          <xsl:with-param name="node" select="." />
-        </xsl:call-template>
-      </xsl:with-param>
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
@@ -213,12 +205,8 @@
     <xsl:value-of select="@Name" />
     <xsl:text>&#xA;</xsl:text>
 
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string">
-        <xsl:call-template name="Core.Description">
-          <xsl:with-param name="node" select="." />
-        </xsl:call-template>
-      </xsl:with-param>
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
@@ -243,12 +231,8 @@
       </xsl:otherwise>
     </xsl:choose>
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string">
-        <xsl:call-template name="Core.Description">
-          <xsl:with-param name="node" select="." />
-        </xsl:call-template>
-      </xsl:with-param>
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
@@ -267,12 +251,8 @@
     </xsl:call-template>
     <xsl:text>&#xA;&#xA;</xsl:text>
 
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string">
-        <xsl:call-template name="Core.Description">
-          <xsl:with-param name="node" select="." />
-        </xsl:call-template>
-      </xsl:with-param>
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
