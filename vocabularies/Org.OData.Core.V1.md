@@ -50,11 +50,11 @@ NaN|The value is not representable in the prescribed numeric type
 
 Property|Type|Description
 --------|----|-----------
-code|String|
-message|String|
-severity|[MessageSeverity](#MessageSeverity)|
+code|String|Machine-readable, language-independent message code
+message|String|Human-readable, language-dependent message text
+severity|[MessageSeverity](#MessageSeverity)|Severity of the message
 target|String|A path to the target of the message detail, relative to the annotated instance
-details|\[[MessageType](#MessageType)\]|
+details|\[[MessageType](#MessageType)\]|List of detail messages
 
 ## <a name="MessageSeverity"></a>MessageSeverity
 **Type:** String
@@ -62,10 +62,10 @@ details|\[[MessageType](#MessageType)\]|
 
 Allowed Value|Description
 -------------|-----------
-success|
-info|
-warning|
-error|
+success|Positive feedback - no action required
+info|Additional information - no action required
+warning|Warning - action may be required
+error|Error - action is required
 
 ## <a name="Tag"></a>Tag
 **Type:** Boolean
@@ -77,11 +77,11 @@ This is the type to use for all tagging terms
 
 Member|Value|Description
 ------|----:|-----------
-None|0|
-Read|1|
-Write|2|
-ReadWrite|3|
-Invoke|4|
+None|0|No permissions
+Read|1|Read permission
+Write|2|Write permission
+ReadWrite|3|Read and write permission
+Invoke|4|Permission to invoke actions
 
 ## <a name="QualifiedTypeName"></a>QualifiedTypeName
 **Type:** String

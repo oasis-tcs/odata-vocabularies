@@ -101,30 +101,41 @@
         <Annotation Term="Core.Description" String="Instance annotation for warning and info messages" />
       </Term>
       <ComplexType Name="MessageType">
-        <Property Name="code" Type="Edm.String" Nullable="false" />
+        <Property Name="code" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Machine-readable, language-independent message code" />
+        </Property>
         <Property Name="message" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Human-readable, language-dependent message text" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
-        <Property Name="severity" Type="Core.MessageSeverity" Nullable="false" />
+        <Property Name="severity" Type="Core.MessageSeverity" Nullable="false">
+          <Annotation Term="Core.Description" String="Severity of the message" />
+        </Property>
         <Property Name="target" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="A path to the target of the message detail, relative to the annotated instance" />
         </Property>
-        <Property Name="details" Type="Collection(Core.MessageType)" Nullable="false" />
+        <Property Name="details" Type="Collection(Core.MessageType)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of detail messages" />
+        </Property>
       </ComplexType>
       <TypeDefinition Name="MessageSeverity" UnderlyingType="Edm.String">
         <Annotation Term="Validation.AllowedValues">
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="success" />
+              <Annotation Term="Core.Description" String="Positive feedback - no action required" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="info" />
+              <Annotation Term="Core.Description" String="Additional information - no action required" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="warning" />
+              <Annotation Term="Core.Description" String="Warning - action may be required" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="error" />
+              <Annotation Term="Core.Description" String="Error - action is required" />
             </Record>
           </Collection>
         </Annotation>
@@ -171,11 +182,21 @@
         <Annotation Term="Core.Description" String="Permissions for accessing a resource" />
       </Term>
       <EnumType Name="Permission" IsFlags="true">
-        <Member Name="None" Value="0" />
-        <Member Name="Read" Value="1" />
-        <Member Name="Write" Value="2" />
-        <Member Name="ReadWrite" Value="3" />
-        <Member Name="Invoke" Value="4" />
+        <Member Name="None" Value="0">
+          <Annotation Term="Core.Description" String="No permissions" />
+        </Member>
+        <Member Name="Read" Value="1">
+          <Annotation Term="Core.Description" String="Read permission" />
+        </Member>
+        <Member Name="Write" Value="2">
+          <Annotation Term="Core.Description" String="Write permission" />
+        </Member>
+        <Member Name="ReadWrite" Value="3">
+          <Annotation Term="Core.Description" String="Read and write permission" />
+        </Member>
+        <Member Name="Invoke" Value="4">
+          <Annotation Term="Core.Description" String="Permission to invoke actions" />
+        </Member>
       </EnumType>
 
       <!-- Batch Content ID -->
