@@ -6,7 +6,7 @@
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
 
     TODO:
-    - special annotations: IsUrl, IsMediaType?
+    - special annotations: IsMediaType?
   -->
 
   <xsl:output method="html" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
@@ -325,25 +325,36 @@
         <xsl:with-param name="marker" select="'.'" />
       </xsl:call-template>
     </xsl:variable>
-    <xsl:variable name="type">
+    <xsl:variable name="name">
       <xsl:call-template name="substring-after-last">
         <xsl:with-param name="input" select="$singleType" />
         <xsl:with-param name="marker" select="'.'" />
       </xsl:call-template>
     </xsl:variable>
+    <xsl:variable name="isUrl"
+      select="edm:Annotation[(@Term=concat($coreNamespace,'.IsURL') or @Term=concat($coreAlias,'.IsURL')) and not(@Qualifier)]" />
     <xsl:if test="$collection">
       <xsl:text>\[</xsl:text>
     </xsl:if>
-    <!-- TODO: create hyperlink locally or externally -->
     <xsl:choose>
+      <xsl:when test="$type='Edm.String'">
+        <xsl:choose>
+          <xsl:when test="$isUrl">
+            <xsl:text>URL</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$name" />
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
       <xsl:when test="$qualifier='Edm'">
-        <xsl:value-of select="$type" />
+        <xsl:value-of select="$name" />
       </xsl:when>
       <xsl:when test="$qualifier=ancestor::edm:Schema/@Alias or $qualifier=ancestor::edm:Schema/@Namespace">
         <xsl:text>[</xsl:text>
-        <xsl:value-of select="$type" />
+        <xsl:value-of select="$name" />
         <xsl:text>](#</xsl:text>
-        <xsl:value-of select="$type" />
+        <xsl:value-of select="$name" />
         <xsl:text>)</xsl:text>
       </xsl:when>
       <xsl:when test="$qualifier=//edmx:Include/@Alias or $qualifier=//edmx:Include/@Namespace">
@@ -358,11 +369,11 @@
           </xsl:choose>
         </xsl:variable>
         <xsl:text>[</xsl:text>
-        <xsl:value-of select="$type" />
+        <xsl:value-of select="$name" />
         <xsl:text>](</xsl:text>
         <xsl:value-of select="$namespace" />
         <xsl:text>.md#</xsl:text>
-        <xsl:value-of select="$type" />
+        <xsl:value-of select="$name" />
         <xsl:text>)</xsl:text>
       </xsl:when>
       <xsl:otherwise>

@@ -30,7 +30,7 @@ Description|String|
 Property|Type|Description
 --------|----|-----------
 *Description*|String|
-IssuerUrl|String|Issuer location for the OpenID Provider. Configuration information can be obtained by appending /.well-known/openid-configuration to this Url.
+IssuerUrl|URL|Issuer location for the OpenID Provider. Configuration information can be obtained by appending /.well-known/openid-configuration to this Url.
 
 ## <a name="Http"></a>Http: [Authorization](#Authorization)
 
@@ -54,7 +54,7 @@ Property|Type|Description
 --------|----|-----------
 *Description*|String|
 Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-RefreshUrl|String|Refresh Url.
+RefreshUrl|URL|Refresh Url.
 
 ## <a name="OAuth2ClientCredentials"></a>OAuth2ClientCredentials: [OAuthAuthorization](#OAuthAuthorization)
 
@@ -63,8 +63,8 @@ Property|Type|Description
 --------|----|-----------
 *Description*|String|
 *Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-*RefreshUrl*|String|Refresh Url.
-TokenUrl|String|Token Url.
+*RefreshUrl*|URL|Refresh Url.
+TokenUrl|URL|Token Url.
 
 ## <a name="OAuth2Implicit"></a>OAuth2Implicit: [OAuthAuthorization](#OAuthAuthorization)
 
@@ -73,8 +73,8 @@ Property|Type|Description
 --------|----|-----------
 *Description*|String|
 *Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-*RefreshUrl*|String|Refresh Url.
-AuthorizationUrl|String|Authorization URL.
+*RefreshUrl*|URL|Refresh Url.
+AuthorizationUrl|URL|Authorization URL.
 
 ## <a name="OAuth2Password"></a>OAuth2Password: [OAuthAuthorization](#OAuthAuthorization)
 
@@ -83,8 +83,8 @@ Property|Type|Description
 --------|----|-----------
 *Description*|String|
 *Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-*RefreshUrl*|String|Refresh Url.
-TokenUrl|String|Token Url.
+*RefreshUrl*|URL|Refresh Url.
+TokenUrl|URL|Token Url.
 
 ## <a name="OAuth2AuthCode"></a>OAuth2AuthCode: [OAuthAuthorization](#OAuthAuthorization)
 
@@ -93,9 +93,9 @@ Property|Type|Description
 --------|----|-----------
 *Description*|String|
 *Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes.
-*RefreshUrl*|String|Refresh Url.
-AuthorizationUrl|String|Authorization URL.
-TokenUrl|String|Token Url.
+*RefreshUrl*|URL|Refresh Url.
+AuthorizationUrl|URL|Authorization URL.
+TokenUrl|URL|Token Url.
 
 ## <a name="AuthorizationScope"></a>AuthorizationScope
 

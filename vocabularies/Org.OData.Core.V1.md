@@ -13,7 +13,7 @@ NumericValueException|[ValueException](#ValueException)|Used in place of a prope
 Messages|\[[MessageType](#MessageType)\]|Instance annotation for warning and info messages
 IsLanguageDependent|[Tag](#Tag)|Properties and terms annotated with this term are language-dependent
 RequiresType|String|Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
-ResourcePath|String|Resource path for entity container child, can be relative to xml:base and the request URL
+ResourcePath|URL|Resource path for entity container child, can be relative to xml:base and the request URL
 DereferenceableIDs|[Tag](#Tag)|Entity-ids are URLs that locate the identified entity
 ConventionalIDs|[Tag](#Tag)|Entity-ids follow OData URL conventions
 Permissions|[Permission](#Permission)|Permissions for accessing a resource

@@ -62,7 +62,7 @@ Property|Type|Description
 --------|----|-----------
 Id|String|Protocol Identifier
 UrlTemplate|String|URL Template including parameters. Parameters are enclosed in curly braces {} as defined in RFC6570
-DocumentationUrl|String|Human readable description of the meaning of the URL Template parameters
+DocumentationUrl|URL|Human readable description of the meaning of the URL Template parameters
 
 ## <a name="ChangeTrackingType"></a>ChangeTrackingType
 
