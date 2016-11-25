@@ -50,8 +50,8 @@ AcceptableEncodings|\[String\]|List of acceptable compression methods for ($batc
 AsynchronousRequestsSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the asynchronous request preference
 BatchContinueOnErrorSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.
 IsolationSupported|[IsolationLevel](#IsolationLevel)|Supported odata.isolation levels
-CallbackSupported|[CallbackType](#CallbackType)|Supports callbacks for the specified protocols
 CrossJoinSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports cross joins for the entity sets in this container
+CallbackSupported|[CallbackType](#CallbackType)|Supports callbacks for the specified protocols
 ChangeTracking|[ChangeTrackingType](#ChangeTrackingType)|Change tracking capabilities of this service or entity set
 CountRestrictions|[CountRestrictionsType](#CountRestrictionsType)|Restrictions on /$count path suffix and $count=true system query option
 NavigationRestrictions|[NavigationRestrictionsType](#NavigationRestrictionsType)|Restrictions on navigating properties according to OData URL conventions
@@ -75,23 +75,23 @@ DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restriction
 
 Member|Value|Description
 ------|----:|-----------
-Minimal|0|
-Intermediate|1|
-Advanced|2|
+Minimal|0|Minimal conformance level
+Intermediate|1|Intermediate conformance level
+Advanced|2|Advanced conformance level
 
 ## <a name="IsolationLevel"></a>IsolationLevel
 
 
 Member|Value|Description
 ------|----:|-----------
-Snapshot|1|
+Snapshot|1|All data returned for a request, including multiple requests within a batch or results retrieved across multiple pages, will be consistent as of a single point in time
 
 ## <a name="CallbackType"></a>CallbackType
 A non-empty collection lists the full set of supported protocols. A empty collection means 'only HTTP is supported'
 
 Property|Type|Description
 --------|----|-----------
-CallbackProtocols|\[[CallbackProtocol](#CallbackProtocol)\]|
+CallbackProtocols|\[[CallbackProtocol](#CallbackProtocol)\]|List of supported callback protocols, e.g. `http` or `wss`
 
 ## <a name="CallbackProtocol"></a>CallbackProtocol
 
@@ -126,7 +126,7 @@ NonCountableNavigationProperties|\[NavigationPropertyPath\]|These navigation pro
 Property|Type|Description
 --------|----|-----------
 Navigability|[NavigationType](#NavigationType)|Supported Navigability
-RestrictedProperties|\[[NavigationPropertyRestriction](#NavigationPropertyRestriction)\]|
+RestrictedProperties|\[[NavigationPropertyRestriction](#NavigationPropertyRestriction)\]|List of navigation properties with restrictions
 
 ## <a name="NavigationPropertyRestriction"></a>NavigationPropertyRestriction
 
@@ -172,8 +172,8 @@ FilterExpressionRestrictions|\[[FilterExpressionRestrictionType](#FilterExpressi
 
 Property|Type|Description
 --------|----|-----------
-Property|PropertyPath|
-AllowedExpressions|[FilterExpressionType](#FilterExpressionType)|
+Property|PropertyPath|Path to the restricted property
+AllowedExpressions|[FilterExpressionType](#FilterExpressionType)|Allowed subset of expressions
 
 ## <a name="FilterExpressionType"></a>FilterExpressionType
 **Type:** String
@@ -216,12 +216,12 @@ UnsupportedExpressions|[SearchExpressions](#SearchExpressions)|Expressions not s
 
 Member|Value|Description
 ------|----:|-----------
-none|0|
-AND|1|
-OR|2|
-NOT|4|
-phrase|8|
-group|16|
+none|0|Single search term
+AND|1|Multiple search terms separated by AND
+OR|2|Multiple search terms separated by OR
+NOT|4|Search terms preceded by NOT
+phrase|8|Search phrases enclosed in double quotes
+group|16|Precedence grouping of search expressions with parentheses
 
 ## <a name="InsertRestrictionsType"></a>InsertRestrictionsType
 
