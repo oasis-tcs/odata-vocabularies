@@ -6,7 +6,7 @@
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
 
     TODO:
-    - special annotations: AllowedValues, IsUrl, IsMediaType?
+    - special annotations: IsUrl, IsMediaType?
   -->
 
   <xsl:output method="html" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
@@ -14,47 +14,33 @@
   <xsl:variable name="coreNamespace" select="'Org.OData.Core.V1'" />
   <xsl:variable name="coreAlias"
     select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
-  <xsl:variable name="coreDescription" select="concat($coreNamespace,'.Description')" />
-  <xsl:variable name="coreDescriptionAliased" select="concat($coreAlias,'.Description')" />
-  <xsl:variable name="coreLongDescription" select="concat($coreNamespace,'.LongDescription')" />
-  <xsl:variable name="coreLongDescriptionAliased" select="concat($coreAlias,'.LongDescription')" />
 
-  <xsl:variable name="commonNamespace" select="'com.sap.vocabularies.Common.v1'" />
-  <xsl:variable name="commonAlias"
-    select="//edmx:Include[@Namespace=$commonNamespace]/@Alias|//edm:Schema[@Namespace=$commonNamespace]/@Alias" />
-  <xsl:variable name="commonLabel" select="concat($commonNamespace,'.Label')" />
-  <xsl:variable name="commonLabelAliased" select="concat($commonAlias,'.Label')" />
+  <xsl:variable name="validationNamespace" select="'Org.OData.Validation.V1'" />
+  <xsl:variable name="validationAlias"
+    select="//edmx:Include[@Namespace=$validationNamespace]/@Alias|//edm:Schema[@Namespace=$validationNamespace]/@Alias" />
 
   <xsl:template name="Core.Description">
     <xsl:param name="node" />
     <xsl:variable name="description"
-      select="$node/edm:Annotation[(@Term=$coreDescription or @Term=$coreDescriptionAliased) and not(@Qualifier)]/@String|$node/edm:Annotation[(@Term=$coreDescription or @Term=$coreDescriptionAliased) and not(@Qualifier)]/edm:String" />
+      select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.Description') or @Term=concat($coreAlias,'.Description')) and not(@Qualifier)]" />
     <xsl:call-template name="escape">
-      <xsl:with-param name="string" select="normalize-space($description)" />
+      <xsl:with-param name="string" select="normalize-space($description/@String)" />
+    </xsl:call-template>
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="normalize-space($description/edm:String)" />
     </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="Core.LongDescription">
     <xsl:param name="node" />
     <xsl:variable name="description"
-      select="$node/edm:Annotation[(@Term=$coreLongDescription or @Term=$coreLongDescriptionAliased) and not(@Qualifier)]/@String|$node/edm:Annotation[(@Term=$coreLongDescription or @Term=$coreLongDescriptionAliased) and not(@Qualifier)]/edm:String" />
+      select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
     <xsl:call-template name="escape">
-      <xsl:with-param name="string" select="normalize-space($description)" />
+      <xsl:with-param name="string" select="normalize-space($description/@String)" />
     </xsl:call-template>
-  </xsl:template>
-
-  <xsl:template name="Core-Annotation">
-    <xsl:param name="node" />
-    <xsl:param name="term" />
-    <xsl:value-of
-      select="$node/edm:Annotation[(@Term=concat('Org.OData.Core.V1.',$term) or @Term=concat($coreAlias,'.',$term)) and not(@Qualifier)]|$node/edm:Annotation[(@Term=concat('Org.OData.Core.V1.',$term) or @Term=concat($coreAlias,'.',$term)) and not(@Qualifier)]" />
-  </xsl:template>
-
-  <xsl:template name="Common.Label">
-    <xsl:param name="node" />
-    <xsl:variable name="label"
-      select="$node/edm:Annotation[(@Term=$commonLabel or @Term=$commonLabelAliased) and not(@Qualifier)]/@String|$node/edm:Annotation[(@Term=$commonLabel or @Term=$commonLabelAliased) and not(@Qualifier)]/edm:String" />
-    <xsl:value-of select="normalize-space($label)" />
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="normalize-space($description/edm:String)" />
+    </xsl:call-template>
   </xsl:template>
 
 
@@ -297,8 +283,27 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
-    <!-- TODO: facets? -->
     <!-- TODO: annotations -->
+    <xsl:call-template name="allowedValues" />
+  </xsl:template>
+
+  <xsl:template name="allowedValues">
+    <xsl:variable name="allowedValues"
+      select="edm:Annotation[(@Term=concat($validationNamespace,'.AllowedValues') or @Term=concat($validationAlias,'.AllowedValues')) and not(@Qualifier)]" />
+    <xsl:if test="$allowedValues">
+      <xsl:text>Allowed Value|Description&#xA;</xsl:text>
+      <xsl:text>-------------|-----------&#xA;</xsl:text>
+      <xsl:apply-templates select="$allowedValues/edm:Collection/edm:Record" mode="allowedValues" />
+    </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="edm:Record" mode="allowedValues">
+    <xsl:value-of select="edm:PropertyValue[@Property='Value']/@*[local-name()!='Property']" />
+    <xsl:text>|</xsl:text>
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="." />
+    </xsl:call-template>
+    <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
   <xsl:template name="type-link">

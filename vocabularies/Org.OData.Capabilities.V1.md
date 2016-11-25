@@ -141,6 +141,11 @@ AllowedExpressions|[FilterExpressionType](#FilterExpressionType)|
 **Type:** String
 
 
+Allowed Value|Description
+-------------|-----------
+SingleValue|Property can be used in a single eq clause
+MultiValue|Property can be used in a single in clause
+SingleRange|Property can be used in at most one ge and/or one le clause, separated by and
 
 ## <a name="SortRestrictionsType"></a>SortRestrictionsType
 
