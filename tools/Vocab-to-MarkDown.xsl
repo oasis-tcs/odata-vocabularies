@@ -4,9 +4,6 @@
 >
   <!--
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
-
-    TODO:
-    - special annotations: IsMediaType?
   -->
 
   <xsl:output method="html" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
@@ -331,14 +328,19 @@
         <xsl:with-param name="marker" select="'.'" />
       </xsl:call-template>
     </xsl:variable>
-    <xsl:variable name="isUrl"
-      select="edm:Annotation[(@Term=concat($coreNamespace,'.IsURL') or @Term=concat($coreAlias,'.IsURL')) and not(@Qualifier)]" />
     <xsl:if test="$collection">
       <xsl:text>\[</xsl:text>
     </xsl:if>
     <xsl:choose>
-      <xsl:when test="$type='Edm.String'">
+      <xsl:when test="$qualifier='Edm' and $name='String'">
+        <xsl:variable name="isMediaType"
+          select="edm:Annotation[(@Term=concat($coreNamespace,'.IsMediaType') or @Term=concat($coreAlias,'.IsMediaType')) and not(@Qualifier)]" />
+        <xsl:variable name="isUrl"
+          select="edm:Annotation[(@Term=concat($coreNamespace,'.IsURL') or @Term=concat($coreAlias,'.IsURL')) and not(@Qualifier)]" />
         <xsl:choose>
+          <xsl:when test="$isMediaType">
+            <xsl:text>MediaType</xsl:text>
+          </xsl:when>
           <xsl:when test="$isUrl">
             <xsl:text>URL</xsl:text>
           </xsl:when>

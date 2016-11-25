@@ -6,8 +6,8 @@ Terms describing capabilities of a service
 Term|Type|Description
 ----|----|-----------
 ConformanceLevel|[ConformanceLevelType](#ConformanceLevelType)|The conformance level achieved by this service
-SupportedFormats|\[String\]|Media types of supported formats, including format parameters
-SupportedMetadataFormats|\[String\]|Media types of supported formats for $metadata, including format parameters
+SupportedFormats|\[MediaType\]|Media types of supported formats, including format parameters
+SupportedMetadataFormats|\[MediaType\]|Media types of supported formats for $metadata, including format parameters
 AcceptableEncodings|\[String\]|List of acceptable compression methods for ($batch) requests, e.g. gzip
 AsynchronousRequestsSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the asynchronous request preference
 BatchContinueOnErrorSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.

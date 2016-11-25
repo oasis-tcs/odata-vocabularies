@@ -22,8 +22,8 @@ DefaultNamespace|[Tag](#Tag)|Functions, actions and types in this namespace can 
 Immutable|[Tag](#Tag)|A value for this non-key property can be provided on insert and remains unchanged on update
 Computed|[Tag](#Tag)|A value for this property is generated on both insert and update
 IsURL|[Tag](#Tag)|Properties and terms annotated with this term MUST contain a valid URL
-AcceptableMediaTypes|\[String\]|Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated stream property
-MediaType|String|The media type of a binary resource
+AcceptableMediaTypes|\[MediaType\]|Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated stream property
+MediaType|MediaType|The media type of a binary resource
 IsMediaType|[Tag](#Tag)|Properties and terms annotated with this term MUST contain a valid MIME type
 OptimisticConcurrency|\[PropertyPath\]|Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag.
 AdditionalProperties|[Tag](#Tag)|Instances of this type may contain properties in addition to those declared in $metadata
