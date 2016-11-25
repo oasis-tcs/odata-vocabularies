@@ -3,6 +3,7 @@
 
 Terms describing validation rules
 
+
 Term|Type|Description
 ----|----|-----------
 Pattern|String|The pattern that a string property, parameter, or term must match. This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect.

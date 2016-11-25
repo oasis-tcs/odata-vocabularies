@@ -3,6 +3,7 @@
 
 The Authorization Vocabulary provides terms for describing a web authorization flow
 
+
 Term|Type|Description
 ----|----|-----------
 Authorizations|\[[Authorization](#Authorization)\]|Lists the methods available to authorize access to the annotated resource

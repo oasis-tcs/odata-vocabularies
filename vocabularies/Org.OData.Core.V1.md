@@ -3,6 +3,7 @@
 
 Core terms needed to write vocabularies
 
+
 Term|Type|Description
 ----|----|-----------
 ODataVersions|String|A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed.

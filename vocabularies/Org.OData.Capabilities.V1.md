@@ -3,6 +3,44 @@
 
 Terms describing capabilities of a service
 
+There are some capabilities which are strongly recommended for services to support even
+though they are optional. Support for $top and $skip is a good example as
+supporting these query options helps with performance of a service and are essential. Such
+capabilities are assumed to be default capabilities of an OData service even in
+the case that a capabilities annotation doesn&rsquo;t exist. Capabilities annotations are
+mainly expected to be used to explicitly specify that a service doesn&rsquo;t support such
+capabilities. Capabilities annotations can as well be used to declaratively
+specify the support of such capabilities.
+
+On the other hand, there are some capabilities that a service may choose to support or
+not support and in varying degrees. $filter and $orderby are such good examples.
+This vocabulary aims to define terms to specify support or no support for such
+capabilities.
+
+A service is assumed to support by default the following capabilities even though an
+annotation doesn&rsquo;t exist:
+- Countability ($count)
+- Client pageability ($top, $skip)
+- Expandability ($expand)
+- Indexability by key
+- Batch support ($batch)
+- Navigability of navigation properties
+
+A service is expected to support the following capabilities. If not supported, the
+service is expected to call out the restrictions using annotations:
+- Filterability ($filter)
+- Sortability ($orderby)
+- Queryability of top level entity sets
+- Query functions
+
+A client cannot assume that a service supports certain capabilities. A client can try, but
+it needs to be prepared to handle an error in case the following capabilities are not
+supported:
+- Insertability
+- Updatability
+- Deletability
+        
+
 Term|Type|Description
 ----|----|-----------
 ConformanceLevel|[ConformanceLevelType](#ConformanceLevelType)|The conformance level achieved by this service
