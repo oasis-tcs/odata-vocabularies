@@ -8,6 +8,10 @@
 
   <xsl:output method="html" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
 
+
+  <xsl:param name="use-alias-as-filename" select="null" />
+  <xsl:param name="odata-vocabularies-url" select="''" />
+
   <xsl:variable name="coreNamespace" select="'Org.OData.Core.V1'" />
   <xsl:variable name="coreAlias"
     select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
@@ -53,7 +57,14 @@
     <xsl:text>**Namespace: [</xsl:text>
     <xsl:value-of select="//edm:Schema/@Namespace" />
     <xsl:text>](</xsl:text>
-    <xsl:value-of select="//edm:Schema/@Namespace" />
+    <xsl:choose>
+      <xsl:when test="$use-alias-as-filename">
+        <xsl:value-of select="//edm:Schema/@Alias" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="//edm:Schema/@Namespace" />
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:text>.xml)**&#xA;&#xA;</xsl:text>
 
     <xsl:call-template name="Core.Description">
@@ -360,10 +371,31 @@
             </xsl:otherwise>
           </xsl:choose>
         </xsl:variable>
+        <xsl:variable name="alias">
+          <xsl:choose>
+            <xsl:when test="$qualifier=//edmx:Include/@Namespace">
+              <xsl:value-of select="//edmx:Include[@Alias=$qualifier]/@Alias" />
+            </xsl:when>
+            <xsl:otherwise>
+              <xsl:value-of select="$qualifier" />
+            </xsl:otherwise>
+          </xsl:choose>
+        </xsl:variable>
         <xsl:text>[</xsl:text>
         <xsl:value-of select="$name" />
         <xsl:text>](</xsl:text>
-        <xsl:value-of select="$namespace" />
+        <xsl:choose>
+          <xsl:when test="substring($namespace,1,10)='Org.OData.'">
+            <xsl:value-of select="$odata-vocabularies-url" />
+            <xsl:value-of select="$namespace" />
+          </xsl:when>
+          <xsl:when test="$use-alias-as-filename">
+            <xsl:value-of select="$alias" />
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="$namespace" />
+          </xsl:otherwise>
+        </xsl:choose>
         <xsl:text>.md#</xsl:text>
         <xsl:value-of select="$name" />
         <xsl:text>)</xsl:text>
