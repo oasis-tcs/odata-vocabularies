@@ -146,7 +146,7 @@
         <xsl:with-param name="complexType" select="." />
       </xsl:call-template>
     </xsl:variable>
-    <xsl:if test="$properties">
+    <xsl:if test="not($properties='')">
       <xsl:text>&#xA;Property|Type|Description</xsl:text>
       <xsl:text>&#xA;:-------|:---|:----------&#xA;</xsl:text>
       <xsl:value-of select="$properties" />
