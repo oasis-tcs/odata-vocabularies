@@ -3,7 +3,6 @@
 
 Terms to describe which data in a given entity model can be aggregated, and how.
 
-
 Term|Type|Description
 :---|:---|:----------
 ApplySupported|[ApplySupportedType](#ApplySupportedType)|This structured type or entity container supports the $apply system query option

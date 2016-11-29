@@ -36,7 +36,10 @@
     <xsl:param name="node" />
     <xsl:variable name="description"
       select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
-    <xsl:value-of select="$description/@String|$description/edm:String" />
+    <xsl:if test="$description">
+      <xsl:value-of select="$description/@String|$description/edm:String" />
+      <xsl:text>&#xA;</xsl:text>
+    </xsl:if>
   </xsl:template>
 
 
@@ -75,7 +78,6 @@
     <xsl:call-template name="Core.LongDescription">
       <xsl:with-param name="node" select="//edm:Schema" />
     </xsl:call-template>
-    <xsl:text>&#xA;</xsl:text>
 
     <xsl:apply-templates select="//edm:Term" />
 
@@ -126,6 +128,10 @@
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
+
+    <xsl:call-template name="Core.LongDescription">
+      <xsl:with-param name="node" select="." />
+    </xsl:call-template>
 
     <xsl:variable name="namespaceQualifiedName" select="concat(../@Namespace,'.',@Name)" />
     <xsl:variable name="aliasQualifiedName" select="concat(../@Alias,'.',@Name)" />
@@ -234,6 +240,10 @@
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
+    <xsl:call-template name="Core.LongDescription">
+      <xsl:with-param name="node" select="." />
+    </xsl:call-template>
+
     <xsl:apply-templates select="edm:Member" />
   </xsl:template>
 
@@ -281,6 +291,10 @@
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
+
+    <xsl:call-template name="Core.LongDescription">
+      <xsl:with-param name="node" select="." />
+    </xsl:call-template>
 
     <xsl:call-template name="allowedValues" />
   </xsl:template>

@@ -3,7 +3,6 @@
 
 Terms describing monetary amounts and measured quantities
 
-
 Term|Type|Description
 :---|:---|:----------
 ISOCurrency|String|The currency for this monetary amount as an ISO 4217 currency code
