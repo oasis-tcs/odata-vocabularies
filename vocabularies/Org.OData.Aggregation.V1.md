@@ -5,14 +5,14 @@ Terms to describe which data in a given entity model can be aggregated, and how.
 
 Term|Type|Description
 :---|:---|:----------
-ApplySupported|[ApplySupportedType](#ApplySupportedType)|This structured type or entity container supports the $apply system query option
-Groupable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the groupby transformation
-Aggregatable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the aggregate transformation
-CustomAggregate|String|Dynamic property that can be used in the aggregate transformation
-ContextDefiningProperties|\[PropertyPath\]|The annotated property or custom aggregate is only well-defined in the context of these properties
-LeveledHierarchy|\[PropertyPath\]|Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
-RecursiveHierarchy|[RecursiveHierarchyType](#RecursiveHierarchyType)|Defines a recursive hierarchy.
-AvailableOnAggregates|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|This action or function is available on aggregated entities if the RequiredProperties are still defined
+<a name="ApplySupported"></a>ApplySupported|[ApplySupportedType](#ApplySupportedType)|This structured type or entity container supports the $apply system query option
+<a name="Groupable"></a>Groupable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the groupby transformation
+<a name="Aggregatable"></a>Aggregatable|[Tag](Org.OData.Core.V1.md#Tag)|This property can be used in the aggregate transformation
+<a name="CustomAggregate"></a>CustomAggregate|String|Dynamic property that can be used in the aggregate transformation
+<a name="ContextDefiningProperties"></a>ContextDefiningProperties|\[PropertyPath\]|The annotated property or custom aggregate is only well-defined in the context of these properties
+<a name="LeveledHierarchy"></a>LeveledHierarchy|\[PropertyPath\]|Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
+<a name="RecursiveHierarchy"></a>RecursiveHierarchy|[RecursiveHierarchyType](#RecursiveHierarchyType)|Defines a recursive hierarchy.
+<a name="AvailableOnAggregates"></a>AvailableOnAggregates|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|This action or function is available on aggregated entities if the RequiredProperties are still defined
 
 ## <a name="ApplySupportedType"></a>ApplySupportedType
 
