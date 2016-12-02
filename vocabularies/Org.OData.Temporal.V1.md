@@ -5,11 +5,11 @@ Terms to describe which data in a given entity model is time-dependent, and in w
 
 Term|Type|Description
 :---|:---|:----------
-<a name="TemporalSupported"></a>TemporalSupported|??Aggregation.TemporalSupportedType??|This entity container, entity set, or navigation property supports the temporal system query option
-<a name="From"></a>From|PrimitiveType|
-<a name="To"></a>To|PrimitiveType|
-<a name="SystemFrom"></a>SystemFrom|PrimitiveType|
-<a name="SystemTo"></a>SystemTo|PrimitiveType|
+TemporalSupported|??Aggregation.TemporalSupportedType??|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option
+From|PrimitiveType|<a name="From"></a>
+To|PrimitiveType|<a name="To"></a>
+SystemFrom|PrimitiveType|<a name="SystemFrom"></a>
+SystemTo|PrimitiveType|<a name="SystemTo"></a>
 
 ## <a name="TemporalSupportedType"></a>TemporalSupportedType
 

@@ -89,11 +89,6 @@
       <xsl:text>&#xA;Term|Type|Description</xsl:text>
       <xsl:text>&#xA;:---|:---|:----------&#xA;</xsl:text>
     </xsl:if>
-    <a>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@Name" />
-      </xsl:attribute>
-    </a>
     <xsl:value-of select="@Name" />
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
@@ -101,6 +96,11 @@
     </xsl:call-template>
 
     <xsl:text>|</xsl:text>
+    <a>
+      <xsl:attribute name="name">
+        <xsl:value-of select="@Name" />
+      </xsl:attribute>
+    </a>
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>

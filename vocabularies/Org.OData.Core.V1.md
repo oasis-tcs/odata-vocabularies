@@ -5,34 +5,34 @@ Core terms needed to write vocabularies
 
 Term|Type|Description
 :---|:---|:----------
-<a name="ODataVersions"></a>ODataVersions|String|A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed.
-<a name="SchemaVersion"></a>SchemaVersion|String|Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case.
-<a name="Description"></a>Description|String|A brief description of a model element
-<a name="LongDescription"></a>LongDescription|String|A lengthy description of a model element
-<a name="NumericValueException"></a>NumericValueException|[ValueException](#ValueException)|Used in place of a property value to annotate a property whose value is not representable according to its numeric type.
-<a name="Messages"></a>Messages|\[[MessageType](#MessageType)\]|Instance annotation for warning and info messages
-<a name="IsLanguageDependent"></a>IsLanguageDependent|[Tag](#Tag)|Properties and terms annotated with this term are language-dependent
-<a name="RequiresType"></a>RequiresType|String|Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
-<a name="ResourcePath"></a>ResourcePath|URL|Resource path for entity container child, can be relative to xml:base and the request URL
-<a name="DereferenceableIDs"></a>DereferenceableIDs|[Tag](#Tag)|Entity-ids are URLs that locate the identified entity
-<a name="ConventionalIDs"></a>ConventionalIDs|[Tag](#Tag)|Entity-ids follow OData URL conventions
-<a name="Permissions"></a>Permissions|[Permission](#Permission)|Permissions for accessing a resource
-<a name="ContentID"></a>ContentID|String|A unique identifier for nested entities within a request.
-<a name="DefaultNamespace"></a>DefaultNamespace|[Tag](#Tag)|Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.
-<a name="Immutable"></a>Immutable|[Tag](#Tag)|A value for this non-key property can be provided on insert and remains unchanged on update
-<a name="Computed"></a>Computed|[Tag](#Tag)|A value for this property is generated on both insert and update
-<a name="IsURL"></a>IsURL|[Tag](#Tag)|Properties and terms annotated with this term MUST contain a valid URL
-<a name="AcceptableMediaTypes"></a>AcceptableMediaTypes|\[MediaType\]|Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated stream property
-<a name="MediaType"></a>MediaType|MediaType|The media type of a binary resource
-<a name="IsMediaType"></a>IsMediaType|[Tag](#Tag)|Properties and terms annotated with this term MUST contain a valid MIME type
-<a name="OptimisticConcurrency"></a>OptimisticConcurrency|\[PropertyPath\]|Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag.
-<a name="AdditionalProperties"></a>AdditionalProperties|[Tag](#Tag)|Instances of this type may contain properties in addition to those declared in $metadata
-<a name="AutoExpand"></a>AutoExpand|[Tag](#Tag)|The service will automatically expand this navigation property even if not requested with $expand
-<a name="AutoExpandReferences"></a>AutoExpandReferences|[Tag](#Tag)|The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
-<a name="MayImplement"></a>MayImplement|\[[QualifiedTypeName](#QualifiedTypeName)\]|A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type segment.
-<a name="Ordered"></a>Ordered|[Tag](#Tag)|Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
-<a name="PositionalInsert"></a>PositionalInsert|[Tag](#Tag)|Items can be inserted at a given ordinal index.
-<a name="AlternateKeys"></a>AlternateKeys|\[[AlternateKey](#AlternateKey)\]|Communicates available alternate keys
+ODataVersions|String|<a name="ODataVersions"></a>A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed.
+SchemaVersion|String|<a name="SchemaVersion"></a>Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case.
+Description|String|<a name="Description"></a>A brief description of a model element
+LongDescription|String|<a name="LongDescription"></a>A lengthy description of a model element
+NumericValueException|[ValueException](#ValueException)|<a name="NumericValueException"></a>Used in place of a property value to annotate a property whose value is not representable according to its numeric type.
+Messages|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
+IsLanguageDependent|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
+RequiresType|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
+ResourcePath|URL|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
+DereferenceableIDs|[Tag](#Tag)|<a name="DereferenceableIDs"></a>Entity-ids are URLs that locate the identified entity
+ConventionalIDs|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
+Permissions|[Permission](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
+ContentID|String|<a name="ContentID"></a>A unique identifier for nested entities within a request.
+DefaultNamespace|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.
+Immutable|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided on insert and remains unchanged on update
+Computed|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
+IsURL|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
+AcceptableMediaTypes|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated stream property
+MediaType|MediaType|<a name="MediaType"></a>The media type of a binary resource
+IsMediaType|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
+OptimisticConcurrency|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag.
+AdditionalProperties|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata
+AutoExpand|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this navigation property even if not requested with $expand
+AutoExpandReferences|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
+MayImplement|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type segment.
+Ordered|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
+PositionalInsert|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
+AlternateKeys|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
 
 ## <a name="ValueException"></a>ValueException
 **Type:** String

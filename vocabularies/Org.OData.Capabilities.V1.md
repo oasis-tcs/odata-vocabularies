@@ -43,32 +43,32 @@ supported:
 
 Term|Type|Description
 :---|:---|:----------
-<a name="ConformanceLevel"></a>ConformanceLevel|[ConformanceLevelType](#ConformanceLevelType)|The conformance level achieved by this service
-<a name="SupportedFormats"></a>SupportedFormats|\[MediaType\]|Media types of supported formats, including format parameters
-<a name="SupportedMetadataFormats"></a>SupportedMetadataFormats|\[MediaType\]|Media types of supported formats for $metadata, including format parameters
-<a name="AcceptableEncodings"></a>AcceptableEncodings|\[String\]|List of acceptable compression methods for ($batch) requests, e.g. gzip
-<a name="AsynchronousRequestsSupported"></a>AsynchronousRequestsSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the asynchronous request preference
-<a name="BatchContinueOnErrorSupported"></a>BatchContinueOnErrorSupported|[Tag](Org.OData.Core.V1.md#Tag)|Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.
-<a name="IsolationSupported"></a>IsolationSupported|[IsolationLevel](#IsolationLevel)|Supported odata.isolation levels
-<a name="CrossJoinSupported"></a>CrossJoinSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports cross joins for the entity sets in this container
-<a name="CallbackSupported"></a>CallbackSupported|[CallbackType](#CallbackType)|Supports callbacks for the specified protocols
-<a name="ChangeTracking"></a>ChangeTracking|[ChangeTrackingType](#ChangeTrackingType)|Change tracking capabilities of this service or entity set
-<a name="CountRestrictions"></a>CountRestrictions|[CountRestrictionsType](#CountRestrictionsType)|Restrictions on /$count path suffix and $count=true system query option
-<a name="NavigationRestrictions"></a>NavigationRestrictions|[NavigationRestrictionsType](#NavigationRestrictionsType)|Restrictions on navigating properties according to OData URL conventions
-<a name="IndexableByKey"></a>IndexableByKey|[Tag](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
-<a name="TopSupported"></a>TopSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
-<a name="SkipSupported"></a>SkipSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
-<a name="BatchSupported"></a>BatchSupported|[Tag](Org.OData.Core.V1.md#Tag)|Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.
-<a name="BatchSupport"></a>BatchSupport|[BatchSupportType](#BatchSupportType)|Batch Support for the service
-<a name="FilterFunctions"></a>FilterFunctions|\[String\]|List of functions and operators supported in $filter
-<a name="FilterRestrictions"></a>FilterRestrictions|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on $filter expressions
-<a name="SortRestrictions"></a>SortRestrictions|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on $orderby expressions
-<a name="ExpandRestrictions"></a>ExpandRestrictions|[ExpandRestrictionsType](#ExpandRestrictionsType)|Restrictions on $expand expressions
-<a name="SearchRestrictions"></a>SearchRestrictions|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on $search expressions
-<a name="InsertRestrictions"></a>InsertRestrictions|[InsertRestrictionsType](#InsertRestrictionsType)|Restrictions on insert operations
-<a name="DeepInsertSupport"></a>DeepInsertSupport|[DeepInsertSupportType](#DeepInsertSupportType)|Deep Insert Support for the service
-<a name="UpdateRestrictions"></a>UpdateRestrictions|[UpdateRestrictionsType](#UpdateRestrictionsType)|Restrictions on update operations
-<a name="DeleteRestrictions"></a>DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restrictions on delete operations
+ConformanceLevel|[ConformanceLevelType](#ConformanceLevelType)|<a name="ConformanceLevel"></a>The conformance level achieved by this service
+SupportedFormats|\[MediaType\]|<a name="SupportedFormats"></a>Media types of supported formats, including format parameters
+SupportedMetadataFormats|\[MediaType\]|<a name="SupportedMetadataFormats"></a>Media types of supported formats for $metadata, including format parameters
+AcceptableEncodings|\[String\]|<a name="AcceptableEncodings"></a>List of acceptable compression methods for ($batch) requests, e.g. gzip
+AsynchronousRequestsSupported|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AsynchronousRequestsSupported"></a>Service supports the asynchronous request preference
+BatchContinueOnErrorSupported|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchContinueOnErrorSupported"></a>Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.
+IsolationSupported|[IsolationLevel](#IsolationLevel)|<a name="IsolationSupported"></a>Supported odata.isolation levels
+CrossJoinSupported|[Tag](Org.OData.Core.V1.md#Tag)|<a name="CrossJoinSupported"></a>Supports cross joins for the entity sets in this container
+CallbackSupported|[CallbackType](#CallbackType)|<a name="CallbackSupported"></a>Supports callbacks for the specified protocols
+ChangeTracking|[ChangeTrackingType](#ChangeTrackingType)|<a name="ChangeTracking"></a>Change tracking capabilities of this service or entity set
+CountRestrictions|[CountRestrictionsType](#CountRestrictionsType)|<a name="CountRestrictions"></a>Restrictions on /$count path suffix and $count=true system query option
+NavigationRestrictions|[NavigationRestrictionsType](#NavigationRestrictionsType)|<a name="NavigationRestrictions"></a>Restrictions on navigating properties according to OData URL conventions
+IndexableByKey|[Tag](Org.OData.Core.V1.md#Tag)|<a name="IndexableByKey"></a>Supports key values according to OData URL conventions
+TopSupported|[Tag](Org.OData.Core.V1.md#Tag)|<a name="TopSupported"></a>Supports $top
+SkipSupported|[Tag](Org.OData.Core.V1.md#Tag)|<a name="SkipSupported"></a>Supports $skip
+BatchSupported|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchSupported"></a>Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.
+BatchSupport|[BatchSupportType](#BatchSupportType)|<a name="BatchSupport"></a>Batch Support for the service
+FilterFunctions|\[String\]|<a name="FilterFunctions"></a>List of functions and operators supported in $filter
+FilterRestrictions|[FilterRestrictionsType](#FilterRestrictionsType)|<a name="FilterRestrictions"></a>Restrictions on $filter expressions
+SortRestrictions|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions
+ExpandRestrictions|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions
+SearchRestrictions|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions
+InsertRestrictions|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
+DeepInsertSupport|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support for the service
+UpdateRestrictions|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
+DeleteRestrictions|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
 
 ## <a name="ConformanceLevelType"></a>ConformanceLevelType
 

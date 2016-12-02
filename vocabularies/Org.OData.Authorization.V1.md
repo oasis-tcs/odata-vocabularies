@@ -5,7 +5,7 @@ The Authorization Vocabulary provides terms for describing a web authorization f
 
 Term|Type|Description
 :---|:---|:----------
-<a name="Authorizations"></a>Authorizations|\[[Authorization](#Authorization)\]|Lists the methods available to authorize access to the annotated resource
+Authorizations|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods available to authorize access to the annotated resource
 
 ## <a name="Authorization"></a>*Authorization*
 Base type for all Authorization types
