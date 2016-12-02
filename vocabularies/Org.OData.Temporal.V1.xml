@@ -1,0 +1,112 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+
+  Technical Committee:
+  OASIS Open Data Protocol (OData) TC
+  https://www.oasis-open.org/committees/odata
+
+  Chairs:
+  - Ralf Handl (ralf.handl@sap.com), SAP SE
+  - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+
+  Editors:
+  - Ralf Handl (ralf.handl@sap.com), SAP SE
+  - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+  - Michael Pizzo (mikep@microsoft.com), Microsoft
+
+  Additional artifacts:
+  This vocabulary is one component of a Work Product that also includes the following vocabulary components:
+  - OData Core Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Core.V1.xml.
+  - OData Measures Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Measures.V1.xml.
+  - OData Capabilities Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Capabilities.V1.xml.
+  - OData Validation Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Validation.V1.xml.
+  - OData Aggregation Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Aggretation.V1.xml.
+
+  Related work:
+  This vocabulary is related to:
+  - OData Version 4.01 Part 1: Protocol. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
+  - OData Version 4.01 Part 2: URL Conventions. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
+  - OData Version 4.01 Part 3: Common Schema Definition Language (CSDL). Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part3-csdl.html.
+  - OData Extension for Temporal Data Version 4.0. Latest version: ...
+
+  This vocabulary replaces or supersedes:
+  - None
+
+  Abstract:
+  This vocabulary defines terms to describe which data in a given entity model is time-dependent, and in which dimensions.
+
+-->
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Temporal.V1" Alias="Temporal">
+      <Annotation Term="Core.Description">
+        <String>Terms to describe which data in a given entity model is time-dependent, and in which dimensions.</String>
+      </Annotation>
+
+
+      <!-- Metadata annotations -->
+
+      <Term Name="TemporalSupported" Type="Aggregation.TemporalSupportedType" AppliesTo="EntityContainer EntitySet NavigationProperty">
+        <Annotation Term="Core.Description">
+          <String>This entity container, entity set, or navigation property supports the temporal system query option</String>
+        </Annotation>
+      </Term>
+
+      <ComplexType Name="TemporalSupportedType">
+        <Property Name="ApplicationTime" Type="Temporal.TimeDimensionType" />
+        <Property Name="SystemTime" Type="Temporal.TimeDimensionGranularityDateTimeOffset" />
+        <Property Name="NonTemporalProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Documentation" String="Properties whose value changes over time are not tracked" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="TimeDimensionType" Abstract="true">
+        <Property Name="SupportedQueries" Type="Temporal.QueryType" />
+      </ComplexType>
+
+      <ComplexType Name="TimeDimensionGranularityDateTimeOffset" BaseType="Temporal.TimeDimensionType">
+        <Annotation Term="Core.Documentation" String="Granularity of this time dimension is DateTimeOffset" />
+        <Property Name="Precision" Type="Edm.Byte" Nullable="false">
+          <Annotation Term="Core.Documentation" String="Precision of Edm.DateTimeOffset values for granularity DateTimeOffset" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="TimeDimensionGranularityDate" BaseType="Temporal.TimeDimensionType">
+        <Annotation Term="Core.Documentation" String="Granularity of this time dimension is Date" />
+      </ComplexType>
+
+      <EnumType Name="QueryType" IsFlags="true">
+        <Member Name="TimeTravel" Value="1" />
+        <Member Name="TimeSeries" Value="2" />
+      </EnumType>
+
+
+      <!-- Metadata annotations that can also appear as instance annotations -->
+
+      <Term Name="From" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+        <Annotation Term="Core.Documentation"
+          String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now" />
+      </Term>
+
+      <Term Name="To" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+        <Annotation Term="Core.Documentation"
+          String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max" />
+      </Term>
+
+      <Term Name="SystemFrom" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+        <Annotation Term="Core.Documentation"
+          String="Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min" />
+      </Term>
+
+      <Term Name="SystemTo" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+        <Annotation Term="Core.Documentation"
+          String="Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max" />
+      </Term>
+
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
