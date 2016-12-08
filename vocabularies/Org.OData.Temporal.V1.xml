@@ -21,16 +21,18 @@
   - OData Capabilities Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Capabilities.V1.xml.
   - OData Validation Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Validation.V1.xml.
   - OData Aggregation Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Aggretation.V1.xml.
+  - OData Authorization Vocabulary. Latest version: http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/Org.OData.Authorization.V1.xml.
 
   Related work:
+  This vocabulary replaces or supersedes:
+  - None.
   This vocabulary is related to:
   - OData Version 4.01 Part 1: Protocol. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
   - OData Version 4.01 Part 2: URL Conventions. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
   - OData Version 4.01 Part 3: Common Schema Definition Language (CSDL). Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part3-csdl.html.
-  - OData Extension for Temporal Data Version 4.0. Latest version: ...
-
-  This vocabulary replaces or supersedes:
-  - None
+  - OData Common Schema Definition Language (CSDL) XML Representation Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html.
+  - OData JSON Format Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html.
+  - OData Extension for Data Aggregation Version 4.0. Latest version: http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
 
   Abstract:
   This vocabulary defines terms to describe which data in a given entity model is time-dependent, and in which dimensions.
