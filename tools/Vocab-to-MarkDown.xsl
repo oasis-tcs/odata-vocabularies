@@ -90,6 +90,9 @@
       <xsl:text>&#xA;:---|:---|:----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:value-of select="@Name" />
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
+    </xsl:if>
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
@@ -126,6 +129,9 @@
       <xsl:call-template name="type-link">
         <xsl:with-param name="type" select="@BaseType" />
       </xsl:call-template>
+    </xsl:if>
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
     </xsl:if>
     <xsl:text>&#xA;</xsl:text>
 
@@ -219,6 +225,9 @@
     <xsl:if test="$parent">
       <xsl:text>*</xsl:text>
     </xsl:if>
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
+    </xsl:if>
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
@@ -238,6 +247,9 @@
       </xsl:attribute>
     </a>
     <xsl:value-of select="@Name" />
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
+    </xsl:if>
     <xsl:text>&#xA;</xsl:text>
 
     <xsl:call-template name="Core.Description">
@@ -262,6 +274,9 @@
       <xsl:text>:-----|----:|:----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:value-of select="@Name" />
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
+    </xsl:if>
     <xsl:text>|</xsl:text>
     <xsl:choose>
       <xsl:when test="@Value">
@@ -286,6 +301,9 @@
       </xsl:attribute>
     </a>
     <xsl:value-of select="@Name" />
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
+    </xsl:if>
     <xsl:text>&#xA;**Type:** </xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@UnderlyingType" />
@@ -316,6 +334,9 @@
 
   <xsl:template match="edm:Record" mode="allowedValues">
     <xsl:value-of select="edm:PropertyValue[@Property='Value']/@*[local-name()!='Property']" />
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
+    </xsl:if>
     <xsl:text>|</xsl:text>
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="." />
