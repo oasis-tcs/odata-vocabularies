@@ -381,10 +381,14 @@
   </xsl:template>
 
   <xsl:template match="edm:Record" mode="allowedValues">
-    <xsl:value-of select="edm:PropertyValue[@Property='Value']/@*[local-name()!='Property']" />
-    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
-    </xsl:if>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:value-of select="edm:PropertyValue[@Property='Value']/@*[local-name()!='Property']" />
+        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+          <xsl:text> *(Experimental)*</xsl:text>
+        </xsl:if>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:text>|</xsl:text>
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="." />

@@ -40,9 +40,9 @@ Term|Type|Description
 
 Allowed Value|Description
 :------------|:----------
-INF|The value is greater than the largest number for the prescribed numeric type
--INF|The value is less than smallest number for the prescribed numeric type
-NaN|The value is not representable in the prescribed numeric type
+[INF](Org.OData.Core.V1.xml#L84)|The value is greater than the largest number for the prescribed numeric type
+[-INF](Org.OData.Core.V1.xml#L88)|The value is less than smallest number for the prescribed numeric type
+[NaN](Org.OData.Core.V1.xml#L92)|The value is not representable in the prescribed numeric type
 
 ## <a name="MessageType"></a>[MessageType](Org.OData.Core.V1.xml#L105)
 
@@ -61,10 +61,10 @@ Property|Type|Description
 
 Allowed Value|Description
 :------------|:----------
-success|Positive feedback - no action required
-info|Additional information - no action required
-warning|Warning - action may be required
-error|Error - action is required
+[success](Org.OData.Core.V1.xml#L126)|Positive feedback - no action required
+[info](Org.OData.Core.V1.xml#L130)|Additional information - no action required
+[warning](Org.OData.Core.V1.xml#L134)|Warning - action may be required
+[error](Org.OData.Core.V1.xml#L138)|Error - action is required
 
 ## <a name="Tag"></a>[Tag](Org.OData.Core.V1.xml#L153)
 **Type:** Boolean

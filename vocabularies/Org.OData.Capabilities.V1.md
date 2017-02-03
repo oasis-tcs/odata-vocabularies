@@ -181,9 +181,9 @@ Property|Type|Description
 
 Allowed Value|Description
 :------------|:----------
-SingleValue|Property can be used in a single eq clause
-MultiValue|Property can be used in a single in clause
-SingleRange|Property can be used in at most one ge and/or one le clause, separated by and
+[SingleValue](Org.OData.Capabilities.V1.xml#L314)|Property can be used in a single eq clause
+[MultiValue](Org.OData.Capabilities.V1.xml#L318)|Property can be used in a single in clause
+[SingleRange](Org.OData.Capabilities.V1.xml#L322)|Property can be used in at most one ge and/or one le clause, separated by and
 
 ## <a name="SortRestrictionsType"></a>[SortRestrictionsType](Org.OData.Capabilities.V1.xml#L333)
 
