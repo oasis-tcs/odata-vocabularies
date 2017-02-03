@@ -5,9 +5,9 @@ The Authorization Vocabulary provides terms for describing a web authorization f
 
 Term|Type|Description
 :---|:---|:----------
-Authorizations|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods available to authorize access to the annotated resource
+[Authorizations](Org.OData.Authorization.V1.xml#L49)|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods available to authorize access to the annotated resource
 
-## <a name="Authorization"></a>*Authorization*
+## <a name="Authorization"></a>[*Authorization*](Org.OData.Authorization.V1.xml#L53)
 Base type for all Authorization types
 
 **Derived Types:**
@@ -22,26 +22,26 @@ Base type for all Authorization types
 
 Property|Type|Description
 :-------|:---|:----------
-Description|String|Description of the authorization method
+[Description](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
 
-## <a name="OpenIDConnect"></a>OpenIDConnect: [Authorization](#Authorization)
-
-
-Property|Type|Description
-:-------|:---|:----------
-*Description*|String|Description of the authorization method
-IssuerUrl|URL|Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.
-
-## <a name="Http"></a>Http: [Authorization](#Authorization)
+## <a name="OpenIDConnect"></a>[OpenIDConnect](Org.OData.Authorization.V1.xml#L60): [Authorization](#Authorization)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*Description*|String|Description of the authorization method
-Scheme|String|HTTP Authorization scheme to be used in the Authorization header, as per RFC7235
-BearerFormat|String|Format of the bearer token
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[IssuerUrl](Org.OData.Authorization.V1.xml#L61)|URL|Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.
 
-## <a name="OAuthAuthorization"></a>*OAuthAuthorization*: [Authorization](#Authorization)
+## <a name="Http"></a>[Http](Org.OData.Authorization.V1.xml#L68): [Authorization](#Authorization)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[Scheme](Org.OData.Authorization.V1.xml#L69)|String|HTTP Authorization scheme to be used in the Authorization header, as per RFC7235
+[BearerFormat](Org.OData.Authorization.V1.xml#L72)|String|Format of the bearer token
+
+## <a name="OAuthAuthorization"></a>[*OAuthAuthorization*](Org.OData.Authorization.V1.xml#L77): [Authorization](#Authorization)
 
 
 **Derived Types:**
@@ -52,72 +52,72 @@ BearerFormat|String|Format of the bearer token
 
 Property|Type|Description
 :-------|:---|:----------
-*Description*|String|Description of the authorization method
-Scopes|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-RefreshUrl|URL|Refresh Url
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[Scopes](Org.OData.Authorization.V1.xml#L78)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
+[RefreshUrl](Org.OData.Authorization.V1.xml#L81)|URL|Refresh Url
 
-## <a name="OAuth2ClientCredentials"></a>OAuth2ClientCredentials: [OAuthAuthorization](#OAuthAuthorization)
-
-
-Property|Type|Description
-:-------|:---|:----------
-*Description*|String|Description of the authorization method
-*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-*RefreshUrl*|URL|Refresh Url
-TokenUrl|URL|Token Url
-
-## <a name="OAuth2Implicit"></a>OAuth2Implicit: [OAuthAuthorization](#OAuthAuthorization)
+## <a name="OAuth2ClientCredentials"></a>[OAuth2ClientCredentials](Org.OData.Authorization.V1.xml#L87): [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*Description*|String|Description of the authorization method
-*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-*RefreshUrl*|URL|Refresh Url
-AuthorizationUrl|URL|Authorization URL
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[*Scopes*](Org.OData.Authorization.V1.xml#L78)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L81)|URL|Refresh Url
+[TokenUrl](Org.OData.Authorization.V1.xml#L88)|URL|Token Url
 
-## <a name="OAuth2Password"></a>OAuth2Password: [OAuthAuthorization](#OAuthAuthorization)
-
-
-Property|Type|Description
-:-------|:---|:----------
-*Description*|String|Description of the authorization method
-*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-*RefreshUrl*|URL|Refresh Url
-TokenUrl|URL|Token Url
-
-## <a name="OAuth2AuthCode"></a>OAuth2AuthCode: [OAuthAuthorization](#OAuthAuthorization)
+## <a name="OAuth2Implicit"></a>[OAuth2Implicit](Org.OData.Authorization.V1.xml#L94): [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*Description*|String|Description of the authorization method
-*Scopes*|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-*RefreshUrl*|URL|Refresh Url
-AuthorizationUrl|URL|Authorization URL
-TokenUrl|URL|Token Url
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[*Scopes*](Org.OData.Authorization.V1.xml#L78)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L81)|URL|Refresh Url
+[AuthorizationUrl](Org.OData.Authorization.V1.xml#L95)|URL|Authorization URL
 
-## <a name="AuthorizationScope"></a>AuthorizationScope
-
-
-Property|Type|Description
-:-------|:---|:----------
-Scope|String|Scope name
-Description|String|Description of the scope
-
-## <a name="ApiKey"></a>ApiKey: [Authorization](#Authorization)
+## <a name="OAuth2Password"></a>[OAuth2Password](Org.OData.Authorization.V1.xml#L101): [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
 :-------|:---|:----------
-*Description*|String|Description of the authorization method
-KeyName|String|The name of the header or query parameter
-Location|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[*Scopes*](Org.OData.Authorization.V1.xml#L78)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L81)|URL|Refresh Url
+[TokenUrl](Org.OData.Authorization.V1.xml#L102)|URL|Token Url
 
-## <a name="KeyLocation"></a>KeyLocation
+## <a name="OAuth2AuthCode"></a>[OAuth2AuthCode](Org.OData.Authorization.V1.xml#L108): [OAuthAuthorization](#OAuthAuthorization)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[*Scopes*](Org.OData.Authorization.V1.xml#L78)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L81)|URL|Refresh Url
+[AuthorizationUrl](Org.OData.Authorization.V1.xml#L109)|URL|Authorization URL
+[TokenUrl](Org.OData.Authorization.V1.xml#L113)|URL|Token Url
+
+## <a name="AuthorizationScope"></a>[AuthorizationScope](Org.OData.Authorization.V1.xml#L119)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Scope](Org.OData.Authorization.V1.xml#L120)|String|Scope name
+[Description](Org.OData.Authorization.V1.xml#L123)|String|Description of the scope
+
+## <a name="ApiKey"></a>[ApiKey](Org.OData.Authorization.V1.xml#L128): [Authorization](#Authorization)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Description*](Org.OData.Authorization.V1.xml#L55)|String|Description of the authorization method
+[KeyName](Org.OData.Authorization.V1.xml#L129)|String|The name of the header or query parameter
+[Location](Org.OData.Authorization.V1.xml#L132)|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
+
+## <a name="KeyLocation"></a>[KeyLocation](Org.OData.Authorization.V1.xml#L137)
 
 
 Member|Value|Description
 :-----|----:|:----------
-Header|0|API Key is passed in the header
-QueryOption|1|API Key is passed as a query option
+[Header](Org.OData.Authorization.V1.xml#L138)|0|API Key is passed in the header
+[QueryOption](Org.OData.Authorization.V1.xml#L141)|1|API Key is passed as a query option

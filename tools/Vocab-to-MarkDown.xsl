@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" exclude-result-prefixes="edmx edm"
+  xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" exclude-result-prefixes="edmx edm nodeinfo" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo"
 >
   <!--
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
@@ -11,6 +11,19 @@
 
   <xsl:param name="use-alias-as-filename" select="null" />
   <xsl:param name="odata-vocabularies-url" select="''" />
+
+
+  <xsl:variable name="xml-file">
+    <xsl:choose>
+      <xsl:when test="$use-alias-as-filename">
+        <xsl:value-of select="//edm:Schema/@Alias" />
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="//edm:Schema/@Namespace" />
+      </xsl:otherwise>
+    </xsl:choose>
+    <xsl:text>.xml</xsl:text>
+  </xsl:variable>
 
   <xsl:variable name="coreNamespace" select="'Org.OData.Core.V1'" />
   <xsl:variable name="coreAlias"
@@ -60,15 +73,8 @@
     <xsl:text>**Namespace: [</xsl:text>
     <xsl:value-of select="//edm:Schema/@Namespace" />
     <xsl:text>](</xsl:text>
-    <xsl:choose>
-      <xsl:when test="$use-alias-as-filename">
-        <xsl:value-of select="//edm:Schema/@Alias" />
-      </xsl:when>
-      <xsl:otherwise>
-        <xsl:value-of select="//edm:Schema/@Namespace" />
-      </xsl:otherwise>
-    </xsl:choose>
-    <xsl:text>.xml)**&#xA;&#xA;</xsl:text>
+    <xsl:value-of select="$xml-file" />
+    <xsl:text>)**&#xA;&#xA;</xsl:text>
 
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="//edm:Schema" />
@@ -89,10 +95,14 @@
       <xsl:text>&#xA;Term|Type|Description</xsl:text>
       <xsl:text>&#xA;:---|:---|:----------&#xA;</xsl:text>
     </xsl:if>
-    <xsl:value-of select="@Name" />
-    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
-    </xsl:if>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:value-of select="@Name" />
+        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+          <xsl:text> *(Experimental)*</xsl:text>
+        </xsl:if>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
@@ -110,6 +120,22 @@
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
+  <xsl:template name="xml-link">
+    <xsl:param name="text" />
+    <xsl:variable name="lineNumber" select="nodeinfo:lineNumber()" />
+    <xsl:if test="$lineNumber > -1">
+      <xsl:text>[</xsl:text>
+    </xsl:if>
+    <xsl:value-of select="$text" />
+    <xsl:if test="$lineNumber > -1">
+      <xsl:text>](</xsl:text>
+      <xsl:value-of select="$xml-file" />
+      <xsl:text>#L</xsl:text>
+      <xsl:value-of select="$lineNumber" />
+      <xsl:text>)</xsl:text>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template match="edm:ComplexType">
     <xsl:text>&#xA;## </xsl:text>
     <a>
@@ -117,13 +143,17 @@
         <xsl:value-of select="@Name" />
       </xsl:attribute>
     </a>
-    <xsl:if test="@Abstract='true'">
-      <xsl:text>*</xsl:text>
-    </xsl:if>
-    <xsl:value-of select="@Name" />
-    <xsl:if test="@Abstract='true'">
-      <xsl:text>*</xsl:text>
-    </xsl:if>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:if test="@Abstract='true'">
+          <xsl:text>*</xsl:text>
+        </xsl:if>
+        <xsl:value-of select="@Name" />
+        <xsl:if test="@Abstract='true'">
+          <xsl:text>*</xsl:text>
+        </xsl:if>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:if test="@BaseType">
       <xsl:text>: </xsl:text>
       <xsl:call-template name="type-link">
@@ -218,16 +248,22 @@
 
   <xsl:template match="edm:Property">
     <xsl:param name="parent" />
-    <xsl:if test="$parent">
-      <xsl:text>*</xsl:text>
-    </xsl:if>
-    <xsl:value-of select="@Name" />
-    <xsl:if test="$parent">
-      <xsl:text>*</xsl:text>
-    </xsl:if>
-    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
-    </xsl:if>
+
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:if test="$parent">
+          <xsl:text>*</xsl:text>
+        </xsl:if>
+        <xsl:value-of select="@Name" />
+        <xsl:if test="$parent">
+          <xsl:text>*</xsl:text>
+        </xsl:if>
+        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+          <xsl:text> *(Experimental)*</xsl:text>
+        </xsl:if>
+      </xsl:with-param>
+    </xsl:call-template>
+
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
@@ -246,10 +282,14 @@
         <xsl:value-of select="@Name" />
       </xsl:attribute>
     </a>
-    <xsl:value-of select="@Name" />
-    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
-    </xsl:if>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:value-of select="@Name" />
+        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+          <xsl:text> *(Experimental)*</xsl:text>
+        </xsl:if>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
 
     <xsl:call-template name="Core.Description">
@@ -273,10 +313,14 @@
       <xsl:text>Member|Value|Description&#xA;</xsl:text>
       <xsl:text>:-----|----:|:----------&#xA;</xsl:text>
     </xsl:if>
-    <xsl:value-of select="@Name" />
-    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
-    </xsl:if>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:value-of select="@Name" />
+        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+          <xsl:text> *(Experimental)*</xsl:text>
+        </xsl:if>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:text>|</xsl:text>
     <xsl:choose>
       <xsl:when test="@Value">
@@ -300,10 +344,14 @@
         <xsl:value-of select="@Name" />
       </xsl:attribute>
     </a>
-    <xsl:value-of select="@Name" />
-    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
-    </xsl:if>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:value-of select="@Name" />
+        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+          <xsl:text> *(Experimental)*</xsl:text>
+        </xsl:if>
+      </xsl:with-param>
+    </xsl:call-template>
     <xsl:text>&#xA;**Type:** </xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@UnderlyingType" />
