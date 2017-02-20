@@ -22,7 +22,7 @@
   - OData Validation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml.
   - OData Aggregation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggretation.V1.xml.
   - OData Authorization Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml.
-  
+
   Related work:
   This vocabulary replaces or supersedes:
   - OData Extension for Data Aggregation Version 4.0 Aggregation Vocabulary.
@@ -177,7 +177,7 @@
       <Function Name="isleaf" IsBound="true">
         <Annotation Term="Core.Description"
           String="Returns true, if and only if the value of the node property of the specified hierarchy has no descendants" />
-        <Parameter Name="Entity" Type=" Edm.EntityType" Nullable="false" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <ReturnType Type="Edm.Boolean" />
       </Function>
