@@ -143,19 +143,9 @@
         <xsl:value-of select="@Name" />
       </xsl:attribute>
     </a>
-    <xsl:call-template name="Core.Description">
+    <xsl:call-template name="descriptions-in-table">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
-    <xsl:variable name="longDescription">
-      <xsl:call-template name="Core.LongDescription-normalized">
-        <xsl:with-param name="node" select="." />
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:if test="string-length($longDescription)>0">
-      <p>
-        <xsl:value-of select="$longDescription" />
-      </p>
-    </xsl:if>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -229,7 +219,12 @@
     <xsl:if test="not($properties='')">
       <xsl:text>&#xA;Property|Type|Description</xsl:text>
       <xsl:text>&#xA;:-------|:---|:----------&#xA;</xsl:text>
-      <xsl:value-of select="$properties" />
+      <!-- somehow <p> and </p> get lost if using this
+        <xsl:value-of select="$properties" />
+      -->
+      <xsl:call-template name="properties">
+        <xsl:with-param name="complexType" select="." />
+      </xsl:call-template>
     </xsl:if>
   </xsl:template>
 
@@ -308,7 +303,7 @@
       <xsl:with-param name="type" select="@Type" />
     </xsl:call-template>
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="Core.Description">
+    <xsl:call-template name="descriptions-in-table">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
@@ -370,19 +365,9 @@
       </xsl:otherwise>
     </xsl:choose>
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="Core.Description">
+    <xsl:call-template name="descriptions-in-table">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
-    <xsl:variable name="longDescription">
-      <xsl:call-template name="Core.LongDescription-normalized">
-        <xsl:with-param name="node" select="." />
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:if test="string-length($longDescription)>0">
-      <p>
-        <xsl:value-of select="$longDescription" />
-      </p>
-    </xsl:if>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -439,7 +424,7 @@
       </xsl:with-param>
     </xsl:call-template>
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="Core.Description">
+    <xsl:call-template name="descriptions-in-table">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
     <xsl:text>&#xA;</xsl:text>
