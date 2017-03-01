@@ -33,10 +33,39 @@
   <xsl:variable name="validationAlias"
     select="//edmx:Include[@Namespace=$validationNamespace]/@Alias|//edm:Schema[@Namespace=$validationNamespace]/@Alias" />
 
+  <xsl:template name="descriptions-in-table">
+    <xsl:param name="node" />
+    <xsl:call-template name="Core.Description">
+      <xsl:with-param name="node" select="$node" />
+    </xsl:call-template>
+    <xsl:variable name="longDescription">
+      <xsl:call-template name="Core.LongDescription-normalized">
+        <xsl:with-param name="node" select="$node" />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:if test="string-length($longDescription)>0">
+      <p>
+        <xsl:value-of select="$longDescription" />
+      </p>
+    </xsl:if>
+  </xsl:template>
+
   <xsl:template name="Core.Description">
     <xsl:param name="node" />
     <xsl:variable name="description"
       select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.Description') or @Term=concat($coreAlias,'.Description')) and not(@Qualifier)]" />
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="normalize-space($description/@String)" />
+    </xsl:call-template>
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string" select="normalize-space($description/edm:String)" />
+    </xsl:call-template>
+  </xsl:template>
+
+  <xsl:template name="Core.LongDescription-normalized">
+    <xsl:param name="node" />
+    <xsl:variable name="description"
+      select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
     <xsl:call-template name="escape">
       <xsl:with-param name="string" select="normalize-space($description/@String)" />
     </xsl:call-template>
@@ -117,6 +146,16 @@
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
+    <xsl:variable name="longDescription">
+      <xsl:call-template name="Core.LongDescription-normalized">
+        <xsl:with-param name="node" select="." />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:if test="string-length($longDescription)>0">
+      <p>
+        <xsl:value-of select="$longDescription" />
+      </p>
+    </xsl:if>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -334,6 +373,16 @@
     <xsl:call-template name="Core.Description">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
+    <xsl:variable name="longDescription">
+      <xsl:call-template name="Core.LongDescription-normalized">
+        <xsl:with-param name="node" select="." />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:if test="string-length($longDescription)>0">
+      <p>
+        <xsl:value-of select="$longDescription" />
+      </p>
+    </xsl:if>
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 

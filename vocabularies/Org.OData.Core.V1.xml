@@ -69,6 +69,11 @@
           String="Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case." />
       </Term>
 
+      <Term Name="Deprecated" Type="Core.Tag" DefaultValue="true">
+        <Annotation Term="Core.Description"
+          String="Model elements annotated with this term are deprecated and should no longer be used. They may be removed in a future version of the service." />
+      </Term>
+
       <!--Documentation -->
 
       <Term Name="Description" Type="Edm.String">
