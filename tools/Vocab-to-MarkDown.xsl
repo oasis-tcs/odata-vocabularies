@@ -219,12 +219,7 @@
     <xsl:if test="not($properties='')">
       <xsl:text>&#xA;Property|Type|Description</xsl:text>
       <xsl:text>&#xA;:-------|:---|:----------&#xA;</xsl:text>
-      <!-- somehow <p> and </p> get lost if using this
-        <xsl:value-of select="$properties" />
-      -->
-      <xsl:call-template name="properties">
-        <xsl:with-param name="complexType" select="." />
-      </xsl:call-template>
+      <xsl:copy-of select="$properties" />
     </xsl:if>
   </xsl:template>
 
