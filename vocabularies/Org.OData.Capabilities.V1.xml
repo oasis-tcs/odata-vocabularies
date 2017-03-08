@@ -332,6 +332,11 @@ supported:
               <PropertyValue Property="Value" String="SingleRange" />
               <Annotation Term="Core.Description" String="Property can be used in at most one ge and/or one le clause, separated by and" />
             </Record>
+            <Record>
+              <PropertyValue Property="Value" String="SearchExpression" />
+              <Annotation Term="Core.Description"
+                String="String property can be used as first operand in startswith, endswith, and contains clauses" />
+            </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>

@@ -62,13 +62,13 @@ Term|Type|Description
 [BatchSupport](Org.OData.Capabilities.V1.xml#L264)|[BatchSupportType](#BatchSupportType)|<a name="BatchSupport"></a>Batch Support for the service
 [FilterFunctions](Org.OData.Capabilities.V1.xml#L285)|\[String\]|<a name="FilterFunctions"></a>List of functions and operators supported in $filter
 [FilterRestrictions](Org.OData.Capabilities.V1.xml#L289)|[FilterRestrictionsType](#FilterRestrictionsType)|<a name="FilterRestrictions"></a>Restrictions on $filter expressions
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L339)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions
-[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L357)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions
-[SearchRestrictions](Org.OData.Capabilities.V1.xml#L369)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions
-[InsertRestrictions](Org.OData.Capabilities.V1.xml#L403)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
-[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L415)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support for the service
-[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L428)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
-[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L440)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L344)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions
+[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L362)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L374)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L408)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
+[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L420)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support for the service
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L433)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L445)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L108)
 
@@ -184,73 +184,74 @@ Allowed Value|Description
 [SingleValue](Org.OData.Capabilities.V1.xml#L323)|Property can be used in a single eq clause
 [MultiValue](Org.OData.Capabilities.V1.xml#L327)|Property can be used in a single in clause
 [SingleRange](Org.OData.Capabilities.V1.xml#L331)|Property can be used in at most one ge and/or one le clause, separated by and
+[SearchExpression](Org.OData.Capabilities.V1.xml#L335)|String property can be used as first operand in startswith, endswith, and contains clauses
 
-## <a name="SortRestrictionsType"></a>[SortRestrictionsType](Org.OData.Capabilities.V1.xml#L342)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Sortable](Org.OData.Capabilities.V1.xml#L343)|Boolean|$orderby is supported
-[AscendingOnlyProperties](Org.OData.Capabilities.V1.xml#L346)|\[PropertyPath\]|These properties can only be used for sorting in Ascending order
-[DescendingOnlyProperties](Org.OData.Capabilities.V1.xml#L349)|\[PropertyPath\]|These properties can only be used for sorting in Descending order
-[NonSortableProperties](Org.OData.Capabilities.V1.xml#L352)|\[AnyPropertyPath\]|These structural or navigation properties cannot be used in $orderby expressions
-
-## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L360)
+## <a name="SortRestrictionsType"></a>[SortRestrictionsType](Org.OData.Capabilities.V1.xml#L347)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Expandable](Org.OData.Capabilities.V1.xml#L361)|Boolean|$expand is supported
-[NonExpandableProperties](Org.OData.Capabilities.V1.xml#L364)|\[NavigationPropertyPath\]|These properties cannot be used in $expand expressions
+[Sortable](Org.OData.Capabilities.V1.xml#L348)|Boolean|$orderby is supported
+[AscendingOnlyProperties](Org.OData.Capabilities.V1.xml#L351)|\[PropertyPath\]|These properties can only be used for sorting in Ascending order
+[DescendingOnlyProperties](Org.OData.Capabilities.V1.xml#L354)|\[PropertyPath\]|These properties can only be used for sorting in Descending order
+[NonSortableProperties](Org.OData.Capabilities.V1.xml#L357)|\[AnyPropertyPath\]|These structural or navigation properties cannot be used in $orderby expressions
 
-## <a name="SearchRestrictionsType"></a>[SearchRestrictionsType](Org.OData.Capabilities.V1.xml#L372)
+## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L365)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Searchable](Org.OData.Capabilities.V1.xml#L373)|Boolean|$search is supported
-[UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L376)|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
+[Expandable](Org.OData.Capabilities.V1.xml#L366)|Boolean|$expand is supported
+[NonExpandableProperties](Org.OData.Capabilities.V1.xml#L369)|\[NavigationPropertyPath\]|These properties cannot be used in $expand expressions
 
-## <a name="SearchExpressions"></a>[SearchExpressions](Org.OData.Capabilities.V1.xml#L380)
+## <a name="SearchRestrictionsType"></a>[SearchRestrictionsType](Org.OData.Capabilities.V1.xml#L377)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Searchable](Org.OData.Capabilities.V1.xml#L378)|Boolean|$search is supported
+[UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L381)|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
+
+## <a name="SearchExpressions"></a>[SearchExpressions](Org.OData.Capabilities.V1.xml#L385)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[none](Org.OData.Capabilities.V1.xml#L381)|0|Single search term
-[AND](Org.OData.Capabilities.V1.xml#L384)|1|Multiple search terms separated by AND
-[OR](Org.OData.Capabilities.V1.xml#L387)|2|Multiple search terms separated by OR
-[NOT](Org.OData.Capabilities.V1.xml#L390)|4|Search terms preceded by NOT
-[phrase](Org.OData.Capabilities.V1.xml#L393)|8|Search phrases enclosed in double quotes
-[group](Org.OData.Capabilities.V1.xml#L396)|16|Precedence grouping of search expressions with parentheses
+[none](Org.OData.Capabilities.V1.xml#L386)|0|Single search term
+[AND](Org.OData.Capabilities.V1.xml#L389)|1|Multiple search terms separated by AND
+[OR](Org.OData.Capabilities.V1.xml#L392)|2|Multiple search terms separated by OR
+[NOT](Org.OData.Capabilities.V1.xml#L395)|4|Search terms preceded by NOT
+[phrase](Org.OData.Capabilities.V1.xml#L398)|8|Search phrases enclosed in double quotes
+[group](Org.OData.Capabilities.V1.xml#L401)|16|Precedence grouping of search expressions with parentheses
 
-## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L406)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Insertable](Org.OData.Capabilities.V1.xml#L407)|Boolean|Entities can be inserted
-[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L410)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
-
-## <a name="DeepInsertSupportType"></a>[DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L418)
+## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L411)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Supported](Org.OData.Capabilities.V1.xml#L419)|Boolean|Service supports deep inserts
-[ContentIDSupported](Org.OData.Capabilities.V1.xml#L422)|Boolean|Service supports accepting and returning nested entities annotated with the contentID instance annotation.
+[Insertable](Org.OData.Capabilities.V1.xml#L412)|Boolean|Entities can be inserted
+[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L415)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
 
-## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L431)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Updatable](Org.OData.Capabilities.V1.xml#L432)|Boolean|Entities can be updated
-[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L435)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
-
-## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L443)
+## <a name="DeepInsertSupportType"></a>[DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L423)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Deletable](Org.OData.Capabilities.V1.xml#L444)|Boolean|Entities can be deleted
-[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L447)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
+[Supported](Org.OData.Capabilities.V1.xml#L424)|Boolean|Service supports deep inserts
+[ContentIDSupported](Org.OData.Capabilities.V1.xml#L427)|Boolean|Service supports accepting and returning nested entities annotated with the contentID instance annotation.
+
+## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L436)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Updatable](Org.OData.Capabilities.V1.xml#L437)|Boolean|Entities can be updated
+[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L440)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
+
+## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L448)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Deletable](Org.OData.Capabilities.V1.xml#L449)|Boolean|Entities can be deleted
+[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L452)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
