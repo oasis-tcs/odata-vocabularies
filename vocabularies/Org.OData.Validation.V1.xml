@@ -90,6 +90,28 @@
           String="The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds." />
       </Term>
 
+      <Term Name="ItemsOf" Type="Collection(Validation.ItemsOfType)" AppliesTo="EntityType ComplexType">
+        <Annotation Term="Core.Description"
+          String="A list of constraints describing that entities related via one navigation property MUST also be related via another, collection-valued navigation property." />
+        <Annotation Term="Core.LongDescription">
+          <String>The same `path` value can occur multiple times, meaning that the related entities MUST be related via any of the `target` navigation properties. 
+The target can be any collection-valued navigation property.
+If the target is a containment navigation property then the constraint defines where the entity lives. 
+
+For example, if an entity type `Customer` has navigation properties `AllOrders`, `OpenOrders`, and `ClosedOrders`, it may be useful to define that items of `OpenOrders` and `ClosedOrders` are also items of the `AllOrders` navigation property, even though they are defined in an `Orders` entity set.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="ItemsOfType">
+        <Annotation Term="Core.Description"
+          String="Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`." />
+        <Property Name="path" Type="Edm.NavigationPropertyPath">
+          <Annotation Term="Core.Description" String="A path to a single- or collection-valued navigation property" />
+        </Property>
+        <Property Name="target" Type="Edm.NavigationPropertyPath">
+          <Annotation Term="Core.Description" String="A path to a or collection-valued navigation property" />
+        </Property>
+      </ComplexType>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

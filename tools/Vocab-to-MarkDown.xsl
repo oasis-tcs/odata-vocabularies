@@ -39,13 +39,13 @@
       <xsl:with-param name="node" select="$node" />
     </xsl:call-template>
     <xsl:variable name="longDescription">
-      <xsl:call-template name="Core.LongDescription-normalized">
+      <xsl:call-template name="Core.LongDescription-escaped">
         <xsl:with-param name="node" select="$node" />
       </xsl:call-template>
     </xsl:variable>
     <xsl:if test="string-length($longDescription)>0">
       <p>
-        <xsl:value-of select="$longDescription" />
+        <xsl:copy-of select="$longDescription" />
       </p>
     </xsl:if>
   </xsl:template>
@@ -62,15 +62,15 @@
     </xsl:call-template>
   </xsl:template>
 
-  <xsl:template name="Core.LongDescription-normalized">
+  <xsl:template name="Core.LongDescription-escaped">
     <xsl:param name="node" />
     <xsl:variable name="description"
       select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
     <xsl:call-template name="escape">
-      <xsl:with-param name="string" select="normalize-space($description/@String)" />
+      <xsl:with-param name="string" select="$description/@String" />
     </xsl:call-template>
     <xsl:call-template name="escape">
-      <xsl:with-param name="string" select="normalize-space($description/edm:String)" />
+      <xsl:with-param name="string" select="$description/edm:String" />
     </xsl:call-template>
   </xsl:template>
 
@@ -574,6 +574,22 @@
           <xsl:with-param name="new" select="'\|'" />
         </xsl:call-template>
       </xsl:when>
+      <xsl:when test="contains($string,'&#xA;&#xA;')">
+        <xsl:call-template name="escape-one">
+          <xsl:with-param name="string" select="$string" />
+          <xsl:with-param name="old" select="'&#xA;&#xA;'" />
+          <xsl:with-param name="new">
+            <br />
+          </xsl:with-param>
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="contains($string,'&#xA;')">
+        <xsl:call-template name="escape-one">
+          <xsl:with-param name="string" select="$string" />
+          <xsl:with-param name="old" select="'&#xA;'" />
+          <xsl:with-param name="new" select="' '" />
+        </xsl:call-template>
+      </xsl:when>
       <xsl:otherwise>
         <xsl:value-of select="$string" />
       </xsl:otherwise>
@@ -587,7 +603,7 @@
     <xsl:call-template name="escape">
       <xsl:with-param name="string" select="substring-before($string,$old)" />
     </xsl:call-template>
-    <xsl:value-of select="$new" />
+    <xsl:copy-of select="$new" />
     <xsl:call-template name="escape">
       <xsl:with-param name="string" select="substring-after($string,$old)" />
     </xsl:call-template>
