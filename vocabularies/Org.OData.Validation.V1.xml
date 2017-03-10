@@ -92,13 +92,11 @@
 
       <Term Name="ItemsOf" Type="Collection(Validation.ItemsOfType)" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description"
-          String="A list of constraints describing that entities related via one navigation property MUST also be related via another, collection-valued navigation property." />
+          String="A list of constraints describing that entities related via one navigation property MUST also be related via another, collection-valued navigation property. The same `path` value MUST NOT occur more than once." />
         <Annotation Term="Core.LongDescription">
-          <String>The same `path` value can occur multiple times, meaning that the related entities MUST be related via any of the `target` navigation properties. 
-The target can be any collection-valued navigation property.
-If the target is a containment navigation property then the constraint defines where the entity lives. 
-
-For example, if an entity type `Customer` has navigation properties `AllOrders`, `OpenOrders`, and `ClosedOrders`, it may be useful to define that items of `OpenOrders` and `ClosedOrders` are also items of the `AllOrders` navigation property, even though they are defined in an `Orders` entity set.</String>
+          <String>Example: entity type `Customer` has navigation properties `AllOrders`, `OpenOrders`, and `ClosedOrders`. 
+The term allows to express that items of `OpenOrders` and `ClosedOrders` are also items of the `AllOrders` navigation property,
+even though they are defined in an `Orders` entity set.</String>
         </Annotation>
       </Term>
       <ComplexType Name="ItemsOfType">
@@ -106,6 +104,7 @@ For example, if an entity type `Customer` has navigation properties `AllOrders`,
           String="Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`." />
         <Property Name="path" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="A path to a single- or collection-valued navigation property" />
+          <Annotation Term="Core.LongDescription" String="" />
         </Property>
         <Property Name="target" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="A path to a or collection-valued navigation property" />
