@@ -102,31 +102,6 @@
         </Property>
       </ComplexType>
 
-      <!-- Numeric Exceptions -->
-
-      <Term Name="NumericValueException" Type="Core.ValueException">
-        <Annotation Term="Core.Description"
-          String="Used in place of a property value to annotate a property whose value is not representable according to its numeric type." />
-      </Term>
-      <TypeDefinition Name="ValueException" UnderlyingType="Edm.String">
-        <Annotation Term="Validation.AllowedValues">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Value" String="INF" />
-              <Annotation Term="Core.Description" String="The value is greater than the largest number for the prescribed numeric type" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="-INF" />
-              <Annotation Term="Core.Description" String="The value is less than smallest number for the prescribed numeric type" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="NaN" />
-              <Annotation Term="Core.Description" String="The value is not representable in the prescribed numeric type" />
-            </Record>
-          </Collection>
-        </Annotation>
-      </TypeDefinition>
-
       <!-- Error, warning, and info messages in a (mostly) successful response -->
 
       <Term Name="Messages" Type="Collection(Core.MessageType)">
