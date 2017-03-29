@@ -79,6 +79,7 @@
     <xsl:variable name="description"
       select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
     <xsl:if test="$description">
+      <xsl:text>&#xA;</xsl:text>
       <xsl:value-of select="$description/@String|$description/edm:String" />
       <xsl:text>&#xA;</xsl:text>
     </xsl:if>
