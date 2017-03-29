@@ -3,6 +3,7 @@
 
 Terms describing capabilities of a service
 
+
 There are some capabilities which are strongly recommended for services to support even
 though they are optional. Support for $top and $skip is a good example as
 supporting these query options helps with performance of a service and are essential. Such

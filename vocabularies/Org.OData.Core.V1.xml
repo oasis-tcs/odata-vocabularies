@@ -314,6 +314,12 @@
         </Property>
       </ComplexType>
 
+      <ComplexType Name="Dictionary" OpenType="true">
+        <Annotation Term="Core.Description" String="A dictionary of name-value pairs" />
+        <Annotation Term="Core.LongDescription"
+          String="Names must be simple identifiers, values may be restricted via an annotation with term Validation.OpenPropertyTypeConstraint" />
+      </ComplexType>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
