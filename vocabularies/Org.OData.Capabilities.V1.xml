@@ -308,6 +308,10 @@ supported:
         >
           <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
         </Property>
+        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+          <Annotation Term="Core.Description"
+            String="The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction." />
+        </Property>
       </ComplexType>
       <ComplexType Name="FilterExpressionRestrictionType">
         <Property Name="Property" Type="Edm.PropertyPath">
@@ -369,6 +373,10 @@ supported:
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in $expand expressions" />
         </Property>
+        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+          <Annotation Term="Core.Description"
+            String="The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction." />
+        </Property>
       </ComplexType>
 
       <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" AppliesTo="EntitySet Collection">
@@ -415,6 +423,10 @@ supported:
         <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow deep inserts" />
         </Property>
+        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+          <Annotation Term="Core.Description"
+            String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
+        </Property>
       </ComplexType>
 
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer">
@@ -440,6 +452,10 @@ supported:
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
         </Property>
+        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+          <Annotation Term="Core.Description"
+            String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
+        </Property>
       </ComplexType>
 
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Collection">
@@ -451,6 +467,10 @@ supported:
         </Property>
         <Property Name="NonDeletableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow DeleteLink requests" />
+        </Property>
+        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+          <Annotation Term="Core.Description"
+            String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
 
