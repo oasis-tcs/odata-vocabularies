@@ -69,10 +69,31 @@
           String="Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case." />
       </Term>
 
-      <Term Name="Deprecated" Type="Core.Tag" DefaultValue="true">
-        <Annotation Term="Core.Description"
-          String="Model elements annotated with this term are deprecated and should no longer be used. They may be removed in a future version of the service." />
+      <Term Name="Revisions" Type="Collection(Core.RevisionType)">
+        <Annotation Term="Core.Description" String="List of revisions of a model element" />
       </Term>
+      <ComplexType Name="RevisionType">
+        <Property Name="Version" Type="Edm.String">
+          <Annotation Term="Core.Description" String="The schema version with which this revision was first published" />
+        </Property>
+        <Property Name="Kind" Type="Core.RevisionKind">
+          <Annotation Term="Core.Description" String="The kind of revision" />
+        </Property>
+        <Property Name="Description" Type="Edm.String">
+          <Annotation Term="Core.Description" String="Text describing the reason for the revision" />
+        </Property>
+      </ComplexType>
+      <EnumType Name="RevisionKind">
+        <Member Name="Added">
+          <Annotation Term="Core.Description" String="Model element was added" />
+        </Member>
+        <Member Name="Modified">
+          <Annotation Term="Core.Description" String="Model element was modified" />
+        </Member>
+        <Member Name="Deprecated">
+          <Annotation Term="Core.Description" String="Model element was deprecated" />
+        </Member>
+      </EnumType>
 
       <!--Documentation -->
 
