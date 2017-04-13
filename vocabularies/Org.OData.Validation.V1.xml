@@ -104,7 +104,6 @@ even though they are defined in an `Orders` entity set.</String>
           String="Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`." />
         <Property Name="path" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="A path to a single- or collection-valued navigation property" />
-          <Annotation Term="Core.LongDescription" String="" />
         </Property>
         <Property Name="target" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="A path to a or collection-valued navigation property" />
