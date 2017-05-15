@@ -8,8 +8,8 @@ There are some capabilities which are strongly recommended for services to suppo
 though they are optional. Support for $top and $skip is a good example as
 supporting these query options helps with performance of a service and are essential. Such
 capabilities are assumed to be default capabilities of an OData service even in
-the case that a capabilities annotation doesn&rsquo;t exist. Capabilities annotations are
-mainly expected to be used to explicitly specify that a service doesn&rsquo;t support such
+the case that a capabilities annotation doesn’t exist. Capabilities annotations are
+mainly expected to be used to explicitly specify that a service doesn’t support such
 capabilities. Capabilities annotations can as well be used to declaratively
 specify the support of such capabilities.
 
@@ -19,7 +19,7 @@ This vocabulary aims to define terms to specify support or no support for such
 capabilities.
 
 A service is assumed to support by default the following capabilities even though an
-annotation doesn&rsquo;t exist:
+annotation doesn’t exist:
 - Countability ($count)
 - Client pageability ($top, $skip)
 - Expandability ($expand)
