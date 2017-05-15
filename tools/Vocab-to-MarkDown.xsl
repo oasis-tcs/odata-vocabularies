@@ -6,7 +6,7 @@
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
   -->
 
-  <xsl:output method="html" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
+  <xsl:output method="text" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
 
 
   <xsl:param name="use-alias-as-filename" select="null" />
@@ -44,9 +44,9 @@
       </xsl:call-template>
     </xsl:variable>
     <xsl:if test="string-length($longDescription)>0">
-      <p>
-        <xsl:copy-of select="$longDescription" />
-      </p>
+      <xsl:text>&lt;p></xsl:text>
+      <xsl:copy-of select="$longDescription" />
+      <xsl:text>&lt;/p></xsl:text>
     </xsl:if>
   </xsl:template>
 
@@ -139,11 +139,9 @@
     </xsl:call-template>
 
     <xsl:text>|</xsl:text>
-    <a>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@Name" />
-      </xsl:attribute>
-    </a>
+    <xsl:text>&lt;a name="</xsl:text>
+    <xsl:value-of select="@Name" />
+    <xsl:text>">&lt;/a></xsl:text>
     <xsl:call-template name="descriptions-in-table">
       <xsl:with-param name="node" select="." />
     </xsl:call-template>
@@ -168,11 +166,9 @@
 
   <xsl:template match="edm:ComplexType">
     <xsl:text>&#xA;## </xsl:text>
-    <a>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@Name" />
-      </xsl:attribute>
-    </a>
+    <xsl:text>&lt;a name="</xsl:text>
+    <xsl:value-of select="@Name" />
+    <xsl:text>">&lt;/a></xsl:text>
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:if test="@Abstract='true'">
@@ -307,11 +303,9 @@
 
   <xsl:template match="edm:EnumType">
     <xsl:text>&#xA;## </xsl:text>
-    <a>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@Name" />
-      </xsl:attribute>
-    </a>
+    <xsl:text>&lt;a name="</xsl:text>
+    <xsl:value-of select="@Name" />
+    <xsl:text>">&lt;/a></xsl:text>
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:value-of select="@Name" />
@@ -369,11 +363,9 @@
 
   <xsl:template match="edm:TypeDefinition">
     <xsl:text>&#xA;## </xsl:text>
-    <a>
-      <xsl:attribute name="name">
-        <xsl:value-of select="@Name" />
-      </xsl:attribute>
-    </a>
+    <xsl:text>&lt;a name="</xsl:text>
+    <xsl:value-of select="@Name" />
+    <xsl:text>">&lt;/a></xsl:text>
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:value-of select="@Name" />
@@ -580,7 +572,7 @@
           <xsl:with-param name="string" select="$string" />
           <xsl:with-param name="old" select="'&#xA;&#xA;'" />
           <xsl:with-param name="new">
-            <br />
+            <xsl:text>&lt;br/></xsl:text>
           </xsl:with-param>
         </xsl:call-template>
       </xsl:when>
