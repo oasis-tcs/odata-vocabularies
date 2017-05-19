@@ -60,7 +60,7 @@
 
       <!-- Metadata annotations -->
 
-      <Term Name="TemporalSupported" Type="Aggregation.TemporalSupportedType" AppliesTo="EntityContainer EntitySet NavigationProperty">
+      <Term Name="TemporalSupported" Type="Temporal.TemporalSupportedType" AppliesTo="EntityContainer EntitySet NavigationProperty">
         <Annotation Term="Core.Description">
           <String>This entity container, entity set, or navigation property supports the temporal system query option</String>
         </Annotation>
