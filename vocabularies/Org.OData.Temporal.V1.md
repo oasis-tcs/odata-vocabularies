@@ -5,7 +5,7 @@ Terms to describe which data in a given entity model is time-dependent, and in w
 
 Term|Type|Description
 :---|:---|:----------
-[TemporalSupported](Org.OData.Temporal.V1.xml#L63)|??Aggregation.TemporalSupportedType??|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option
+[TemporalSupported](Org.OData.Temporal.V1.xml#L63)|[TemporalSupportedType](#TemporalSupportedType)|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option
 [From](Org.OData.Temporal.V1.xml#L100)|PrimitiveType|<a name="From"></a>
 [To](Org.OData.Temporal.V1.xml#L105)|PrimitiveType|<a name="To"></a>
 [SystemFrom](Org.OData.Temporal.V1.xml#L110)|PrimitiveType|<a name="SystemFrom"></a>
