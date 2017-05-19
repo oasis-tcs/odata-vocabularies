@@ -69,7 +69,7 @@
           String="Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case." />
       </Term>
 
-      <Term Name="Revisions" Type="Collection(Core.RevisionType)">
+      <Term Name="Revisions" Type="Collection(Core.RevisionType)" Nullable="false">
         <Annotation Term="Core.Description" String="List of revisions of a model element" />
       </Term>
       <ComplexType Name="RevisionType">
@@ -107,7 +107,7 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
-      <Term Name="Links" Type="Collection(Core.Link)">
+      <Term Name="Links" Type="Collection(Core.Link)" Nullable="false">
         <Annotation Term="Core.Description" String="Link to related information" />
       </Term>
       <ComplexType Name="Link">
@@ -125,7 +125,7 @@
 
       <!-- Error, warning, and info messages in a (mostly) successful response -->
 
-      <Term Name="Messages" Type="Collection(Core.MessageType)">
+      <Term Name="Messages" Type="Collection(Core.MessageType)" Nullable="false">
         <Annotation Term="Core.Description" String="Instance annotation for warning and info messages" />
       </Term>
       <ComplexType Name="MessageType">
@@ -298,7 +298,7 @@
           String="The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref" />
       </Term>
 
-      <Term Name="MayImplement" Type="Collection(Core.QualifiedTypeName)">
+      <Term Name="MayImplement" Type="Collection(Core.QualifiedTypeName)" Nullable="false">
         <Annotation Term="Core.Description"
           String="A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type segment." />
       </Term>
@@ -316,11 +316,13 @@
         <Annotation Term="Core.Description" String="Items can be inserted at a given ordinal index." />
       </Term>
 
-      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty" Type="Collection(Core.AlternateKey)">
+      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty" Type="Collection(Core.AlternateKey)"
+        Nullable="false"
+      >
         <Annotation Term="Core.Description" String="Communicates available alternate keys" />
       </Term>
       <ComplexType Name="AlternateKey">
-        <Property Type="Collection(Core.PropertyRef)" Name="Key">
+        <Property Type="Collection(Core.PropertyRef)" Name="Key" Nullable="false">
           <Annotation Term="Core.Description" String="The set of properties that make up this key" />
         </Property>
       </ComplexType>
