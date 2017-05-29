@@ -34,20 +34,35 @@
     select="//edmx:Include[@Namespace=$validationNamespace]/@Alias|//edm:Schema[@Namespace=$validationNamespace]/@Alias" />
 
   <xsl:template name="descriptions-in-table">
-    <xsl:param name="node" />
-    <xsl:call-template name="Core.Description">
-      <xsl:with-param name="node" select="$node" />
-    </xsl:call-template>
-    <xsl:variable name="longDescription">
-      <xsl:call-template name="Core.LongDescription-escaped">
-        <xsl:with-param name="node" select="$node" />
-      </xsl:call-template>
-    </xsl:variable>
-    <xsl:if test="string-length($longDescription)>0">
-      <xsl:text>&lt;p></xsl:text>
-      <xsl:copy-of select="$longDescription" />
-      <xsl:text>&lt;/p></xsl:text>
-    </xsl:if>
+    <xsl:choose>
+      <xsl:when
+        test="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]"
+      >
+        <xsl:variable name="description"
+          select="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]/../edm:PropertyValue[@Property='Description']" />
+        <xsl:call-template name="escape">
+          <xsl:with-param name="string" select="normalize-space($description/@String)" />
+        </xsl:call-template>
+        <xsl:call-template name="escape">
+          <xsl:with-param name="string" select="normalize-space($description/edm:String)" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="Core.Description">
+          <xsl:with-param name="node" select="." />
+        </xsl:call-template>
+        <xsl:variable name="longDescription">
+          <xsl:call-template name="Core.LongDescription-escaped">
+            <xsl:with-param name="node" select="." />
+          </xsl:call-template>
+        </xsl:variable>
+        <xsl:if test="string-length($longDescription)>0">
+          <xsl:text>&lt;p></xsl:text>
+          <xsl:copy-of select="$longDescription" />
+          <xsl:text>&lt;/p></xsl:text>
+        </xsl:if>
+      </xsl:otherwise>
+    </xsl:choose>
   </xsl:template>
 
   <xsl:template name="Core.Description">
@@ -128,11 +143,9 @@
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:value-of select="@Name" />
-        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-          <xsl:text> *(Experimental)*</xsl:text>
-        </xsl:if>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:call-template name="experimental-deprecated" />
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
@@ -142,10 +155,19 @@
     <xsl:text>&lt;a name="</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>">&lt;/a></xsl:text>
-    <xsl:call-template name="descriptions-in-table">
-      <xsl:with-param name="node" select="." />
-    </xsl:call-template>
+    <xsl:call-template name="descriptions-in-table" />
     <xsl:text>&#xA;</xsl:text>
+  </xsl:template>
+
+  <xsl:template name="experimental-deprecated">
+    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
+      <xsl:text> *(Experimental)*</xsl:text>
+    </xsl:if>
+    <xsl:if
+      test="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]"
+    >
+      <xsl:text> *(Deprecated)*</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template name="xml-link">
@@ -186,9 +208,7 @@
         <xsl:with-param name="type" select="@BaseType" />
       </xsl:call-template>
     </xsl:if>
-    <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
-    </xsl:if>
+    <xsl:call-template name="experimental-deprecated" />
     <xsl:text>&#xA;</xsl:text>
 
     <xsl:call-template name="Core.Description">
@@ -284,20 +304,16 @@
         <xsl:if test="$parent">
           <xsl:text>*</xsl:text>
         </xsl:if>
-        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-          <xsl:text> *(Experimental)*</xsl:text>
-        </xsl:if>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:call-template name="experimental-deprecated" />
 
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
     </xsl:call-template>
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="descriptions-in-table">
-      <xsl:with-param name="node" select="." />
-    </xsl:call-template>
+    <xsl:call-template name="descriptions-in-table" />
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -309,11 +325,9 @@
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:value-of select="@Name" />
-        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-          <xsl:text> *(Experimental)*</xsl:text>
-        </xsl:if>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:call-template name="experimental-deprecated" />
     <xsl:text>&#xA;</xsl:text>
 
     <xsl:call-template name="Core.Description">
@@ -340,11 +354,9 @@
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:value-of select="@Name" />
-        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-          <xsl:text> *(Experimental)*</xsl:text>
-        </xsl:if>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:call-template name="experimental-deprecated" />
     <xsl:text>|</xsl:text>
     <xsl:choose>
       <xsl:when test="@Value">
@@ -355,9 +367,7 @@
       </xsl:otherwise>
     </xsl:choose>
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="descriptions-in-table">
-      <xsl:with-param name="node" select="." />
-    </xsl:call-template>
+    <xsl:call-template name="descriptions-in-table" />
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -369,11 +379,9 @@
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:value-of select="@Name" />
-        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-          <xsl:text> *(Experimental)*</xsl:text>
-        </xsl:if>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:call-template name="experimental-deprecated" />
     <xsl:text>&#xA;**Type:** </xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@UnderlyingType" />
@@ -406,15 +414,11 @@
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text">
         <xsl:value-of select="edm:PropertyValue[@Property='Value']/@*[local-name()!='Property']" />
-        <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-          <xsl:text> *(Experimental)*</xsl:text>
-        </xsl:if>
       </xsl:with-param>
     </xsl:call-template>
+    <xsl:call-template name="experimental-deprecated" />
     <xsl:text>|</xsl:text>
-    <xsl:call-template name="descriptions-in-table">
-      <xsl:with-param name="node" select="." />
-    </xsl:call-template>
+    <xsl:call-template name="descriptions-in-table" />
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
