@@ -35,6 +35,7 @@ Term|Type|Description
 [Ordered](Org.OData.Core.V1.xml#L310)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
 [PositionalInsert](Org.OData.Core.V1.xml#L315)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
 [AlternateKeys](Org.OData.Core.V1.xml#L321)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
+[OptionalParameter](Org.OData.Core.V1.xml#L346)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L75)
 
@@ -124,3 +125,10 @@ Property|Type|Description
 A dictionary of name-value pairs
 
 Names must be simple identifiers, values may be restricted via an annotation with term Validation.OpenPropertyTypeConstraint
+
+## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L351)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[DefaultValue](Org.OData.Core.V1.xml#L352)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
