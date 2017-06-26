@@ -4,6 +4,9 @@
 >
   <!--
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
+
+    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/Vocab-to-MarkDown.xsl
+    
   -->
 
   <xsl:output method="text" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />

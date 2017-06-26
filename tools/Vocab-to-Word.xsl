@@ -4,6 +4,9 @@
 >
   <!--
     This style sheet transforms OData 4.0 XML vocabulary documents into Word documents
+    
+    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/Vocab-to-Word.xsl
+    
   -->
   <xsl:output method="xml" indent="yes" />
   <xsl:strip-space elements="*" />
