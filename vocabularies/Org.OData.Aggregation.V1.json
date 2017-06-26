@@ -1,0 +1,299 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "Org.OData.Aggregation.V1": {
+        "$Kind": "Schema",
+        "$Alias": "Aggregation",
+        "@Core.Description": "Terms to describe which data in a given entity model can be aggregated, and how.",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml"
+            }
+        ],
+        "ApplySupported": {
+            "$Kind": "Term",
+            "$Type": "Aggregation.ApplySupportedType",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType",
+                "EntityContainer"
+            ],
+            "@Core.Description": "This structured type or entity container supports the $apply system query option"
+        },
+        "ApplySupportedType": {
+            "$Kind": "ComplexType",
+            "Transformations": {
+                "$Collection": true,
+                "$Type": "Edm.String",
+                "$Nullable": false,
+                "@Core.Description": "Transformations that can be used in $apply"
+            },
+            "CustomAggregationMethods": {
+                "$Collection": true,
+                "$Type": "Edm.String",
+                "$Nullable": false,
+                "@Core.Description": "Qualified names of custom aggregation methods that can be used in aggregate(...with...)"
+            },
+            "Rollup": {
+                "$DefaultValue": "MultipleHierarchies",
+                "$Type": "Aggregation.RollupType",
+                "@Core.Description": "The service supports rollup hierarchies in a groupby transformation"
+            },
+            "PropertyRestrictions": {
+                "$DefaultValue": false,
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation"
+            }
+        },
+        "RollupType": {
+            "$Kind": "EnumType",
+            "None": 0,
+            "None@Core.Description": "No rollup support",
+            "SingleHierarchy": 1,
+            "SingleHierarchy@Core.Description": "Only one rollup operator per groupby",
+            "MultipleHierarchies": 2,
+            "MultipleHierarchies@Core.Description": "Full rollup support",
+            "@Core.Description": "The number of rollup operators allowed in a groupby transformation"
+        },
+        "Groupable": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "Property",
+                "NavigationProperty"
+            ],
+            "$DefaultValue": true,
+            "@Core.Description": "This property can be used in the groupby transformation"
+        },
+        "Aggregatable": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$AppliesTo": [
+                "Property",
+                "NavigationProperty"
+            ],
+            "$DefaultValue": true,
+            "@Core.Description": "This property can be used in the aggregate transformation"
+        },
+        "CustomAggregate": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType",
+                "EntityContainer"
+            ],
+            "@Core.Description": "Dynamic property that can be used in the aggregate transformation",
+            "@Core.LongDescription": "This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated values will be of that type."
+        },
+        "ContextDefiningProperties": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.PropertyPath",
+            "$Nullable": false,
+            "$AppliesTo": [
+                "Property",
+                "Annotation"
+            ],
+            "@Core.Description": "The annotated property or custom aggregate is only well-defined in the context of these properties",
+            "@Core.LongDescription": "The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency."
+        },
+        "LeveledHierarchy": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.PropertyPath",
+            "$Nullable": false,
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType"
+            ],
+            "@Core.Description": "Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy"
+        },
+        "RecursiveHierarchy": {
+            "$Kind": "Term",
+            "$Type": "Aggregation.RecursiveHierarchyType",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType"
+            ],
+            "@Core.Description": "Defines a recursive hierarchy."
+        },
+        "RecursiveHierarchyType": {
+            "$Kind": "ComplexType",
+            "NodeProperty": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": false,
+                "@Core.Description": "Property holding the hierarchy node value"
+            },
+            "ParentNavigationProperty": {
+                "$Type": "Edm.NavigationPropertyPath",
+                "$Nullable": false,
+                "@Core.Description": "Property for navigating to the parent node"
+            },
+            "DistanceFromRootProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property holding the number of edges between the node and the root node"
+            },
+            "IsLeafProperty": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.RequiresType": "Edm.Boolean",
+                "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
+            }
+        },
+        "isroot": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "$Nullable": false
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean"
+                }
+            }
+        ],
+        "isdescendant": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "MaxDistance",
+                        "$Type": "Edm.Int16"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean"
+                }
+            }
+        ],
+        "isancestor": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "MaxDistance",
+                        "$Type": "Edm.Int16"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean"
+                }
+            }
+        ],
+        "issibling": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": false
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean"
+                }
+            }
+        ],
+        "isleaf": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has no descendants",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": false
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "$Nullable": false
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean"
+                }
+            }
+        ],
+        "AvailableOnAggregates": {
+            "$Kind": "Term",
+            "$Type": "Aggregation.AvailableOnAggregatesType",
+            "$AppliesTo": [
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "This action or function is available on aggregated entities if the RequiredProperties are still defined"
+        },
+        "AvailableOnAggregatesType": {
+            "$Kind": "ComplexType",
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": false,
+                "@Core.Description": "Properties required to apply this action or function"
+            }
+        }
+    }
+}

@@ -1,0 +1,445 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml": {
+            "$Include": [
+                {
+                    "$Alias": "Validation",
+                    "$Namespace": "Org.OData.Validation.V1"
+                }
+            ]
+        }
+    },
+    "Org.OData.Core.V1": {
+        "$Kind": "Schema",
+        "$Alias": "Core",
+        "@Core.Description": "Core terms needed to write vocabularies",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml"
+            }
+        ],
+        "ODataVersions": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed."
+        },
+        "SchemaVersion": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Schema",
+                "Reference"
+            ],
+            "@Core.Description": "Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case."
+        },
+        "Revisions": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.RevisionType",
+            "$Nullable": false,
+            "@Core.Description": "List of revisions of a model element"
+        },
+        "RevisionType": {
+            "$Kind": "ComplexType",
+            "Version": {
+                "@Core.Description": "The schema version with which this revision was first published"
+            },
+            "Kind": {
+                "$Type": "Core.RevisionKind",
+                "@Core.Description": "The kind of revision"
+            },
+            "Description": {
+                "@Core.Description": "Text describing the reason for the revision"
+            }
+        },
+        "RevisionKind": {
+            "$Kind": "EnumType",
+            "Added": 0,
+            "Added@Core.Description": "Model element was added",
+            "Modified": 1,
+            "Modified@Core.Description": "Model element was modified",
+            "Deprecated": 2,
+            "Deprecated@Core.Description": "Model element was deprecated"
+        },
+        "Description": {
+            "$Kind": "Term",
+            "@Core.Description": "A brief description of a model element",
+            "@Core.IsLanguageDependent": true
+        },
+        "LongDescription": {
+            "$Kind": "Term",
+            "@Core.Description": "A lengthy description of a model element",
+            "@Core.IsLanguageDependent": true
+        },
+        "Links": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.Link",
+            "$Nullable": false,
+            "@Core.Description": "Link to related information"
+        },
+        "Link": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7) and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)",
+            "rel": {
+                "$Nullable": false,
+                "@Core.Description": "Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)"
+            },
+            "href": {
+                "$Nullable": false,
+                "@Core.IsURL": true,
+                "@Core.Description": "URL of related information"
+            }
+        },
+        "Messages": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.MessageType",
+            "$Nullable": false,
+            "@Core.Description": "Instance annotation for warning and info messages"
+        },
+        "MessageType": {
+            "$Kind": "ComplexType",
+            "code": {
+                "$Nullable": false,
+                "@Core.Description": "Machine-readable, language-independent message code"
+            },
+            "message": {
+                "$Nullable": false,
+                "@Core.Description": "Human-readable, language-dependent message text",
+                "@Core.IsLanguageDependent": true
+            },
+            "severity": {
+                "$Type": "Core.MessageSeverity",
+                "$Nullable": false,
+                "@Core.Description": "Severity of the message"
+            },
+            "target": {
+                "@Core.Description": "A path to the target of the message detail, relative to the annotated instance"
+            },
+            "details": {
+                "$Collection": true,
+                "$Type": "Core.MessageType",
+                "$Nullable": false,
+                "@Core.Description": "List of detail messages"
+            }
+        },
+        "MessageSeverity": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "success",
+                    "@Core.Description": "Positive feedback - no action required"
+                },
+                {
+                    "Value": "info",
+                    "@Core.Description": "Additional information - no action required"
+                },
+                {
+                    "Value": "warning",
+                    "@Core.Description": "Warning - action may be required"
+                },
+                {
+                    "Value": "error",
+                    "@Core.Description": "Error - action is required"
+                }
+            ]
+        },
+        "IsLanguageDependent": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Term",
+                "Property"
+            ],
+            "@Core.Description": "Properties and terms annotated with this term are language-dependent",
+            "@Core.RequiresType": "Edm.String"
+        },
+        "Tag": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.Boolean",
+            "@Core.Description": "This is the type to use for all tagging terms"
+        },
+        "RequiresType": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Term"
+            ],
+            "@Core.Description": "Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name"
+        },
+        "ResourcePath": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntitySet",
+                "Singleton",
+                "ActionImport",
+                "FunctionImport"
+            ],
+            "@Core.Description": "Resource path for entity container child, can be relative to xml:base and the request URL",
+            "@Core.IsURL": true
+        },
+        "DereferenceableIDs": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Entity-ids are URLs that locate the identified entity"
+        },
+        "ConventionalIDs": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Entity-ids follow OData URL conventions"
+        },
+        "Permissions": {
+            "$Kind": "Term",
+            "$Type": "Core.Permission",
+            "$AppliesTo": [
+                "Property",
+                "ComplexType",
+                "TypeDefinition",
+                "EntityType",
+                "EntitySet",
+                "NavigationProperty",
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "Permissions for accessing a resource"
+        },
+        "Permission": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "None": 0,
+            "None@Core.Description": "No permissions",
+            "Read": 1,
+            "Read@Core.Description": "Read permission",
+            "Write": 2,
+            "Write@Core.Description": "Write permission",
+            "ReadWrite": 3,
+            "ReadWrite@Core.Description": "Read and write permission",
+            "Invoke": 4,
+            "Invoke@Core.Description": "Permission to invoke actions"
+        },
+        "ContentID": {
+            "$Kind": "Term",
+            "@Core.Description": "A unique identifier for nested entities within a request."
+        },
+        "DefaultNamespace": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Schema",
+                "Include"
+            ],
+            "@Core.Description": "Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.",
+            "@Core.LongDescription": "Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type."
+        },
+        "Immutable": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "A value for this non-key property can be provided on insert and remains unchanged on update"
+        },
+        "Computed": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "A value for this property is generated on both insert and update"
+        },
+        "ComputedDefaultValue": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "A value for this property is can be provided on insert and update. If no value is provided on insert, a non-static default value is generated"
+        },
+        "IsURL": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "Term"
+            ],
+            "@Core.Description": "Properties and terms annotated with this term MUST contain a valid URL",
+            "@Core.RequiresType": "Edm.String"
+        },
+        "AcceptableMediaTypes": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.String",
+            "$Nullable": false,
+            "$AppliesTo": [
+                "EntityType",
+                "Property"
+            ],
+            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated stream property",
+            "@Core.IsMediaType": true
+        },
+        "MediaType": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "The media type of a binary resource",
+            "@Core.IsMediaType": true,
+            "@Core.RequiresType": "Edm.Binary"
+        },
+        "IsMediaType": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "Term"
+            ],
+            "@Core.Description": "Properties and terms annotated with this term MUST contain a valid MIME type",
+            "@Core.RequiresType": "Edm.String"
+        },
+        "OptimisticConcurrency": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.PropertyPath",
+            "$Nullable": false,
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag."
+        },
+        "AdditionalProperties": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType"
+            ],
+            "@Core.Description": "Instances of this type may contain properties in addition to those declared in $metadata",
+            "@Core.LongDescription": "If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute."
+        },
+        "AutoExpand": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Core.Description": "The service will automatically expand this navigation property even if not requested with $expand"
+        },
+        "AutoExpandReferences": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Core.Description": "The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref"
+        },
+        "MayImplement": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.QualifiedTypeName",
+            "$Nullable": false,
+            "@Core.Description": "A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type segment."
+        },
+        "QualifiedTypeName": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of a type in scope."
+        },
+        "Ordered": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "NavigationProperty",
+                "EntitySet",
+                "ReturnType"
+            ],
+            "@Core.Description": "Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal."
+        },
+        "PositionalInsert": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property",
+                "NavigationProperty",
+                "EntitySet"
+            ],
+            "@Core.Description": "Items can be inserted at a given ordinal index."
+        },
+        "AlternateKeys": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "EntityType",
+                "EntitySet",
+                "NavigationProperty"
+            ],
+            "$Collection": true,
+            "$Type": "Core.AlternateKey",
+            "$Nullable": false,
+            "@Core.Description": "Communicates available alternate keys"
+        },
+        "AlternateKey": {
+            "$Kind": "ComplexType",
+            "Key": {
+                "$Collection": true,
+                "$Type": "Core.PropertyRef",
+                "$Nullable": false,
+                "@Core.Description": "The set of properties that make up this key"
+            }
+        },
+        "PropertyRef": {
+            "$Kind": "ComplexType",
+            "Name": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes."
+            },
+            "Alias": {
+                "@Core.Description": "A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs"
+            }
+        },
+        "Dictionary": {
+            "$Kind": "ComplexType",
+            "$OpenType": true,
+            "@Core.Description": "A dictionary of name-value pairs",
+            "@Core.LongDescription": "Names must be simple identifiers, values may be restricted via an annotation with term Validation.OpenPropertyTypeConstraint"
+        },
+        "OptionalParameter": {
+            "$Kind": "Term",
+            "$Type": "Core.OptionalParameterType",
+            "$AppliesTo": [
+                "Parameter"
+            ],
+            "@Core.Description": "Supplying a value for the parameter is optional.",
+            "@Core.LongDescription": "All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional."
+        },
+        "OptionalParameterType": {
+            "$Kind": "ComplexType",
+            "DefaultValue": {
+                "@Core.Description": "Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs."
+            }
+        }
+    }
+}

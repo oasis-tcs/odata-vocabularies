@@ -1,0 +1,135 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml": {
+            "$Include": [
+                {
+                    "$Alias": "Core",
+                    "$Namespace": "Org.OData.Core.V1"
+                }
+            ]
+        }
+    },
+    "Org.OData.Validation.V1": {
+        "$Kind": "Schema",
+        "$Alias": "Validation",
+        "@Core.Description": "Terms describing validation rules",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml"
+            }
+        ],
+        "Pattern": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property",
+                "Parameter",
+                "Term"
+            ],
+            "@Core.Description": "The pattern that a string property, parameter, or term must match. This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect.",
+            "@Core.RequiresType": "Edm.String"
+        },
+        "Minimum": {
+            "$Kind": "Term",
+            "$Type": "Edm.Decimal",
+            "$AppliesTo": [
+                "Property",
+                "Parameter",
+                "Term"
+            ],
+            "@Core.Description": "Minimum value that a property, parameter, or term can have."
+        },
+        "Maximum": {
+            "$Kind": "Term",
+            "$Type": "Edm.Decimal",
+            "$AppliesTo": [
+                "Property",
+                "Parameter",
+                "Term"
+            ],
+            "@Core.Description": "Maximum value that a property, parameter, or term can have."
+        },
+        "Exclusive": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Annotation"
+            ],
+            "@Core.Description": "Tags a Minimum or Maximum as exclusive, i.e. an open interval boundary."
+        },
+        "AllowedValues": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Validation.AllowedValue",
+            "$AppliesTo": [
+                "Property",
+                "Parameter",
+                "TypeDefinition"
+            ],
+            "@Core.Description": "A collection of valid values for the annotated property, parameter, or type definition"
+        },
+        "AllowedValue": {
+            "$Kind": "ComplexType",
+            "Value": {
+                "$Type": "Edm.PrimitiveType",
+                "@Core.Description": "An allowed value for the property, parameter, or type definition"
+            }
+        },
+        "MultipleOf": {
+            "$Kind": "Term",
+            "$Type": "Edm.Decimal",
+            "$AppliesTo": [
+                "Property",
+                "Parameter",
+                "Term"
+            ],
+            "@Core.Description": "The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds."
+        },
+        "ItemsOf": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Validation.ItemsOfType",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType"
+            ],
+            "@Core.Description": "A list of constraints describing that entities related via one navigation property MUST also be related via another, collection-valued navigation property. The same `path` value MUST NOT occur more than once.",
+            "@Core.LongDescription": "Example: entity type `Customer` has navigation properties `AllOrders`, `OpenOrders`, and `ClosedOrders`. \nThe term allows to express that items of `OpenOrders` and `ClosedOrders` are also items of the `AllOrders` navigation property,\neven though they are defined in an `Orders` entity set."
+        },
+        "ItemsOfType": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`.",
+            "path": {
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "A path to a single- or collection-valued navigation property"
+            },
+            "target": {
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "A path to a or collection-valued navigation property"
+            }
+        },
+        "OpenPropertyTypeConstraint": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.QualifiedTypeName",
+            "$AppliesTo": [
+                "ComplexType",
+                "EntityType"
+            ],
+            "@Core.Description": "Dynamic properties added to the annotated open structured type are restricted to the listed types"
+        },
+        "DerivedTypeConstraint": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.QualifiedTypeName",
+            "$AppliesTo": [
+                "Property",
+                "TypeDefinition"
+            ],
+            "@Core.Description": "Values are restricted to types derived from the declared type and listed in this collection",
+            "@Core.LongDescription": "Types listed in this collection that are not derived form the declared type of the annotated model element are ignored"
+        }
+    }
+}

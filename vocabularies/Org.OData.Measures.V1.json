@@ -1,0 +1,47 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml": {
+            "$Include": [
+                {
+                    "$Alias": "Core",
+                    "$Namespace": "Org.OData.Core.V1"
+                }
+            ]
+        }
+    },
+    "Org.OData.Measures.V1": {
+        "$Kind": "Schema",
+        "$Alias": "Measures",
+        "@Core.Description": "Terms describing monetary amounts and measured quantities",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml"
+            }
+        ],
+        "ISOCurrency": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "The currency for this monetary amount as an ISO 4217 currency code"
+        },
+        "Scale": {
+            "$Kind": "Term",
+            "$Type": "Edm.Byte",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "The number of significant decimal places in the scale part (less than or equal to the number declared in the Scale facet)",
+            "@Core.RequiresType": "Edm.Decimal"
+        },
+        "Unit": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "The unit of measure for this measured quantity, e.g. cm for centimeters or % for percentages"
+        }
+    }
+}

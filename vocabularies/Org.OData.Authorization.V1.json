@@ -1,0 +1,151 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "Org.OData.Authorization.V1": {
+        "$Kind": "Schema",
+        "$Alias": "Auth",
+        "@Core.Description": "The Authorization Vocabulary provides terms for describing a web authorization flow",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml"
+            }
+        ],
+        "Authorizations": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Auth.Authorization",
+            "$AppliesTo": [
+                "EntityContainer",
+                "EntitySet",
+                "Singleton",
+                "NavigationProperty",
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "Lists the methods available to authorize access to the annotated resource"
+        },
+        "Authorization": {
+            "$Kind": "ComplexType",
+            "$Abstract": true,
+            "@Core.Description": "Base type for all Authorization types",
+            "Description": {
+                "@Core.Description": "Description of the authorization method"
+            }
+        },
+        "OpenIDConnect": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.Authorization",
+            "IssuerUrl": {
+                "$Nullable": false,
+                "@Core.Description": "Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.",
+                "@Core.IsURL": true
+            }
+        },
+        "Http": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.Authorization",
+            "Scheme": {
+                "$Nullable": false,
+                "@Core.Description": "HTTP Authorization scheme to be used in the Authorization header, as per RFC7235"
+            },
+            "BearerFormat": {
+                "@Core.Description": "Format of the bearer token"
+            }
+        },
+        "OAuthAuthorization": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.Authorization",
+            "$Abstract": true,
+            "Scopes": {
+                "$Collection": true,
+                "$Type": "Auth.AuthorizationScope",
+                "@Core.Description": "Available scopes"
+            },
+            "RefreshUrl": {
+                "@Core.Description": "Refresh Url",
+                "@Core.IsURL": true
+            }
+        },
+        "OAuth2ClientCredentials": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.OAuthAuthorization",
+            "TokenUrl": {
+                "$Nullable": false,
+                "@Core.Description": "Token Url",
+                "@Core.IsURL": true
+            }
+        },
+        "OAuth2Implicit": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.OAuthAuthorization",
+            "AuthorizationUrl": {
+                "$Nullable": false,
+                "@Core.Description": "Authorization URL",
+                "@Core.IsURL": true
+            }
+        },
+        "OAuth2Password": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.OAuthAuthorization",
+            "TokenUrl": {
+                "$Nullable": false,
+                "@Core.Description": "Token Url",
+                "@Core.IsURL": true
+            }
+        },
+        "OAuth2AuthCode": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.OAuthAuthorization",
+            "AuthorizationUrl": {
+                "$Nullable": false,
+                "@Core.Description": "Authorization URL",
+                "@Core.IsURL": true
+            },
+            "TokenUrl": {
+                "$Nullable": false,
+                "@Core.Description": "Token Url",
+                "@Core.IsURL": true
+            }
+        },
+        "AuthorizationScope": {
+            "$Kind": "ComplexType",
+            "Scope": {
+                "$Nullable": false,
+                "@Core.Description": "Scope name"
+            },
+            "Description": {
+                "@Core.Description": "Description of the scope"
+            }
+        },
+        "ApiKey": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Auth.Authorization",
+            "KeyName": {
+                "$Nullable": false,
+                "@Core.Description": "The name of the header or query parameter"
+            },
+            "Location": {
+                "$Type": "Auth.KeyLocation",
+                "$Nullable": false,
+                "@Core.Description": "Whether the API Key is passed in the header or as a query option"
+            }
+        },
+        "KeyLocation": {
+            "$Kind": "EnumType",
+            "Header": 0,
+            "Header@Core.Description": "API Key is passed in the header",
+            "QueryOption": 1,
+            "QueryOption@Core.Description": "API Key is passed as a query option"
+        }
+    }
+}
