@@ -87,6 +87,28 @@
             ],
             "@Core.Description": "The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds."
         },
+        "Constraint": {
+            "$Kind": "Term",
+            "$Type": "Validation.ConstraintType",
+            "$AppliesTo": [
+                "Property",
+                "EntityType",
+                "ComplexType"
+            ],
+            "@Core.Description": "Condition that the annotation target has to fulfill"
+        },
+        "ConstraintType": {
+            "$Kind": "ComplexType",
+            "FailureMessage": {
+                "@Core.IsLanguageDependent": true,
+                "@Core.Description": "Human-readable message that can be shown to end users if the constraint is not fulfilled"
+            },
+            "Condition": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": false,
+                "@Core.Description": "Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled"
+            }
+        },
         "ItemsOf": {
             "$Kind": "Term",
             "$Collection": true,
