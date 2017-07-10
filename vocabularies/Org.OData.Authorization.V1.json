@@ -20,6 +20,10 @@
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json"
             },
             {
+                "rel": "alternate",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml"
+            },
+            {
                 "rel": "describedby",
                 "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Authorization.V1.md"
             }

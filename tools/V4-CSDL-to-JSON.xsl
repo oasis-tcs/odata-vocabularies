@@ -33,8 +33,12 @@
 
   <xsl:template match="edmx:Reference" mode="hashpair">
     <xsl:text>"</xsl:text>
-    <xsl:call-template name="json-url">
-      <xsl:with-param name="url" select="@Uri" />
+    <xsl:call-template name="escape">
+      <xsl:with-param name="string">
+        <xsl:call-template name="json-url">
+          <xsl:with-param name="url" select="@Uri" />
+        </xsl:call-template>
+      </xsl:with-param>
     </xsl:call-template>
     <xsl:text>":{</xsl:text>
     <xsl:apply-templates select="edm:Annotation" mode="list" />
@@ -497,9 +501,29 @@
   <!-- escaped string value -->
   <xsl:template match="@String|edm:String">
     <xsl:text>"</xsl:text>
-    <xsl:call-template name="escape">
-      <xsl:with-param name="string" select="." />
-    </xsl:call-template>
+    <xsl:choose>
+      <xsl:when
+        test="name(..)='PropertyValue' and ../@Property='href' and (../../edm:PropertyValue[@Property='rel']/@String='latest-version' or ../../edm:PropertyValue[@Property='rel']/edm:String='latest-version') and substring(.,string-length(.)-3) = '.xml'"
+      >
+        <xsl:call-template name="escape">
+          <xsl:with-param name="string" select="substring(.,1,string-length(.)-3)" />
+        </xsl:call-template>
+        <xsl:text>json</xsl:text>
+      </xsl:when>
+      <xsl:when
+        test="name(..)='PropertyValue' and ../@Property='href' and (../../edm:PropertyValue[@Property='rel']/@String='alternate' or ../../edm:PropertyValue[@Property='rel']/edm:String='alternate') and substring(.,string-length(.)-4) = '.json'"
+      >
+        <xsl:call-template name="escape">
+          <xsl:with-param name="string" select="substring(.,1,string-length(.)-4)" />
+        </xsl:call-template>
+        <xsl:text>xml</xsl:text>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:call-template name="escape">
+          <xsl:with-param name="string" select="." />
+        </xsl:call-template>
+      </xsl:otherwise>
+    </xsl:choose>
     <xsl:text>"</xsl:text>
   </xsl:template>
 
