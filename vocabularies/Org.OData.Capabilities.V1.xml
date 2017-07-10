@@ -242,6 +242,16 @@ supported:
         <Property Name="Navigability" Type="Capabilities.NavigationType">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated to this level" />
         </Property>
+        <Property Name="FilterFunctions" Type="Collection(Edm.String)">
+          <Annotation Term="Core.Description"
+            String="List of functions and operators supported in $filter. If null, all functions and operators may be attempted." />
+        </Property>
+        <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on $filter expressions" />
+        </Property>
+        <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on $orderby expressions" />
+        </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
         <Member Name="Recursive">
@@ -310,7 +320,7 @@ supported:
           <Annotation Term="Core.Description"
             String="These properties must be specified in the $filter clause (properties of derived types are not allowed here)" />
         </Property>
-        <Property Name="NonFilterableProperties" Type="Collection(Edm.AnyPropertyPath)" Nullable="false">
+        <Property Name="NonFilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural or navigation properties cannot be used in $filter expressions" />
         </Property>
         <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)"
@@ -368,7 +378,7 @@ supported:
         <Property Name="DescendingOnlyProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties can only be used for sorting in Descending order" />
         </Property>
-        <Property Name="NonSortableProperties" Type="Collection(Edm.AnyPropertyPath)" Nullable="false">
+        <Property Name="NonSortableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural or navigation properties cannot be used in $orderby expressions" />
         </Property>
       </ComplexType>

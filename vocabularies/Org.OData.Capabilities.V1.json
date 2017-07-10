@@ -252,6 +252,19 @@
             "Navigability": {
                 "$Type": "Capabilities.NavigationType",
                 "@Core.Description": "Navigation properties can be navigated to this level"
+            },
+            "FilterFunctions": {
+                "$Collection": true,
+                "$Type": "Edm.String",
+                "@Core.Description": "List of functions and operators supported in $filter. If null, all functions and operators may be attempted."
+            },
+            "FilterRestrictions": {
+                "$Type": "Capabilities.FilterRestrictionsType",
+                "@Core.Description": "Restrictions on $filter expressions"
+            },
+            "SortRestrictions": {
+                "$Type": "Capabilities.SortRestrictionsType",
+                "@Core.Description": "Restrictions on $orderby expressions"
             }
         },
         "NavigationType": {
@@ -374,7 +387,7 @@
             },
             "NonFilterableProperties": {
                 "$Collection": true,
-                "$Type": "Edm.AnyPropertyPath",
+                "$Type": "Edm.PropertyPath",
                 "$Nullable": false,
                 "@Core.Description": "These structural or navigation properties cannot be used in $filter expressions"
             },
@@ -453,7 +466,7 @@
             },
             "NonSortableProperties": {
                 "$Collection": true,
-                "$Type": "Edm.AnyPropertyPath",
+                "$Type": "Edm.PropertyPath",
                 "$Nullable": false,
                 "@Core.Description": "These structural or navigation properties cannot be used in $orderby expressions"
             }
