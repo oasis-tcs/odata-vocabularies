@@ -174,7 +174,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": false
                 }
             }
         ],
@@ -204,7 +205,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": false
                 }
             }
         ],
@@ -234,7 +236,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": false
                 }
             }
         ],
@@ -260,7 +263,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": false
                 }
             }
         ],
@@ -281,7 +285,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": false
                 }
             }
         ],
