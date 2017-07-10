@@ -15,18 +15,36 @@ set YAJL_REFORMAT=c:\git\yajl\build\yajl-2.1.1\bin\json_reformat.exe
 set done=false
 
 for %%F in (..\vocabularies\*.xml) do (
-  echo %%~nF
-  java.exe org.apache.xalan.xslt.Process -XSL Vocab-to-MarkDown.xsl -L -IN %%F -OUT ..\vocabularies\%%~nF.md
-  git.exe --no-pager diff ..\vocabularies\%%~nF.md
-  
-  java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-normalize-Target.xsl -L -IN %%F -OUT %%~nF.normalized.xml
-  java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-to-JSON.xsl -L -IN %%~nF.normalized.xml -OUT %%~nF.json
-  %YAJL_REFORMAT% < %%~nF.json > ..\vocabularies\%%~nF.json
-  if not errorlevel 1 (
-    del %%~nF.normalized.xml %%~nF.json
-    git.exe --no-pager diff ..\vocabularies\%%~nF.json  
-  )
+	if /I [%~n1]==[%%~nF] (
+	  set done=true
+		call :process %%F
+	) else if /I [Org.OData.%1.V1]==[%%~nF] (
+	  set done=true
+		call :process %%F
+	) else if [%1]==[] (
+	  set done=true
+		call :process %%F
+	)
 )
 
+if %done%==false echo Don't know how to %~n0 %1
+
 endlocal
+exit /b
+
+
+:process
+  echo %~n1
+  
+  java.exe org.apache.xalan.xslt.Process -XSL Vocab-to-MarkDown.xsl -L -IN %1 -OUT ..\vocabularies\%~n1.md
+  git.exe --no-pager diff ..\vocabularies\%~n1.md
+  
+  java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-normalize-Target.xsl -L -IN %1 -OUT %~n1.normalized.xml
+  java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-to-JSON.xsl -L -IN %~n1.normalized.xml -OUT %~n1.json
+  %YAJL_REFORMAT% < %~n1.json > ..\vocabularies\%~n1.json
+  if not errorlevel 1 (
+    del %~n1.normalized.xml %~n1.json
+    git.exe --no-pager diff ..\vocabularies\%~n1.json  
+  )
+
 exit /b

@@ -1,7 +1,7 @@
 {
     "$Version": "4.0",
     "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
                     "$Namespace": "Org.OData.Core.V1",
@@ -18,6 +18,10 @@
             {
                 "rel": "latest-version",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md"
             }
         ],
         "TemporalSupported": {

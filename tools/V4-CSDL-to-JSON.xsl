@@ -6,7 +6,7 @@
     This style sheet transforms OData 4.0 CSDL XML documents into CSDL JSON
 
     Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/V4-CSDL-to-JSON.xsl
-    
+
     TODO:
     - $DefaultValue depending on @Type and IEEE754Compatible
     - Parameter for IEEE754Compatible
@@ -582,7 +582,9 @@
     <xsl:text>]</xsl:text>
   </xsl:template>
 
-  <xsl:template match="edm:If|edm:Eq|edm:Ne|edm:Ge|edm:Gt|edm:Le|edm:Lt|edm:And|edm:Or|edm:Has|edm:In|edm:Add|edm:Sub|edm:Mul|edm:Div|edm:DivBy|edm:Mod">
+  <xsl:template
+    match="edm:If|edm:Eq|edm:Ne|edm:Ge|edm:Gt|edm:Le|edm:Lt|edm:And|edm:Or|edm:Has|edm:In|edm:Add|edm:Sub|edm:Mul|edm:Div|edm:DivBy|edm:Mod"
+  >
     <xsl:text>{"$</xsl:text>
     <xsl:value-of select="local-name()" />
     <xsl:text>":[</xsl:text>
@@ -863,15 +865,11 @@
   <xsl:template name="json-url">
     <xsl:param name="url" />
     <xsl:choose>
-      <xsl:when test="substring($url,1,33) = 'http://docs.oasis-open.org/odata/'">
-        <xsl:text>http://docs.oasis-open.org/odata/odata-vocabularies/v4.0/vocabularies/</xsl:text>
-        <xsl:variable name="filename">
-          <xsl:call-template name="substring-after-last">
-            <xsl:with-param name="input" select="$url" />
-            <xsl:with-param name="marker" select="'/'" />
-          </xsl:call-template>
-        </xsl:variable>
-        <xsl:value-of select="substring($filename,1,string-length($filename)-4)" />
+      <xsl:when test="substring($url,1,60) = 'https://oasis-tcs.github.io/odata-vocabularies/vocabularies/'">
+        <xsl:call-template name="substring-before-last">
+          <xsl:with-param name="input" select="$url" />
+          <xsl:with-param name="marker" select="'.'" />
+        </xsl:call-template>
         <xsl:value-of select="'.json'" />
       </xsl:when>
       <xsl:otherwise>

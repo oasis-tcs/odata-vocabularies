@@ -54,6 +54,11 @@
             <PropertyValue Property="href"
               String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml" />
           </Record>
+          <Record>
+            <PropertyValue Property="rel" String="describedby" />
+            <PropertyValue Property="href"
+              String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Validation.V1.md" />
+          </Record>
         </Collection>
       </Annotation>
 
