@@ -25,7 +25,7 @@
         "@Core.Links": [
             {
                 "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml"
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json"
             },
             {
                 "rel": "describedby",
