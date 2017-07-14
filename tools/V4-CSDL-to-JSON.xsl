@@ -8,16 +8,15 @@
     Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/V4-CSDL-to-JSON.xsl
 
     TODO:
-    - $DefaultValue depending on @Type and IEEE754Compatible
-    - Parameter for IEEE754Compatible
-    - - $Decimal as string or number
-    - - $Int as string or number
+    - $DefaultValue depending on @Type and $safe-numbers (IEEE754Compatible)
+
   -->
 
   <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes" />
 
-  <xsl:key name="methods" match="//edm:Action|//edm:Function" use="concat(../@Namespace,'.',@Name)" />
+  <xsl:param name="safe-numbers" select="true()" />
 
+  <xsl:key name="methods" match="//edm:Action|//edm:Function" use="concat(../@Namespace,'.',@Name)" />
   <xsl:key name="targets" match="//edm:Annotations" use="concat(../@Namespace,'/',@Target)" />
 
   <xsl:template match="edmx:Edmx">
@@ -460,14 +459,22 @@
     <xsl:value-of select="." />
   </xsl:template>
 
-  <xsl:template match="@Int|edm:Int">
-    <xsl:text>{"$Int":"</xsl:text>
+  <xsl:template match="@Decimal|edm:Decimal|@Int|edm:Int">
+    <xsl:text>{"$</xsl:text>
+    <xsl:value-of select="local-name()" />
+    <xsl:text>":</xsl:text>
+    <xsl:if test="$safe-numbers or .='INF' or .='-INF' or .='NaN'">
+      <xsl:text>"</xsl:text>
+    </xsl:if>
     <xsl:value-of select="." />
-    <xsl:text>"}</xsl:text>
+    <xsl:if test="$safe-numbers or .='INF' or .='-INF' or .='NaN'">
+      <xsl:text>"</xsl:text>
+    </xsl:if>
+    <xsl:text>}</xsl:text>
   </xsl:template>
 
   <xsl:template
-    match="@Binary|edm:Binary|@Date|edm:Date|@DateTimeOffset|edm:DateTimeOffset|@Decimal|edm:Decimal|@Duration|edm:Duration|@Guid|edm:Guid|@TimeOfDay|edm:TimeOfDay"
+    match="@Binary|edm:Binary|@Date|edm:Date|@DateTimeOffset|edm:DateTimeOffset|@Duration|edm:Duration|@Guid|edm:Guid|@TimeOfDay|edm:TimeOfDay"
   >
     <xsl:text>{"$</xsl:text>
     <xsl:value-of select="local-name()" />

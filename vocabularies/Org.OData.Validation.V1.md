@@ -37,4 +37,4 @@ Entities related via the single- or collection-valued navigation property identi
 Property|Type|Description
 :-------|:---|:----------
 [path](Org.OData.Validation.V1.xml#L128)|NavigationPropertyPath|A path to a single- or collection-valued navigation property
-[target](Org.OData.Validation.V1.xml#L131)|NavigationPropertyPath|A path to a or collection-valued navigation property
+[target](Org.OData.Validation.V1.xml#L131)|NavigationPropertyPath|A path to a collection-valued navigation property

@@ -129,7 +129,7 @@ even though they are defined in an `Orders` entity set.</String>
           <Annotation Term="Core.Description" String="A path to a single- or collection-valued navigation property" />
         </Property>
         <Property Name="target" Type="Edm.NavigationPropertyPath">
-          <Annotation Term="Core.Description" String="A path to a or collection-valued navigation property" />
+          <Annotation Term="Core.Description" String="A path to a collection-valued navigation property" />
         </Property>
       </ComplexType>
 

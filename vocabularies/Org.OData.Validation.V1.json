@@ -137,7 +137,7 @@
             },
             "target": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "A path to a or collection-valued navigation property"
+                "@Core.Description": "A path to a collection-valued navigation property"
             }
         },
         "OpenPropertyTypeConstraint": {
