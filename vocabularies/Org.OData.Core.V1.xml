@@ -365,6 +365,12 @@
         </Property>
       </ComplexType>
 
+      <Term Name="OperationAvailable" Type="Edm.Boolean" DefaultValue="true" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="Action or function is available" />
+        <Annotation Term="Core.LongDescription"
+          String="The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

@@ -448,6 +448,17 @@
             "DefaultValue": {
                 "@Core.Description": "Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs."
             }
+        },
+        "OperationAvailable": {
+            "$Kind": "Term",
+            "$Type": "Edm.Boolean",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "Action or function is available",
+            "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability."
         }
     }
 }
