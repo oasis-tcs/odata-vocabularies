@@ -226,7 +226,8 @@
             "$Type": "Capabilities.NavigationRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Collection"
+                "Collection",
+                "EntityType"
             ],
             "@Core.Description": "Restrictions on navigating properties according to OData URL conventions"
         },
@@ -476,7 +477,8 @@
             "$Type": "Capabilities.ExpandRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Collection"
+                "Collection",
+                "EntityType"
             ],
             "@Core.Description": "Restrictions on $expand expressions"
         },
@@ -593,7 +595,8 @@
             "$Type": "Capabilities.UpdateRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Collection"
+                "Collection",
+                "EntityType"
             ],
             "@Core.Description": "Restrictions on update operations"
         },
@@ -621,7 +624,8 @@
             "$Type": "Capabilities.DeleteRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Collection"
+                "Collection",
+                "EntityType"
             ],
             "@Core.Description": "Restrictions on delete operations"
         },

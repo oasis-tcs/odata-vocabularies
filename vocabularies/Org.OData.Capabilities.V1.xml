@@ -224,7 +224,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet Collection EntityType">
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
@@ -383,7 +383,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet Collection EntityType">
         <Annotation Term="Core.Description" String="Restrictions on $expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
@@ -450,7 +450,8 @@ supported:
       </ComplexType>
 
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet Collection">
-        <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
+        <Annotation Term="Core.Description"
+          String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepInsertSupportType">
         <Property Name="Supported" Type="Edm.Boolean" DefaultValue="true">
@@ -462,7 +463,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Collection EntityType">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
@@ -478,7 +479,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Collection EntityType">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
