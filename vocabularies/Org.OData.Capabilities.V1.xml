@@ -449,16 +449,16 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Deep Insert Support for the service" />
+      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepInsertSupportType">
         <Property Name="Supported" Type="Edm.Boolean" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Service supports deep inserts" />
+          <Annotation Term="Core.Description" String="Annotation target supports deep inserts" />
         </Property>
         <Property Name="ContentIDSupported" Type="Edm.Boolean" DefaultValue="true">
           <Annotation Term="Core.Description"
-            String="Service supports accepting and returning nested entities annotated with the contentID instance annotation." />
+            String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
       </ComplexType>
 

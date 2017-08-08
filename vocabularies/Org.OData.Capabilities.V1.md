@@ -67,7 +67,7 @@ Term|Type|Description
 [ExpandRestrictions](Org.OData.Capabilities.V1.xml#L386)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions
 [SearchRestrictions](Org.OData.Capabilities.V1.xml#L402)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions
 [InsertRestrictions](Org.OData.Capabilities.V1.xml#L436)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
-[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L452)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support for the service
+[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L452)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
 [UpdateRestrictions](Org.OData.Capabilities.V1.xml#L465)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
 [DeleteRestrictions](Org.OData.Capabilities.V1.xml#L481)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
 
@@ -244,8 +244,8 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Supported](Org.OData.Capabilities.V1.xml#L456)|Boolean|Service supports deep inserts
-[ContentIDSupported](Org.OData.Capabilities.V1.xml#L459)|Boolean|Service supports accepting and returning nested entities annotated with the contentID instance annotation.
+[Supported](Org.OData.Capabilities.V1.xml#L456)|Boolean|Annotation target supports deep inserts
+[ContentIDSupported](Org.OData.Capabilities.V1.xml#L459)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
 
 ## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L468)
 

@@ -569,21 +569,23 @@
             "$Kind": "Term",
             "$Type": "Capabilities.DeepInsertSupportType",
             "$AppliesTo": [
-                "EntityContainer"
+                "EntityContainer",
+                "EntitySet",
+                "Collection"
             ],
-            "@Core.Description": "Deep Insert Support for the service"
+            "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
         },
         "DeepInsertSupportType": {
             "$Kind": "ComplexType",
             "Supported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Service supports deep inserts"
+                "@Core.Description": "Annotation target supports deep inserts"
             },
             "ContentIDSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Service supports accepting and returning nested entities annotated with the contentID instance annotation."
+                "@Core.Description": "Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation."
             }
         },
         "UpdateRestrictions": {
