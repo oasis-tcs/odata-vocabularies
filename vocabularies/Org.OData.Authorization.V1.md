@@ -5,7 +5,7 @@ The Authorization Vocabulary provides terms for describing a web authorization f
 
 Term|Type|Description
 :---|:---|:----------
-[Authorizations](Org.OData.Authorization.V1.xml#L68)|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods available to authorize access to the annotated resource
+[Authorizations](Org.OData.Authorization.V1.xml#L68)|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods available to authorize access to the annotated resource<p>*Applies to: EntityContainer, EntitySet, Singleton, NavigationProperty, Action, Function*</p>
 
 ## <a name="Authorization"></a>[*Authorization*](Org.OData.Authorization.V1.xml#L72)
 Base type for all Authorization types

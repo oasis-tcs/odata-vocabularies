@@ -5,11 +5,11 @@ Terms to describe which data in a given entity model is time-dependent, and in w
 
 Term|Type|Description
 :---|:---|:----------
-[TemporalSupported](Org.OData.Temporal.V1.xml#L73)|[TemporalSupportedType](#TemporalSupportedType)|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option
-[From](Org.OData.Temporal.V1.xml#L110)|PrimitiveType|<a name="From"></a>
-[To](Org.OData.Temporal.V1.xml#L115)|PrimitiveType|<a name="To"></a>
-[SystemFrom](Org.OData.Temporal.V1.xml#L120)|PrimitiveType|<a name="SystemFrom"></a>
-[SystemTo](Org.OData.Temporal.V1.xml#L125)|PrimitiveType|<a name="SystemTo"></a>
+[TemporalSupported](Org.OData.Temporal.V1.xml#L73)|[TemporalSupportedType](#TemporalSupportedType)|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option<p>*Applies to: EntityContainer, EntitySet, NavigationProperty*</p>
+[From](Org.OData.Temporal.V1.xml#L110)|PrimitiveType|<a name="From"></a><p>*Applies to: EntityType*</p>
+[To](Org.OData.Temporal.V1.xml#L115)|PrimitiveType|<a name="To"></a><p>*Applies to: EntityType*</p>
+[SystemFrom](Org.OData.Temporal.V1.xml#L120)|PrimitiveType|<a name="SystemFrom"></a><p>*Applies to: EntityType*</p>
+[SystemTo](Org.OData.Temporal.V1.xml#L125)|PrimitiveType|<a name="SystemTo"></a><p>*Applies to: EntityType*</p>
 
 ## <a name="TemporalSupportedType"></a>[TemporalSupportedType](Org.OData.Temporal.V1.xml#L79)
 

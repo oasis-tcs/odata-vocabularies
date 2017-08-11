@@ -44,32 +44,34 @@ supported:
 
 Term|Type|Description
 :---|:---|:----------
-[ConformanceLevel](Org.OData.Capabilities.V1.xml#L115)|[ConformanceLevelType](#ConformanceLevelType)|<a name="ConformanceLevel"></a>The conformance level achieved by this service
-[SupportedFormats](Org.OData.Capabilities.V1.xml#L132)|\[MediaType\]|<a name="SupportedFormats"></a>Media types of supported formats, including format parameters
-[SupportedMetadataFormats](Org.OData.Capabilities.V1.xml#L137)|\[MediaType\]|<a name="SupportedMetadataFormats"></a>Media types of supported formats for $metadata, including format parameters
-[AcceptableEncodings](Org.OData.Capabilities.V1.xml#L142)|\[String\]|<a name="AcceptableEncodings"></a>List of acceptable compression methods for ($batch) requests, e.g. gzip
-[AsynchronousRequestsSupported](Org.OData.Capabilities.V1.xml#L148)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AsynchronousRequestsSupported"></a>Service supports the asynchronous request preference
-[BatchContinueOnErrorSupported](Org.OData.Capabilities.V1.xml#L152)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchContinueOnErrorSupported"></a>Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.
-[IsolationSupported](Org.OData.Capabilities.V1.xml#L157)|[IsolationLevel](#IsolationLevel)|<a name="IsolationSupported"></a>Supported odata.isolation levels
-[CrossJoinSupported](Org.OData.Capabilities.V1.xml#L167)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="CrossJoinSupported"></a>Supports cross joins for the entity sets in this container
-[CallbackSupported](Org.OData.Capabilities.V1.xml#L171)|[CallbackType](#CallbackType)|<a name="CallbackSupported"></a>Supports callbacks for the specified protocols
-[ChangeTracking](Org.OData.Capabilities.V1.xml#L195)|[ChangeTrackingType](#ChangeTrackingType)|<a name="ChangeTracking"></a>Change tracking capabilities of this service or entity set
-[CountRestrictions](Org.OData.Capabilities.V1.xml#L212)|[CountRestrictionsType](#CountRestrictionsType)|<a name="CountRestrictions"></a>Restrictions on /$count path suffix and $count=true system query option
-[NavigationRestrictions](Org.OData.Capabilities.V1.xml#L227)|[NavigationRestrictionsType](#NavigationRestrictionsType)|<a name="NavigationRestrictions"></a>Restrictions on navigating properties according to OData URL conventions
-[IndexableByKey](Org.OData.Capabilities.V1.xml#L268)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="IndexableByKey"></a>Supports key values according to OData URL conventions
-[TopSupported](Org.OData.Capabilities.V1.xml#L272)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="TopSupported"></a>Supports $top
-[SkipSupported](Org.OData.Capabilities.V1.xml#L275)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="SkipSupported"></a>Supports $skip
-[BatchSupported](Org.OData.Capabilities.V1.xml#L279)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchSupported"></a>Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.
-[BatchSupport](Org.OData.Capabilities.V1.xml#L284)|[BatchSupportType](#BatchSupportType)|<a name="BatchSupport"></a>Batch Support for the service
-[FilterFunctions](Org.OData.Capabilities.V1.xml#L305)|\[String\]|<a name="FilterFunctions"></a>List of functions and operators supported in $filter
-[FilterRestrictions](Org.OData.Capabilities.V1.xml#L309)|[FilterRestrictionsType](#FilterRestrictionsType)|<a name="FilterRestrictions"></a>Restrictions on $filter expressions
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L368)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions
-[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L386)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions
-[SearchRestrictions](Org.OData.Capabilities.V1.xml#L402)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions
-[InsertRestrictions](Org.OData.Capabilities.V1.xml#L436)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
-[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L452)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
-[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L466)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
-[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L482)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
+[ConformanceLevel](Org.OData.Capabilities.V1.xml#L115)|[ConformanceLevelType](#ConformanceLevelType)|<a name="ConformanceLevel"></a>The conformance level achieved by this service<p>*Applies to: EntityContainer*</p>
+[SupportedFormats](Org.OData.Capabilities.V1.xml#L132)|\[MediaType\]|<a name="SupportedFormats"></a>Media types of supported formats, including format parameters<p>*Applies to: EntityContainer*</p>
+[SupportedMetadataFormats](Org.OData.Capabilities.V1.xml#L137)|\[MediaType\]|<a name="SupportedMetadataFormats"></a>Media types of supported formats for $metadata, including format parameters<p>*Applies to: EntityContainer*</p>
+[AcceptableEncodings](Org.OData.Capabilities.V1.xml#L142)|\[String\]|<a name="AcceptableEncodings"></a>List of acceptable compression methods for ($batch) requests, e.g. gzip<p>*Applies to: EntityContainer*</p>
+[AsynchronousRequestsSupported](Org.OData.Capabilities.V1.xml#L148)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AsynchronousRequestsSupported"></a>Service supports the asynchronous request preference<p>*Applies to: EntityContainer*</p>
+[BatchContinueOnErrorSupported](Org.OData.Capabilities.V1.xml#L152)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchContinueOnErrorSupported"></a>Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.<p>*Applies to: EntityContainer*</p>
+[IsolationSupported](Org.OData.Capabilities.V1.xml#L157)|[IsolationLevel](#IsolationLevel)|<a name="IsolationSupported"></a>Supported odata.isolation levels<p>*Applies to: EntityContainer*</p>
+[CrossJoinSupported](Org.OData.Capabilities.V1.xml#L167)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="CrossJoinSupported"></a>Supports cross joins for the entity sets in this container<p>*Applies to: EntityContainer*</p>
+[CallbackSupported](Org.OData.Capabilities.V1.xml#L171)|[CallbackType](#CallbackType)|<a name="CallbackSupported"></a>Supports callbacks for the specified protocols<p>*Applies to: EntityContainer, EntitySet*</p>
+[ChangeTracking](Org.OData.Capabilities.V1.xml#L195)|[ChangeTrackingType](#ChangeTrackingType)|<a name="ChangeTracking"></a>Change tracking capabilities of this service or entity set<p>*Applies to: EntityContainer, EntitySet, Singleton, Function, FunctionImport, NavigationProperty*</p>
+[CountRestrictions](Org.OData.Capabilities.V1.xml#L212)|[CountRestrictionsType](#CountRestrictionsType)|<a name="CountRestrictions"></a>Restrictions on /$count path suffix and $count=true system query option<p>*Applies to: EntitySet, Collection*</p>
+[NavigationRestrictions](Org.OData.Capabilities.V1.xml#L227)|[NavigationRestrictionsType](#NavigationRestrictionsType)|<a name="NavigationRestrictions"></a>Restrictions on navigating properties according to OData URL conventions<p>*Applies to: EntitySet, Collection, EntityType*</p>
+[IndexableByKey](Org.OData.Capabilities.V1.xml#L268)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="IndexableByKey"></a>Supports key values according to OData URL conventions<p>*Applies to: EntitySet, Collection*</p>
+[TopSupported](Org.OData.Capabilities.V1.xml#L272)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="TopSupported"></a>Supports $top<p>*Applies to: EntitySet, Collection*</p>
+[SkipSupported](Org.OData.Capabilities.V1.xml#L275)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="SkipSupported"></a>Supports $skip<p>*Applies to: EntitySet, Collection*</p>
+[BatchSupported](Org.OData.Capabilities.V1.xml#L279)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchSupported"></a>Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.<p>*Applies to: EntityContainer*</p>
+[BatchSupport](Org.OData.Capabilities.V1.xml#L284)|[BatchSupportType](#BatchSupportType)|<a name="BatchSupport"></a>Batch Support for the service<p>*Applies to: EntityContainer*</p>
+[FilterFunctions](Org.OData.Capabilities.V1.xml#L305)|\[String\]|<a name="FilterFunctions"></a>List of functions and operators supported in $filter<p>*Applies to: EntityContainer, EntitySet*</p>
+[FilterRestrictions](Org.OData.Capabilities.V1.xml#L309)|[FilterRestrictionsType](#FilterRestrictionsType)|<a name="FilterRestrictions"></a>Restrictions on $filter expressions<p>*Applies to: EntitySet, Collection*</p>
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L368)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions<p>*Applies to: EntitySet, Collection*</p>
+[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L386)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions<p>*Applies to: EntitySet, Collection, EntityType*</p>
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L402)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions<p>*Applies to: EntitySet, Collection*</p>
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L436)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations<p>*Applies to: EntitySet, Collection*</p>
+[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L452)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)<p>*Applies to: EntityContainer, EntitySet, Collection*</p>
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L466)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations<p>*Applies to: EntitySet, Collection, EntityType*</p>
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L482)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations<p>*Applies to: EntitySet, Collection, EntityType*</p>
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L500)|\[[CustomParmater](#CustomParmater)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource<p>*Applies to: EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L502)</p>
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L526)|\[[CustomParmater](#CustomParmater)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p><p>*Applies to: EntityContainer, EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L530)</p>
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
@@ -264,3 +266,24 @@ Property|Type|Description
 [Deletable](Org.OData.Capabilities.V1.xml#L486)|Boolean|Entities can be deleted
 [NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L489)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
 [MaxLevels](Org.OData.Capabilities.V1.xml#L492)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
+
+## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L558)
+A custom parameter is either a header or a query option
+
+The type of a custom parameter is always a string. Restrictions on the parameter values can be expressed by annotating the record expression describing the parameter with terms from the Validation vocabulary, e.g. Validation.Pattern or Validation.AllowedValues.
+
+Property|Type|Description
+:-------|:---|:----------
+[Name](Org.OData.Capabilities.V1.xml#L562)|String|Name of the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L565)|String|Description of the custom parameter
+[DocumentationURL](Org.OData.Capabilities.V1.xml#L568)|URL|URL of related documentation
+[Required](Org.OData.Capabilities.V1.xml#L572)|Boolean|true: parameter is required, false or not specified: parameter is optional
+[ExampleValues](Org.OData.Capabilities.V1.xml#L575)|\[[CustomParameterExampleValue](#CustomParameterExampleValue)\]|Example values for the custom parameter
+
+## <a name="CustomParameterExampleValue"></a>[CustomParameterExampleValue](Org.OData.Capabilities.V1.xml#L579)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Value](Org.OData.Capabilities.V1.xml#L580)|String|Example value for the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L583)|String|Description of the example value

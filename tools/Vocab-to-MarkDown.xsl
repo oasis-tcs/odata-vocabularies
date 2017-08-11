@@ -6,7 +6,7 @@
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
 
     Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/Vocab-to-MarkDown.xsl
-    
+
   -->
 
   <xsl:output method="text" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
@@ -159,6 +159,9 @@
     <xsl:value-of select="@Name" />
     <xsl:text>">&lt;/a></xsl:text>
     <xsl:call-template name="descriptions-in-table" />
+    <xsl:apply-templates select="@AppliesTo" />
+    <xsl:apply-templates select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]"
+      mode="example" />
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -187,6 +190,24 @@
       <xsl:value-of select="$lineNumber" />
       <xsl:text>)</xsl:text>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="@AppliesTo">
+    <xsl:text>&lt;p>*Applies to: </xsl:text>
+    <xsl:call-template name="replace-all">
+      <xsl:with-param name="string" select="normalize-space(.)" />
+      <xsl:with-param name="old" select="' '" />
+      <xsl:with-param name="new" select="', '" />
+    </xsl:call-template>
+    <xsl:text>*&lt;/p></xsl:text>
+  </xsl:template>
+
+  <xsl:template match="edm:Annotation" mode="example">
+    <xsl:text>&lt;p></xsl:text>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text" select="'Example'" />
+    </xsl:call-template>
+    <xsl:text>&lt;/p></xsl:text>
   </xsl:template>
 
   <xsl:template match="edm:ComplexType">
@@ -609,5 +630,24 @@
     </xsl:call-template>
   </xsl:template>
 
+  <xsl:template name="replace-all">
+    <xsl:param name="string" />
+    <xsl:param name="old" />
+    <xsl:param name="new" />
+    <xsl:choose>
+      <xsl:when test="contains($string,$old)">
+        <xsl:value-of select="substring-before($string,$old)" />
+        <xsl:value-of select="$new" />
+        <xsl:call-template name="replace-all">
+          <xsl:with-param name="string" select="substring-after($string,$old)" />
+          <xsl:with-param name="old" select="$old" />
+          <xsl:with-param name="new" select="$new" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$string" />
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:template>
 
 </xsl:stylesheet>
