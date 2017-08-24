@@ -331,7 +331,7 @@
 
       <Term Name="MayImplement" Type="Collection(Core.QualifiedTypeName)" Nullable="false">
         <Annotation Term="Core.Description"
-          String="A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type segment." />
+          String="A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment." />
       </Term>
 
       <TypeDefinition Name="QualifiedTypeName" UnderlyingType="Edm.String">

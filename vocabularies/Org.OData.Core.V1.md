@@ -32,7 +32,7 @@ Term|Type|Description
 [AutoExpand](Org.OData.Core.V1.xml#L301)|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this navigation property even if not requested with $expand
 [AutoExpandReferences](Org.OData.Core.V1.xml#L306)|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
 [AutoMetadata](Org.OData.Core.V1.xml#L311)|[MetadataKind](#MetadataKind)|<a name="AutoMetadata"></a>The service will automatically return control information for this navigation property even with format parameter `odata.metadata=minimal`
-[MayImplement](Org.OData.Core.V1.xml#L332)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type segment.
+[MayImplement](Org.OData.Core.V1.xml#L332)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
 [Ordered](Org.OData.Core.V1.xml#L341)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
 [PositionalInsert](Org.OData.Core.V1.xml#L346)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
 [AlternateKeys](Org.OData.Core.V1.xml#L352)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys

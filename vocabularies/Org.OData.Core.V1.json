@@ -387,7 +387,7 @@
             "$Collection": true,
             "$Type": "Core.QualifiedTypeName",
             "$Nullable": false,
-            "@Core.Description": "A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type segment."
+            "@Core.Description": "A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment."
         },
         "QualifiedTypeName": {
             "$Kind": "TypeDefinition",
