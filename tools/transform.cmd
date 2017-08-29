@@ -9,8 +9,7 @@ setlocal
 @rem  - git is installed and in the PATH - download from https://git-for-windows.github.io/
 @rem  - Eclipse is installed with Xalan (contained in Eclipse Web Tools Platform), and ECLIPSE_HOME environment variable is set
 set CLASSPATH=%CLASSPATH%;%ECLIPSE_HOME%\plugins\org.apache.xml.serializer_2.7.1.v201005080400.jar;%ECLIPSE_HOME%\plugins\org.apache.xalan_2.7.1.v201005080400.jar
-@rem  - YAJL's json_reformat from https://github.com/lloyd/yajl has been compiled and environment variable YAJL_REFORMAT set to its location
-set YAJL_REFORMAT=c:\git\yajl\build\yajl-2.1.1\bin\json_reformat.exe
+@rem  - YAJL's json_reformat from https://github.com/lloyd/yajl has been compiled and is in the PATH
 
 set done=false
 
@@ -41,7 +40,7 @@ exit /b
   
   java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-normalize-Target.xsl -L -IN %1 -OUT %~n1.normalized.xml
   java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-to-JSON.xsl -L -IN %~n1.normalized.xml -OUT %~n1.json
-  %YAJL_REFORMAT% < %~n1.json > ..\vocabularies\%~n1.json
+  json_reformat.exe < %~n1.json > ..\vocabularies\%~n1.json
   if not errorlevel 1 (
     del %~n1.normalized.xml %~n1.json
     git.exe --no-pager diff ..\vocabularies\%~n1.json  
