@@ -3,20 +3,20 @@
 # This script tranforms all *.xml files in the vocabularies folder into *.md and .json files
 #
 # Prerequisites
-# - Java
-# - Git
-# - Xalan 2.7.1: sudo apt-get install libxalan2-java
-# - YAJL's json_reformat: sudo apt-get install yajl-tools
+# - Java           sudo apt-get install default-jre
+# - Git            sudo apt-get install git
+# - Xalan 2.7.1    sudo apt-get install libxalan2-java
+# - json_reformat  sudo apt-get install yajl-tools
 
 process() {
   local name=$(basename -s .xml $1)
   echo $name
   
-  java -cp /usr/share/java/xalan2.jar org.apache.xalan.xslt.Process -XSL Vocab-to-MarkDown.xsl -L -IN $1 -OUT ../vocabularies/$name.md
+  java -cp /usr/share/java/xalan2.jar org.apache.xalan.xslt.Process -L -XSL Vocab-to-MarkDown.xsl -IN $1 -OUT ../vocabularies/$name.md
   git --no-pager diff --ignore-space-at-eol ../vocabularies/$name.md
   
-  java -cp /usr/share/java/xalan2.jar org.apache.xalan.xslt.Process -XSL V4-CSDL-normalize-Target.xsl -L -IN $1 -OUT $name.normalized.xml
-  java -cp /usr/share/java/xalan2.jar org.apache.xalan.xslt.Process -XSL V4-CSDL-to-JSON.xsl -L -IN $name.normalized.xml -OUT $name.json
+  java -cp /usr/share/java/xalan2.jar org.apache.xalan.xslt.Process -L -XSL V4-CSDL-normalize-Target.xsl -IN $1 -OUT $name.normalized.xml
+  java -cp /usr/share/java/xalan2.jar org.apache.xalan.xslt.Process -L -XSL V4-CSDL-to-JSON.xsl -IN $name.normalized.xml -OUT $name.json
   
   json_reformat < $name.json > ../vocabularies/$name.json
   if [ $? = 0 ]
@@ -28,5 +28,8 @@ process() {
 
 for file in ../vocabularies/*.xml 
 do
-  process $file
+  if [ -z "$1" ] || [ "$file" = "../vocabularies/Org.OData.$1.V1.xml" ]
+  then
+    process $file
+  fi
 done

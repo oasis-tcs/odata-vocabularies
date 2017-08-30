@@ -35,11 +35,11 @@ exit /b
 :process
   echo %~n1
   
-  java.exe org.apache.xalan.xslt.Process -XSL Vocab-to-MarkDown.xsl -L -IN %1 -OUT ..\vocabularies\%~n1.md
+  java.exe org.apache.xalan.xslt.Process -L -XSL Vocab-to-MarkDown.xsl -IN %1 -OUT ..\vocabularies\%~n1.md
   git.exe --no-pager diff ..\vocabularies\%~n1.md
   
-  java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-normalize-Target.xsl -L -IN %1 -OUT %~n1.normalized.xml
-  java.exe org.apache.xalan.xslt.Process -XSL V4-CSDL-to-JSON.xsl -L -IN %~n1.normalized.xml -OUT %~n1.json
+  java.exe org.apache.xalan.xslt.Process -L -XSL V4-CSDL-normalize-Target.xsl -IN %1 -OUT %~n1.normalized.xml
+  java.exe org.apache.xalan.xslt.Process -L -XSL V4-CSDL-to-JSON.xsl -IN %~n1.normalized.xml -OUT %~n1.json
   json_reformat.exe < %~n1.json > ..\vocabularies\%~n1.json
   if not errorlevel 1 (
     del %~n1.normalized.xml %~n1.json
