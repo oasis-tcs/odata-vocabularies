@@ -9,7 +9,7 @@
 # - json_reformat  sudo apt-get install yajl-tools
 
 process() {
-  local name=$(basename -s .xml $1)
+  local name=${1##*/}; name=${name%.*}
   echo $name
   
   java -cp /usr/share/java/xalan2.jar org.apache.xalan.xslt.Process -L -XSL Vocab-to-MarkDown.xsl -IN $1 -OUT ../vocabularies/$name.md
