@@ -53,13 +53,20 @@
   <xsl:template match="edm:Schema">
     <xsl:text>,"</xsl:text>
     <xsl:value-of select="@Namespace" />
-    <xsl:text>":{"$Kind":"Schema"</xsl:text>
-    <xsl:apply-templates select="@Alias" mode="list2" />
-    <xsl:apply-templates select="edm:Annotation" mode="list2" />
-    <xsl:apply-templates select="edm:Annotations[generate-id() = generate-id(key('targets', concat(../@Namespace,'/',@Target))[1])]" />
+    <xsl:text>":{</xsl:text>
+    <xsl:apply-templates select="@Alias" />
+    <xsl:apply-templates select="edm:Annotation" mode="list">
+      <xsl:with-param name="after" select="@Alias" />
+    </xsl:apply-templates>
+    <xsl:apply-templates select="edm:Annotations[generate-id() = generate-id(key('targets', concat(../@Namespace,'/',@Target))[1])]">
+      <xsl:with-param name="after" select="@Alias|edm:Annotation" />
+    </xsl:apply-templates>
     <xsl:apply-templates
-      select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]" />
-    <xsl:apply-templates select="edm:EntityContainer" />
+      select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:EntityContainer"
+      mode="list"
+    >
+      <xsl:with-param name="after" select="@Alias|edm:Annotation|edm:Annotations" />
+    </xsl:apply-templates>
     <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -72,7 +79,7 @@
   </xsl:template>
 
   <xsl:template match="edm:EntityContainer">
-    <xsl:text>,"</xsl:text>
+    <xsl:text>"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{"$Kind":"EntityContainer"</xsl:text>
     <xsl:apply-templates select="@*[name()!='Name']|edm:Annotation" mode="list2" />
@@ -164,7 +171,7 @@
   </xsl:template>
 
   <xsl:template match="edm:EntityType|edm:ComplexType|edm:Term|edm:TypeDefinition">
-    <xsl:text>,"</xsl:text>
+    <xsl:text>"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
     <xsl:text>"$Kind":"</xsl:text>
@@ -323,7 +330,7 @@
   </xsl:template>
 
   <xsl:template match="edm:EnumType">
-    <xsl:text>,"</xsl:text>
+    <xsl:text>"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{"$Kind":"EnumType"</xsl:text>
     <xsl:apply-templates select="@*[name()!='Name']" mode="list2" />
@@ -351,7 +358,7 @@
   </xsl:template>
 
   <xsl:template match="edm:Action|edm:Function">
-    <xsl:text>,"</xsl:text>
+    <xsl:text>"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":[</xsl:text>
     <xsl:for-each select="key('methods', concat(../@Namespace,'.',@Name))">
@@ -387,8 +394,12 @@
   </xsl:template>
 
   <xsl:template match="edm:Annotations">
+    <xsl:param name="after" />
     <xsl:if test="position()=1">
-      <xsl:text>,"$Annotations":{</xsl:text>
+      <xsl:if test="$after">
+        <xsl:text>,</xsl:text>
+      </xsl:if>
+      <xsl:text>"$Annotations":{</xsl:text>
     </xsl:if>
     <xsl:text>"</xsl:text>
     <xsl:value-of select="@Target" />
