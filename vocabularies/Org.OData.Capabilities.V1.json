@@ -19,7 +19,6 @@
         }
     },
     "Org.OData.Capabilities.V1": {
-        "$Kind": "Schema",
         "$Alias": "Capabilities",
         "@Core.Description": "Terms describing capabilities of a service",
         "@Core.Links": [

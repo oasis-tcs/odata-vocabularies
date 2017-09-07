@@ -11,7 +11,6 @@
         }
     },
     "Org.OData.Aggregation.V1": {
-        "$Kind": "Schema",
         "$Alias": "Aggregation",
         "@Core.Description": "Terms to describe which data in a given entity model can be aggregated, and how.",
         "@Core.Links": [
