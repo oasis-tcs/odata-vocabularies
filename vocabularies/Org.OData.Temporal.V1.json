@@ -29,6 +29,7 @@
         ],
         "TemporalSupported": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Temporal.TemporalSupportedType",
             "$AppliesTo": [
                 "EntityContainer",
@@ -40,15 +41,16 @@
         "TemporalSupportedType": {
             "$Kind": "ComplexType",
             "ApplicationTime": {
+                "$Nullable": true,
                 "$Type": "Temporal.TimeDimensionType"
             },
             "SystemTime": {
+                "$Nullable": true,
                 "$Type": "Temporal.TimeDimensionGranularityDateTimeOffset"
             },
             "NonTemporalProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": false,
                 "@Core.Documentation": "Properties whose value changes over time are not tracked"
             }
         },
@@ -56,6 +58,7 @@
             "$Kind": "ComplexType",
             "$Abstract": true,
             "SupportedQueries": {
+                "$Nullable": true,
                 "$Type": "Temporal.QueryType"
             }
         },
@@ -65,7 +68,6 @@
             "@Core.Documentation": "Granularity of this time dimension is DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
-                "$Nullable": false,
                 "@Core.Documentation": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
             }
         },
@@ -82,6 +84,7 @@
         },
         "From": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
@@ -90,6 +93,7 @@
         },
         "To": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
@@ -98,6 +102,7 @@
         },
         "SystemFrom": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
@@ -106,6 +111,7 @@
         },
         "SystemTo": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"

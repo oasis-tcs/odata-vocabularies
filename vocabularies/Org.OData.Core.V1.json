@@ -29,6 +29,7 @@
         ],
         "ODataVersions": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -36,6 +37,7 @@
         },
         "SchemaVersion": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Schema",
                 "Reference"
@@ -46,19 +48,21 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Core.RevisionType",
-            "$Nullable": false,
             "@Core.Description": "List of revisions of a model element"
         },
         "RevisionType": {
             "$Kind": "ComplexType",
             "Version": {
+                "$Nullable": true,
                 "@Core.Description": "The schema version with which this revision was first published"
             },
             "Kind": {
+                "$Nullable": true,
                 "$Type": "Core.RevisionKind",
                 "@Core.Description": "The kind of revision"
             },
             "Description": {
+                "$Nullable": true,
                 "@Core.Description": "Text describing the reason for the revision"
             }
         },
@@ -73,11 +77,13 @@
         },
         "Description": {
             "$Kind": "Term",
+            "$Nullable": true,
             "@Core.Description": "A brief description of a model element",
             "@Core.IsLanguageDependent": true
         },
         "LongDescription": {
             "$Kind": "Term",
+            "$Nullable": true,
             "@Core.Description": "A lengthy description of a model element",
             "@Core.IsLanguageDependent": true
         },
@@ -85,18 +91,15 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Core.Link",
-            "$Nullable": false,
             "@Core.Description": "Link to related information"
         },
         "Link": {
             "$Kind": "ComplexType",
             "@Core.Description": "The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7) and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)",
             "rel": {
-                "$Nullable": false,
                 "@Core.Description": "Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)"
             },
             "href": {
-                "$Nullable": false,
                 "@Core.IsURL": true,
                 "@Core.Description": "URL of related information"
             }
@@ -105,32 +108,28 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Core.MessageType",
-            "$Nullable": false,
             "@Core.Description": "Instance annotation for warning and info messages"
         },
         "MessageType": {
             "$Kind": "ComplexType",
             "code": {
-                "$Nullable": false,
                 "@Core.Description": "Machine-readable, language-independent message code"
             },
             "message": {
-                "$Nullable": false,
                 "@Core.Description": "Human-readable, language-dependent message text",
                 "@Core.IsLanguageDependent": true
             },
             "severity": {
                 "$Type": "Core.MessageSeverity",
-                "$Nullable": false,
                 "@Core.Description": "Severity of the message"
             },
             "target": {
+                "$Nullable": true,
                 "@Core.Description": "A path to the target of the message detail, relative to the annotated instance"
             },
             "details": {
                 "$Collection": true,
                 "$Type": "Core.MessageType",
-                "$Nullable": false,
                 "@Core.Description": "List of detail messages"
             }
         },
@@ -158,6 +157,7 @@
         },
         "IsLanguageDependent": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -174,6 +174,7 @@
         },
         "RequiresType": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Term"
             ],
@@ -181,6 +182,7 @@
         },
         "ResourcePath": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
@@ -192,6 +194,7 @@
         },
         "DereferenceableIDs": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -201,6 +204,7 @@
         },
         "ConventionalIDs": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -210,6 +214,7 @@
         },
         "Permissions": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Permission",
             "$AppliesTo": [
                 "Property",
@@ -239,10 +244,12 @@
         },
         "ContentID": {
             "$Kind": "Term",
+            "$Nullable": true,
             "@Core.Description": "A unique identifier for nested entities within a request."
         },
         "DefaultNamespace": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -254,6 +261,7 @@
         },
         "Immutable": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -263,6 +271,7 @@
         },
         "Computed": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -272,6 +281,7 @@
         },
         "ComputedDefaultValue": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -281,6 +291,7 @@
         },
         "IsURL": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -293,8 +304,6 @@
         "AcceptableMediaTypes": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Edm.String",
-            "$Nullable": false,
             "$AppliesTo": [
                 "EntityType",
                 "Property"
@@ -304,6 +313,7 @@
         },
         "MediaType": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -313,6 +323,7 @@
         },
         "IsMediaType": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -326,7 +337,6 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Edm.PropertyPath",
-            "$Nullable": false,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -334,6 +344,7 @@
         },
         "AdditionalProperties": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -345,6 +356,7 @@
         },
         "AutoExpand": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -354,6 +366,7 @@
         },
         "AutoExpandReferences": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -366,6 +379,7 @@
             "$AppliesTo": [
                 "NavigationProperty"
             ],
+            "$Nullable": true,
             "$Type": "Core.MetadataKind",
             "@Core.Description": "The service will automatically return control information for this navigation property even with format parameter `odata.metadata=minimal`"
         },
@@ -385,7 +399,6 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Core.QualifiedTypeName",
-            "$Nullable": false,
             "@Core.Description": "A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment."
         },
         "QualifiedTypeName": {
@@ -395,6 +408,7 @@
         },
         "Ordered": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -407,6 +421,7 @@
         },
         "PositionalInsert": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -425,7 +440,6 @@
             ],
             "$Collection": true,
             "$Type": "Core.AlternateKey",
-            "$Nullable": false,
             "@Core.Description": "Communicates available alternate keys"
         },
         "AlternateKey": {
@@ -433,17 +447,18 @@
             "Key": {
                 "$Collection": true,
                 "$Type": "Core.PropertyRef",
-                "$Nullable": false,
                 "@Core.Description": "The set of properties that make up this key"
             }
         },
         "PropertyRef": {
             "$Kind": "ComplexType",
             "Name": {
+                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes."
             },
             "Alias": {
+                "$Nullable": true,
                 "@Core.Description": "A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs"
             }
         },
@@ -455,6 +470,7 @@
         },
         "OptionalParameter": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.OptionalParameterType",
             "$AppliesTo": [
                 "Parameter"
@@ -465,11 +481,13 @@
         "OptionalParameterType": {
             "$Kind": "ComplexType",
             "DefaultValue": {
+                "$Nullable": true,
                 "@Core.Description": "Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs."
             }
         },
         "OperationAvailable": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.Boolean",
             "$DefaultValue": true,
             "$AppliesTo": [

@@ -29,6 +29,7 @@
         ],
         "ApplySupported": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Aggregation.ApplySupportedType",
             "$AppliesTo": [
                 "EntityType",
@@ -41,23 +42,21 @@
             "$Kind": "ComplexType",
             "Transformations": {
                 "$Collection": true,
-                "$Type": "Edm.String",
-                "$Nullable": false,
                 "@Core.Description": "Transformations that can be used in $apply"
             },
             "CustomAggregationMethods": {
                 "$Collection": true,
-                "$Type": "Edm.String",
-                "$Nullable": false,
                 "@Core.Description": "Qualified names of custom aggregation methods that can be used in aggregate(...with...)"
             },
             "Rollup": {
                 "$DefaultValue": "MultipleHierarchies",
+                "$Nullable": true,
                 "$Type": "Aggregation.RollupType",
                 "@Core.Description": "The service supports rollup hierarchies in a groupby transformation"
             },
             "PropertyRestrictions": {
                 "$DefaultValue": false,
+                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation"
             }
@@ -74,6 +73,7 @@
         },
         "Groupable": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$AppliesTo": [
                 "Property",
@@ -84,6 +84,7 @@
         },
         "Aggregatable": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$AppliesTo": [
                 "Property",
@@ -94,6 +95,7 @@
         },
         "CustomAggregate": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType",
@@ -106,7 +108,6 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Edm.PropertyPath",
-            "$Nullable": false,
             "$AppliesTo": [
                 "Property",
                 "Annotation"
@@ -118,7 +119,6 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Edm.PropertyPath",
-            "$Nullable": false,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType"
@@ -127,6 +127,7 @@
         },
         "RecursiveHierarchy": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Aggregation.RecursiveHierarchyType",
             "$AppliesTo": [
                 "EntityType",
@@ -138,19 +139,19 @@
             "$Kind": "ComplexType",
             "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": false,
                 "@Core.Description": "Property holding the hierarchy node value"
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "$Nullable": false,
                 "@Core.Description": "Property for navigating to the parent node"
             },
             "DistanceFromRootProperty": {
+                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the number of edges between the node and the root node"
             },
             "IsLeafProperty": {
+                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.RequiresType": "Edm.Boolean",
                 "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
@@ -164,17 +165,14 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": false
+                        "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Nullable": false
+                        "$Name": "Hierarchy"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": false
+                    "$Type": "Edm.Boolean"
                 }
             }
         ],
@@ -186,26 +184,23 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": false
+                        "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Nullable": false
+                        "$Name": "Hierarchy"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": false
+                        "$Type": "Edm.PrimitiveType"
                     },
                     {
                         "$Name": "MaxDistance",
+                        "$Nullable": true,
                         "$Type": "Edm.Int16"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": false
+                    "$Type": "Edm.Boolean"
                 }
             }
         ],
@@ -217,26 +212,23 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": false
+                        "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Nullable": false
+                        "$Name": "Hierarchy"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": false
+                        "$Type": "Edm.PrimitiveType"
                     },
                     {
                         "$Name": "MaxDistance",
+                        "$Nullable": true,
                         "$Type": "Edm.Int16"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": false
+                    "$Type": "Edm.Boolean"
                 }
             }
         ],
@@ -248,22 +240,18 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": false
+                        "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Nullable": false
+                        "$Name": "Hierarchy"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": false
+                        "$Type": "Edm.PrimitiveType"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": false
+                    "$Type": "Edm.Boolean"
                 }
             }
         ],
@@ -275,22 +263,20 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": false
+                        "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Nullable": false
+                        "$Name": "Hierarchy"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": false
+                    "$Type": "Edm.Boolean"
                 }
             }
         ],
         "AvailableOnAggregates": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Aggregation.AvailableOnAggregatesType",
             "$AppliesTo": [
                 "Action",
@@ -303,7 +289,6 @@
             "RequiredProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": false,
                 "@Core.Description": "Properties required to apply this action or function"
             }
         }

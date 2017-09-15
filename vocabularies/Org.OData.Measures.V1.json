@@ -29,6 +29,7 @@
         ],
         "ISOCurrency": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -36,6 +37,7 @@
         },
         "Scale": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.Byte",
             "$AppliesTo": [
                 "Property"
@@ -45,6 +47,7 @@
         },
         "Unit": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],

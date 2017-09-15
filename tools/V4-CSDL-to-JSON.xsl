@@ -177,7 +177,7 @@
     <xsl:text>"$Kind":"</xsl:text>
     <xsl:value-of select="local-name()" />
     <xsl:text>"</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name']|edm:*" mode="list2" />
+    <xsl:apply-templates select="@*[name()!='Name' and name()!='Nullable']|edm:*" mode="list2" />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -209,7 +209,7 @@
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
     <xsl:apply-templates
-      select="@*[local-name()=name() and name()!='Name' and not(name()='Type' and .='Edm.String') and not(name()='Nullable' and .='true') and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
+      select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
       mode="list" />
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -220,7 +220,8 @@
     <xsl:text>":{"$Kind":"</xsl:text>
     <xsl:value-of select="local-name()" />
     <xsl:text>"</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name']|*[name()!='ReferentialConstraint']" mode="list2" />
+    <xsl:apply-templates select="@*[name()!='Name' and name()!='Nullable']|*[name()!='ReferentialConstraint']"
+      mode="list2" />
     <xsl:apply-templates select="edm:ReferentialConstraint" mode="hash" />
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -235,23 +236,48 @@
     <xsl:text>"</xsl:text>
   </xsl:template>
 
+  <!-- @Nullable is to be treated together with @Type -->
+  <xsl:template match="@Nullable" />
+
   <xsl:template match="@Type">
-    <xsl:choose>
-      <xsl:when test="starts-with(.,'Collection(')">
-        <xsl:text>"$Collection":true,"$Type":"</xsl:text>
-        <xsl:call-template name="normalizedQualifiedName">
-          <xsl:with-param name="qualifiedName" select="substring-before(substring-after(.,'('),')')" />
-        </xsl:call-template>
-        <xsl:text>"</xsl:text>
-      </xsl:when>
-      <xsl:when test=".!='Edm.String'">
-        <xsl:text>"$Type":"</xsl:text>
-        <xsl:call-template name="normalizedQualifiedName">
-          <xsl:with-param name="qualifiedName" select="." />
-        </xsl:call-template>
-        <xsl:text>"</xsl:text>
-      </xsl:when>
-    </xsl:choose>
+    <xsl:variable name="collection" select="starts-with(.,'Collection(')" />
+    <xsl:variable name="typename">
+      <xsl:choose>
+        <xsl:when test="starts-with(.,'Collection(')">
+          <xsl:call-template name="normalizedQualifiedName">
+            <xsl:with-param name="qualifiedName" select="substring-before(substring-after(.,'('),')')" />
+          </xsl:call-template>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:call-template name="normalizedQualifiedName">
+            <xsl:with-param name="qualifiedName" select="." />
+          </xsl:call-template>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+
+    <xsl:variable name="nullable"
+      select="../@Nullable='true' or (not(../@Nullable='false') and local-name(..)!='Singleton' and not($collection))" />
+
+    <xsl:if test="$nullable">
+      <xsl:text>"$Nullable":true</xsl:text>
+    </xsl:if>
+
+    <xsl:if test="$collection">
+      <xsl:if test="$nullable">
+        <xsl:text>,</xsl:text>
+      </xsl:if>
+      <xsl:text>"$Collection":true</xsl:text>
+    </xsl:if>
+
+    <xsl:if test="$typename!='Edm.String'">
+      <xsl:if test="$nullable or $collection">
+        <xsl:text>,</xsl:text>
+      </xsl:if>
+      <xsl:text>"$Type":"</xsl:text>
+      <xsl:value-of select="$typename" />
+      <xsl:text>"</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <xsl:template match="@AppliesTo">
@@ -266,12 +292,12 @@
 
   <!-- default value is suppressed -->
   <xsl:template
-    match="@Nullable[.='true']|@Abstract[.='false']|@ContainsTarget[.='false']|@HasStream[.='false']|@IsBound[.='false']|@IsComposable[.='false']|@IsFlags[.='false']|@MaxLength[.='max']|@OpenType[.='false']|@Unicode[.='true']" />
+    match="@Abstract[.='false']|@ContainsTarget[.='false']|@HasStream[.='false']|@IsBound[.='false']|@IsComposable[.='false']|@IsFlags[.='false']|@MaxLength[.='max']|@OpenType[.='false']|@Unicode[.='true']" />
   <xsl:template match="edm:EntitySet/@IncludeInServiceDocument[.='true']|edm:FunctionImport/@IncludeInServiceDocument[.='false']" />
 
   <!-- name : unquoted value -->
   <xsl:template
-    match="@Abstract|@HasStream|@IsFlags|@Nullable|@OpenType|@ContainsTarget|@IsBound|@IsComposable|@IncludeInServiceDocument|@MaxLength|@Precision|@Scale[.!='variable' and .!='floating']|@Unicode"
+    match="@Abstract|@HasStream|@IsFlags|@OpenType|@ContainsTarget|@IsBound|@IsComposable|@IncludeInServiceDocument|@MaxLength|@Precision|@Scale[.!='variable' and .!='floating']|@Unicode"
   >
     <xsl:text>"$</xsl:text>
     <xsl:value-of select="name()" />
@@ -379,7 +405,7 @@
   <xsl:template match="edm:Parameter" mode="item">
     <xsl:text>{</xsl:text>
     <xsl:apply-templates select="@Name" />
-    <xsl:apply-templates select="@*[name()!='Name']|edm:*" mode="list2" />
+    <xsl:apply-templates select="@*[name()!='Name' and name()!='Nullable']|edm:*" mode="list2" />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -388,7 +414,7 @@
     <xsl:value-of select="local-name()" />
     <xsl:text>":{</xsl:text>
     <xsl:apply-templates
-      select="@*[local-name()=name() and not(name()='Type' and .='Edm.String') and not(name()='Nullable' and .='true') and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
+      select="@*[local-name()=name() and not(name()='Type' and .='Edm.String') and name()!='Nullable' and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
       mode="list" />
     <xsl:text>}</xsl:text>
   </xsl:template>

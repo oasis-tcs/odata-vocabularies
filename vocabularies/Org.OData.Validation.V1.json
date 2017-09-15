@@ -29,6 +29,7 @@
         ],
         "Pattern": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -39,6 +40,7 @@
         },
         "Minimum": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.Decimal",
             "$AppliesTo": [
                 "Property",
@@ -49,6 +51,7 @@
         },
         "Maximum": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.Decimal",
             "$AppliesTo": [
                 "Property",
@@ -59,6 +62,7 @@
         },
         "Exclusive": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -80,12 +84,14 @@
         "AllowedValue": {
             "$Kind": "ComplexType",
             "Value": {
+                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "An allowed value for the property, parameter, or type definition"
             }
         },
         "MultipleOf": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.Decimal",
             "$AppliesTo": [
                 "Property",
@@ -96,6 +102,7 @@
         },
         "Constraint": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Validation.ConstraintType",
             "$AppliesTo": [
                 "Property",
@@ -107,12 +114,12 @@
         "ConstraintType": {
             "$Kind": "ComplexType",
             "FailureMessage": {
+                "$Nullable": true,
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Human-readable message that can be shown to end users if the constraint is not fulfilled"
             },
             "Condition": {
                 "$Type": "Edm.Boolean",
-                "$Nullable": false,
                 "@Core.Description": "Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled"
             }
         },
@@ -131,10 +138,12 @@
             "$Kind": "ComplexType",
             "@Core.Description": "Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`.",
             "path": {
+                "$Nullable": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "A path to a single- or collection-valued navigation property"
             },
             "target": {
+                "$Nullable": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "A path to a collection-valued navigation property"
             }

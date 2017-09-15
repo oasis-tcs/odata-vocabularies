@@ -46,6 +46,7 @@
             "$Abstract": true,
             "@Core.Description": "Base type for all Authorization types",
             "Description": {
+                "$Nullable": true,
                 "@Core.Description": "Description of the authorization method"
             }
         },
@@ -53,7 +54,6 @@
             "$Kind": "ComplexType",
             "$BaseType": "Auth.Authorization",
             "IssuerUrl": {
-                "$Nullable": false,
                 "@Core.Description": "Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.",
                 "@Core.IsURL": true
             }
@@ -62,10 +62,10 @@
             "$Kind": "ComplexType",
             "$BaseType": "Auth.Authorization",
             "Scheme": {
-                "$Nullable": false,
                 "@Core.Description": "HTTP Authorization scheme to be used in the Authorization header, as per RFC7235"
             },
             "BearerFormat": {
+                "$Nullable": true,
                 "@Core.Description": "Format of the bearer token"
             }
         },
@@ -79,6 +79,7 @@
                 "@Core.Description": "Available scopes"
             },
             "RefreshUrl": {
+                "$Nullable": true,
                 "@Core.Description": "Refresh Url",
                 "@Core.IsURL": true
             }
@@ -87,7 +88,6 @@
             "$Kind": "ComplexType",
             "$BaseType": "Auth.OAuthAuthorization",
             "TokenUrl": {
-                "$Nullable": false,
                 "@Core.Description": "Token Url",
                 "@Core.IsURL": true
             }
@@ -96,7 +96,6 @@
             "$Kind": "ComplexType",
             "$BaseType": "Auth.OAuthAuthorization",
             "AuthorizationUrl": {
-                "$Nullable": false,
                 "@Core.Description": "Authorization URL",
                 "@Core.IsURL": true
             }
@@ -105,7 +104,6 @@
             "$Kind": "ComplexType",
             "$BaseType": "Auth.OAuthAuthorization",
             "TokenUrl": {
-                "$Nullable": false,
                 "@Core.Description": "Token Url",
                 "@Core.IsURL": true
             }
@@ -114,12 +112,10 @@
             "$Kind": "ComplexType",
             "$BaseType": "Auth.OAuthAuthorization",
             "AuthorizationUrl": {
-                "$Nullable": false,
                 "@Core.Description": "Authorization URL",
                 "@Core.IsURL": true
             },
             "TokenUrl": {
-                "$Nullable": false,
                 "@Core.Description": "Token Url",
                 "@Core.IsURL": true
             }
@@ -127,10 +123,10 @@
         "AuthorizationScope": {
             "$Kind": "ComplexType",
             "Scope": {
-                "$Nullable": false,
                 "@Core.Description": "Scope name"
             },
             "Description": {
+                "$Nullable": true,
                 "@Core.Description": "Description of the scope"
             }
         },
@@ -138,12 +134,10 @@
             "$Kind": "ComplexType",
             "$BaseType": "Auth.Authorization",
             "KeyName": {
-                "$Nullable": false,
                 "@Core.Description": "The name of the header or query parameter"
             },
             "Location": {
                 "$Type": "Auth.KeyLocation",
-                "$Nullable": false,
                 "@Core.Description": "Whether the API Key is passed in the header or as a query option"
             }
         },
