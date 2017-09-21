@@ -170,7 +170,7 @@
     <xsl:text>"</xsl:text>
   </xsl:template>
 
-  <xsl:template match="edm:EntityType|edm:ComplexType|edm:Term|edm:TypeDefinition">
+  <xsl:template match="edm:EntityType|edm:ComplexType">
     <xsl:text>"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
@@ -204,13 +204,24 @@
     </xsl:choose>
   </xsl:template>
 
-  <xsl:template match="edm:Property">
+  <xsl:template match="edm:Property|edm:Term|edm:TypeDefinition">
     <xsl:text>"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
-    <xsl:apply-templates
-      select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
-      mode="list" />
+    <xsl:variable name="members">
+      <xsl:apply-templates
+        select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and not(name()='MaxLength' and .='max') and not(name()='Scale' and .='variable') and not(name()='Unicode' and .='true')]|edm:*"
+        mode="list" />
+    </xsl:variable>
+    <xsl:if test="local-name()!='Property'">
+      <xsl:text>"$Kind":"</xsl:text>
+      <xsl:value-of select="local-name()" />
+      <xsl:text>"</xsl:text>
+      <xsl:if test="$members!=''">
+        <xsl:text>,</xsl:text>
+      </xsl:if>
+    </xsl:if>
+    <xsl:value-of select="$members" />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -277,6 +288,14 @@
       <xsl:text>"$Type":"</xsl:text>
       <xsl:value-of select="$typename" />
       <xsl:text>"</xsl:text>
+    </xsl:if>
+
+    <xsl:if test="$typename='Edm.Decimal' and not(../@Scale)">
+      <xsl:text>,"$Scale":0</xsl:text>
+    </xsl:if>
+
+    <xsl:if test="($typename='Edm.DateTimeOffset' or $typename='Edm.Duration' or $typename='Edm.TimeOfDay') and not(../@Precision)">
+      <xsl:text>,"$Precision":0</xsl:text>
     </xsl:if>
   </xsl:template>
 

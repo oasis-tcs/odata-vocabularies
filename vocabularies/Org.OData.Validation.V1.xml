@@ -73,11 +73,11 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="Minimum" Type="Edm.Decimal" AppliesTo="Property Parameter Term">
+      <Term Name="Minimum" Type="Edm.Decimal" Scale="variable" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="Minimum value that a property, parameter, or term can have." />
       </Term>
 
-      <Term Name="Maximum" Type="Edm.Decimal" AppliesTo="Property Parameter Term">
+      <Term Name="Maximum" Type="Edm.Decimal" Scale="variable" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="Maximum value that a property, parameter, or term can have." />
       </Term>
 
@@ -94,7 +94,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="MultipleOf" Type="Edm.Decimal" AppliesTo="Property Parameter Term">
+      <Term Name="MultipleOf" Type="Edm.Decimal" Scale="variable" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description"
           String="The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds." />
       </Term>
