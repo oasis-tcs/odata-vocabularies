@@ -497,7 +497,7 @@ supported:
 
 
       <!-- https://issues.oasis-open.org/browse/ODATA-1099 -->
-      <Term Name="CustomHeaders" Type="Collection(Capabilities.CustomParmater)" AppliesTo="EntitySet Singleton Action ActionImport Function FunctionImport">
+      <Term Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntitySet Singleton Action ActionImport Function FunctionImport">
         <Annotation Term="Core.Description" String="Custom headers that are supported/required for the annotated resource" />
         <Annotation Term="Core.Example">
           <Annotation Term="Capabilities.CustomHeaders">
@@ -523,7 +523,7 @@ supported:
         </Annotation>
       </Term>
 
-      <Term Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParmater)" AppliesTo="EntityContainer EntitySet Singleton Action ActionImport Function FunctionImport">
+      <Term Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntityContainer EntitySet Singleton Action ActionImport Function FunctionImport">
         <Annotation Term="Core.Description" String="Custom query options that are supported/required for the annotated resource" />
         <Annotation Term="Core.LongDescription"
           String="If the entity container is annotated, the query option is supported/required by all resources in that container." />
