@@ -51,7 +51,7 @@
             "NonTemporalProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Documentation": "Properties whose value changes over time are not tracked"
+                "@Core.Description": "Properties whose value changes over time are not tracked"
             }
         },
         "TimeDimensionType": {
@@ -65,16 +65,16 @@
         "TimeDimensionGranularityDateTimeOffset": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.TimeDimensionType",
-            "@Core.Documentation": "Granularity of this time dimension is DateTimeOffset",
+            "@Core.Description": "Granularity of this time dimension is DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
-                "@Core.Documentation": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
+                "@Core.Description": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
             }
         },
         "TimeDimensionGranularityDate": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.TimeDimensionType",
-            "@Core.Documentation": "Granularity of this time dimension is Date"
+            "@Core.Description": "Granularity of this time dimension is Date"
         },
         "QueryType": {
             "$Kind": "EnumType",
@@ -89,7 +89,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now"
+            "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now"
         },
         "To": {
             "$Kind": "Term",
@@ -98,7 +98,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max"
+            "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max"
         },
         "SystemFrom": {
             "$Kind": "Term",
@@ -107,7 +107,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min"
+            "@Core.Description": "Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min"
         },
         "SystemTo": {
             "$Kind": "Term",
@@ -116,7 +116,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max"
+            "@Core.Description": "Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max"
         }
     }
 }
