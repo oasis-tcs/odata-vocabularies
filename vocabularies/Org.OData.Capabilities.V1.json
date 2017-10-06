@@ -651,7 +651,7 @@
         "CustomHeaders": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Capabilities.CustomParmater",
+            "$Type": "Capabilities.CustomParameter",
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
@@ -680,7 +680,7 @@
         "CustomQueryOptions": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Capabilities.CustomParmater",
+            "$Type": "Capabilities.CustomParameter",
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet",
