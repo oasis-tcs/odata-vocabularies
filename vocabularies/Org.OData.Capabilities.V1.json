@@ -404,7 +404,7 @@
             "NonFilterableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural or navigation properties cannot be used in $filter expressions"
+                "@Core.Description": "These structural properties cannot be used in $filter expressions"
             },
             "FilterExpressionRestrictions": {
                 "$Collection": true,
@@ -484,7 +484,7 @@
             "NonSortableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural or navigation properties cannot be used in $orderby expressions"
+                "@Core.Description": "These structural properties cannot be used in $orderby expressions"
             }
         },
         "ExpandRestrictions": {

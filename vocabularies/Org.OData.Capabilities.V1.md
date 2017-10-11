@@ -168,7 +168,7 @@ Property|Type|Description
 [Filterable](Org.OData.Capabilities.V1.xml#L313)|Boolean|$filter is supported
 [RequiresFilter](Org.OData.Capabilities.V1.xml#L316)|Boolean|$filter is required
 [RequiredProperties](Org.OData.Capabilities.V1.xml#L319)|\[PropertyPath\]|These properties must be specified in the $filter clause (properties of derived types are not allowed here)
-[NonFilterableProperties](Org.OData.Capabilities.V1.xml#L323)|\[PropertyPath\]|These structural or navigation properties cannot be used in $filter expressions
+[NonFilterableProperties](Org.OData.Capabilities.V1.xml#L323)|\[PropertyPath\]|These structural properties cannot be used in $filter expressions
 [FilterExpressionRestrictions](Org.OData.Capabilities.V1.xml#L328)|\[[FilterExpressionRestrictionType](#FilterExpressionRestrictionType)\]|These properties only allow a subset of expressions
 [MaxLevels](Org.OData.Capabilities.V1.xml#L331)|Int32|The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction.
 
@@ -199,7 +199,7 @@ Property|Type|Description
 [Sortable](Org.OData.Capabilities.V1.xml#L372)|Boolean|$orderby is supported
 [AscendingOnlyProperties](Org.OData.Capabilities.V1.xml#L375)|\[PropertyPath\]|These properties can only be used for sorting in Ascending order
 [DescendingOnlyProperties](Org.OData.Capabilities.V1.xml#L378)|\[PropertyPath\]|These properties can only be used for sorting in Descending order
-[NonSortableProperties](Org.OData.Capabilities.V1.xml#L381)|\[PropertyPath\]|These structural or navigation properties cannot be used in $orderby expressions
+[NonSortableProperties](Org.OData.Capabilities.V1.xml#L381)|\[PropertyPath\]|These structural properties cannot be used in $orderby expressions
 
 ## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L389)
 
