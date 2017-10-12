@@ -117,6 +117,19 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
+      <Term Name="Example" Type="Core.ExampleType">
+        <Annotation Term="Core.Description" String="A container for annotation examples" />
+        <Annotation Term="Core.Example">
+          <Record>
+            <Annotation Term="Core.Description"
+              String="Note that the value of Core.Example is a record/object containing the annotation examples" />
+          </Record>
+        </Annotation>
+      </Term>
+      <ComplexType Name="ExampleType">
+        <Annotation Term="Core.Description" String="This type intentionally doesn't have properties, so it can only contain annotation examples" />
+      </ComplexType>
+
       <Term Name="Links" Type="Collection(Core.Link)" Nullable="false">
         <Annotation Term="Core.Description" String="Link to related information" />
       </Term>

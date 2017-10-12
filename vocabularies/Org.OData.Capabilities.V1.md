@@ -71,7 +71,7 @@ Term|Type|Description
 [UpdateRestrictions](Org.OData.Capabilities.V1.xml#L466)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations<p>*Applies to: EntitySet, Collection, EntityType*</p>
 [DeleteRestrictions](Org.OData.Capabilities.V1.xml#L482)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations<p>*Applies to: EntitySet, Collection, EntityType*</p>
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L500)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource<p>*Applies to: EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L502)</p>
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L526)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p><p>*Applies to: EntityContainer, EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L530)</p>
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L528)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p><p>*Applies to: EntityContainer, EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L532)</p>
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
@@ -267,23 +267,23 @@ Property|Type|Description
 [NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L489)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
 [MaxLevels](Org.OData.Capabilities.V1.xml#L492)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
 
-## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L558)
+## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L562)
 A custom parameter is either a header or a query option
 
 The type of a custom parameter is always a string. Restrictions on the parameter values can be expressed by annotating the record expression describing the parameter with terms from the Validation vocabulary, e.g. Validation.Pattern or Validation.AllowedValues.
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Capabilities.V1.xml#L562)|String|Name of the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L565)|String|Description of the custom parameter
-[DocumentationURL](Org.OData.Capabilities.V1.xml#L568)|URL|URL of related documentation
-[Required](Org.OData.Capabilities.V1.xml#L572)|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](Org.OData.Capabilities.V1.xml#L575)|\[[CustomParameterExampleValue](#CustomParameterExampleValue)\]|Example values for the custom parameter
+[Name](Org.OData.Capabilities.V1.xml#L566)|String|Name of the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L569)|String|Description of the custom parameter
+[DocumentationURL](Org.OData.Capabilities.V1.xml#L572)|URL|URL of related documentation
+[Required](Org.OData.Capabilities.V1.xml#L576)|Boolean|true: parameter is required, false or not specified: parameter is optional
+[ExampleValues](Org.OData.Capabilities.V1.xml#L579)|\[[CustomParameterExampleValue](#CustomParameterExampleValue)\]|Example values for the custom parameter
 
-## <a name="CustomParameterExampleValue"></a>[CustomParameterExampleValue](Org.OData.Capabilities.V1.xml#L579)
+## <a name="CustomParameterExampleValue"></a>[CustomParameterExampleValue](Org.OData.Capabilities.V1.xml#L583)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Value](Org.OData.Capabilities.V1.xml#L580)|String|Example value for the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L583)|String|Description of the example value
+[Value](Org.OData.Capabilities.V1.xml#L584)|String|Example value for the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L587)|String|Description of the example value

@@ -500,26 +500,28 @@ supported:
       <Term Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntitySet Singleton Action ActionImport Function FunctionImport">
         <Annotation Term="Core.Description" String="Custom headers that are supported/required for the annotated resource" />
         <Annotation Term="Core.Example">
-          <Annotation Term="Capabilities.CustomHeaders">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Name" String="X-CSRF-Token" />
-                <PropertyValue Property="Description" String="Token to protect against Cross-Site Request Forgery attacks" />
-                <PropertyValue Property="DocumentationURL"
-                  String="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/7.51.1/en-US/b35c22518bc72214e10000000a44176d.html" />
-                <PropertyValue Property="Required" Bool="true" />
-                <PropertyValue Property="ExampleValues">
-                  <Collection>
-                    <Record>
-                      <PropertyValue Property="Value" String="Fetch" />
-                      <PropertyValue Property="Description"
-                        String="Can be used on HEAD request to the service document for obtaining a new CSRF token. This token must then be sent in subsequent requests to resources of the service." />
-                    </Record>
-                  </Collection>
-                </PropertyValue>
-              </Record>
-            </Collection>
-          </Annotation>
+          <Record>
+            <Annotation Term="Capabilities.CustomHeaders">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Name" String="X-CSRF-Token" />
+                  <PropertyValue Property="Description" String="Token to protect against Cross-Site Request Forgery attacks" />
+                  <PropertyValue Property="DocumentationURL"
+                    String="https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/7.51.1/en-US/b35c22518bc72214e10000000a44176d.html" />
+                  <PropertyValue Property="Required" Bool="true" />
+                  <PropertyValue Property="ExampleValues">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Value" String="Fetch" />
+                        <PropertyValue Property="Description"
+                          String="Can be used on HEAD request to the service document for obtaining a new CSRF token. This token must then be sent in subsequent requests to resources of the service." />
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+              </Collection>
+            </Annotation>
+          </Record>
         </Annotation>
       </Term>
 
@@ -528,30 +530,32 @@ supported:
         <Annotation Term="Core.LongDescription"
           String="If the entity container is annotated, the query option is supported/required by all resources in that container." />
         <Annotation Term="Core.Example">
-          <Annotation Term="Capabilities.CustomQueryOptions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Name" String="odata-debug" />
-                <PropertyValue Property="Description" String="Debug support for OData services" />
-                <PropertyValue Property="DocumentationURL" String="https://olingo.apache.org/doc/odata2/tutorials/debug.html" />
-                <PropertyValue Property="Required" Bool="false" />
-                <PropertyValue Property="ExampleValues">
-                  <Collection>
-                    <Record>
-                      <PropertyValue Property="Value" String="html" />
-                      <PropertyValue Property="Description"
-                        String="Service responds with self-contained HTML document that can conveniently viewed in a browser and gives access to the response body, response headers, URL parsing information, and stack trace" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Value" String="json" />
-                      <PropertyValue Property="Description"
-                        String="Service responds with JSON document that contains the same information as the HTML debug response" />
-                    </Record>
-                  </Collection>
-                </PropertyValue>
-              </Record>
-            </Collection>
-          </Annotation>
+          <Record>
+            <Annotation Term="Capabilities.CustomQueryOptions">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Name" String="odata-debug" />
+                  <PropertyValue Property="Description" String="Debug support for OData services" />
+                  <PropertyValue Property="DocumentationURL" String="https://olingo.apache.org/doc/odata2/tutorials/debug.html" />
+                  <PropertyValue Property="Required" Bool="false" />
+                  <PropertyValue Property="ExampleValues">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Value" String="html" />
+                        <PropertyValue Property="Description"
+                          String="Service responds with self-contained HTML document that can conveniently viewed in a browser and gives access to the response body, response headers, URL parsing information, and stack trace" />
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Value" String="json" />
+                        <PropertyValue Property="Description"
+                          String="Service responds with JSON document that contains the same information as the HTML debug response" />
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+              </Collection>
+            </Annotation>
+          </Record>
         </Annotation>
       </Term>
 

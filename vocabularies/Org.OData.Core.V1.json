@@ -82,6 +82,18 @@
             "@Core.Description": "A lengthy description of a model element",
             "@Core.IsLanguageDependent": true
         },
+        "Example": {
+            "$Kind": "Term",
+            "$Type": "Core.ExampleType",
+            "@Core.Description": "A container for annotation examples",
+            "@Core.Example": {
+                "@Core.Description": "Note that the value of Core.Example is a record/object containing the annotation examples"
+            }
+        },
+        "ExampleType": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "This type intentionally doesn't have properties, so it can only contain annotation examples"
+        },
         "Links": {
             "$Kind": "Term",
             "$Collection": true,

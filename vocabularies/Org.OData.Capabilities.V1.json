@@ -661,21 +661,22 @@
                 "FunctionImport"
             ],
             "@Core.Description": "Custom headers that are supported/required for the annotated resource",
-            "@Core.Example": true,
-            "@Core.Example@Capabilities.CustomHeaders": [
-                {
-                    "Name": "X-CSRF-Token",
-                    "Description": "Token to protect against Cross-Site Request Forgery attacks",
-                    "DocumentationURL": "https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/7.51.1/en-US/b35c22518bc72214e10000000a44176d.html",
-                    "Required": true,
-                    "ExampleValues": [
-                        {
-                            "Value": "Fetch",
-                            "Description": "Can be used on HEAD request to the service document for obtaining a new CSRF token. This token must then be sent in subsequent requests to resources of the service."
-                        }
-                    ]
-                }
-            ]
+            "@Core.Example": {
+                "@Capabilities.CustomHeaders": [
+                    {
+                        "Name": "X-CSRF-Token",
+                        "Description": "Token to protect against Cross-Site Request Forgery attacks",
+                        "DocumentationURL": "https://help.sap.com/viewer/68bf513362174d54b58cddec28794093/7.51.1/en-US/b35c22518bc72214e10000000a44176d.html",
+                        "Required": true,
+                        "ExampleValues": [
+                            {
+                                "Value": "Fetch",
+                                "Description": "Can be used on HEAD request to the service document for obtaining a new CSRF token. This token must then be sent in subsequent requests to resources of the service."
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         "CustomQueryOptions": {
             "$Kind": "Term",
@@ -692,25 +693,26 @@
             ],
             "@Core.Description": "Custom query options that are supported/required for the annotated resource",
             "@Core.LongDescription": "If the entity container is annotated, the query option is supported/required by all resources in that container.",
-            "@Core.Example": true,
-            "@Core.Example@Capabilities.CustomQueryOptions": [
-                {
-                    "Name": "odata-debug",
-                    "Description": "Debug support for OData services",
-                    "DocumentationURL": "https://olingo.apache.org/doc/odata2/tutorials/debug.html",
-                    "Required": false,
-                    "ExampleValues": [
-                        {
-                            "Value": "html",
-                            "Description": "Service responds with self-contained HTML document that can conveniently viewed in a browser and gives access to the response body, response headers, URL parsing information, and stack trace"
-                        },
-                        {
-                            "Value": "json",
-                            "Description": "Service responds with JSON document that contains the same information as the HTML debug response"
-                        }
-                    ]
-                }
-            ]
+            "@Core.Example": {
+                "@Capabilities.CustomQueryOptions": [
+                    {
+                        "Name": "odata-debug",
+                        "Description": "Debug support for OData services",
+                        "DocumentationURL": "https://olingo.apache.org/doc/odata2/tutorials/debug.html",
+                        "Required": false,
+                        "ExampleValues": [
+                            {
+                                "Value": "html",
+                                "Description": "Service responds with self-contained HTML document that can conveniently viewed in a browser and gives access to the response body, response headers, URL parsing information, and stack trace"
+                            },
+                            {
+                                "Value": "json",
+                                "Description": "Service responds with JSON document that contains the same information as the HTML debug response"
+                            }
+                        ]
+                    }
+                ]
+            }
         },
         "CustomParameter": {
             "$Kind": "ComplexType",
