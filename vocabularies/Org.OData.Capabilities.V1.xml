@@ -209,7 +209,7 @@ supported:
 
       <!--Query Capabilities -->
 
-      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
       <ComplexType Name="CountRestrictionsType">
@@ -224,7 +224,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet Collection EntityType">
+      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
@@ -249,8 +249,33 @@ supported:
         <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on $filter expressions" />
         </Property>
+        <Property Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on $search expressions" />
+        </Property>
         <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on $orderby expressions" />
+        </Property>
+        <Property Name="TopSupported" Type="Core.Tag" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $top" />
+        </Property>
+        <Property Name="SkipSupported" Type="Core.Tag" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $skip" />
+        </Property>
+        <Property Name="IndexableByKey" Type="Core.Tag" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
+        </Property>
+        <Property Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on insert operations" />
+        </Property>
+        <Property Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType">
+          <Annotation Term="Core.Description"
+            String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
+        </Property>
+        <Property Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on update operations" />
+        </Property>
+        <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
@@ -265,14 +290,14 @@ supported:
         </Member>
       </EnumType>
 
-      <Term Name="IndexableByKey" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet Collection">
+      <Term Name="IndexableByKey" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
       </Term>
 
-      <Term Name="TopSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet Collection">
+      <Term Name="TopSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports $top" />
       </Term>
-      <Term Name="SkipSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet Collection">
+      <Term Name="SkipSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports $skip" />
       </Term>
 
@@ -306,7 +331,7 @@ supported:
         <Annotation Term="Core.Description" String="List of functions and operators supported in $filter" />
       </Term>
 
-      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on $filter expressions" />
       </Term>
       <ComplexType Name="FilterRestrictionsType">
@@ -365,7 +390,7 @@ supported:
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on $orderby expressions" />
       </Term>
       <ComplexType Name="SortRestrictionsType">
@@ -383,7 +408,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet Collection EntityType">
+      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on $expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
@@ -399,7 +424,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on $search expressions" />
       </Term>
       <ComplexType Name="SearchRestrictionsType">
@@ -433,7 +458,7 @@ supported:
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet Collection">
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
@@ -449,7 +474,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet Collection">
+      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description"
           String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
@@ -463,7 +488,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Collection EntityType">
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
@@ -479,9 +504,9 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Collection EntityType">
-        <Annotation Term="Core.Description" String="Restrictions on delete operations" />
-      </Term>
+  <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
+    <Annotation Term="Core.Description" String="Restrictions on delete operations" />
+  </Term>
       <ComplexType Name="DeleteRestrictionsType">
         <Property Name="Deletable" Type="Edm.Boolean" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be deleted" />
@@ -492,6 +517,45 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
+        </Property>
+      </ComplexType>
+
+      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)"
+        AppliesTo="EntitySet"
+      >
+        <Annotation Term="Core.Description" String="Describes restrictions on operations applied to collection-valued structural properties" />
+      </Term>
+      <ComplexType Name="CollectionPropertyRestrictionsType">
+        <Property Name="CollectionProperty" Type="Edm.PropertyPath">
+          <Annotation Term="Core.Description" String="Restricted Collection-valued property" />
+        </Property>
+        <Property Name="FilterFunctions" Type="Collection(Edm.String)">
+          <Annotation Term="Core.Description"
+            String="List of functions and operators supported in $filter. If null, all functions and operators may be attempted" />
+        </Property>
+        <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on $filter expressions" />
+        </Property>
+        <Property Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on $search expressions" />
+        </Property>
+        <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on $orderby expressions" />
+        </Property>
+        <Property Name="TopSupported" Type="Core.Tag" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $top" />
+        </Property>
+        <Property Name="SkipSupported" Type="Core.Tag" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $skip" />
+        </Property>
+        <Property Name="Insertable" Type="Edm.Boolean" DefaultValue="true">
+          <Annotation Term="Core.Description" String="This collection supports positional inserts" />
+        </Property>
+        <Property Name="Updatable" Type="Edm.Boolean" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Members of this ordered collection can be updated by ordinal" />
+        </Property>
+        <Property Name="Deletable" Type="Edm.Boolean" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Members of this ordered collection can be deleted by ordinal" />
         </Property>
       </ComplexType>
 

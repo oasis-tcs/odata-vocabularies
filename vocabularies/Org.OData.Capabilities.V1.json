@@ -198,8 +198,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.CountRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
         },
@@ -227,9 +226,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.NavigationRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection",
-                "EntityType"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on navigating properties according to OData URL conventions"
         },
@@ -267,10 +264,53 @@
                 "$Type": "Capabilities.FilterRestrictionsType",
                 "@Core.Description": "Restrictions on $filter expressions"
             },
+            "SearchRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.SearchRestrictionsType",
+                "@Core.Description": "Restrictions on $search expressions"
+            },
             "SortRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.SortRestrictionsType",
                 "@Core.Description": "Restrictions on $orderby expressions"
+            },
+            "TopSupported": {
+                "$Nullable": true,
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "Supports $top"
+            },
+            "SkipSupported": {
+                "$Nullable": true,
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "Supports $skip"
+            },
+            "IndexableByKey": {
+                "$Nullable": true,
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "Supports key values according to OData URL conventions"
+            },
+            "InsertRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.InsertRestrictionsType",
+                "@Core.Description": "Restrictions on insert operations"
+            },
+            "DeepInsertSupport": {
+                "$Nullable": true,
+                "$Type": "Capabilities.DeepInsertSupportType",
+                "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
+            },
+            "UpdateRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.UpdateRestrictionsType",
+                "@Core.Description": "Restrictions on update operations"
+            },
+            "DeleteRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.DeleteRestrictionsType",
+                "@Core.Description": "Restrictions on delete operations"
             }
         },
         "NavigationType": {
@@ -288,8 +328,7 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Supports key values according to OData URL conventions"
         },
@@ -299,8 +338,7 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Supports $top"
         },
@@ -310,8 +348,7 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Supports $skip"
         },
@@ -377,8 +414,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.FilterRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on $filter expressions"
         },
@@ -458,8 +494,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.SortRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on $orderby expressions"
         },
@@ -492,9 +527,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.ExpandRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection",
-                "EntityType"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on $expand expressions"
         },
@@ -523,8 +556,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.SearchRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on $search expressions"
         },
@@ -564,8 +596,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.InsertRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on insert operations"
         },
@@ -595,8 +626,7 @@
             "$Type": "Capabilities.DeepInsertSupportType",
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
         },
@@ -620,9 +650,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.UpdateRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection",
-                "EntityType"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on update operations"
         },
@@ -651,9 +679,7 @@
             "$Nullable": true,
             "$Type": "Capabilities.DeleteRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection",
-                "EntityType"
+                "EntitySet"
             ],
             "@Core.Description": "Restrictions on delete operations"
         },
@@ -675,6 +701,72 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
+            }
+        },
+        "CollectionPropertyRestrictions": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Capabilities.CollectionPropertyRestrictionsType",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "Describes restrictions on operations applied to collection-valued structural properties"
+        },
+        "CollectionPropertyRestrictionsType": {
+            "$Kind": "ComplexType",
+            "CollectionProperty": {
+                "$Nullable": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Restricted Collection-valued property"
+            },
+            "FilterFunctions": {
+                "$Collection": true,
+                "@Core.Description": "List of functions and operators supported in $filter. If null, all functions and operators may be attempted"
+            },
+            "FilterRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.FilterRestrictionsType",
+                "@Core.Description": "Restrictions on $filter expressions"
+            },
+            "SearchRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.SearchRestrictionsType",
+                "@Core.Description": "Restrictions on $search expressions"
+            },
+            "SortRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.SortRestrictionsType",
+                "@Core.Description": "Restrictions on $orderby expressions"
+            },
+            "TopSupported": {
+                "$Nullable": true,
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "Supports $top"
+            },
+            "SkipSupported": {
+                "$Nullable": true,
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "Supports $skip"
+            },
+            "Insertable": {
+                "$Nullable": true,
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "This collection supports positional inserts"
+            },
+            "Updatable": {
+                "$Nullable": true,
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Members of this ordered collection can be updated by ordinal"
+            },
+            "Deletable": {
+                "$Nullable": true,
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Members of this ordered collection can be deleted by ordinal"
             }
         }
     }
