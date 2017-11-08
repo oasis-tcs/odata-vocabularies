@@ -226,7 +226,8 @@
             "$Nullable": true,
             "$Type": "Capabilities.NavigationRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on navigating properties according to OData URL conventions"
         },
@@ -527,7 +528,8 @@
             "$Nullable": true,
             "$Type": "Capabilities.ExpandRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on $expand expressions"
         },
@@ -708,7 +710,8 @@
             "$Collection": true,
             "$Type": "Capabilities.CollectionPropertyRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Describes restrictions on operations applied to collection-valued structural properties"
         },

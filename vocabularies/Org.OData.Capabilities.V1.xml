@@ -224,7 +224,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
@@ -348,9 +348,7 @@ supported:
         <Property Name="NonFilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties cannot be used in $filter expressions" />
         </Property>
-        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)"
-          Nullable="false"
-        >
+        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
@@ -408,7 +406,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on $expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
@@ -504,9 +502,9 @@ supported:
         </Property>
       </ComplexType>
 
-  <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
-    <Annotation Term="Core.Description" String="Restrictions on delete operations" />
-  </Term>
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Restrictions on delete operations" />
+      </Term>
       <ComplexType Name="DeleteRestrictionsType">
         <Property Name="Deletable" Type="Edm.Boolean" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be deleted" />
@@ -520,9 +518,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)"
-        AppliesTo="EntitySet"
-      >
+      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Describes restrictions on operations applied to collection-valued structural properties" />
       </Term>
       <ComplexType Name="CollectionPropertyRestrictionsType">
