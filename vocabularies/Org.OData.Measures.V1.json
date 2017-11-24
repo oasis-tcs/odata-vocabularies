@@ -11,7 +11,6 @@
         }
     },
     "Org.OData.Measures.V1": {
-        "$Kind": "Schema",
         "$Alias": "Measures",
         "@Core.Description": "Terms describing monetary amounts and measured quantities",
         "@Core.Links": [
@@ -30,6 +29,7 @@
         ],
         "ISOCurrency": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],
@@ -37,6 +37,7 @@
         },
         "Scale": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.Byte",
             "$AppliesTo": [
                 "Property"
@@ -46,6 +47,7 @@
         },
         "Unit": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property"
             ],

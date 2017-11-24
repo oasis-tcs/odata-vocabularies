@@ -23,9 +23,9 @@
     </xsl:attribute>
   </xsl:template>
 
-  <!-- invent alias for schemas defined or included without alias -->
   <xsl:template match="edm:Schema|edmx:Include">
     <xsl:copy>
+      <!-- invent alias for schemas defined or included without alias -->
       <xsl:if test="not(@Alias)">
         <xsl:attribute name="Alias">
           <xsl:apply-templates select="." mode="alias" />

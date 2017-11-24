@@ -80,7 +80,7 @@
         <Property Name="ApplicationTime" Type="Temporal.TimeDimensionType" />
         <Property Name="SystemTime" Type="Temporal.TimeDimensionGranularityDateTimeOffset" />
         <Property Name="NonTemporalProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Documentation" String="Properties whose value changes over time are not tracked" />
+          <Annotation Term="Core.Description" String="Properties whose value changes over time are not tracked" />
         </Property>
       </ComplexType>
 
@@ -89,14 +89,14 @@
       </ComplexType>
 
       <ComplexType Name="TimeDimensionGranularityDateTimeOffset" BaseType="Temporal.TimeDimensionType">
-        <Annotation Term="Core.Documentation" String="Granularity of this time dimension is DateTimeOffset" />
+        <Annotation Term="Core.Description" String="Granularity of this time dimension is DateTimeOffset" />
         <Property Name="Precision" Type="Edm.Byte" Nullable="false">
-          <Annotation Term="Core.Documentation" String="Precision of Edm.DateTimeOffset values for granularity DateTimeOffset" />
+          <Annotation Term="Core.Description" String="Precision of Edm.DateTimeOffset values for granularity DateTimeOffset" />
         </Property>
       </ComplexType>
 
       <ComplexType Name="TimeDimensionGranularityDate" BaseType="Temporal.TimeDimensionType">
-        <Annotation Term="Core.Documentation" String="Granularity of this time dimension is Date" />
+        <Annotation Term="Core.Description" String="Granularity of this time dimension is Date" />
       </ComplexType>
 
       <EnumType Name="QueryType" IsFlags="true">
@@ -108,22 +108,22 @@
       <!-- Metadata annotations that can also appear as instance annotations -->
 
       <Term Name="From" Type="Edm.PrimitiveType" AppliesTo="EntityType">
-        <Annotation Term="Core.Documentation"
+        <Annotation Term="Core.Description"
           String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now" />
       </Term>
 
       <Term Name="To" Type="Edm.PrimitiveType" AppliesTo="EntityType">
-        <Annotation Term="Core.Documentation"
+        <Annotation Term="Core.Description"
           String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max" />
       </Term>
 
       <Term Name="SystemFrom" Type="Edm.PrimitiveType" AppliesTo="EntityType">
-        <Annotation Term="Core.Documentation"
+        <Annotation Term="Core.Description"
           String="Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min" />
       </Term>
 
       <Term Name="SystemTo" Type="Edm.PrimitiveType" AppliesTo="EntityType">
-        <Annotation Term="Core.Documentation"
+        <Annotation Term="Core.Description"
           String="Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max" />
       </Term>
 

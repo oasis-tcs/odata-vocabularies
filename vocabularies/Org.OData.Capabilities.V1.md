@@ -54,24 +54,25 @@ Term|Type|Description
 [CrossJoinSupported](Org.OData.Capabilities.V1.xml#L167)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="CrossJoinSupported"></a>Supports cross joins for the entity sets in this container<p>*Applies to: EntityContainer*</p>
 [CallbackSupported](Org.OData.Capabilities.V1.xml#L171)|[CallbackType](#CallbackType)|<a name="CallbackSupported"></a>Supports callbacks for the specified protocols<p>*Applies to: EntityContainer, EntitySet*</p>
 [ChangeTracking](Org.OData.Capabilities.V1.xml#L195)|[ChangeTrackingType](#ChangeTrackingType)|<a name="ChangeTracking"></a>Change tracking capabilities of this service or entity set<p>*Applies to: EntityContainer, EntitySet, Singleton, Function, FunctionImport, NavigationProperty*</p>
-[CountRestrictions](Org.OData.Capabilities.V1.xml#L212)|[CountRestrictionsType](#CountRestrictionsType)|<a name="CountRestrictions"></a>Restrictions on /$count path suffix and $count=true system query option<p>*Applies to: EntitySet, Collection*</p>
-[NavigationRestrictions](Org.OData.Capabilities.V1.xml#L227)|[NavigationRestrictionsType](#NavigationRestrictionsType)|<a name="NavigationRestrictions"></a>Restrictions on navigating properties according to OData URL conventions<p>*Applies to: EntitySet, Collection, EntityType*</p>
-[IndexableByKey](Org.OData.Capabilities.V1.xml#L268)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="IndexableByKey"></a>Supports key values according to OData URL conventions<p>*Applies to: EntitySet, Collection*</p>
-[TopSupported](Org.OData.Capabilities.V1.xml#L272)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="TopSupported"></a>Supports $top<p>*Applies to: EntitySet, Collection*</p>
-[SkipSupported](Org.OData.Capabilities.V1.xml#L275)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="SkipSupported"></a>Supports $skip<p>*Applies to: EntitySet, Collection*</p>
-[BatchSupported](Org.OData.Capabilities.V1.xml#L279)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchSupported"></a>Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.<p>*Applies to: EntityContainer*</p>
-[BatchSupport](Org.OData.Capabilities.V1.xml#L284)|[BatchSupportType](#BatchSupportType)|<a name="BatchSupport"></a>Batch Support for the service<p>*Applies to: EntityContainer*</p>
-[FilterFunctions](Org.OData.Capabilities.V1.xml#L305)|\[String\]|<a name="FilterFunctions"></a>List of functions and operators supported in $filter<p>*Applies to: EntityContainer, EntitySet*</p>
-[FilterRestrictions](Org.OData.Capabilities.V1.xml#L309)|[FilterRestrictionsType](#FilterRestrictionsType)|<a name="FilterRestrictions"></a>Restrictions on $filter expressions<p>*Applies to: EntitySet, Collection*</p>
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L368)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions<p>*Applies to: EntitySet, Collection*</p>
-[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L386)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions<p>*Applies to: EntitySet, Collection, EntityType*</p>
-[SearchRestrictions](Org.OData.Capabilities.V1.xml#L402)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions<p>*Applies to: EntitySet, Collection*</p>
-[InsertRestrictions](Org.OData.Capabilities.V1.xml#L436)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations<p>*Applies to: EntitySet, Collection*</p>
-[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L452)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)<p>*Applies to: EntityContainer, EntitySet, Collection*</p>
-[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L466)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations<p>*Applies to: EntitySet, Collection, EntityType*</p>
-[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L482)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations<p>*Applies to: EntitySet, Collection, EntityType*</p>
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L500)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource<p>*Applies to: EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L502)</p>
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L528)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p><p>*Applies to: EntityContainer, EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L532)</p>
+[CountRestrictions](Org.OData.Capabilities.V1.xml#L212)|[CountRestrictionsType](#CountRestrictionsType)|<a name="CountRestrictions"></a>Restrictions on /$count path suffix and $count=true system query option<p>*Applies to: EntitySet*</p>
+[NavigationRestrictions](Org.OData.Capabilities.V1.xml#L227)|[NavigationRestrictionsType](#NavigationRestrictionsType)|<a name="NavigationRestrictions"></a>Restrictions on navigating properties according to OData URL conventions<p>*Applies to: EntitySet, Singleton*</p>
+[IndexableByKey](Org.OData.Capabilities.V1.xml#L293)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="IndexableByKey"></a>Supports key values according to OData URL conventions<p>*Applies to: EntitySet*</p>
+[TopSupported](Org.OData.Capabilities.V1.xml#L297)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="TopSupported"></a>Supports $top<p>*Applies to: EntitySet*</p>
+[SkipSupported](Org.OData.Capabilities.V1.xml#L300)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="SkipSupported"></a>Supports $skip<p>*Applies to: EntitySet*</p>
+[BatchSupported](Org.OData.Capabilities.V1.xml#L304)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchSupported"></a>Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.<p>*Applies to: EntityContainer*</p>
+[BatchSupport](Org.OData.Capabilities.V1.xml#L309)|[BatchSupportType](#BatchSupportType)|<a name="BatchSupport"></a>Batch Support for the service<p>*Applies to: EntityContainer*</p>
+[FilterFunctions](Org.OData.Capabilities.V1.xml#L330)|\[String\]|<a name="FilterFunctions"></a>List of functions and operators supported in $filter<p>*Applies to: EntityContainer, EntitySet*</p>
+[FilterRestrictions](Org.OData.Capabilities.V1.xml#L334)|[FilterRestrictionsType](#FilterRestrictionsType)|<a name="FilterRestrictions"></a>Restrictions on $filter expressions<p>*Applies to: EntitySet*</p>
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L393)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions<p>*Applies to: EntitySet*</p>
+[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L411)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions<p>*Applies to: EntitySet, Singleton*</p>
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L427)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions<p>*Applies to: EntitySet*</p>
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L461)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations<p>*Applies to: EntitySet*</p>
+[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L477)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)<p>*Applies to: EntityContainer, EntitySet*</p>
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L491)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations<p>*Applies to: EntitySet*</p>
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L507)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations<p>*Applies to: EntitySet*</p>
+[CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L525)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties<p>*Applies to: EntitySet, Singleton*</p>
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L562)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource<p>*Applies to: EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L564)</p>
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L590)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p><p>*Applies to: EntityContainer, EntitySet, Singleton, Action, ActionImport, Function, FunctionImport*</p><p>[Example](Org.OData.Capabilities.V1.xml#L594)</p>
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
@@ -140,150 +141,174 @@ Property|Type|Description
 [Navigability](Org.OData.Capabilities.V1.xml#L242)|[NavigationType](#NavigationType)|Navigation properties can be navigated to this level
 [FilterFunctions](Org.OData.Capabilities.V1.xml#L245)|\[String\]|List of functions and operators supported in $filter. If null, all functions and operators may be attempted.
 [FilterRestrictions](Org.OData.Capabilities.V1.xml#L249)|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on $filter expressions
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L252)|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on $orderby expressions
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L252)|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on $search expressions
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L255)|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on $orderby expressions
+[TopSupported](Org.OData.Capabilities.V1.xml#L258)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
+[SkipSupported](Org.OData.Capabilities.V1.xml#L261)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
+[IndexableByKey](Org.OData.Capabilities.V1.xml#L264)|[Tag](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L267)|[InsertRestrictionsType](#InsertRestrictionsType)|Restrictions on insert operations
+[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L270)|[DeepInsertSupportType](#DeepInsertSupportType)|Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L274)|[UpdateRestrictionsType](#UpdateRestrictionsType)|Restrictions on update operations
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L277)|[DeleteRestrictionsType](#DeleteRestrictionsType)|Restrictions on delete operations
 
-## <a name="NavigationType"></a>[NavigationType](Org.OData.Capabilities.V1.xml#L256)
+## <a name="NavigationType"></a>[NavigationType](Org.OData.Capabilities.V1.xml#L281)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Recursive](Org.OData.Capabilities.V1.xml#L257)|0|Navigation properties can be recursively navigated
-[Single](Org.OData.Capabilities.V1.xml#L260)|1|Navigation properties can be navigated to a single level
-[None](Org.OData.Capabilities.V1.xml#L263)|2|Navigation properties are not navigable
+[Recursive](Org.OData.Capabilities.V1.xml#L282)|0|Navigation properties can be recursively navigated
+[Single](Org.OData.Capabilities.V1.xml#L285)|1|Navigation properties can be navigated to a single level
+[None](Org.OData.Capabilities.V1.xml#L288)|2|Navigation properties are not navigable
 
-## <a name="BatchSupportType"></a>[BatchSupportType](Org.OData.Capabilities.V1.xml#L287)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Supported](Org.OData.Capabilities.V1.xml#L288)|Boolean|Service supports requests to $batch
-[ContinueOnErrorSupported](Org.OData.Capabilities.V1.xml#L291)|Boolean|Service supports the continue on error preference
-[ReferencesInRequestBodiesSupported](Org.OData.Capabilities.V1.xml#L294)|Boolean|Service supports Content-ID referencing in request bodies
-[ReferencesAcrossChangeSetsSupported](Org.OData.Capabilities.V1.xml#L297)|Boolean|Service supports Content-ID referencing across change sets
-[EtagReferencesSupported](Org.OData.Capabilities.V1.xml#L300)|Boolean|Service supports referencing Etags from previous requests
-
-## <a name="FilterRestrictionsType"></a>[FilterRestrictionsType](Org.OData.Capabilities.V1.xml#L312)
+## <a name="BatchSupportType"></a>[BatchSupportType](Org.OData.Capabilities.V1.xml#L312)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Filterable](Org.OData.Capabilities.V1.xml#L313)|Boolean|$filter is supported
-[RequiresFilter](Org.OData.Capabilities.V1.xml#L316)|Boolean|$filter is required
-[RequiredProperties](Org.OData.Capabilities.V1.xml#L319)|\[PropertyPath\]|These properties must be specified in the $filter clause (properties of derived types are not allowed here)
-[NonFilterableProperties](Org.OData.Capabilities.V1.xml#L323)|\[PropertyPath\]|These structural or navigation properties cannot be used in $filter expressions
-[FilterExpressionRestrictions](Org.OData.Capabilities.V1.xml#L328)|\[[FilterExpressionRestrictionType](#FilterExpressionRestrictionType)\]|These properties only allow a subset of expressions
-[MaxLevels](Org.OData.Capabilities.V1.xml#L331)|Int32|The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction.
+[Supported](Org.OData.Capabilities.V1.xml#L313)|Boolean|Service supports requests to $batch
+[ContinueOnErrorSupported](Org.OData.Capabilities.V1.xml#L316)|Boolean|Service supports the continue on error preference
+[ReferencesInRequestBodiesSupported](Org.OData.Capabilities.V1.xml#L319)|Boolean|Service supports Content-ID referencing in request bodies
+[ReferencesAcrossChangeSetsSupported](Org.OData.Capabilities.V1.xml#L322)|Boolean|Service supports Content-ID referencing across change sets
+[EtagReferencesSupported](Org.OData.Capabilities.V1.xml#L325)|Boolean|Service supports referencing Etags from previous requests
 
-## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Org.OData.Capabilities.V1.xml#L336)
+## <a name="FilterRestrictionsType"></a>[FilterRestrictionsType](Org.OData.Capabilities.V1.xml#L337)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Property](Org.OData.Capabilities.V1.xml#L337)|PropertyPath|Path to the restricted property
-[AllowedExpressions](Org.OData.Capabilities.V1.xml#L340)|[FilterExpressionType](#FilterExpressionType)|Allowed subset of expressions
+[Filterable](Org.OData.Capabilities.V1.xml#L338)|Boolean|$filter is supported
+[RequiresFilter](Org.OData.Capabilities.V1.xml#L341)|Boolean|$filter is required
+[RequiredProperties](Org.OData.Capabilities.V1.xml#L344)|\[PropertyPath\]|These properties must be specified in the $filter clause (properties of derived types are not allowed here)
+[NonFilterableProperties](Org.OData.Capabilities.V1.xml#L348)|\[PropertyPath\]|These structural properties cannot be used in $filter expressions
+[FilterExpressionRestrictions](Org.OData.Capabilities.V1.xml#L353)|\[[FilterExpressionRestrictionType](#FilterExpressionRestrictionType)\]|These properties only allow a subset of expressions
+[MaxLevels](Org.OData.Capabilities.V1.xml#L356)|Int32|The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction.
 
-## <a name="FilterExpressionType"></a>[FilterExpressionType](Org.OData.Capabilities.V1.xml#L344)
+## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Org.OData.Capabilities.V1.xml#L361)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Property](Org.OData.Capabilities.V1.xml#L362)|PropertyPath|Path to the restricted property
+[AllowedExpressions](Org.OData.Capabilities.V1.xml#L365)|[FilterExpressionType](#FilterExpressionType)|Allowed subset of expressions
+
+## <a name="FilterExpressionType"></a>[FilterExpressionType](Org.OData.Capabilities.V1.xml#L369)
 **Type:** String
 
 
 Allowed Value|Description
 :------------|:----------
-[SingleValue](Org.OData.Capabilities.V1.xml#L347)|Property can be used in a single eq clause
-[MultiValue](Org.OData.Capabilities.V1.xml#L351)|Property can be used in a single in clause
-[SingleRange](Org.OData.Capabilities.V1.xml#L355)|Property can be used in at most one ge and/or one le clause, separated by and
-[SearchExpression](Org.OData.Capabilities.V1.xml#L359)|String property can be used as first operand in startswith, endswith, and contains clauses
+[SingleValue](Org.OData.Capabilities.V1.xml#L372)|Property can be used in a single eq clause
+[MultiValue](Org.OData.Capabilities.V1.xml#L376)|Property can be used in a single in clause
+[SingleRange](Org.OData.Capabilities.V1.xml#L380)|Property can be used in at most one ge and/or one le clause, separated by and
+[SearchExpression](Org.OData.Capabilities.V1.xml#L384)|String property can be used as first operand in startswith, endswith, and contains clauses
 
-## <a name="SortRestrictionsType"></a>[SortRestrictionsType](Org.OData.Capabilities.V1.xml#L371)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Sortable](Org.OData.Capabilities.V1.xml#L372)|Boolean|$orderby is supported
-[AscendingOnlyProperties](Org.OData.Capabilities.V1.xml#L375)|\[PropertyPath\]|These properties can only be used for sorting in Ascending order
-[DescendingOnlyProperties](Org.OData.Capabilities.V1.xml#L378)|\[PropertyPath\]|These properties can only be used for sorting in Descending order
-[NonSortableProperties](Org.OData.Capabilities.V1.xml#L381)|\[PropertyPath\]|These structural or navigation properties cannot be used in $orderby expressions
-
-## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L389)
+## <a name="SortRestrictionsType"></a>[SortRestrictionsType](Org.OData.Capabilities.V1.xml#L396)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Expandable](Org.OData.Capabilities.V1.xml#L390)|Boolean|$expand is supported
-[NonExpandableProperties](Org.OData.Capabilities.V1.xml#L393)|\[NavigationPropertyPath\]|These properties cannot be used in $expand expressions
-[MaxLevels](Org.OData.Capabilities.V1.xml#L396)|Int32|The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction.
+[Sortable](Org.OData.Capabilities.V1.xml#L397)|Boolean|$orderby is supported
+[AscendingOnlyProperties](Org.OData.Capabilities.V1.xml#L400)|\[PropertyPath\]|These properties can only be used for sorting in Ascending order
+[DescendingOnlyProperties](Org.OData.Capabilities.V1.xml#L403)|\[PropertyPath\]|These properties can only be used for sorting in Descending order
+[NonSortableProperties](Org.OData.Capabilities.V1.xml#L406)|\[PropertyPath\]|These structural properties cannot be used in $orderby expressions
 
-## <a name="SearchRestrictionsType"></a>[SearchRestrictionsType](Org.OData.Capabilities.V1.xml#L405)
+## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L414)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Searchable](Org.OData.Capabilities.V1.xml#L406)|Boolean|$search is supported
-[UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L409)|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
+[Expandable](Org.OData.Capabilities.V1.xml#L415)|Boolean|$expand is supported
+[NonExpandableProperties](Org.OData.Capabilities.V1.xml#L418)|\[NavigationPropertyPath\]|These properties cannot be used in $expand expressions
+[MaxLevels](Org.OData.Capabilities.V1.xml#L421)|Int32|The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction.
 
-## <a name="SearchExpressions"></a>[SearchExpressions](Org.OData.Capabilities.V1.xml#L413)
+## <a name="SearchRestrictionsType"></a>[SearchRestrictionsType](Org.OData.Capabilities.V1.xml#L430)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Searchable](Org.OData.Capabilities.V1.xml#L431)|Boolean|$search is supported
+[UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L434)|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
+
+## <a name="SearchExpressions"></a>[SearchExpressions](Org.OData.Capabilities.V1.xml#L438)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[none](Org.OData.Capabilities.V1.xml#L414)|0|Single search term
-[AND](Org.OData.Capabilities.V1.xml#L417)|1|Multiple search terms separated by AND
-[OR](Org.OData.Capabilities.V1.xml#L420)|2|Multiple search terms separated by OR
-[NOT](Org.OData.Capabilities.V1.xml#L423)|4|Search terms preceded by NOT
-[phrase](Org.OData.Capabilities.V1.xml#L426)|8|Search phrases enclosed in double quotes
-[group](Org.OData.Capabilities.V1.xml#L429)|16|Precedence grouping of search expressions with parentheses
+[none](Org.OData.Capabilities.V1.xml#L439)|0|Single search term
+[AND](Org.OData.Capabilities.V1.xml#L442)|1|Multiple search terms separated by AND
+[OR](Org.OData.Capabilities.V1.xml#L445)|2|Multiple search terms separated by OR
+[NOT](Org.OData.Capabilities.V1.xml#L448)|4|Search terms preceded by NOT
+[phrase](Org.OData.Capabilities.V1.xml#L451)|8|Search phrases enclosed in double quotes
+[group](Org.OData.Capabilities.V1.xml#L454)|16|Precedence grouping of search expressions with parentheses
 
-## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L439)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Insertable](Org.OData.Capabilities.V1.xml#L440)|Boolean|Entities can be inserted
-[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L443)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
-[MaxLevels](Org.OData.Capabilities.V1.xml#L446)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
-
-## <a name="DeepInsertSupportType"></a>[DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L456)
+## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L464)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Supported](Org.OData.Capabilities.V1.xml#L457)|Boolean|Annotation target supports deep inserts
-[ContentIDSupported](Org.OData.Capabilities.V1.xml#L460)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
+[Insertable](Org.OData.Capabilities.V1.xml#L465)|Boolean|Entities can be inserted
+[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L468)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
+[MaxLevels](Org.OData.Capabilities.V1.xml#L471)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
 
-## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L469)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Updatable](Org.OData.Capabilities.V1.xml#L470)|Boolean|Entities can be updated
-[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L473)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
-[MaxLevels](Org.OData.Capabilities.V1.xml#L476)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
-
-## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L485)
+## <a name="DeepInsertSupportType"></a>[DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L481)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Deletable](Org.OData.Capabilities.V1.xml#L486)|Boolean|Entities can be deleted
-[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L489)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
-[MaxLevels](Org.OData.Capabilities.V1.xml#L492)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
+[Supported](Org.OData.Capabilities.V1.xml#L482)|Boolean|Annotation target supports deep inserts
+[ContentIDSupported](Org.OData.Capabilities.V1.xml#L485)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
 
-## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L562)
+## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L494)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Updatable](Org.OData.Capabilities.V1.xml#L495)|Boolean|Entities can be updated
+[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L498)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
+[MaxLevels](Org.OData.Capabilities.V1.xml#L501)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
+
+## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L510)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Deletable](Org.OData.Capabilities.V1.xml#L511)|Boolean|Entities can be deleted
+[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L514)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
+[MaxLevels](Org.OData.Capabilities.V1.xml#L517)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
+
+## <a name="CollectionPropertyRestrictionsType"></a>[CollectionPropertyRestrictionsType](Org.OData.Capabilities.V1.xml#L528)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[CollectionProperty](Org.OData.Capabilities.V1.xml#L529)|PropertyPath|Restricted Collection-valued property
+[FilterFunctions](Org.OData.Capabilities.V1.xml#L532)|\[String\]|List of functions and operators supported in $filter. If null, all functions and operators may be attempted
+[FilterRestrictions](Org.OData.Capabilities.V1.xml#L536)|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on $filter expressions
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L539)|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on $search expressions
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L542)|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on $orderby expressions
+[TopSupported](Org.OData.Capabilities.V1.xml#L545)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
+[SkipSupported](Org.OData.Capabilities.V1.xml#L548)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
+[Insertable](Org.OData.Capabilities.V1.xml#L551)|Boolean|This collection supports positional inserts
+[Updatable](Org.OData.Capabilities.V1.xml#L554)|Boolean|Members of this ordered collection can be updated by ordinal
+[Deletable](Org.OData.Capabilities.V1.xml#L557)|Boolean|Members of this ordered collection can be deleted by ordinal
+
+## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L624)
 A custom parameter is either a header or a query option
 
 The type of a custom parameter is always a string. Restrictions on the parameter values can be expressed by annotating the record expression describing the parameter with terms from the Validation vocabulary, e.g. Validation.Pattern or Validation.AllowedValues.
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Capabilities.V1.xml#L566)|String|Name of the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L569)|String|Description of the custom parameter
-[DocumentationURL](Org.OData.Capabilities.V1.xml#L572)|URL|URL of related documentation
-[Required](Org.OData.Capabilities.V1.xml#L576)|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](Org.OData.Capabilities.V1.xml#L579)|\[[CustomParameterExampleValue](#CustomParameterExampleValue)\]|Example values for the custom parameter
+[Name](Org.OData.Capabilities.V1.xml#L628)|String|Name of the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L631)|String|Description of the custom parameter
+[DocumentationURL](Org.OData.Capabilities.V1.xml#L634)|URL|URL of related documentation
+[Required](Org.OData.Capabilities.V1.xml#L638)|Boolean|true: parameter is required, false or not specified: parameter is optional
+[ExampleValues](Org.OData.Capabilities.V1.xml#L641)|\[[CustomParameterExampleValue](#CustomParameterExampleValue)\]|Example values for the custom parameter
 
-## <a name="CustomParameterExampleValue"></a>[CustomParameterExampleValue](Org.OData.Capabilities.V1.xml#L583)
+## <a name="CustomParameterExampleValue"></a>[CustomParameterExampleValue](Org.OData.Capabilities.V1.xml#L645)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Value](Org.OData.Capabilities.V1.xml#L584)|String|Example value for the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L587)|String|Description of the example value
+[Value](Org.OData.Capabilities.V1.xml#L646)|String|Example value for the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L649)|String|Description of the example value

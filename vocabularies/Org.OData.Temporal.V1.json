@@ -11,7 +11,6 @@
         }
     },
     "Org.OData.Temporal.V1": {
-        "$Kind": "Schema",
         "$Alias": "Temporal",
         "@Core.Description": "Terms to describe which data in a given entity model is time-dependent, and in which dimensions.",
         "@Core.Links": [
@@ -30,6 +29,7 @@
         ],
         "TemporalSupported": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Temporal.TemporalSupportedType",
             "$AppliesTo": [
                 "EntityContainer",
@@ -41,39 +41,40 @@
         "TemporalSupportedType": {
             "$Kind": "ComplexType",
             "ApplicationTime": {
+                "$Nullable": true,
                 "$Type": "Temporal.TimeDimensionType"
             },
             "SystemTime": {
+                "$Nullable": true,
                 "$Type": "Temporal.TimeDimensionGranularityDateTimeOffset"
             },
             "NonTemporalProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": false,
-                "@Core.Documentation": "Properties whose value changes over time are not tracked"
+                "@Core.Description": "Properties whose value changes over time are not tracked"
             }
         },
         "TimeDimensionType": {
             "$Kind": "ComplexType",
             "$Abstract": true,
             "SupportedQueries": {
+                "$Nullable": true,
                 "$Type": "Temporal.QueryType"
             }
         },
         "TimeDimensionGranularityDateTimeOffset": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.TimeDimensionType",
-            "@Core.Documentation": "Granularity of this time dimension is DateTimeOffset",
+            "@Core.Description": "Granularity of this time dimension is DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
-                "$Nullable": false,
-                "@Core.Documentation": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
+                "@Core.Description": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
             }
         },
         "TimeDimensionGranularityDate": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.TimeDimensionType",
-            "@Core.Documentation": "Granularity of this time dimension is Date"
+            "@Core.Description": "Granularity of this time dimension is Date"
         },
         "QueryType": {
             "$Kind": "EnumType",
@@ -83,35 +84,39 @@
         },
         "From": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now"
+            "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now"
         },
         "To": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max"
+            "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max"
         },
         "SystemFrom": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min"
+            "@Core.Description": "Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min"
         },
         "SystemTo": {
             "$Kind": "Term",
+            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Documentation": "Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max"
+            "@Core.Description": "Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max"
         }
     }
 }
