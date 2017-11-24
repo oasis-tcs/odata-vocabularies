@@ -5,11 +5,11 @@ Terms to describe which data in a given entity model is time-dependent, and in w
 
 Term|Type|Description
 :---|:---|:----------
-[TemporalSupported](Org.OData.Temporal.V1.xml#L73)|[TemporalSupportedType](#TemporalSupportedType)|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option<p>*Applies to: EntityContainer, EntitySet, NavigationProperty*</p>
-[From](Org.OData.Temporal.V1.xml#L110)|PrimitiveType|<a name="From"></a>Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now<p>*Applies to: EntityType*</p>
-[To](Org.OData.Temporal.V1.xml#L115)|PrimitiveType|<a name="To"></a>Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max<p>*Applies to: EntityType*</p>
-[SystemFrom](Org.OData.Temporal.V1.xml#L120)|PrimitiveType|<a name="SystemFrom"></a>Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min<p>*Applies to: EntityType*</p>
-[SystemTo](Org.OData.Temporal.V1.xml#L125)|PrimitiveType|<a name="SystemTo"></a>Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max<p>*Applies to: EntityType*</p>
+[TemporalSupported](Org.OData.Temporal.V1.xml#L73)|[TemporalSupportedType](#TemporalSupportedType)|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option
+[From](Org.OData.Temporal.V1.xml#L110)|PrimitiveType|<a name="From"></a>Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now
+[To](Org.OData.Temporal.V1.xml#L115)|PrimitiveType|<a name="To"></a>Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max
+[SystemFrom](Org.OData.Temporal.V1.xml#L120)|PrimitiveType|<a name="SystemFrom"></a>Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min
+[SystemTo](Org.OData.Temporal.V1.xml#L125)|PrimitiveType|<a name="SystemTo"></a>Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max
 
 ## <a name="TemporalSupportedType"></a>[TemporalSupportedType](Org.OData.Temporal.V1.xml#L79)
 

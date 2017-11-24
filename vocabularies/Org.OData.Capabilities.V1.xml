@@ -183,8 +183,7 @@ supported:
           <Annotation Term="Core.Description" String="Protocol Identifier" />
         </Property>
         <Property Name="UrlTemplate" Type="Edm.String">
-          <Annotation Term="Core.Description"
-            String="URL Template including parameters. Parameters are enclosed in curly braces {} as defined in RFC6570" />
+          <Annotation Term="Core.Description" String="URL Template including parameters. Parameters are enclosed in curly braces {} as defined in RFC6570" />
         </Property>
         <Property Name="DocumentationUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Human readable description of the meaning of the URL Template parameters" />
@@ -348,9 +347,7 @@ supported:
         <Property Name="NonFilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties cannot be used in $filter expressions" />
         </Property>
-        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)"
-          Nullable="false"
-        >
+        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
@@ -383,8 +380,7 @@ supported:
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SearchExpression" />
-              <Annotation Term="Core.Description"
-                String="String property can be used as first operand in startswith, endswith, and contains clauses" />
+              <Annotation Term="Core.Description" String="String property can be used as first operand in startswith, endswith, and contains clauses" />
             </Record>
           </Collection>
         </Annotation>
@@ -520,9 +516,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)"
-        AppliesTo="EntitySet Singleton"
-      >
+      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Describes restrictions on operations applied to collection-valued structural properties" />
       </Term>
       <ComplexType Name="CollectionPropertyRestrictionsType">
