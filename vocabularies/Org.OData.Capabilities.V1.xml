@@ -305,7 +305,7 @@ supported:
         <Annotation Term="Core.Description"
           String="Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term." />
       </Term>
-
+      
       <Term Name="BatchSupport" Type="Capabilities.BatchSupportType" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Batch Support for the service" />
       </Term>
@@ -453,6 +453,11 @@ supported:
           <Annotation Term="Core.Description" String="Precedence grouping of search expressions with parentheses" />
         </Member>
       </EnumType>
+
+      <Term Name="KeyAsSegmentSupported" Type="Core.Tag" DefaultValue="True" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description"
+          String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection" />
+      </Term>
 
       <!-- Data Modification Capabilities -->
 

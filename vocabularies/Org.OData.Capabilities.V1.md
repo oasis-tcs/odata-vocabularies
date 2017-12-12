@@ -66,11 +66,12 @@ Term|Type|Description
 [SortRestrictions](Org.OData.Capabilities.V1.xml#L391)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on $orderby expressions
 [ExpandRestrictions](Org.OData.Capabilities.V1.xml#L409)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on $expand expressions
 [SearchRestrictions](Org.OData.Capabilities.V1.xml#L425)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on $search expressions
-[InsertRestrictions](Org.OData.Capabilities.V1.xml#L459)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
-[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L475)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
-[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L489)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
-[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L505)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
-[CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L521)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
+[KeyAsSegmentSupported](Org.OData.Capabilities.V1.xml#L457)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="KeyAsSegmentSupported"></a>Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L464)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
+[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L480)|[DeepInsertSupportType](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L494)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L510)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
+[CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L526)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
@@ -239,53 +240,53 @@ Flag Member|Value|Description
 [phrase](Org.OData.Capabilities.V1.xml#L449)|8|Search phrases enclosed in double quotes
 [group](Org.OData.Capabilities.V1.xml#L452)|16|Precedence grouping of search expressions with parentheses
 
-## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L462)
+## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L467)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Insertable](Org.OData.Capabilities.V1.xml#L463)|Boolean|Entities can be inserted
-[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L466)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
-[MaxLevels](Org.OData.Capabilities.V1.xml#L469)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
+[Insertable](Org.OData.Capabilities.V1.xml#L468)|Boolean|Entities can be inserted
+[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L471)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
+[MaxLevels](Org.OData.Capabilities.V1.xml#L474)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
 
-## <a name="DeepInsertSupportType"></a>[DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L479)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Supported](Org.OData.Capabilities.V1.xml#L480)|Boolean|Annotation target supports deep inserts
-[ContentIDSupported](Org.OData.Capabilities.V1.xml#L483)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
-
-## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L492)
+## <a name="DeepInsertSupportType"></a>[DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L484)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Updatable](Org.OData.Capabilities.V1.xml#L493)|Boolean|Entities can be updated
-[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L496)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
-[MaxLevels](Org.OData.Capabilities.V1.xml#L499)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
+[Supported](Org.OData.Capabilities.V1.xml#L485)|Boolean|Annotation target supports deep inserts
+[ContentIDSupported](Org.OData.Capabilities.V1.xml#L488)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
 
-## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L508)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Deletable](Org.OData.Capabilities.V1.xml#L509)|Boolean|Entities can be deleted
-[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L512)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
-[MaxLevels](Org.OData.Capabilities.V1.xml#L515)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
-
-## <a name="CollectionPropertyRestrictionsType"></a>[CollectionPropertyRestrictionsType](Org.OData.Capabilities.V1.xml#L524)
+## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L497)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionProperty](Org.OData.Capabilities.V1.xml#L525)|PropertyPath|Restricted Collection-valued property
-[FilterFunctions](Org.OData.Capabilities.V1.xml#L528)|\[String\]|List of functions and operators supported in $filter. If null, all functions and operators may be attempted
-[FilterRestrictions](Org.OData.Capabilities.V1.xml#L532)|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on $filter expressions
-[SearchRestrictions](Org.OData.Capabilities.V1.xml#L535)|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on $search expressions
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L538)|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on $orderby expressions
-[TopSupported](Org.OData.Capabilities.V1.xml#L541)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
-[SkipSupported](Org.OData.Capabilities.V1.xml#L544)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
-[Insertable](Org.OData.Capabilities.V1.xml#L547)|Boolean|This collection supports positional inserts
-[Updatable](Org.OData.Capabilities.V1.xml#L550)|Boolean|Members of this ordered collection can be updated by ordinal
-[Deletable](Org.OData.Capabilities.V1.xml#L553)|Boolean|Members of this ordered collection can be deleted by ordinal
+[Updatable](Org.OData.Capabilities.V1.xml#L498)|Boolean|Entities can be updated
+[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L501)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
+[MaxLevels](Org.OData.Capabilities.V1.xml#L504)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
+
+## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L513)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Deletable](Org.OData.Capabilities.V1.xml#L514)|Boolean|Entities can be deleted
+[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L517)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
+[MaxLevels](Org.OData.Capabilities.V1.xml#L520)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
+
+## <a name="CollectionPropertyRestrictionsType"></a>[CollectionPropertyRestrictionsType](Org.OData.Capabilities.V1.xml#L529)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[CollectionProperty](Org.OData.Capabilities.V1.xml#L530)|PropertyPath|Restricted Collection-valued property
+[FilterFunctions](Org.OData.Capabilities.V1.xml#L533)|\[String\]|List of functions and operators supported in $filter. If null, all functions and operators may be attempted
+[FilterRestrictions](Org.OData.Capabilities.V1.xml#L537)|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on $filter expressions
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L540)|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on $search expressions
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L543)|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on $orderby expressions
+[TopSupported](Org.OData.Capabilities.V1.xml#L546)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
+[SkipSupported](Org.OData.Capabilities.V1.xml#L549)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
+[Insertable](Org.OData.Capabilities.V1.xml#L552)|Boolean|This collection supports positional inserts
+[Updatable](Org.OData.Capabilities.V1.xml#L555)|Boolean|Members of this ordered collection can be updated by ordinal
+[Deletable](Org.OData.Capabilities.V1.xml#L558)|Boolean|Members of this ordered collection can be deleted by ordinal
