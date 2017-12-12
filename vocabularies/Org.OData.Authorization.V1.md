@@ -121,3 +121,4 @@ Member|Value|Description
 :-----|----:|:----------
 [Header](Org.OData.Authorization.V1.xml#L157)|0|API Key is passed in the header
 [QueryOption](Org.OData.Authorization.V1.xml#L160)|1|API Key is passed as a query option
+[Cookie](Org.OData.Authorization.V1.xml#L163)|2|API Key is passed as a cookie

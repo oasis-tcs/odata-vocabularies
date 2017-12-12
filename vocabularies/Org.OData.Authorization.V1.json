@@ -146,7 +146,9 @@
             "Header": 0,
             "Header@Core.Description": "API Key is passed in the header",
             "QueryOption": 1,
-            "QueryOption@Core.Description": "API Key is passed as a query option"
+            "QueryOption@Core.Description": "API Key is passed as a query option",
+            "Cookie": 2,
+            "Cookie@Core.Description": "API Key is passed as a cookie"
         }
     }
 }
