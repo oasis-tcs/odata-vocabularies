@@ -10,7 +10,7 @@ Term|Type|Description
 [Revisions](Org.OData.Core.V1.xml#L82)|\[[RevisionType](#RevisionType)\]|<a name="Revisions"></a>List of revisions of a model element
 [Description](Org.OData.Core.V1.xml#L110)|String|<a name="Description"></a>A brief description of a model element
 [LongDescription](Org.OData.Core.V1.xml#L115)|String|<a name="LongDescription"></a>A lengthy description of a model element
-[Example](Org.OData.Core.V1.xml#L120)|[ExampleType](#ExampleType)|<a name="Example"></a>A container for annotation examples<p>[Example](Org.OData.Core.V1.xml#L122)</p>
+[Example](Org.OData.Core.V1.xml#L120)|[ExampleType](#ExampleType)|<a name="Example"></a>A container for annotation examples ([Example](Org.OData.Core.V1.xml#L122))
 [Links](Org.OData.Core.V1.xml#L133)|\[[Link](#Link)\]|<a name="Links"></a>Link to related information
 [Messages](Org.OData.Core.V1.xml#L151)|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
 [IsLanguageDependent](Org.OData.Core.V1.xml#L197)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent

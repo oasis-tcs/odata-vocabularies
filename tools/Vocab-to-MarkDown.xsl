@@ -29,8 +29,7 @@
   </xsl:variable>
 
   <xsl:variable name="coreNamespace" select="'Org.OData.Core.V1'" />
-  <xsl:variable name="coreAlias"
-    select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
+  <xsl:variable name="coreAlias" select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
 
   <xsl:variable name="validationNamespace" select="'Org.OData.Validation.V1'" />
   <xsl:variable name="validationAlias"
@@ -54,6 +53,8 @@
         <xsl:call-template name="Core.Description">
           <xsl:with-param name="node" select="." />
         </xsl:call-template>
+        <xsl:apply-templates select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]"
+          mode="example" />
         <xsl:variable name="longDescription">
           <xsl:call-template name="Core.LongDescription-escaped">
             <xsl:with-param name="node" select="." />
@@ -159,8 +160,6 @@
     <xsl:value-of select="@Name" />
     <xsl:text>">&lt;/a></xsl:text>
     <xsl:call-template name="descriptions-in-table" />
-    <xsl:apply-templates select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]"
-      mode="example" />
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
@@ -192,11 +191,11 @@
   </xsl:template>
 
   <xsl:template match="edm:Annotation" mode="example">
-    <xsl:text>&lt;p></xsl:text>
+    <xsl:text> (</xsl:text>
     <xsl:call-template name="xml-link">
       <xsl:with-param name="text" select="'Example'" />
     </xsl:call-template>
-    <xsl:text>&lt;/p></xsl:text>
+    <xsl:text>)</xsl:text>
   </xsl:template>
 
   <xsl:template match="edm:ComplexType">
@@ -295,8 +294,7 @@
       </xsl:variable>
       <!-- recurse to base type -->
       <xsl:call-template name="properties">
-        <xsl:with-param name="complexType"
-          select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
+        <xsl:with-param name="complexType" select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
         <xsl:with-param name="parent" select="true()" />
       </xsl:call-template>
     </xsl:if>
@@ -619,4 +617,4 @@
     </xsl:call-template>
   </xsl:template>
 
-  </xsl:stylesheet>
+</xsl:stylesheet>
