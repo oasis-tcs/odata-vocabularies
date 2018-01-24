@@ -72,8 +72,8 @@ Term|Type|Description
 [UpdateRestrictions](Org.OData.Capabilities.V1.xml#L492)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
 [DeleteRestrictions](Org.OData.Capabilities.V1.xml#L508)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
 [CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L524)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L561)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource<p>[Example](Org.OData.Capabilities.V1.xml#L563)</p>
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L589)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p><p>[Example](Org.OData.Capabilities.V1.xml#L593)</p>
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L561)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L563))
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L589)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L593))<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p>
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
