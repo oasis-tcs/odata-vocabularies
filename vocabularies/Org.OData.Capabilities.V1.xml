@@ -452,6 +452,11 @@ supported:
         </Member>
       </EnumType>
 
+      <Term Name="KeyAsSegmentSupported" Type="Core.Tag" DefaultValue="True" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description"
+          String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection" />
+      </Term>
+
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet">
@@ -553,7 +558,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntitySet Singleton Action ActionImport Function FunctionImport">
+      <Term Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Custom headers that are supported/required for the annotated resource" />
         <Annotation Term="Core.Example">
           <Record>
@@ -581,7 +586,7 @@ supported:
         </Annotation>
       </Term>
 
-      <Term Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntityContainer EntitySet Singleton Action ActionImport Function FunctionImport">
+      <Term Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Custom query options that are supported/required for the annotated resource" />
         <Annotation Term="Core.LongDescription"
           String="If the entity container is annotated, the query option is supported/required by all resources in that container." />

@@ -593,6 +593,16 @@
             "group": 16,
             "group@Core.Description": "Precedence grouping of search expressions with parentheses"
         },
+        "KeyAsSegmentSupported": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Core.Tag",
+            "$DefaultValue": "True",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection"
+        },
         "InsertRestrictions": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -777,12 +787,7 @@
             "$Collection": true,
             "$Type": "Capabilities.CustomParameter",
             "$AppliesTo": [
-                "EntitySet",
-                "Singleton",
-                "Action",
-                "ActionImport",
-                "Function",
-                "FunctionImport"
+                "EntityContainer"
             ],
             "@Core.Description": "Custom headers that are supported/required for the annotated resource",
             "@Core.Example": {
@@ -807,13 +812,7 @@
             "$Collection": true,
             "$Type": "Capabilities.CustomParameter",
             "$AppliesTo": [
-                "EntityContainer",
-                "EntitySet",
-                "Singleton",
-                "Action",
-                "ActionImport",
-                "Function",
-                "FunctionImport"
+                "EntityContainer"
             ],
             "@Core.Description": "Custom query options that are supported/required for the annotated resource",
             "@Core.LongDescription": "If the entity container is annotated, the query option is supported/required by all resources in that container.",
