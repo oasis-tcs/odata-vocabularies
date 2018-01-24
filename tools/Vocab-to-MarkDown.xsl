@@ -6,7 +6,7 @@
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
 
     Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/Vocab-to-MarkDown.xsl
-    
+
   -->
 
   <xsl:output method="text" indent="no" encoding="UTF-8" omit-xml-declaration="yes" />
@@ -29,8 +29,7 @@
   </xsl:variable>
 
   <xsl:variable name="coreNamespace" select="'Org.OData.Core.V1'" />
-  <xsl:variable name="coreAlias"
-    select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
+  <xsl:variable name="coreAlias" select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
 
   <xsl:variable name="validationNamespace" select="'Org.OData.Validation.V1'" />
   <xsl:variable name="validationAlias"
@@ -285,8 +284,7 @@
       </xsl:variable>
       <!-- recurse to base type -->
       <xsl:call-template name="properties">
-        <xsl:with-param name="complexType"
-          select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
+        <xsl:with-param name="complexType" select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
         <xsl:with-param name="parent" select="true()" />
       </xsl:call-template>
     </xsl:if>
@@ -407,6 +405,7 @@
     <xsl:variable name="allowedValues"
       select="edm:Annotation[(@Term=concat($validationNamespace,'.AllowedValues') or @Term=concat($validationAlias,'.AllowedValues')) and not(@Qualifier)]" />
     <xsl:if test="$allowedValues">
+      <xsl:text>&#xA;</xsl:text>
       <xsl:text>Allowed Value|Description&#xA;</xsl:text>
       <xsl:text>:------------|:----------&#xA;</xsl:text>
       <xsl:apply-templates select="$allowedValues/edm:Collection/edm:Record" mode="allowedValues" />
