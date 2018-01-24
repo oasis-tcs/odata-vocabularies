@@ -415,6 +415,7 @@
     <xsl:variable name="allowedValues"
       select="edm:Annotation[(@Term=concat($validationNamespace,'.AllowedValues') or @Term=concat($validationAlias,'.AllowedValues')) and not(@Qualifier)]" />
     <xsl:if test="$allowedValues">
+      <xsl:text>&#xA;</xsl:text>
       <xsl:text>Allowed Value|Description&#xA;</xsl:text>
       <xsl:text>:------------|:----------&#xA;</xsl:text>
       <xsl:apply-templates select="$allowedValues/edm:Collection/edm:Record" mode="allowedValues" />

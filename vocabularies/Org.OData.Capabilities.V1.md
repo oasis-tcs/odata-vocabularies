@@ -196,6 +196,7 @@ Property|Type|Description
 **Type:** String
 
 
+
 Allowed Value|Description
 :------------|:----------
 [SingleValue](Org.OData.Capabilities.V1.xml#L369)|Property can be used in a single eq clause
