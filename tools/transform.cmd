@@ -36,7 +36,7 @@ exit /b
   echo %~n1
   
   java.exe org.apache.xalan.xslt.Process -L -XSL Vocab-to-MarkDown.xsl -IN %1 -OUT ..\vocabularies\%~n1.md
-  git.exe --no-pager diff ..\vocabularies\%~n1.md
+  git.exe --no-pager diff --color-words="[^[:space:]]|^(#L[0-9]+)" ..\vocabularies\%~n1.md
   
   java.exe org.apache.xalan.xslt.Process -L -XSL V4-CSDL-normalize-Target.xsl -IN %1 -OUT %~n1.normalized.xml
   java.exe org.apache.xalan.xslt.Process -L -XSL V4-CSDL-to-JSON.xsl -IN %~n1.normalized.xml -OUT %~n1.json
