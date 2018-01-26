@@ -308,27 +308,6 @@
           String="The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref" />
       </Term>
 
-      <Term Name="AutoMetadata" AppliesTo="NavigationProperty" Type="Core.MetadataKind">
-        <Annotation Term="Core.Description"
-          String="The service will automatically return control information for this navigation property even with format parameter `odata.metadata=minimal`" />
-      </Term>
-      <EnumType Name="MetadataKind" IsFlags="true">
-        <Member Name="count" Value="1">
-          <Annotation Term="Core.Description"
-            String="Return the number of related entities in `@count` (`@odata.count`) for collection-valued navigation properties" />
-        </Member>
-        <Member Name="navigationLink" Value="2">
-          <Annotation Term="Core.Description" String="Return the navigation URL in `@navigationLink` (`@odata.navigationLink`)" />
-        </Member>
-        <Member Name="associationLink" Value="4">
-          <Annotation Term="Core.Description" String="Return the association URL in `@associationLink ` (`@odata.associationLink `)" />
-        </Member>
-        <Member Name="etag" Value="8">
-          <Annotation Term="Core.Description"
-            String="Return the entity tag (ETag) of the related entity or collection of entities in `@etag` (`@odata.etag`)" />
-        </Member>
-      </EnumType>
-
       <Term Name="MayImplement" Type="Collection(Core.QualifiedTypeName)" Nullable="false">
         <Annotation Term="Core.Description"
           String="A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment." />
