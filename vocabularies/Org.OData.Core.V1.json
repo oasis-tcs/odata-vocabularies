@@ -374,6 +374,27 @@
             ],
             "@Core.Description": "The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref"
         },
+        "AutoMetadata": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "$Nullable": true,
+            "$Type": "Core.MetadataKind",
+            "@Core.Description": "The service will automatically return control information for this navigation property even with format parameter `odata.metadata=minimal`"
+        },
+        "MetadataKind": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "count": 1,
+            "count@Core.Description": "Return the number of related entities in `@count` (`@odata.count`) for collection-valued navigation properties",
+            "navigationLink": 2,
+            "navigationLink@Core.Description": "Return the navigation URL in `@navigationLink` (`@odata.navigationLink`)",
+            "associationLink": 4,
+            "associationLink@Core.Description": "Return the association URL in `@associationLink ` (`@odata.associationLink `)",
+            "etag": 8,
+            "etag@Core.Description": "Return the entity tag (ETag) of the related entity or collection of entities in `@etag` (`@odata.etag`)"
+        },
         "MayImplement": {
             "$Kind": "Term",
             "$Collection": true,
