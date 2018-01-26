@@ -3,6 +3,9 @@
 
 Terms describing monetary amounts and measured quantities
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [ISOCurrency](Org.OData.Measures.V1.xml#L70)|String|<a name="ISOCurrency"></a>The currency for this monetary amount as an ISO 4217 currency code

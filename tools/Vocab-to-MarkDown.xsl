@@ -139,6 +139,7 @@
 
   <xsl:template match="edm:Term">
     <xsl:if test="position()=1">
+      <xsl:text>&#xA;&#xA;## Terms&#xA;</xsl:text>
       <xsl:text>&#xA;Term|Type|Description</xsl:text>
       <xsl:text>&#xA;:---|:---|:----------&#xA;</xsl:text>
     </xsl:if>

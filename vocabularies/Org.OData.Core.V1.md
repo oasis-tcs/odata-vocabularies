@@ -3,6 +3,9 @@
 
 Core terms needed to write vocabularies
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [ODataVersions](Org.OData.Core.V1.xml#L72)|String|<a name="ODataVersions"></a>A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed.

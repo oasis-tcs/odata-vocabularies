@@ -3,6 +3,9 @@
 
 The Authorization Vocabulary provides terms for describing a web authorization flow
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [Authorizations](Org.OData.Authorization.V1.xml#L68)|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods available to authorize access to the annotated resource

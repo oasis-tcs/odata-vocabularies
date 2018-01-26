@@ -3,6 +3,9 @@
 
 Terms to describe which data in a given entity model can be aggregated, and how.
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [ApplySupported](Org.OData.Aggregation.V1.xml#L70)|[ApplySupportedType](#ApplySupportedType)|<a name="ApplySupported"></a>This structured type or entity container supports the $apply system query option

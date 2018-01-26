@@ -3,6 +3,9 @@
 
 Terms describing validation rules
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [Pattern](Org.OData.Validation.V1.xml#L70)|String|<a name="Pattern"></a>The pattern that a string property, parameter, or term must match. This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect.

@@ -42,6 +42,9 @@ supported:
 - Deletability
         
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [ConformanceLevel](Org.OData.Capabilities.V1.xml#L115)|[ConformanceLevelType](#ConformanceLevelType)|<a name="ConformanceLevel"></a>The conformance level achieved by this service
