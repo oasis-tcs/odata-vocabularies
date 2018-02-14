@@ -133,6 +133,7 @@
     </xsl:call-template>
 
     <xsl:apply-templates select="//edm:Term" />
+    <xsl:apply-templates select="//edm:Function" />
 
     <xsl:apply-templates select="//edm:ComplexType|//edm:EnumType|//edm:TypeDefinition" />
   </xsl:template>
@@ -149,6 +150,7 @@
       </xsl:with-param>
     </xsl:call-template>
     <xsl:call-template name="experimental-deprecated" />
+
     <xsl:text>|</xsl:text>
     <xsl:call-template name="type-link">
       <xsl:with-param name="type" select="@Type" />
@@ -160,6 +162,49 @@
     <xsl:text>">&lt;/a></xsl:text>
     <xsl:call-template name="descriptions-in-table" />
     <xsl:text>&#xA;</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="edm:Function">
+    <xsl:if test="position()=1">
+      <xsl:text>&#xA;&#xA;## Functions&#xA;</xsl:text>
+      <xsl:text>&#xA;Function|Signature|Description</xsl:text>
+      <xsl:text>&#xA;:-------|:--------|:----------&#xA;</xsl:text>
+    </xsl:if>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text">
+        <xsl:value-of select="@Name" />
+      </xsl:with-param>
+    </xsl:call-template>
+    <xsl:call-template name="experimental-deprecated" />
+
+    <xsl:text>|</xsl:text>
+    <xsl:apply-templates select="edm:Parameter" />
+    <xsl:apply-templates select="edm:ReturnType" />
+
+    <xsl:text>|</xsl:text>
+    <xsl:text>&lt;a name="</xsl:text>
+    <xsl:value-of select="@Name" />
+    <xsl:text>">&lt;/a></xsl:text>
+    <xsl:call-template name="descriptions-in-table" />
+    <xsl:text>&#xA;</xsl:text>
+  </xsl:template>
+
+  <xsl:template match="edm:Parameter">
+    <xsl:if test="position()>1">
+      <xsl:text>, </xsl:text>
+    </xsl:if>
+    <xsl:value-of select="@Name" />
+    <xsl:text>:&amp;nbsp;</xsl:text>
+    <xsl:call-template name="type-link">
+      <xsl:with-param name="type" select="@Type" />
+    </xsl:call-template>
+  </xsl:template>
+
+  <xsl:template match="edm:ReturnType">
+    <xsl:text> &amp;rarr;&amp;nbsp;</xsl:text>
+    <xsl:call-template name="type-link">
+      <xsl:with-param name="type" select="@Type" />
+    </xsl:call-template>
   </xsl:template>
 
   <xsl:template name="experimental-deprecated">
