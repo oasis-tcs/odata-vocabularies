@@ -12,7 +12,7 @@
     },
     "Org.OData.Authorization.V1": {
         "$Alias": "Auth",
-        "@Core.Description": "The Authorization Vocabulary provides terms for describing a web authorization flow",
+        "@Core.Description": "The Authorization Vocabulary provides terms for describing authorization requirements of the service",
         "@Core.Links": [
             {
                 "rel": "latest-version",
@@ -27,27 +27,44 @@
                 "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Authorization.V1.md"
             }
         ],
+        "SecuritySchemes": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Auth.SecurityScheme",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "At least one of the specified security schemes are required to make a request against the service"
+        },
+        "SecurityScheme": {
+            "$Kind": "ComplexType",
+            "Authorization": {
+                "@Core.Description": "The name of a required authorization scheme"
+            },
+            "RequiredScopes": {
+                "$Collection": true,
+                "@Core.Description": "The names of scopes required from this authorization scheme"
+            }
+        },
         "Authorizations": {
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Auth.Authorization",
             "$AppliesTo": [
-                "EntityContainer",
-                "EntitySet",
-                "Singleton",
-                "NavigationProperty",
-                "Action",
-                "Function"
+                "EntityContainer"
             ],
-            "@Core.Description": "Lists the methods available to authorize access to the annotated resource"
+            "@Core.Description": "Lists the methods supported by the service to authorize access"
         },
         "Authorization": {
             "$Kind": "ComplexType",
             "$Abstract": true,
             "@Core.Description": "Base type for all Authorization types",
+            "Name": {
+                "@Core.Description": "Name that can be used to reference the authorization scheme"
+            },
             "Description": {
                 "$Nullable": true,
-                "@Core.Description": "Description of the authorization method"
+                "@Core.Description": "Description of the authorization scheme"
             }
         },
         "OpenIDConnect": {
