@@ -51,13 +51,11 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
@@ -214,9 +212,7 @@
 
       <!-- Permissions -->
 
-      <Term Name="Permissions" Type="Core.Permission"
-        AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function"
-      >
+      <Term Name="Permissions" Type="Core.Permission" AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function">
         <Annotation Term="Core.Description" String="Permissions for accessing a resource" />
       </Term>
       <EnumType Name="Permission" IsFlags="true">
@@ -299,8 +295,7 @@
       </Term>
 
       <Term Name="AutoExpand" Type="Core.Tag" DefaultValue="true" AppliesTo="NavigationProperty">
-        <Annotation Term="Core.Description"
-          String="The service will automatically expand this navigation property even if not requested with $expand" />
+        <Annotation Term="Core.Description" String="The service will automatically expand this navigation property even if not requested with $expand" />
       </Term>
 
       <Term Name="AutoExpandReferences" Type="Core.Tag" DefaultValue="true" AppliesTo="NavigationProperty">
@@ -308,9 +303,9 @@
           String="The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref" />
       </Term>
 
-      <Term Name="AutoMetadata" AppliesTo="NavigationProperty" Type="Core.MetadataKind">
+      <Term Name="IncludeMetadata" AppliesTo="NavigationProperty" Type="Core.MetadataKind">
         <Annotation Term="Core.Description"
-          String="The service will automatically return control information for this navigation property even with format parameter `odata.metadata=minimal`" />
+          String="Defines metadata that should automatically be returned in a response when the reply is qualified with `metadata=minimal`" />
       </Term>
       <EnumType Name="MetadataKind" IsFlags="true">
         <Member Name="count" Value="1">
@@ -322,10 +317,6 @@
         </Member>
         <Member Name="associationLink" Value="4">
           <Annotation Term="Core.Description" String="Return the association URL in `@associationLink ` (`@odata.associationLink `)" />
-        </Member>
-        <Member Name="etag" Value="8">
-          <Annotation Term="Core.Description"
-            String="Return the entity tag (ETag) of the related entity or collection of entities in `@etag` (`@odata.etag`)" />
         </Member>
       </EnumType>
 
@@ -347,9 +338,7 @@
         <Annotation Term="Core.Description" String="Items can be inserted at a given ordinal index." />
       </Term>
 
-      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty" Type="Collection(Core.AlternateKey)"
-        Nullable="false"
-      >
+      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty" Type="Collection(Core.AlternateKey)" Nullable="false">
         <Annotation Term="Core.Description" String="Communicates available alternate keys" />
       </Term>
       <ComplexType Name="AlternateKey">
