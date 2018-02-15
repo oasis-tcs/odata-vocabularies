@@ -65,19 +65,19 @@
         </Collection>
       </Annotation>
 
-      <Term Name="SecuritySchemes" Type="Collection(Auth.SecurityScheme)" AppliesTo="EntityContainer"> 
-        <Annotation Term="Core.Description" String="At least one of the specified security schemes are required to make a request against the service"/> 
+      <Term Name="SecuritySchemes" Type="Collection(Auth.SecurityScheme)" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="At least one of the specified security schemes are required to make a request against the service" />
       </Term>
 
-      <ComplexType Name="SecurityScheme"> 
-        <Property Name="Authorization" Type="Edm.String" Nullable="false"> 
-          <Annotation Term="Core.Description" String="The name of a required authorization scheme" /> 
-        </Property> 
-        <Property Name="RequiredScopes" Type="Collection(Edm.String)"> 
-          <Annotation Term="Core.Description" String="The names of scopes required from this authorization scheme" /> 
-        </Property> 
-      <ComplexType> 
-  
+      <ComplexType Name="SecurityScheme">
+        <Property Name="Authorization" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The name of a required authorization scheme" />
+        </Property>
+        <Property Name="RequiredScopes" Type="Collection(Edm.String)">
+          <Annotation Term="Core.Description" String="The names of scopes required from this authorization scheme" />
+        </Property>
+      </ComplexType>
+
       <Term Name="Authorizations" Type="Collection(Auth.Authorization)" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Lists the methods supported by the service to authorize access" />
       </Term>
@@ -85,7 +85,7 @@
       <ComplexType Name="Authorization" Abstract="true">
         <Annotation Term="Core.Description" String="Base type for all Authorization types" />
         <Property Name="Name" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name that can be used to reference the authorization scheme" /> 
+          <Annotation Term="Core.Description" String="Name that can be used to reference the authorization scheme" />
         </Property>
         <Property Name="Description" Type="Edm.String">
           <Annotation Term="Core.Description" String="Description of the authorization scheme" />
