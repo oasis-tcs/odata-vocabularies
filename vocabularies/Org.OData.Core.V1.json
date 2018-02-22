@@ -474,7 +474,7 @@
                 "Function"
             ],
             "@Core.Description": "Action or function is available",
-            "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability."
+            "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement."
         }
     }
 }
