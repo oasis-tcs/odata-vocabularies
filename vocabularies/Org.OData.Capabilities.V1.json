@@ -487,6 +487,16 @@
                 {
                     "Value": "SearchExpression",
                     "@Core.Description": "String property can be used as first operand in startswith, endswith, and contains clauses"
+                },
+                {
+                    "Value": "MultiRange",
+                    "@Core.Description": "Property can be compared to a union of one or more closed, half-open, or open intervals",
+                    "@Core.LongDescription": "The filter expression for this property consists of one or more interval expressions combined by OR. A single interval expression is either a single comparison of the property and a literal value with eq, le, lt, ge, or gt, or pair of boundaries combined by AND and enclosed in parentheses. The lower boundary is either ge or gt, the upper boundary either le or lt."
+                },
+                {
+                    "Value": "MultiRangeOrSearchExpression",
+                    "@Core.Description": "Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns",
+                    "@Core.LongDescription": "The filter expression for this property consists of one or more interval expressions or string comparison functions combined by OR. See MultiRange for a definition of an interval expression. See SearchExpression for the allowed string comparison functions."
                 }
             ]
         },
