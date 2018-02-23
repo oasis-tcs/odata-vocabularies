@@ -267,7 +267,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Description": "A value for this non-key property can be provided on insert and remains unchanged on update"
+            "@Core.Description": "A value for this non-key property can be provided by the client on insert and remains unchanged on update"
         },
         "Computed": {
             "$Kind": "Term",
