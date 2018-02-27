@@ -287,7 +287,7 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Description": "A value for this property is can be provided on insert and update. If no value is provided on insert, a non-static default value is generated"
+            "@Core.Description": "A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated"
         },
         "IsURL": {
             "$Kind": "Term",
