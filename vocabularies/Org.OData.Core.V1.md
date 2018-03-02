@@ -23,9 +23,9 @@ Term|Type|Description
 [Permissions](Org.OData.Core.V1.xml#L215)|[Permission](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
 [ContentID](Org.OData.Core.V1.xml#L238)|String|<a name="ContentID"></a>A unique identifier for nested entities within a request.
 [DefaultNamespace](Org.OData.Core.V1.xml#L244)|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.<p>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.</p>
-[Immutable](Org.OData.Core.V1.xml#L251)|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided on insert and remains unchanged on update
+[Immutable](Org.OData.Core.V1.xml#L251)|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided by the client on insert and remains unchanged on update
 [Computed](Org.OData.Core.V1.xml#L255)|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
-[ComputedDefaultValue](Org.OData.Core.V1.xml#L259)|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property is can be provided on insert and update. If no value is provided on insert, a non-static default value is generated
+[ComputedDefaultValue](Org.OData.Core.V1.xml#L259)|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
 [IsURL](Org.OData.Core.V1.xml#L264)|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
 [AcceptableMediaTypes](Org.OData.Core.V1.xml#L269)|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated stream property
 [MediaType](Org.OData.Core.V1.xml#L275)|MediaType|<a name="MediaType"></a>The media type of a binary resource
