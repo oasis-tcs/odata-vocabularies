@@ -183,7 +183,8 @@ supported:
           <Annotation Term="Core.Description" String="Protocol Identifier" />
         </Property>
         <Property Name="UrlTemplate" Type="Edm.String">
-          <Annotation Term="Core.Description" String="URL Template including parameters. Parameters are enclosed in curly braces {} as defined in RFC6570" />
+          <Annotation Term="Core.Description"
+            String="URL Template including parameters. Parameters are enclosed in curly braces {} as defined in RFC6570" />
         </Property>
         <Property Name="DocumentationUrl" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Human readable description of the meaning of the URL Template parameters" />
@@ -191,7 +192,9 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType" AppliesTo="EntityContainer EntitySet Singleton Function FunctionImport NavigationProperty">
+      <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType"
+        AppliesTo="EntityContainer EntitySet Singleton Function FunctionImport NavigationProperty"
+      >
         <Annotation Term="Core.Description" String="Change tracking capabilities of this service or entity set" />
       </Term>
       <ComplexType Name="ChangeTrackingType">
@@ -349,7 +352,9 @@ supported:
         <Property Name="NonFilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties cannot be used in $filter expressions" />
         </Property>
-        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)" Nullable="false">
+        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)"
+          Nullable="false"
+        >
           <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
@@ -378,15 +383,18 @@ supported:
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SingleRange" />
-              <Annotation Term="Core.Description" String="Property can be used in at most one ge and/or one le clause, separated by and" />
+              <Annotation Term="Core.Description"
+                String="Property can be used in at most one ge and/or one le clause, separated by and" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SearchExpression" />
-              <Annotation Term="Core.Description" String="String property can be used as first operand in startswith, endswith, and contains clauses" />
+              <Annotation Term="Core.Description"
+                String="String property can be used as first operand in startswith, endswith, and contains clauses" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiRange" />
-              <Annotation Term="Core.Description" String="Property can be compared to a union of one or more closed, half-open, or open intervals" />
+              <Annotation Term="Core.Description"
+                String="Property can be compared to a union of one or more closed, half-open, or open intervals" />
               <Annotation Term="Core.LongDescription"
                 String="The filter expression for this property consists of one or more interval expressions combined by OR. A single interval expression is either a single comparison of the property and a literal value with eq, le, lt, ge, or gt, or pair of boundaries combined by AND and enclosed in parentheses. The lower boundary is either ge or gt, the upper boundary either le or lt." />
             </Record>
@@ -432,6 +440,15 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction." />
+        </Property>
+      </ComplexType>
+
+      <Term Name="SelectRestrictions" Type="Capabilities.SelectRestrictionsType" AppliesTo="EntitySet Singleton">
+        <Annotation Term="Core.Description" String="Restrictions on selecting properties" />
+      </Term>
+      <ComplexType Name="SelectRestrictionsType">
+        <Property Name="Selectable" Type="Edm.Boolean" DefaultValue="true">
+          <Annotation Term="Core.Description" String="$select is supported" />
         </Property>
       </ComplexType>
 
@@ -536,8 +553,11 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" AppliesTo="EntitySet Singleton">
-        <Annotation Term="Core.Description" String="Describes restrictions on operations applied to collection-valued structural properties" />
+      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)"
+        AppliesTo="EntitySet Singleton"
+      >
+        <Annotation Term="Core.Description"
+          String="Describes restrictions on operations applied to collection-valued structural properties" />
       </Term>
       <ComplexType Name="CollectionPropertyRestrictionsType">
         <Property Name="CollectionProperty" Type="Edm.PropertyPath">
