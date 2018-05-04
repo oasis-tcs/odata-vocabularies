@@ -504,7 +504,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">

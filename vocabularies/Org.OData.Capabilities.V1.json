@@ -673,7 +673,8 @@
             "$Nullable": true,
             "$Type": "Capabilities.UpdateRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on update operations"
         },
