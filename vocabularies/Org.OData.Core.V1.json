@@ -444,8 +444,8 @@
         "Dictionary": {
             "$Kind": "ComplexType",
             "$OpenType": true,
-            "@Core.Description": "A dictionary of name-value pairs",
-            "@Core.LongDescription": "Names must be simple identifiers, values may be restricted via an annotation with term Validation.OpenPropertyTypeConstraint"
+            "@Core.Description": "A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.",
+            "@Core.LongDescription": "\nProperty|Type\n:-------|:---\nAny simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint\n"
         },
         "OptionalParameter": {
             "$Kind": "Term",

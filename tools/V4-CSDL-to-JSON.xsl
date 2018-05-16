@@ -490,6 +490,7 @@
       <xsl:with-param name="target" select="$name" />
     </xsl:apply-templates>
     <!-- tagging terms without explicit value are assumed to have DefaultValue="true" -->
+    <!-- TOOD: lookup type, use document() function for types from included namespaces -->
     <xsl:if test="count(@*[name()!='Term' and name()!='Qualifier']|edm:*[local-name()!='Annotation'])=0">
       <xsl:text>true</xsl:text>
     </xsl:if>
