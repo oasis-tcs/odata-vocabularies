@@ -133,6 +133,20 @@
         </Property>
       </ComplexType>
 
+      <Term Name="Example" Type="Core.ExampleType">
+        <Annotation Term="Core.Description" String="A container for annotation examples" />
+        <Annotation Term="Core.Example">
+          <Record>
+            <Annotation Term="Core.Description"
+              String="Note that the value of Core.Example is a record/object containing the annotation examples" />
+          </Record>
+        </Annotation>
+      </Term>
+      <ComplexType Name="ExampleType">
+        <Annotation Term="Core.Description"
+          String="This type intentionally doesn't have properties, so it can only contain annotation examples" />
+      </ComplexType>
+
       <!-- Error, warning, and info messages in a (mostly) successful response -->
 
       <Term Name="Messages" Type="Collection(Core.MessageType)" Nullable="false">
@@ -352,7 +366,8 @@
       </ComplexType>
 
       <ComplexType Name="Dictionary" OpenType="true">
-        <Annotation Term="Core.Description" String="A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`." />
+        <Annotation Term="Core.Description"
+          String="A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`." />
         <Annotation Term="Core.LongDescription">
           <String>
 Property|Type
