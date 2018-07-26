@@ -608,7 +608,7 @@
             "$Kind": "Term",
             "$Nullable": true,
             "$Type": "Core.Tag",
-            "$DefaultValue": "True",
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
