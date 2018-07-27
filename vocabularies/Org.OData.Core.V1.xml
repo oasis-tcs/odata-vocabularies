@@ -133,7 +133,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="Example" Type="Core.ExampleValue" AppliesTo="EntityType ComplexType Parameter Term">
+      <Term Name="Example" Type="Core.ExampleValue" Nullable="false" AppliesTo="EntityType ComplexType Parameter Term">
         <Annotation Term="Core.Description" String="Example for an instance of the annotated model element" />
         <Annotation Term="Core.Example">
           <Record>

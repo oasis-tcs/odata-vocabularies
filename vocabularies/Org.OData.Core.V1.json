@@ -106,7 +106,6 @@
         },
         "Example": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.ExampleValue",
             "$AppliesTo": [
                 "EntityType",
