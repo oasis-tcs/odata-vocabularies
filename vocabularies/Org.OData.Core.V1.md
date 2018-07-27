@@ -14,7 +14,7 @@ Term|Type|Description
 [Description](Org.OData.Core.V1.xml#L110)|String|<a name="Description"></a>A brief description of a model element
 [LongDescription](Org.OData.Core.V1.xml#L115)|String|<a name="LongDescription"></a>A lengthy description of a model element
 [Links](Org.OData.Core.V1.xml#L120)|\[[Link](#Link)\]|<a name="Links"></a>Link to related information
-[Example](Org.OData.Core.V1.xml#L136)|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element
+[Example](Org.OData.Core.V1.xml#L136)|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element ([Example](Org.OData.Core.V1.xml#L138))
 [Messages](Org.OData.Core.V1.xml#L173)|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
 [IsLanguageDependent](Org.OData.Core.V1.xml#L220)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
 [RequiresType](Org.OData.Core.V1.xml#L231)|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
