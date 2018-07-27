@@ -133,8 +133,8 @@
         </Property>
       </ComplexType>
 
-      <Term Name="Example" Type="Core.ExampleType">
-        <Annotation Term="Core.Description" String="A container for annotation examples" />
+      <Term Name="Example" Type="Core.ExampleValue" AppliesTo="EntityType ComplexType Parameter Term">
+        <Annotation Term="Core.Description" String="Example for an instance of the annotated model element" />
         <Annotation Term="Core.Example">
           <Record>
             <Annotation Term="Core.Description"
@@ -142,9 +142,30 @@
           </Record>
         </Annotation>
       </Term>
-      <ComplexType Name="ExampleType">
-        <Annotation Term="Core.Description"
-          String="This type intentionally doesn't have properties, so it can only contain annotation examples" />
+      <ComplexType Name="ExampleValue">
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Description of the example value" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="PrimitiveExampleValue" BaseType="Core.ExampleValue">
+        <Property Name="Value" Type="Edm.Primitive" Nullable="false">
+          <Annotation Term="Core.Description" String="Example value for the custom parameter" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ComplexExampleValue" BaseType="Core.ExampleValue">
+        <Property Name="Value" Type="Edm.Complex" Nullable="false">
+          <Annotation Term="Core.Description" String="Example value for the custom parameter" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="EntityExampleValue" BaseType="Core.ExampleValue">
+        <Property Name="Value" Type="Edm.Entity" Nullable="false">
+          <Annotation Term="Core.Description" String="Example value for the custom parameter" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ExternalExampleValue" BaseType="Core.ExampleValue">
+        <Property Name="ExternalValue" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Url reference to the value in its literal format" />
+        </Property>
       </ComplexType>
 
       <!-- Error, warning, and info messages in a (mostly) successful response -->

@@ -107,15 +107,55 @@
         "Example": {
             "$Kind": "Term",
             "$Nullable": true,
-            "$Type": "Core.ExampleType",
-            "@Core.Description": "A container for annotation examples",
+            "$Type": "Core.ExampleValue",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType",
+                "Parameter",
+                "Term"
+            ],
+            "@Core.Description": "Example for an instance of the annotated model element",
             "@Core.Example": {
                 "@Core.Description": "Note that the value of Core.Example is a record/object containing the annotation examples"
             }
         },
-        "ExampleType": {
+        "ExampleValue": {
             "$Kind": "ComplexType",
-            "@Core.Description": "This type intentionally doesn't have properties, so it can only contain annotation examples"
+            "Description": {
+                "$Nullable": true,
+                "@Core.Description": "Description of the example value"
+            }
+        },
+        "PrimitiveExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "Value": {
+                "$Type": "Edm.Primitive",
+                "@Core.Description": "Example value for the custom parameter"
+            }
+        },
+        "ComplexExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "Value": {
+                "$Type": "Edm.Complex",
+                "@Core.Description": "Example value for the custom parameter"
+            }
+        },
+        "EntityExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "Value": {
+                "$Type": "Edm.Entity",
+                "@Core.Description": "Example value for the custom parameter"
+            }
+        },
+        "ExternalExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "ExternalValue": {
+                "@Core.Description": "Url reference to the value in its literal format"
+            }
         },
         "Messages": {
             "$Kind": "Term",

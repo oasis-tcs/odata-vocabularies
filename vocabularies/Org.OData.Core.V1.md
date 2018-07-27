@@ -14,33 +14,33 @@ Term|Type|Description
 [Description](Org.OData.Core.V1.xml#L110)|String|<a name="Description"></a>A brief description of a model element
 [LongDescription](Org.OData.Core.V1.xml#L115)|String|<a name="LongDescription"></a>A lengthy description of a model element
 [Links](Org.OData.Core.V1.xml#L120)|\[[Link](#Link)\]|<a name="Links"></a>Link to related information
-[Example](Org.OData.Core.V1.xml#L136)|[ExampleType](#ExampleType)|<a name="Example"></a>A container for annotation examples
-[Messages](Org.OData.Core.V1.xml#L152)|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
-[IsLanguageDependent](Org.OData.Core.V1.xml#L199)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
-[RequiresType](Org.OData.Core.V1.xml#L210)|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
-[ResourcePath](Org.OData.Core.V1.xml#L217)|URL|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
-[DereferenceableIDs](Org.OData.Core.V1.xml#L223)|[Tag](#Tag)|<a name="DereferenceableIDs"></a>Entity-ids are URLs that locate the identified entity
-[ConventionalIDs](Org.OData.Core.V1.xml#L227)|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
-[Permissions](Org.OData.Core.V1.xml#L235)|[Permission](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
-[ContentID](Org.OData.Core.V1.xml#L258)|String|<a name="ContentID"></a>A unique identifier for nested entities within a request.
-[DefaultNamespace](Org.OData.Core.V1.xml#L264)|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.<p>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.</p>
-[Immutable](Org.OData.Core.V1.xml#L271)|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided by the client on insert and remains unchanged on update
-[Computed](Org.OData.Core.V1.xml#L276)|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
-[ComputedDefaultValue](Org.OData.Core.V1.xml#L280)|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
-[IsURL](Org.OData.Core.V1.xml#L285)|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
-[AcceptableMediaTypes](Org.OData.Core.V1.xml#L290)|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated stream property
-[MediaType](Org.OData.Core.V1.xml#L296)|MediaType|<a name="MediaType"></a>The media type of a binary resource
-[IsMediaType](Org.OData.Core.V1.xml#L302)|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
-[OptimisticConcurrency](Org.OData.Core.V1.xml#L307)|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag.
-[AdditionalProperties](Org.OData.Core.V1.xml#L312)|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata<p>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.</p>
-[AutoExpand](Org.OData.Core.V1.xml#L319)|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this navigation property even if not requested with $expand
-[AutoExpandReferences](Org.OData.Core.V1.xml#L324)|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
-[MayImplement](Org.OData.Core.V1.xml#L329)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
-[Ordered](Org.OData.Core.V1.xml#L338)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
-[PositionalInsert](Org.OData.Core.V1.xml#L343)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
-[AlternateKeys](Org.OData.Core.V1.xml#L349)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](Org.OData.Core.V1.xml#L380)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
-[OperationAvailable](Org.OData.Core.V1.xml#L392)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
+[Example](Org.OData.Core.V1.xml#L136)|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element
+[Messages](Org.OData.Core.V1.xml#L173)|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
+[IsLanguageDependent](Org.OData.Core.V1.xml#L220)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
+[RequiresType](Org.OData.Core.V1.xml#L231)|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
+[ResourcePath](Org.OData.Core.V1.xml#L238)|URL|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
+[DereferenceableIDs](Org.OData.Core.V1.xml#L244)|[Tag](#Tag)|<a name="DereferenceableIDs"></a>Entity-ids are URLs that locate the identified entity
+[ConventionalIDs](Org.OData.Core.V1.xml#L248)|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
+[Permissions](Org.OData.Core.V1.xml#L256)|[Permission](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
+[ContentID](Org.OData.Core.V1.xml#L279)|String|<a name="ContentID"></a>A unique identifier for nested entities within a request.
+[DefaultNamespace](Org.OData.Core.V1.xml#L285)|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.<p>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.</p>
+[Immutable](Org.OData.Core.V1.xml#L292)|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided by the client on insert and remains unchanged on update
+[Computed](Org.OData.Core.V1.xml#L297)|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
+[ComputedDefaultValue](Org.OData.Core.V1.xml#L301)|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
+[IsURL](Org.OData.Core.V1.xml#L306)|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
+[AcceptableMediaTypes](Org.OData.Core.V1.xml#L311)|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated stream property
+[MediaType](Org.OData.Core.V1.xml#L317)|MediaType|<a name="MediaType"></a>The media type of a binary resource
+[IsMediaType](Org.OData.Core.V1.xml#L323)|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
+[OptimisticConcurrency](Org.OData.Core.V1.xml#L328)|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag.
+[AdditionalProperties](Org.OData.Core.V1.xml#L333)|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata<p>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.</p>
+[AutoExpand](Org.OData.Core.V1.xml#L340)|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this navigation property even if not requested with $expand
+[AutoExpandReferences](Org.OData.Core.V1.xml#L345)|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
+[MayImplement](Org.OData.Core.V1.xml#L350)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
+[Ordered](Org.OData.Core.V1.xml#L359)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
+[PositionalInsert](Org.OData.Core.V1.xml#L364)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
+[AlternateKeys](Org.OData.Core.V1.xml#L370)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
+[OptionalParameter](Org.OData.Core.V1.xml#L401)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
+[OperationAvailable](Org.OData.Core.V1.xml#L413)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L85)
 
@@ -68,69 +68,111 @@ Property|Type|Description
 [rel](Org.OData.Core.V1.xml#L126)|String|Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
 [href](Org.OData.Core.V1.xml#L130)|URL|URL of related information
 
-## <a name="ExampleType"></a>[ExampleType](Org.OData.Core.V1.xml#L145)
-This type intentionally doesn't have properties, so it can only contain annotation examples
+## <a name="ExampleValue"></a>[ExampleValue](Org.OData.Core.V1.xml#L145)
 
-## <a name="MessageType"></a>[MessageType](Org.OData.Core.V1.xml#L155)
+
+**Derived Types:**
+- [PrimitiveExampleValue](#PrimitiveExampleValue)
+- [ComplexExampleValue](#ComplexExampleValue)
+- [EntityExampleValue](#EntityExampleValue)
+- [ExternalExampleValue](#ExternalExampleValue)
+
+Property|Type|Description
+:-------|:---|:----------
+[Description](Org.OData.Core.V1.xml#L146)|String|Description of the example value
+
+## <a name="PrimitiveExampleValue"></a>[PrimitiveExampleValue](Org.OData.Core.V1.xml#L150): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[code](Org.OData.Core.V1.xml#L156)|String|Machine-readable, language-independent message code
-[message](Org.OData.Core.V1.xml#L159)|String|Human-readable, language-dependent message text
-[severity](Org.OData.Core.V1.xml#L163)|[MessageSeverity](#MessageSeverity)|Severity of the message
-[target](Org.OData.Core.V1.xml#L166)|String|A path to the target of the message detail, relative to the annotated instance
-[details](Org.OData.Core.V1.xml#L170)|\[[MessageType](#MessageType)\]|List of detail messages
+[*Description*](Org.OData.Core.V1.xml#L146)|String|Description of the example value
+[Value](Org.OData.Core.V1.xml#L151)|Primitive|Example value for the custom parameter
 
-## <a name="MessageSeverity"></a>[MessageSeverity](Org.OData.Core.V1.xml#L174)
+## <a name="ComplexExampleValue"></a>[ComplexExampleValue](Org.OData.Core.V1.xml#L155): [ExampleValue](#ExampleValue)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Description*](Org.OData.Core.V1.xml#L146)|String|Description of the example value
+[Value](Org.OData.Core.V1.xml#L156)|Complex|Example value for the custom parameter
+
+## <a name="EntityExampleValue"></a>[EntityExampleValue](Org.OData.Core.V1.xml#L160): [ExampleValue](#ExampleValue)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Description*](Org.OData.Core.V1.xml#L146)|String|Description of the example value
+[Value](Org.OData.Core.V1.xml#L161)|Entity|Example value for the custom parameter
+
+## <a name="ExternalExampleValue"></a>[ExternalExampleValue](Org.OData.Core.V1.xml#L165): [ExampleValue](#ExampleValue)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Description*](Org.OData.Core.V1.xml#L146)|String|Description of the example value
+[ExternalValue](Org.OData.Core.V1.xml#L166)|String|Url reference to the value in its literal format
+
+## <a name="MessageType"></a>[MessageType](Org.OData.Core.V1.xml#L176)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[code](Org.OData.Core.V1.xml#L177)|String|Machine-readable, language-independent message code
+[message](Org.OData.Core.V1.xml#L180)|String|Human-readable, language-dependent message text
+[severity](Org.OData.Core.V1.xml#L184)|[MessageSeverity](#MessageSeverity)|Severity of the message
+[target](Org.OData.Core.V1.xml#L187)|String|A path to the target of the message detail, relative to the annotated instance
+[details](Org.OData.Core.V1.xml#L191)|\[[MessageType](#MessageType)\]|List of detail messages
+
+## <a name="MessageSeverity"></a>[MessageSeverity](Org.OData.Core.V1.xml#L195)
 **Type:** String
 
 
 
 Allowed Value|Description
 :------------|:----------
-[success](Org.OData.Core.V1.xml#L177)|Positive feedback - no action required
-[info](Org.OData.Core.V1.xml#L181)|Additional information - no action required
-[warning](Org.OData.Core.V1.xml#L185)|Warning - action may be required
-[error](Org.OData.Core.V1.xml#L189)|Error - action is required
+[success](Org.OData.Core.V1.xml#L198)|Positive feedback - no action required
+[info](Org.OData.Core.V1.xml#L202)|Additional information - no action required
+[warning](Org.OData.Core.V1.xml#L206)|Warning - action may be required
+[error](Org.OData.Core.V1.xml#L210)|Error - action is required
 
-## <a name="Tag"></a>[Tag](Org.OData.Core.V1.xml#L204)
+## <a name="Tag"></a>[Tag](Org.OData.Core.V1.xml#L225)
 **Type:** Boolean
 
 This is the type to use for all tagging terms
 
-## <a name="Permission"></a>[Permission](Org.OData.Core.V1.xml#L238)
+## <a name="Permission"></a>[Permission](Org.OData.Core.V1.xml#L259)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[None](Org.OData.Core.V1.xml#L239)|0|No permissions
-[Read](Org.OData.Core.V1.xml#L242)|1|Read permission
-[Write](Org.OData.Core.V1.xml#L245)|2|Write permission
-[ReadWrite](Org.OData.Core.V1.xml#L248)|3|Read and write permission
-[Invoke](Org.OData.Core.V1.xml#L251)|4|Permission to invoke actions
+[None](Org.OData.Core.V1.xml#L260)|0|No permissions
+[Read](Org.OData.Core.V1.xml#L263)|1|Read permission
+[Write](Org.OData.Core.V1.xml#L266)|2|Write permission
+[ReadWrite](Org.OData.Core.V1.xml#L269)|3|Read and write permission
+[Invoke](Org.OData.Core.V1.xml#L272)|4|Permission to invoke actions
 
-## <a name="QualifiedTypeName"></a>[QualifiedTypeName](Org.OData.Core.V1.xml#L334)
+## <a name="QualifiedTypeName"></a>[QualifiedTypeName](Org.OData.Core.V1.xml#L355)
 **Type:** String
 
 The qualified name of a type in scope.
 
-## <a name="AlternateKey"></a>[AlternateKey](Org.OData.Core.V1.xml#L352)
+## <a name="AlternateKey"></a>[AlternateKey](Org.OData.Core.V1.xml#L373)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Key](Org.OData.Core.V1.xml#L353)|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
+[Key](Org.OData.Core.V1.xml#L374)|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
-## <a name="PropertyRef"></a>[PropertyRef](Org.OData.Core.V1.xml#L357)
+## <a name="PropertyRef"></a>[PropertyRef](Org.OData.Core.V1.xml#L378)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Core.V1.xml#L358)|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
-[Alias](Org.OData.Core.V1.xml#L362)|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
+[Name](Org.OData.Core.V1.xml#L379)|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
+[Alias](Org.OData.Core.V1.xml#L383)|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
-## <a name="Dictionary"></a>[Dictionary](Org.OData.Core.V1.xml#L368)
+## <a name="Dictionary"></a>[Dictionary](Org.OData.Core.V1.xml#L389)
 A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.
 
 
@@ -139,9 +181,9 @@ Property|Type
 Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
 
 
-## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L385)
+## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L406)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](Org.OData.Core.V1.xml#L386)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
+[DefaultValue](Org.OData.Core.V1.xml#L407)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
