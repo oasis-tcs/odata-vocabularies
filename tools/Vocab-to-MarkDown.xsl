@@ -53,6 +53,8 @@
         <xsl:call-template name="Core.Description">
           <xsl:with-param name="node" select="." />
         </xsl:call-template>
+        <xsl:apply-templates
+          select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]" mode="example" />
         <xsl:variable name="longDescription">
           <xsl:call-template name="Core.LongDescription-escaped">
             <xsl:with-param name="node" select="." />
@@ -232,6 +234,14 @@
       <xsl:value-of select="$lineNumber" />
       <xsl:text>)</xsl:text>
     </xsl:if>
+  </xsl:template>
+
+  <xsl:template match="edm:Annotation" mode="example">
+    <xsl:text> (</xsl:text>
+    <xsl:call-template name="xml-link">
+      <xsl:with-param name="text" select="'Example'" />
+    </xsl:call-template>
+    <xsl:text>)</xsl:text>
   </xsl:template>
 
   <xsl:template match="edm:ComplexType">
