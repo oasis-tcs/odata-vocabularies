@@ -86,7 +86,8 @@
       </Term>
 
       <Term Name="AllowedValues" Type="Collection(Validation.AllowedValue)" AppliesTo="Property Parameter TypeDefinition">
-        <Annotation Term="Core.Description" String="A collection of valid values for the annotated property, parameter, or type definition" />
+        <Annotation Term="Core.Description"
+          String="A collection of valid values for the annotated property, parameter, or type definition" />
       </Term>
       <ComplexType Name="AllowedValue">
         <Property Name="Value" Type="Edm.PrimitiveType">
@@ -105,7 +106,8 @@
       <ComplexType Name="ConstraintType">
         <Property Name="FailureMessage" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Core.Description" String="Human-readable message that can be shown to end users if the constraint is not fulfilled" />
+          <Annotation Term="Core.Description"
+            String="Human-readable message that can be shown to end users if the constraint is not fulfilled" />
         </Property>
         <Property Name="Condition" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description"
@@ -139,9 +141,16 @@ even though they are defined in an `Orders` entity set.</String>
       </Term>
 
       <Term Name="DerivedTypeConstraint" Type="Collection(Core.QualifiedTypeName)" AppliesTo="Property TypeDefinition">
-        <Annotation Term="Core.Description" String="Values are restricted to types derived from the declared type and listed in this collection" />
+        <Annotation Term="Core.Description"
+          String="Values are restricted to types derived from the declared type and listed in this collection" />
         <Annotation Term="Core.LongDescription"
           String="Types listed in this collection that are not derived form the declared type of the annotated model element are ignored" />
+      </Term>
+
+      <Term Name="AllowedTerms" Type="Collection(Core.QualifiedTermName)" AppliesTo="Term Property">
+        <Annotation Term="Core.Description"
+          String="Annotation path expressions assigned to the annotated term or property are intended to resolve to annotations with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed." />
+        <Annotation Term="Core.RequiresType" String="Edm.AnnotationPath" />
       </Term>
 
     </Schema>

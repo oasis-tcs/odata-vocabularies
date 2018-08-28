@@ -168,6 +168,17 @@
             ],
             "@Core.Description": "Values are restricted to types derived from the declared type and listed in this collection",
             "@Core.LongDescription": "Types listed in this collection that are not derived form the declared type of the annotated model element are ignored"
+        },
+        "AllowedTerms": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.QualifiedTermName",
+            "$AppliesTo": [
+                "Term",
+                "Property"
+            ],
+            "@Core.Description": "Annotation path expressions assigned to the annotated term or property are intended to resolve to annotations with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed.",
+            "@Core.RequiresType": "Edm.AnnotationPath"
         }
     }
 }

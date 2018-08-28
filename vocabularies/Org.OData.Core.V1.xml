@@ -317,6 +317,10 @@
           String="A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment." />
       </Term>
 
+      <TypeDefinition Name="QualifiedTermName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The qualified name of a term in scope." />
+      </TypeDefinition>
+
       <TypeDefinition Name="QualifiedTypeName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
       </TypeDefinition>
@@ -352,7 +356,8 @@
       </ComplexType>
 
       <ComplexType Name="Dictionary" OpenType="true">
-        <Annotation Term="Core.Description" String="A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`." />
+        <Annotation Term="Core.Description"
+          String="A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`." />
         <Annotation Term="Core.LongDescription">
           <String>
 Property|Type
