@@ -51,11 +51,13 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" />
+            <PropertyValue Property="href"
+              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json" />
+            <PropertyValue Property="href"
+              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
@@ -148,7 +150,8 @@
           <Annotation Term="Core.Description" String="Severity of the message" />
         </Property>
         <Property Name="target" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A path to the target of the message detail, relative to the annotated instance" />
+          <Annotation Term="Core.Description"
+            String="A path to the target of the message detail, relative to the annotated instance" />
         </Property>
         <Property Name="details" Type="Collection(Core.MessageType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of detail messages" />
@@ -198,7 +201,8 @@
       <!--Resource Paths -->
 
       <Term Name="ResourcePath" Type="Edm.String" AppliesTo="EntitySet Singleton ActionImport FunctionImport">
-        <Annotation Term="Core.Description" String="Resource path for entity container child, can be relative to xml:base and the request URL" />
+        <Annotation Term="Core.Description"
+          String="Resource path for entity container child, can be relative to xml:base and the request URL" />
         <Annotation Term="Core.IsURL" />
       </Term>
 
@@ -212,7 +216,9 @@
 
       <!-- Permissions -->
 
-      <Term Name="Permissions" Type="Core.Permission" AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function">
+      <Term Name="Permissions" Type="Core.Permission"
+        AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function"
+      >
         <Annotation Term="Core.Description" String="Permissions for accessing a resource" />
       </Term>
       <EnumType Name="Permission" IsFlags="true">
@@ -249,7 +255,8 @@
       </Term>
 
       <Term Name="Immutable" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Description" String="A value for this non-key property can be provided by the client on insert and remains unchanged on update" />
+        <Annotation Term="Core.Description"
+          String="A value for this non-key property can be provided by the client on insert and remains unchanged on update" />
       </Term>
 
       <Term Name="Computed" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
@@ -289,13 +296,15 @@
       </Term>
 
       <Term Name="AdditionalProperties" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Instances of this type may contain properties in addition to those declared in $metadata" />
+        <Annotation Term="Core.Description"
+          String="Instances of this type may contain properties in addition to those declared in $metadata" />
         <Annotation Term="Core.LongDescription"
           String="If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute." />
       </Term>
 
       <Term Name="AutoExpand" Type="Core.Tag" DefaultValue="true" AppliesTo="NavigationProperty">
-        <Annotation Term="Core.Description" String="The service will automatically expand this navigation property even if not requested with $expand" />
+        <Annotation Term="Core.Description"
+          String="The service will automatically expand this navigation property even if not requested with $expand" />
       </Term>
 
       <Term Name="AutoExpandReferences" Type="Core.Tag" DefaultValue="true" AppliesTo="NavigationProperty">
@@ -321,7 +330,9 @@
         <Annotation Term="Core.Description" String="Items can be inserted at a given ordinal index." />
       </Term>
 
-      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty" Type="Collection(Core.AlternateKey)" Nullable="false">
+      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty" Type="Collection(Core.AlternateKey)"
+        Nullable="false"
+      >
         <Annotation Term="Core.Description" String="Communicates available alternate keys" />
       </Term>
       <ComplexType Name="AlternateKey">
@@ -341,9 +352,14 @@
       </ComplexType>
 
       <ComplexType Name="Dictionary" OpenType="true">
-        <Annotation Term="Core.Description" String="A dictionary of name-value pairs" />
-        <Annotation Term="Core.LongDescription"
-          String="Names must be simple identifiers, values may be restricted via an annotation with term Validation.OpenPropertyTypeConstraint" />
+        <Annotation Term="Core.Description" String="A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`." />
+        <Annotation Term="Core.LongDescription">
+          <String>
+Property|Type
+:-------|:---
+Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
+</String>
+        </Annotation>
       </ComplexType>
 
       <Term Name="OptionalParameter" Type="Core.OptionalParameterType" AppliesTo="Parameter">

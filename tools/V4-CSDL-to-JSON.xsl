@@ -58,14 +58,14 @@
     <xsl:apply-templates select="edm:Annotation" mode="list">
       <xsl:with-param name="after" select="@Alias" />
     </xsl:apply-templates>
-    <xsl:apply-templates select="edm:Annotations[generate-id() = generate-id(key('targets', concat(../@Namespace,'/',@Target))[1])]">
-      <xsl:with-param name="after" select="@Alias|edm:Annotation" />
-    </xsl:apply-templates>
     <xsl:apply-templates
       select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:EntityContainer"
       mode="list"
     >
-      <xsl:with-param name="after" select="@Alias|edm:Annotation|edm:Annotations" />
+      <xsl:with-param name="after" select="@Alias|edm:Annotation" />
+    </xsl:apply-templates>
+    <xsl:apply-templates select="edm:Annotations[generate-id() = generate-id(key('targets', concat(../@Namespace,'/',@Target))[1])]">
+      <xsl:with-param name="after" select="@Alias|edm:Annotation|edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action|edm:Function|edm:EntityContainer" />
     </xsl:apply-templates>
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -490,6 +490,7 @@
       <xsl:with-param name="target" select="$name" />
     </xsl:apply-templates>
     <!-- tagging terms without explicit value are assumed to have DefaultValue="true" -->
+    <!-- TOOD: lookup type, use document() function for types from included namespaces -->
     <xsl:if test="count(@*[name()!='Term' and name()!='Qualifier']|edm:*[local-name()!='Annotation'])=0">
       <xsl:text>true</xsl:text>
     </xsl:if>

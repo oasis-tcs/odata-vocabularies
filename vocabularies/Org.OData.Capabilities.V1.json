@@ -627,7 +627,7 @@
             "$Kind": "Term",
             "$Nullable": true,
             "$Type": "Core.Tag",
-            "$DefaultValue": "True",
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -692,7 +692,8 @@
             "$Nullable": true,
             "$Type": "Capabilities.UpdateRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on update operations"
         },
