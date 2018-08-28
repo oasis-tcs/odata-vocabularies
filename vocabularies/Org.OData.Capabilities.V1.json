@@ -354,6 +354,16 @@
             ],
             "@Core.Description": "Supports $skip"
         },
+        "SelectSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntitySet",
+                "Singleton"
+            ],
+            "@Core.Description": "Supports $select"
+        },
         "BatchSupported": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -562,25 +572,6 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction."
-            }
-        },
-        "SelectRestrictions": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Capabilities.SelectRestrictionsType",
-            "$AppliesTo": [
-                "EntitySet",
-                "Singleton"
-            ],
-            "@Core.Description": "Restrictions on selecting properties"
-        },
-        "SelectRestrictionsType": {
-            "$Kind": "ComplexType",
-            "Selectable": {
-                "$Nullable": true,
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "$select is supported"
             }
         },
         "SearchRestrictions": {
