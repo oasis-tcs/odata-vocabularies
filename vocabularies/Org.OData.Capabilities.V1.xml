@@ -301,8 +301,13 @@ supported:
       <Term Name="TopSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports $top" />
       </Term>
+
       <Term Name="SkipSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports $skip" />
+      </Term>
+
+      <Term Name="SelectSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Singleton">
+        <Annotation Term="Core.Description" String="Supports $select" />
       </Term>
 
       <Term Name="BatchSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
@@ -440,15 +445,6 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction." />
-        </Property>
-      </ComplexType>
-
-      <Term Name="SelectRestrictions" Type="Capabilities.SelectRestrictionsType" AppliesTo="EntitySet Singleton">
-        <Annotation Term="Core.Description" String="Restrictions on selecting properties" />
-      </Term>
-      <ComplexType Name="SelectRestrictionsType">
-        <Property Name="Selectable" Type="Edm.Boolean" DefaultValue="true">
-          <Annotation Term="Core.Description" String="$select is supported" />
         </Property>
       </ComplexType>
 
