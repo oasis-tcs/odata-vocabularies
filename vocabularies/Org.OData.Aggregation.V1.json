@@ -50,13 +50,11 @@
             },
             "Rollup": {
                 "$DefaultValue": "MultipleHierarchies",
-                "$Nullable": true,
                 "$Type": "Aggregation.RollupType",
                 "@Core.Description": "The service supports rollup hierarchies in a groupby transformation"
             },
             "PropertyRestrictions": {
                 "$DefaultValue": false,
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation"
             }
