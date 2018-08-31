@@ -387,6 +387,21 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "Service supports referencing Etags from previous requests"
+            },
+            "SupportedFormats": {
+                "$Collection": true,
+                "@Core.Description": "Media types of supported formats for $batch",
+                "@Core.IsMediaType": true,
+                "@Validation.AllowedValues": [
+                    {
+                        "Value": "multipart/mixed",
+                        "@Core.Description": "Multipart Batch Format, see http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_MultipartBatchFormat"
+                    },
+                    {
+                        "Value": "application/json",
+                        "@Core.Description": "JSON Batch Format, see http://docs.oasis-open.org/odata/odata-json-format/v4.01/cs01/odata-json-format-v4.01-cs01.html#sec_BatchRequestsandResponses"
+                    }
+                ]
             }
         },
         "FilterFunctions": {
@@ -739,12 +754,12 @@
                 "@Core.Description": "Restrictions on $orderby expressions"
             },
             "TopSupported": {
-                "$Type": "Edm.Boolean",
+                "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $top"
             },
             "SkipSupported": {
-                "$Type": "Edm.Boolean",
+                "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $skip"
             },
