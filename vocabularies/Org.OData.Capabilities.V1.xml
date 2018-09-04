@@ -375,7 +375,7 @@ supported:
         >
           <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction." />
         </Property>
@@ -455,7 +455,7 @@ supported:
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in $expand expressions" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction." />
         </Property>
@@ -468,7 +468,7 @@ supported:
         <Property Name="Searchable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$search is supported" />
         </Property>
-        <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" DefaultValue="none">
+        <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" Nullable="false" DefaultValue="none">
           <Annotation Term="Core.Description" String="Expressions not supported in $search" />
         </Property>
       </ComplexType>
@@ -510,7 +510,7 @@ supported:
         <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow deep inserts" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
@@ -540,7 +540,7 @@ supported:
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>

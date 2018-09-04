@@ -450,7 +450,6 @@
                 "@Core.Description": "These properties only allow a subset of expressions"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction."
@@ -556,7 +555,6 @@
                 "@Core.Description": "These properties cannot be used in $expand expressions"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction."
@@ -579,7 +577,6 @@
                 "@Core.Description": "$search is supported"
             },
             "UnsupportedExpressions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SearchExpressions",
                 "$DefaultValue": "none",
                 "@Core.Description": "Expressions not supported in $search"
@@ -632,7 +629,6 @@
                 "@Core.Description": "These navigation properties do not allow deep inserts"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
@@ -684,7 +680,6 @@
                 "@Core.Description": "These navigation properties do not allow rebinding"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
