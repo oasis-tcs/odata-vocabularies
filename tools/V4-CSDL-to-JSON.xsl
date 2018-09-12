@@ -268,7 +268,7 @@
     </xsl:variable>
 
     <xsl:variable name="nullable"
-      select="../@Nullable='true' or (not(../@Nullable='false') and local-name(..)!='Singleton' and not($collection))" />
+      select="../@Nullable='true' or (not(../@Nullable='false') and local-name(..)!='Singleton' and local-name(..)!='Cast' and local-name(..)!='IsOf' and not($collection))" />
 
     <xsl:if test="$nullable">
       <xsl:text>"$Nullable":true</xsl:text>
@@ -290,7 +290,7 @@
       <xsl:text>"</xsl:text>
     </xsl:if>
 
-    <xsl:if test="$typename='Edm.Decimal' and not(../@Scale)">
+    <xsl:if test="$typename='Edm.Decimal' and not(../@Scale) and local-name(..)!='Cast' and local-name(..)!='IsOf'">
       <xsl:text>,"$Scale":0</xsl:text>
     </xsl:if>
 
