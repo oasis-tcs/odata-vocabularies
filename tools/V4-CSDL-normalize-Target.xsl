@@ -66,6 +66,30 @@
   <xsl:template name="normalizedPath">
     <xsl:param name="path" />
     <xsl:choose>
+      <xsl:when test="contains($path,'(')">
+        <!-- action/function overload: normalize action/function name -->
+        <xsl:call-template name="normalizedPath">
+          <xsl:with-param name="path" select="substring-before($path,'(')" />
+        </xsl:call-template>
+        <xsl:text>(</xsl:text>
+        <xsl:choose>
+          <xsl:when test="contains($path,',')">
+            <!-- action/function overload: normalize first parameter, then copy remaining parameters -->
+            <xsl:call-template name="normalizedPath">
+              <xsl:with-param name="path" select="substring-after(substring-before($path,','),'(')" />
+            </xsl:call-template>
+            <xsl:text>,</xsl:text>
+            <xsl:value-of select="substring-after($path,',')" />
+          </xsl:when>
+          <xsl:otherwise>
+            <!-- action/function overload: normalize the one and only parameter -->
+            <xsl:call-template name="normalizedPath">
+              <xsl:with-param name="path" select="substring-after(substring-before($path,')'),'(')" />
+            </xsl:call-template>
+            <xsl:text>)</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:when>
       <xsl:when test="contains($path,'/')">
         <!-- multiple path segments: normalize first segment and remaining path -->
         <xsl:call-template name="normalizedPath">
