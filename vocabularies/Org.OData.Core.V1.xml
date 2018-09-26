@@ -148,17 +148,17 @@
         </Property>
       </ComplexType>
       <ComplexType Name="PrimitiveExampleValue" BaseType="Core.ExampleValue">
-        <Property Name="Value" Type="Edm.Primitive" Nullable="false">
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Example value for the custom parameter" />
         </Property>
       </ComplexType>
       <ComplexType Name="ComplexExampleValue" BaseType="Core.ExampleValue">
-        <Property Name="Value" Type="Edm.Complex" Nullable="false">
+        <Property Name="Value" Type="Edm.ComplexType" Nullable="false">
           <Annotation Term="Core.Description" String="Example value for the custom parameter" />
         </Property>
       </ComplexType>
       <ComplexType Name="EntityExampleValue" BaseType="Core.ExampleValue">
-        <Property Name="Value" Type="Edm.Entity" Nullable="false">
+        <Property Name="Value" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Example value for the custom parameter" />
         </Property>
       </ComplexType>
