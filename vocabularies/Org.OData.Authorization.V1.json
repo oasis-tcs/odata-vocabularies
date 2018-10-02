@@ -143,7 +143,6 @@
                 "@Core.Description": "Scope name"
             },
             "Description": {
-                "$Nullable": true,
                 "@Core.Description": "Description of the scope"
             }
         },

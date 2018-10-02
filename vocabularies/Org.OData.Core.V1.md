@@ -38,8 +38,8 @@ Term|Type|Description
 [Ordered](Org.OData.Core.V1.xml#L324)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
 [PositionalInsert](Org.OData.Core.V1.xml#L329)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
 [AlternateKeys](Org.OData.Core.V1.xml#L335)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](Org.OData.Core.V1.xml#L365)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
-[OperationAvailable](Org.OData.Core.V1.xml#L377)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
+[OptionalParameter](Org.OData.Core.V1.xml#L366)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
+[OperationAvailable](Org.OData.Core.V1.xml#L378)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L85)
 
@@ -135,9 +135,9 @@ Property|Type
 Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
 
 
-## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L370)
+## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L371)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](Org.OData.Core.V1.xml#L371)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
+[DefaultValue](Org.OData.Core.V1.xml#L372)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.

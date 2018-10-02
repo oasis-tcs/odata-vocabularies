@@ -85,11 +85,14 @@
         <Annotation Term="Core.Description" String="Tags a Minimum or Maximum as exclusive, i.e. an open interval boundary." />
       </Term>
 
-      <Term Name="AllowedValues" Type="Collection(Validation.AllowedValue)" AppliesTo="Property Parameter TypeDefinition">
-        <Annotation Term="Core.Description" String="A collection of valid values for the annotated property, parameter, or type definition" />
+      <Term Name="AllowedValues" Type="Collection(Validation.AllowedValue)" Nullable="false"
+        AppliesTo="Property Parameter TypeDefinition"
+      >
+        <Annotation Term="Core.Description"
+          String="A collection of valid values for the annotated property, parameter, or type definition" />
       </Term>
       <ComplexType Name="AllowedValue">
-        <Property Name="Value" Type="Edm.PrimitiveType">
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="An allowed value for the property, parameter, or type definition" />
         </Property>
       </ComplexType>
@@ -105,7 +108,8 @@
       <ComplexType Name="ConstraintType">
         <Property Name="FailureMessage" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsLanguageDependent" />
-          <Annotation Term="Core.Description" String="Human-readable message that can be shown to end users if the constraint is not fulfilled" />
+          <Annotation Term="Core.Description"
+            String="Human-readable message that can be shown to end users if the constraint is not fulfilled" />
         </Property>
         <Property Name="Condition" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description"
@@ -113,7 +117,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="ItemsOf" Type="Collection(Validation.ItemsOfType)" AppliesTo="EntityType ComplexType">
+      <Term Name="ItemsOf" Type="Collection(Validation.ItemsOfType)" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description"
           String="A list of constraints describing that entities related via one navigation property MUST also be related via another, collection-valued navigation property. The same `path` value MUST NOT occur more than once." />
         <Annotation Term="Core.LongDescription">
@@ -125,21 +129,24 @@ even though they are defined in an `Orders` entity set.</String>
       <ComplexType Name="ItemsOfType">
         <Annotation Term="Core.Description"
           String="Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`." />
-        <Property Name="path" Type="Edm.NavigationPropertyPath">
+        <Property Name="path" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="A path to a single- or collection-valued navigation property" />
         </Property>
-        <Property Name="target" Type="Edm.NavigationPropertyPath">
+        <Property Name="target" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="A path to a collection-valued navigation property" />
         </Property>
       </ComplexType>
 
-      <Term Name="OpenPropertyTypeConstraint" Type="Collection(Core.QualifiedTypeName)" AppliesTo="ComplexType EntityType">
+      <Term Name="OpenPropertyTypeConstraint" Type="Collection(Core.QualifiedTypeName)" Nullable="false"
+        AppliesTo="ComplexType EntityType"
+      >
         <Annotation Term="Core.Description"
           String="Dynamic properties added to the annotated open structured type are restricted to the listed types" />
       </Term>
 
-      <Term Name="DerivedTypeConstraint" Type="Collection(Core.QualifiedTypeName)" AppliesTo="Property TypeDefinition">
-        <Annotation Term="Core.Description" String="Values are restricted to types derived from the declared type and listed in this collection" />
+      <Term Name="DerivedTypeConstraint" Type="Collection(Core.QualifiedTypeName)" Nullable="false" AppliesTo="Property TypeDefinition">
+        <Annotation Term="Core.Description"
+          String="Values are restricted to types derived from the declared type and listed in this collection" />
         <Annotation Term="Core.LongDescription"
           String="Types listed in this collection that are not derived form the declared type of the annotated model element are ignored" />
       </Term>
