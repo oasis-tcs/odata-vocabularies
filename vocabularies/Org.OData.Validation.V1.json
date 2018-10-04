@@ -138,12 +138,10 @@
             "$Kind": "ComplexType",
             "@Core.Description": "Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`.",
             "path": {
-                "$Nullable": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "A path to a single- or collection-valued navigation property"
             },
             "target": {
-                "$Nullable": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "A path to a collection-valued navigation property"
             }
@@ -177,7 +175,8 @@
                 "Term",
                 "Property"
             ],
-            "@Core.Description": "Annotation path expressions assigned to the annotated term or property are intended to resolve to annotations with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed.",
+            "@Core.Description": "Annotate a property or term of type AnnotationPath to restrict the terms that can be targeted by the path.",
+            "@Core.LongDescription": "Annotation path expressions assigned to the annotated term or property are intended to resolve to annotations with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed.",
             "@Core.RequiresType": "Edm.AnnotationPath"
         }
     }
