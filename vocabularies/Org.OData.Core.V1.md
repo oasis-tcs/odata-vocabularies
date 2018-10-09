@@ -87,7 +87,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Description*](Org.OData.Core.V1.xml#L146)|String|Description of the example value
-[Value](Org.OData.Core.V1.xml#L151)|Primitive|Example value for the custom parameter
+[Value](Org.OData.Core.V1.xml#L151)|PrimitiveType|Example value for the custom parameter
 
 ## <a name="ComplexExampleValue"></a>[ComplexExampleValue](Org.OData.Core.V1.xml#L155): [ExampleValue](#ExampleValue)
 
@@ -95,7 +95,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Description*](Org.OData.Core.V1.xml#L146)|String|Description of the example value
-[Value](Org.OData.Core.V1.xml#L156)|Complex|Example value for the custom parameter
+[Value](Org.OData.Core.V1.xml#L156)|ComplexType|Example value for the custom parameter
 
 ## <a name="EntityExampleValue"></a>[EntityExampleValue](Org.OData.Core.V1.xml#L160): [ExampleValue](#ExampleValue)
 
@@ -103,7 +103,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Description*](Org.OData.Core.V1.xml#L146)|String|Description of the example value
-[Value](Org.OData.Core.V1.xml#L161)|Entity|Example value for the custom parameter
+[Value](Org.OData.Core.V1.xml#L161)|EntityType|Example value for the custom parameter
 
 ## <a name="ExternalExampleValue"></a>[ExternalExampleValue](Org.OData.Core.V1.xml#L165): [ExampleValue](#ExampleValue)
 

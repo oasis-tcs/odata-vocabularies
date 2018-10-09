@@ -83,13 +83,13 @@
         <Annotation Term="Core.Description" String="List of revisions of a model element" />
       </Term>
       <ComplexType Name="RevisionType">
-        <Property Name="Version" Type="Edm.String">
+        <Property Name="Version" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="The schema version with which this revision was first published" />
         </Property>
-        <Property Name="Kind" Type="Core.RevisionKind">
+        <Property Name="Kind" Type="Core.RevisionKind" Nullable="false">
           <Annotation Term="Core.Description" String="The kind of revision" />
         </Property>
-        <Property Name="Description" Type="Edm.String">
+        <Property Name="Description" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Text describing the reason for the revision" />
         </Property>
       </ComplexType>
@@ -217,7 +217,7 @@
 
       <!-- Localization -->
 
-      <Term Name="IsLanguageDependent" Type="Core.Tag" DefaultValue="true" AppliesTo="Term Property">
+      <Term Name="IsLanguageDependent" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
         <Annotation Term="Core.Description" String="Properties and terms annotated with this term are language-dependent" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
@@ -241,11 +241,11 @@
         <Annotation Term="Core.IsURL" />
       </Term>
 
-      <Term Name="DereferenceableIDs" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
+      <Term Name="DereferenceableIDs" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Entity-ids are URLs that locate the identified entity" />
       </Term>
 
-      <Term Name="ConventionalIDs" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
+      <Term Name="ConventionalIDs" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Entity-ids follow OData URL conventions" />
       </Term>
 
@@ -282,28 +282,28 @@
 
       <!-- Metadata Extensions -->
 
-      <Term Name="DefaultNamespace" Type="Core.Tag" DefaultValue="true" AppliesTo="Schema Include">
+      <Term Name="DefaultNamespace" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Schema Include">
         <Annotation Term="Core.Description"
           String="Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification." />
         <Annotation Term="Core.LongDescription"
           String="Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type." />
       </Term>
 
-      <Term Name="Immutable" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Immutable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description"
           String="A value for this non-key property can be provided by the client on insert and remains unchanged on update" />
       </Term>
 
-      <Term Name="Computed" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="Computed" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A value for this property is generated on both insert and update" />
       </Term>
 
-      <Term Name="ComputedDefaultValue" Type="Core.Tag" DefaultValue="true" AppliesTo="Property">
+      <Term Name="ComputedDefaultValue" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description"
           String="A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated" />
       </Term>
 
-      <Term Name="IsURL" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Term">
+      <Term Name="IsURL" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
         <Annotation Term="Core.Description" String="Properties and terms annotated with this term MUST contain a valid URL" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
@@ -320,7 +320,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.Binary" />
       </Term>
 
-      <Term Name="IsMediaType" Type="Core.Tag" DefaultValue="true" AppliesTo="Property Term">
+      <Term Name="IsMediaType" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
         <Annotation Term="Core.Description" String="Properties and terms annotated with this term MUST contain a valid MIME type" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
@@ -330,19 +330,19 @@
           String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag." />
       </Term>
 
-      <Term Name="AdditionalProperties" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityType ComplexType">
+      <Term Name="AdditionalProperties" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description"
           String="Instances of this type may contain properties in addition to those declared in $metadata" />
         <Annotation Term="Core.LongDescription"
           String="If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute." />
       </Term>
 
-      <Term Name="AutoExpand" Type="Core.Tag" DefaultValue="true" AppliesTo="NavigationProperty">
+      <Term Name="AutoExpand" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
         <Annotation Term="Core.Description"
           String="The service will automatically expand this navigation property even if not requested with $expand" />
       </Term>
 
-      <Term Name="AutoExpandReferences" Type="Core.Tag" DefaultValue="true" AppliesTo="NavigationProperty">
+      <Term Name="AutoExpandReferences" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
         <Annotation Term="Core.Description"
           String="The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref" />
       </Term>
@@ -356,12 +356,12 @@
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
       </TypeDefinition>
 
-      <Term Name="Ordered" Type="Core.Tag" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType">
+      <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType">
         <Annotation Term="Core.Description"
           String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>
 
-      <Term Name="PositionalInsert" Type="Core.Tag" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet">
+      <Term Name="PositionalInsert" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet">
         <Annotation Term="Core.Description" String="Items can be inserted at a given ordinal index." />
       </Term>
 
@@ -376,11 +376,11 @@
         </Property>
       </ComplexType>
       <ComplexType Name="PropertyRef">
-        <Property Type="Edm.PropertyPath" Name="Name">
+        <Property Type="Edm.PropertyPath" Name="Name" Nullable="false">
           <Annotation Term="Core.Description"
             String="A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes." />
         </Property>
-        <Property Type="Edm.String" Name="Alias">
+        <Property Type="Edm.String" Name="Alias" Nullable="false">
           <Annotation Term="Core.Description"
             String="A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs" />
         </Property>
@@ -404,7 +404,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
           String="All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional." />
       </Term>
       <ComplexType Name="OptionalParameterType">
-        <Property Name="DefaultValue" Type="Edm.String">
+        <Property Name="DefaultValue" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description"
             String="Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs." />
         </Property>
