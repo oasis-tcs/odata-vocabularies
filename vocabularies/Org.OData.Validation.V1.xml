@@ -153,7 +153,7 @@ even though they are defined in an `Orders` entity set.</String>
 
       <Term Name="AllowedTerms" Type="Collection(Core.QualifiedTermName)" AppliesTo="Term Property">
         <Annotation Term="Core.Description"
-          String="Annotate a property or term of type AnnotationPath to restrict the terms that can be targeted by the path." />
+          String="Annotate a property or term of type Edm.AnnotationPath to restrict the terms that can be targeted by the path." />
         <Annotation Term="Core.LongDescription"
           String="Annotation path expressions assigned to the annotated term or property are intended to resolve to annotations with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed." />
         <Annotation Term="Core.RequiresType" String="Edm.AnnotationPath" />
