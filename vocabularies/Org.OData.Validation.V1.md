@@ -19,6 +19,8 @@ Term|Type|Description
 [OpenPropertyTypeConstraint](Org.OData.Validation.V1.xml#L142)|\[[QualifiedTypeName](Org.OData.Core.V1.md#QualifiedTypeName)\]|<a name="OpenPropertyTypeConstraint"></a>Dynamic properties added to the annotated open structured type are restricted to the listed types
 [DerivedTypeConstraint](Org.OData.Validation.V1.xml#L147)|\[[QualifiedTypeName](Org.OData.Core.V1.md#QualifiedTypeName)\]|<a name="DerivedTypeConstraint"></a>Values are restricted to types derived from the declared type and listed in this collection<p>Types listed in this collection that are not derived form the declared type of the annotated model element are ignored</p>
 [AllowedTerms](Org.OData.Validation.V1.xml#L154)|\[[QualifiedTermName](Org.OData.Core.V1.md#QualifiedTermName)\]|<a name="AllowedTerms"></a>Annotate a term of type Edm.AnnotationPath, or a property of type Edm.AnnotationPath that is used within a structured term, to restrict the terms that can be targeted by the path.<p>The annotation path expression is intended to end in a path segment with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed.</p>
+[MaxItems](Org.OData.Validation.V1.xml#L162)|Int64|<a name="MaxItems"></a>The annotated collection must have at most the specified number of items.
+[MinItems](Org.OData.Validation.V1.xml#L166)|Int64|<a name="MinItems"></a>The annotated collection must have at least the specified number of items.
 
 ## <a name="AllowedValue"></a>[AllowedValue](Org.OData.Validation.V1.xml#L94)
 
