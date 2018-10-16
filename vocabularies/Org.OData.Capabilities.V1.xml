@@ -507,6 +507,7 @@
         <!-- We want to add description to each of the above sections -->
         <!-- Custom Query options and parameter information needs to be added -->
         <!-- Open question: How are we going to differtiate between collections vs single query -->
+        <!-- ODATA-884 should exist here as well. That term is not required. -->
 
       </Term>
       <ComplexType Name="InsertRestrictionsType">
@@ -520,23 +521,38 @@
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Examples" Type="Core.ExampleValue" >
-        <!-- How are we going to distinguish request from response if we use the Core.ExampleValue term -->
+        <Property Name="Examples" Type="Core.ExampleValue"><!-- How are we going to distinguish request from response if we use the Core.ExampleValue term -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property>
-        <Property Name="RequiredScopes" Type="PERMISSIONS-TERM-DEFINED-OUTSIDE">
+        <Property Name="RequiredScopes" Type="Collection(permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
         </Property>
-        <Property Name="CustomParameters" Type="Capabilities.CustomParameter">
+        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)"><!-- Use Custom parameters from the PR#6 -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property>
-        <Property Name="CustomHeaders" Type="Capabilities.CustomParameter">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)"><!-- Use Custom parameters from the PR#6 -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property>
       </ComplexType>
 
+      <Term Name="PermissionScopes" Type="Collection(permission)" AppliesTo="EntitySet, Singleton, Function, Action" /><!-- What about applying this to ActionImport or FunctionImport -->
+      <ComplexType Name="permission">
+        <Property Name="scope" Type="Edm.String"/>
+        <Property Name="type" Type="permissionType" DefaultValue="delegated"/>
+        <Property Name="methods" Type="httpMethod" DefaultValue="GET"/>
+        <Property Name="properties" Type="Edm.String"/>
+      </ComplexType>
+      <EnumType Name="permissionType" IsFlags="true"><!-- This doesn't seem like it belongs here. Delegated and app permissions is a graph concept. -->
+        <Member Name="delegated" Value="1"/>
+        <Member Name="application" Value="2"/>
+      </EnumType>
+      <EnumType Name="httpMethod" IsFlags="true">
+        <Member Name="GET" Value="1"/>
+        <Member Name="POST" Value="2"/>
+        <Member Name="PATCH" Value="4"/>
+        <Member Name="DELETE" Value="8"/>
+      </EnumType>
 
-      
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description"
           String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
