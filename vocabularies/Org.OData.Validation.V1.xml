@@ -159,6 +159,14 @@ even though they are defined in an `Orders` entity set.</String>
         <Annotation Term="Core.RequiresType" String="Edm.AnnotationPath" />
       </Term>
 
+      <Term Name="MaxItems" Type="Edm.Int64" Nullable="false" AppliesTo="Collection">
+        <Annotation Term="Core.Description" String="The annotated collection must have at most the specified number of items." />
+      </Term>
+
+      <Term Name="MinItems" Type="Edm.Int64" Nullable="false" AppliesTo="Collection">
+        <Annotation Term="Core.Description" String="The annotated collection must have at least the specified number of items." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
