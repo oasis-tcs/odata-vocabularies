@@ -502,10 +502,10 @@
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
-        <!-- We want to add request and response examples to this section -->
-        <!-- Want to add required scopes to this section -->
-        <!-- We want to add description to each of the above sections -->
-        <!-- Custom Query options and parameter information needs to be added -->
+        <!-- Need to add request and response examples to this section -->
+        <!-- Need to add required scopes to this section -->
+        <!-- Need to add description to each of the above sections -->
+        <!-- Need to add Custom Query options and parameter information -->
         <!-- Open question: How are we going to differtiate between collections vs single query -->
         <!-- ODATA-884 should exist here as well. That term is not required. -->
 
@@ -521,37 +521,36 @@
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Examples" Type="Core.ExampleValue"><!-- How are we going to distinguish request from response if we use the Core.ExampleValue term -->
+        <Property Name="Examples" Type="Core.ExampleValue">
+          <!-- How are we going to distinguish request from response if we use the Core.ExampleValue term -->
+          <!-- Core.Example ODATA-1194 should also be AppliesTo=EntitySet -->
+          <!-- what if there are more than one example? Maybe collection of example values? -->
+          <!-- What about the term=link? -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property>
-        <Property Name="RequiredScopes" Type="Collection(permission)">
+        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
+          <!-- Use Custom parameters from the PR#6 ODATA-1099-->
+          <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
+        </Property>
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <!-- Use Custom parameters from the PR#6 ODATA-1099. This currently only applies to entity container. Needs changed. 
+          Example values are 'required=true'. Workloads might not always have an example value.
+          -->
+          <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
+        </Property>
+        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
         </Property>
-        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)"><!-- Use Custom parameters from the PR#6 -->
-          <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
-        </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)"><!-- Use Custom parameters from the PR#6 -->
-          <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
-        </Property>
       </ComplexType>
-
-      <Term Name="PermissionScopes" Type="Collection(permission)" AppliesTo="EntitySet, Singleton, Function, Action" /><!-- What about applying this to ActionImport or FunctionImport -->
-      <ComplexType Name="permission">
-        <Property Name="scope" Type="Edm.String"/>
-        <Property Name="type" Type="permissionType" DefaultValue="delegated"/>
-        <Property Name="methods" Type="httpMethod" DefaultValue="GET"/>
-        <Property Name="properties" Type="Edm.String"/>
+      <Term Name="PermissionScopes" Type="Collection(Capabilities.Permission)" AppliesTo="EntitySet, Singleton, Function, Action" />
+      <!-- What about applying this to ActionImport or FunctionImport -->
+      <ComplexType Name="Permission">
+        <!-- <Property Name="scope" Type="Edm.String"/> Not needed since it comes from auth security scheme -->
+        <Property Name="Scheme" Type="Auth.SecurityScheme"/>
+        <!-- <Property Name="type" Type="permissionType" DefaultValue="delegated"/> -->
+        <!-- <Property Name="methods" Type="httpMethod" DefaultValue="GET"/> Method will be inferred from the TERM -->
+        <!-- <Property Name="properties" Type="Edm.String"/> Not needed since its available in auth security scheme -->
       </ComplexType>
-      <EnumType Name="permissionType" IsFlags="true"><!-- This doesn't seem like it belongs here. Delegated and app permissions is a graph concept. -->
-        <Member Name="delegated" Value="1"/>
-        <Member Name="application" Value="2"/>
-      </EnumType>
-      <EnumType Name="httpMethod" IsFlags="true">
-        <Member Name="GET" Value="1"/>
-        <Member Name="POST" Value="2"/>
-        <Member Name="PATCH" Value="4"/>
-        <Member Name="DELETE" Value="8"/>
-      </EnumType>
 
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description"
