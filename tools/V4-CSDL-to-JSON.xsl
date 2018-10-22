@@ -110,7 +110,7 @@
     <xsl:text>,"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name']" mode="list" />
+    <xsl:apply-templates select="@*[name()!='Name' and name()!='Nullable']" mode="list" />
     <xsl:apply-templates select="edm:NavigationPropertyBinding" mode="hash">
       <xsl:with-param name="key" select="'Path'" />
     </xsl:apply-templates>
@@ -156,7 +156,8 @@
     <xsl:text>,"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name' and not(name()='IncludeInServiceDocument' and .='false')]" mode="list" />
+    <xsl:apply-templates select="@*[name()!='Name' and not(name()='IncludeInServiceDocument' and .='false')]"
+      mode="list" />
     <xsl:apply-templates select="edm:Annotation" mode="list2" />
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -324,8 +325,7 @@
   <!-- default value is suppressed -->
   <xsl:template
     match="@Abstract[.='false']|@ContainsTarget[.='false']|@HasStream[.='false']|@IsBound[.='false']|@IsComposable[.='false']|@IsFlags[.='false']|@MaxLength[.='max']|@OpenType[.='false']|@Unicode[.='true']" />
-  <xsl:template
-    match="edm:EntitySet/@IncludeInServiceDocument[.='true']" />
+  <xsl:template match="edm:EntitySet/@IncludeInServiceDocument[.='true']" />
 
   <!-- name : unquoted value -->
   <xsl:template
