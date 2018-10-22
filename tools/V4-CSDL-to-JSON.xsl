@@ -263,6 +263,22 @@
   <!-- @Nullable is to be treated together with @Type -->
   <xsl:template match="@Nullable" />
 
+  <xsl:template match="edm:Record/@Type">
+    <xsl:variable name="qualifier">
+      <xsl:call-template name="substring-before-last">
+        <xsl:with-param name="input" select="." />
+        <xsl:with-param name="marker" select="'.'" />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="url"
+      select="//edmx:Reference[edmx:Include[@Namespace=$qualifier]|edmx:Include[@Alias=$qualifier]]/@Uri" />
+    <xsl:text>"@type":"</xsl:text>
+    <xsl:value-of select="$url" />
+    <xsl:text>#</xsl:text>
+    <xsl:value-of select="." />
+    <xsl:text>"</xsl:text>
+  </xsl:template>
+
   <xsl:template match="@Type">
     <xsl:variable name="collection" select="starts-with(.,'Collection(')" />
     <xsl:variable name="typename">
