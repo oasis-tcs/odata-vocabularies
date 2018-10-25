@@ -161,6 +161,11 @@
             "$Collection": true,
             "$Type": "Core.QualifiedTypeName",
             "$AppliesTo": [
+                "EntitySet",
+                "Singleton",
+                "NavigationProperty",
+                "Parameter",
+                "ReturnType",
                 "Property",
                 "TypeDefinition"
             ],
