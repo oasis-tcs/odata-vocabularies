@@ -373,7 +373,8 @@ supported:
         <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)"
           Nullable="false"
         >
-          <Annotation Term="Core.Description" String="These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties." />
+          <Annotation Term="Core.Description"
+            String="These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties." />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
@@ -601,6 +602,10 @@ supported:
           <Annotation Term="Core.Description" String="Members of this ordered collection can be deleted by ordinal" />
         </Property>
       </ComplexType>
+
+      <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="True" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
+      </Term>
 
     </Schema>
   </edmx:DataServices>
