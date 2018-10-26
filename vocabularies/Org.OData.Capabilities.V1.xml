@@ -145,11 +145,11 @@ supported:
 
       <!-- Supported Preferences -->
 
-      <Term Name="AsynchronousRequestsSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
+      <Term Name="AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Service supports the asynchronous request preference" />
       </Term>
 
-      <Term Name="BatchContinueOnErrorSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
+      <Term Name="BatchContinueOnErrorSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description"
           String="Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term." />
       </Term>
@@ -164,7 +164,7 @@ supported:
         </Member>
       </EnumType>
 
-      <Term Name="CrossJoinSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
+      <Term Name="CrossJoinSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container" />
       </Term>
 
@@ -192,11 +192,13 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType" AppliesTo="EntityContainer EntitySet Singleton Function FunctionImport NavigationProperty">
+      <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType"
+        AppliesTo="EntityContainer EntitySet Singleton Function FunctionImport NavigationProperty"
+      >
         <Annotation Term="Core.Description" String="Change tracking capabilities of this service or entity set" />
       </Term>
       <ComplexType Name="ChangeTrackingType">
-        <Property Name="Supported" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="This entity set supports the odata.track-changes preference" />
         </Property>
         <Property Name="FilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -213,7 +215,7 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
       <ComplexType Name="CountRestrictionsType">
-        <Property Name="Countable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Countable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be counted" />
         </Property>
         <Property Name="NonCountableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -226,6 +228,8 @@ supported:
 
       <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
+        <Annotation Term="Core.LongDescription"
+          String="Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence." />
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
         <Property Name="Navigability" Type="Capabilities.NavigationType">
@@ -242,26 +246,26 @@ supported:
         <Property Name="Navigability" Type="Capabilities.NavigationType">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated to this level" />
         </Property>
-        <Property Name="FilterFunctions" Type="Collection(Edm.String)">
+        <Property Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description"
-            String="List of functions and operators supported in $filter. If null, all functions and operators may be attempted." />
+            String="List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted." />
         </Property>
         <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on $filter expressions" />
+          <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
         </Property>
         <Property Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on $search expressions" />
+          <Annotation Term="Core.Description" String="Restrictions on search expressions" />
         </Property>
         <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on $orderby expressions" />
+          <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
         </Property>
-        <Property Name="TopSupported" Type="Core.Tag" DefaultValue="true">
+        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
-        <Property Name="SkipSupported" Type="Core.Tag" DefaultValue="true">
+        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $skip" />
         </Property>
-        <Property Name="IndexableByKey" Type="Core.Tag" DefaultValue="true">
+        <Property Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
         </Property>
         <Property Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType">
@@ -290,40 +294,58 @@ supported:
         </Member>
       </EnumType>
 
-      <Term Name="IndexableByKey" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
       </Term>
 
-      <Term Name="TopSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports $top" />
       </Term>
-      <Term Name="SkipSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Supports $skip" />
       </Term>
 
-      <Term Name="BatchSupported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer">
+      <Term Name="BatchSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description"
           String="Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term." />
       </Term>
-      
+
       <Term Name="BatchSupport" Type="Capabilities.BatchSupportType" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Batch Support for the service" />
       </Term>
       <ComplexType Name="BatchSupportType">
-        <Property Name="Supported" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Service supports requests to $batch" />
         </Property>
-        <Property Name="ContinueOnErrorSupported" Type="Edm.Boolean">
+        <Property Name="ContinueOnErrorSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports the continue on error preference" />
         </Property>
-        <Property Name="ReferencesInRequestBodiesSupported" Type="Edm.Boolean">
+        <Property Name="ReferencesInRequestBodiesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports Content-ID referencing in request bodies" />
         </Property>
-        <Property Name="ReferencesAcrossChangeSetsSupported" Type="Edm.Boolean">
+        <Property Name="ReferencesAcrossChangeSetsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports Content-ID referencing across change sets" />
         </Property>
-        <Property Name="EtagReferencesSupported" Type="Edm.Boolean">
+        <Property Name="EtagReferencesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports referencing Etags from previous requests" />
+        </Property>
+        <Property Name="SupportedFormats" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Media types of supported formats for $batch" />
+          <Annotation Term="Core.IsMediaType" />
+          <Annotation Term="Validation.AllowedValues">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Value" String="multipart/mixed" />
+                <Annotation Term="Core.Description"
+                  String="Multipart Batch Format, see http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_MultipartBatchFormat" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="application/json" />
+                <Annotation Term="Core.Description"
+                  String="JSON Batch Format, see http://docs.oasis-open.org/odata/odata-json-format/v4.01/cs01/odata-json-format-v4.01-cs01.html#sec_BatchRequestsandResponses" />
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
 
@@ -332,13 +354,13 @@ supported:
       </Term>
 
       <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" AppliesTo="EntitySet">
-        <Annotation Term="Core.Description" String="Restrictions on $filter expressions" />
+        <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
       </Term>
       <ComplexType Name="FilterRestrictionsType">
-        <Property Name="Filterable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Filterable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$filter is supported" />
         </Property>
-        <Property Name="RequiresFilter" Type="Edm.Boolean" DefaultValue="false">
+        <Property Name="RequiresFilter" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$filter is required" />
         </Property>
         <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -346,14 +368,17 @@ supported:
             String="These properties must be specified in the $filter clause (properties of derived types are not allowed here)" />
         </Property>
         <Property Name="NonFilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These structural properties cannot be used in $filter expressions" />
+          <Annotation Term="Core.Description" String="These structural properties cannot be used in filter expressions" />
         </Property>
-        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)" Nullable="false">
-          <Annotation Term="Core.Description" String="These properties only allow a subset of expressions" />
-        </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)"
+          Nullable="false"
+        >
           <Annotation Term="Core.Description"
-            String="The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction." />
+            String="These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties." />
+        </Property>
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
+          <Annotation Term="Core.Description"
+            String="The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
       <ComplexType Name="FilterExpressionRestrictionType">
@@ -369,30 +394,45 @@ supported:
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="SingleValue" />
-              <Annotation Term="Core.Description" String="Property can be used in a single eq clause" />
+              <Annotation Term="Core.Description" String="Property can be used in a single `eq` clause" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiValue" />
-              <Annotation Term="Core.Description" String="Property can be used in a single in clause" />
+              <Annotation Term="Core.Description" String="Property can be used in a single `in` clause" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SingleRange" />
-              <Annotation Term="Core.Description" String="Property can be used in at most one ge and/or one le clause, separated by and" />
+              <Annotation Term="Core.Description"
+                String="Property can be used in at most one `ge` and/or one `le` clause, separated by `and`" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SearchExpression" />
               <Annotation Term="Core.Description"
-                String="String property can be used as first operand in startswith, endswith, and contains clauses" />
+                String="String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="MultiRange" />
+              <Annotation Term="Core.Description"
+                String="Property can be compared to a union of one or more closed, half-open, or open intervals" />
+              <Annotation Term="Core.LongDescription"
+                String="The filter expression for this property consists of one or more interval expressions combined by `or`. A single interval expression is either a single comparison of the property and a literal value with `eq`, `le`, `lt`, `ge`, or `gt`, or pair of boundaries combined by `and` and enclosed in parentheses. The lower boundary is either `ge` or `gt`, the upper boundary either `le` or `lt`." />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="MultiRangeOrSearchExpression" />
+              <Annotation Term="Core.Description"
+                String="Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns" />
+              <Annotation Term="Core.LongDescription"
+                String="The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See MultiRange for a definition of an interval expression. See SearchExpression for the allowed string comparison functions." />
             </Record>
           </Collection>
         </Annotation>
       </TypeDefinition>
 
       <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" AppliesTo="EntitySet">
-        <Annotation Term="Core.Description" String="Restrictions on $orderby expressions" />
+        <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
       </Term>
       <ComplexType Name="SortRestrictionsType">
-        <Property Name="Sortable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Sortable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$orderby is supported" />
         </Property>
         <Property Name="AscendingOnlyProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -402,34 +442,34 @@ supported:
           <Annotation Term="Core.Description" String="These properties can only be used for sorting in Descending order" />
         </Property>
         <Property Name="NonSortableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These structural properties cannot be used in $orderby expressions" />
+          <Annotation Term="Core.Description" String="These structural properties cannot be used in orderby expressions" />
         </Property>
       </ComplexType>
 
       <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet Singleton">
-        <Annotation Term="Core.Description" String="Restrictions on $expand expressions" />
+        <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
-        <Property Name="Expandable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Expandable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$expand is supported" />
         </Property>
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These properties cannot be used in $expand expressions" />
+          <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
-            String="The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction." />
+            String="The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
 
       <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" AppliesTo="EntitySet">
-        <Annotation Term="Core.Description" String="Restrictions on $search expressions" />
+        <Annotation Term="Core.Description" String="Restrictions on search expressions" />
       </Term>
       <ComplexType Name="SearchRestrictionsType">
-        <Property Name="Searchable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Searchable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$search is supported" />
         </Property>
-        <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" DefaultValue="none">
+        <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" Nullable="false" DefaultValue="none">
           <Annotation Term="Core.Description" String="Expressions not supported in $search" />
         </Property>
       </ComplexType>
@@ -438,13 +478,13 @@ supported:
           <Annotation Term="Core.Description" String="Single search term" />
         </Member>
         <Member Name="AND" Value="1">
-          <Annotation Term="Core.Description" String="Multiple search terms separated by AND" />
+          <Annotation Term="Core.Description" String="Multiple search terms separated by `AND`" />
         </Member>
         <Member Name="OR" Value="2">
-          <Annotation Term="Core.Description" String="Multiple search terms separated by OR" />
+          <Annotation Term="Core.Description" String="Multiple search terms separated by `OR`" />
         </Member>
         <Member Name="NOT" Value="4">
-          <Annotation Term="Core.Description" String="Search terms preceded by NOT" />
+          <Annotation Term="Core.Description" String="Search terms preceded by `NOT`" />
         </Member>
         <Member Name="phrase" Value="8">
           <Annotation Term="Core.Description" String="Search phrases enclosed in double quotes" />
@@ -454,7 +494,7 @@ supported:
         </Member>
       </EnumType>
 
-      <Term Name="KeyAsSegmentSupported" Type="Core.Tag" DefaultValue="True" AppliesTo="EntityContainer">
+      <Term Name="KeyAsSegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description"
           String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection" />
       </Term>
@@ -465,13 +505,13 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
-        <Property Name="Insertable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
         </Property>
         <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow deep inserts" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
@@ -482,26 +522,26 @@ supported:
           String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepInsertSupportType">
-        <Property Name="Supported" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Annotation target supports deep inserts" />
         </Property>
-        <Property Name="ContentIDSupported" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="ContentIDSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
-        <Property Name="Updatable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be updated" />
         </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
@@ -511,54 +551,61 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
-        <Property Name="Deletable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be deleted" />
         </Property>
         <Property Name="NonDeletableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow DeleteLink requests" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" DefaultValue="-1">
+        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
 
-      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" AppliesTo="EntitySet Singleton">
-        <Annotation Term="Core.Description" String="Describes restrictions on operations applied to collection-valued structural properties" />
+      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false"
+        AppliesTo="EntitySet Singleton"
+      >
+        <Annotation Term="Core.Description"
+          String="Describes restrictions on operations applied to collection-valued structural properties" />
       </Term>
       <ComplexType Name="CollectionPropertyRestrictionsType">
         <Property Name="CollectionProperty" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Restricted Collection-valued property" />
         </Property>
-        <Property Name="FilterFunctions" Type="Collection(Edm.String)">
+        <Property Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description"
-            String="List of functions and operators supported in $filter. If null, all functions and operators may be attempted" />
+            String="List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted" />
         </Property>
         <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on $filter expressions" />
+          <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
         </Property>
         <Property Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on $search expressions" />
+          <Annotation Term="Core.Description" String="Restrictions on search expressions" />
         </Property>
         <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on $orderby expressions" />
+          <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
         </Property>
-        <Property Name="TopSupported" Type="Core.Tag" DefaultValue="true">
+        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
-        <Property Name="SkipSupported" Type="Core.Tag" DefaultValue="true">
+        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $skip" />
         </Property>
-        <Property Name="Insertable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="This collection supports positional inserts" />
         </Property>
-        <Property Name="Updatable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Members of this ordered collection can be updated by ordinal" />
         </Property>
-        <Property Name="Deletable" Type="Edm.Boolean" DefaultValue="true">
+        <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Members of this ordered collection can be deleted by ordinal" />
         </Property>
       </ComplexType>
+
+      <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="True" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
+      </Term>
 
     </Schema>
   </edmx:DataServices>

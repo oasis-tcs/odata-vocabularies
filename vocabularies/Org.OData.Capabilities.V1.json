@@ -82,7 +82,6 @@
         },
         "AsynchronousRequestsSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -92,7 +91,6 @@
         },
         "BatchContinueOnErrorSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -117,7 +115,6 @@
         },
         "CrossJoinSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -177,7 +174,6 @@
         "ChangeTrackingType": {
             "$Kind": "ComplexType",
             "Supported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "This entity set supports the odata.track-changes preference"
@@ -205,7 +201,6 @@
         "CountRestrictionsType": {
             "$Kind": "ComplexType",
             "Countable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be counted"
@@ -229,7 +224,8 @@
                 "EntitySet",
                 "Singleton"
             ],
-            "@Core.Description": "Restrictions on navigating properties according to OData URL conventions"
+            "@Core.Description": "Restrictions on navigating properties according to OData URL conventions",
+            "@Core.LongDescription": "Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence."
         },
         "NavigationRestrictionsType": {
             "$Kind": "ComplexType",
@@ -258,37 +254,34 @@
             },
             "FilterFunctions": {
                 "$Collection": true,
-                "@Core.Description": "List of functions and operators supported in $filter. If null, all functions and operators may be attempted."
+                "@Core.Description": "List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted."
             },
             "FilterRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.FilterRestrictionsType",
-                "@Core.Description": "Restrictions on $filter expressions"
+                "@Core.Description": "Restrictions on filter expressions"
             },
             "SearchRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.SearchRestrictionsType",
-                "@Core.Description": "Restrictions on $search expressions"
+                "@Core.Description": "Restrictions on search expressions"
             },
             "SortRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.SortRestrictionsType",
-                "@Core.Description": "Restrictions on $orderby expressions"
+                "@Core.Description": "Restrictions on orderby expressions"
             },
             "TopSupported": {
-                "$Nullable": true,
                 "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $top"
             },
             "SkipSupported": {
-                "$Nullable": true,
                 "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $skip"
             },
             "IndexableByKey": {
-                "$Nullable": true,
                 "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports key values according to OData URL conventions"
@@ -325,7 +318,6 @@
         },
         "IndexableByKey": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -335,7 +327,6 @@
         },
         "TopSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -345,7 +336,6 @@
         },
         "SkipSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -355,7 +345,6 @@
         },
         "BatchSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -375,30 +364,44 @@
         "BatchSupportType": {
             "$Kind": "ComplexType",
             "Supported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Service supports requests to $batch"
             },
             "ContinueOnErrorSupported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports the continue on error preference"
             },
             "ReferencesInRequestBodiesSupported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports Content-ID referencing in request bodies"
             },
             "ReferencesAcrossChangeSetsSupported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports Content-ID referencing across change sets"
             },
             "EtagReferencesSupported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports referencing Etags from previous requests"
+            },
+            "SupportedFormats": {
+                "$Collection": true,
+                "@Core.Description": "Media types of supported formats for $batch",
+                "@Core.IsMediaType": true,
+                "@Validation.AllowedValues": [
+                    {
+                        "Value": "multipart/mixed",
+                        "@Core.Description": "Multipart Batch Format, see http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_MultipartBatchFormat"
+                    },
+                    {
+                        "Value": "application/json",
+                        "@Core.Description": "JSON Batch Format, see http://docs.oasis-open.org/odata/odata-json-format/v4.01/cs01/odata-json-format-v4.01-cs01.html#sec_BatchRequestsandResponses"
+                    }
+                ]
             }
         },
         "FilterFunctions": {
@@ -417,18 +420,16 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Description": "Restrictions on $filter expressions"
+            "@Core.Description": "Restrictions on filter expressions"
         },
         "FilterRestrictionsType": {
             "$Kind": "ComplexType",
             "Filterable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "$filter is supported"
             },
             "RequiresFilter": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "$filter is required"
@@ -441,18 +442,17 @@
             "NonFilterableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties cannot be used in $filter expressions"
+                "@Core.Description": "These structural properties cannot be used in filter expressions"
             },
             "FilterExpressionRestrictions": {
                 "$Collection": true,
                 "$Type": "Capabilities.FilterExpressionRestrictionType",
-                "@Core.Description": "These properties only allow a subset of expressions"
+                "@Core.Description": "These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties."
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
-                "@Core.Description": "The maximum number of levels (including recursion) that can be traversed in a $filter expression. A value of -1 indicates there is no restriction."
+                "@Core.Description": "The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction."
             }
         },
         "FilterExpressionRestrictionType": {
@@ -474,19 +474,29 @@
             "@Validation.AllowedValues": [
                 {
                     "Value": "SingleValue",
-                    "@Core.Description": "Property can be used in a single eq clause"
+                    "@Core.Description": "Property can be used in a single `eq` clause"
                 },
                 {
                     "Value": "MultiValue",
-                    "@Core.Description": "Property can be used in a single in clause"
+                    "@Core.Description": "Property can be used in a single `in` clause"
                 },
                 {
                     "Value": "SingleRange",
-                    "@Core.Description": "Property can be used in at most one ge and/or one le clause, separated by and"
+                    "@Core.Description": "Property can be used in at most one `ge` and/or one `le` clause, separated by `and`"
                 },
                 {
                     "Value": "SearchExpression",
-                    "@Core.Description": "String property can be used as first operand in startswith, endswith, and contains clauses"
+                    "@Core.Description": "String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses"
+                },
+                {
+                    "Value": "MultiRange",
+                    "@Core.Description": "Property can be compared to a union of one or more closed, half-open, or open intervals",
+                    "@Core.LongDescription": "The filter expression for this property consists of one or more interval expressions combined by `or`. A single interval expression is either a single comparison of the property and a literal value with `eq`, `le`, `lt`, `ge`, or `gt`, or pair of boundaries combined by `and` and enclosed in parentheses. The lower boundary is either `ge` or `gt`, the upper boundary either `le` or `lt`."
+                },
+                {
+                    "Value": "MultiRangeOrSearchExpression",
+                    "@Core.Description": "Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns",
+                    "@Core.LongDescription": "The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See MultiRange for a definition of an interval expression. See SearchExpression for the allowed string comparison functions."
                 }
             ]
         },
@@ -497,12 +507,11 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Description": "Restrictions on $orderby expressions"
+            "@Core.Description": "Restrictions on orderby expressions"
         },
         "SortRestrictionsType": {
             "$Kind": "ComplexType",
             "Sortable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "$orderby is supported"
@@ -520,7 +529,7 @@
             "NonSortableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties cannot be used in $orderby expressions"
+                "@Core.Description": "These structural properties cannot be used in orderby expressions"
             }
         },
         "ExpandRestrictions": {
@@ -531,12 +540,11 @@
                 "EntitySet",
                 "Singleton"
             ],
-            "@Core.Description": "Restrictions on $expand expressions"
+            "@Core.Description": "Restrictions on expand expressions"
         },
         "ExpandRestrictionsType": {
             "$Kind": "ComplexType",
             "Expandable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "$expand is supported"
@@ -544,13 +552,12 @@
             "NonExpandableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "These properties cannot be used in $expand expressions"
+                "@Core.Description": "These properties cannot be used in expand expressions"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
-                "@Core.Description": "The maximum number of levels that can be expanded in a $expand expression. A value of -1 indicates there is no restriction."
+                "@Core.Description": "The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction."
             }
         },
         "SearchRestrictions": {
@@ -560,18 +567,16 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Description": "Restrictions on $search expressions"
+            "@Core.Description": "Restrictions on search expressions"
         },
         "SearchRestrictionsType": {
             "$Kind": "ComplexType",
             "Searchable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "$search is supported"
             },
             "UnsupportedExpressions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SearchExpressions",
                 "$DefaultValue": "none",
                 "@Core.Description": "Expressions not supported in $search"
@@ -583,11 +588,11 @@
             "none": 0,
             "none@Core.Description": "Single search term",
             "AND": 1,
-            "AND@Core.Description": "Multiple search terms separated by AND",
+            "AND@Core.Description": "Multiple search terms separated by `AND`",
             "OR": 2,
-            "OR@Core.Description": "Multiple search terms separated by OR",
+            "OR@Core.Description": "Multiple search terms separated by `OR`",
             "NOT": 4,
-            "NOT@Core.Description": "Search terms preceded by NOT",
+            "NOT@Core.Description": "Search terms preceded by `NOT`",
             "phrase": 8,
             "phrase@Core.Description": "Search phrases enclosed in double quotes",
             "group": 16,
@@ -595,9 +600,8 @@
         },
         "KeyAsSegmentSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
-            "$DefaultValue": "True",
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -615,7 +619,6 @@
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
             "Insertable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be inserted"
@@ -626,7 +629,6 @@
                 "@Core.Description": "These navigation properties do not allow deep inserts"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
@@ -645,13 +647,11 @@
         "DeepInsertSupportType": {
             "$Kind": "ComplexType",
             "Supported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Annotation target supports deep inserts"
             },
             "ContentIDSupported": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation."
@@ -662,14 +662,14 @@
             "$Nullable": true,
             "$Type": "Capabilities.UpdateRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on update operations"
         },
         "UpdateRestrictionsType": {
             "$Kind": "ComplexType",
             "Updatable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be updated"
@@ -680,7 +680,6 @@
                 "@Core.Description": "These navigation properties do not allow rebinding"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
@@ -698,7 +697,6 @@
         "DeleteRestrictionsType": {
             "$Kind": "ComplexType",
             "Deletable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be deleted"
@@ -709,7 +707,6 @@
                 "@Core.Description": "These navigation properties do not allow DeleteLink requests"
             },
             "MaxLevels": {
-                "$Nullable": true,
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
@@ -734,53 +731,57 @@
             },
             "FilterFunctions": {
                 "$Collection": true,
-                "@Core.Description": "List of functions and operators supported in $filter. If null, all functions and operators may be attempted"
+                "@Core.Description": "List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted"
             },
             "FilterRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.FilterRestrictionsType",
-                "@Core.Description": "Restrictions on $filter expressions"
+                "@Core.Description": "Restrictions on filter expressions"
             },
             "SearchRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.SearchRestrictionsType",
-                "@Core.Description": "Restrictions on $search expressions"
+                "@Core.Description": "Restrictions on search expressions"
             },
             "SortRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.SortRestrictionsType",
-                "@Core.Description": "Restrictions on $orderby expressions"
+                "@Core.Description": "Restrictions on orderby expressions"
             },
             "TopSupported": {
-                "$Nullable": true,
                 "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $top"
             },
             "SkipSupported": {
-                "$Nullable": true,
                 "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $skip"
             },
             "Insertable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "This collection supports positional inserts"
             },
             "Updatable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Members of this ordered collection can be updated by ordinal"
             },
             "Deletable": {
-                "$Nullable": true,
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Members of this ordered collection can be deleted by ordinal"
             }
+        },
+        "AnnotationValuesInQuerySupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": "True",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Supports annotation values within system query options"
         }
     }
 }

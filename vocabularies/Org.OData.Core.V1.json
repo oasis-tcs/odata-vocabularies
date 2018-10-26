@@ -57,12 +57,10 @@
                 "@Core.Description": "The schema version with which this revision was first published"
             },
             "Kind": {
-                "$Nullable": true,
                 "$Type": "Core.RevisionKind",
                 "@Core.Description": "The kind of revision"
             },
             "Description": {
-                "$Nullable": true,
                 "@Core.Description": "Text describing the reason for the revision"
             }
         },
@@ -95,7 +93,7 @@
         },
         "Link": {
             "$Kind": "ComplexType",
-            "@Core.Description": "The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7) and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)",
+            "@Core.Description": "The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)",
             "rel": {
                 "@Core.Description": "Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)"
             },
@@ -157,7 +155,6 @@
         },
         "IsLanguageDependent": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -194,7 +191,6 @@
         },
         "DereferenceableIDs": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -204,7 +200,6 @@
         },
         "ConventionalIDs": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -249,7 +244,6 @@
         },
         "DefaultNamespace": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -261,17 +255,15 @@
         },
         "Immutable": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Description": "A value for this non-key property can be provided on insert and remains unchanged on update"
+            "@Core.Description": "A value for this non-key property can be provided by the client on insert and remains unchanged on update"
         },
         "Computed": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -281,17 +273,15 @@
         },
         "ComputedDefaultValue": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Description": "A value for this property is can be provided on insert and update. If no value is provided on insert, a non-static default value is generated"
+            "@Core.Description": "A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated"
         },
         "IsURL": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -323,7 +313,6 @@
         },
         "IsMediaType": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -344,7 +333,6 @@
         },
         "AdditionalProperties": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -356,7 +344,6 @@
         },
         "AutoExpand": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -366,7 +353,6 @@
         },
         "AutoExpandReferences": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -399,6 +385,11 @@
             "$Type": "Core.QualifiedTypeName",
             "@Core.Description": "A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment."
         },
+        "QualifiedTermName": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of a term in scope."
+        },
         "QualifiedTypeName": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
@@ -406,7 +397,6 @@
         },
         "Ordered": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -419,7 +409,6 @@
         },
         "PositionalInsert": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
@@ -451,20 +440,18 @@
         "PropertyRef": {
             "$Kind": "ComplexType",
             "Name": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes."
             },
             "Alias": {
-                "$Nullable": true,
                 "@Core.Description": "A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs"
             }
         },
         "Dictionary": {
             "$Kind": "ComplexType",
             "$OpenType": true,
-            "@Core.Description": "A dictionary of name-value pairs",
-            "@Core.LongDescription": "Names must be simple identifiers, values may be restricted via an annotation with term Validation.OpenPropertyTypeConstraint"
+            "@Core.Description": "A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.",
+            "@Core.LongDescription": "\nProperty|Type\n:-------|:---\nAny simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint\n"
         },
         "OptionalParameter": {
             "$Kind": "Term",
@@ -493,7 +480,7 @@
                 "Function"
             ],
             "@Core.Description": "Action or function is available",
-            "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability."
+            "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement."
         }
     }
 }
