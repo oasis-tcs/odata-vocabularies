@@ -643,6 +643,10 @@ supported:
         </Property>
       </ComplexType>
 
+      <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="True" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

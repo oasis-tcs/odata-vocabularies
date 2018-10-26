@@ -76,6 +76,7 @@ Term|Type|Description
 [UpdateRestrictions](Org.OData.Capabilities.V1.xml#L571)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
 [DeleteRestrictions](Org.OData.Capabilities.V1.xml#L587)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
 [CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L605)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
+[AnnotationValuesInQuerySupported](Org.OData.Capabilities.V1.xml#L646)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 

@@ -35,11 +35,11 @@ Term|Type|Description
 [AutoExpand](Org.OData.Core.V1.xml#L305)|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this navigation property even if not requested with $expand
 [AutoExpandReferences](Org.OData.Core.V1.xml#L310)|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
 [MayImplement](Org.OData.Core.V1.xml#L315)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
-[Ordered](Org.OData.Core.V1.xml#L324)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
-[PositionalInsert](Org.OData.Core.V1.xml#L329)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
-[AlternateKeys](Org.OData.Core.V1.xml#L335)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](Org.OData.Core.V1.xml#L366)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
-[OperationAvailable](Org.OData.Core.V1.xml#L378)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
+[Ordered](Org.OData.Core.V1.xml#L328)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
+[PositionalInsert](Org.OData.Core.V1.xml#L333)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
+[AlternateKeys](Org.OData.Core.V1.xml#L339)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
+[OptionalParameter](Org.OData.Core.V1.xml#L370)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
+[OperationAvailable](Org.OData.Core.V1.xml#L382)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L85)
 
@@ -106,27 +106,32 @@ Flag Member|Value|Description
 [ReadWrite](Org.OData.Core.V1.xml#L234)|3|Read and write permission
 [Invoke](Org.OData.Core.V1.xml#L237)|4|Permission to invoke actions
 
-## <a name="QualifiedTypeName"></a>[QualifiedTypeName](Org.OData.Core.V1.xml#L320)
+## <a name="QualifiedTermName"></a>[QualifiedTermName](Org.OData.Core.V1.xml#L320)
+**Type:** String
+
+The qualified name of a term in scope.
+
+## <a name="QualifiedTypeName"></a>[QualifiedTypeName](Org.OData.Core.V1.xml#L324)
 **Type:** String
 
 The qualified name of a type in scope.
 
-## <a name="AlternateKey"></a>[AlternateKey](Org.OData.Core.V1.xml#L338)
+## <a name="AlternateKey"></a>[AlternateKey](Org.OData.Core.V1.xml#L342)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Key](Org.OData.Core.V1.xml#L339)|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
+[Key](Org.OData.Core.V1.xml#L343)|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
-## <a name="PropertyRef"></a>[PropertyRef](Org.OData.Core.V1.xml#L343)
+## <a name="PropertyRef"></a>[PropertyRef](Org.OData.Core.V1.xml#L347)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Core.V1.xml#L344)|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
-[Alias](Org.OData.Core.V1.xml#L348)|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
+[Name](Org.OData.Core.V1.xml#L348)|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
+[Alias](Org.OData.Core.V1.xml#L352)|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
-## <a name="Dictionary"></a>[Dictionary](Org.OData.Core.V1.xml#L354)
+## <a name="Dictionary"></a>[Dictionary](Org.OData.Core.V1.xml#L358)
 A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.
 
 
@@ -135,9 +140,9 @@ Property|Type
 Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
 
 
-## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L371)
+## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L375)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](Org.OData.Core.V1.xml#L372)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
+[DefaultValue](Org.OData.Core.V1.xml#L376)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
