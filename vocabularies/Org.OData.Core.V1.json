@@ -113,7 +113,26 @@
             ],
             "@Core.Description": "Example for an instance of the annotated model element",
             "@Core.Example": {
-                "@Core.Description": "Note that the value of Core.Example is a record/object containing the annotation examples"
+                "Description": "The value of Core.Example is a record/object containing the example value and/or annotation examples.",
+                "@Core.Example#primitive": {
+                    "@type": "#Core.PrimitiveExampleValue",
+                    "Description": "Primitive value example",
+                    "Value": "Hello World"
+                },
+                "@Core.Example#complex": {
+                    "@type": "#Core.ComplexExampleValue",
+                    "Description": "Complex value example",
+                    "Value": {
+                        "ExampleProperty": "with value"
+                    }
+                },
+                "@Core.Example#entity": {
+                    "@type": "#Core.EntityExampleValue",
+                    "Description": "Primitive value example",
+                    "Value": {
+                        "ExampleKeyProperty": "with value"
+                    }
+                }
             }
         },
         "ExampleValue": {

@@ -137,8 +137,34 @@
         <Annotation Term="Core.Description" String="Example for an instance of the annotated model element" />
         <Annotation Term="Core.Example">
           <Record>
-            <Annotation Term="Core.Description"
-              String="Note that the value of Core.Example is a record/object containing the annotation examples" />
+            <PropertyValue Property="Description"
+              String="The value of Core.Example is a record/object containing the example value and/or annotation examples." />
+            <Annotation Term="Core.Example" Qualifier="primitive">
+              <Record Type="Core.PrimitiveExampleValue">
+                <PropertyValue Property="Description" String="Primitive value example" />
+                <PropertyValue Property="Value" String="Hello World" />
+              </Record>
+            </Annotation>
+            <Annotation Term="Core.Example" Qualifier="complex">
+              <Record Type="Core.ComplexExampleValue">
+                <PropertyValue Property="Description" String="Complex value example" />
+                <PropertyValue Property="Value">
+                  <Record>
+                    <PropertyValue Property="ExampleProperty" String="with value" />
+                  </Record>
+                </PropertyValue>
+              </Record>
+            </Annotation>
+            <Annotation Term="Core.Example" Qualifier="entity">
+              <Record Type="Core.EntityExampleValue">
+                <PropertyValue Property="Description" String="Primitive value example" />
+                <PropertyValue Property="Value">
+                  <Record>
+                    <PropertyValue Property="ExampleKeyProperty" String="with value" />
+                  </Record>
+                </PropertyValue>
+              </Record>
+            </Annotation>
           </Record>
         </Annotation>
       </Term>
@@ -360,12 +386,16 @@
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
       </TypeDefinition>
 
-      <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType">
+      <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="Property NavigationProperty EntitySet ReturnType"
+      >
         <Annotation Term="Core.Description"
           String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>
 
-      <Term Name="PositionalInsert" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet">
+      <Term Name="PositionalInsert" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="Property NavigationProperty EntitySet"
+      >
         <Annotation Term="Core.Description" String="Items can be inserted at a given ordinal index." />
       </Term>
 
