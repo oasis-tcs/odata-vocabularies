@@ -418,6 +418,11 @@
             "$Type": "Core.QualifiedTypeName",
             "@Core.Description": "A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment."
         },
+        "QualifiedTermName": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of a term in scope."
+        },
         "QualifiedTypeName": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
