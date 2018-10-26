@@ -312,12 +312,12 @@ Property|Type|Description
 [Description](Org.OData.Capabilities.V1.xml#L680)|String|Description of the custom parameter
 [DocumentationURL](Org.OData.Capabilities.V1.xml#L683)|URL|URL of related documentation
 [Required](Org.OData.Capabilities.V1.xml#L687)|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](Org.OData.Capabilities.V1.xml#L690)|\[[CustomParameterExampleValue](#CustomParameterExampleValue)\]|Example values for the custom parameter
+[ExampleValues](Org.OData.Capabilities.V1.xml#L691)|\[[CustomParameterExampleValue](#CustomParameterExampleValue)\]|Example values for the custom parameter
 
-## <a name="CustomParameterExampleValue"></a>[CustomParameterExampleValue](Org.OData.Capabilities.V1.xml#L694)
+## <a name="CustomParameterExampleValue"></a>[CustomParameterExampleValue](Org.OData.Capabilities.V1.xml#L696)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Value](Org.OData.Capabilities.V1.xml#L695)|String|Example value for the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L698)|String|Description of the example value
+[Value](Org.OData.Capabilities.V1.xml#L697)|String|Example value for the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L700)|String|Description of the example value

@@ -687,10 +687,12 @@ supported:
         <Property Name="Required" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="true: parameter is required, false or not specified: parameter is optional" />
         </Property>
+        <!-- TODO: change type to Core.PrimitiveExampleValue once ODATA-1194 and ODATA-1200 are approved and merged -->
         <Property Name="ExampleValues" Type="Collection(Capabilities.CustomParameterExampleValue)" Nullable="false">
           <Annotation Term="Core.Description" String="Example values for the custom parameter" />
         </Property>
       </ComplexType>
+        <!-- TODO: remove this type once ODATA-1194 and ODATA-1200 are approved and merged -->
       <ComplexType Name="CustomParameterExampleValue">
         <Property Name="Value" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Example value for the custom parameter" />
