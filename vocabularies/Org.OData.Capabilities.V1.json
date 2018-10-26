@@ -778,6 +778,15 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Members of this ordered collection can be deleted by ordinal"
             }
+        },
+        "AnnotationValuesInQuerySupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": "True",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Supports annotation values within system query options"
         }
     }
 }
