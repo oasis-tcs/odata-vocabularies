@@ -3,6 +3,9 @@
 
 Terms to describe which data in a given entity model is time-dependent, and in which dimensions.
 
+
+## Terms
+
 Term|Type|Description
 :---|:---|:----------
 [TemporalSupported](Org.OData.Temporal.V1.xml#L73)|[TemporalSupportedType](#TemporalSupportedType)|<a name="TemporalSupported"></a>This entity container, entity set, or navigation property supports the temporal system query option

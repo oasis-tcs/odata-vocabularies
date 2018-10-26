@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" xmlns:json="http://json.org/" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo"
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" xmlns:json="http://json.org/"
+  xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo"
 >
   <!--
     This style sheet normalizes Target attribute values to alias-qualified names
@@ -25,12 +26,13 @@
 
   <xsl:template match="edm:Schema|edmx:Include">
     <xsl:copy>
-      <!-- invent alias for schemas defined or included without alias -->
-      <xsl:if test="not(@Alias)">
+      <!-- invent alias for schemas defined or included without alias
+        <xsl:if test="not(@Alias)">
         <xsl:attribute name="Alias">
-          <xsl:apply-templates select="." mode="alias" />
+        <xsl:apply-templates select="." mode="alias" />
         </xsl:attribute>
-      </xsl:if>
+        </xsl:if>
+      -->
       <xsl:apply-templates select="@*|node()" />
     </xsl:copy>
   </xsl:template>
@@ -64,6 +66,32 @@
   <xsl:template name="normalizedPath">
     <xsl:param name="path" />
     <xsl:choose>
+      <xsl:when test="contains($path,'(')">
+        <!-- action/function overload: normalize action/function name -->
+        <xsl:call-template name="normalizedPath">
+          <xsl:with-param name="path" select="substring-before($path,'(')" />
+        </xsl:call-template>
+        <!-- normalize parameters -->
+        <xsl:text>(</xsl:text>
+        <xsl:call-template name="normalizedPath">
+          <xsl:with-param name="path" select="substring-after(substring-before($path,')'),'(')" />
+        </xsl:call-template>
+        <xsl:text>)</xsl:text>
+        <!-- normalize remaining path -->
+        <xsl:call-template name="normalizedPath">
+          <xsl:with-param name="path" select="substring-after($path,')')" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="contains($path,',')">
+        <!-- action/function overload parameter list: normalize first and remaining -->
+        <xsl:call-template name="normalizedPath">
+          <xsl:with-param name="path" select="substring-before($path,',')" />
+        </xsl:call-template>
+        <xsl:text>,</xsl:text>
+        <xsl:call-template name="normalizedPath">
+          <xsl:with-param name="path" select="substring-after($path,',')" />
+        </xsl:call-template>
+      </xsl:when>
       <xsl:when test="contains($path,'/')">
         <!-- multiple path segments: normalize first segment and remaining path -->
         <xsl:call-template name="normalizedPath">
@@ -120,7 +148,10 @@
         <xsl:value-of select="//edmx:Include[@Namespace=$qualifier]/@Alias" />
       </xsl:when>
       <xsl:when test="//edm:Schema[@Namespace=$qualifier]">
-        <xsl:apply-templates select="//edm:Schema[@Namespace=$qualifier]" mode="alias" />
+        <!--
+          <xsl:apply-templates select="//edm:Schema[@Namespace=$qualifier]" mode="alias" />
+        -->
+        <xsl:value-of select="$qualifier" />
       </xsl:when>
       <xsl:when test="//edmx:Include[@Namespace=$qualifier]">
         <xsl:value-of select="$qualifier" />

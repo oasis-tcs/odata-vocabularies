@@ -77,12 +77,13 @@
           <Annotation Term="Core.Description" String="Transformations that can be used in $apply" />
         </Property>
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in aggregate(...with...)" />
+          <Annotation Term="Core.Description"
+            String="Qualified names of custom aggregation methods that can be used in aggregate(...with...)" />
         </Property>
-        <Property Name="Rollup" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
+        <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a groupby transformation" />
         </Property>
-        <Property Name="PropertyRestrictions" DefaultValue="false" Type="Edm.Boolean">
+        <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
           <Annotation Term="Core.Description"
             String="Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation" />
         </Property>
@@ -124,7 +125,8 @@
       </Term>
 
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
+        <Annotation Term="Core.Description"
+          String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" AppliesTo="EntityType ComplexType">
@@ -161,7 +163,7 @@
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
