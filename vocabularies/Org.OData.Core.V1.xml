@@ -133,7 +133,9 @@
         </Property>
       </ComplexType>
 
-      <Term Name="Example" Type="Core.ExampleValue" Nullable="false" AppliesTo="EntityType ComplexType Parameter Term">
+      <Term Name="Example" Type="Core.ExampleValue" Nullable="false"
+        AppliesTo="EntityType ComplexType TypeDefinition Term Property NavigationProperty Parameter ReturnType"
+      >
         <Annotation Term="Core.Description" String="Example for an instance of the annotated model element" />
         <Annotation Term="Core.Example">
           <Record>
@@ -141,13 +143,13 @@
               String="The value of Core.Example is a record/object containing the example value and/or annotation examples." />
             <Annotation Term="Core.Example" Qualifier="primitive">
               <Record Type="Core.PrimitiveExampleValue">
-                <PropertyValue Property="Description" String="Primitive value example" />
+                <PropertyValue Property="Description" String="Primitive example value" />
                 <PropertyValue Property="Value" String="Hello World" />
               </Record>
             </Annotation>
             <Annotation Term="Core.Example" Qualifier="complex">
               <Record Type="Core.ComplexExampleValue">
-                <PropertyValue Property="Description" String="Complex value example" />
+                <PropertyValue Property="Description" String="Complex example value" />
                 <PropertyValue Property="Value">
                   <Record>
                     <PropertyValue Property="ExampleProperty" String="with value" />
@@ -157,12 +159,19 @@
             </Annotation>
             <Annotation Term="Core.Example" Qualifier="entity">
               <Record Type="Core.EntityExampleValue">
-                <PropertyValue Property="Description" String="Primitive value example" />
+                <PropertyValue Property="Description" String="Entity example value" />
                 <PropertyValue Property="Value">
                   <Record>
                     <PropertyValue Property="ExampleKeyProperty" String="with value" />
                   </Record>
                 </PropertyValue>
+              </Record>
+            </Annotation>
+            <Annotation Term="Core.Example" Qualifier="external">
+              <Record Type="Core.ExternalExampleValue">
+                <PropertyValue Property="Description" String="External example" />
+                <PropertyValue Property="ExternalValue"
+                  String="https://services.odata.org/TripPinRESTierService/(S(5fjoyrzpnvzrrvmxzzq25i4q))/Me" />
               </Record>
             </Annotation>
           </Record>
@@ -191,6 +200,7 @@
       <ComplexType Name="ExternalExampleValue" BaseType="Core.ExampleValue">
         <Property Name="ExternalValue" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Url reference to the value in its literal format" />
+          <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 

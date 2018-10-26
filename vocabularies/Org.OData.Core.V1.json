@@ -108,30 +108,39 @@
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType",
+                "TypeDefinition",
+                "Term",
+                "Property",
+                "NavigationProperty",
                 "Parameter",
-                "Term"
+                "ReturnType"
             ],
             "@Core.Description": "Example for an instance of the annotated model element",
             "@Core.Example": {
                 "Description": "The value of Core.Example is a record/object containing the example value and/or annotation examples.",
                 "@Core.Example#primitive": {
                     "@type": "#Core.PrimitiveExampleValue",
-                    "Description": "Primitive value example",
+                    "Description": "Primitive example value",
                     "Value": "Hello World"
                 },
                 "@Core.Example#complex": {
                     "@type": "#Core.ComplexExampleValue",
-                    "Description": "Complex value example",
+                    "Description": "Complex example value",
                     "Value": {
                         "ExampleProperty": "with value"
                     }
                 },
                 "@Core.Example#entity": {
                     "@type": "#Core.EntityExampleValue",
-                    "Description": "Primitive value example",
+                    "Description": "Entity example value",
                     "Value": {
                         "ExampleKeyProperty": "with value"
                     }
+                },
+                "@Core.Example#external": {
+                    "@type": "#Core.ExternalExampleValue",
+                    "Description": "External example",
+                    "ExternalValue": "https://services.odata.org/TripPinRESTierService/(S(5fjoyrzpnvzrrvmxzzq25i4q))/Me"
                 }
             }
         },
@@ -170,7 +179,8 @@
             "$Kind": "ComplexType",
             "$BaseType": "Core.ExampleValue",
             "ExternalValue": {
-                "@Core.Description": "Url reference to the value in its literal format"
+                "@Core.Description": "Url reference to the value in its literal format",
+                "@Core.IsURL": true
             }
         },
         "Messages": {
