@@ -20,6 +20,6 @@ Term|Type|Description
 
 Allowed Value|Description
 :------------|:----------
-[days](Org.OData.Measures.V1.xml#L97)|Positive feedback - no action required
-[hours](Org.OData.Measures.V1.xml#L101)|Additional information - no action required
-[minutes](Org.OData.Measures.V1.xml#L105)|Warning - action may be required
+[days](Org.OData.Measures.V1.xml#L97)|Duration in days, e.g. `P1D`
+[hours](Org.OData.Measures.V1.xml#L101)|Duration in days and hours, e.g. `P1DT23H`
+[minutes](Org.OData.Measures.V1.xml#L105)|Duration in days, hours, and minutes, e.g. `P1DT23H59M`

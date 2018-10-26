@@ -74,15 +74,15 @@
             "@Validation.AllowedValues": [
                 {
                     "Value": "days",
-                    "@Core.Description": "Positive feedback - no action required"
+                    "@Core.Description": "Duration in days, e.g. `P1D`"
                 },
                 {
                     "Value": "hours",
-                    "@Core.Description": "Additional information - no action required"
+                    "@Core.Description": "Duration in days and hours, e.g. `P1DT23H`"
                 },
                 {
                     "Value": "minutes",
-                    "@Core.Description": "Warning - action may be required"
+                    "@Core.Description": "Duration in days, hours, and minutes, e.g. `P1DT23H59M`"
                 }
             ]
         }

@@ -96,15 +96,15 @@
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="days" />
-              <Annotation Term="Core.Description" String="Positive feedback - no action required" />
+              <Annotation Term="Core.Description" String="Duration in days, e.g. `P1D`" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="hours" />
-              <Annotation Term="Core.Description" String="Additional information - no action required" />
+              <Annotation Term="Core.Description" String="Duration in days and hours, e.g. `P1DT23H`" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="minutes" />
-              <Annotation Term="Core.Description" String="Warning - action may be required" />
+              <Annotation Term="Core.Description" String="Duration in days, hours, and minutes, e.g. `P1DT23H59M`" />
             </Record>
           </Collection>
         </Annotation>
