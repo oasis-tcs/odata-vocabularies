@@ -296,15 +296,15 @@
                 "$Type": "Capabilities.DeepInsertSupportType",
                 "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
             },
-            "DeepUpdateSupport": {
-                "$Nullable": true,
-                "$Type": "Capabilities.DeepUpdateSupportType",
-                "@Core.Description": "Deep Upadate Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
-            },
             "UpdateRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.UpdateRestrictionsType",
                 "@Core.Description": "Restrictions on update operations"
+            },
+            "DeepUpdateSupport": {
+                "$Nullable": true,
+                "$Type": "Capabilities.DeepUpdateSupportType",
+                "@Core.Description": "Deep Upadate Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
             },
             "DeleteRestrictions": {
                 "$Nullable": true,
@@ -662,29 +662,6 @@
                 "@Core.Description": "Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation."
             }
         },
-        "DeepUpdateSupport": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Capabilities.DeepUpdateSupportType",
-            "$AppliesTo": [
-                "EntityContainer",
-                "EntitySet"
-            ],
-            "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
-        },
-        "DeepUpdateSupportType": {
-            "$Kind": "ComplexType",
-            "Supported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Annotation target supports deep updates"
-            },
-            "ContentIDSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation."
-            }
-        },
         "UpdateRestrictions": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -711,6 +688,29 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
+            }
+        },
+        "DeepUpdateSupport": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.DeepUpdateSupportType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "EntitySet"
+            ],
+            "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
+        },
+        "DeepUpdateSupportType": {
+            "$Kind": "ComplexType",
+            "Supported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Annotation target supports deep updates"
+            },
+            "ContentIDSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation."
             }
         },
         "DeleteRestrictions": {
