@@ -517,6 +517,21 @@ supported:
         </Property>
       </ComplexType>
 
+      <Term Name="InsertSupport" Type="Capabilities.InsertSupportType" AppliesTo="EntityContainer EntitySet Singleton">
+        <Annotation Term="Core.Description" String="Advanced insert capabilities" />
+      </Term>
+      <ComplexType Name="InsertSupportType">
+        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $expand with insert requests" />
+        </Property>
+        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $select with insert requests" />
+        </Property>
+        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $compute with insert requests" />
+        </Property>
+      </ComplexType>
+
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description"
           String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
@@ -547,6 +562,30 @@ supported:
         </Property>
       </ComplexType>
 
+      <Term Name="UpdateSupport" Type="Capabilities.ModificationSupportType" AppliesTo="EntityContainer EntitySet Singleton">
+        <Annotation Term="Core.Description" String="Advanced update capabilities" />
+      </Term>
+      <ComplexType Name="ModificationSupportType">
+        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $expand with insert requests" />
+        </Property>
+        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $select with insert requests" />
+        </Property>
+        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $compute with insert requests" />
+        </Property>
+        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $filter with update requests" />
+        </Property>
+        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $search with update requests" />
+        </Property>
+        <Property Name="SortSupported" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Service supports $orderby with update requests" />
+        </Property>
+      </ComplexType>
+
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
@@ -562,6 +601,10 @@ supported:
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
+
+      <Term Name="ActionSupport" Type="Capabilities.ModificationSupportType" AppliesTo="EntityContainer Action ActionImport">
+        <Annotation Term="Core.Description" String="Advanced Action capabilities" />
+      </Term>
 
       <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false"
         AppliesTo="EntitySet Singleton"

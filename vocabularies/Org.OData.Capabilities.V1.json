@@ -634,6 +634,32 @@
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
             }
         },
+        "InsertSupport": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.InsertSupportType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "EntitySet",
+                "Singleton"
+            ],
+            "@Core.Description": "Advanced insert capabilities"
+        },
+        "InsertSupportType": {
+            "$Kind": "ComplexType",
+            "ExpandSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $expand with insert requests"
+            },
+            "SelectSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $select with insert requests"
+            },
+            "ComputeSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $compute with insert requests"
+            }
+        },
         "DeepInsertSupport": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -685,6 +711,44 @@
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
             }
         },
+        "UpdateSupport": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.ModificationSupportType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "EntitySet",
+                "Singleton"
+            ],
+            "@Core.Description": "Advanced update capabilities"
+        },
+        "ModificationSupportType": {
+            "$Kind": "ComplexType",
+            "ExpandSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $expand with insert requests"
+            },
+            "SelectSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $select with insert requests"
+            },
+            "ComputeSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $compute with insert requests"
+            },
+            "FilterSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $filter with update requests"
+            },
+            "SearchSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $search with update requests"
+            },
+            "SortSupported": {
+                "$Type": "Edm.Boolean",
+                "@Core.Description": "Service supports $orderby with update requests"
+            }
+        },
         "DeleteRestrictions": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -711,6 +775,17 @@
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
             }
+        },
+        "ActionSupport": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.ModificationSupportType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "Action",
+                "ActionImport"
+            ],
+            "@Core.Description": "Advanced Action capabilities"
         },
         "CollectionPropertyRestrictions": {
             "$Kind": "Term",
