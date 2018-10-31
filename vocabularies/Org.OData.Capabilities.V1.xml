@@ -398,18 +398,6 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Examples" Type="Core.ExampleValue">
-          <Annotation Term="Core.Description" String="Example values for expand." />
-        </Property>
-        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Custom parameter values allowed for expand." />
-        </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Custom header values allowed for expand." />
-        </Property>
-        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes to perform the expand." />
-        </Property>
       </ComplexType>
       <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on search expressions" />
@@ -420,18 +408,6 @@
         </Property>
         <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" Nullable="false" DefaultValue="none">
           <Annotation Term="Core.Description" String="Expressions not supported in $search" />
-        </Property>
-        <Property Name="Examples" Type="Core.ExampleValue">
-          <Annotation Term="Core.Description" String="Example values for search." />
-        </Property>
-        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Custom parameter values allowed for search." />
-        </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Custom header values allowed for search." />
-        </Property>
-        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes to perform search." />
         </Property>
       </ComplexType>
       <EnumType Name="SearchExpressions" IsFlags="true">
