@@ -54,7 +54,7 @@
 				</PropertyValue>
 			</Record>
 		</Annotation>
-		<Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
+		<Annotation Term="Org.Graph.Vocabulary.UpdateRestrictions">
 			<Record>
 				<PropertyValue Property="Examples"></PropertyValue>
 				<PropertyValue Property="CustomHeaders">
@@ -71,21 +71,23 @@
 						</Record>
 					</Collection>
 				</PropertyValue>
-				<!-- Custom parameters are not needed here  
-				<PropertyValue Property="CustomParameters">
-				</PropertyValue>
-				-->
 				<PropertyValue Property="RequiredScopes">
+				<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
 					<Collection>
+						<Record>
+							<PropertyValue Property="Scope" String="User.ReadWrite" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
 						<Record>
 							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
 						</Record>
 						<Record>
 							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
 						</Record>
 						<Record>
 							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
@@ -93,14 +95,19 @@
 							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+							<PropertyValue Property="Scope" String="User.ReadWrite" />
+							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
 							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
 						</Record>
 					</Collection>
 				</PropertyValue>
