@@ -1,0 +1,182 @@
+<root>
+	<!-- Do we need to solve for allof/anyof type scenarios -->
+	<!-- Navigation restrictions sample is needed -->
+	<Annotations Target="microsoft.graph.GraphService/users">
+		<Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
+			<Record>
+				<PropertyValue Property="Examples"></PropertyValue>
+				<PropertyValue Property="CustomHeaders">
+					<Collection>
+						<Record>
+							<PropertyValue Property="Name" String="Authorization" />
+							<PropertyValue Property="Description" String="Bearer {token}. Required." />
+							<PropertyValue Property="Required" Bool="true" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Name" String="Content-Type" />
+							<PropertyValue Property="Description" String="application/json" />
+							<PropertyValue Property="Required" Bool="true" />
+						</Record>
+					</Collection>
+				</PropertyValue>
+				<!-- Custom parameters are not needed here  
+				<PropertyValue Property="CustomParameters">
+				</PropertyValue>
+				-->
+				<PropertyValue Property="RequiredScopes">
+					<Collection>
+						<Record>
+							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+					</Collection>
+				</PropertyValue>
+			</Record>
+		</Annotation>
+		<Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
+			<Record>
+				<PropertyValue Property="Examples"></PropertyValue>
+				<PropertyValue Property="CustomHeaders">
+					<Collection>
+						<Record>
+							<PropertyValue Property="Name" String="Authorization" />
+							<PropertyValue Property="Description" String="Bearer {token}. Required." />
+							<PropertyValue Property="Required" Bool="true" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Name" String="Content-Type" />
+							<PropertyValue Property="Description" String="application/json" />
+							<PropertyValue Property="Required" Bool="true" />
+						</Record>
+					</Collection>
+				</PropertyValue>
+				<!-- Custom parameters are not needed here  
+				<PropertyValue Property="CustomParameters">
+				</PropertyValue>
+				-->
+				<PropertyValue Property="RequiredScopes">
+					<Collection>
+						<Record>
+							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+					</Collection>
+				</PropertyValue>
+			</Record>
+		</Annotation>
+	</Annotations>
+	<!-- Annotation on Properties is not needed since they are managed through restrictions and scopes in them -->
+	<!-- Annotating Navigation Properties ?? -->
+	<!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes, DelegatedWork, DelegatedPersonal, Application -->
+	<Annotations Target="microsoft.graph.GraphService">
+		<Annotation Term="Auth.Authorizations">
+			<Collection>
+				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
+					<PropertyValue Property="Name" String="DelegatedWork"/>
+					<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
+					<PropertyValue Property="Scopes">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Scope" String="User.ReadAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Read all user data"></PropertyValue>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="User.WriteAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Write all user data"></PropertyValue>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Directory.ReadAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Write to directory"></PropertyValue>
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
+				</Record>
+				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
+					<PropertyValue Property="Name" String="DelegatedPersonal"/>
+					<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
+					<PropertyValue Property="Scopes">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Scope" String="User.ReadAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Read all user data"></PropertyValue>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="User.WriteAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Write all user data"></PropertyValue>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Directory.ReadAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Write to directory"></PropertyValue>
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
+				</Record>
+				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
+					<PropertyValue Property="Name" String="Application"/>
+					<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
+					<PropertyValue Property="Scopes">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Scope" String="User.ReadAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Read all user data"></PropertyValue>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="User.WriteAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Write all user data"></PropertyValue>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Directory.ReadAll"></PropertyValue>
+								<PropertyValue Property="Description" String="Write to directory"></PropertyValue>
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
+				</Record>
+			</Collection>
+		</Annotation>
+	</Annotations>
+</root>
