@@ -453,7 +453,7 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Examples" Type="Core.ExampleValue">
+        <Property Name="Example" Type="Core.ExampleValue">
           <!-- can we infer a request based on these example values? what about scenarios where there is more than one value applicable. -->
           <!-- Core.Example ODATA-1194 -->
           <!-- what if there are more than one example? Maybe collection of example values? -->
@@ -488,7 +488,7 @@
         <Property Name="ContentIDSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
-        <Property Name="Examples" Type="Core.ExampleValue">
+        <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values for deep insert." />
         </Property>
         <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
@@ -514,7 +514,7 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Examples" Type="Core.ExampleValue">
+        <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values that can be updated." />
         </Property>
         <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
@@ -540,7 +540,7 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Examples" Type="Core.ExampleValue">
+        <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values for delete." />
         </Property>
         <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
@@ -587,6 +587,51 @@
         <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Members of this ordered collection can be deleted by ordinal" />
         </Property>
+      </ComplexType>
+      <!-- The following annotation has been adopted from PR#14. It will be updated based on the status of that PR. -->
+      <Term Name="SelectSupport" Type="Capabilities.SelectSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
+        <Annotation Term="Core.Description" String="Support for $select and nested query options within $select" />
+      </Term>
+      <ComplexType Name="SelectSupportType">
+        <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $select" />
+        </Property>
+        <Property Name="Expandable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$expand within $select is supported" />
+        </Property>
+        <Property Name="Filterable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$filter within $select is supported" />
+        </Property>
+        <Property Name="Searchable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$search within $select is supported" />
+        </Property>
+        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$top within $select is supported" />
+        </Property>
+        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$skip within $select is supported" />
+        </Property>
+        <Property Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$compute within $select is supported" />
+        </Property>
+        <Property Name="Countable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$count within $select is supported" />
+        </Property>
+        <Property Name="Sortable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$orderby within $select is supported" />
+        </Property>
+        <Property Name="Example" Type="Core.ExampleValue">
+  <Annotation Term="Core.Description" String="Example values that can be updated." />
+</Property>
+<Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
+  <Annotation Term="Core.Description" String="Custom parameters values allowed for update." />
+</Property>
+<Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+  <Annotation Term="Core.Description" String="Custom header values allowed for update." />
+</Property>
+<Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
+  <Annotation Term="Core.Description" String="List of required scopes to perform update." />
+</Property>
       </ComplexType>
     </Schema>
   </edmx:DataServices>
