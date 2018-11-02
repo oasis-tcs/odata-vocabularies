@@ -113,17 +113,11 @@
 				</PropertyValue>
 			</Record>
 		</Annotation>
-		<Annotation Term="Org.Graph.Vocabulary.SelectSupport">
+		<!-- Retrieve restrictions 
+		  select restrictions and then props to filter, expand, etc.
+		  -->
+		<Annotation Term="Org.Graph.Vocabulary.RetrieveRestrictions">
 			<Record>
-				<PropertyValue Property="Supported" Bool="true"></PropertyValue>
-				<PropertyValue Property="Expandable" Bool="true"></PropertyValue>
-				<PropertyValue Property="Filterable" Bool="true"></PropertyValue>
-				<PropertyValue Property="Searchable" Bool="true"></PropertyValue>
-				<PropertyValue Property="TopSupported" Bool="true"></PropertyValue>
-				<PropertyValue Property="SkipSupported" Bool="true"></PropertyValue>
-				<PropertyValue Property="ComputeSupported" Bool="true"></PropertyValue>
-				<PropertyValue Property="Countable" Bool="true"></PropertyValue>
-				<PropertyValue Property="Sortable" Bool="true"></PropertyValue>
 				<PropertyValue Property="Examples"></PropertyValue>
 				<PropertyValue Property="CustomHeaders">
 					<Collection>
