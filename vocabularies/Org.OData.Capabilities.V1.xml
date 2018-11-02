@@ -466,8 +466,9 @@
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <!-- Use Custom parameters from the PR#6 ODATA-1099.           -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
+        
         </Property>
-        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
+        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
         </Property>
       </ComplexType>
@@ -476,7 +477,7 @@
       <ComplexType Name="Permission">
         <Property Name="Scope" Type="Edm.String"/>
         <Property Name="Scheme" Type="Auth.SecurityScheme"/>
-        <Property Name="Properties" Type="Edm.String"/>
+        <Property Name="Properties" Type="Edm.String" Nullable="true"/>
       </ComplexType>
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
@@ -497,7 +498,7 @@
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values for deep insert." />
         </Property>
-        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
+        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform the deep insert." />
         </Property>
       </ComplexType>
@@ -523,7 +524,7 @@
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values allowed for update." />
         </Property>
-        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
+        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform update." />
         </Property>
       </ComplexType>
@@ -549,7 +550,7 @@
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values allowed for delete." />
         </Property>
-        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
+        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform the delete." />
         </Property>
       </ComplexType>
@@ -594,7 +595,7 @@
       </Term>
       <ComplexType Name="SelectRestriction">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports $select" />
+          <Annotation Term="Core.Description" String="Supports select" />
         </Property>
         <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values that can be selected." />
@@ -605,7 +606,7 @@
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values allowed for select." />
         </Property>
-        <Property Name="RequiredScopes" Type="Collection(Capabilities.Permission)">
+        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform select." />
         </Property>
       </ComplexType>

@@ -23,7 +23,7 @@
 				<PropertyValue Property="CustomParameters">
 				</PropertyValue>
 				-->
-				<PropertyValue Property="RequiredScopes">
+				<PropertyValue Property="Scopes">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
@@ -71,7 +71,7 @@
 						</Record>
 					</Collection>
 				</PropertyValue>
-				<PropertyValue Property="RequiredScopes">
+				<PropertyValue Property="Scopes">
 					<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
 					<Collection>
 						<Record>
@@ -133,7 +133,7 @@
 						</Record>
 					</Collection>
 				</PropertyValue>
-				<PropertyValue Property="RequiredScopes">
+				<PropertyValue Property="Scopes">
 					<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
 					<Collection>
 						<Record>
