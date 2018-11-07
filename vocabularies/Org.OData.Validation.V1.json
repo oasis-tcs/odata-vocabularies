@@ -166,9 +166,8 @@
                 "NavigationProperty",
                 "Property",
                 "TypeDefinition",
-                "Action",
-                "Function",
-                "Parameter"
+                "Parameter",
+                "ReturnType"
             ],
             "@Core.Description": "Values are restricted to types that are both identical to or derived from the declared type and a type listed in this collection.",
             "@Core.LongDescription": "This allows restricting values to certain sub-trees of an inheritance hierarchy. Types listed in this collection that are not derived from the declared type of the annotated model element are ignored."
