@@ -4,7 +4,6 @@
 	<Annotations Target="microsoft.graph.GraphService/users">
 		<Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
 			<Record>
-				<PropertyValue Property="Examples"></PropertyValue>
 				<PropertyValue Property="CustomHeaders">
 					<Collection>
 						<Record>
@@ -56,7 +55,6 @@
 		</Annotation>
 		<Annotation Term="Org.Graph.Vocabulary.UpdateRestrictions">
 			<Record>
-				<PropertyValue Property="Examples"></PropertyValue>
 				<PropertyValue Property="CustomHeaders">
 					<Collection>
 						<Record>
@@ -118,7 +116,6 @@
 		  -->
 		<Annotation Term="Org.Graph.Vocabulary.RetrieveRestrictions">
 			<Record>
-				<PropertyValue Property="Examples"></PropertyValue>
 				<PropertyValue Property="CustomHeaders">
 					<Collection>
 						<Record>

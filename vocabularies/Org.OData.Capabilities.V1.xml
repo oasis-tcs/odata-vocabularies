@@ -453,12 +453,12 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Example" Type="Core.ExampleValue">
-          <!-- can we infer a request based on these example values? what about scenarios where there is more than one value applicable. -->
-          <!-- Core.Example ODATA-1194 -->
-          <!-- what if there are more than one example? Maybe collection of example values? -->
+         <!-- can we infer a request based on these example values? what about scenarios where there is more than one value applicable. -->
+<!-- Core.Example ODATA-1194 -->
+<!-- what if there are more than one example? Maybe collection of example values? -->
+        <!-- <Property Name="Example" Type="Core.ExampleValue">         
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
-        </Property>
+        </Property> -->
         <!-- <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
            Use Custom parameters from the PR#6 ODATA-1099. This should only be applicable to non-insert operations. 
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
@@ -489,9 +489,9 @@
         <Property Name="ContentIDSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
-        <Property Name="Example" Type="Core.ExampleValue">
+        <!-- <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values for deep insert." />
-        </Property>
+        </Property> -->
         <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameter values for deep insert." />
         </Property>
@@ -515,9 +515,9 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Example" Type="Core.ExampleValue">
+        <!-- <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values that can be updated." />
-        </Property>
+        </Property> -->
         <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameters values allowed for update." />
         </Property>
@@ -541,9 +541,9 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Example" Type="Core.ExampleValue">
+        <!-- <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values for delete." />
-        </Property>
+        </Property> -->
         <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameter values allowed for delete." />
         </Property>
@@ -597,9 +597,9 @@
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports select" />
         </Property>
-        <Property Name="Example" Type="Core.ExampleValue">
+        <!-- <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values that can be selected." />
-        </Property>
+        </Property> -->
         <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameters values allowed for select." />
         </Property>
