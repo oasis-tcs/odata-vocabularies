@@ -475,9 +475,9 @@
       <!-- <Term Name="PermissionScopes" Type="Collection(Capabilities.Permission)" AppliesTo="EntitySet, Singleton, Function, Action" /> -->
       <!-- What about applying this to ActionImport or FunctionImport. If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
       <ComplexType Name="Permission">
-        <Property Name="Scope" Type="Edm.String"/>
-        <Property Name="Scheme" Type="Auth.SecurityScheme"/>
-        <Property Name="Properties" Type="Edm.String" Nullable="true"/>
+        <Property Name="Scope" Type="Edm.String" Nullable="false"/>
+        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false"/>
+        <Property Name="Properties" Type="Edm.String" />
       </ComplexType>
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
