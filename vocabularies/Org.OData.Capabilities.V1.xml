@@ -517,17 +517,17 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="InsertSupport" Type="Capabilities.InsertSupportType" AppliesTo="EntityContainer EntitySet Singleton">
+      <Term Name="InsertOptionsSupport" Type="Capabilities.InsertOptionsSupportType" AppliesTo="EntityContainer EntitySet Singleton">
         <Annotation Term="Core.Description" String="Advanced insert capabilities" />
       </Term>
-      <ComplexType Name="InsertSupportType">
-        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false">
+      <ComplexType Name="InsertOptionsSupportType">
+        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $expand with insert requests" />
         </Property>
-        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false">
+        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $select with insert requests" />
         </Property>
-        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false">
+        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $compute with insert requests" />
         </Property>
       </ComplexType>
@@ -562,26 +562,28 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateSupport" Type="Capabilities.ModificationSupportType" AppliesTo="EntityContainer EntitySet Singleton">
+      <Term Name="UpdateOptionsSupport" Type="Capabilities.ModificationOptionsSupportType"
+        AppliesTo="EntityContainer EntitySet Singleton"
+      >
         <Annotation Term="Core.Description" String="Advanced update capabilities" />
       </Term>
-      <ComplexType Name="ModificationSupportType">
-        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false">
+      <ComplexType Name="ModificationOptionsSupportType">
+        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $expand with insert requests" />
         </Property>
-        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false">
+        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $select with insert requests" />
         </Property>
-        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false">
+        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $compute with insert requests" />
         </Property>
-        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false">
+        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $filter with update requests" />
         </Property>
-        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false">
+        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $search with update requests" />
         </Property>
-        <Property Name="SortSupported" Type="Edm.Boolean" Nullable="false">
+        <Property Name="SortSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports $orderby with update requests" />
         </Property>
       </ComplexType>
