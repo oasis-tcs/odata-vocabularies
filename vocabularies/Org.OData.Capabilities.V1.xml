@@ -604,7 +604,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ActionSupport" Type="Capabilities.ModificationSupportType" AppliesTo="EntityContainer Action ActionImport">
+      <Term Name="ActionOptionsSupport" Type="Capabilities.ModificationOptionsSupportType" AppliesTo="EntityContainer Action ActionImport">
         <Annotation Term="Core.Description" String="Advanced Action capabilities" />
       </Term>
 

@@ -634,10 +634,10 @@
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
             }
         },
-        "InsertSupport": {
+        "InsertOptionsSupport": {
             "$Kind": "Term",
             "$Nullable": true,
-            "$Type": "Capabilities.InsertSupportType",
+            "$Type": "Capabilities.InsertOptionsSupportType",
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet",
@@ -645,18 +645,21 @@
             ],
             "@Core.Description": "Advanced insert capabilities"
         },
-        "InsertSupportType": {
+        "InsertOptionsSupportType": {
             "$Kind": "ComplexType",
             "ExpandSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $expand with insert requests"
             },
             "SelectSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $select with insert requests"
             },
             "ComputeSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $compute with insert requests"
             }
         },
@@ -711,10 +714,10 @@
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
             }
         },
-        "UpdateSupport": {
+        "UpdateOptionsSupport": {
             "$Kind": "Term",
             "$Nullable": true,
-            "$Type": "Capabilities.ModificationSupportType",
+            "$Type": "Capabilities.ModificationOptionsSupportType",
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet",
@@ -722,30 +725,36 @@
             ],
             "@Core.Description": "Advanced update capabilities"
         },
-        "ModificationSupportType": {
+        "ModificationOptionsSupportType": {
             "$Kind": "ComplexType",
             "ExpandSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $expand with insert requests"
             },
             "SelectSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $select with insert requests"
             },
             "ComputeSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $compute with insert requests"
             },
             "FilterSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $filter with update requests"
             },
             "SearchSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $search with update requests"
             },
             "SortSupported": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Service supports $orderby with update requests"
             }
         },
@@ -776,10 +785,10 @@
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
             }
         },
-        "ActionSupport": {
+        "ActionOptionsSupport": {
             "$Kind": "Term",
             "$Nullable": true,
-            "$Type": "Capabilities.ModificationSupportType",
+            "$Type": "Capabilities.ModificationOptionsSupportType",
             "$AppliesTo": [
                 "EntityContainer",
                 "Action",
