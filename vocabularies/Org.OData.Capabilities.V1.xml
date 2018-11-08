@@ -436,10 +436,6 @@
       <!-- Data Modification Capabilities -->
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
-        <!-- Need to add request and response examples to this section -->
-        <!-- Need to add required scopes to this section -->
-        <!-- Need to add description to each of the above sections -->
-        <!-- Need to add Custom Query options and parameter information -->
         <!-- Open question: How are we going to differtiate between collections vs single query -->
         <!-- ODATA-884 should exist here as well. That term is not required. -->
       </Term>
@@ -453,9 +449,9 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-         <!-- can we infer a request based on these example values? what about scenarios where there is more than one value applicable. -->
-<!-- Core.Example ODATA-1194 -->
-<!-- what if there are more than one example? Maybe collection of example values? -->
+        <!-- can we infer a request based on these example values? what about scenarios where there is more than one value applicable. -->
+        <!-- Core.Example ODATA-1194 -->
+        <!-- what if there are more than one example? Maybe collection of example values? -->
         <!-- <Property Name="Example" Type="Core.ExampleValue">         
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property> -->
@@ -476,7 +472,7 @@
       <!-- What about applying this to ActionImport or FunctionImport. If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
       <ComplexType Name="Permission">
         <Property Name="Scope" Type="Edm.String" Nullable="false"/>
-        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false"/>
+        <Property Name="Scheme[TBD]" Type="Auth.SecurityScheme" Nullable="false"/>
         <Property Name="Properties" Type="Edm.String" />
       </ComplexType>
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
@@ -590,12 +586,12 @@
         </Property>
       </ComplexType>
       <!-- The following annotation has been adopted from PR#14. It will be updated based on the status of that PR. -->
-      <Term Name="RetrieveRestrictions" Type="Capabilities.SelectRestriction" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
+      <Term Name="RetrieveRestrictions" Type="Capabilities.RetrieveRestriction" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
         <Annotation Term="Core.Description" String="Support for select" />
       </Term>
-      <ComplexType Name="SelectRestriction">
+      <ComplexType Name="RetrieveRestriction">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports select" />
+          <Annotation Term="Core.Description" String="Supports Get" />
         </Property>
         <!-- <Property Name="Example" Type="Core.ExampleValue">
           <Annotation Term="Core.Description" String="Example values that can be selected." />
