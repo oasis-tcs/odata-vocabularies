@@ -632,35 +632,21 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
-            }
-        },
-        "InsertOptionsSupport": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Capabilities.InsertOptionsSupportType",
-            "$AppliesTo": [
-                "EntityContainer",
-                "EntitySet",
-                "Singleton"
-            ],
-            "@Core.Description": "Advanced insert capabilities"
-        },
-        "InsertOptionsSupportType": {
-            "$Kind": "ComplexType",
+            },
             "ExpandSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $expand with insert requests"
+                "@Core.Description": "Supports $expand with insert requests"
             },
             "SelectSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $select with insert requests"
+                "@Core.Description": "Supports $select with insert requests"
             },
             "ComputeSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $compute with insert requests"
+                "@Core.Description": "Supports $compute with insert requests"
             }
         },
         "DeepInsertSupport": {
@@ -712,50 +698,36 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
-            }
-        },
-        "UpdateOptionsSupport": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Capabilities.ModificationOptionsSupportType",
-            "$AppliesTo": [
-                "EntityContainer",
-                "EntitySet",
-                "Singleton"
-            ],
-            "@Core.Description": "Advanced update capabilities"
-        },
-        "ModificationOptionsSupportType": {
-            "$Kind": "ComplexType",
+            },
             "ExpandSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $expand with insert requests"
+                "@Core.Description": "Supports $expand with update requests"
             },
             "SelectSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $select with insert requests"
+                "@Core.Description": "Supports $select with update requests"
             },
             "ComputeSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $compute with insert requests"
+                "@Core.Description": "Supports $compute with update requests"
             },
             "FilterSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $filter with update requests"
+                "@Core.Description": "Supports $filter with update requests"
             },
             "SearchSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $search with update requests"
+                "@Core.Description": "Supports $search with update requests"
             },
             "SortSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports $orderby with update requests"
+                "@Core.Description": "Supports $orderby with update requests"
             }
         },
         "DeleteRestrictions": {
@@ -784,17 +756,6 @@
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
             }
-        },
-        "ActionOptionsSupport": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Capabilities.ModificationOptionsSupportType",
-            "$AppliesTo": [
-                "EntityContainer",
-                "Action",
-                "ActionImport"
-            ],
-            "@Core.Description": "Advanced Action capabilities"
         },
         "CollectionPropertyRestrictions": {
             "$Kind": "Term",
@@ -866,6 +827,50 @@
                 "EntityContainer"
             ],
             "@Core.Description": "Supports annotation values within system query options"
+        },
+        "ModificationOptionsSupport": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.ModificationOptionsSupportType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "Action",
+                "ActionImport"
+            ],
+            "@Core.Description": "Support for query options with modification requests (insert, update, action invocation)"
+        },
+        "ModificationOptionsSupportType": {
+            "$Kind": "ComplexType",
+            "ExpandSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $expand with modification requests"
+            },
+            "SelectSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $select with modification requests"
+            },
+            "ComputeSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $compute with modification requests"
+            },
+            "FilterSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $filter with modification requests"
+            },
+            "SearchSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $search with modification requests"
+            },
+            "SortSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $orderby with modification requests"
+            }
         }
     }
 }
