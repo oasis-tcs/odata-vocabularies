@@ -515,14 +515,8 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $expand with insert requests" />
-        </Property>
-        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $select with insert requests" />
-        </Property>
-        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $compute with insert requests" />
+        <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
+          <Annotation Term="Core.Description" String="Support for query options with insert requests" />
         </Property>
       </ComplexType>
 
@@ -554,23 +548,8 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $expand with update requests" />
-        </Property>
-        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $select with update requests" />
-        </Property>
-        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $compute with update requests" />
-        </Property>
-        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $filter with update requests" />
-        </Property>
-        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $search with update requests" />
-        </Property>
-        <Property Name="SortSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports $orderby with update requests" />
+        <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
+          <Annotation Term="Core.Description" String="Support for query options with update requests" />
         </Property>
       </ComplexType>
 
@@ -634,13 +613,13 @@ supported:
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
       </Term>
 
-      <Term Name="ModificationOptionsSupport" Type="Capabilities.ModificationOptionsSupportType"
+      <Term Name="ModificationQueryOptions" Type="Capabilities.ModificationQueryOptionsType"
         AppliesTo="EntityContainer Action ActionImport"
       >
         <Annotation Term="Core.Description"
           String="Support for query options with modification requests (insert, update, action invocation)" />
       </Term>
-      <ComplexType Name="ModificationOptionsSupportType">
+      <ComplexType Name="ModificationQueryOptionsType">
         <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Supports $expand with modification requests" />
         </Property>
