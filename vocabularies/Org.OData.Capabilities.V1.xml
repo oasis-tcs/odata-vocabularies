@@ -434,7 +434,7 @@
         <Annotation Term="Core.Description" String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection" />
       </Term>
       <!-- Data Modification Capabilities -->
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet Action">
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
         <!-- Open question: How are we going to differtiate between collections vs single query -->
         <!-- ODATA-884 should exist here as well. That term is not required. -->
@@ -449,30 +449,22 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <!-- can we infer a request based on these example values? what about scenarios where there is more than one value applicable. -->
-        <!-- Core.Example ODATA-1194 -->
-        <!-- what if there are more than one example? Maybe collection of example values? -->
-        <!-- <Property Name="Example" Type="Core.ExampleValue">         
+        <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
+        <!-- Use Custom parameters from the PR#6 ODATA-1099. This should only be applicable to non-insert operations.  -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
-        </Property> -->
-        <!-- <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
-           Use Custom parameters from the PR#6 ODATA-1099. This should only be applicable to non-insert operations. 
+        </Property>
+        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <!-- Use Custom parameters from the PR#6 ODATA-1099. -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
-        </Property>-->
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
-          <!-- Use Custom parameters from the PR#6 ODATA-1099.           -->
-          <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
-        
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
         </Property>
       </ComplexType>
-      <!-- <Term Name="PermissionScopes" Type="Collection(Capabilities.Permission)" AppliesTo="EntitySet, Singleton, Function, Action" /> -->
       <!-- What about applying this to ActionImport or FunctionImport. If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
       <ComplexType Name="Permission">
         <Property Name="Scope" Type="Edm.String" Nullable="false"/>
-        <Property Name="Scheme[TBD]" Type="Auth.SecurityScheme" Nullable="false"/>
+        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
         <Property Name="Properties" Type="Edm.String" />
       </ComplexType>
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
@@ -485,13 +477,10 @@
         <Property Name="ContentIDSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
-        <!-- <Property Name="Example" Type="Core.ExampleValue">
-          <Annotation Term="Core.Description" String="Example values for deep insert." />
-        </Property> -->
-        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameter values for deep insert." />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values for deep insert." />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
@@ -511,13 +500,10 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
-        <!-- <Property Name="Example" Type="Core.ExampleValue">
-          <Annotation Term="Core.Description" String="Example values that can be updated." />
-        </Property> -->
-        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameters values allowed for update." />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values allowed for update." />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
@@ -537,13 +523,10 @@
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
-        <!-- <Property Name="Example" Type="Core.ExampleValue">
-          <Annotation Term="Core.Description" String="Example values for delete." />
-        </Property> -->
-        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameter values allowed for delete." />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values allowed for delete." />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
@@ -569,7 +552,7 @@
         <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
         </Property>
-        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true"> 
           <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
         <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
@@ -586,20 +569,17 @@
         </Property>
       </ComplexType>
       <!-- The following annotation has been adopted from PR#14. It will be updated based on the status of that PR. -->
-      <Term Name="RetrieveRestrictions" Type="Capabilities.RetrieveRestriction" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
+      <Term Name="RetrieveRestrictions" Type="Capabilities.RetrieveRestriction" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton Action Function">
         <Annotation Term="Core.Description" String="Support for select" />
       </Term>
       <ComplexType Name="RetrieveRestriction">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports Get" />
         </Property>
-        <!-- <Property Name="Example" Type="Core.ExampleValue">
-          <Annotation Term="Core.Description" String="Example values that can be selected." />
-        </Property> -->
-        <Property Name="CustomParameters" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom parameters values allowed for select." />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Custom header values allowed for select." />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
@@ -609,3 +589,11 @@
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
+
+
+<!-- Need a new name for headers. maybe 'RequestHeaders' -->
+<!-- change customparams to QueryParameters,  -->
+<!-- more detailed scenarios of prefer header -->
+<!-- SecurityScheme  -->
+<!-- Need sample for action/functions security -->
+<!-- mailbox settings , how do properties work if they are defined on user. -->
