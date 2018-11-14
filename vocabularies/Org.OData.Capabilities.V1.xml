@@ -515,6 +515,12 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom headers" />
+        </Property>
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
       </ComplexType>
 
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
@@ -545,6 +551,12 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom headers" />
+        </Property>
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
       </ComplexType>
 
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
@@ -560,6 +572,12 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom headers" />
+        </Property>
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
       </ComplexType>
 
@@ -606,6 +624,18 @@ supported:
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="True" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
       </Term>
+
+      <Term Name="RetrieveRestrictions" Type="Capabilities.RetrieveRestrictionsType" AppliesTo="EntitySet Singleton FunctionImport">
+        <Annotation Term="Core.Description" String="Restrictions on retrieve operations" />
+      </Term>
+      <ComplexType Name="RetrieveRestrictionsType">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom headers" />
+        </Property>
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+      </ComplexType>
 
       <Term Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Custom headers that are supported/required for the annotated resource" />
@@ -687,18 +717,8 @@ supported:
         <Property Name="Required" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="true: parameter is required, false or not specified: parameter is optional" />
         </Property>
-        <!-- TODO: change type to Core.PrimitiveExampleValue once ODATA-1194 and ODATA-1200 are approved and merged -->
-        <Property Name="ExampleValues" Type="Collection(Capabilities.CustomParameterExampleValue)" Nullable="false">
+        <Property Name="ExampleValues" Type="Collection(Core.PrimitiveExampleValue)" Nullable="false">
           <Annotation Term="Core.Description" String="Example values for the custom parameter" />
-        </Property>
-      </ComplexType>
-        <!-- TODO: remove this type once ODATA-1194 and ODATA-1200 are approved and merged -->
-      <ComplexType Name="CustomParameterExampleValue">
-        <Property Name="Value" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Example value for the custom parameter" />
-        </Property>
-        <Property Name="Description" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Description of the example value" />
         </Property>
       </ComplexType>
 

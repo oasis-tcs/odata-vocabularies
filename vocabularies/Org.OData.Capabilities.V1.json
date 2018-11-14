@@ -632,6 +632,16 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
+            },
+            "CustomHeaders": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom headers"
+            },
+            "CustomQueryOptions": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom query options"
             }
         },
         "DeepInsertSupport": {
@@ -683,6 +693,16 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
+            },
+            "CustomHeaders": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom headers"
+            },
+            "CustomQueryOptions": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom query options"
             }
         },
         "DeleteRestrictions": {
@@ -710,6 +730,16 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
+            },
+            "CustomHeaders": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom headers"
+            },
+            "CustomQueryOptions": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom query options"
             }
         },
         "CollectionPropertyRestrictions": {
@@ -782,6 +812,30 @@
                 "EntityContainer"
             ],
             "@Core.Description": "Supports annotation values within system query options"
+        },
+        "RetrieveRestrictions": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.RetrieveRestrictionsType",
+            "$AppliesTo": [
+                "EntitySet",
+                "Singleton",
+                "FunctionImport"
+            ],
+            "@Core.Description": "Restrictions on retrieve operations"
+        },
+        "RetrieveRestrictionsType": {
+            "$Kind": "ComplexType",
+            "CustomHeaders": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom headers"
+            },
+            "CustomQueryOptions": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom query options"
+            }
         },
         "CustomHeaders": {
             "$Kind": "Term",
@@ -856,21 +910,13 @@
             },
             "Required": {
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "true: parameter is required, false or not specified: parameter is optional"
             },
             "ExampleValues": {
                 "$Collection": true,
-                "$Type": "Capabilities.CustomParameterExampleValue",
+                "$Type": "Core.PrimitiveExampleValue",
                 "@Core.Description": "Example values for the custom parameter"
-            }
-        },
-        "CustomParameterExampleValue": {
-            "$Kind": "ComplexType",
-            "Value": {
-                "@Core.Description": "Example value for the custom parameter"
-            },
-            "Description": {
-                "@Core.Description": "Description of the example value"
             }
         }
     }

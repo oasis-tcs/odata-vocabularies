@@ -85,19 +85,6 @@
             "@Core.Description": "A lengthy description of a model element",
             "@Core.IsLanguageDependent": true
         },
-        "Example": {
-            "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Core.ExampleType",
-            "@Core.Description": "A container for annotation examples",
-            "@Core.Example": {
-                "@Core.Description": "Note that the value of Core.Example is a record/object containing the annotation examples"
-            }
-        },
-        "ExampleType": {
-            "$Kind": "ComplexType",
-            "@Core.Description": "This type intentionally doesn't have properties, so it can only contain annotation examples"
-        },
         "Links": {
             "$Kind": "Term",
             "$Collection": true,
@@ -113,6 +100,36 @@
             "href": {
                 "@Core.IsURL": true,
                 "@Core.Description": "URL of related information"
+            }
+        },
+        "Example": {
+            "$Kind": "Term",
+            "$Type": "Core.ExampleValue",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType",
+                "TypeDefinition",
+                "Term",
+                "Property",
+                "NavigationProperty",
+                "Parameter",
+                "ReturnType"
+            ],
+            "@Core.Description": "Example for an instance of the annotated model element"
+        },
+        "ExampleValue": {
+            "$Kind": "ComplexType",
+            "Description": {
+                "$Nullable": true,
+                "@Core.Description": "Description of the example value"
+            }
+        },
+        "PrimitiveExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "Value": {
+                "$Type": "Edm.PrimitiveType",
+                "@Core.Description": "Example value for the custom parameter"
             }
         },
         "Messages": {

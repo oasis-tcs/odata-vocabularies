@@ -117,19 +117,6 @@
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
-      <Term Name="Example" Type="Core.ExampleType">
-        <Annotation Term="Core.Description" String="A container for annotation examples" />
-        <Annotation Term="Core.Example">
-          <Record>
-            <Annotation Term="Core.Description"
-              String="Note that the value of Core.Example is a record/object containing the annotation examples" />
-          </Record>
-        </Annotation>
-      </Term>
-      <ComplexType Name="ExampleType">
-        <Annotation Term="Core.Description" String="This type intentionally doesn't have properties, so it can only contain annotation examples" />
-      </ComplexType>
-
       <Term Name="Links" Type="Collection(Core.Link)" Nullable="false">
         <Annotation Term="Core.Description" String="Link to related information" />
       </Term>
@@ -143,6 +130,22 @@
         <Property Name="href" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of related information" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="Example" Type="Core.ExampleValue" Nullable="false"
+        AppliesTo="EntityType ComplexType TypeDefinition Term Property NavigationProperty Parameter ReturnType"
+      >
+        <Annotation Term="Core.Description" String="Example for an instance of the annotated model element" />
+      </Term>
+      <ComplexType Name="ExampleValue">
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Description of the example value" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="PrimitiveExampleValue" BaseType="Core.ExampleValue">
+        <Property Name="Value" Type="Edm.PrimitiveType" Nullable="false">
+          <Annotation Term="Core.Description" String="Example value for the custom parameter" />
         </Property>
       </ComplexType>
 
@@ -338,12 +341,16 @@
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
       </TypeDefinition>
 
-      <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType">
+      <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="Property NavigationProperty EntitySet ReturnType"
+      >
         <Annotation Term="Core.Description"
           String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>
 
-      <Term Name="PositionalInsert" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet">
+      <Term Name="PositionalInsert" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="Property NavigationProperty EntitySet"
+      >
         <Annotation Term="Core.Description" String="Items can be inserted at a given ordinal index." />
       </Term>
 
