@@ -684,7 +684,7 @@ supported:
           <Annotation Term="Core.IsURL" />
           <Annotation Term="Core.Description" String="URL of related documentation" />
         </Property>
-        <Property Name="Required" Type="Edm.Boolean" Nullable="false">
+        <Property Name="Required" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="true: parameter is required, false or not specified: parameter is optional" />
         </Property>
         <!-- TODO: change type to Core.PrimitiveExampleValue once ODATA-1194 and ODATA-1200 are approved and merged -->
