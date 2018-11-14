@@ -53,8 +53,8 @@
         <xsl:call-template name="Core.Description">
           <xsl:with-param name="node" select="." />
         </xsl:call-template>
-        <xsl:apply-templates select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]"
-          mode="example" />
+        <xsl:apply-templates
+          select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]" mode="example" />
         <xsl:variable name="longDescription">
           <xsl:call-template name="Core.LongDescription-escaped">
             <xsl:with-param name="node" select="." />
@@ -663,5 +663,6 @@
       <xsl:with-param name="string" select="substring-after($string,$old)" />
     </xsl:call-template>
   </xsl:template>
+
 
 </xsl:stylesheet>
