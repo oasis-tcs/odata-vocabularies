@@ -1,3 +1,5 @@
+<!-- mailbox settings , how do properties work if they are defined on user. -->
+<!-- https://developer.microsoft.com/en-us/graph/docs/api-reference/v1.0/api/user_update_mailboxsettings -->
 <root>
 	<!-- Do we need to solve for allof/anyof type scenarios -->
 	<!-- Navigation restrictions sample is needed -->
@@ -18,16 +20,20 @@
 						</Record>
 					</Collection>
 				</PropertyValue>
-				<!-- Custom parameters are not needed here  
 				<PropertyValue Property="QueryParameters">
 				</PropertyValue>
-				-->
 				<PropertyValue Property="Scopes">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
 							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="mailboxSettings" />
+							<PropertyValue Property="Properties" String="mailboxSettings" />
 						</Record>
 						<Record>
 							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
@@ -211,7 +217,7 @@
 			</Record>
 		</Annotation>
 	</Annotations>
-	<!-- annoations on actions/functions  -->
+	<!-- annoations on actions/functions. also demonstrates prefer header  -->
 	<Annotations Target="microsoft.graph.reminderView(microsoft.graph.user, Edm.String, Edm.String)">
 		<!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
 		<Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
@@ -235,7 +241,7 @@
 						</Record>
 					</Collection>
 				</PropertyValue> -->
-				<PropertyValue Property="CustomHeaders">
+				<PropertyValue Property="RequestHeaders">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Name" String="Authorization" />
@@ -255,7 +261,6 @@
 					</Collection>
 				</PropertyValue>
 				<PropertyValue Property="Scopes">
-					<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
 					<Collection>
 						<Record>
 							<PropertyValue Property="Scope" String="Calendars.Read" />
