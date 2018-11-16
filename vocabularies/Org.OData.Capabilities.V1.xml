@@ -278,6 +278,10 @@ supported:
         <Property Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on update operations" />
         </Property>
+        <Property Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType">
+          <Annotation Term="Core.Description"
+            String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
+        </Property>
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
@@ -515,6 +519,9 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
+        <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
+          <Annotation Term="Core.Description" String="Support for query options with insert requests" />
+        </Property>
       </ComplexType>
 
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
@@ -544,6 +551,23 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
+          <Annotation Term="Core.Description" String="Support for query options with update requests" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" AppliesTo="EntityContainer EntitySet">
+        <Annotation Term="Core.Description"
+          String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
+      </Term>
+      <ComplexType Name="DeepUpdateSupportType">
+        <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Annotation target supports deep updates" />
+        </Property>
+        <Property Name="ContentIDSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
       </ComplexType>
 
@@ -606,6 +630,33 @@ supported:
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="True" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
       </Term>
+
+      <Term Name="ModificationQueryOptions" Type="Capabilities.ModificationQueryOptionsType"
+        AppliesTo="EntityContainer Action ActionImport"
+      >
+        <Annotation Term="Core.Description"
+          String="Support for query options with modification requests (insert, update, action invocation)" />
+      </Term>
+      <ComplexType Name="ModificationQueryOptionsType">
+        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports $expand with modification requests" />
+        </Property>
+        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports $select with modification requests" />
+        </Property>
+        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports $compute with modification requests" />
+        </Property>
+        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports $filter with modification requests" />
+        </Property>
+        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports $search with modification requests" />
+        </Property>
+        <Property Name="SortSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports $orderby with modification requests" />
+        </Property>
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>
