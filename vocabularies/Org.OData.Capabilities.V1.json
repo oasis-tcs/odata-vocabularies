@@ -304,7 +304,7 @@
             "DeepUpdateSupport": {
                 "$Nullable": true,
                 "$Type": "Capabilities.DeepUpdateSupportType",
-                "@Core.Description": "Deep Upadate Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
+                "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
             },
             "DeleteRestrictions": {
                 "$Nullable": true,
@@ -637,6 +637,11 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
+            },
+            "QueryOptions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.ModificationQueryOptionsType",
+                "@Core.Description": "Support for query options with insert requests"
             }
         },
         "DeepInsertSupport": {
@@ -688,6 +693,11 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
+            },
+            "QueryOptions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.ModificationQueryOptionsType",
+                "@Core.Description": "Support for query options with update requests"
             }
         },
         "DeepUpdateSupport": {
@@ -810,6 +820,50 @@
                 "EntityContainer"
             ],
             "@Core.Description": "Supports annotation values within system query options"
+        },
+        "ModificationQueryOptions": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.ModificationQueryOptionsType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "Action",
+                "ActionImport"
+            ],
+            "@Core.Description": "Support for query options with modification requests (insert, update, action invocation)"
+        },
+        "ModificationQueryOptionsType": {
+            "$Kind": "ComplexType",
+            "ExpandSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $expand with modification requests"
+            },
+            "SelectSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $select with modification requests"
+            },
+            "ComputeSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $compute with modification requests"
+            },
+            "FilterSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $filter with modification requests"
+            },
+            "SearchSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $search with modification requests"
+            },
+            "SortSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports $orderby with modification requests"
+            }
         }
     }
 }
