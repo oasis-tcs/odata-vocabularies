@@ -165,3 +165,8 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
 Property|Type|Description
 :-------|:---|:----------
 [DefaultValue](Org.OData.Core.V1.xml#L396)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
+
+## <a name="LocalDateTime"></a>[LocalDateTime](Org.OData.Core.V1.xml#L408)
+**Type:** String
+
+A string representing a Local Date-Time value with no offset.
