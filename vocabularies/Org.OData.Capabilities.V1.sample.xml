@@ -91,6 +91,7 @@
 						<Record>
 							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.IncludedProperties"/>
 							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
 						</Record>
 						<Record>
