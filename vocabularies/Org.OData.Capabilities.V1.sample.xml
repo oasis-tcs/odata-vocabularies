@@ -221,7 +221,7 @@
 	<!-- annoations on actions/functions. also demonstrates prefer header  -->
 	<Annotations Target="microsoft.graph.reminderView(microsoft.graph.user, Edm.String, Edm.String)">
 		<!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
-		<Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
+		<Annotation Term="Org.Graph.Vocabulary.ActionRestrictions">
 			<Record>
 				<!-- <PropertyValue Property="QueryParameters">
 					<Collection>
