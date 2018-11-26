@@ -61,7 +61,7 @@
 		</Annotation>
 		<Annotation Term="Org.Graph.Vocabulary.UpdateRestrictions">
 			<Record>
-				<PropertyValue Property="CustomHeaders">
+				<PropertyValue Property="RequestHeaders">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Name" String="Authorization" />
@@ -121,9 +121,9 @@
 		<!-- Retrieve restrictions 
 		  select restrictions and then props to filter, expand, etc.
 		  -->
-		<Annotation Term="Org.Graph.Vocabulary.RetrieveRestrictions">
+		<Annotation Term="Org.Graph.Vocabulary.ReadRestrictions">
 			<Record>
-				<PropertyValue Property="CustomHeaders">
+				<PropertyValue Property="RequestHeaders">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Name" String="Authorization" />
@@ -214,85 +214,73 @@
 				</PropertyValue>
 			</Record>
 		</Annotation>
+		<!-- Define operation restrictions here..collection(operationRestrictions)
+		- name (action or function name) or the path. 
+		- restrictions
+		- NP restrictoins would also have op restrictions -->
 	</Annotations>
 	<!-- annoations on actions/functions. also demonstrates prefer header  -->
 	<Annotations Target="microsoft.graph.reminderView(microsoft.graph.user, Edm.String, Edm.String)">
 		<!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
-		<Annotation Term="Org.Graph.Vocabulary.ActionRestrictions">
-			<Record>
-				<!-- <PropertyValue Property="QueryParameters">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Name" String="StartDateTime" />
-							<PropertyValue Property="Description" String="Edm.String" />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Name" String="Content-Type" />
-							<PropertyValue Property="Description" String="application/json" />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Name" String="Prefer" />
-							<PropertyValue Property="Description" String="{Time-zone}. Optional, UTC assumed if absent." />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-					</Collection>
-				</PropertyValue> -->
-				<PropertyValue Property="RequestHeaders">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Name" String="Authorization" />
-							<PropertyValue Property="Description" String="Bearer {token}. Required." />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Name" String="Content-Type" />
-							<PropertyValue Property="Description" String="application/json" />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Name" String="Prefer" />
-							<PropertyValue Property="Description" String="{Time-zone}. Optional, UTC assumed if absent." />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-					</Collection>
-				</PropertyValue>
-				<PropertyValue Property="Scopes">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Scope" String="Calendars.Read" />
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<!-- Absense of the 'Properties' property denotes all properties are available -->
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Calendars.Read" />
-							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
-							<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
-							<!-- Absense of the 'Properties' property denotes all properties are available -->
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Calendars.Read" />
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-							<PropertyValue Property="Scheme" String="Applicaiton" />
-							<!-- Absense of the 'Properties' property denotes all properties are available -->
-						</Record>
-					</Collection>
-				</PropertyValue>
-			</Record>
+		<Annotation Term="Org.Graph.Vocabulary.OperationRestrictions">
+			<Collection>
+				<Record>
+					<PropertyValue Property="OperationName" String="reminderView" />
+					<PropertyValue Property="RequestHeaders">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Name" String="Authorization" />
+								<PropertyValue Property="Description" String="Bearer {token}. Required." />
+								<PropertyValue Property="Required" Bool="true" />
+							</Record>
+							<Record>
+								<PropertyValue Property="Name" String="Content-Type" />
+								<PropertyValue Property="Description" String="application/json" />
+								<PropertyValue Property="Required" Bool="true" />
+							</Record>
+							<Record>
+								<PropertyValue Property="Name" String="Prefer" />
+								<PropertyValue Property="Description" String="{Time-zone}. Optional, UTC assumed if absent." />
+								<PropertyValue Property="Required" Bool="true" />
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="Scopes">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Scope" String="Calendars.Read" />
+								<PropertyValue Property="Scheme" String="DelegatedWork" />
+								<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+								<PropertyValue Property="Scheme" String="DelegatedWork" />
+								<!-- Absense of the 'Properties' property denotes all properties are available -->
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Calendars.Read" />
+								<PropertyValue Property="Scheme" String="DelegatedPersonal" />
+								<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+								<PropertyValue Property="Scheme" String="DelegatedPersonal" />
+								<!-- Absense of the 'Properties' property denotes all properties are available -->
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Calendars.Read" />
+								<PropertyValue Property="Scheme" String="Application" />
+								<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+								<PropertyValue Property="Scheme" String="Applicaiton" />
+								<!-- Absense of the 'Properties' property denotes all properties are available -->
+							</Record>
+						</Collection>
+					</PropertyValue>
+				</Record>
+			</Collection>
 		</Annotation>
 	</Annotations>
 
@@ -365,6 +353,22 @@
 					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
 				</Record>
 			</Collection>
+		</Annotation>
+		<Annotation Term="Capabilities.ServiceConfiguration">
+			<PropertyValue Property="ServiceHeaders">
+				<Collection>
+					<Record>
+						<PropertyValue Property="Name" String="Authorization" />
+						<PropertyValue Property="Description" String="Bearer {token}. Required." />
+						<PropertyValue Property="Required" Bool="true" />
+					</Record>
+					<Record>
+						<PropertyValue Property="Name" String="Content-Type" />
+						<PropertyValue Property="Description" String="application/json" />
+						<PropertyValue Property="Required" Bool="true" />
+					</Record>
+				</Collection>
+			</PropertyValue>
 		</Annotation>
 	</Annotations>
 </root>

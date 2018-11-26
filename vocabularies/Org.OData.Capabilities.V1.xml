@@ -665,9 +665,6 @@
           <Annotation Term="Core.Description" String="Required headers for all requests to the service."/>
         </Property>
       </ComplexType>
-      <Term Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Required headers for all requests to the service." />
-      </Term>
       <!-- device commands navigation property needs more investigation. -->
       <!-- devicemanagement applies to resetpasscode. -->
       <!--  sendmail -> Mail.Send -->
