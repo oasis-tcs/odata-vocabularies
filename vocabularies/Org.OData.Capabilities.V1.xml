@@ -210,11 +210,6 @@
         <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
           <Annotation Term="Core.Description" String="List of required scopes to navigate." />
         </Property> -->
-        <Property Name="NavigationOperationRestrictions" Type="Collection(Capabilities.OperationRestriction)">
-          <Annotation Term="Core.Description" String="Navigation restrictions" />
-        </Property>
-
-
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
@@ -255,6 +250,9 @@
         </Property>
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
+        </Property>
+        <Property Name="NavigationOperationRestrictions" Type="Collection(Capabilities.OperationRestriction)">
+          <Annotation Term="Core.Description" String="Navigation restrictions" />
         </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
@@ -627,49 +625,47 @@
         </Property>
       </ComplexType>
       <Term Name="ServiceConfigurations" Type="Capabilities.ServiceConfiguration" Nullable="false" AppliesTo="EntityContainer">
-        
-  <Annotation Term="Core.Description" String="Service configurations options." />
-</Term>
+        <Annotation Term="Core.Description" String="Service configurations options." />
+      </Term>
       <ComplexType Name="ServiceConfiguration">
-        <Property Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType" >
+        <Property Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType">
           <Annotation Term="Core.Description" String="The conformance level achieved by this service"/>
         </Property>
-        <Property Name="SupportedFormats" Type="Collection(Edm.String)" Nullable="false" >
+        <Property Name="SupportedFormats" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Media types of supported formats, including format parameters"/>
         </Property>
-        <Property Name="SupportedMetadataFormats" Type="Collection(Edm.String)" Nullable="false" >
+        <Property Name="SupportedMetadataFormats" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Media types of supported formats for $metadata, including format parameters"/>
         </Property>
-        <Property Name="AcceptableEncodings" Type="Collection(Edm.String)" Nullable="false" >
+        <Property Name="AcceptableEncodings" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of acceptable compression methods for ($batch) requests, e.g. gzip"/>
         </Property>
-        <Property Name="AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" >
+        <Property Name="AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Service supports the asynchronous request preference"/>
         </Property>
-        <Property Name="BatchContinueOnErrorSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" >
+        <Property Name="BatchContinueOnErrorSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term."/>
         </Property>
-        <Property Name="IsolationSupported" Type="Capabilities.IsolationLevel" >
+        <Property Name="IsolationSupported" Type="Capabilities.IsolationLevel">
           <Annotation Term="Core.Description" String="Supported odata.isolation levels" />
         </Property>
-        <Property Name="CrossJoinSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" >
+        <Property Name="CrossJoinSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container"/>
         </Property>
-        <Property Name="BatchSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" >
-          <Annotation Term="Core.Description" String="Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term." />/>
+        <Property Name="BatchSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term." />
         </Property>
-        <Property Name="BatchSupport" Type="Capabilities.BatchSupportType" >
+        <Property Name="BatchSupport" Type="Capabilities.BatchSupportType">
           <Annotation Term="Core.Description" String="Batch Support for the service"/>
         </Property>
-        <Property Name="KeyAsSegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" >
+        <Property Name="KeyAsSegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection"/>
         </Property>
-        <Property Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false" >
+        <Property Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Required headers for all requests to the service."/>
         </Property>
       </ComplexType>
       <Term Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false" AppliesTo="EntityContainer">
-        Should there be something bigger that encapsulates service headers and applies to container.
         <Annotation Term="Core.Description" String="Required headers for all requests to the service." />
       </Term>
       <!-- device commands navigation property needs more investigation. -->
