@@ -6,7 +6,7 @@
 	<Annotations Target="microsoft.graph.GraphService/users">
 		<Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
 			<Record>
-				<PropertyValue Property="RequestHeaders">
+				<!-- <PropertyValue Property="RequestHeaders">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Name" String="Authorization" />
@@ -19,7 +19,7 @@
 							<PropertyValue Property="Required" Bool="true" />
 						</Record>
 					</Collection>
-				</PropertyValue>
+				</PropertyValue> -->
 				<PropertyValue Property="QueryParameters">
 				</PropertyValue>
 				<PropertyValue Property="Scopes">
@@ -61,7 +61,7 @@
 		</Annotation>
 		<Annotation Term="Org.Graph.Vocabulary.UpdateRestrictions">
 			<Record>
-				<PropertyValue Property="RequestHeaders">
+				<!-- <PropertyValue Property="RequestHeaders">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Name" String="Authorization" />
@@ -74,7 +74,7 @@
 							<PropertyValue Property="Required" Bool="true" />
 						</Record>
 					</Collection>
-				</PropertyValue>
+				</PropertyValue> -->
 				<PropertyValue Property="Scopes">
 					<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
 					<Collection>
@@ -123,7 +123,7 @@
 		  -->
 		<Annotation Term="Org.Graph.Vocabulary.ReadRestrictions">
 			<Record>
-				<PropertyValue Property="RequestHeaders">
+				<!-- <PropertyValue Property="RequestHeaders">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Name" String="Authorization" />
@@ -136,7 +136,7 @@
 							<PropertyValue Property="Required" Bool="true" />
 						</Record>
 					</Collection>
-				</PropertyValue>
+				</PropertyValue> -->
 				<PropertyValue Property="Scopes">
 					<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
 					<Collection>
@@ -228,16 +228,16 @@
 					<PropertyValue Property="OperationName" String="reminderView" />
 					<PropertyValue Property="RequestHeaders">
 						<Collection>
-							<Record>
+							<!-- <Record>
 								<PropertyValue Property="Name" String="Authorization" />
 								<PropertyValue Property="Description" String="Bearer {token}. Required." />
 								<PropertyValue Property="Required" Bool="true" />
-							</Record>
-							<Record>
+							</Record> -->
+							<!-- <Record>
 								<PropertyValue Property="Name" String="Content-Type" />
 								<PropertyValue Property="Description" String="application/json" />
 								<PropertyValue Property="Required" Bool="true" />
-							</Record>
+							</Record> -->
 							<Record>
 								<PropertyValue Property="Name" String="Prefer" />
 								<PropertyValue Property="Description" String="{Time-zone}. Optional, UTC assumed if absent." />

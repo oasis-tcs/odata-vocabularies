@@ -610,7 +610,7 @@
         </Property>
       </ComplexType>
       <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action">
-        <Annotation Term="Core.Description" String="Support for select" />
+        <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
       <ComplexType Name="OperationRestriction">
         <Property Name="OperationName" Type="Edm.String">
