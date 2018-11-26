@@ -118,9 +118,6 @@
 				</PropertyValue>
 			</Record>
 		</Annotation>
-		<Annotation Term="Org.Graph.Vocabulary.RetrieveRestrictions">
-
-		</Annotation>
 		<!-- Retrieve restrictions 
 		  select restrictions and then props to filter, expand, etc.
 		  -->
