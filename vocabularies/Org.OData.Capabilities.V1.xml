@@ -370,6 +370,9 @@ supported:
         <Property Name="EtagReferencesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports referencing Etags from previous requests" />
         </Property>
+        <Property Name="RequestDependencyConditionsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Service supports the `if` member in JSON batch requests" />
+        </Property>
         <Property Name="SupportedFormats" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Media types of supported formats for $batch" />
           <Annotation Term="Core.IsMediaType" />
