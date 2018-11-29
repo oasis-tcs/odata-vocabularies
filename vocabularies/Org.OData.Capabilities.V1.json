@@ -393,6 +393,11 @@
                 "$DefaultValue": false,
                 "@Core.Description": "Service supports referencing Etags from previous requests"
             },
+            "RequestDependencyConditionsSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Service supports the `if` member in JSON batch requests"
+            },
             "SupportedFormats": {
                 "$Collection": true,
                 "@Core.Description": "Media types of supported formats for $batch",
