@@ -201,15 +201,7 @@
         <Property Name="RestrictedProperties" Type="Collection(Capabilities.NavigationPropertyRestriction)" Nullable="false">
           <Annotation Term="Core.Description" String="List of navigation properties with restrictions" />
         </Property>
-        <!-- <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Query parameter values for navigation." />
-        </Property>
-        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Request header values for navigation." />
-        </Property>
-        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes to navigate." />
-        </Property> -->
+
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
@@ -498,15 +490,6 @@
         <Property Name="ContentIDSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
-        <!-- <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Query parameter values for deep insert." />
-        </Property>
-        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Request header values for deep insert." />
-        </Property> -->
-        <!-- <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes to perform the deep insert." />
-        </Property> -->
       </ComplexType>
       <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
@@ -609,7 +592,7 @@
           <Annotation Term="Core.Description" String="List of required scopes to perform select." />
         </Property>
       </ComplexType>
-      <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action">
+      <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
       <ComplexType Name="OperationRestriction">
@@ -628,7 +611,8 @@
         <Annotation Term="Core.Description" String="Service configurations options." />
       </Term>
       <ComplexType Name="ServiceConfiguration">
-        <Property Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType">
+      <!-- do we need to add the following to svc config -->
+        <!-- <Property Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType">
           <Annotation Term="Core.Description" String="The conformance level achieved by this service"/>
         </Property>
         <Property Name="SupportedFormats" Type="Collection(Edm.String)" Nullable="false">
@@ -660,10 +644,12 @@
         </Property>
         <Property Name="KeyAsSegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection"/>
-        </Property>
+        </Property> -->
         <Property Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Required headers for all requests to the service."/>
         </Property>
+        <Add query options here..>
+        <Add permissions & scopes here as well>
       </ComplexType>
       <!-- device commands navigation property needs more investigation. -->
       <!-- devicemanagement applies to resetpasscode. -->
