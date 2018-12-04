@@ -3,6 +3,10 @@
 	<!-- Navigation restrictions sample is needed -->
 
 <!-- 
+Thought process is to represent user by defining scopes on that resource with available properties using that scope.
+Alternatively, we could list the properties and then all the scopes that can get access to that property. 
+
+
 Users
 - Scope 1 (P1, P2, P3)
 - Scope 2 (P2, P3)
@@ -14,7 +18,6 @@ Users
 - P2 Scope(2,3)
 - P3 Scope(2,3)
 - P4 Scope(5)
-
 -->
 
 
@@ -202,7 +205,8 @@ Users
 						</PropertyValue>
 					</Record>
 				</PropertyValue>
-				<PropertyValue Property="Permissions4">
+				<!-- Original design of the scopes property -->
+				<PropertyValue Property="Permissions-4">
 					<Collection>
 						<Record>
 							<PropertyValue Property="Scope" String="User.ReadWrite" />
