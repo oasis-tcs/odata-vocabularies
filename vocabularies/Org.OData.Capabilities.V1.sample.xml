@@ -2,7 +2,7 @@
 	<!-- Do we need to solve for allof/anyof type scenarios -->
 	<!-- Navigation restrictions sample is needed -->
 
-<!-- 
+	<!-- 
 Thought process is to represent user by defining scopes on that resource with available properties using that scope.
 Alternatively, we could list the properties and then all the scopes that can get access to that property. 
 
@@ -30,7 +30,7 @@ Users
 				<!-- Scopes are defined separate from property restrictions -->
 				<!-- Property restrictions use scopes from their definition above.   -->
 				<!-- Specific properties that require different scopes are listed in the property restrictions otherwise by convention a scope gets access to all properties.  -->
-				<PropertyValue Property="Premissions-1">
+				<PropertyValue Property="Permission-Option#1">
 					<Record>
 						<PropertyValue Property="Scopes">
 							<Collection>
@@ -73,24 +73,167 @@ Users
 						</PropertyValue>
 					</Record>
 				</PropertyValue>
-				<!-- List a collection of scopes along with common properties that provide access to those properties. -->
-				<PropertyValue Property="Premissions-2">
+				<!-- Lists scopes required to perform the given capability. -->
+				<!-- By convention, it would allow the operation to be performed on all properties, unless a child record exits with a property &amp; scope called out explicitly. -->
+				<PropertyValue Property="Permission-Option#2">
 					<Record>
 						<PropertyValue Property="Scopes">
 							<Collection>
 								<Record>
-									<PropertyValue Property="Scope" String="User.ReadWrite.All, Directory.ReadWrite.All, Directory.AccessAsUser.All" />
-									<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-									<PropertyValue Property="Scheme" String="Application" />								
+									<PropertyValue Property="Scope" String="User.ReadWrite.All">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Property" String="mailboxSettings" />
+												<PropertValue Property="PropertyScopes">
+													<Record>
+														<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
+													</Record>
+												</PropertValue>
+											</Record>
+										</Collection>
+									</PropertyValue>
+									<PropertyValue Property="Scope" String="User.ReadWrite.All">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite">
+													<Collection>
+														<Record>
+															<PropertyValue Property="Property" String="mailboxSettings" />
+														</Record>
+													</Collection>
+												</PropertyValue>
+											</Record>
+										</Collection>
+									</PropertyValue>
+									<PropertyValue Property="Scheme" String="DelegatedWork" />
 								</Record>
-								<!-- <Record>
+								<Record>
 									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
 									<PropertyValue Property="Scheme" String="DelegatedWork" />
 								</Record>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
 									<PropertyValue Property="Scheme" String="DelegatedWork" />
-								</Record> -->
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+									<PropertyValue Property="Scheme" String="Application" />
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+									<PropertyValue Property="Scheme" String="Application" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</PropertyValue>
+				<!-- Option 3 is the same as option 2 with the exception that it lists a scope inside a scope, which makes the definition  structured. 
+				It could be implied from the definition that scopes are additive. For e.g. when accessing property MailboxSettings, the app would need the scope for the property in addition to the scopes that it inherts.
+				This flow makes it easier to solve two cases 
+				(a) given a property, identify the scopes required for it.
+				(b) given a scope, identify the resources and properties that can be accessed.  -->
+				<PropertyValue Property="Permission-Option#3">
+					<Record>
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="User.ReadWrite.All">
+										<Collection>
+											<Record>
+												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite">
+													<Collection>
+														<Record>
+															<PropertyValue Property="Property" String="mailboxSettings" />
+														</Record>
+													</Collection>
+												</PropertyValue>
+											</Record>
+										</Collection>
+									</PropertyValue>
+									<PropertyValue Property="Scheme" String="DelegatedWork" />
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+									<PropertyValue Property="Scheme" String="DelegatedWork" />
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+									<PropertyValue Property="Scheme" String="DelegatedWork" />
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+									<PropertyValue Property="Scheme" String="Application" />
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+									<PropertyValue Property="Scheme" String="Application" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</PropertyValue>
+				<!-- Original design of the scopes property. Works using the "propertyType property which identifies if the properties are included or excluded." -->
+				<PropertyValue Property="Permissions-Option#4">
+					<Collection>
+						<Record>
+							<PropertyValue Property="Scope" String="User.ReadWrite" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<!-- This gets access to all properties unless a property exists on it own. That way we don't have to call out all properties for default scenarios.   -->
+							<PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.IncludedProperties"/>
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="User.ReadWrite" />
+							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+						</Record>
+					</Collection>
+				</PropertyValue>
+				<!-- Option #5: List a collection of scopes along with common properties that provide access to those properties. -->
+				<PropertyValue Property="Permission-Option#5">
+					<Record>
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="User.ReadWrite.All, Directory.ReadWrite.All, Directory.AccessAsUser.All" />
+									<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+									<PropertyValue Property="Scheme" String="Application" />
+								</Record>
+								<!-- 
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+									<PropertyValue Property="Scheme" String="DelegatedWork" />
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+									<PropertyValue Property="Scheme" String="DelegatedWork" />
+								</Record> 
+								-->
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
 									<PropertyValue Property="Scheme" String="Application" />
@@ -163,89 +306,6 @@ Users
 							</Collection>
 						</PropertyValue>
 					</Record>
-				</PropertyValue>
-				<!-- Lists scopes required to perform the given capability. -->
-				<!-- By convention, it would allow the operation to be performed on all properties, unless a child record exits with a property &amp; scope called out explicitly. -->
-				<PropertyValue Property="Premissions-3">
-					<Record>
-						<PropertyValue Property="Scopes">
-							<Collection>
-								<Record>
-									<PropertyValue Property="Scope" String="User.ReadWrite.All">
-										<Collection>
-											<Record>
-												<PropertyValue Property="Property" String="mailboxSettings" />
-												<PropertValue Property="PropertyScopes">
-													<Record>
-														<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-													</Record>
-												</PropertValue>
-											</Record>
-										</Collection>
-									</PropertyValue>
-									<PropertyValue Property="Scheme" String="DelegatedWork" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-									<PropertyValue Property="Scheme" String="DelegatedWork" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-									<PropertyValue Property="Scheme" String="DelegatedWork" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-									<PropertyValue Property="Scheme" String="Application" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-									<PropertyValue Property="Scheme" String="Application" />
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-				</PropertyValue>
-				<!-- Original design of the scopes property -->
-				<PropertyValue Property="Permissions-4">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Scope" String="User.ReadWrite" />
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<!-- This gets access to all properties unless a property exists on it own. That way we don't have to call out all properties for default scenarios.   -->
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.IncludedProperties"/>
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="User.ReadWrite" />
-							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="User.ReadWrite.All" />
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-						</Record>
-					</Collection>
 				</PropertyValue>
 			</Record>
 		</Annotation>
@@ -333,8 +393,36 @@ Users
 						<Record>
 							<PropertyValue Property="Scope" String="User.ReadWrite" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
+							<!-- <PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.ExcludedProperties"/>
+							<PropertyValue Property="Properties" String="mailboxSettings" /> -->
+							<PropertyValue Property="additionalPermission">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
+										<PropertyValue Property="Scheme" String="DelegatedWork" />
+										<PropertyValue Property="Properties" String="mailboxSettings" />
+									</Record>
+									<Record>
+										<PropertyValue Property="Scope" String="OneDriveSettings.ReadWrite" />
+										<PropertyValue Property="Scheme" String="DelegatedWork" />
+										<PropertyValue Property="Properties" String="driveItem" />
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
+						Separate User.ReadWrite as new record.
+						The next record has 'User.ReadWrite' prepended to the scope string. So it would be con
+						<Record>
+							<PropertyValue Property="Scopes" String="User.ReadWrite" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="ExcludedProperties" String="mailboxSettings" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Scopes" String="User.ReadWrite,MailboxSettings.ReadWrite" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Properties" String="mailboxSettings" />
+						</Record>
+
 						<Record>
 							<PropertyValue Property="Scope" String="User.Read" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
