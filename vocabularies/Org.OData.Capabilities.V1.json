@@ -913,6 +913,18 @@
         },
         "RetrieveRestrictionsType": {
             "$Kind": "ComplexType",
+            "Retrievable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be retrieved",
+                "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set or singleton."
+            },
+            "RetrievableByKey": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be retrieved by key",
+                "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set."
+            },
             "CustomHeaders": {
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",

@@ -683,6 +683,15 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on retrieve operations" />
       </Term>
       <ComplexType Name="RetrieveRestrictionsType">
+        <Property Name="Retrievable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Entities can be retrieved" />
+          <Annotation Term="Core.LongDescription"
+            String="This is only meaningful if the annotation is applied to an entity set or singleton." />
+        </Property>
+        <Property Name="RetrievableByKey" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Entities can be retrieved by key" />
+          <Annotation Term="Core.LongDescription" String="This is only meaningful if the annotation is applied to an entity set." />
+        </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
         </Property>

@@ -79,8 +79,8 @@ Term|Type|Description
 [AnnotationValuesInQuerySupported](Org.OData.Capabilities.V1.xml#L651)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
 [ModificationQueryOptions](Org.OData.Capabilities.V1.xml#L657)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
 [RetrieveRestrictions](Org.OData.Capabilities.V1.xml#L682)|[RetrieveRestrictionsType](#RetrieveRestrictionsType)|<a name="RetrieveRestrictions"></a>Restrictions on retrieve operations
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L694)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L696))
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L722)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L726))<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p>
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L703)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L705))
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L731)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L735))<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p>
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
@@ -339,18 +339,20 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L686)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L689)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[Retrievable](Org.OData.Capabilities.V1.xml#L686)|Boolean|Entities can be retrieved<p>This is only meaningful if the annotation is applied to an entity set or singleton.</p>
+[RetrievableByKey](Org.OData.Capabilities.V1.xml#L691)|Boolean|Entities can be retrieved by key<p>This is only meaningful if the annotation is applied to an entity set.</p>
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L695)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L698)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 
-## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L757)
+## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L766)
 A custom parameter is either a header or a query option
 
 The type of a custom parameter is always a string. Restrictions on the parameter values can be expressed by annotating the record expression describing the parameter with terms from the Validation vocabulary, e.g. Validation.Pattern or Validation.AllowedValues.
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Capabilities.V1.xml#L761)|String|Name of the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L764)|String|Description of the custom parameter
-[DocumentationURL](Org.OData.Capabilities.V1.xml#L767)|URL|URL of related documentation
-[Required](Org.OData.Capabilities.V1.xml#L771)|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](Org.OData.Capabilities.V1.xml#L774)|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
+[Name](Org.OData.Capabilities.V1.xml#L770)|String|Name of the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L773)|String|Description of the custom parameter
+[DocumentationURL](Org.OData.Capabilities.V1.xml#L776)|URL|URL of related documentation
+[Required](Org.OData.Capabilities.V1.xml#L780)|Boolean|true: parameter is required, false or not specified: parameter is optional
+[ExampleValues](Org.OData.Capabilities.V1.xml#L783)|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
