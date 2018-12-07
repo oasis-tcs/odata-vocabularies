@@ -87,10 +87,7 @@
     <xsl:value-of select="@Name" />
     <xsl:text>":{"$Kind":"EntityContainer"</xsl:text>
     <xsl:apply-templates select="@*[name()!='Name']|edm:Annotation" mode="list2" />
-    <xsl:apply-templates select="edm:EntitySet" />
-    <xsl:apply-templates select="edm:Singleton" />
-    <xsl:apply-templates select="edm:ActionImport" />
-    <xsl:apply-templates select="edm:FunctionImport" />
+    <xsl:apply-templates select="edm:EntitySet|edm:Singleton|edm:ActionImport|edm:FunctionImport" />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
