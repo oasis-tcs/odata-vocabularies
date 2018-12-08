@@ -770,6 +770,12 @@
 
   <xsl:template match="@EnumMember|edm:EnumMember">
     <xsl:variable name="type" select="substring-before(.,'/')" />
+    <xsl:variable name="expando" select="not(local-name(..)='Annotation' or local-name(..)='PropertyValue')" />
+    <xsl:if test="$expando">
+      <xsl:text>{"@type":"</xsl:text>
+      <xsl:value-of select="$type" />
+      <xsl:text>","value":</xsl:text>
+    </xsl:if>
     <xsl:text>"</xsl:text>
     <xsl:call-template name="replace-all">
       <xsl:with-param name="string">
@@ -783,6 +789,9 @@
       <xsl:with-param name="new" select="','" />
     </xsl:call-template>
     <xsl:text>"</xsl:text>
+    <xsl:if test="$expando">
+      <xsl:text>}</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <!-- name : array -->
