@@ -256,7 +256,7 @@
     </xsl:call-template>
     <xsl:text>"</xsl:text>
     <xsl:if test="local-name(..)='TypeDefinition' and .='Edm.Decimal' and not(../@Scale)">
-    <xsl:text>,"$Scale":0</xsl:text>
+      <xsl:text>,"$Scale":0</xsl:text>
     </xsl:if>
   </xsl:template>
 
