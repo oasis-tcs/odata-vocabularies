@@ -461,11 +461,42 @@
           <!-- Use Custom parameters from the PR#6 ODATA-1099. -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property>
-        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
+        <!-- <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
+          <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
+        </Property> -->
+        <Property Name="Scopes" Type="Capabilities.Permission">
           <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
         </Property>
       </ComplexType>
       <!-- What about applying this to ActionImport or FunctionImport. If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
+      <ComplexType Name="Permission">
+        <Property Name="Scopes" Type="Collection(Scope)" Nullable="false"/>
+        <!-- <Property Name="PropertyType" Type="Capabilities.PropertiesType" /> -->
+      </ComplexType>
+      <ComplexType Name="Scope">
+        <Property Name="ScopeName" Type="Edm.String" Nullable="false" />
+        <Property Name="PropertyRestrictions" Type="Collection(PropertyRestriction)" />
+        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
+      </ComplexType>
+      <ComplexType Name="PropertyRestriction">
+        <Property Name="ScopeName" Type="Edm.String" />
+        <Property Name="Properties" Type="Collection(ResourceProperty)" />
+      </ComplexType>
+      <ComplexType Name="ResourceProperty">
+        <Property Name="Property" Type="Edm.String" />
+      </ComplexType>
+      <!-- <ComplexType Name="Permission">
+        <Property Name="Scope" Type="Edm.String" Nullable="false"/>
+        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
+        <Property Name="PropertyType" Type="Capabilities.PropertiesType" />
+        <Property Name="Properties" Type="Edm.String" />
+      </ComplexType> -->
+      <ComplexType Name="Permission">
+        <Property Name="Scope" Type="Edm.String" Nullable="false"/>
+        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
+        <Property Name="PropertyType" Type="Capabilities.PropertiesType" />
+        <Property Name="Properties" Type="Edm.String" />
+      </ComplexType>
       <ComplexType Name="Permission">
         <Property Name="Scope" Type="Edm.String" Nullable="false"/>
         <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
@@ -611,7 +642,7 @@
         <Annotation Term="Core.Description" String="Service configurations options." />
       </Term>
       <ComplexType Name="ServiceConfiguration">
-      <!-- do we need to add the following to svc config -->
+        <!-- do we need to add the following to svc config -->
         <!-- <Property Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType">
           <Annotation Term="Core.Description" String="The conformance level achieved by this service"/>
         </Property>
@@ -648,14 +679,14 @@
         <Property Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Required headers for all requests to the service."/>
         </Property>
-        <Add query options here..>
-        <Add permissions & scopes here as well>
-      </ComplexType>
-      <!-- device commands navigation property needs more investigation. -->
-      <!-- devicemanagement applies to resetpasscode. -->
-      <!--  sendmail -> Mail.Send -->
-      <!-- /invitations -> exists an action -->
-      <!-- /exportpersonaldata  -->
-    </Schema>
-  </edmx:DataServices>
-</edmx:Edmx>
+        <Add queryoptionshere..>
+          <Add permissions& scopeshereaswell>
+          </ComplexType>
+          <!-- device commands navigation property needs more investigation. -->
+          <!-- devicemanagement applies to resetpasscode. -->
+          <!--  sendmail -> Mail.Send -->
+          <!-- /invitations -> exists an action -->
+          <!-- /exportpersonaldata  -->
+        </Schema>
+      </edmx:DataServices>
+    </edmx:Edmx>

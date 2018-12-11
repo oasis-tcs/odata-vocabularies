@@ -137,13 +137,26 @@ Users
 						<PropertyValue Property="Scopes">
 							<Collection>
 								<Record>
-									<PropertyValue Property="Scope" String="User.ReadWrite.All">
+									<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+									<PropertyValue Property="PropertyRestrictions">
 										<Collection>
 											<Record>
-												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite">
+												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
+												<PropertyValue Property="Properties">
 													<Collection>
 														<Record>
+															<!-- should this be object or string? -->
 															<PropertyValue Property="Property" String="mailboxSettings" />
+														</Record>
+													</Collection>
+												</PropertyValue>
+											</Record>
+											<Record>
+												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
+												<PropertyValue Property="Properties">
+													<Collection>
+														<Record>
+															<PropertyValue Property="Property" String="onedriveSettings" />
 														</Record>
 													</Collection>
 												</PropertyValue>
