@@ -468,10 +468,10 @@
           <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
         </Property>
       </ComplexType>
-      <!-- What about applying this to ActionImport or FunctionImport. If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
+      <!-- What about applying this to ActionImport or FunctionImport. 
+      If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
       <ComplexType Name="Permission">
         <Property Name="Scopes" Type="Collection(Scope)" Nullable="false"/>
-        <!-- <Property Name="PropertyType" Type="Capabilities.PropertiesType" /> -->
       </ComplexType>
       <ComplexType Name="Scope">
         <Property Name="ScopeName" Type="Edm.String" Nullable="false" />
