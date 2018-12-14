@@ -193,9 +193,9 @@
         </Property>
       </ComplexType>
       <ComplexType Name="EntityExampleValue" BaseType="Core.ExampleValue">
-        <Property Name="Value" Type="Edm.EntityType" Nullable="false">
+        <NavigationProperty Name="Value" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Example value for the custom parameter" />
-        </Property>
+        </NavigationProperty>
       </ComplexType>
       <ComplexType Name="ExternalExampleValue" BaseType="Core.ExampleValue">
         <Property Name="ExternalValue" Type="Edm.String" Nullable="false">
