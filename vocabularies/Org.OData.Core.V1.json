@@ -171,6 +171,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "Core.ExampleValue",
             "Value": {
+                "$Kind": "NavigationProperty",
                 "$Type": "Edm.EntityType",
                 "@Core.Description": "Example value for the custom parameter"
             }
