@@ -850,7 +850,7 @@
         "AnnotationValuesInQuerySupported": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$DefaultValue": "True",
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
