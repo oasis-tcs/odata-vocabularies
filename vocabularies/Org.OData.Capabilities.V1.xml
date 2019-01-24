@@ -461,10 +461,7 @@
           <!-- Use Custom parameters from the PR#6 ODATA-1099. -->
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property>
-        <!-- <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
-        </Property> -->
-        <Property Name="Scopes" Type="Capabilities.Permission">
+        <Property Name="Permissions" Type="Capabilities.Permission">
           <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
         </Property>
       </ComplexType>
@@ -474,43 +471,17 @@
         <Property Name="Scopes" Type="Collection(Scope)" Nullable="false"/>
       </ComplexType>
       <ComplexType Name="Scope">
-        <Property Name="ScopeName" Type="Edm.String" Nullable="false" />
+        <Property Name="Scope" Type="Edm.String" Nullable="false" />
         <Property Name="PropertyRestrictions" Type="Collection(PropertyRestriction)" />
         <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
       </ComplexType>
       <ComplexType Name="PropertyRestriction">
-        <Property Name="ScopeName" Type="Edm.String" />
+        <Property Name="Scope" Type="Edm.String" />
         <Property Name="Properties" Type="Collection(ResourceProperty)" />
       </ComplexType>
       <ComplexType Name="ResourceProperty">
         <Property Name="Property" Type="Edm.String" />
       </ComplexType>
-      <!-- <ComplexType Name="Permission">
-        <Property Name="Scope" Type="Edm.String" Nullable="false"/>
-        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
-        <Property Name="PropertyType" Type="Capabilities.PropertiesType" />
-        <Property Name="Properties" Type="Edm.String" />
-      </ComplexType> -->
-      <ComplexType Name="Permission">
-        <Property Name="Scope" Type="Edm.String" Nullable="false"/>
-        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
-        <Property Name="PropertyType" Type="Capabilities.PropertiesType" />
-        <Property Name="Properties" Type="Edm.String" />
-      </ComplexType>
-      <ComplexType Name="Permission">
-        <Property Name="Scope" Type="Edm.String" Nullable="false"/>
-        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
-        <Property Name="PropertyType" Type="Capabilities.PropertiesType" />
-        <Property Name="Properties" Type="Edm.String" />
-      </ComplexType>
-      <EnumType Name="PropertiesType">
-        <Member Name="IncludedProperties">
-          <Annotation Term="Core.Description" String="Properties that are available." />
-        </Member>
-        <Member Name="ExcludedProperties">
-          <Annotation Term="Core.Description" String="Properties that are excluded." />
-        </Member>
-      </EnumType>
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
@@ -619,7 +590,7 @@
         <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for select." />
         </Property>
-        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
+        <Property Name="Permissions" Type="Capabilities.Permission">
           <Annotation Term="Core.Description" String="List of required scopes to perform select." />
         </Property>
       </ComplexType>
@@ -679,14 +650,10 @@
         <Property Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Required headers for all requests to the service."/>
         </Property>
-        <Add queryoptionshere..>
-          <Add permissions& scopeshereaswell>
-          </ComplexType>
-          <!-- device commands navigation property needs more investigation. -->
-          <!-- devicemanagement applies to resetpasscode. -->
-          <!--  sendmail -> Mail.Send -->
-          <!-- /invitations -> exists an action -->
-          <!-- /exportpersonaldata  -->
-        </Schema>
-      </edmx:DataServices>
-    </edmx:Edmx>
+        <Addqueryoptionshere/>
+        <AddPermissionsScopeshereaswell/>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
