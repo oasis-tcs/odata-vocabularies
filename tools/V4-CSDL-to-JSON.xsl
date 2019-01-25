@@ -87,10 +87,7 @@
     <xsl:value-of select="@Name" />
     <xsl:text>":{"$Kind":"EntityContainer"</xsl:text>
     <xsl:apply-templates select="@*[name()!='Name']|edm:Annotation" mode="list2" />
-    <xsl:apply-templates select="edm:EntitySet" />
-    <xsl:apply-templates select="edm:Singleton" />
-    <xsl:apply-templates select="edm:ActionImport" />
-    <xsl:apply-templates select="edm:FunctionImport" />
+    <xsl:apply-templates select="edm:EntitySet|edm:Singleton|edm:ActionImport|edm:FunctionImport" />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -110,7 +107,7 @@
     <xsl:text>,"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name']" mode="list" />
+    <xsl:apply-templates select="@*[name()!='Name' and name()!='Nullable']" mode="list" />
     <xsl:apply-templates select="edm:NavigationPropertyBinding" mode="hash">
       <xsl:with-param name="key" select="'Path'" />
     </xsl:apply-templates>
@@ -156,7 +153,8 @@
     <xsl:text>,"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name' and not(name()='IncludeInServiceDocument' and .='false')]" mode="list" />
+    <xsl:apply-templates select="@*[name()!='Name' and not(name()='IncludeInServiceDocument' and .='false')]"
+      mode="list" />
     <xsl:apply-templates select="edm:Annotation" mode="list2" />
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -257,10 +255,29 @@
       <xsl:with-param name="qualifiedName" select="." />
     </xsl:call-template>
     <xsl:text>"</xsl:text>
+    <xsl:if test="local-name(..)='TypeDefinition' and .='Edm.Decimal' and not(../@Scale)">
+      <xsl:text>,"$Scale":0</xsl:text>
+    </xsl:if>
   </xsl:template>
 
   <!-- @Nullable is to be treated together with @Type -->
   <xsl:template match="@Nullable" />
+
+  <xsl:template match="edm:Record/@Type">
+    <xsl:variable name="qualifier">
+      <xsl:call-template name="substring-before-last">
+        <xsl:with-param name="input" select="." />
+        <xsl:with-param name="marker" select="'.'" />
+      </xsl:call-template>
+    </xsl:variable>
+    <xsl:variable name="url"
+      select="//edmx:Reference[edmx:Include[@Namespace=$qualifier]|edmx:Include[@Alias=$qualifier]]/@Uri" />
+    <xsl:text>"@type":"</xsl:text>
+    <xsl:value-of select="$url" />
+    <xsl:text>#</xsl:text>
+    <xsl:value-of select="." />
+    <xsl:text>"</xsl:text>
+  </xsl:template>
 
   <xsl:template match="@Type">
     <xsl:variable name="collection" select="starts-with(.,'Collection(')" />
@@ -324,8 +341,7 @@
   <!-- default value is suppressed -->
   <xsl:template
     match="@Abstract[.='false']|@ContainsTarget[.='false']|@HasStream[.='false']|@IsBound[.='false']|@IsComposable[.='false']|@IsFlags[.='false']|@MaxLength[.='max']|@OpenType[.='false']|@Unicode[.='true']" />
-  <xsl:template
-    match="edm:EntitySet/@IncludeInServiceDocument[.='true']" />
+  <xsl:template match="edm:EntitySet/@IncludeInServiceDocument[.='true']" />
 
   <!-- name : unquoted value -->
   <xsl:template

@@ -102,6 +102,88 @@
                 "@Core.Description": "URL of related information"
             }
         },
+        "Example": {
+            "$Kind": "Term",
+            "$Type": "Core.ExampleValue",
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType",
+                "TypeDefinition",
+                "Term",
+                "Property",
+                "NavigationProperty",
+                "Parameter",
+                "ReturnType"
+            ],
+            "@Core.Description": "Example for an instance of the annotated model element",
+            "@Core.Example": {
+                "Description": "The value of Core.Example is a record/object containing the example value and/or annotation examples.",
+                "@Core.Example#primitive": {
+                    "@type": "#Core.PrimitiveExampleValue",
+                    "Description": "Primitive example value",
+                    "Value": "Hello World"
+                },
+                "@Core.Example#complex": {
+                    "@type": "#Core.ComplexExampleValue",
+                    "Description": "Complex example value",
+                    "Value": {
+                        "ExampleProperty": "with value"
+                    }
+                },
+                "@Core.Example#entity": {
+                    "@type": "#Core.EntityExampleValue",
+                    "Description": "Entity example value",
+                    "Value": {
+                        "ExampleKeyProperty": "with value"
+                    }
+                },
+                "@Core.Example#external": {
+                    "@type": "#Core.ExternalExampleValue",
+                    "Description": "External example",
+                    "ExternalValue": "https://services.odata.org/TripPinRESTierService/(S(5fjoyrzpnvzrrvmxzzq25i4q))/Me"
+                }
+            }
+        },
+        "ExampleValue": {
+            "$Kind": "ComplexType",
+            "Description": {
+                "$Nullable": true,
+                "@Core.Description": "Description of the example value"
+            }
+        },
+        "PrimitiveExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "Value": {
+                "$Type": "Edm.PrimitiveType",
+                "@Core.Description": "Example value for the custom parameter"
+            }
+        },
+        "ComplexExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "Value": {
+                "$Type": "Edm.ComplexType",
+                "@Core.Description": "Example value for the custom parameter"
+            }
+        },
+        "EntityExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "Value": {
+                "$Kind": "NavigationProperty",
+                "$Type": "Edm.EntityType",
+                "@Core.Description": "Example value for the custom parameter"
+            }
+        },
+        "ExternalExampleValue": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExampleValue",
+            "ExternalValue": {
+                "@Core.Description": "Url reference to the value in its literal format",
+                "@Core.IsURL": true
+            }
+        },
         "Messages": {
             "$Kind": "Term",
             "$Collection": true,
@@ -462,6 +544,12 @@
             ],
             "@Core.Description": "Action or function is available",
             "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement."
+        },
+        "LocalDateTime": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "A string representing a Local Date-Time value with no offset.",
+            "@Validation.Pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\\\.[0-9]+)?)?$"
         }
     }
 }

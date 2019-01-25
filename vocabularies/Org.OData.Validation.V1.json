@@ -154,18 +154,23 @@
                 "ComplexType",
                 "EntityType"
             ],
-            "@Core.Description": "Dynamic properties added to the annotated open structured type are restricted to the listed types"
+            "@Core.Description": "Dynamic properties added to the annotated open structured type are restricted to the listed types."
         },
         "DerivedTypeConstraint": {
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Core.QualifiedTypeName",
             "$AppliesTo": [
+                "EntitySet",
+                "Singleton",
+                "NavigationProperty",
                 "Property",
-                "TypeDefinition"
+                "TypeDefinition",
+                "Parameter",
+                "ReturnType"
             ],
-            "@Core.Description": "Values are restricted to types derived from the declared type and listed in this collection",
-            "@Core.LongDescription": "Types listed in this collection that are not derived form the declared type of the annotated model element are ignored"
+            "@Core.Description": "Values are restricted to types that are both identical to or derived from the declared type and a type listed in this collection.",
+            "@Core.LongDescription": "This allows restricting values to certain sub-trees of an inheritance hierarchy. Types listed in this collection that are not derived from the declared type of the annotated model element are ignored."
         },
         "AllowedTerms": {
             "$Kind": "Term",
@@ -178,6 +183,22 @@
             "@Core.Description": "Annotate a term of type Edm.AnnotationPath, or a property of type Edm.AnnotationPath that is used within a structured term, to restrict the terms that can be targeted by the path.",
             "@Core.LongDescription": "The annotation path expression is intended to end in a path segment with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed.",
             "@Core.RequiresType": "Edm.AnnotationPath"
+        },
+        "MaxItems": {
+            "$Kind": "Term",
+            "$Type": "Edm.Int64",
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Core.Description": "The annotated collection must have at most the specified number of items."
+        },
+        "MinItems": {
+            "$Kind": "Term",
+            "$Type": "Edm.Int64",
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Core.Description": "The annotated collection must have at least the specified number of items."
         }
     }
 }
