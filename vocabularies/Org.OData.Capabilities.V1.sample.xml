@@ -5,7 +5,7 @@
 				<PropertyValue Property="QueryParameters">
 				</PropertyValue>
 				<PropertyValue Property="Permissions">
-					<Record>
+					<Record-old-format>
 						<PropertyValue Property="Scopes">
 							<Collection>
 								<Record>
@@ -14,7 +14,6 @@
 										<Collection>
 											<Record>
 												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-
 												<PropertyValue Property="Properties">
 													<Collection>
 														<Record>
@@ -52,7 +51,6 @@
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
 									<PropertyValue Property="Scheme" String="DelegatedWork" />
-
 								</Record>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
@@ -61,11 +59,98 @@
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
 									<PropertyValue Property="Scheme" String="Application" />
-
 								</Record>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
 									<PropertyValue Property="Scheme" String="Application" />
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record-old-format>
+					<Record>
+						<PropertyValue Property="Scheme" String="DelegatedWork" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+									<PropertyValue Property="RestrictedProperties">
+										<Collection>
+											<PropertyPath>mailboxSettings</PropertyPath>
+										</Collection>
+									</PropertyValue>
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+									<!-- gets access to all properties of entitytype 'user' including mailbox settings. -->
+								</Record>
+								
+							</Collection>
+						</PropertyValue>
+					</Record>
+					<Record>
+						<PropertyValue Property="Scheme" String="DelegatedWork" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+					<Record>
+						<PropertyValue Property="Scheme" String="DelegatedWork" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+					<Record>
+						<PropertyValue Property="Scheme" String="Application" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+					<Record>
+						<PropertyValue Property="Scheme" String="Application" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+								</Record>
+								<Record>
+									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</PropertyValue>
+			</Record>
+		</Annotation>
+		<Annotation Term="Org.Graph.Vocabulary.UpdateRestrictions">
+			<Record>
+				<PropertyValue Property="Permissions">
+					<Record>
+						<PropertyValue Property="Scheme" String="DelegatedWork" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="User.ReadWrite"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -76,356 +161,414 @@
 							<Collection>
 								<Record>
 									<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
-									<PropertyValue Property="RestrictedProperties">
-										<Collection>
-											<string>mailboxSettings</string>
-										</Collection>
-									</PropertyValue>
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
 					</Record>
 					<Record>
-						<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
 						<PropertyValue Property="Scheme" String="DelegatedWork" />
-
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+						<PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.IncludedProperties"/>
 					</Record>
 					<Record>
-						<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
 						<PropertyValue Property="Scheme" String="DelegatedWork" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
 					</Record>
 					<Record>
-						<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-						<PropertyValue Property="Scheme" String="Application" />
-
+						<PropertyValue Property="Scheme" String="DelegatedPersonal" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="User.ReadWrite"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
 					</Record>
 					<Record>
-						<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
 						<PropertyValue Property="Scheme" String="Application" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
 					</Record>
-				</Collection>
-			</PropertyValue>
-		</Record>
-	</PropertyValue>
-</Record>
-</Annotation>
-<Annotation Term="Org.Graph.Vocabulary.UpdateRestrictions">
-	<Record>
-		<!-- <PropertyValue Property="RequestHeaders">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Name" String="Authorization" />
-							<PropertyValue Property="Description" String="Bearer {token}. Required." />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Name" String="Content-Type" />
-							<PropertyValue Property="Description" String="application/json" />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-					</Collection>
-				</PropertyValue> -->
-		<PropertyValue Property="Scopes">
-			<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
-			<Collection>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.IncludedProperties"/>
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite" />
-					<PropertyValue Property="Scheme" String="DelegatedPersonal" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="Application" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="Application" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-			</Collection>
-		</PropertyValue>
-	</Record>
-</Annotation>
-<!-- Retrieve restrictions 
-		  select restrictions and then props to filter, expand, etc.
-		  -->
-<Annotation Term="Org.Graph.Vocabulary.ReadRestrictions">
-	<Record>
-		<!-- <PropertyValue Property="RequestHeaders">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Name" String="Authorization" />
-							<PropertyValue Property="Description" String="Bearer {token}. Required." />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-						<Record>
-							<PropertyValue Property="Name" String="Content-Type" />
-							<PropertyValue Property="Description" String="application/json" />
-							<PropertyValue Property="Required" Bool="true" />
-						</Record>
-					</Collection>
-				</PropertyValue> -->
-		<PropertyValue Property="Scopes">
-			<!-- Notice that `PasswordProfile` is available only when you use the `Directory.AccessAsUser.All` scope -->
-			<Collection>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<!-- <PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.ExcludedProperties"/>
-							<PropertyValue Property="Properties" String="mailboxSettings" /> -->
-					<PropertyValue Property="additionalPermission">
-						<Collection>
-							<Record>
-								<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-								<PropertyValue Property="Scheme" String="DelegatedWork" />
-								<PropertyValue Property="Properties" String="mailboxSettings" />
-							</Record>
-							<Record>
-								<PropertyValue Property="Scope" String="OneDriveSettings.ReadWrite" />
-								<PropertyValue Property="Scheme" String="DelegatedWork" />
-								<PropertyValue Property="Properties" String="driveItem" />
-							</Record>
-						</Collection>
-					</PropertyValue>
-				</Record>
-				Separate User.ReadWrite as new record.
-				The next record has 'User.ReadWrite' prepended to the scope string. So it would be con
-				<Record>
-					<PropertyValue Property="Scopes" String="User.ReadWrite" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="ExcludedProperties" String="mailboxSettings" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scopes" String="User.ReadWrite,MailboxSettings.ReadWrite" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="mailboxSettings" />
-				</Record>
-
-				<Record>
-					<PropertyValue Property="Scope" String="User.Read" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.Read.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.Read.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-					<PropertyValue Property="Scheme" String="DelegatedWork" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,passwordProfile,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.Read" />
-					<PropertyValue Property="Scheme" String="DelegatedPersonal" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite" />
-					<PropertyValue Property="Scheme" String="Application" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.Read.All" />
-					<PropertyValue Property="Scheme" String="Application" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="User.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="Application" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.Read.All" />
-					<PropertyValue Property="Scheme" String="Application" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-					<PropertyValue Property="Scheme" String="Application" />
-					<PropertyValue Property="Properties" String="accountEnabled,displayName,mailNickname,userPrincipalName,forceChangePasswordNextSignIn,password" />
-				</Record>
-			</Collection>
-		</PropertyValue>
-	</Record>
-</Annotation>
-<!-- Define operation restrictions here..collection(operationRestrictions)
-		- name (action or function name) or the path. 
-		- restrictions
-		- NP restrictoins would also have op restrictions -->
-</Annotations>
-<!-- annoations on actions/functions. also demonstrates prefer header  -->
-<Annotations Target="microsoft.graph.reminderView(microsoft.graph.user, Edm.String, Edm.String)">
-	<!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
-	<Annotation Term="Org.Graph.Vocabulary.OperationRestrictions">
-		<Collection>
+					<Record>
+						<PropertyValue Property="Scheme" String="Application" />
+						<PropertyValue Property="Scopes">
+							<Collection>
+								<Record>
+									<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+								</Record>
+							</Collection>
+						</PropertyValue>
+					</Record>
+				</PropertyValue>
+			</Record>
+		</Annotation>
+		<!-- Read restrictions :select restrictions and then props to filter, expand, etc.	  -->
+		<Annotation Term="Org.Graph.Vocabulary.ReadRestrictions">
 			<Record>
-				<PropertyValue Property="OperationName" String="reminderView" />
 				<PropertyValue Property="RequestHeaders">
 					<Collection>
 						<Record>
-							<PropertyValue Property="Name" String="Prefer" />
-							<PropertyValue Property="Description" String="{Time-zone}. Optional, UTC assumed if absent." />
+							<PropertyValue Property="Name" String="Authorization" />
+							<PropertyValue Property="Description" String="Bearer {token}. Required." />
+							<PropertyValue Property="Required" Bool="true" />
+						</Record>
+						<Record>
+							<PropertyValue Property="Name" String="Content-Type" />
+							<PropertyValue Property="Description" String="application/json" />
 							<PropertyValue Property="Required" Bool="true" />
 						</Record>
 					</Collection>
 				</PropertyValue>
-				<PropertyValue Property="Scopes">
+				-->
+				<PropertyValue Property="Permissions">
 					<Collection>
 						<Record>
-							<PropertyValue Property="Scope" String="Calendars.Read" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
 							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<!-- Absense of the 'Properties' property denotes all properties are available -->
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="OneDriveSettings.ReadWrite"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="Calendars.Read" />
-							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
-							<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.ReadWrite"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
-							<!-- Absense of the 'Properties' property denotes all properties are available -->
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.ReadWrite,MailboxSettings.ReadWrite"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="Calendars.Read" />
+							<PropertyValue Property="Scheme" String="DelegatedWork"/>
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.Read"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.ReadWrite"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.Read.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Directory.Read.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedPersonal"/>
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.Read"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
 							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Properties" String="changeKey,eventEndTime,eventId,eventLocation,eventStartTime,eventSubject,eventWebLink,reminderFireTime" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.ReadWrite"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-							<PropertyValue Property="Scheme" String="Applicaiton" />
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.Read.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Directory.Read.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+					</Collection>
+				</PropertyValue>
+			</Record>
+		</Annotation>
+
+	</Annotations>
+	<!-- annoations on actions/functions. also demonstrates prefer header  -->
+	<Annotations Target="microsoft.graph.reminderView(microsoft.graph.user, Edm.String, Edm.String)">
+		<!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
+		<Annotation Term="Org.Graph.Vocabulary.OperationRestrictions">
+			<Collection>
+				<Record>
+					<PropertyValue Property="OperationName" String="reminderView" />
+					<PropertyValue Property="RequestHeaders">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Name" String="Prefer" />
+								<PropertyValue Property="Description" String="{Time-zone}. Optional, UTC assumed if absent." />
+								<PropertyValue Property="Required" Bool="true" />
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="Permissions">
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Calendars.Read" />
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedWork" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Calendars.Read" />
+									</Record>
+								</Collection>
+							</PropertyValue>
+						</Record>
+						<Record>
+							<PropertyValue Property="Scheme" String="DelegatedPersonal" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+									</Record>
+								</Collection>
+							</PropertyValue>
 							<!-- Absense of the 'Properties' property denotes all properties are available -->
 						</Record>
-					</Collection>
-				</PropertyValue>
-			</Record>
-		</Collection>
-	</Annotation>
-</Annotations>
-
-<!-- Annotating Navigation Properties example -->
-<!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes, DelegatedWork, DelegatedPersonal, Application -->
-<Annotations Target="microsoft.graph.GraphService">
-	<Annotation Term="Auth.Authorizations">
-		<Collection>
-			<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
-				<PropertyValue Property="Name" String="DelegatedWork"/>
-				<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
-				<PropertyValue Property="Scopes">
-					<Collection>
 						<Record>
-							<PropertyValue Property="Scope" String="User.ReadAll"/>
-							<PropertyValue Property="Description" String="Read all user data"/>
+							<PropertyValue Property="Scheme" String="Application" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Calendars.Read" />
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scope" String="User.WriteAll"/>
-							<PropertyValue Property="Description" String="Write all user data"/>
+							<PropertyValue Property="Scheme" String="Applicaiton" />
+							<PropertyValue Property="Scopes">
+								<Collection>
+									<Record>
+										<PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+									</Record>
+								</Collection>
+							</PropertyValue>
 						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Directory.ReadAll"/>
-							<PropertyValue Property="Description" String="Write to directory"/>
-						</Record>
-					</Collection>
-				</PropertyValue>
-				<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
-			</Record>
-			<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
-				<PropertyValue Property="Name" String="DelegatedPersonal"/>
-				<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
-				<PropertyValue Property="Scopes">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Scope" String="User.ReadAll"/>
-							<PropertyValue Property="Description" String="Read all user data"/>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="User.WriteAll"/>
-							<PropertyValue Property="Description" String="Write all user data"/>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Directory.ReadAll"/>
-							<PropertyValue Property="Description" String="Write to directory"/>
-						</Record>
-					</Collection>
-				</PropertyValue>
-				<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
-			</Record>
-			<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
-				<PropertyValue Property="Name" String="Application"/>
-				<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
-				<PropertyValue Property="Scopes">
-					<Collection>
-						<Record>
-							<PropertyValue Property="Scope" String="User.ReadAll"/>
-							<PropertyValue Property="Description" String="Read all user data"/>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="User.WriteAll"/>
-							<PropertyValue Property="Description" String="Write all user data"/>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scope" String="Directory.ReadAll"/>
-							<PropertyValue Property="Description" String="Write to directory"/>
-						</Record>
-					</Collection>
-				</PropertyValue>
-				<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
-			</Record>
-		</Collection>
-	</Annotation>
-	<Annotation Term="Capabilities.ServiceConfiguration">
+					</PropertyValue>
+				</Record>
+			</Collection>
+		</Annotation>
+	</Annotations>
+	<!-- Annotating Navigation Properties example -->
+	<!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes, DelegatedWork, DelegatedPersonal, Application -->
+	<Annotations Target="microsoft.graph.GraphService">
+		<Annotation Term="Auth.Authorizations">
+			<Collection>
+				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
+					<PropertyValue Property="Name" String="DelegatedWork"/>
+					<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
+					<PropertyValue Property="Scopes">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Scope" String="User.ReadAll"/>
+								<PropertyValue Property="Description" String="Read all user data"/>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="User.WriteAll"/>
+								<PropertyValue Property="Description" String="Write all user data"/>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Directory.ReadAll"/>
+								<PropertyValue Property="Description" String="Write to directory"/>
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
+				</Record>
+				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
+					<PropertyValue Property="Name" String="DelegatedPersonal"/>
+					<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
+					<PropertyValue Property="Scopes">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Scope" String="User.ReadAll"/>
+								<PropertyValue Property="Description" String="Read all user data"/>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="User.WriteAll"/>
+								<PropertyValue Property="Description" String="Write all user data"/>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Directory.ReadAll"/>
+								<PropertyValue Property="Description" String="Write to directory"/>
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
+				</Record>
+				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
+					<PropertyValue Property="Name" String="Application"/>
+					<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
+					<PropertyValue Property="Scopes">
+						<Collection>
+							<Record>
+								<PropertyValue Property="Scope" String="User.ReadAll"/>
+								<PropertyValue Property="Description" String="Read all user data"/>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="User.WriteAll"/>
+								<PropertyValue Property="Description" String="Write all user data"/>
+							</Record>
+							<Record>
+								<PropertyValue Property="Scope" String="Directory.ReadAll"/>
+								<PropertyValue Property="Description" String="Write to directory"/>
+							</Record>
+						</Collection>
+					</PropertyValue>
+					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
+				</Record>
+			</Collection>
+		</Annotation>
+		<!-- <Annotation Term="Capabilities.ServiceConfiguration">
 		<PropertyValue Property="ServiceHeaders">
 			<Collection>
 				<Record>
@@ -440,6 +583,6 @@
 				</Record>
 			</Collection>
 		</PropertyValue>
-	</Annotation>
-</Annotations>
+	</Annotation> -->
+	</Annotations>
 </root>

@@ -243,9 +243,6 @@
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
-        <Property Name="NavigationOperationRestrictions" Type="Collection(Capabilities.OperationRestriction)">
-          <Annotation Term="Core.Description" String="Navigation restrictions" />
-        </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
         <Member Name="Recursive">
@@ -462,25 +459,18 @@
           <Annotation Term="Core.Description" String="Examples of request and response for inserting." />
         </Property>
         <Property Name="Permissions" Type="Capabilities.Permission">
-          <Annotation Term="Core.Description" String="List of required scopes to perform the insert." />
+          <Annotation Term="Core.Description" String="Required scopes to perform the insert." />
         </Property>
       </ComplexType>
       <!-- What about applying this to ActionImport or FunctionImport. 
       If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
       <ComplexType Name="Permission">
+        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false"/>
         <Property Name="Scopes" Type="Collection(Scope)" Nullable="false"/>
       </ComplexType>
       <ComplexType Name="Scope">
         <Property Name="Scope" Type="Edm.String" Nullable="false" />
-        <Property Name="PropertyRestrictions" Type="Collection(PropertyRestriction)" />
-        <Property Name="SecurityScheme" Type="Auth.SecurityScheme" Nullable="false"/>
-      </ComplexType>
-      <ComplexType Name="PropertyRestriction">
-        <Property Name="Scope" Type="Edm.String" />
-        <Property Name="Properties" Type="Collection(ResourceProperty)" />
-      </ComplexType>
-      <ComplexType Name="ResourceProperty">
-        <Property Name="Property" Type="Edm.String" />
+        <Property Name="RestrictedProperties" Type="Collection(Edm.PropertyPath)" />
       </ComplexType>
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
@@ -512,8 +502,8 @@
         <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for update." />
         </Property>
-        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes to perform update." />
+       <Property Name="Permissions" Type="Capabilities.Permission">
+          <Annotation Term="Core.Description" String="Required scopes to perform update." />
         </Property>
       </ComplexType>
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
@@ -535,8 +525,8 @@
         <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for delete." />
         </Property>
-        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes to perform the delete." />
+        <Property Name="Permissions" Type="Capabilities.Permission">
+          <Annotation Term="Core.Description" String="Required scopes to perform delete." />
         </Property>
       </ComplexType>
       <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false" AppliesTo="EntitySet Singleton">
@@ -575,6 +565,7 @@
         </Property>
       </ComplexType>
       <!-- The following annotation has been adopted from PR#14. It will be updated based on the status of that PR. -->
+      <!-- check issue 1269 -->      <!-- https://issues.oasis-open.org/browse/ODATA-1269  -->
       <Term Name="ReadRestrictions" Type="Capabilities.ReadRestriction" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
         <Annotation Term="Core.Description" String="Support for select" />
         <!-- how does a use case like '/users/{id}/function()' get resolved. 
@@ -605,55 +596,20 @@
         <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for function or action." />
         </Property>
-        <Property Name="Scopes" Type="Collection(Capabilities.Permission)">
-          <Annotation Term="Core.Description" String="List of required scopes for the function or action." />
+        <Property Name="Permissions" Type="Capabilities.Permission">
+          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
       </ComplexType>
       <Term Name="ServiceConfigurations" Type="Capabilities.ServiceConfiguration" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Service configurations options." />
       </Term>
       <ComplexType Name="ServiceConfiguration">
-        <!-- do we need to add the following to svc config -->
-        <!-- <Property Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType">
-          <Annotation Term="Core.Description" String="The conformance level achieved by this service"/>
-        </Property>
-        <Property Name="SupportedFormats" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Media types of supported formats, including format parameters"/>
-        </Property>
-        <Property Name="SupportedMetadataFormats" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Media types of supported formats for $metadata, including format parameters"/>
-        </Property>
-        <Property Name="AcceptableEncodings" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="List of acceptable compression methods for ($batch) requests, e.g. gzip"/>
-        </Property>
-        <Property Name="AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Service supports the asynchronous request preference"/>
-        </Property>
-        <Property Name="BatchContinueOnErrorSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term."/>
-        </Property>
-        <Property Name="IsolationSupported" Type="Capabilities.IsolationLevel">
-          <Annotation Term="Core.Description" String="Supported odata.isolation levels" />
-        </Property>
-        <Property Name="CrossJoinSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container"/>
-        </Property>
-        <Property Name="BatchSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term." />
-        </Property>
-        <Property Name="BatchSupport" Type="Capabilities.BatchSupportType">
-          <Annotation Term="Core.Description" String="Batch Support for the service"/>
-        </Property>
-        <Property Name="KeyAsSegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection"/>
-        </Property> -->
         <Property Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Required headers for all requests to the service."/>
         </Property>
         <Addqueryoptionshere/>
         <AddPermissionsScopeshereaswell/>
       </ComplexType>
-
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
