@@ -596,7 +596,7 @@
       </ComplexType>
       <!-- The following annotation has been adopted from PR#14. It will be updated based on the status of that PR. -->
       <!-- check issue 1269 -->      <!-- https://issues.oasis-open.org/browse/ODATA-1269  -->
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestriction" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestriction" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Support for select" />
         <!-- how does a use case like '/users/{id}/function()' get resolved. 
         do we check if there is access for /users and then function or just check scopes on function directly.  -->
@@ -614,6 +614,7 @@
         <Property Name="Permissions" Type="Capabilities.Permission">
           <Annotation Term="Core.Description" String="List of required scopes to perform select." />
         </Property>
+        Need to add filter, skip, search, top, orderby etc.
       </ComplexType>
       <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />

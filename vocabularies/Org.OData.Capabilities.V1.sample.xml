@@ -5,68 +5,6 @@
 				<PropertyValue Property="QueryParameters">
 				</PropertyValue>
 				<PropertyValue Property="Permissions">
-					<Record-old-format>
-						<PropertyValue Property="Scopes">
-							<Collection>
-								<Record>
-									<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
-									<PropertyValue Property="PropertyRestrictions">
-										<Collection>
-											<Record>
-												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-												<PropertyValue Property="Properties">
-													<Collection>
-														<Record>
-															<!-- should this be object or string? -->
-															<PropertyValue Property="Property" String="mailboxSettings" />
-														</Record>
-													</Collection>
-												</PropertyValue>
-											</Record>
-											<Record>
-												<PropertyValue Property="Scope" String="-" />
-												<PropertyValue Property="Properties">
-													<Collection>
-														<Record>
-															<!-- should this be object or string? -->
-															<PropertyValue Property="Property" String="Salary" />
-														</Record>
-													</Collection>
-												</PropertyValue>
-											</Record>
-											<Record>
-												<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-												<PropertyValue Property="Properties">
-													<Collection>
-														<Record>
-															<PropertyValue Property="Property" String="onedriveSettings" />
-														</Record>
-													</Collection>
-												</PropertyValue>
-											</Record>
-										</Collection>
-									</PropertyValue>
-									<PropertyValue Property="Scheme" String="DelegatedWork" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-									<PropertyValue Property="Scheme" String="DelegatedWork" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-									<PropertyValue Property="Scheme" String="DelegatedWork" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-									<PropertyValue Property="Scheme" String="Application" />
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-									<PropertyValue Property="Scheme" String="Application" />
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record-old-format>
 					<Record>
 						<PropertyValue Property="Scheme" String="DelegatedWork" />
 						<PropertyValue Property="Scopes">
@@ -505,11 +443,14 @@
 			<Collection>
 				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
 					<PropertyValue Property="Name" String="DelegatedWork"/>
+					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
 					<PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
 					<PropertyValue Property="Scopes">
 						<Collection>
 							<Record>
 								<PropertyValue Property="Scope" String="User.ReadAll"/>
+								<PropertyValue Property="Role" String="Admin" />
+
 								<PropertyValue Property="Description" String="Read all user data"/>
 							</Record>
 							<Record>
@@ -522,7 +463,6 @@
 							</Record>
 						</Collection>
 					</PropertyValue>
-					<PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
 				</Record>
 				<Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
 					<PropertyValue Property="Name" String="DelegatedPersonal"/>

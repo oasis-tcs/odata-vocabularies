@@ -65,7 +65,7 @@ descriptions Define operation restrictions here..collection(operationRestriction
 
 ## Navigation restrictions
 
-- We do not need any additional properties defined on navigation restriction type because the CRUD restrictions should be enough to impose scope restrictions o the navigation property on a type.
+- We do not need any additional properties defined on navigation restriction type because the CRUD restrictions should be enough to impose scope restrictions o the navigation property on a type.****
 
 ## Open questions:
 
