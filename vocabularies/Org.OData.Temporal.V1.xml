@@ -47,7 +47,7 @@
         <String>Terms to describe which data in a given entity model is time-dependent, and in which dimensions.</String>
       </Annotation>
       <Annotation Term="Core.LongDescription">
-        <String>This is a working draft that may incompatibly change any time.</String>
+        <String>*This is a working draft that may incompatibly change any time.*</String>
       </Annotation>
       <Annotation Term="Core.Links">
         <Collection>

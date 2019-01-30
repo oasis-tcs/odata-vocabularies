@@ -3,7 +3,7 @@
 
 Terms to describe which data in a given entity model is time-dependent, and in which dimensions.
 
-This is a working draft that may incompatibly change any time.
+*This is a working draft that may incompatibly change any time.*
 
 
 ## Terms

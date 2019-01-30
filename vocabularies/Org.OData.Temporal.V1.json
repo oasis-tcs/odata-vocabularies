@@ -13,7 +13,7 @@
     "Org.OData.Temporal.V1": {
         "$Alias": "Temporal",
         "@Core.Description": "Terms to describe which data in a given entity model is time-dependent, and in which dimensions.",
-        "@Core.LongDescription": "This is a working draft that may incompatibly change any time.",
+        "@Core.LongDescription": "*This is a working draft that may incompatibly change any time.*",
         "@Core.Links": [
             {
                 "rel": "latest-version",
