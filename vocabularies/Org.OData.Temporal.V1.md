@@ -17,6 +17,13 @@ Term|Type|Description
 [SystemFrom](Org.OData.Temporal.V1.xml#L125)|PrimitiveType|<a name="SystemFrom"></a>Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min
 [SystemTo](Org.OData.Temporal.V1.xml#L130)|PrimitiveType|<a name="SystemTo"></a>Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max
 
+
+## Actions
+
+Action|Signature|Description
+:-------|:--------|:----------
+[UpdateObject](Org.OData.Temporal.V1.xml#L138)|timeslices:&nbsp;\[EntityType\], ObjectKey:&nbsp;[ObjectKeyValues](#ObjectKeyValues), From:&nbsp;PrimitiveType, To:&nbsp;PrimitiveType, Values:&nbsp;EntityType &rarr;&nbsp;\[EntityType\]|<a name="UpdateObject"></a>Updates all time slices of a temporal object in a given period of application time.
+
 ## <a name="TemporalSupportType"></a>[TemporalSupportType](Org.OData.Temporal.V1.xml#L81)
 
 
@@ -59,7 +66,7 @@ Flag Member|Value|Description
 [TimeTravel](Org.OData.Temporal.V1.xml#L102)|1|
 [TimeSeries](Org.OData.Temporal.V1.xml#L103)|2|
 
-## <a name="ObjectKeyValues"></a>[ObjectKeyValues](Org.OData.Temporal.V1.xml#L164)
+## <a name="ObjectKeyValues"></a>[ObjectKeyValues](Org.OData.Temporal.V1.xml#L165)
 Property values that identify a single temporal object
 
-Structure must match the [`Temporal.ObjectKey`](#ObjectKey) of the entity type of the binding parameter value
+Structure must match the [`ObjectKey`](#ObjectKey) of the entity type of the binding parameter value

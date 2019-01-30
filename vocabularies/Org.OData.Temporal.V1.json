@@ -127,6 +127,7 @@
             {
                 "$Kind": "Action",
                 "$IsBound": true,
+                "@Core.Description": "Updates all time slices of a temporal object in a given period of application time. ",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -171,7 +172,7 @@
             "$Kind": "ComplexType",
             "$OpenType": true,
             "@Core.Description": "Property values that identify a single temporal object",
-            "@Core.LongDescription": "Structure must match the [`Temporal.ObjectKey`](#ObjectKey) of the entity type of the binding parameter value"
+            "@Core.LongDescription": "Structure must match the [`ObjectKey`](#ObjectKey) of the entity type of the binding parameter value"
         }
     }
 }

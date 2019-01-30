@@ -136,6 +136,7 @@
       <!-- Operations on Temporal Objects -->
 
       <Action Name="UpdateObject" IsBound="true">
+        <Annotation Term="Core.Description" String="Updates all time slices of a temporal object in a given period of application time. " />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
@@ -164,7 +165,7 @@
       <ComplexType Name="ObjectKeyValues" OpenType="true">
         <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
         <Annotation Term="Core.LongDescription"
-          String="Structure must match the [`Temporal.ObjectKey`](#ObjectKey) of the entity type of the binding parameter value" />
+          String="Structure must match the [`ObjectKey`](#ObjectKey) of the entity type of the binding parameter value" />
       </ComplexType>
 
     </Schema>
