@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" exclude-result-prefixes="edmx edm nodeinfo" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo"
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm"
+  exclude-result-prefixes="edmx edm nodeinfo" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo"
 >
   <!--
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
@@ -29,7 +30,8 @@
   </xsl:variable>
 
   <xsl:variable name="coreNamespace" select="'Org.OData.Core.V1'" />
-  <xsl:variable name="coreAlias" select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
+  <xsl:variable name="coreAlias"
+    select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
 
   <xsl:variable name="validationNamespace" select="'Org.OData.Validation.V1'" />
   <xsl:variable name="validationAlias"
@@ -135,6 +137,7 @@
     </xsl:call-template>
 
     <xsl:apply-templates select="//edm:Term" />
+    <xsl:apply-templates select="//edm:Action" />
     <xsl:apply-templates select="//edm:Function" />
 
     <xsl:apply-templates select="//edm:ComplexType|//edm:EnumType|//edm:TypeDefinition" />
@@ -166,10 +169,13 @@
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
-  <xsl:template match="edm:Function">
+  <xsl:template match="edm:Action|edm:Function">
     <xsl:if test="position()=1">
-      <xsl:text>&#xA;&#xA;## Functions&#xA;</xsl:text>
-      <xsl:text>&#xA;Function|Signature|Description</xsl:text>
+      <xsl:text>&#xA;&#xA;## </xsl:text>
+      <xsl:value-of select="local-name()"/>
+      <xsl:text>s&#xA;&#xA;</xsl:text>
+      <xsl:value-of select="local-name()"/>
+      <xsl:text>|Signature|Description</xsl:text>
       <xsl:text>&#xA;:-------|:--------|:----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:call-template name="xml-link">
@@ -340,16 +346,17 @@
       </xsl:variable>
       <!-- recurse to base type -->
       <xsl:call-template name="properties">
-        <xsl:with-param name="complexType" select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
+        <xsl:with-param name="complexType"
+          select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
         <xsl:with-param name="parent" select="true()" />
       </xsl:call-template>
     </xsl:if>
-    <xsl:apply-templates select="$complexType/edm:Property">
+    <xsl:apply-templates select="$complexType/edm:Property|$complexType/edm:NavigationProperty">
       <xsl:with-param name="parent" select="$parent" />
     </xsl:apply-templates>
   </xsl:template>
 
-  <xsl:template match="edm:Property">
+  <xsl:template match="edm:Property|edm:NavigationProperty">
     <xsl:param name="parent" />
 
     <xsl:call-template name="xml-link">
