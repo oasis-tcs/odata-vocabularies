@@ -475,8 +475,6 @@
           <Annotation Term="Core.Description" String="Support for query options with insert requests" />
         </Property>
       </ComplexType>
-      <!-- What about applying this to ActionImport or FunctionImport. 
-      If we define a term for permissionscopes then we would certainly need the "operation type=get/post/patch/delete property in cmplx type permission" -->
       <ComplexType Name="Permission">
         <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false"/>
         <Property Name="Scopes" Type="Collection(Scope)" Nullable="false"/>
@@ -598,8 +596,6 @@
       <!-- check issue 1269 -->      <!-- https://issues.oasis-open.org/browse/ODATA-1269  -->
       <Term Name="ReadRestrictions" Type="Capabilities.ReadRestriction" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Support for select" />
-        <!-- how does a use case like '/users/{id}/function()' get resolved. 
-        do we check if there is access for /users and then function or just check scopes on function directly.  -->
       </Term>
       <ComplexType Name="ReadRestriction">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -614,7 +610,24 @@
         <Property Name="Permissions" Type="Capabilities.Permission">
           <Annotation Term="Core.Description" String="List of required scopes to perform select." />
         </Property>
-        Need to add filter, skip, search, top, orderby etc.
+        <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
+        </Property>
+        <Property Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on search expressions" />
+        </Property>
+        <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
+        </Property>
+        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $top" />
+        </Property>
+        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports $skip" />
+        </Property>
+        <Property Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
+        </Property>
       </ComplexType>
       <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
@@ -631,24 +644,12 @@
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
       </ComplexType>
-      <Term Name="ServiceConfigurations" Type="Capabilities.ServiceConfiguration" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Service configurations options." />
-      </Term>
-      <ComplexType Name="ServiceConfiguration">
-        <Property Name="ServiceHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
-          <Annotation Term="Core.Description" String="Required headers for all requests to the service."/>
-        </Property>
-        <Addqueryoptionshere/>
-        <AddPermissionsScopeshereaswell/>
-      </ComplexType>
-
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
       </Term>
 
       <Term Name="ModificationQueryOptions" Type="Capabilities.ModificationQueryOptionsType"
-        AppliesTo="EntityContainer Action ActionImport"
-      >
+        AppliesTo="EntityContainer Action ActionImport">
         <Annotation Term="Core.Description"
           String="Support for query options with modification requests (insert, update, action invocation)" />
       </Term>
