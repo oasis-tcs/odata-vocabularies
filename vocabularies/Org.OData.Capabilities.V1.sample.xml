@@ -449,7 +449,8 @@
 						<Collection>
 							<Record>
 								<PropertyValue Property="Scope" String="User.ReadAll"/>
-								<PropertyValue Property="Role" String="Admin" />
+								<!-- Can we add a Role property here since one scope belongs to a single role within a scheme? 
+								<PropertyValue Property="Role" String="Admin" /> -->
 
 								<PropertyValue Property="Description" String="Read all user data"/>
 							</Record>
@@ -508,21 +509,5 @@
 				</Record>
 			</Collection>
 		</Annotation>
-		<!-- <Annotation Term="Capabilities.ServiceConfiguration">
-		<PropertyValue Property="ServiceHeaders">
-			<Collection>
-				<Record>
-					<PropertyValue Property="Name" String="Authorization" />
-					<PropertyValue Property="Description" String="Bearer {token}. Required." />
-					<PropertyValue Property="Required" Bool="true" />
-				</Record>
-				<Record>
-					<PropertyValue Property="Name" String="Content-Type" />
-					<PropertyValue Property="Description" String="application/json" />
-					<PropertyValue Property="Required" Bool="true" />
-				</Record>
-			</Collection>
-		</PropertyValue>
-	</Annotation> -->
 	</Annotations>
 </root>
