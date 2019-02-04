@@ -21,32 +21,11 @@
 									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
 									<!-- gets access to all properties of entitytype 'user' including mailbox settings. -->
 								</Record>
-								
-							</Collection>
-						</PropertyValue>
-					</Record>
-					<Record>
-						<PropertyValue Property="Scheme" String="DelegatedWork" />
-						<PropertyValue Property="Scopes">
-							<Collection>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
 								</Record>
 								<Record>
-									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
-								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-					<Record>
-						<PropertyValue Property="Scheme" String="DelegatedWork" />
-						<PropertyValue Property="Scopes">
-							<Collection>
-								<Record>
 									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -61,18 +40,8 @@
 								<Record>
 									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
 								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-					<Record>
-						<PropertyValue Property="Scheme" String="Application" />
-						<PropertyValue Property="Scopes">
-							<Collection>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
-								</Record>
-								<Record>
-									<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
 								</Record>
 							</Collection>
 						</PropertyValue>
@@ -90,34 +59,12 @@
 								<Record>
 									<PropertyValue Property="Scope" String="User.ReadWrite"/>
 								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-					<Record>
-						<PropertyValue Property="Scheme" String="DelegatedWork" />
-						<PropertyValue Property="Scopes">
-							<Collection>
 								<Record>
 									<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
 								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-					<Record>
-						<PropertyValue Property="Scheme" String="DelegatedWork" />
-						<PropertyValue Property="Scopes">
-							<Collection>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
 								</Record>
-							</Collection>
-						</PropertyValue>
-						<PropertyValue Property="PropertyType" EnumMember="Capability.PropertyType.IncludedProperties"/>
-					</Record>
-					<Record>
-						<PropertyValue Property="Scheme" String="DelegatedWork" />
-						<PropertyValue Property="Scopes">
-							<Collection>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
 								</Record>
@@ -141,13 +88,6 @@
 								<Record>
 									<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
 								</Record>
-							</Collection>
-						</PropertyValue>
-					</Record>
-					<Record>
-						<PropertyValue Property="Scheme" String="Application" />
-						<PropertyValue Property="Scopes">
-							<Collection>
 								<Record>
 									<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
 								</Record>
@@ -174,7 +114,6 @@
 						</Record>
 					</Collection>
 				</PropertyValue>
-				-->
 				<PropertyValue Property="Permissions">
 					<Collection>
 						<Record>
@@ -184,63 +123,21 @@
 									<Record>
 										<PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="OneDriveSettings.ReadWrite"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="User.ReadWrite"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="User.ReadWrite,MailboxSettings.ReadWrite"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork"/>
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="User.Read"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="User.ReadWrite"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="User.Read.All"/>
 									</Record>
@@ -248,54 +145,19 @@
 							</PropertyValue>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
-									<Record>
-										<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
-									</Record>
-								</Collection>
-							</PropertyValue>
+							<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
-									<Record>
-										<PropertyValue Property="Scope" String="Directory.Read.All"/>
-									</Record>
-								</Collection>
-							</PropertyValue>
+							<PropertyValue Property="Scope" String="Directory.Read.All"/>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
-									<Record>
-										<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
-									</Record>
-								</Collection>
-							</PropertyValue>
+							<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedWork" />
-							<PropertyValue Property="Scopes">
-								<Collection>
-									<Record>
-										<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
-									</Record>
-								</Collection>
-							</PropertyValue>
+							<PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
 						</Record>
 						<Record>
-							<PropertyValue Property="Scheme" String="DelegatedPersonal"/>
-							<PropertyValue Property="Scopes">
-								<Collection>
-									<Record>
-										<PropertyValue Property="Scope" String="User.Read"/>
-									</Record>
-								</Collection>
-							</PropertyValue>
+							<PropertyValue Property="Scope" String="User.Read"/>
 						</Record>
 						<Record>
 							<PropertyValue Property="Scheme" String="Application" />
@@ -304,43 +166,15 @@
 									<Record>
 										<PropertyValue Property="Scope" String="User.ReadWrite"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="User.Read.All"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="User.ReadWrite.All"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="Directory.Read.All"/>
 									</Record>
-								</Collection>
-							</PropertyValue>
-						</Record>
-						<Record>
-							<PropertyValue Property="Scheme" String="Application" />
-							<PropertyValue Property="Scopes">
-								<Collection>
 									<Record>
 										<PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
 									</Record>
@@ -351,7 +185,6 @@
 				</PropertyValue>
 			</Record>
 		</Annotation>
-
 	</Annotations>
 	<!-- annoations on actions/functions. also demonstrates prefer header  -->
 	<Annotations Target="microsoft.graph.reminderView(microsoft.graph.user, Edm.String, Edm.String)">
@@ -449,9 +282,8 @@
 						<Collection>
 							<Record>
 								<PropertyValue Property="Scope" String="User.ReadAll"/>
-								<!-- Can we add a Role property here since one scope belongs to a single role within a scheme? 
-								<PropertyValue Property="Role" String="Admin" /> -->
-
+								<!-- Can we add a Role property here since one scope belongs to a single role within a scheme? -->
+								<PropertyValue Property="Role" String="Admin" />
 								<PropertyValue Property="Description" String="Read all user data"/>
 							</Record>
 							<Record>
