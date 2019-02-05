@@ -594,10 +594,10 @@
       </ComplexType>
       <!-- The following annotation has been adopted from PR#14. It will be updated based on the status of that PR. -->
       <!-- check issue 1269 -->      <!-- https://issues.oasis-open.org/browse/ODATA-1269  -->
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestriction" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Support for select" />
       </Term>
-      <ComplexType Name="ReadRestriction">
+      <ComplexType Name="ReadRestrictionType">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports Get" />
         </Property>
