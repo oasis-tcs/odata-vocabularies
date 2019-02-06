@@ -85,6 +85,11 @@
         <Property Name="SystemTime" Type="Temporal.TimeDimensionGranularityDateTimeOffset">
           <Annotation Term="Core.Description" String="System time granularity" />
         </Property>
+        <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
+          <Annotation Term="Core.Description"
+            String="A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The annotated entity type represents a time slice of a temporal object." />
+        </Property>
         <Property Name="SupportedActions" Type="Collection(Temporal.QualifiedActionName)" Nullable="false">
           <Annotation Term="Core.Description" String="List of supported temporal actions" />
         </Property>
@@ -116,12 +121,6 @@
         <Member Name="TimeSeries" Value="2" />
       </EnumType>
 
-      <Term Name="ObjectKey" Type="Collection(Edm.PropertyPath)" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
-        <Annotation Term="Core.Description"
-          String="A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The annotated entity type represents a time slice of a temporal object." />
-      </Term>
-
 
       <!-- Metadata annotations that can also appear as instance annotations -->
 
@@ -146,9 +145,18 @@
       </Term>
 
 
+      <!-- Instance annotations -->
+
+      <Term Name="History" Type="Collection(Edm.EntityType)">
+        <Annotation Term="Core.Description" String="A collection of time slices representing the history of the annotated entity" />
+        <Annotation Term="Core.LongDescription"
+          String="The time slices have the same entity type as the annotated entity and use the same select-expand projection." />
+      </Term>
+
+
       <!-- Operations on Temporal Objects -->
 
-      <Action Name="UpdateObject" IsBound="true">
+      <Action Name="UpdateObject" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
@@ -178,7 +186,7 @@
         </ReturnType>
       </Action>
 
-      <Action Name="UpsertObject" IsBound="true">
+      <Action Name="UpsertObject" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
@@ -208,7 +216,7 @@
         </ReturnType>
       </Action>
 
-      <Action Name="UpdateObjectFrom" IsBound="true">
+      <Action Name="UpdateObjectFrom" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
@@ -238,7 +246,7 @@
         </ReturnType>
       </Action>
 
-      <Action Name="DeleteObject" IsBound="true">
+      <Action Name="DeleteObject" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
@@ -263,7 +271,7 @@
         </ReturnType>
       </Action>
 
-      <Action Name="DeleteObjectFrom" IsBound="true">
+      <Action Name="DeleteObjectFrom" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">

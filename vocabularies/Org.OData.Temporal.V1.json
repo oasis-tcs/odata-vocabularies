@@ -51,6 +51,12 @@
                 "$Type": "Temporal.TimeDimensionGranularityDateTimeOffset",
                 "@Core.Description": "System time granularity"
             },
+            "ObjectKey": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "The set of primitive properties that identify a temporal object",
+                "@Core.Description": "A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The annotated entity type represents a time slice of a temporal object."
+            },
             "SupportedActions": {
                 "$Collection": true,
                 "$Type": "Temporal.QualifiedActionName",
@@ -90,16 +96,6 @@
             "TimeTravel": 1,
             "TimeSeries": 2
         },
-        "ObjectKey": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Edm.PropertyPath",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Core.Description": "The set of primitive properties that identify a temporal object",
-            "@Core.Description": "A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The annotated entity type represents a time slice of a temporal object."
-        },
         "From": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -136,11 +132,19 @@
             ],
             "@Core.Description": "Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max"
         },
+        "History": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Edm.EntityType",
+            "@Core.Description": "A collection of time slices representing the history of the annotated entity",
+            "@Core.LongDescription": "The time slices have the same entity type as the annotated entity and use the same select-expand projection."
+        },
         "UpdateObject": [
             {
                 "$Kind": "Action",
                 "$IsBound": true,
-                "@Core.Description": "Updates all time slices of a temporal object in a given period of application time",
+                "$EntitySetPath": "timeslices",
+                "@Core.Description": "Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -183,7 +187,8 @@
             {
                 "$Kind": "Action",
                 "$IsBound": true,
-                "@Core.Description": "Upserts a temporal object in a given period of application time by updating existing time slices in that period and creating new time slices to close gaps in that period",
+                "$EntitySetPath": "timeslices",
+                "@Core.Description": "Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -226,6 +231,7 @@
             {
                 "$Kind": "Action",
                 "$IsBound": true,
+                "$EntitySetPath": "timeslices",
                 "@Core.Description": "Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next",
                 "$Parameter": [
                     {
@@ -249,7 +255,7 @@
                         "$Name": "To",
                         "$Nullable": true,
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
+                        "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
                     },
                     {
                         "$Name": "Values",
@@ -262,6 +268,83 @@
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Modified time slices",
+                    "@Core.Description": "Same entity type as binding parameter."
+                }
+            }
+        ],
+        "DeleteObject": [
+            {
+                "$Kind": "Action",
+                "$IsBound": true,
+                "$EntitySetPath": "timeslices",
+                "@Core.Description": "Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
+                "$Parameter": [
+                    {
+                        "$Name": "timeslices",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "Time slices to modify"
+                    },
+                    {
+                        "$Name": "ObjectKey",
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "Property values that identify a single temporal object",
+                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                    },
+                    {
+                        "$Name": "From",
+                        "$Type": "Edm.PrimitiveType",
+                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w"
+                    },
+                    {
+                        "$Name": "To",
+                        "$Type": "Edm.PrimitiveType",
+                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.EntityType",
+                    "@Core.Description": "Deleted time slices",
+                    "@Core.Description": "Same entity type as binding parameter."
+                }
+            }
+        ],
+        "DeleteObjectFrom": [
+            {
+                "$Kind": "Action",
+                "$IsBound": true,
+                "$EntitySetPath": "timeslices",
+                "@Core.Description": "Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next",
+                "$Parameter": [
+                    {
+                        "$Name": "timeslices",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "Time slices to modify"
+                    },
+                    {
+                        "$Name": "ObjectKey",
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "Property values that identify a single temporal object",
+                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                    },
+                    {
+                        "$Name": "From",
+                        "$Type": "Edm.PrimitiveType",
+                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w"
+                    },
+                    {
+                        "$Name": "To",
+                        "$Nullable": true,
+                        "$Type": "Edm.PrimitiveType",
+                        "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.EntityType",
+                    "@Core.Description": "Deleted time slices",
                     "@Core.Description": "Same entity type as binding parameter."
                 }
             }
