@@ -72,9 +72,9 @@
 
       <!-- Metadata annotations -->
 
-      <Term Name="TemporalSupport" Type="Temporal.TemporalSupportType" AppliesTo="EntityContainer EntitySet NavigationProperty">
+      <Term Name="TemporalSupport" Type="Temporal.TemporalSupportType" AppliesTo="EntitySet NavigationProperty">
         <Annotation Term="Core.Description">
-          <String>This entity container, entity set, or navigation property supports the temporal system query option</String>
+          <String>This entity set or navigation property supports  temporal requests</String>
         </Annotation>
       </Term>
 
@@ -87,8 +87,8 @@
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
-          <Annotation Term="Core.Description"
-            String="A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The annotated entity type represents a time slice of a temporal object." />
+          <Annotation Term="Core.LongDescription"
+            String="A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated entity set are time slices of temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the object key is identical to the entity key." />
         </Property>
         <Property Name="SupportedActions" Type="Collection(Temporal.QualifiedActionName)" Nullable="false">
           <Annotation Term="Core.Description" String="List of supported temporal actions" />
@@ -178,7 +178,7 @@
         <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values to update" />
           <Annotation Term="Core.LongDescription"
-            String="Same entity type as binding parameter and return type, specify only values non-key properties." />
+            String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -208,7 +208,7 @@
         <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values to insert or update" />
           <Annotation Term="Core.LongDescription"
-            String="Same entity type as binding parameter and return type, specify only values non-key properties." />
+            String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -238,12 +238,29 @@
         <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values to update" />
           <Annotation Term="Core.LongDescription"
-            String="Same entity type as binding parameter and return type, specify only values non-key properties." />
+            String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="Modified time slices" />
           <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
         </ReturnType>
+      </Action>
+
+      <Action Name="SynchronizeObject" IsBound="true" EntitySetPath="timeslices">
+        <Annotation Term="Core.Description"
+          String="Synchronizes time slices of a temporal object to match the provided full application timeline" />
+        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="Time slices to modify" />
+        </Parameter>
+        <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
+          <Annotation Term="Core.LongDescription"
+            String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+        </Parameter>
+        <Parameter Name="Timeline" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of time slices covering the full timeline of the temporal object" />
+          <Annotation Term="Core.LongDescription" String="Same entity type as the binding parameter." />
+        </Parameter>
       </Action>
 
       <Action Name="DeleteObject" IsBound="true" EntitySetPath="timeslices">
