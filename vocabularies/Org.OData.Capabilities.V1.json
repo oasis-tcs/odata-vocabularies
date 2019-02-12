@@ -495,13 +495,13 @@
                     "@Core.Description": "Property can be used in at most one `ge` and/or one `le` clause, separated by `and`"
                 },
                 {
-                    "Value": "SearchExpression",
-                    "@Core.Description": "String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses"
-                },
-                {
                     "Value": "MultiRange",
                     "@Core.Description": "Property can be compared to a union of one or more closed, half-open, or open intervals",
                     "@Core.LongDescription": "The filter expression for this property consists of one or more interval expressions combined by `or`. A single interval expression is either a single comparison of the property and a literal value with `eq`, `le`, `lt`, `ge`, or `gt`, or pair of boundaries combined by `and` and enclosed in parentheses. The lower boundary is either `ge` or `gt`, the upper boundary either `le` or `lt`."
+                },
+                {
+                    "Value": "SearchExpression",
+                    "@Core.Description": "String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses"
                 },
                 {
                     "Value": "MultiRangeOrSearchExpression",
