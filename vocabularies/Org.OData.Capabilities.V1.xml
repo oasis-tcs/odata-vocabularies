@@ -481,7 +481,17 @@
       </ComplexType>
       <ComplexType Name="Scope">
         <Property Name="Scope" Type="Edm.String" Nullable="false" />
-        <Property Name="RestrictedProperties" Type="Collection(Edm.PropertyPath)" />
+        <Property Name="RestrictedProperties" Type="Capabilities.RestrictionPropertyType" >
+          <Annotation Term="Validation.RestrictedPropertiesType" String="Support for query options with insert requests" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="RestrictedPropertiesType" Abstract="true" />
+      <ComplexType Name="WildcardType" BaseType="RestrictedPropertiesType"/>
+      <ComplexType Name="IncludedProperties" BaseType="RestrictedPropertiesType">
+        <Property Name="Properties" Type="Collection(Edm.PropertyPath)" />
+      </ComplexType>
+      <ComplexType Name="ExcludedProperties" BaseType="RestrictedPropertiesType">
+        <Property Name="Properties" Type="Collection(Edm.PropertyPath)" />
       </ComplexType>
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
