@@ -137,6 +137,7 @@
     </xsl:call-template>
 
     <xsl:apply-templates select="//edm:Term" />
+    <xsl:apply-templates select="//edm:Action" />
     <xsl:apply-templates select="//edm:Function" />
 
     <xsl:apply-templates select="//edm:ComplexType|//edm:EnumType|//edm:TypeDefinition" />
@@ -168,10 +169,13 @@
     <xsl:text>&#xA;</xsl:text>
   </xsl:template>
 
-  <xsl:template match="edm:Function">
+  <xsl:template match="edm:Action|edm:Function">
     <xsl:if test="position()=1">
-      <xsl:text>&#xA;&#xA;## Functions&#xA;</xsl:text>
-      <xsl:text>&#xA;Function|Signature|Description</xsl:text>
+      <xsl:text>&#xA;&#xA;## </xsl:text>
+      <xsl:value-of select="local-name()"/>
+      <xsl:text>s&#xA;&#xA;</xsl:text>
+      <xsl:value-of select="local-name()"/>
+      <xsl:text>|Signature|Description</xsl:text>
       <xsl:text>&#xA;:-------|:--------|:----------&#xA;</xsl:text>
     </xsl:if>
     <xsl:call-template name="xml-link">

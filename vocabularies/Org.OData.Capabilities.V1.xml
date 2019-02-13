@@ -413,16 +413,16 @@ supported:
                 String="Property can be used in at most one `ge` and/or one `le` clause, separated by `and`" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="SearchExpression" />
-              <Annotation Term="Core.Description"
-                String="String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses" />
-            </Record>
-            <Record>
               <PropertyValue Property="Value" String="MultiRange" />
               <Annotation Term="Core.Description"
                 String="Property can be compared to a union of one or more closed, half-open, or open intervals" />
               <Annotation Term="Core.LongDescription"
                 String="The filter expression for this property consists of one or more interval expressions combined by `or`. A single interval expression is either a single comparison of the property and a literal value with `eq`, `le`, `lt`, `ge`, or `gt`, or pair of boundaries combined by `and` and enclosed in parentheses. The lower boundary is either `ge` or `gt`, the upper boundary either `le` or `lt`." />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="SearchExpression" />
+              <Annotation Term="Core.Description"
+                String="String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiRangeOrSearchExpression" />
