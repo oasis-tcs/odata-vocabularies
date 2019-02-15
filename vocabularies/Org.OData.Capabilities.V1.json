@@ -900,30 +900,24 @@
                 "@Core.Description": "Supports $orderby with modification requests"
             }
         },
-        "RetrieveRestrictions": {
+        "ReadRestrictions": {
             "$Kind": "Term",
             "$Nullable": true,
-            "$Type": "Capabilities.RetrieveRestrictionsType",
+            "$Type": "Capabilities.ReadRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
                 "FunctionImport"
             ],
-            "@Core.Description": "Restrictions on retrieve operations"
+            "@Core.Description": "Restrictions on read operations: retrieve a collection, retrieve a single instance, invoke a function"
         },
-        "RetrieveRestrictionsType": {
+        "ReadRestrictionsType": {
             "$Kind": "ComplexType",
-            "Retrievable": {
+            "Readable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be retrieved",
                 "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set or singleton."
-            },
-            "RetrievableByKey": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Entities can be retrieved by key",
-                "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set."
             },
             "CustomHeaders": {
                 "$Collection": true,
