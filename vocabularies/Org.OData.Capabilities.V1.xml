@@ -661,6 +661,11 @@ supported:
         </Property>
       </ComplexType>
 
+      <Term Name="MediaLocationUpdateSupported" Type="Core.Tag" Nullable="true" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Core.Description" String="Stream property supports update of media control information" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

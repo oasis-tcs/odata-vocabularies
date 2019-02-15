@@ -78,6 +78,7 @@ Term|Type|Description
 [CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L595)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
 [AnnotationValuesInQuerySupported](Org.OData.Capabilities.V1.xml#L633)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
 [ModificationQueryOptions](Org.OData.Capabilities.V1.xml#L639)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
+[MediaLocationUpdateSupported](Org.OData.Capabilities.V1.xml#L664)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property supports update of media control information
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 

@@ -869,6 +869,17 @@
                 "$DefaultValue": false,
                 "@Core.Description": "Supports $orderby with modification requests"
             }
+        },
+        "MediaLocationUpdateSupported": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.RequiresType": "Edm.Stream",
+            "@Core.Description": "Stream property supports update of media control information"
         }
     }
 }
