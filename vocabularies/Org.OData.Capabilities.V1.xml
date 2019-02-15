@@ -193,7 +193,7 @@ supported:
       </ComplexType>
 
       <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType"
-        AppliesTo="EntityContainer EntitySet Singleton Function FunctionImport NavigationProperty"
+        AppliesTo="EntitySet Singleton Function FunctionImport NavigationProperty"
       >
         <Annotation Term="Core.Description" String="Change tracking capabilities of this service or entity set" />
       </Term>
@@ -203,9 +203,13 @@ supported:
         </Property>
         <Property Name="FilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Change tracking supports filters on these properties" />
+          <Annotation Term="Core.LongDescription"
+            String="If no properties are specified or FilterableProperties is omitted, clients cannot assume support for filtering on any properties in combination with change tracking." />
         </Property>
         <Property Name="ExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Change tracking supports these properties expanded" />
+          <Annotation Term="Core.LongDescription"
+            String="If no properties are specified or ExpandableProperties is omitted, clients cannot assume support for expanding any properties in combination with change tracking." />
         </Property>
       </ComplexType>
 
