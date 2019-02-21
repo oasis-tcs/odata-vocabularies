@@ -531,9 +531,9 @@ supported:
       </ComplexType>
       <ComplexType Name="Permission">
         <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false"/>
-        <Property Name="Scopes" Type="Collection(Scope)" Nullable="false"/>
+        <Property Name="Scopes" Type="Collection(ScopeType)" Nullable="false"/>
       </ComplexType>
-      <ComplexType Name="Scope">
+      <ComplexType Name="ScopeType">
         <Property Name="Scope" Type="Edm.String" Nullable="false" />
         <Property Name="RestrictedProperties" Type="Edm.String" >
         </Property>
@@ -646,50 +646,33 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionType" Nullable="false" AppliesTo="EntitySet Singleton">
-        <Annotation Term="Core.Description" String="Support for select" />
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton FunctionImport">
+        <Annotation Term="Core.Description" String="Restrictions on read operations: retrieve a collection, retrieve a single instance, invoke a function" />
       </Term>
-      <ComplexType Name="ReadRestrictionType">
-        <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports Get" />
+      <ComplexType Name="ReadRestrictionsType">
+        <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Entities can be retrieved" />
+          <Annotation Term="Core.LongDescription" String="This is only meaningful if the annotation is applied to an entity set or singleton." />
         </Property>
-        <Property Name="QueryParameters" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Custom parameters values allowed for select." />
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom headers" />
         </Property>
-        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Request header values allowed for select." />
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
         <Property Name="Permissions" Type="Capabilities.Permission">
-          <Annotation Term="Core.Description" String="List of required scopes to perform select." />
-        </Property>
-        <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
-        </Property>
-        <Property Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on search expressions" />
-        </Property>
-        <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
-        </Property>
-        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports $top" />
-        </Property>
-        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports $skip" />
-        </Property>
-        <Property Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
+          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
       </ComplexType>
+      
       <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
       <ComplexType Name="OperationRestriction">
-        <Property Name="OperationName" Type="Edm.String">
-          <!-- OR a path -->
+        <Property Name="QualifiedOperationName" Type="Edm.String">
           <Annotation Term="Core.Description" String="Name of the function or action." />
         </Property>
-        <Property Name="RequestHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for function or action." />
         </Property>
         <Property Name="Permissions" Type="Capabilities.Permission">
