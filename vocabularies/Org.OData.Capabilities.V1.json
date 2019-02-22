@@ -282,6 +282,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $skip"
             },
+            "SelectSupport": {
+                "$Nullable": true,
+                "$Type": "Capabilities.SelectSupportType",
+                "@Core.Description": "Support for $select"
+            },
             "IndexableByKey": {
                 "$Type": "Core.Tag",
                 "$DefaultValue": true,
@@ -348,6 +353,64 @@
                 "EntitySet"
             ],
             "@Core.Description": "Supports $skip"
+        },
+        "SelectSupport": {
+            "$Kind": "Term",
+            "$Type": "Capabilities.SelectSupportType",
+            "$AppliesTo": [
+                "EntityContainer",
+                "EntitySet",
+                "Singleton"
+            ],
+            "@Core.Description": "Support for $select and nested query options within $select"
+        },
+        "SelectSupportType": {
+            "$Kind": "ComplexType",
+            "Supported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Supports $select"
+            },
+            "Expandable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "$expand within $select is supported"
+            },
+            "Filterable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "$filter within $select is supported"
+            },
+            "Searchable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "$search within $select is supported"
+            },
+            "TopSupported": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Core.Description": "$top within $select is supported"
+            },
+            "SkipSupported": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Core.Description": "$skip within $select is supported"
+            },
+            "ComputeSupported": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": false,
+                "@Core.Description": "$compute within $select is supported"
+            },
+            "Countable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "$count within $select is supported"
+            },
+            "Sortable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "$orderby within $select is supported"
+            }
         },
         "BatchSupported": {
             "$Kind": "Term",
@@ -831,6 +894,11 @@
                 "$Type": "Core.Tag",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $skip"
+            },
+            "SelectSupport": {
+                "$Nullable": true,
+                "$Type": "Capabilities.SelectSupportType",
+                "@Core.Description": "Support for $select"
             },
             "Insertable": {
                 "$Type": "Edm.Boolean",
