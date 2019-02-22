@@ -411,7 +411,7 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Description": "Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag."
+            "@Core.Description": "Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag."
         },
         "AdditionalProperties": {
             "$Kind": "Term",
@@ -523,14 +523,15 @@
             "$AppliesTo": [
                 "Parameter"
             ],
-            "@Core.Description": "Supplying a value for the parameter is optional.",
+            "@Core.Description": "Supplying a value for the action or function parameter is optional.",
             "@Core.LongDescription": "All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional."
         },
         "OptionalParameterType": {
             "$Kind": "ComplexType",
             "DefaultValue": {
                 "$Nullable": true,
-                "@Core.Description": "Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs."
+                "@Core.Description": "Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.",
+                "@Core.LongDescription": "If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date."
             }
         },
         "OperationAvailable": {
