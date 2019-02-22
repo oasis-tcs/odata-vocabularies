@@ -162,7 +162,6 @@
             "$Nullable": true,
             "$Type": "Capabilities.ChangeTrackingType",
             "$AppliesTo": [
-                "EntityContainer",
                 "EntitySet",
                 "Singleton",
                 "Function",
@@ -181,12 +180,14 @@
             "FilterableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Change tracking supports filters on these properties"
+                "@Core.Description": "Change tracking supports filters on these properties",
+                "@Core.LongDescription": "If no properties are specified or FilterableProperties is omitted, clients cannot assume support for filtering on any properties in combination with change tracking."
             },
             "ExpandableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Change tracking supports these properties expanded"
+                "@Core.Description": "Change tracking supports these properties expanded",
+                "@Core.LongDescription": "If no properties are specified or ExpandableProperties is omitted, clients cannot assume support for expanding any properties in combination with change tracking."
             }
         },
         "CountRestrictions": {

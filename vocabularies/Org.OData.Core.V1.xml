@@ -363,7 +363,7 @@
 
       <Term Name="OptimisticConcurrency" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description"
-          String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag." />
+          String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag." />
       </Term>
 
       <Term Name="AdditionalProperties" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType ComplexType">
