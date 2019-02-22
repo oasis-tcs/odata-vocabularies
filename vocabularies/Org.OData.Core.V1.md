@@ -39,8 +39,8 @@ Term|Type|Description
 [Ordered](Org.OData.Core.V1.xml#L401)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
 [PositionalInsert](Org.OData.Core.V1.xml#L408)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
 [AlternateKeys](Org.OData.Core.V1.xml#L414)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](Org.OData.Core.V1.xml#L445)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
-[OperationAvailable](Org.OData.Core.V1.xml#L457)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
+[OptionalParameter](Org.OData.Core.V1.xml#L445)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
+[OperationAvailable](Org.OData.Core.V1.xml#L459)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L85)
 
@@ -191,9 +191,9 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](Org.OData.Core.V1.xml#L451)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.
+[DefaultValue](Org.OData.Core.V1.xml#L451)|String|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<p>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.</p>
 
-## <a name="LocalDateTime"></a>[LocalDateTime](Org.OData.Core.V1.xml#L463)
+## <a name="LocalDateTime"></a>[LocalDateTime](Org.OData.Core.V1.xml#L465)
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
