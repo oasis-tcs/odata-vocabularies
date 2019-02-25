@@ -468,6 +468,51 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
           String="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?$" />
       </TypeDefinition>
 
+      <Term Name="RequestDescriptions" Type="Collection(Core.RequestDescriptionType)" Nullable="false"
+        AppliesTo="EntitySet Singleton NavigationProperty"
+      >
+        <Annotation Term="Core.Description" String="Descriptions of OData requests for the annotated resource" />
+      </Term>
+      <ComplexType Name="RequestDescriptionType">
+        <Property Name="Kind" Type="Core.RequestKind" Nullable="false">
+          <Annotation Term="Core.Description" String="The kind of request" />
+        </Property>
+        <Property Name="Description" Type="Edm.String">
+          <Annotation Term="Core.Description" String="A brief description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="LongDescription" Type="Edm.String">
+          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+      </ComplexType>
+      <TypeDefinition Name="RequestKind" UnderlyingType="Edm.String">
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="Create" />
+              <Annotation Term="Core.Description" String="Create an entity" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Read" />
+              <Annotation Term="Core.Description" String="Read a single entity" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Update" />
+              <Annotation Term="Core.Description" String="Update or upsert an entity" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Delete" />
+              <Annotation Term="Core.Description" String="Delete an entity" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="Query" />
+              <Annotation Term="Core.Description" String="Read a collection of entities" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
