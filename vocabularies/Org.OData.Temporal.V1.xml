@@ -114,6 +114,11 @@
 
       <ComplexType Name="GranularityDate" BaseType="Temporal.TimeDimensionType">
         <Annotation Term="Core.Description" String="Granularity of this time dimension is Date" />
+        <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Application-time periods are stored with closed-closed semantics" />
+          <Annotation Term="Core.LongDescription"
+            String="Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries." />
+        </Property>
       </ComplexType>
 
       <EnumType Name="QueryType" IsFlags="true">
