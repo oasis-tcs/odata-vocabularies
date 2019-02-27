@@ -734,9 +734,6 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
       <ComplexType Name="OperationRestriction">
-        <Property Name="QualifiedOperationName" Type="Edm.String">
-          <Annotation Term="Core.Description" String="Name of the function or action." />
-        </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for function or action." />
         </Property>
