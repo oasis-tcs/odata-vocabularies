@@ -41,7 +41,6 @@ Term|Type|Description
 [AlternateKeys](Org.OData.Core.V1.xml#L414)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
 [OptionalParameter](Org.OData.Core.V1.xml#L445)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
 [OperationAvailable](Org.OData.Core.V1.xml#L459)|Boolean|<a name="OperationAvailable"></a>Action or function is available<p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
-[RequestDescriptions](Org.OData.Core.V1.xml#L473)|\[[RequestDescriptionType](#RequestDescriptionType)\]|<a name="RequestDescriptions"></a>Descriptions of OData requests for the annotated resource
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L85)
 
@@ -198,25 +197,3 @@ Property|Type|Description
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
-
-## <a name="RequestDescriptionType"></a>[RequestDescriptionType](Org.OData.Core.V1.xml#L476)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Kind](Org.OData.Core.V1.xml#L477)|[RequestKind](#RequestKind)|The kind of request
-[Description](Org.OData.Core.V1.xml#L480)|String|A brief description of the request
-[LongDescription](Org.OData.Core.V1.xml#L484)|String|A lengthy description of the request
-
-## <a name="RequestKind"></a>[RequestKind](Org.OData.Core.V1.xml#L489)
-**Type:** String
-
-
-
-Allowed Value|Description
-:------------|:----------
-[Create](Org.OData.Core.V1.xml#L492)|Create an entity
-[Read](Org.OData.Core.V1.xml#L496)|Read a single entity
-[Update](Org.OData.Core.V1.xml#L500)|Update or upsert an entity
-[Delete](Org.OData.Core.V1.xml#L504)|Delete an entity
-[Query](Org.OData.Core.V1.xml#L508)|Read a collection of entities

@@ -551,60 +551,6 @@
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "A string representing a Local Date-Time value with no offset.",
             "@Validation.Pattern": "^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\\\.[0-9]+)?)?$"
-        },
-        "RequestDescriptions": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Core.RequestDescriptionType",
-            "$AppliesTo": [
-                "EntitySet",
-                "Singleton",
-                "NavigationProperty"
-            ],
-            "@Core.Description": "Descriptions of OData requests for the annotated resource"
-        },
-        "RequestDescriptionType": {
-            "$Kind": "ComplexType",
-            "Kind": {
-                "$Type": "Core.RequestKind",
-                "@Core.Description": "The kind of request"
-            },
-            "Description": {
-                "$Nullable": true,
-                "@Core.Description": "A brief description of the request",
-                "@Core.IsLanguageDependent": true
-            },
-            "LongDescription": {
-                "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
-                "@Core.IsLanguageDependent": true
-            }
-        },
-        "RequestKind": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Validation.AllowedValues": [
-                {
-                    "Value": "Create",
-                    "@Core.Description": "Create an entity"
-                },
-                {
-                    "Value": "Read",
-                    "@Core.Description": "Read a single entity"
-                },
-                {
-                    "Value": "Update",
-                    "@Core.Description": "Update or upsert an entity"
-                },
-                {
-                    "Value": "Delete",
-                    "@Core.Description": "Delete an entity"
-                },
-                {
-                    "Value": "Query",
-                    "@Core.Description": "Read a collection of entities"
-                }
-            ]
         }
     }
 }

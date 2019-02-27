@@ -572,6 +572,14 @@ supported:
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A brief description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="LongDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
       </ComplexType>
 
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
@@ -611,6 +619,14 @@ supported:
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A brief description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="LongDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
       </ComplexType>
 
       <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" AppliesTo="EntityContainer EntitySet">
@@ -646,6 +662,14 @@ supported:
         </Property>
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A brief description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="LongDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
 
@@ -738,6 +762,14 @@ supported:
         </Property>
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A brief description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="LongDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
 
