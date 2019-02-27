@@ -978,21 +978,23 @@
                 "Singleton",
                 "FunctionImport"
             ],
-            "@Core.Description": "Restrictions on read operations: retrieve a collection, retrieve a single instance, invoke a function"
+            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function"
+        },
+        "ReadByKeyRestrictions": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Capabilities.ReadRestrictionsType",
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "Restrictions for retrieving an entity by key"
         },
         "ReadRestrictionsType": {
             "$Kind": "ComplexType",
             "Readable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be retrieved",
-                "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set or singleton."
-            },
-            "ReadableByKey": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Entities can be retrieved by key",
-                "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set."
+                "@Core.Description": "Entities can be retrieved"
             },
             "CustomHeaders": {
                 "$Collection": true,

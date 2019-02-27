@@ -725,17 +725,14 @@ supported:
 
       <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton FunctionImport">
         <Annotation Term="Core.Description"
-          String="Restrictions on read operations: retrieve a collection, retrieve a single instance, invoke a function" />
+          String="Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function" />
+      </Term>
+      <Term Name="ReadByKeyRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
       </Term>
       <ComplexType Name="ReadRestrictionsType">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
-          <Annotation Term="Core.LongDescription"
-            String="This is only meaningful if the annotation is applied to an entity set or singleton." />
-        </Property>
-        <Property Name="ReadableByKey" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Entities can be retrieved by key" />
-          <Annotation Term="Core.LongDescription" String="This is only meaningful if the annotation is applied to an entity set." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />

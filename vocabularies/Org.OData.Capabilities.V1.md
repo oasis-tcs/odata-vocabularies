@@ -79,9 +79,10 @@ Term|Type|Description
 [CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L654)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
 [AnnotationValuesInQuerySupported](Org.OData.Capabilities.V1.xml#L695)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
 [ModificationQueryOptions](Org.OData.Capabilities.V1.xml#L701)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
-[ReadRestrictions](Org.OData.Capabilities.V1.xml#L726)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions on read operations: retrieve a collection, retrieve a single instance, invoke a function
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L748)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L750))
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L776)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L780))<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p>
+[ReadRestrictions](Org.OData.Capabilities.V1.xml#L726)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function
+[ReadByKeyRestrictions](Org.OData.Capabilities.V1.xml#L730)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadByKeyRestrictions"></a>Restrictions for retrieving an entity by key
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L745)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L747))
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L773)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L777))<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p>
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
@@ -352,25 +353,24 @@ Property|Type|Description
 [SearchSupported](Org.OData.Capabilities.V1.xml#L718)|Boolean|Supports $search with modification requests
 [SortSupported](Org.OData.Capabilities.V1.xml#L721)|Boolean|Supports $orderby with modification requests
 
-## <a name="ReadRestrictionsType"></a>[ReadRestrictionsType](Org.OData.Capabilities.V1.xml#L730)
+## <a name="ReadRestrictionsType"></a>[ReadRestrictionsType](Org.OData.Capabilities.V1.xml#L733)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Readable](Org.OData.Capabilities.V1.xml#L731)|Boolean|Entities can be retrieved<p>This is only meaningful if the annotation is applied to an entity set or singleton.</p>
-[ReadableByKey](Org.OData.Capabilities.V1.xml#L736)|Boolean|Entities can be retrieved by key<p>This is only meaningful if the annotation is applied to an entity set.</p>
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L740)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L743)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[Readable](Org.OData.Capabilities.V1.xml#L734)|Boolean|Entities can be retrieved
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L737)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L740)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 
-## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L811)
+## <a name="CustomParameter"></a>[CustomParameter](Org.OData.Capabilities.V1.xml#L808)
 A custom parameter is either a header or a query option
 
 The type of a custom parameter is always a string. Restrictions on the parameter values can be expressed by annotating the record expression describing the parameter with terms from the Validation vocabulary, e.g. Validation.Pattern or Validation.AllowedValues.
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Capabilities.V1.xml#L815)|String|Name of the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L818)|String|Description of the custom parameter
-[DocumentationURL](Org.OData.Capabilities.V1.xml#L821)|URL|URL of related documentation
-[Required](Org.OData.Capabilities.V1.xml#L825)|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](Org.OData.Capabilities.V1.xml#L828)|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
+[Name](Org.OData.Capabilities.V1.xml#L812)|String|Name of the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L815)|String|Description of the custom parameter
+[DocumentationURL](Org.OData.Capabilities.V1.xml#L818)|URL|URL of related documentation
+[Required](Org.OData.Capabilities.V1.xml#L822)|Boolean|true: parameter is required, false or not specified: parameter is optional
+[ExampleValues](Org.OData.Capabilities.V1.xml#L825)|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
