@@ -579,7 +579,7 @@ supported:
 
       <ComplexType Name="Permission">
         <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false"/>
-        <Property Name="Scopes" Type="Collection(ScopeType)" Nullable="false"/>
+        <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false"/>
       </ComplexType>
 
       <ComplexType Name="ScopeType">
