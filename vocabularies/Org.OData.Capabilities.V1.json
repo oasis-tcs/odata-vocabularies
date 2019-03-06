@@ -316,6 +316,16 @@
                 "$Nullable": true,
                 "$Type": "Capabilities.DeleteRestrictionsType",
                 "@Core.Description": "Restrictions on delete operations"
+            },
+            "ReadRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.ReadRestrictionsType",
+                "@Core.Description": "Restrictions for retrieving a collection of entities"
+            },
+            "ReadByKeyRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.ReadRestrictionsType",
+                "@Core.Description": "Restrictions for retrieving an entity by key"
             }
         },
         "NavigationType": {

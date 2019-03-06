@@ -292,6 +292,12 @@ supported:
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
+        <Property Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities" />
+        </Property>
+        <Property Name="ReadByKeyRestrictions" Type="Capabilities.ReadRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
+        </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
         <Member Name="Recursive">
