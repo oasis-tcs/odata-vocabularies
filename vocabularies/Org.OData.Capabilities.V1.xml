@@ -582,7 +582,7 @@ supported:
             <Annotation Term="Core.Description" String="Auth flow scheme name." />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
-            <Annotation Term="Core.Description" String="Collection of scopes" />
+            <Annotation Term="Core.Description" String="List of scopes that can provide access to the resource." />
         </Property>
       </ComplexType>
 
@@ -591,7 +591,7 @@ supported:
             <Annotation Term="Core.Description" String="Name of the scope." />
         </Property>
         <Property Name="RestrictedProperties" Type="Edm.String" >
-            <Annotation Term="Core.Description" String="Comma separated value that is a collection of properties that will be restricted." />
+            <Annotation Term="Core.Description" String="Comma separated string value of all properties that will be restricted when using the scope." />
         </Property>
       </ComplexType>
       
@@ -718,38 +718,19 @@ supported:
           <Annotation Term="Core.Description" String="Members of this ordered collection can be deleted by ordinal" />
         </Property>
       </ComplexType>
-
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton FunctionImport">
-        <Annotation Term="Core.Description" String="Restrictions on read operations: retrieve a collection, retrieve a single instance, invoke a function" />
-      </Term>
-      <ComplexType Name="ReadRestrictionsType">
-        <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Entities can be retrieved" />
-          <Annotation Term="Core.LongDescription" String="This is only meaningful if the annotation is applied to an entity set or singleton." />
-        </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Supported or required custom headers" />
-        </Property>
-        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
-          <Annotation Term="Core.Description" String="Supported or required custom query options" />
-        </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType">
-          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
-        </Property>
-      </ComplexType>
       
       <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
       <ComplexType Name="OperationRestriction">
+        <Property Name="Permission" Type="Capabilities.PermissionType">
+          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
+        </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for function or action." />
         </Property>
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
             <Annotation Term="Core.Description" String="Supported or required custom query options" />
-        </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType">
-          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
       </ComplexType>
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityContainer">
@@ -792,6 +773,9 @@ supported:
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
           <Annotation Term="Core.LongDescription"
             String="This is only meaningful if the annotation is applied to an entity set or singleton." />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType">
+            <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
