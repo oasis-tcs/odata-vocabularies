@@ -563,7 +563,7 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Permissions" Type="Capabilities.Permission">
+        <Property Name="Permission" Type="Capabilities.PermissionType">
           <Annotation Term="Core.Description" String="Required scopes to perform the insert." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
@@ -577,14 +577,21 @@ supported:
         </Property>
       </ComplexType>
 
-      <ComplexType Name="Permission">
-        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false"/>
-        <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false"/>
+      <ComplexType Name="PermissionType">
+        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false">
+            <Annotation Term="Core.Description" String="Auth flow scheme name." />
+        </Property>
+        <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
+            <Annotation Term="Core.Description" String="Collection of scopes" />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="ScopeType">
-        <Property Name="Scope" Type="Edm.String" Nullable="false" />
+        <Property Name="Scope" Type="Edm.String" Nullable="false" >
+            <Annotation Term="Core.Description" String="Name of the scope." />
+        </Property>
         <Property Name="RestrictedProperties" Type="Edm.String" >
+            <Annotation Term="Core.Description" String="Comma separated value that is a collection of properties that will be restricted." />
         </Property>
       </ComplexType>
       
@@ -616,7 +623,7 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
-       <Property Name="Permissions" Type="Capabilities.Permission">
+       <Property Name="Permission" Type="Capabilities.PermissionType">
           <Annotation Term="Core.Description" String="Required scopes to perform update." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
@@ -643,6 +650,7 @@ supported:
             String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
         </Property>
       </ComplexType>
+
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
@@ -657,7 +665,7 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Permissions" Type="Capabilities.Permission">
+        <Property Name="Permission" Type="Capabilities.PermissionType">
           <Annotation Term="Core.Description" String="Required scopes to perform delete." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
@@ -725,7 +733,7 @@ supported:
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
-        <Property Name="Permissions" Type="Capabilities.Permission">
+        <Property Name="Permission" Type="Capabilities.PermissionType">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
       </ComplexType>
@@ -737,7 +745,10 @@ supported:
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Request header values allowed for function or action." />
         </Property>
-        <Property Name="Permissions" Type="Capabilities.Permission">
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+            <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
       </ComplexType>

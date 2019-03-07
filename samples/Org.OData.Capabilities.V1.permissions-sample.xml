@@ -173,7 +173,7 @@
 				<Annotation Term="Org.Graph.Vocabulary.OperationRestrictions">
 					<Collection>
 						<Record>
-							<PropertyValue Property="OperationName" String="reminderView" />
+							<PropertyValue Property="QualifiedOperationName" String="reminderView" />
 							<PropertyValue Property="Permissions">
 								<Record>
 									<PropertyValue Property="Scheme" String="DelegatedWork" />
@@ -219,7 +219,6 @@
 					</Collection>
 				</Annotation>
 			</Annotations>
-			<!-- Annotating Navigation Properties example -->
 			<!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes, DelegatedWork, DelegatedPersonal, Application -->
 			<Annotations Target="microsoft.graph.GraphService">
 				<Annotation Term="Auth.Authorizations">
