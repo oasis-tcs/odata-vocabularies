@@ -83,6 +83,7 @@ Term|Type|Description
 [ReadByKeyRestrictions](Org.OData.Capabilities.V1.xml#L736)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadByKeyRestrictions"></a>Restrictions for retrieving an entity by key
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L751)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L753))
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L779)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L783))<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p>
+[MediaLocationUpdateSupported](Org.OData.Capabilities.V1.xml#L836)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property supports update of its media edit URL and/or media read URL
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
