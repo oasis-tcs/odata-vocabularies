@@ -87,7 +87,13 @@
         "GranularityDate": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.TimeDimensionType",
-            "@Core.Description": "Granularity of this time dimension is Date"
+            "@Core.Description": "Granularity of this time dimension is Date",
+            "ClosedClosedPeriods": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Application-time periods are stored with closed-closed semantics",
+                "@Core.LongDescription": "Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries."
+            }
         },
         "QueryType": {
             "$Kind": "EnumType",

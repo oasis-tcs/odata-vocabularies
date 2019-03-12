@@ -858,6 +858,11 @@ supported:
         </Property>
       </ComplexType>
 
+      <Term Name="MediaLocationUpdateSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Core.Description" String="Stream property supports update of its media edit URL and/or media read URL" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

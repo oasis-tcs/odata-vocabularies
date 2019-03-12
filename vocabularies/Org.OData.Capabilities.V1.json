@@ -1120,6 +1120,16 @@
                 "$Type": "Core.PrimitiveExampleValue",
                 "@Core.Description": "Example values for the custom parameter"
             }
+        },
+        "MediaLocationUpdateSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.RequiresType": "Edm.Stream",
+            "@Core.Description": "Stream property supports update of its media edit URL and/or media read URL"
         }
     }
 }
