@@ -12,12 +12,13 @@
                   <Collection>
                     <Record>
                       <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
-                      <!-- * , [PROPERTY NAME], - list 
-											"*" denotes all properties are accessible
-											"Property name" used to provide access to specific properties
-											"-" sign prepended to property name used to exclude specific properties
-											Absense of the PropertyValue denotes all properties are accessible using that scope.
-											-->
+                      <!-- 
+                      * , [PROPERTY NAME], - list
+                      "*" denotes all properties are accessible
+                      "Property name" used to provide access to specific properties
+                      "-" sign prepended to property name used to exclude specific properties
+                      Absense of the PropertyValue denotes all properties are accessible using that scope.
+                      -->
                       <PropertyValue Property="RestrictedProperties">
                         <string>-mailboxSettings</string>
                       </PropertyValue>
