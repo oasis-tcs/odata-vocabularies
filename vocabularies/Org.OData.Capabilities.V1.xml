@@ -263,16 +263,16 @@ supported:
         <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
         </Property>
-        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Property Name="TopSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
-        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Property Name="SkipSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $skip" />
         </Property>
         <Property Name="SelectSupport" Type="Capabilities.SelectSupportType">
           <Annotation Term="Core.Description" String="Support for $select" />
         </Property>
-        <Property Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Property Name="IndexableByKey" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
         </Property>
         <Property Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType">
@@ -339,13 +339,13 @@ supported:
         <Property Name="Searchable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$search within $select is supported" />
         </Property>
-        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+        <Property Name="TopSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$top within $select is supported" />
         </Property>
-        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+        <Property Name="SkipSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$skip within $select is supported" />
         </Property>
-        <Property Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
+        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$compute within $select is supported" />
         </Property>
         <Property Name="Countable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
@@ -678,10 +678,10 @@ supported:
         <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
         </Property>
-        <Property Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Property Name="TopSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
-        <Property Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Property Name="SkipSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $skip" />
         </Property>
         <Property Name="SelectSupport" Type="Capabilities.SelectSupportType">
