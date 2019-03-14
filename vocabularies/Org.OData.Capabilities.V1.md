@@ -153,10 +153,10 @@ Property|Type|Description
 [FilterRestrictions](Org.OData.Capabilities.V1.xml#L257)|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on filter expressions
 [SearchRestrictions](Org.OData.Capabilities.V1.xml#L260)|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on search expressions
 [SortRestrictions](Org.OData.Capabilities.V1.xml#L263)|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on orderby expressions
-[TopSupported](Org.OData.Capabilities.V1.xml#L266)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
-[SkipSupported](Org.OData.Capabilities.V1.xml#L269)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
+[TopSupported](Org.OData.Capabilities.V1.xml#L266)|Boolean|Supports $top
+[SkipSupported](Org.OData.Capabilities.V1.xml#L269)|Boolean|Supports $skip
 [SelectSupport](Org.OData.Capabilities.V1.xml#L272)|[SelectSupportType](#SelectSupportType)|Support for $select
-[IndexableByKey](Org.OData.Capabilities.V1.xml#L275)|[Tag](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
+[IndexableByKey](Org.OData.Capabilities.V1.xml#L275)|Boolean|Supports key values according to OData URL conventions
 [InsertRestrictions](Org.OData.Capabilities.V1.xml#L278)|[InsertRestrictionsType](#InsertRestrictionsType)|Restrictions on insert operations
 [DeepInsertSupport](Org.OData.Capabilities.V1.xml#L281)|[DeepInsertSupportType](#DeepInsertSupportType)|Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
 [UpdateRestrictions](Org.OData.Capabilities.V1.xml#L285)|[UpdateRestrictionsType](#UpdateRestrictionsType)|Restrictions on update operations
@@ -181,9 +181,9 @@ Property|Type|Description
 [Expandable](Org.OData.Capabilities.V1.xml#L327)|Boolean|$expand within $select is supported
 [Filterable](Org.OData.Capabilities.V1.xml#L330)|Boolean|$filter within $select is supported
 [Searchable](Org.OData.Capabilities.V1.xml#L333)|Boolean|$search within $select is supported
-[TopSupported](Org.OData.Capabilities.V1.xml#L336)|[Tag](Org.OData.Core.V1.md#Tag)|$top within $select is supported
-[SkipSupported](Org.OData.Capabilities.V1.xml#L339)|[Tag](Org.OData.Core.V1.md#Tag)|$skip within $select is supported
-[ComputeSupported](Org.OData.Capabilities.V1.xml#L342)|[Tag](Org.OData.Core.V1.md#Tag)|$compute within $select is supported
+[TopSupported](Org.OData.Capabilities.V1.xml#L336)|Boolean|$top within $select is supported
+[SkipSupported](Org.OData.Capabilities.V1.xml#L339)|Boolean|$skip within $select is supported
+[ComputeSupported](Org.OData.Capabilities.V1.xml#L342)|Boolean|$compute within $select is supported
 [Countable](Org.OData.Capabilities.V1.xml#L345)|Boolean|$count within $select is supported
 [Sortable](Org.OData.Capabilities.V1.xml#L348)|Boolean|$orderby within $select is supported
 
@@ -334,8 +334,8 @@ Property|Type|Description
 [FilterRestrictions](Org.OData.Capabilities.V1.xml#L666)|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on filter expressions
 [SearchRestrictions](Org.OData.Capabilities.V1.xml#L669)|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on search expressions
 [SortRestrictions](Org.OData.Capabilities.V1.xml#L672)|[SortRestrictionsType](#SortRestrictionsType)|Restrictions on orderby expressions
-[TopSupported](Org.OData.Capabilities.V1.xml#L675)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $top
-[SkipSupported](Org.OData.Capabilities.V1.xml#L678)|[Tag](Org.OData.Core.V1.md#Tag)|Supports $skip
+[TopSupported](Org.OData.Capabilities.V1.xml#L675)|Boolean|Supports $top
+[SkipSupported](Org.OData.Capabilities.V1.xml#L678)|Boolean|Supports $skip
 [SelectSupport](Org.OData.Capabilities.V1.xml#L681)|[SelectSupportType](#SelectSupportType)|Support for $select
 [Insertable](Org.OData.Capabilities.V1.xml#L684)|Boolean|This collection supports positional inserts
 [Updatable](Org.OData.Capabilities.V1.xml#L687)|Boolean|Members of this ordered collection can be updated by ordinal
