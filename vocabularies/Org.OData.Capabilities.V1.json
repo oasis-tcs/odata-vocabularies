@@ -273,12 +273,12 @@
                 "@Core.Description": "Restrictions on orderby expressions"
             },
             "TopSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $top"
             },
             "SkipSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $skip"
             },
@@ -288,7 +288,7 @@
                 "@Core.Description": "Support for $select"
             },
             "IndexableByKey": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports key values according to OData URL conventions"
             },
@@ -387,17 +387,17 @@
                 "@Core.Description": "$search within $select is supported"
             },
             "TopSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "$top within $select is supported"
             },
             "SkipSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "$skip within $select is supported"
             },
             "ComputeSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "$compute within $select is supported"
             },
@@ -916,12 +916,12 @@
                 "@Core.Description": "Restrictions on orderby expressions"
             },
             "TopSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $top"
             },
             "SkipSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $skip"
             },
