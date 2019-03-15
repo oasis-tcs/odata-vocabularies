@@ -591,7 +591,13 @@ supported:
             <Annotation Term="Core.Description" String="Name of the scope." />
         </Property>
         <Property Name="RestrictedProperties" Type="Edm.String" >
-            <Annotation Term="Core.Description" String="Comma separated string value of all properties that will be restricted when using the scope." />
+            <Annotation Term="Core.Description" String="Comma separated string value of all properties that will be included or excluded when using the scope." />
+            <Annotation Term="Core.LongDescription"
+              String="Possible string value identifiers when specifying properties are '*','[PROPERTY NAME]','-[PROPERTY Name]'.
+              '*' denotes all properties are accessible.
+              '-' sign prepended to property name can be used to exclude specific properties.
+              [Property name] explicitly provides access to specific properties only.
+              The absence of the PropertyValue denotes all properties are accessible using that scope."/>
         </Property>
       </ComplexType>
       
