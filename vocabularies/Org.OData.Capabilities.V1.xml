@@ -292,6 +292,10 @@ supported:
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
+        <Property Name="OptimisticConcurrencyControl" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description"
+            String="Data modification (including insert) along this navigation property requires the use of ETags" />
+        </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
         <Member Name="Recursive">

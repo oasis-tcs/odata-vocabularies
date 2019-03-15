@@ -316,6 +316,11 @@
                 "$Nullable": true,
                 "$Type": "Capabilities.DeleteRestrictionsType",
                 "@Core.Description": "Restrictions on delete operations"
+            },
+            "OptimisticConcurrencyControl": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Data modification (including insert) along this navigation property requires the use of ETags"
             }
         },
         "NavigationType": {
