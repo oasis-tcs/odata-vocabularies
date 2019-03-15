@@ -293,10 +293,7 @@ supported:
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
         <Property Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities" />
-        </Property>
-        <Property Name="ReadByKeyRestrictions" Type="Capabilities.ReadRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
+          <Annotation Term="Core.Description" String="Restrictions for retrieving entities" />
         </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
@@ -733,10 +730,7 @@ supported:
         <Annotation Term="Core.Description"
           String="Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function" />
       </Term>
-      <Term Name="ReadByKeyRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet">
-        <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
-      </Term>
-      <ComplexType Name="ReadRestrictionsType">
+      <ComplexType Name="ReadRestrictionsBase" Abstract="true">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
         </Property>
@@ -745,6 +739,16 @@ supported:
         </Property>
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ReadByKeyRestrictionsType" BaseType="Capabilities.ReadRestrictionsBase">
+        <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
+      </ComplexType>
+      <ComplexType Name="ReadRestrictionsType" BaseType="Capabilities.ReadRestrictionsBase">
+        <Property Name="ReadByKeyRestrictions" Type="Capabilities.ReadByKeyRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
+          <Annotation Term="Core.LongDescription"
+            String="Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies." />
         </Property>
       </ComplexType>
 
