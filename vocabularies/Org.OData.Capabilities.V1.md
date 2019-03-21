@@ -279,7 +279,7 @@ Flag Member|Value|Description
 Property|Type|Description
 :-------|:---|:----------
 [Insertable](Org.OData.Capabilities.V1.xml#L556)|Boolean|Entities can be inserted
-[NonInsertableProperties](Org.OData.Capabilities.V1.xml#L559)|\[PropertyPath\]|These properties cannot be specified on insert
+[NonInsertableProperties](Org.OData.Capabilities.V1.xml#L559)|\[PropertyPath\]|These structural properties cannot be specified on insert
 [NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L562)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
 [MaxLevels](Org.OData.Capabilities.V1.xml#L565)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
 [QueryOptions](Org.OData.Capabilities.V1.xml#L569)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|Support for query options with insert requests
