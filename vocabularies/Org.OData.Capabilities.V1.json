@@ -1,6 +1,14 @@
 {
     "$Version": "4.0",
     "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Auth",
+                    "$Namespace": "Org.OData.Authorization.V1"
+                }
+            ]
+        },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
