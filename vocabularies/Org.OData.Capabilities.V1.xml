@@ -20,7 +20,7 @@
   - OData Measures Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml.
   - OData Capabilities Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml.
   - OData Validation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml.
-  - OData Aggregation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggretation.V1.xml.
+  - OData Aggregation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml.
   - OData Authorization Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml.
 
   Related work:
@@ -39,6 +39,9 @@
 
 -->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml">
+    <edmx:Include Alias="Auth" Namespace="Org.OData.Authorization.V1" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
@@ -291,6 +294,10 @@ supported:
         </Property>
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
+        </Property>
+        <Property Name="OptimisticConcurrencyControl" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description"
+            String="Data modification (including insert) along this navigation property requires the use of ETags" />
         </Property>
         <Property Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions for retrieving entities" />
@@ -559,12 +566,18 @@ supported:
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
         </Property>
+        <Property Name="NonInsertableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties cannot be specified on insert" />
+        </Property>
         <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow deep inserts" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+          <Annotation Term="Core.Description" String="Required scopes to perform the insert" />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with insert requests" />
@@ -574,6 +587,36 @@ supported:
         </Property>
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="PermissionType">
+        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false">
+          <Annotation Term="Core.Description" String="Auth flow scheme name" />
+        </Property>
+        <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of scopes that can provide access to the resource" />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="ScopeType">
+        <Property Name="Scope" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the scope." />
+        </Property>
+        <Property Name="RestrictedProperties" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description"
+            String="Comma-separated string value of all properties that will be included or excluded when using the scope." />
+          <Annotation Term="Core.LongDescription">
+            <String>Possible string value identifiers when specifying properties are `*`, _PropertyName_, `-`_PropertyName_.
+
+`*` denotes all properties are accessible.
+
+`-`_PropertyName_ excludes that specific property.
+
+_PropertyName_ explicitly provides access to the specific property.
+
+The absence of `RestrictedProperties` denotes all properties are accessible using that scope.</String>
+          </Annotation>
         </Property>
       </ComplexType>
 
@@ -604,6 +647,9 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+          <Annotation Term="Core.Description" String="Required scopes to perform update" />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with update requests" />
@@ -643,6 +689,9 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+          <Annotation Term="Core.Description" String="Required scopes to perform delete" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
@@ -695,6 +744,22 @@ supported:
         </Property>
       </ComplexType>
 
+      <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false"
+        AppliesTo="Action Function"
+      >
+        <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
+      </Term>
+      <ComplexType Name="OperationRestriction">
+        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
+        </Property>
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom headers" />
+        </Property>
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+      </ComplexType>
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
       </Term>
@@ -733,6 +798,9 @@ supported:
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
