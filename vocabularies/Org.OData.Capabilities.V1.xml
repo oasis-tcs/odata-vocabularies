@@ -563,6 +563,9 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType">
+          <Annotation Term="Core.Description" String="Required scopes to perform the insert." />
+        </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with insert requests" />
         </Property>
@@ -574,6 +577,30 @@ supported:
         </Property>
       </ComplexType>
 
+      <ComplexType Name="PermissionType">
+        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false">
+            <Annotation Term="Core.Description" String="Auth flow scheme name." />
+        </Property>
+        <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
+            <Annotation Term="Core.Description" String="List of scopes that can provide access to the resource." />
+        </Property>
+      </ComplexType>
+
+      <ComplexType Name="ScopeType">
+        <Property Name="Scope" Type="Edm.String" Nullable="false" >
+            <Annotation Term="Core.Description" String="Name of the scope." />
+        </Property>
+        <Property Name="RestrictedProperties" Type="Edm.String" >
+            <Annotation Term="Core.Description" String="Comma separated string value of all properties that will be included or excluded when using the scope." />
+            <Annotation Term="Core.LongDescription"
+              String="Possible string value identifiers when specifying properties are '*','[PROPERTY NAME]','-[PROPERTY Name]'.
+              '*' denotes all properties are accessible.
+              '-' sign prepended to property name can be used to exclude specific properties.
+              [Property name] explicitly provides access to specific properties only.
+              The absence of the PropertyValue denotes all properties are accessible using that scope."/>
+        </Property>
+      </ComplexType>
+      
       <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description"
           String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
@@ -601,6 +628,9 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
+        </Property>
+       <Property Name="Permission" Type="Capabilities.PermissionType">
+          <Annotation Term="Core.Description" String="Required scopes to perform update." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with update requests" />
@@ -640,6 +670,9 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType">
+          <Annotation Term="Core.Description" String="Required scopes to perform delete." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
@@ -691,7 +724,21 @@ supported:
           <Annotation Term="Core.Description" String="Members of this ordered collection can be deleted by ordinal" />
         </Property>
       </ComplexType>
-
+      
+      <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
+      </Term>
+      <ComplexType Name="OperationRestriction">
+        <Property Name="Permission" Type="Capabilities.PermissionType">
+          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
+        </Property>
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+          <Annotation Term="Core.Description" String="Request header values allowed for function or action." />
+        </Property>
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+            <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+      </ComplexType>
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
       </Term>
@@ -732,6 +779,9 @@ supported:
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
           <Annotation Term="Core.LongDescription"
             String="This is only meaningful if the annotation is applied to an entity set or singleton." />
+        </Property>
+        <Property Name="Permission" Type="Capabilities.PermissionType">
+            <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
