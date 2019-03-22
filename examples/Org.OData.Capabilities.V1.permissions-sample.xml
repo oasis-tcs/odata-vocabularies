@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+    <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="microsoft.graph" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <Annotations Target="microsoft.graph.GraphService/users">
-        <Annotation Term="Org.Graph.Vocabulary.InsertRestrictions">
+        <Annotation Term="Capabilities.InsertRestrictions">
           <Record>
             <PropertyValue Property="Permissions">
               <Record>
@@ -11,29 +14,29 @@
                 <PropertyValue Property="Scopes">
                   <Collection>
                     <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
-                      <!-- 
-                      * , [PROPERTY NAME], - list
-                      "*" denotes all properties are accessible
-                      "Property name" used to provide access to specific properties
-                      "-" sign prepended to property name used to exclude specific properties
-                      Absense of the PropertyValue denotes all properties are accessible using that scope.
+                      <PropertyValue Property="Scope" String="User.ReadWrite.All" />
+                      <!--
+                        * , [PROPERTY NAME], - list
+                        "*" denotes all properties are accessible
+                        "Property name" used to provide access to specific properties
+                        "-" sign prepended to property name used to exclude specific properties
+                        Absence of the PropertyValue denotes all properties are accessible using that scope.
                       -->
                       <PropertyValue Property="RestrictedProperties">
-                        <string>-mailboxSettings</string>
+                        <String>-mailboxSettings</String>
                       </PropertyValue>
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+                      <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
                       <PropertyValue Property="RestrictedProperties">
-                        <string>mailboxSettings</string>
+                        <String>mailboxSettings</String>
                       </PropertyValue>
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
                     </Record>
                   </Collection>
                 </PropertyValue>
@@ -43,13 +46,13 @@
                 <PropertyValue Property="Scopes">
                   <Collection>
                     <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+                      <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
                     </Record>
                   </Collection>
                 </PropertyValue>
@@ -57,7 +60,7 @@
             </PropertyValue>
           </Record>
         </Annotation>
-        <Annotation Term="Org.Graph.Vocabulary.UpdateRestrictions">
+        <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>
             <PropertyValue Property="Permissions">
               <Record>
@@ -65,16 +68,16 @@
                 <PropertyValue Property="Scopes">
                   <Collection>
                     <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                      <PropertyValue Property="Scope" String="User.ReadWrite" />
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                      <PropertyValue Property="Scope" String="User.ReadWrite.All" />
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
                     </Record>
                   </Collection>
                 </PropertyValue>
@@ -84,7 +87,7 @@
                 <PropertyValue Property="Scopes">
                   <Collection>
                     <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                      <PropertyValue Property="Scope" String="User.ReadWrite" />
                     </Record>
                   </Collection>
                 </PropertyValue>
@@ -94,10 +97,10 @@
                 <PropertyValue Property="Scopes">
                   <Collection>
                     <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                      <PropertyValue Property="Scope" String="User.ReadWrite.All" />
                     </Record>
                     <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                     </Record>
                   </Collection>
                 </PropertyValue>
@@ -105,8 +108,8 @@
             </PropertyValue>
           </Record>
         </Annotation>
-        <!-- Read restrictions :select restrictions and then props to filter, expand, etc.	  -->
-        <Annotation Term="Org.Graph.Vocabulary.ReadRestrictions">
+        <!-- Read restrictions :select restrictions and then props to filter, expand, etc. -->
+        <Annotation Term="Capabilities.ReadRestrictions">
           <Record>
             <PropertyValue Property="Permissions">
               <Collection>
@@ -115,28 +118,28 @@
                   <PropertyValue Property="Scopes">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.Read"/>
+                        <PropertyValue Property="Scope" String="User.Read" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadBasic.All"/>
+                        <PropertyValue Property="Scope" String="User.ReadBasic.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.Read.All"/>
+                        <PropertyValue Property="Scope" String="User.Read.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.Read.All"/>
+                        <PropertyValue Property="Scope" String="Directory.Read.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -146,19 +149,19 @@
                   <PropertyValue Property="Scopes">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.Read"/>
+                        <PropertyValue Property="Scope" String="User.Read" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.Read.All"/>
+                        <PropertyValue Property="Scope" String="Directory.Read.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -168,10 +171,10 @@
           </Record>
         </Annotation>
       </Annotations>
-      <!-- annoations on actions/functions -->
-      <Annotations Target="microsoft.graph.reminderView(microsoft.graph.user, Edm.String, Edm.String)">
+      <!-- annotations on actions/functions -->
+      <Annotations Target="microsoft.graph.reminderView(microsoft.graph.user,Edm.String,Edm.String)">
         <!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
-        <Annotation Term="Org.Graph.Vocabulary.OperationRestrictions">
+        <Annotation Term="Capabilities.OperationRestrictions">
           <Collection>
             <Record>
               <PropertyValue Property="QualifiedOperationName" String="reminderView" />
@@ -220,77 +223,78 @@
           </Collection>
         </Annotation>
       </Annotations>
-      <!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes, DelegatedWork, DelegatedPersonal, Application -->
+      <!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes,
+        DelegatedWork, DelegatedPersonal, Application -->
       <Annotations Target="microsoft.graph.GraphService">
         <Annotation Term="Auth.Authorizations">
           <Collection>
             <Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
-              <PropertyValue Property="Name" String="DelegatedWork"/>
+              <PropertyValue Property="Name" String="DelegatedWork" />
               <PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
               <PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
               <PropertyValue Property="Scopes">
                 <Collection>
                   <Record>
-                    <PropertyValue Property="Scope" String="User.ReadAll"/>
-                    <PropertyValue Property="Description" String="Read all user data"/>
-                    <PropertyValue Property="Grant" String="User"/>
+                    <PropertyValue Property="Scope" String="User.ReadAll" />
+                    <PropertyValue Property="Description" String="Read all user data" />
+                    <PropertyValue Property="Grant" String="User" />
                   </Record>
                   <Record>
-                    <PropertyValue Property="Scope" String="User.WriteAll"/>
-                    <PropertyValue Property="Description" String="Write all user data"/>
+                    <PropertyValue Property="Scope" String="User.WriteAll" />
+                    <PropertyValue Property="Description" String="Write all user data" />
                   </Record>
                   <Record>
-                    <PropertyValue Property="Scope" String="Directory.ReadAll"/>
-                    <PropertyValue Property="Description" String="Write to directory"/>
-                    <PropertyValue Property="Grant" String="Admin"/>
+                    <PropertyValue Property="Scope" String="Directory.ReadAll" />
+                    <PropertyValue Property="Description" String="Write to directory" />
+                    <PropertyValue Property="Grant" String="Admin" />
                   </Record>
                 </Collection>
               </PropertyValue>
             </Record>
             <Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
-              <PropertyValue Property="Name" String="DelegatedPersonal"/>
+              <PropertyValue Property="Name" String="DelegatedPersonal" />
               <PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
               <PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
               <PropertyValue Property="Scopes">
                 <Collection>
                   <Record>
-                    <PropertyValue Property="Scope" String="User.ReadAll"/>
-                    <PropertyValue Property="Description" String="Read all user data"/>
-                    <PropertyValue Property="Grant" String="User"/>
+                    <PropertyValue Property="Scope" String="User.ReadAll" />
+                    <PropertyValue Property="Description" String="Read all user data" />
+                    <PropertyValue Property="Grant" String="User" />
                   </Record>
                   <Record>
-                    <PropertyValue Property="Scope" String="User.WriteAll"/>
-                    <PropertyValue Property="Description" String="Write all user data"/>
-                    <PropertyValue Property="Grant" String="User"/>
+                    <PropertyValue Property="Scope" String="User.WriteAll" />
+                    <PropertyValue Property="Description" String="Write all user data" />
+                    <PropertyValue Property="Grant" String="User" />
                   </Record>
                   <Record>
-                    <PropertyValue Property="Scope" String="Directory.ReadAll"/>
-                    <PropertyValue Property="Description" String="Write to directory"/>
-                    <PropertyValue Property="Grant" String="User"/>
+                    <PropertyValue Property="Scope" String="Directory.ReadAll" />
+                    <PropertyValue Property="Description" String="Write to directory" />
+                    <PropertyValue Property="Grant" String="User" />
                   </Record>
                 </Collection>
               </PropertyValue>
             </Record>
             <Record Type="Org.OData.Authorization.V1.OAuth2Implicit">
-              <PropertyValue Property="Name" String="Application"/>
+              <PropertyValue Property="Name" String="Application" />
               <PropertyValue Property="AuthorizationUrl" String="https://graph.microsoft.com" />
               <PropertyValue Property="RefreshUrl" String="https://refreshUrl" />
               <PropertyValue Property="Scopes">
                 <Collection>
                   <Record>
-                    <PropertyValue Property="Scope" String="User.ReadAll"/>
-                    <PropertyValue Property="Description" String="Read all user data"/>
-                    <PropertyValue Property="Grant" String="Admin"/>
+                    <PropertyValue Property="Scope" String="User.ReadAll" />
+                    <PropertyValue Property="Description" String="Read all user data" />
+                    <PropertyValue Property="Grant" String="Admin" />
                   </Record>
                   <Record>
-                    <PropertyValue Property="Scope" String="User.WriteAll"/>
-                    <PropertyValue Property="Description" String="Write all user data"/>
-                    <PropertyValue Property="Grant" String="Admin"/>
+                    <PropertyValue Property="Scope" String="User.WriteAll" />
+                    <PropertyValue Property="Description" String="Write all user data" />
+                    <PropertyValue Property="Grant" String="Admin" />
                   </Record>
                   <Record>
-                    <PropertyValue Property="Scope" String="Directory.ReadAll"/>
-                    <PropertyValue Property="Description" String="Write to directory"/>
-                    <PropertyValue Property="Grant" String="Admin"/>
+                    <PropertyValue Property="Scope" String="Directory.ReadAll" />
+                    <PropertyValue Property="Description" String="Write to directory" />
+                    <PropertyValue Property="Grant" String="Admin" />
                   </Record>
                 </Collection>
               </PropertyValue>

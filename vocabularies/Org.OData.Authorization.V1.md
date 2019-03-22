@@ -123,23 +123,24 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Scope](Org.OData.Authorization.V1.xml#L158)|String|Scope name
-[Description](Org.OData.Authorization.V1.xml#L161)|String|Description of the scope
+[Grant](Org.OData.Authorization.V1.xml#L161)|String|Identity that has access to the scope or can grant access to the scope.
+[Description](Org.OData.Authorization.V1.xml#L165)|String|Description of the scope
 
-## <a name="ApiKey"></a>[ApiKey](Org.OData.Authorization.V1.xml#L166): [Authorization](#Authorization)
+## <a name="ApiKey"></a>[ApiKey](Org.OData.Authorization.V1.xml#L170): [Authorization](#Authorization)
 
 
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
 [*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
-[KeyName](Org.OData.Authorization.V1.xml#L167)|String|The name of the header or query parameter
-[Location](Org.OData.Authorization.V1.xml#L170)|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
+[KeyName](Org.OData.Authorization.V1.xml#L171)|String|The name of the header or query parameter
+[Location](Org.OData.Authorization.V1.xml#L174)|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
 
-## <a name="KeyLocation"></a>[KeyLocation](Org.OData.Authorization.V1.xml#L175)
+## <a name="KeyLocation"></a>[KeyLocation](Org.OData.Authorization.V1.xml#L179)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Header](Org.OData.Authorization.V1.xml#L176)|0|API Key is passed in the header
-[QueryOption](Org.OData.Authorization.V1.xml#L179)|1|API Key is passed as a query option
-[Cookie](Org.OData.Authorization.V1.xml#L182)|2|API Key is passed as a cookie
+[Header](Org.OData.Authorization.V1.xml#L180)|0|API Key is passed in the header
+[QueryOption](Org.OData.Authorization.V1.xml#L183)|1|API Key is passed as a query option
+[Cookie](Org.OData.Authorization.V1.xml#L186)|2|API Key is passed as a cookie

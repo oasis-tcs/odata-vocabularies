@@ -158,7 +158,7 @@
         <Property Name="Scope" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Scope name" />
         </Property>
-        <Property Name="Grant" Type="Edm.String">
+        <Property Name="Grant" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Identity that has access to the scope or can grant access to the scope." />
         </Property>
 
