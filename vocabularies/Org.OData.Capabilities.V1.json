@@ -1,6 +1,14 @@
 {
     "$Version": "4.0",
     "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Auth",
+                    "$Namespace": "Org.OData.Authorization.V1"
+                }
+            ]
+        },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
@@ -316,6 +324,11 @@
                 "$Nullable": true,
                 "$Type": "Capabilities.DeleteRestrictionsType",
                 "@Core.Description": "Restrictions on delete operations"
+            },
+            "OptimisticConcurrencyControl": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Data modification (including insert) along this navigation property requires the use of ETags"
             }
         },
         "NavigationType": {
@@ -712,6 +725,11 @@
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
             },
+            "Permission": {
+                "$Nullable": true,
+                "$Type": "Capabilities.PermissionType",
+                "@Core.Description": "Required scopes to perform the insert"
+            },
             "QueryOptions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.ModificationQueryOptionsType",
@@ -726,6 +744,29 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            }
+        },
+        "PermissionType": {
+            "$Kind": "ComplexType",
+            "Scheme": {
+                "$Type": "Auth.SecurityScheme",
+                "@Core.Description": "Auth flow scheme name"
+            },
+            "Scopes": {
+                "$Collection": true,
+                "$Type": "Capabilities.ScopeType",
+                "@Core.Description": "List of scopes that can provide access to the resource"
+            }
+        },
+        "ScopeType": {
+            "$Kind": "ComplexType",
+            "Scope": {
+                "@Core.Description": "Name of the scope."
+            },
+            "RestrictedProperties": {
+                "$Nullable": true,
+                "@Core.Description": "Comma-separated string value of all properties that will be included or excluded when using the scope.",
+                "@Core.LongDescription": "Possible string value identifiers when specifying properties are `*`, _PropertyName_, `-`_PropertyName_.\n\n`*` denotes all properties are accessible.\n\n`-`_PropertyName_ excludes that specific property.\n\n_PropertyName_ explicitly provides access to the specific property.\n\nThe absence of `RestrictedProperties` denotes all properties are accessible using that scope."
             }
         },
         "DeepInsertSupport": {
@@ -777,6 +818,11 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
+            },
+            "Permission": {
+                "$Nullable": true,
+                "$Type": "Capabilities.PermissionType",
+                "@Core.Description": "Required scopes to perform update"
             },
             "QueryOptions": {
                 "$Nullable": true,
@@ -842,6 +888,11 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
+            },
+            "Permission": {
+                "$Nullable": true,
+                "$Type": "Capabilities.PermissionType",
+                "@Core.Description": "Required scopes to perform delete"
             },
             "CustomHeaders": {
                 "$Collection": true,
@@ -921,6 +972,34 @@
                 "@Core.Description": "Members of this ordered collection can be deleted by ordinal"
             }
         },
+        "OperationRestrictions": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Capabilities.OperationRestriction",
+            "$AppliesTo": [
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "Restrictions for function or action operation"
+        },
+        "OperationRestriction": {
+            "$Kind": "ComplexType",
+            "Permission": {
+                "$Nullable": true,
+                "$Type": "Capabilities.PermissionType",
+                "@Core.Description": "List of required scopes to invoke an action or function"
+            },
+            "CustomHeaders": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom headers"
+            },
+            "CustomQueryOptions": {
+                "$Collection": true,
+                "$Type": "Capabilities.CustomParameter",
+                "@Core.Description": "Supported or required custom query options"
+            }
+        },
         "AnnotationValuesInQuerySupported": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -992,6 +1071,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be retrieved",
                 "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set or singleton."
+            },
+            "Permission": {
+                "$Nullable": true,
+                "$Type": "Capabilities.PermissionType",
+                "@Core.Description": "List of required scopes to invoke an action or function"
             },
             "CustomHeaders": {
                 "$Collection": true,

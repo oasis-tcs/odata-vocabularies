@@ -142,6 +142,10 @@
             "Scope": {
                 "@Core.Description": "Scope name"
             },
+            "Grant": {
+                "$Nullable": true,
+                "@Core.Description": "Identity that has access to the scope or can grant access to the scope."
+            },
             "Description": {
                 "@Core.Description": "Description of the scope"
             }
