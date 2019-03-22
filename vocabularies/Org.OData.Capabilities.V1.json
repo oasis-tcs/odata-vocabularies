@@ -710,6 +710,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be inserted"
             },
+            "NonInsertableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties cannot be specified on insert"
+            },
             "NonInsertableNavigationProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
