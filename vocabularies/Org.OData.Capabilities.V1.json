@@ -329,6 +329,11 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "Data modification (including insert) along this navigation property requires the use of ETags"
+            },
+            "ReadRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.ReadRestrictionsType",
+                "@Core.Description": "Restrictions for retrieving entities"
             }
         },
         "NavigationType": {
@@ -1062,15 +1067,15 @@
                 "Singleton",
                 "FunctionImport"
             ],
-            "@Core.Description": "Restrictions on read operations: retrieve a collection, retrieve a single instance, invoke a function"
+            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function"
         },
-        "ReadRestrictionsType": {
+        "ReadRestrictionsBase": {
             "$Kind": "ComplexType",
+            "$Abstract": true,
             "Readable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be retrieved",
-                "@Core.LongDescription": "This is only meaningful if the annotation is applied to an entity set or singleton."
+                "@Core.Description": "Entities can be retrieved"
             },
             "Permission": {
                 "$Nullable": true,
@@ -1086,6 +1091,21 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            }
+        },
+        "ReadByKeyRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.ReadRestrictionsBase",
+            "@Core.Description": "Restrictions for retrieving an entity by key"
+        },
+        "ReadRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.ReadRestrictionsBase",
+            "ReadByKeyRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.ReadByKeyRestrictionsType",
+                "@Core.Description": "Restrictions for retrieving an entity by key",
+                "@Core.LongDescription": "Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies."
             }
         },
         "CustomHeaders": {
