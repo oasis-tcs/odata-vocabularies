@@ -69,7 +69,9 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Supported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer Action ActionImport EntitySet" />
+      <Term Name="Supported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer Action ActionImport EntitySet">
+        <Annotation Term="Core.Description" String="Repeatable requests are supported" />
+      </Term>
 
       <Action Name="DeleteByClientID">
         <Annotation Term="Core.Description" String="An action that deletes all remembered requests for a particular client ID" />
