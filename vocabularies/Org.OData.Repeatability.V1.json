@@ -1,0 +1,65 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Alias": "Core",
+                    "$Namespace": "Org.OData.Core.V1"
+                }
+            ]
+        }
+    },
+    "Org.OData.Repeatability.V1": {
+        "$Alias": "Repeatability",
+        "@Core.Description": "Terms describing repeatable requests",
+        "@Core.Links": [
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.json"
+            },
+            {
+                "rel": "alternate",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.xml"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Repeatability.V1.md"
+            }
+        ],
+        "Supported": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer",
+                "Action",
+                "ActionImport",
+                "EntitySet"
+            ]
+        },
+        "DeleteByClientID": [
+            {
+                "$Kind": "Action",
+                "@Core.Description": "An action that deletes all remembered requests for a particular client ID",
+                "$Parameter": [
+                    {
+                        "$Name": "ClientID"
+                    }
+                ]
+            }
+        ],
+        "DeleteByRequestID": [
+            {
+                "$Kind": "Action",
+                "@Core.Description": "An action that deletes all remembered requests for a particular request ID",
+                "$Parameter": [
+                    {
+                        "$Name": "RequestID"
+                    }
+                ]
+            }
+        ]
+    }
+}
