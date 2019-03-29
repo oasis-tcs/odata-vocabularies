@@ -29,35 +29,35 @@
         ],
         "Supported": {
             "$Kind": "Term",
-            "$Nullable": true,
-            "$Type": "Repeatability.SupportType",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "Action",
                 "ActionImport",
                 "EntitySet"
             ],
-            "@Core.Description": "Repeatable request capabilities of this service, entity set, or action"
+            "@Core.Description": "Repeatable requests are supported for the annotated service, entity set, or action"
         },
-        "SupportType": {
-            "$Kind": "ComplexType",
-            "Supported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Repeatable requests are supported"
-            },
-            "DeletabilityByClientIDSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Deletion of remembered requests by client ID is supported",
-                "@Core.LongDescription": "Clients that specify a `RepeatabilityClientID` header can delete all remembered requests for that client ID by sending a\n\n`DELETE $RepeatableRequests/{ClientID}`\n\nrequest to the service root."
-            },
-            "DeletabilityByRequestIDSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Deletion of remembered requests by request ID is supported",
-                "@Core.LongDescription": "Clients can delete a single remembered request by sending a\n\n`DELETE $RepeatableRequest/{RequestID}`\n\nrequest to the service root."
-            }
+        "DeleteByClientIDSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Deletion of remembered requests by client ID is supported",
+            "@Core.LongDescription": "Clients that specify a `RepeatabilityClientID` header can delete all remembered requests for that client ID by sending a\n\n`DELETE $RepeatableRequests/{ClientID}`\n\nrequest to the service root."
+        },
+        "DeleteByRequestIDSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Deletion of remembered requests by request ID is supported",
+            "@Core.LongDescription": "Clients can delete a single remembered request by sending a\n\n`DELETE $RepeatableRequest/{RequestID}`\n\nrequest to the service root."
         }
     }
 }
