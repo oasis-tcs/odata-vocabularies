@@ -69,17 +69,32 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Supported" Type="Core.Tag" DefaultValue="true" AppliesTo="EntityContainer Action ActionImport EntitySet" />
+      <Term Name="Supported" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="EntityContainer Action ActionImport EntitySet"
+      >
+        <Annotation Term="Core.Description"
+          String="Repeatable requests are supported for the annotated service, entity set, or action" />
+      </Term>
+      <Term Name="DeleteByClientIDSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Deletion of remembered requests by client ID is supported" />
+        <Annotation Term="Core.LongDescription">
+          <String>Clients that specify a `RepeatabilityClientID` header can delete all remembered requests for that client ID by sending a
 
-      <Action Name="DeleteByClientID">
-        <Annotation Term="Core.Description" String="An action that deletes all remembered requests for a particular client ID" />
-        <Parameter Name="ClientID" Type="Edm.String" Nullable="false" />
-      </Action>
+`DELETE $RepeatableRequests/{ClientID}`
 
-      <Action Name="DeleteByRequestID">
-        <Annotation Term="Core.Description" String="An action that deletes all remembered requests for a particular request ID" />
-        <Parameter Name="RequestID" Type="Edm.String" Nullable="false" />
-      </Action>
+request to the service root.</String>
+        </Annotation>
+      </Term>
+      <Term Name="DeleteByRequestIDSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Deletion of remembered requests by request ID is supported" />
+        <Annotation Term="Core.LongDescription">
+          <String>Clients can delete a single remembered request by sending a
+
+`DELETE $RepeatableRequest/{RequestID}`
+
+request to the service root.</String>
+        </Annotation>
+      </Term>
 
     </Schema>
   </edmx:DataServices>
