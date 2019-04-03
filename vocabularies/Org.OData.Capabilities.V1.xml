@@ -327,6 +327,10 @@ supported:
         <Annotation Term="Core.Description" String="Supports $skip" />
       </Term>
 
+      <Term Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Supports $compute" />
+      </Term>
+
       <Term Name="SelectSupport" Type="Capabilities.SelectSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
         <Annotation Term="Core.Description" String="Support for $select and nested query options within $select" />
       </Term>
@@ -511,6 +515,9 @@ supported:
         <Property Name="Expandable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$expand is supported" />
         </Property>
+        <Property Name="StreamsExpandable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$expand is supported for stream properties and media resources" />
+        </Property>
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions" />
         </Property>
@@ -575,6 +582,10 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="TypecastSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities of a specific derived type can be created by specifying a type-cast segment" />
         </Property>
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="Required scopes to perform the insert" />
@@ -641,6 +652,12 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be updated" />
         </Property>
+        <Property Name="Upsertable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be upserted" />
+        </Property>
+        <Property Name="CollectionUpdate" Type="Capabilities.CollectionUpdateType" Nullable="false">
+          <Annotation Term="Core.Description" String="Entities can be upserted" />
+        </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
         </Property>
@@ -659,6 +676,24 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="CollectionUpdateType">
+        <Property Name="DeltaUpsertable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description"
+            String="Entities can be inserted and updated via a PATCH request with a delta payload" />
+        </Property>
+        <Property Name="DeltaDeletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities can be deleted via tombstones in a PATCH request with a delta payload" />
+        </Property>
+        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+        </Property>
+        <Property Name="TypecastSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
       </ComplexType>
 
@@ -689,6 +724,14 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+        </Property>
+        <Property Name="TypecastSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="Required scopes to perform delete" />

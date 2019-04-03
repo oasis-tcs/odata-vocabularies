@@ -372,6 +372,15 @@
             ],
             "@Core.Description": "Supports $skip"
         },
+        "ComputeSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "Supports $compute"
+        },
         "SelectSupport": {
             "$Kind": "Term",
             "$Type": "Capabilities.SelectSupportType",
@@ -641,6 +650,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "$expand is supported"
             },
+            "StreamsExpandable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "$expand is supported for stream properties and media resources"
+            },
             "NonExpandableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -730,6 +744,11 @@
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
             },
+            "TypecastSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities of a specific derived type can be created by specifying a type-cast segment"
+            },
             "Permission": {
                 "$Nullable": true,
                 "$Type": "Capabilities.PermissionType",
@@ -814,6 +833,15 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be updated"
             },
+            "Upsertable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be upserted"
+            },
+            "CollectionUpdate": {
+                "$Type": "Capabilities.CollectionUpdateType",
+                "@Core.Description": "Entities can be upserted"
+            },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -843,6 +871,29 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            }
+        },
+        "CollectionUpdateType": {
+            "$Kind": "ComplexType",
+            "DeltaUpsertable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be inserted and updated via a PATCH request with a delta payload"
+            },
+            "DeltaDeletable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be deleted via tombstones in a PATCH request with a delta payload"
+            },
+            "FilterSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+            },
+            "TypecastSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             }
         },
         "DeepUpdateSupport": {
@@ -893,6 +944,16 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
+            },
+            "FilterSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+            },
+            "TypecastSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
             "Permission": {
                 "$Nullable": true,
