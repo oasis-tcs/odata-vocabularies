@@ -567,6 +567,18 @@ supported:
           String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection" />
       </Term>
 
+      <Term Name="RelaxedSystemQueryOptionNamesSupported" Type="Core.Tag" Nullable="false" DefaultValue="true"
+        AppliesTo="EntityContainer"
+      >
+        <Annotation Term="Core.Description"
+          String="Supports [system query options](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) case-insensitive and with or without the `$` prefix" />
+      </Term>
+
+      <Term Name="QuerySegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description"
+          String="Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)" />
+      </Term>
+
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet">
@@ -586,7 +598,7 @@ supported:
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="TypecastSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Entities of a specific derived type can be created by specifying a type-cast segment" />
         </Property>
@@ -690,11 +702,11 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Entities can be deleted via tombstones in a PATCH request with a delta payload" />
         </Property>
-        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
         </Property>
-        <Property Name="TypecastSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
@@ -732,7 +744,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
         </Property>
-        <Property Name="TypecastSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
@@ -799,6 +811,10 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
       <ComplexType Name="OperationRestriction">
+        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Bound action or function can be invoked on a binding parameter path with a `/$filter(...)` segment" />
+        </Property>
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
         </Property>

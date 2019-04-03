@@ -715,6 +715,24 @@
             ],
             "@Core.Description": "Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection"
         },
+        "RelaxedSystemQueryOptionNamesSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Supports [system query options](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) case-insensitive and with or without the `$` prefix"
+        },
+        "QuerySegmentSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)"
+        },
         "InsertRestrictions": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -746,7 +764,7 @@
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
             },
-            "TypecastSupported": {
+            "TypecastSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities of a specific derived type can be created by specifying a type-cast segment"
@@ -887,12 +905,12 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be deleted via tombstones in a PATCH request with a delta payload"
             },
-            "FilterSupported": {
+            "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
             },
-            "TypecastSupported": {
+            "TypecastSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
@@ -952,7 +970,7 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
             },
-            "TypecastSupported": {
+            "TypecastSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
@@ -1054,6 +1072,11 @@
         },
         "OperationRestriction": {
             "$Kind": "ComplexType",
+            "FilterSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Bound action or function can be invoked on a binding parameter path with a `/$filter(...)` segment"
+            },
             "Permission": {
                 "$Nullable": true,
                 "$Type": "Capabilities.PermissionType",
