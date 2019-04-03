@@ -263,7 +263,8 @@
             },
             "FilterFunctions": {
                 "$Collection": true,
-                "@Core.Description": "List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted."
+                "@Core.Description": "List of functions and operators supported in filter expressions",
+                "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
             },
             "FilterRestrictions": {
                 "$Nullable": true,
@@ -512,7 +513,8 @@
                 "EntityContainer",
                 "EntitySet"
             ],
-            "@Core.Description": "List of functions and operators supported in $filter"
+            "@Core.Description": "List of functions and operators supported in filter expressions",
+            "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
         },
         "FilterRestrictions": {
             "$Kind": "Term",
@@ -990,7 +992,8 @@
             },
             "FilterFunctions": {
                 "$Collection": true,
-                "@Core.Description": "List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted"
+                "@Core.Description": "List of functions and operators supported in filter expressions",
+                "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
             },
             "FilterRestrictions": {
                 "$Nullable": true,
@@ -1025,7 +1028,8 @@
             "Insertable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "This collection supports positional inserts"
+                "@Core.Description": "Members can be inserted into this collection",
+                "@Core.LongDescription": "If additionally annotated with [Core.PositionalInsert](Org.OData.Core.V1.md#PositionalInsert), members can be inserted at a specific position"
             },
             "Updatable": {
                 "$Type": "Edm.Boolean",
