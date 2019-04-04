@@ -581,7 +581,7 @@
                 },
                 {
                     "Value": "MultiValue",
-                    "@Core.Description": "Property can be used in a single `in` clause"
+                    "@Core.Description": "Property can be used in multiple `eq` and `in` clauses, combined by `or` (which is logically equivalent to a single `in` clause)"
                 },
                 {
                     "Value": "SingleRange",
