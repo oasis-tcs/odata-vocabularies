@@ -456,7 +456,8 @@ supported:
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiValue" />
-              <Annotation Term="Core.Description" String="Property can be used in a single `in` clause" />
+              <Annotation Term="Core.Description"
+                String="Property can be used in multiple `eq` and `in` clauses, combined by `or` (which is logically equivalent to a single `in` clause)" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SingleRange" />
