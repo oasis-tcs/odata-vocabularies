@@ -373,9 +373,9 @@
           String="If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute." />
       </Term>
 
-      <Term Name="AutoExpand" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
+      <Term Name="AutoExpand" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty Property">
         <Annotation Term="Core.Description"
-          String="The service will automatically expand this navigation property even if not requested with $expand" />
+          String="The service will automatically expand this stream or navigation property even if not requested with $expand" />
       </Term>
 
       <Term Name="AutoExpandReferences" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
