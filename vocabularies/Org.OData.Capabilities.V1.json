@@ -668,6 +668,12 @@
                 "$DefaultValue": true,
                 "@Core.Description": "$search is supported"
             },
+            "SupportedSearchSyntax": {
+                "$Nullable": true,
+                "@Core.IsURL": true,
+                "@Core.Description": "Link to documentation of the supported search syntax",
+                "@Core.LongDescription": "If not specified, the service supports the OData $search syntax, or a subset of it expressed via property `UnsupportedExpressions`."
+            },
             "UnsupportedExpressions": {
                 "$Type": "Capabilities.SearchExpressions",
                 "$DefaultValue": "none",
