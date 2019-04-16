@@ -609,10 +609,10 @@ supported:
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with insert requests" />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
         </Property>
-        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
       </ComplexType>
@@ -687,10 +687,10 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with update requests" />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
         </Property>
-        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
       </ComplexType>
@@ -752,10 +752,10 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="Required scopes to perform delete" />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
         </Property>
-        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
       </ComplexType>
@@ -819,10 +819,10 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
         </Property>
-        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
       </ComplexType>
@@ -868,10 +868,10 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
         </Property>
-        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
         </Property>
-        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)">
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
       </ComplexType>
