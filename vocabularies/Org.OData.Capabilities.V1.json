@@ -295,6 +295,11 @@
                 "$Type": "Capabilities.SelectSupportType",
                 "@Core.Description": "Support for $select"
             },
+            "ExpandRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.ExpandRestrictionsType",
+                "@Core.Description": "Restrictions on expand expressions"
+            },
             "IndexableByKey": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,

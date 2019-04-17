@@ -275,6 +275,9 @@ supported:
         <Property Name="SelectSupport" Type="Capabilities.SelectSupportType">
           <Annotation Term="Core.Description" String="Support for $select" />
         </Property>
+        <Property Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
+        </Property>
         <Property Name="IndexableByKey" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
         </Property>
