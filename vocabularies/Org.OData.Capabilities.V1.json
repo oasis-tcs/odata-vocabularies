@@ -295,6 +295,11 @@
                 "$Type": "Capabilities.SelectSupportType",
                 "@Core.Description": "Support for $select"
             },
+            "CountRestrictions": {
+                "$Nullable": true,
+                "$Type": "Capabilities.CountRestrictionsType",
+                "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
+            },
             "ExpandRestrictions": {
                 "$Nullable": true,
                 "$Type": "Capabilities.ExpandRestrictionsType",

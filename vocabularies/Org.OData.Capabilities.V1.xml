@@ -275,6 +275,9 @@ supported:
         <Property Name="SelectSupport" Type="Capabilities.SelectSupportType">
           <Annotation Term="Core.Description" String="Support for $select" />
         </Property>
+        <Property Name="CountRestrictions" Type="Capabilities.CountRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
+        </Property>
         <Property Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
         </Property>
