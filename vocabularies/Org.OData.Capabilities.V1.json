@@ -755,6 +755,16 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            },
+            "Description": {
+                "$Nullable": true,
+                "@Core.Description": "A brief description of the request",
+                "@Core.IsLanguageDependent": true
+            },
+            "LongDescription": {
+                "$Nullable": true,
+                "@Core.Description": "A lengthy description of the request",
+                "@Core.IsLanguageDependent": true
             }
         },
         "PermissionType": {
@@ -849,6 +859,16 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            },
+            "Description": {
+                "$Nullable": true,
+                "@Core.Description": "A brief description of the request",
+                "@Core.IsLanguageDependent": true
+            },
+            "LongDescription": {
+                "$Nullable": true,
+                "@Core.Description": "A lengthy description of the request",
+                "@Core.IsLanguageDependent": true
             }
         },
         "DeepUpdateSupport": {
@@ -914,6 +934,16 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            },
+            "Description": {
+                "$Nullable": true,
+                "@Core.Description": "A brief description of the request",
+                "@Core.IsLanguageDependent": true
+            },
+            "LongDescription": {
+                "$Nullable": true,
+                "@Core.Description": "A lengthy description of the request",
+                "@Core.IsLanguageDependent": true
             }
         },
         "CollectionPropertyRestrictions": {
@@ -1097,6 +1127,16 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            },
+            "Description": {
+                "$Nullable": true,
+                "@Core.Description": "A brief description of the request",
+                "@Core.IsLanguageDependent": true
+            },
+            "LongDescription": {
+                "$Nullable": true,
+                "@Core.Description": "A lengthy description of the request",
+                "@Core.IsLanguageDependent": true
             }
         },
         "ReadByKeyRestrictionsType": {
