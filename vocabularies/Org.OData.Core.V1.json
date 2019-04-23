@@ -429,9 +429,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "NavigationProperty"
+                "NavigationProperty",
+                "Property"
             ],
-            "@Core.Description": "The service will automatically expand this navigation property even if not requested with $expand"
+            "@Core.Description": "The service will automatically expand this stream or navigation property even if not requested with $expand"
         },
         "AutoExpandReferences": {
             "$Kind": "Term",
