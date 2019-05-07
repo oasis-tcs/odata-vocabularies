@@ -82,7 +82,7 @@
         <Property Name="ApplicationTime" Type="Temporal.TimeDimensionType">
           <Annotation Term="Core.Description" String="Application time granularity" />
         </Property>
-        <Property Name="SystemTime" Type="Temporal.TimeDimensionGranularityDateTimeOffset">
+        <Property Name="SystemTime" Type="Temporal.GranularityDateTimeOffset">
           <Annotation Term="Core.Description" String="System time granularity" />
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">

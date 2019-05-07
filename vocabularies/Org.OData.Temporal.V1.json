@@ -47,7 +47,7 @@
             },
             "SystemTime": {
                 "$Nullable": true,
-                "$Type": "Temporal.TimeDimensionGranularityDateTimeOffset",
+                "$Type": "Temporal.GranularityDateTimeOffset",
                 "@Core.Description": "System time granularity"
             },
             "ObjectKey": {
