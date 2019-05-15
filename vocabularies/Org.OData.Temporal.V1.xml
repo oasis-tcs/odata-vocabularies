@@ -129,22 +129,22 @@
 
       <!-- Metadata annotations that can also appear as instance annotations -->
 
-      <Term Name="From" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+      <Term Name="From" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description"
           String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now" />
       </Term>
 
-      <Term Name="To" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+      <Term Name="To" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description"
           String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max" />
       </Term>
 
-      <Term Name="SystemFrom" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+      <Term Name="SystemFrom" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description"
           String="Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min" />
       </Term>
 
-      <Term Name="SystemTo" Type="Edm.PrimitiveType" AppliesTo="EntityType">
+      <Term Name="SystemTo" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description"
           String="Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max" />
       </Term>
@@ -152,7 +152,7 @@
 
       <!-- Instance annotations -->
 
-      <Term Name="History" Type="Collection(Edm.EntityType)">
+      <Term Name="History" Type="Collection(Edm.EntityType)" Nullable="false">
         <Annotation Term="Core.Description" String="A collection of time slices representing the history of the annotated entity" />
         <Annotation Term="Core.LongDescription"
           String="The time slices have the same entity type as the annotated entity and use the same select-expand projection." />
@@ -164,7 +164,7 @@
       <Action Name="UpdateObject" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
-        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
+        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
@@ -185,7 +185,7 @@
           <Annotation Term="Core.LongDescription"
             String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)">
+        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
           <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
         </ReturnType>
@@ -194,7 +194,7 @@
       <Action Name="UpsertObject" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period" />
-        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
+        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
@@ -215,7 +215,7 @@
           <Annotation Term="Core.LongDescription"
             String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)">
+        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
           <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
         </ReturnType>
@@ -224,7 +224,7 @@
       <Action Name="UpdateObjectFrom" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next" />
-        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
+        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
@@ -245,7 +245,7 @@
           <Annotation Term="Core.LongDescription"
             String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)">
+        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
           <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
         </ReturnType>
@@ -254,7 +254,7 @@
       <Action Name="SynchronizeObject" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Synchronizes time slices of a temporal object to match the provided full application timeline" />
-        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
+        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
@@ -271,7 +271,7 @@
       <Action Name="DeleteObject" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
-        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
+        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
@@ -287,7 +287,7 @@
           <Annotation Term="Core.Description"
             String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)">
+        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
           <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
         </ReturnType>
@@ -296,7 +296,7 @@
       <Action Name="DeleteObjectFrom" IsBound="true" EntitySetPath="timeslices">
         <Annotation Term="Core.Description"
           String="Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next" />
-        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)">
+        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
@@ -312,7 +312,7 @@
           <Annotation Term="Core.Description"
             String="Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)">
+        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
           <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
         </ReturnType>
