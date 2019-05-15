@@ -240,7 +240,8 @@ supported:
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
         <Property Name="Navigability" Type="Capabilities.NavigationType">
-          <Annotation Term="Core.Description" String="Supported Navigability" />
+          <Annotation Term="Core.Description" String="Supported navigability on all navigation properties" />
+          <Annotation Term="Core.LongDescription" String="Unless navigability is `None` further restrictions can be expressed via RestrictedProperties" />
         </Property>
         <Property Name="RestrictedProperties" Type="Collection(Capabilities.NavigationPropertyRestriction)" Nullable="false">
           <Annotation Term="Core.Description" String="List of navigation properties with restrictions" />
@@ -251,7 +252,7 @@ supported:
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
         </Property>
         <Property Name="Navigability" Type="Capabilities.NavigationType">
-          <Annotation Term="Core.Description" String="Navigation properties can be navigated to this level" />
+          <Annotation Term="Core.Description" String="Supported navigability of this navigation property" />
         </Property>
         <Property Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description"

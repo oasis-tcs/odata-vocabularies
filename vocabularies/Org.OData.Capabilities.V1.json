@@ -241,7 +241,8 @@
             "Navigability": {
                 "$Nullable": true,
                 "$Type": "Capabilities.NavigationType",
-                "@Core.Description": "Supported Navigability"
+                "@Core.Description": "Supported navigability on all navigation properties",
+                "@Core.LongDescription": "Unless navigability is `None` further restrictions can be expressed via RestrictedProperties"
             },
             "RestrictedProperties": {
                 "$Collection": true,
@@ -259,7 +260,7 @@
             "Navigability": {
                 "$Nullable": true,
                 "$Type": "Capabilities.NavigationType",
-                "@Core.Description": "Navigation properties can be navigated to this level"
+                "@Core.Description": "Supported navigability of this navigation property"
             },
             "FilterFunctions": {
                 "$Collection": true,
