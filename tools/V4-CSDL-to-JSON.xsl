@@ -462,7 +462,7 @@
     <xsl:value-of select="local-name()" />
     <xsl:text>":{</xsl:text>
     <xsl:apply-templates
-      select="@*[local-name()=name() and not(name()='Type' and .='Edm.String') and name()!='Nullable' and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
+      select="@*[local-name()=name() and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and name()!='Nullable' and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
       mode="list" />
     <xsl:text>}</xsl:text>
   </xsl:template>
