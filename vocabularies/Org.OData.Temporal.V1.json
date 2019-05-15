@@ -103,7 +103,6 @@
         },
         "From": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
@@ -112,7 +111,6 @@
         },
         "To": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
@@ -121,7 +119,6 @@
         },
         "SystemFrom": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
@@ -130,7 +127,6 @@
         },
         "SystemTo": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.PrimitiveType",
             "$AppliesTo": [
                 "EntityType"
