@@ -35,7 +35,7 @@ Action|Signature|Description
 Property|Type|Description
 :-------|:---|:----------
 [ApplicationTime](Org.OData.Temporal.V1.xml#L82)|[TimeDimensionType](#TimeDimensionType)|Application time granularity
-[SystemTime](Org.OData.Temporal.V1.xml#L85)|[TimeDimensionGranularityDateTimeOffset](#TimeDimensionGranularityDateTimeOffset)|System time granularity
+[SystemTime](Org.OData.Temporal.V1.xml#L85)|[GranularityDateTimeOffset](#GranularityDateTimeOffset)|System time granularity
 [ObjectKey](Org.OData.Temporal.V1.xml#L88)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<p>A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated entity set are time slices of temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the object key is identical to the entity key.</p>
 [SupportedActions](Org.OData.Temporal.V1.xml#L93)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
 
