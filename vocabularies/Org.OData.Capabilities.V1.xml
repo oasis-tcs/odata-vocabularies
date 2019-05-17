@@ -339,6 +339,9 @@ supported:
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $select" />
         </Property>
+        <Property Name="InstanceAnnotationsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports instance annotations in $select list" />
+        </Property>
         <Property Name="Expandable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$expand within $select is supported" />
         </Property>

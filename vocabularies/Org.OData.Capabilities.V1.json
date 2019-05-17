@@ -399,6 +399,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $select"
             },
+            "InstanceAnnotationsSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports instance annotations in $select list"
+            },
             "Expandable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
