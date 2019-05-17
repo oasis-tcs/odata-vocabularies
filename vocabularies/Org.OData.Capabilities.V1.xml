@@ -746,7 +746,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">

@@ -969,7 +969,8 @@
             "$Nullable": true,
             "$Type": "Capabilities.DeleteRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on delete operations"
         },
