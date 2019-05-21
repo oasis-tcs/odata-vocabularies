@@ -60,7 +60,10 @@
       <xsl:with-param name="after" select="@Alias" />
     </xsl:apply-templates>
     <xsl:apply-templates
-      select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:EntityContainer"
+      select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term
+             |edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]
+             |edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]
+             |edm:EntityContainer"
       mode="list"
     >
       <xsl:with-param name="after" select="@Alias|edm:Annotation" />
@@ -220,7 +223,11 @@
     <xsl:text>":{</xsl:text>
     <xsl:variable name="members">
       <xsl:apply-templates
-        select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and not(name()='MaxLength' and .='max') and not(name()='Scale' and .='variable') and not(name()='Unicode' and .='true')]|edm:*"
+        select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' 
+                   and not(name()='Type' and .='Edm.String' and ../@Nullable='false')
+                   and not(name()='MaxLength' and .='max') 
+                   and not(name()='Scale' and .='variable') 
+                   and not(name()='Unicode' and .='true')]|edm:*"
         mode="list" />
     </xsl:variable>
     <xsl:if test="local-name()!='Property'">
