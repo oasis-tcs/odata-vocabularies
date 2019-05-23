@@ -66,27 +66,13 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Schema" Type="JSON.SchemaType" Nullable="false" AppliesTo="Property">
-        <Annotation Term="Core.Description" String="The JSON Schema for this JSON property" />
+      <Term Name="Schema" Type="Edm.String" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
+        <Annotation Term="Core.Description" String="The JSON Schema for this JSON property" />
+        <Annotation Term="Core.LongDescription">
+          <String>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
+        </Annotation>
       </Term>
-
-      <ComplexType Name="SchemaType" Abstract="true">
-        <Annotation Term="Core.Description" String="The JSON Schema can be referenced or provided inline" />
-      </ComplexType>
-
-      <ComplexType Name="SchemaReference" BaseType="JSON.SchemaType">
-        <Property Name="ref" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="URL to the JSON Schema for the annotated stream property" />
-          <Annotation Term="Core.IsURL" />
-        </Property>
-      </ComplexType>
-
-      <ComplexType Name="SchemaInlined" BaseType="JSON.SchemaType">
-        <Property Name="schema" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="JSON Schema for the annotated stream property" />
-        </Property>
-      </ComplexType>
 
     </Schema>
   </edmx:DataServices>

@@ -29,32 +29,12 @@
         ],
         "Schema": {
             "$Kind": "Term",
-            "$Type": "JSON.SchemaType",
             "$AppliesTo": [
                 "Property"
             ],
+            "@Core.RequiresType": "Edm.Stream",
             "@Core.Description": "The JSON Schema for this JSON property",
-            "@Core.RequiresType": "Edm.Stream"
-        },
-        "SchemaType": {
-            "$Kind": "ComplexType",
-            "$Abstract": true,
-            "@Core.Description": "The JSON Schema can be referenced or provided inline"
-        },
-        "SchemaReference": {
-            "$Kind": "ComplexType",
-            "$BaseType": "JSON.SchemaType",
-            "ref": {
-                "@Core.Description": "URL to the JSON Schema for the annotated stream property",
-                "@Core.IsURL": true
-            }
-        },
-        "SchemaInlined": {
-            "$Kind": "ComplexType",
-            "$BaseType": "JSON.SchemaType",
-            "schema": {
-                "@Core.Description": "JSON Schema for the annotated stream property"
-            }
+            "@Core.LongDescription": "The schema can be a schema reference, i.e. `{\"$ref\":\"url/of/schemafile#/path/to/schema/within/schemafile\"}`"
         }
     }
 }
