@@ -681,11 +681,11 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
         <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
-            String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+            String="Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
         </Property>
         <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
-            String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
+            String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
@@ -744,13 +744,13 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
-            String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+            String="Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
         </Property>
         <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
-            String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
+            String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="Required scopes to perform delete" />
@@ -825,7 +825,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       <ComplexType Name="OperationRestriction">
         <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
-            String="Bound action or function can be invoked on a binding parameter path with a `/$filter(...)` segment" />
+            String="Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment" />
         </Property>
         <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />

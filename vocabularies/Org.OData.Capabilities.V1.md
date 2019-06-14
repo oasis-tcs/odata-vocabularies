@@ -329,8 +329,8 @@ Property|Type|Description
 [Updatable](Org.OData.Capabilities.V1.xml#L672)|Boolean|Entities can be updated
 [Upsertable](Org.OData.Capabilities.V1.xml#L675)|Boolean|Entities can be upserted
 [DeltaUpdateSupported](Org.OData.Capabilities.V1.xml#L678)|Boolean|Entities can be inserted, updated, and deleted via a PATCH request with a delta payload
-[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L682)|Boolean|Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment
-[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L686)|Boolean|Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment
+[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L682)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
+[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L686)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
 [NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L690)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
 [MaxLevels](Org.OData.Capabilities.V1.xml#L693)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
 [Permission](Org.OData.Capabilities.V1.xml#L697)|[PermissionType](#PermissionType)|Required scopes to perform update
@@ -356,8 +356,8 @@ Property|Type|Description
 [Deletable](Org.OData.Capabilities.V1.xml#L737)|Boolean|Entities can be deleted
 [NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L740)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
 [MaxLevels](Org.OData.Capabilities.V1.xml#L743)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
-[FilterSupported](Org.OData.Capabilities.V1.xml#L747)|Boolean|Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment
-[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L751)|Boolean|Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment
+[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L747)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
+[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L751)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
 [Permission](Org.OData.Capabilities.V1.xml#L755)|[PermissionType](#PermissionType)|Required scopes to perform delete
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L758)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L761)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
@@ -386,7 +386,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L826)|Boolean|Bound action or function can be invoked on a binding parameter path with a `/$filter(...)` segment
+[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L826)|Boolean|Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment
 [Permission](Org.OData.Capabilities.V1.xml#L830)|[PermissionType](#PermissionType)|List of required scopes to invoke an action or function
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L833)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L836)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options

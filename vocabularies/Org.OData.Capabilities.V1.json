@@ -872,12 +872,12 @@
             "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment"
             },
             "TypecastSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
@@ -970,15 +970,15 @@
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
             },
-            "FilterSupported": {
+            "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment"
             },
             "TypecastSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
             "Permission": {
                 "$Nullable": true,
@@ -1090,7 +1090,7 @@
             "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Bound action or function can be invoked on a binding parameter path with a `/$filter(...)` segment"
+                "@Core.Description": "Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment"
             },
             "Permission": {
                 "$Nullable": true,
