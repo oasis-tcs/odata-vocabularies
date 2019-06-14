@@ -720,15 +720,6 @@
             ],
             "@Core.Description": "Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection"
         },
-        "RelaxedSystemQueryOptionNamesSupported": {
-            "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
-            "$AppliesTo": [
-                "EntityContainer"
-            ],
-            "@Core.Description": "Supports [system query options](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) case-insensitive and with or without the `$` prefix"
-        },
         "QuerySegmentSupported": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -873,9 +864,20 @@
                 "$DefaultValue": false,
                 "@Core.Description": "Entities can be upserted"
             },
-            "CollectionUpdate": {
-                "$Type": "Capabilities.CollectionUpdateType",
-                "@Core.Description": "Entities can be upserted"
+            "DeltaUpdateSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be inserted, updated, and deleted via a PATCH request with a delta payload"
+            },
+            "FilterSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+            },
+            "TypecastSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
@@ -916,29 +918,6 @@
                 "$Nullable": true,
                 "@Core.Description": "A lengthy description of the request",
                 "@Core.IsLanguageDependent": true
-            }
-        },
-        "CollectionUpdateType": {
-            "$Kind": "ComplexType",
-            "DeltaUpsertable": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Entities can be inserted and updated via a PATCH request with a delta payload"
-            },
-            "DeltaDeletable": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Entities can be deleted via tombstones in a PATCH request with a delta payload"
-            },
-            "FilterSegmentSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment"
-            },
-            "TypecastSegmentSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             }
         },
         "DeepUpdateSupport": {

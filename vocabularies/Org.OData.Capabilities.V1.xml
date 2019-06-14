@@ -571,13 +571,6 @@ supported:
           String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection" />
       </Term>
 
-      <Term Name="RelaxedSystemQueryOptionNamesSupported" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityContainer"
-      >
-        <Annotation Term="Core.Description"
-          String="Supports [system query options](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_SystemQueryOptions) case-insensitive and with or without the `$` prefix" />
-      </Term>
-
       <Term Name="QuerySegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description"
           String="Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)" />
@@ -682,8 +675,17 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="Upsertable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Entities can be upserted" />
         </Property>
-        <Property Name="CollectionUpdate" Type="Capabilities.CollectionUpdateType" Nullable="false">
-          <Annotation Term="Core.Description" String="Entities can be upserted" />
+        <Property Name="DeltaUpdateSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description"
+            String="Entities can be inserted, updated, and deleted via a PATCH request with a delta payload" />
+        </Property>
+        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+        </Property>
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
@@ -711,24 +713,6 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="A lengthy description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
-        </Property>
-      </ComplexType>
-      <ComplexType Name="CollectionUpdateType">
-        <Property Name="DeltaUpsertable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description"
-            String="Entities can be inserted and updated via a PATCH request with a delta payload" />
-        </Property>
-        <Property Name="DeltaDeletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description"
-            String="Entities can be deleted via tombstones in a PATCH request with a delta payload" />
-        </Property>
-        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description"
-            String="Entities can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
-        </Property>
-        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description"
-            String="Entities can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
       </ComplexType>
 
