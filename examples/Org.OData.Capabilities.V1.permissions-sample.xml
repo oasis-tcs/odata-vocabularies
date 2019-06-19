@@ -9,102 +9,106 @@
         <Annotation Term="Capabilities.InsertRestrictions">
           <Record>
             <PropertyValue Property="Permissions">
-              <Record>
-                <PropertyValue Property="Scheme" String="DelegatedWork" />
-                <PropertyValue Property="Scopes">
-                  <Collection>
-                    <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite.All" />
-                      <!--
-                        * , [PROPERTY NAME], - list
-                        "*" denotes all properties are accessible
-                        "Property name" used to provide access to specific properties
-                        "-" sign prepended to property name used to exclude specific properties
-                        Absence of the PropertyValue denotes all properties are accessible using that scope.
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Scheme" String="DelegatedWork" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                        <!-- 
+                      * , [PROPERTY NAME], - list
+                      "*" denotes all properties are accessible
+                      "Property name" used to provide access to specific properties
+                      "-" sign prepended to property name used to exclude specific properties
+                      Absense of the PropertyValue denotes all properties are accessible using that scope.
                       -->
-                      <PropertyValue Property="RestrictedProperties">
-                        <String>-mailboxSettings</String>
-                      </PropertyValue>
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-                      <PropertyValue Property="RestrictedProperties">
-                        <String>mailboxSettings</String>
-                      </PropertyValue>
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-                    </Record>
-                  </Collection>
-                </PropertyValue>
-              </Record>
-              <Record>
-                <PropertyValue Property="Scheme" String="Application" />
-                <PropertyValue Property="Scopes">
-                  <Collection>
-                    <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-                    </Record>
-                  </Collection>
-                </PropertyValue>
-              </Record>
+                        <PropertyValue Property="RestrictedProperties">
+                          <string>-mailboxSettings</string>
+                        </PropertyValue>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+                        <PropertyValue Property="RestrictedProperties">
+                          <string>mailboxSettings</string>
+                        </PropertyValue>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Scheme" String="Application" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+              </Collection>
             </PropertyValue>
           </Record>
         </Annotation>
         <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>
             <PropertyValue Property="Permissions">
-              <Record>
-                <PropertyValue Property="Scheme" String="DelegatedWork" />
-                <PropertyValue Property="Scopes">
-                  <Collection>
-                    <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite.All" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-                    </Record>
-                  </Collection>
-                </PropertyValue>
-              </Record>
-              <Record>
-                <PropertyValue Property="Scheme" String="DelegatedPersonal" />
-                <PropertyValue Property="Scopes">
-                  <Collection>
-                    <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite" />
-                    </Record>
-                  </Collection>
-                </PropertyValue>
-              </Record>
-              <Record>
-                <PropertyValue Property="Scheme" String="Application" />
-                <PropertyValue Property="Scopes">
-                  <Collection>
-                    <Record>
-                      <PropertyValue Property="Scope" String="User.ReadWrite.All" />
-                    </Record>
-                    <Record>
-                      <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-                    </Record>
-                  </Collection>
-                </PropertyValue>
-              </Record>
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Scheme" String="DelegatedWork" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Scheme" String="DelegatedPersonal" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Scheme" String="Application" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+              </Collection>
             </PropertyValue>
           </Record>
         </Annotation>
@@ -179,45 +183,47 @@
             <Record>
               <PropertyValue Property="QualifiedOperationName" String="reminderView" />
               <PropertyValue Property="Permissions">
-                <Record>
-                  <PropertyValue Property="Scheme" String="DelegatedWork" />
-                  <PropertyValue Property="Scopes">
-                    <Collection>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Calendars.Read" />
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-                      </Record>
-                    </Collection>
-                  </PropertyValue>
-                </Record>
-                <Record>
-                  <PropertyValue Property="Scheme" String="DelegatedPersonal" />
-                  <PropertyValue Property="Scopes">
-                    <Collection>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Calendars.Read" />
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-                      </Record>
-                    </Collection>
-                  </PropertyValue>
-                </Record>
-                <Record>
-                  <PropertyValue Property="Scheme" String="Application" />
-                  <PropertyValue Property="Scopes">
-                    <Collection>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Calendars.Read" />
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-                      </Record>
-                    </Collection>
-                  </PropertyValue>
-                </Record>
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="Scheme" String="DelegatedWork" />
+                    <PropertyValue Property="Scopes">
+                      <Collection>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Calendars.Read" />
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+                        </Record>
+                      </Collection>
+                    </PropertyValue>
+                  </Record>
+                  <Record>
+                    <PropertyValue Property="Scheme" String="DelegatedPersonal" />
+                    <PropertyValue Property="Scopes">
+                      <Collection>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Calendars.Read" />
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+                        </Record>
+                      </Collection>
+                    </PropertyValue>
+                  </Record>
+                  <Record>
+                    <PropertyValue Property="Scheme" String="Application" />
+                    <PropertyValue Property="Scopes">
+                      <Collection>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Calendars.Read" />
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+                        </Record>
+                      </Collection>
+                    </PropertyValue>
+                  </Record>
+                </Collection>
               </PropertyValue>
             </Record>
           </Collection>
