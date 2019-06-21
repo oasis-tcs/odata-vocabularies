@@ -235,6 +235,97 @@
                 }
             ]
         },
+        "ValueException": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Core.ValueExceptionType",
+            "@Core.Description": "The annotated numeric value is problematic"
+        },
+        "ExceptionType": {
+            "$Kind": "ComplexType",
+            "$Abstract": true,
+            "info": {
+                "$Nullable": true,
+                "$Type": "Core.Message",
+                "@Core.Description": "Information on the (cause of) the exception"
+            }
+        },
+        "ValueExceptionType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExceptionType",
+            "value": {
+                "@Core.Description": "The actual numeric value"
+            }
+        },
+        "NestedItemException": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Core.NestedItemExceptionType",
+            "@Core.Description": "The annotated instance or collection within a success payload is problematic"
+        },
+        "NestedItemExceptionType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExceptionType",
+            "retryLink": {
+                "@Core.Description": "GET this URL to retry retrieving the problematic instances",
+                "@Core.IsURL": true
+            }
+        },
+        "ModificationException": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$Type": "Core.ModificationExceptionType",
+            "@Core.Description": "A modification operation failed on the annotated instance or collection within a success payload"
+        },
+        "ModificationExceptionType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Core.ExceptionType",
+            "failedOperation": {
+                "$Type": "Core.ModificationOperationKind",
+                "@Core.Description": "The kind of modification operation that failed"
+            },
+            "responseCode": {
+                "$Nullable": true,
+                "$Type": "Edm.Int16",
+                "@Core.Description": "Response code of the failed operation, e.g. 424 for a failed dependency",
+                "@Validation.Minimum": "100",
+                "@Validation.Maximum": "599"
+            }
+        },
+        "ModificationOperationKind": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "insert",
+                    "@Core.Description": "Insert new instance"
+                },
+                {
+                    "Value": "update",
+                    "@Core.Description": "Update existing instance"
+                },
+                {
+                    "Value": "upsert",
+                    "@Core.Description": "Insert new instance or update it if it already exists"
+                },
+                {
+                    "Value": "delete",
+                    "@Core.Description": "Delete existing instance"
+                },
+                {
+                    "Value": "invoke",
+                    "@Core.Description": "Invoke action or function"
+                },
+                {
+                    "Value": "addlink",
+                    "@Core.Description": "Add link between entities"
+                },
+                {
+                    "Value": "removelink",
+                    "@Core.Description": "Remove link between entities"
+                }
+            ]
+        },
         "IsLanguageDependent": {
             "$Kind": "Term",
             "$Type": "Core.Tag",

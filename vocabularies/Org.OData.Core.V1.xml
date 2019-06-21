@@ -251,6 +251,80 @@
         </Annotation>
       </TypeDefinition>
 
+      <Term Name="ValueException" Type="Core.ValueExceptionType">
+        <Annotation Term="Core.Description" String="The annotated numeric value is problematic" />
+      </Term>
+      <ComplexType Name="ExceptionType" Abstract="true">
+        <Property Name="info" Type="Core.Message" Nullable="true">
+          <Annotation Term="Core.Description" String="Information on the (cause of) the exception" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ValueExceptionType" BaseType="Core.ExceptionType">
+        <Property Name="value" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="The actual numeric value" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="NestedItemException" Type="Core.NestedItemExceptionType">
+        <Annotation Term="Core.Description" String="The annotated instance or collection within a success payload is problematic" />
+      </Term>
+      <ComplexType Name="NestedItemExceptionType" BaseType="Core.ExceptionType">
+        <Property Name="retryLink" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="GET this URL to retry retrieving the problematic instances" />
+          <Annotation Term="Core.IsURL" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="ModificationException" Type="Core.ModificationExceptionType">
+        <Annotation Term="Core.Description"
+          String="A modification operation failed on the annotated instance or collection within a success payload" />
+      </Term>
+      <ComplexType Name="ModificationExceptionType" BaseType="Core.ExceptionType">
+        <Property Name="failedOperation" Type="Core.ModificationOperationKind" Nullable="false">
+          <Annotation Term="Core.Description" String="The kind of modification operation that failed" />
+        </Property>
+        <Property Name="responseCode" Type="Edm.Int16" Nullable="true">
+          <Annotation Term="Core.Description" String="Response code of the failed operation, e.g. 424 for a failed dependency" />
+          <Annotation Term="Validation.Minimum" Decimal="100" />
+          <Annotation Term="Validation.Maximum" Decimal="599" />
+        </Property>
+      </ComplexType>
+      <TypeDefinition Name="ModificationOperationKind" UnderlyingType="Edm.String">
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="insert" />
+              <Annotation Term="Core.Description" String="Insert new instance" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="update" />
+              <Annotation Term="Core.Description" String="Update existing instance" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="upsert" />
+              <Annotation Term="Core.Description" String="Insert new instance or update it if it already exists" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="delete" />
+              <Annotation Term="Core.Description" String="Delete existing instance" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="invoke" />
+              <Annotation Term="Core.Description" String="Invoke action or function" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="addlink" />
+              <Annotation Term="Core.Description" String="Add link between entities" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="removelink" />
+              <Annotation Term="Core.Description" String="Remove link between entities" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
+
       <!-- Localization -->
 
       <Term Name="IsLanguageDependent" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
