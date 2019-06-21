@@ -188,8 +188,8 @@ Allowed Value|Description
 [upsert](Org.OData.Core.V1.xml#L303)|Insert new instance or update it if it already exists
 [delete](Org.OData.Core.V1.xml#L307)|Delete existing instance
 [invoke](Org.OData.Core.V1.xml#L311)|Invoke action or function
-[addlink](Org.OData.Core.V1.xml#L315)|Add link between entities
-[removelink](Org.OData.Core.V1.xml#L319)|Remove link between entities
+[link](Org.OData.Core.V1.xml#L315)|Add link between entities
+[unlink](Org.OData.Core.V1.xml#L319)|Remove link between entities
 
 ## <a name="Tag"></a>[Tag](Org.OData.Core.V1.xml#L335)
 **Type:** Boolean

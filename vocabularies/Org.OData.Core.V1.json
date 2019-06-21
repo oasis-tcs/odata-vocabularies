@@ -316,11 +316,11 @@
                     "@Core.Description": "Invoke action or function"
                 },
                 {
-                    "Value": "addlink",
+                    "Value": "link",
                     "@Core.Description": "Add link between entities"
                 },
                 {
-                    "Value": "removelink",
+                    "Value": "unlink",
                     "@Core.Description": "Remove link between entities"
                 }
             ]

@@ -313,11 +313,11 @@
               <Annotation Term="Core.Description" String="Invoke action or function" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="addlink" />
+              <PropertyValue Property="Value" String="link" />
               <Annotation Term="Core.Description" String="Add link between entities" />
             </Record>
             <Record>
-              <PropertyValue Property="Value" String="removelink" />
+              <PropertyValue Property="Value" String="unlink" />
               <Annotation Term="Core.Description" String="Remove link between entities" />
             </Record>
           </Collection>
