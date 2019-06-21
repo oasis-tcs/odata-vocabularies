@@ -17,7 +17,7 @@ Term|Type|Description
 [Example](Org.OData.Core.V1.xml#L138)|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element ([Example](Org.OData.Core.V1.xml#L140))
 [Messages](Org.OData.Core.V1.xml#L209)|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
 [ValueException](Org.OData.Core.V1.xml#L254)|[ValueExceptionType](#ValueExceptionType)|<a name="ValueException"></a>The annotated numeric value is problematic
-[NestedItemException](Org.OData.Core.V1.xml#L268)|[NestedItemExceptionType](#NestedItemExceptionType)|<a name="NestedItemException"></a>The annotated instance or collection within a success payload is problematic
+[ResourceException](Org.OData.Core.V1.xml#L268)|[ResourceExceptionType](#ResourceExceptionType)|<a name="ResourceException"></a>The annotated instance within a success payload is problematic
 [ModificationException](Org.OData.Core.V1.xml#L278)|[ModificationExceptionType](#ModificationExceptionType)|<a name="ModificationException"></a>A modification operation failed on the annotated instance or collection within a success payload
 [IsLanguageDependent](Org.OData.Core.V1.xml#L330)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
 [RequiresType](Org.OData.Core.V1.xml#L341)|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
@@ -144,7 +144,7 @@ Allowed Value|Description
 
 **Derived Types:**
 - [ValueExceptionType](#ValueExceptionType)
-- [NestedItemExceptionType](#NestedItemExceptionType)
+- [ResourceExceptionType](#ResourceExceptionType)
 - [ModificationExceptionType](#ModificationExceptionType)
 
 Property|Type|Description
@@ -159,7 +159,7 @@ Property|Type|Description
 [*info*](Org.OData.Core.V1.xml#L258)|[MessageType](#MessageType)|Information on the (cause of) the exception
 [value](Org.OData.Core.V1.xml#L263)|String|The actual numeric value
 
-## <a name="NestedItemExceptionType"></a>[NestedItemExceptionType](Org.OData.Core.V1.xml#L271): [ExceptionType](#ExceptionType)
+## <a name="ResourceExceptionType"></a>[ResourceExceptionType](Org.OData.Core.V1.xml#L271): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description

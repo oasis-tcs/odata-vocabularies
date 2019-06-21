@@ -257,12 +257,12 @@
                 "@Core.Description": "The actual numeric value"
             }
         },
-        "NestedItemException": {
+        "ResourceException": {
             "$Kind": "Term",
-            "$Type": "Core.NestedItemExceptionType",
-            "@Core.Description": "The annotated instance or collection within a success payload is problematic"
+            "$Type": "Core.ResourceExceptionType",
+            "@Core.Description": "The annotated instance within a success payload is problematic"
         },
-        "NestedItemExceptionType": {
+        "ResourceExceptionType": {
             "$Kind": "ComplexType",
             "$BaseType": "Core.ExceptionType",
             "retryLink": {
@@ -287,8 +287,8 @@
                 "$Nullable": true,
                 "$Type": "Edm.Int16",
                 "@Core.Description": "Response code of the failed operation, e.g. 424 for a failed dependency",
-                "@Validation.Minimum": "100",
-                "@Validation.Maximum": "599"
+                "@Validation.Minimum": 100,
+                "@Validation.Maximum": 599
             }
         },
         "ModificationOperationKind": {

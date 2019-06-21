@@ -265,10 +265,10 @@
         </Property>
       </ComplexType>
 
-      <Term Name="NestedItemException" Type="Core.NestedItemExceptionType" Nullable="false">
-        <Annotation Term="Core.Description" String="The annotated instance or collection within a success payload is problematic" />
+      <Term Name="ResourceException" Type="Core.ResourceExceptionType" Nullable="false">
+        <Annotation Term="Core.Description" String="The annotated instance within a success payload is problematic" />
       </Term>
-      <ComplexType Name="NestedItemExceptionType" BaseType="Core.ExceptionType">
+      <ComplexType Name="ResourceExceptionType" BaseType="Core.ExceptionType">
         <Property Name="retryLink" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="GET this URL to retry retrieving the problematic instances" />
           <Annotation Term="Core.IsURL" />
