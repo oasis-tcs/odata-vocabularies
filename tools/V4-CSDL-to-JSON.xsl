@@ -15,7 +15,7 @@
 
   <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes" />
 
-  <xsl:param name="safe-numbers" select="true()" />
+  <xsl:param name="safe-numbers" select="false()" />
 
   <xsl:key name="methods" match="//edm:Action|//edm:Function" use="concat(../@Namespace,'.',@Name)" />
   <xsl:key name="targets" match="//edm:Annotations" use="concat(../@Namespace,'/',@Target)" />
