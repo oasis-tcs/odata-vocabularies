@@ -251,31 +251,31 @@
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="ValueException" Type="Core.ValueExceptionType">
+      <Term Name="ValueException" Type="Core.ValueExceptionType" Nullable="false">
         <Annotation Term="Core.Description" String="The annotated numeric value is problematic" />
       </Term>
       <ComplexType Name="ExceptionType" Abstract="true">
-        <Property Name="info" Type="Core.Message" Nullable="true">
+        <Property Name="info" Type="Core.MessageType" Nullable="true">
           <Annotation Term="Core.Description" String="Information on the (cause of) the exception" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueExceptionType" BaseType="Core.ExceptionType">
-        <Property Name="value" Type="Edm.String" Nullable="false">
+        <Property Name="value" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="The actual numeric value" />
         </Property>
       </ComplexType>
 
-      <Term Name="NestedItemException" Type="Core.NestedItemExceptionType">
+      <Term Name="NestedItemException" Type="Core.NestedItemExceptionType" Nullable="false">
         <Annotation Term="Core.Description" String="The annotated instance or collection within a success payload is problematic" />
       </Term>
       <ComplexType Name="NestedItemExceptionType" BaseType="Core.ExceptionType">
-        <Property Name="retryLink" Type="Edm.String" Nullable="false">
+        <Property Name="retryLink" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="GET this URL to retry retrieving the problematic instances" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
-      <Term Name="ModificationException" Type="Core.ModificationExceptionType">
+      <Term Name="ModificationException" Type="Core.ModificationExceptionType" Nullable="false">
         <Annotation Term="Core.Description"
           String="A modification operation failed on the annotated instance or collection within a success payload" />
       </Term>

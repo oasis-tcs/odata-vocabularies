@@ -149,14 +149,14 @@ Allowed Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[info](Org.OData.Core.V1.xml#L258)|[Message](#Message)|Information on the (cause of) the exception
+[info](Org.OData.Core.V1.xml#L258)|[MessageType](#MessageType)|Information on the (cause of) the exception
 
 ## <a name="ValueExceptionType"></a>[ValueExceptionType](Org.OData.Core.V1.xml#L262): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*info*](Org.OData.Core.V1.xml#L258)|[Message](#Message)|Information on the (cause of) the exception
+[*info*](Org.OData.Core.V1.xml#L258)|[MessageType](#MessageType)|Information on the (cause of) the exception
 [value](Org.OData.Core.V1.xml#L263)|String|The actual numeric value
 
 ## <a name="NestedItemExceptionType"></a>[NestedItemExceptionType](Org.OData.Core.V1.xml#L271): [ExceptionType](#ExceptionType)
@@ -164,7 +164,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*info*](Org.OData.Core.V1.xml#L258)|[Message](#Message)|Information on the (cause of) the exception
+[*info*](Org.OData.Core.V1.xml#L258)|[MessageType](#MessageType)|Information on the (cause of) the exception
 [retryLink](Org.OData.Core.V1.xml#L272)|URL|GET this URL to retry retrieving the problematic instances
 
 ## <a name="ModificationExceptionType"></a>[ModificationExceptionType](Org.OData.Core.V1.xml#L282): [ExceptionType](#ExceptionType)
@@ -172,7 +172,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*info*](Org.OData.Core.V1.xml#L258)|[Message](#Message)|Information on the (cause of) the exception
+[*info*](Org.OData.Core.V1.xml#L258)|[MessageType](#MessageType)|Information on the (cause of) the exception
 [failedOperation](Org.OData.Core.V1.xml#L283)|[ModificationOperationKind](#ModificationOperationKind)|The kind of modification operation that failed
 [responseCode](Org.OData.Core.V1.xml#L286)|Int16|Response code of the failed operation, e.g. 424 for a failed dependency
 

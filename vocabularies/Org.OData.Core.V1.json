@@ -237,7 +237,6 @@
         },
         "ValueException": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.ValueExceptionType",
             "@Core.Description": "The annotated numeric value is problematic"
         },
@@ -246,7 +245,7 @@
             "$Abstract": true,
             "info": {
                 "$Nullable": true,
-                "$Type": "Core.Message",
+                "$Type": "Core.MessageType",
                 "@Core.Description": "Information on the (cause of) the exception"
             }
         },
@@ -254,12 +253,12 @@
             "$Kind": "ComplexType",
             "$BaseType": "Core.ExceptionType",
             "value": {
+                "$Nullable": true,
                 "@Core.Description": "The actual numeric value"
             }
         },
         "NestedItemException": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.NestedItemExceptionType",
             "@Core.Description": "The annotated instance or collection within a success payload is problematic"
         },
@@ -267,13 +266,13 @@
             "$Kind": "ComplexType",
             "$BaseType": "Core.ExceptionType",
             "retryLink": {
+                "$Nullable": true,
                 "@Core.Description": "GET this URL to retry retrieving the problematic instances",
                 "@Core.IsURL": true
             }
         },
         "ModificationException": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.ModificationExceptionType",
             "@Core.Description": "A modification operation failed on the annotated instance or collection within a success payload"
         },
