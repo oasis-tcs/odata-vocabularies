@@ -254,8 +254,9 @@ supported:
           <Annotation Term="Core.Description" String="Navigation properties can be navigated to this level" />
         </Property>
         <Property Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted." />
+          <Annotation Term="Core.Description" String="List of functions and operators supported in filter expressions" />
+          <Annotation Term="Core.LongDescription"
+            String="If not specified, null, or empty, all functions and operators may be attempted." />
         </Property>
         <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
@@ -327,12 +328,19 @@ supported:
         <Annotation Term="Core.Description" String="Supports $skip" />
       </Term>
 
+      <Term Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Supports $compute" />
+      </Term>
+
       <Term Name="SelectSupport" Type="Capabilities.SelectSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
         <Annotation Term="Core.Description" String="Support for $select and nested query options within $select" />
       </Term>
       <ComplexType Name="SelectSupportType">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Supports $select" />
+        </Property>
+        <Property Name="InstanceAnnotationsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports instance annotations in $select list" />
         </Property>
         <Property Name="Expandable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$expand within $select is supported" />
@@ -408,7 +416,9 @@ supported:
       </ComplexType>
 
       <Term Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityContainer EntitySet">
-        <Annotation Term="Core.Description" String="List of functions and operators supported in $filter" />
+        <Annotation Term="Core.Description" String="List of functions and operators supported in filter expressions" />
+        <Annotation Term="Core.LongDescription"
+          String="If not specified, null, or empty, all functions and operators may be attempted." />
       </Term>
 
       <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" AppliesTo="EntitySet">
@@ -512,6 +522,9 @@ supported:
         <Property Name="Expandable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$expand is supported" />
         </Property>
+        <Property Name="StreamsExpandable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$expand is supported for stream properties and media resources" />
+        </Property>
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions" />
         </Property>
@@ -558,6 +571,11 @@ supported:
           String="Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection" />
       </Term>
 
+      <Term Name="QuerySegmentSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description"
+          String="Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)" />
+      </Term>
+
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet">
@@ -576,6 +594,10 @@ supported:
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Entities of a specific derived type can be created by specifying a type-cast segment" />
         </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the insert." />
@@ -650,6 +672,21 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be updated" />
         </Property>
+        <Property Name="Upsertable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be upserted" />
+        </Property>
+        <Property Name="DeltaUpdateSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description"
+            String="Entities can be inserted, updated, and deleted via a PATCH request with a delta payload" />
+        </Property>
+        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+        </Property>
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
+        </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
         </Property>
@@ -693,7 +730,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
@@ -706,6 +743,14 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+        </Property>
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the delete." />
@@ -737,8 +782,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="Restricted Collection-valued property" />
         </Property>
         <Property Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted" />
+          <Annotation Term="Core.Description" String="List of functions and operators supported in filter expressions" />
+          <Annotation Term="Core.LongDescription"
+            String="If not specified, null, or empty, all functions and operators may be attempted." />
         </Property>
         <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
@@ -759,7 +805,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="Support for $select" />
         </Property>
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="This collection supports positional inserts" />
+          <Annotation Term="Core.Description" String="Members can be inserted into this collection" />
+          <Annotation Term="Core.LongDescription"
+            String="If additionally annotated with [Core.PositionalInsert](Org.OData.Core.V1.md#PositionalInsert), members can be inserted at a specific position" />
         </Property>
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Members of this ordered collection can be updated by ordinal" />
@@ -775,6 +823,10 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
       <ComplexType Name="OperationRestriction">
+        <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description"
+            String="Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment" />
+        </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to invoke an action or function" />
         </Property>
