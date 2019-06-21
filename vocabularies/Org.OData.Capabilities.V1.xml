@@ -578,7 +578,7 @@ supported:
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
-          <Annotation Term="Core.Description" String="Required scopes to perform the insert" />
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the insert." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with insert requests" />
@@ -658,7 +658,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
-          <Annotation Term="Core.Description" String="Required scopes to perform update" />
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the update." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with update requests" />
@@ -708,7 +708,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
             String="The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction." />
         </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
-          <Annotation Term="Core.Description" String="Required scopes to perform delete" />
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the delete." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
@@ -776,7 +776,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </Term>
       <ComplexType Name="OperationRestriction">
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
-          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to invoke an action or function" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
@@ -825,7 +825,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
         </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
-          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to read." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
