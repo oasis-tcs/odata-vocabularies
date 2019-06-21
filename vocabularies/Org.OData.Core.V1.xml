@@ -252,16 +252,16 @@
       </TypeDefinition>
 
       <Term Name="ValueException" Type="Core.ValueExceptionType" Nullable="false">
-        <Annotation Term="Core.Description" String="The annotated numeric value is problematic" />
+        <Annotation Term="Core.Description" String="The annotated value is problematic" />
       </Term>
       <ComplexType Name="ExceptionType" Abstract="true">
         <Property Name="info" Type="Core.MessageType" Nullable="true">
-          <Annotation Term="Core.Description" String="Information on the (cause of) the exception" />
+          <Annotation Term="Core.Description" String="Information about the exception" />
         </Property>
       </ComplexType>
       <ComplexType Name="ValueExceptionType" BaseType="Core.ExceptionType">
         <Property Name="value" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="The actual numeric value" />
+          <Annotation Term="Core.Description" String="String representation of the exact value" />
         </Property>
       </ComplexType>
 
@@ -270,7 +270,7 @@
       </Term>
       <ComplexType Name="ResourceExceptionType" BaseType="Core.ExceptionType">
         <Property Name="retryLink" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="GET this URL to retry retrieving the problematic instances" />
+          <Annotation Term="Core.Description" String="A GET request to this URL retries retrieving the problematic instance" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
@@ -289,40 +289,29 @@
           <Annotation Term="Validation.Maximum" Decimal="599" />
         </Property>
       </ComplexType>
-      <TypeDefinition Name="ModificationOperationKind" UnderlyingType="Edm.String">
-        <Annotation Term="Validation.AllowedValues">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Value" String="insert" />
-              <Annotation Term="Core.Description" String="Insert new instance" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="update" />
-              <Annotation Term="Core.Description" String="Update existing instance" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="upsert" />
-              <Annotation Term="Core.Description" String="Insert new instance or update it if it already exists" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="delete" />
-              <Annotation Term="Core.Description" String="Delete existing instance" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="invoke" />
-              <Annotation Term="Core.Description" String="Invoke action or function" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="link" />
-              <Annotation Term="Core.Description" String="Add link between entities" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="unlink" />
-              <Annotation Term="Core.Description" String="Remove link between entities" />
-            </Record>
-          </Collection>
-        </Annotation>
-      </TypeDefinition>
+      <EnumType Name="ModificationOperationKind" UnderlyingType="Edm.Int32">
+        <Member Name="insert">
+          <Annotation Term="Core.Description" String="Insert new instance" />
+        </Member>
+        <Member Name="update">
+          <Annotation Term="Core.Description" String="Update existing instance" />
+        </Member>
+        <Member Name="upsert">
+          <Annotation Term="Core.Description" String="Insert new instance or update it if it already exists" />
+        </Member>
+        <Member Name="delete">
+          <Annotation Term="Core.Description" String="Delete existing instance" />
+        </Member>
+        <Member Name="invoke">
+          <Annotation Term="Core.Description" String="Invoke action or function" />
+        </Member>
+        <Member Name="link">
+          <Annotation Term="Core.Description" String="Add link between entities" />
+        </Member>
+        <Member Name="unlink">
+          <Annotation Term="Core.Description" String="Remove link between entities" />
+        </Member>
+      </EnumType>
 
 
       <!-- Localization -->

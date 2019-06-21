@@ -238,7 +238,7 @@
         "ValueException": {
             "$Kind": "Term",
             "$Type": "Core.ValueExceptionType",
-            "@Core.Description": "The annotated numeric value is problematic"
+            "@Core.Description": "The annotated value is problematic"
         },
         "ExceptionType": {
             "$Kind": "ComplexType",
@@ -246,7 +246,7 @@
             "info": {
                 "$Nullable": true,
                 "$Type": "Core.MessageType",
-                "@Core.Description": "Information on the (cause of) the exception"
+                "@Core.Description": "Information about the exception"
             }
         },
         "ValueExceptionType": {
@@ -254,7 +254,7 @@
             "$BaseType": "Core.ExceptionType",
             "value": {
                 "$Nullable": true,
-                "@Core.Description": "The actual numeric value"
+                "@Core.Description": "String representation of the exact value"
             }
         },
         "ResourceException": {
@@ -267,7 +267,7 @@
             "$BaseType": "Core.ExceptionType",
             "retryLink": {
                 "$Nullable": true,
-                "@Core.Description": "GET this URL to retry retrieving the problematic instances",
+                "@Core.Description": "A GET request to this URL retries retrieving the problematic instance",
                 "@Core.IsURL": true
             }
         },
@@ -292,38 +292,22 @@
             }
         },
         "ModificationOperationKind": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Validation.AllowedValues": [
-                {
-                    "Value": "insert",
-                    "@Core.Description": "Insert new instance"
-                },
-                {
-                    "Value": "update",
-                    "@Core.Description": "Update existing instance"
-                },
-                {
-                    "Value": "upsert",
-                    "@Core.Description": "Insert new instance or update it if it already exists"
-                },
-                {
-                    "Value": "delete",
-                    "@Core.Description": "Delete existing instance"
-                },
-                {
-                    "Value": "invoke",
-                    "@Core.Description": "Invoke action or function"
-                },
-                {
-                    "Value": "link",
-                    "@Core.Description": "Add link between entities"
-                },
-                {
-                    "Value": "unlink",
-                    "@Core.Description": "Remove link between entities"
-                }
-            ]
+            "$Kind": "EnumType",
+            "$UnderlyingType": "Edm.Int32",
+            "insert": 0,
+            "insert@Core.Description": "Insert new instance",
+            "update": 1,
+            "update@Core.Description": "Update existing instance",
+            "upsert": 2,
+            "upsert@Core.Description": "Insert new instance or update it if it already exists",
+            "delete": 3,
+            "delete@Core.Description": "Delete existing instance",
+            "invoke": 4,
+            "invoke@Core.Description": "Invoke action or function",
+            "link": 5,
+            "link@Core.Description": "Add link between entities",
+            "unlink": 6,
+            "unlink@Core.Description": "Remove link between entities"
         },
         "IsLanguageDependent": {
             "$Kind": "Term",
