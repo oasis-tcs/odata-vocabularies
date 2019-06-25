@@ -175,9 +175,7 @@
       <Annotations Target="microsoft.graph.reminderView(microsoft.graph.user,Edm.String,Edm.String)">
         <!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
         <Annotation Term="Capabilities.OperationRestrictions">
-          <Collection>
             <Record>
-              <PropertyValue Property="QualifiedOperationName" String="reminderView" />
               <PropertyValue Property="Permissions">
                 <Record>
                   <PropertyValue Property="Scheme" String="DelegatedWork" />
@@ -220,7 +218,6 @@
                 </Record>
               </PropertyValue>
             </Record>
-          </Collection>
         </Annotation>
       </Annotations>
       <!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes,
