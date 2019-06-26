@@ -8,7 +8,7 @@
       <Annotations Target="microsoft.graph.GraphService/users">
         <Annotation Term="Capabilities.InsertRestrictions">
           <Record>
-            <PropertyValue Property="Permissions">
+            <PropertyValue Property="Permission">
               <Collection>
                 <Record>
                   <PropertyValue Property="Scheme" String="DelegatedWork" />
@@ -64,7 +64,7 @@
         </Annotation>
         <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>
-            <PropertyValue Property="Permissions">
+            <PropertyValue Property="Permission">
               <Collection>
                 <Record>
                   <PropertyValue Property="Scheme" String="DelegatedWork" />
@@ -115,7 +115,7 @@
         <!-- Read restrictions :select restrictions and then props to filter, expand, etc. -->
         <Annotation Term="Capabilities.ReadRestrictions">
           <Record>
-            <PropertyValue Property="Permissions">
+            <PropertyValue Property="Permission">
               <Collection>
                 <Record>
                   <PropertyValue Property="Scheme" String="DelegatedWork" />
@@ -179,7 +179,7 @@
       <Annotations Target="microsoft.graph.reminderView(microsoft.graph.user,Edm.String,Edm.String)">
         <Annotation Term="Capabilities.OperationRestrictions">
             <Record>
-              <PropertyValue Property="Permissions">
+              <PropertyValue Property="Permission">
                 <Record>
                   <PropertyValue Property="Scheme" String="DelegatedWork" />
                   <PropertyValue Property="Scopes">

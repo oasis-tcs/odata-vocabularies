@@ -870,7 +870,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description"
-          String="Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function" />
+          String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
