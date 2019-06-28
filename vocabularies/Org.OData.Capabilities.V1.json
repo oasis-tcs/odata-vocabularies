@@ -241,8 +241,7 @@
             "Navigability": {
                 "$Nullable": true,
                 "$Type": "Capabilities.NavigationType",
-                "@Core.Description": "Supported navigability on all navigation properties",
-                "@Core.LongDescription": "Unless navigability is `None` further restrictions can be expressed via RestrictedProperties"
+                "@Core.Description": "Default navigability for all navigation properties of the annotation target. Individual navigation properties can override this value via `RestrictedProperties/Navigability`."
             },
             "RestrictedProperties": {
                 "$Collection": true,

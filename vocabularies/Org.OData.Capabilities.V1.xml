@@ -240,8 +240,7 @@ supported:
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
         <Property Name="Navigability" Type="Capabilities.NavigationType">
-          <Annotation Term="Core.Description" String="Supported navigability on all navigation properties" />
-          <Annotation Term="Core.LongDescription" String="Unless navigability is `None` further restrictions can be expressed via RestrictedProperties" />
+          <Annotation Term="Core.Description" String="Default navigability for all navigation properties of the annotation target. Individual navigation properties can override this value via `RestrictedProperties/Navigability`." />
         </Property>
         <Property Name="RestrictedProperties" Type="Collection(Capabilities.NavigationPropertyRestriction)" Nullable="false">
           <Annotation Term="Core.Description" String="List of navigation properties with restrictions" />
