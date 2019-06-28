@@ -15,7 +15,7 @@
 
   <xsl:output method="text" indent="yes" encoding="UTF-8" omit-xml-declaration="yes" />
 
-  <xsl:param name="safe-numbers" select="true()" />
+  <xsl:param name="safe-numbers" select="false()" />
 
   <xsl:key name="methods" match="//edm:Action|//edm:Function" use="concat(../@Namespace,'.',@Name)" />
   <xsl:key name="targets" match="//edm:Annotations" use="concat(../@Namespace,'/',@Target)" />
@@ -60,7 +60,10 @@
       <xsl:with-param name="after" select="@Alias" />
     </xsl:apply-templates>
     <xsl:apply-templates
-      select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]|edm:EntityContainer"
+      select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term
+             |edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]
+             |edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]
+             |edm:EntityContainer"
       mode="list"
     >
       <xsl:with-param name="after" select="@Alias|edm:Annotation" />
@@ -220,7 +223,11 @@
     <xsl:text>":{</xsl:text>
     <xsl:variable name="members">
       <xsl:apply-templates
-        select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and not(name()='MaxLength' and .='max') and not(name()='Scale' and .='variable') and not(name()='Unicode' and .='true')]|edm:*"
+        select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' 
+                   and not(name()='Type' and .='Edm.String' and ../@Nullable='false')
+                   and not(name()='MaxLength' and .='max') 
+                   and not(name()='Scale' and .='variable') 
+                   and not(name()='Unicode' and .='true')]|edm:*"
         mode="list" />
     </xsl:variable>
     <xsl:if test="local-name()!='Property'">
@@ -354,22 +361,24 @@
   </xsl:template>
 
   <xsl:template match="@DefaultValue">
+    <xsl:variable name="type" select="../@Type" />
     <xsl:text>"$DefaultValue":</xsl:text>
     <xsl:choose>
+      <xsl:when test="$type='Edm.Boolean' and (.='true' or .='false' or .='null')">
+        <xsl:value-of select="." />
+      </xsl:when>
       <xsl:when
-        test="../@Type='Edm.Boolean' or ../@Type='Edm.Byte' or ../@Type='Edm.SByte' or ../@Type='Edm.Int16' or ../@Type='Edm.Int32'"
+        test="($type='Edm.Decimal' or $type='Edm.Double' or $type='Edm.Single' or 
+       $type='Edm.Byte' or $type='Edm.SByte' or $type='Edm.Int16' or $type='Edm.Int32') and .=number(.)"
       >
         <xsl:value-of select="." />
       </xsl:when>
-      <xsl:when test="(../@Type='Edm.Double' or ../@Type='Edm.Single') and number(.)">
-        <xsl:value-of select="." />
-      </xsl:when>
-      <xsl:when test="../@Type='Edm.Int64' and number(.) &lt; 9007199254740992">
+      <xsl:when test="$type='Edm.Int64' and number(.) &lt; 9007199254740992">
         <xsl:value-of select="." />
       </xsl:when>
       <!-- FAKE: couldn't determine underlying primitive type, so guess from value -->
       <xsl:when
-        test="not(substring(../@Type,4)='Edm.') and (.='true' or .='false' or .='null' or (number(.) and string-length(.) &lt; 16))"
+        test="substring($type,4)!='Edm.' and (.='true' or .='false' or .='null' or (.=number(.) and string-length(.) &lt; 16))"
       >
         <xsl:value-of select="." />
       </xsl:when>
@@ -382,7 +391,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-
+  
   <xsl:template match="edm:ReferentialConstraint" mode="hashpair">
     <xsl:text>"</xsl:text>
     <xsl:value-of select="@Property" />
