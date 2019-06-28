@@ -263,7 +263,8 @@
             },
             "FilterFunctions": {
                 "$Collection": true,
-                "@Core.Description": "List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted."
+                "@Core.Description": "List of functions and operators supported in filter expressions",
+                "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
             },
             "FilterRestrictions": {
                 "$Nullable": true,
@@ -372,6 +373,15 @@
             ],
             "@Core.Description": "Supports $skip"
         },
+        "ComputeSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntitySet"
+            ],
+            "@Core.Description": "Supports $compute"
+        },
         "SelectSupport": {
             "$Kind": "Term",
             "$Type": "Capabilities.SelectSupportType",
@@ -388,6 +398,11 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Supports $select"
+            },
+            "InstanceAnnotationsSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports instance annotations in $select list"
             },
             "Expandable": {
                 "$Type": "Edm.Boolean",
@@ -503,7 +518,8 @@
                 "EntityContainer",
                 "EntitySet"
             ],
-            "@Core.Description": "List of functions and operators supported in $filter"
+            "@Core.Description": "List of functions and operators supported in filter expressions",
+            "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
         },
         "FilterRestrictions": {
             "$Kind": "Term",
@@ -641,6 +657,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "$expand is supported"
             },
+            "StreamsExpandable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "$expand is supported for stream properties and media resources"
+            },
             "NonExpandableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -699,6 +720,15 @@
             ],
             "@Core.Description": "Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection"
         },
+        "QuerySegmentSupported": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)"
+        },
         "InsertRestrictions": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -729,6 +759,11 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction."
+            },
+            "TypecastSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities of a specific derived type can be created by specifying a type-cast segment"
             },
             "Permission": {
                 "$Nullable": true,
@@ -824,6 +859,26 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be updated"
             },
+            "Upsertable": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be upserted"
+            },
+            "DeltaUpdateSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be inserted, updated, and deleted via a PATCH request with a delta payload"
+            },
+            "FilterSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+            },
+            "TypecastSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
+            },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -893,7 +948,8 @@
             "$Nullable": true,
             "$Type": "Capabilities.DeleteRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on delete operations"
         },
@@ -913,6 +969,16 @@
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction."
+            },
+            "FilterSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+            },
+            "TypecastSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
             "Permission": {
                 "$Nullable": true,
@@ -959,7 +1025,8 @@
             },
             "FilterFunctions": {
                 "$Collection": true,
-                "@Core.Description": "List of functions and operators supported in filter expressions. If null, all functions and operators may be attempted"
+                "@Core.Description": "List of functions and operators supported in filter expressions",
+                "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
             },
             "FilterRestrictions": {
                 "$Nullable": true,
@@ -994,7 +1061,8 @@
             "Insertable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "This collection supports positional inserts"
+                "@Core.Description": "Members can be inserted into this collection",
+                "@Core.LongDescription": "If additionally annotated with [Core.PositionalInsert](Org.OData.Core.V1.md#PositionalInsert), members can be inserted at a specific position"
             },
             "Updatable": {
                 "$Type": "Edm.Boolean",
@@ -1019,6 +1087,11 @@
         },
         "OperationRestriction": {
             "$Kind": "ComplexType",
+            "FilterSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment"
+            },
             "Permission": {
                 "$Nullable": true,
                 "$Type": "Capabilities.PermissionType",

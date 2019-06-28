@@ -251,6 +251,69 @@
         </Annotation>
       </TypeDefinition>
 
+      <Term Name="ValueException" Type="Core.ValueExceptionType" Nullable="false">
+        <Annotation Term="Core.Description" String="The annotated value is problematic" />
+      </Term>
+      <ComplexType Name="ExceptionType" Abstract="true">
+        <Property Name="info" Type="Core.MessageType" Nullable="true">
+          <Annotation Term="Core.Description" String="Information about the exception" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ValueExceptionType" BaseType="Core.ExceptionType">
+        <Property Name="value" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="String representation of the exact value" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="ResourceException" Type="Core.ResourceExceptionType" Nullable="false">
+        <Annotation Term="Core.Description" String="The annotated instance within a success payload is problematic" />
+      </Term>
+      <ComplexType Name="ResourceExceptionType" BaseType="Core.ExceptionType">
+        <Property Name="retryLink" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A GET request to this URL retries retrieving the problematic instance" />
+          <Annotation Term="Core.IsURL" />
+        </Property>
+      </ComplexType>
+
+      <Term Name="ModificationException" Type="Core.ModificationExceptionType" Nullable="false">
+        <Annotation Term="Core.Description"
+          String="A modification operation failed on the annotated instance or collection within a success payload" />
+      </Term>
+      <ComplexType Name="ModificationExceptionType" BaseType="Core.ExceptionType">
+        <Property Name="failedOperation" Type="Core.ModificationOperationKind" Nullable="false">
+          <Annotation Term="Core.Description" String="The kind of modification operation that failed" />
+        </Property>
+        <Property Name="responseCode" Type="Edm.Int16" Nullable="true">
+          <Annotation Term="Core.Description" String="Response code of the failed operation, e.g. 424 for a failed dependency" />
+          <Annotation Term="Validation.Minimum" Decimal="100" />
+          <Annotation Term="Validation.Maximum" Decimal="599" />
+        </Property>
+      </ComplexType>
+      <EnumType Name="ModificationOperationKind" UnderlyingType="Edm.Int32">
+        <Member Name="insert">
+          <Annotation Term="Core.Description" String="Insert new instance" />
+        </Member>
+        <Member Name="update">
+          <Annotation Term="Core.Description" String="Update existing instance" />
+        </Member>
+        <Member Name="upsert">
+          <Annotation Term="Core.Description" String="Insert new instance or update it if it already exists" />
+        </Member>
+        <Member Name="delete">
+          <Annotation Term="Core.Description" String="Delete existing instance" />
+        </Member>
+        <Member Name="invoke">
+          <Annotation Term="Core.Description" String="Invoke action or function" />
+        </Member>
+        <Member Name="link">
+          <Annotation Term="Core.Description" String="Add link between entities" />
+        </Member>
+        <Member Name="unlink">
+          <Annotation Term="Core.Description" String="Remove link between entities" />
+        </Member>
+      </EnumType>
+
+
       <!-- Localization -->
 
       <Term Name="IsLanguageDependent" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
