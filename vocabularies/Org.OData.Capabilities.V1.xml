@@ -599,7 +599,7 @@ supported:
           <Annotation Term="Core.Description"
             String="Entities of a specific derived type can be created by specifying a type-cast segment" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="Required scopes to perform the insert" />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
@@ -622,7 +622,7 @@ supported:
       </ComplexType>
 
       <ComplexType Name="PermissionType">
-        <Property Name="Scheme" Type="Edm.String" Nullable="false">
+        <Property Name="SchemeName" Type="Auth.SchemeName" Nullable="false">
           <Annotation Term="Core.Description" String="Auth flow scheme name" />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
@@ -694,7 +694,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="Required scopes to perform update" />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
@@ -752,7 +752,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="Required scopes to perform delete" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
@@ -818,7 +818,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </ComplexType>
 
       <Term Name="OperationRestrictions" Type="Capabilities.OperationRestrictionsType" Nullable="false"
-        AppliesTo="Action ActionImport Function FunctionImport"
+        AppliesTo="Action Function"
       >
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
@@ -827,7 +827,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
@@ -876,7 +876,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
