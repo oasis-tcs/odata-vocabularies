@@ -623,7 +623,7 @@ supported:
 
       <ComplexType Name="PermissionType">
         <Property Name="SchemeName" Type="Auth.SchemeName" Nullable="false">
-          <Annotation Term="Core.Description" String="Auth flow scheme name" />
+          <Annotation Term="Core.Description" String="Authorization flow scheme name" />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of scopes that can provide access to the resource" />
