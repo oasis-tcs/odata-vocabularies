@@ -189,7 +189,7 @@
       </EnumType>
 
       <TypeDefinition Name="SchemeName" UnderlyingType="Edm.String">
-          <Annotation Term="Core.Description" String="The name of the auth scheme." />
+          <Annotation Term="Core.Description" String="The name of the authorization scheme." />
       </TypeDefinition>
 
     </Schema>
