@@ -240,7 +240,7 @@ supported:
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
         <Property Name="Navigability" Type="Capabilities.NavigationType">
-          <Annotation Term="Core.Description" String="Supported Navigability" />
+          <Annotation Term="Core.Description" String="Default navigability for all navigation properties of the annotation target. Individual navigation properties can override this value via `RestrictedProperties/Navigability`." />
         </Property>
         <Property Name="RestrictedProperties" Type="Collection(Capabilities.NavigationPropertyRestriction)" Nullable="false">
           <Annotation Term="Core.Description" String="List of navigation properties with restrictions" />
@@ -251,7 +251,7 @@ supported:
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
         </Property>
         <Property Name="Navigability" Type="Capabilities.NavigationType">
-          <Annotation Term="Core.Description" String="Navigation properties can be navigated to this level" />
+          <Annotation Term="Core.Description" String="Supported navigability of this navigation property" />
         </Property>
         <Property Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="List of functions and operators supported in filter expressions" />
@@ -599,8 +599,8 @@ supported:
           <Annotation Term="Core.Description"
             String="Entities of a specific derived type can be created by specifying a type-cast segment" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
-          <Annotation Term="Core.Description" String="Required scopes to perform the insert" />
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the insert." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with insert requests" />
@@ -622,8 +622,8 @@ supported:
       </ComplexType>
 
       <ComplexType Name="PermissionType">
-        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false">
-          <Annotation Term="Core.Description" String="Auth flow scheme name" />
+        <Property Name="SchemeName" Type="Auth.SchemeName" Nullable="false">
+          <Annotation Term="Core.Description" String="Authorization flow scheme name" />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of scopes that can provide access to the resource" />
@@ -694,8 +694,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
-          <Annotation Term="Core.Description" String="Required scopes to perform update" />
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the update." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with update requests" />
@@ -752,8 +752,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
-          <Annotation Term="Core.Description" String="Required scopes to perform delete" />
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the delete." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
@@ -817,18 +817,18 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false"
+      <Term Name="OperationRestrictions" Type="Capabilities.OperationRestrictionsType" Nullable="false"
         AppliesTo="Action Function"
       >
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
-      <ComplexType Name="OperationRestriction">
+      <ComplexType Name="OperationRestrictionsType">
         <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
-          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to invoke an action or function" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
@@ -868,16 +868,16 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton FunctionImport">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description"
-          String="Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function" />
+          String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be retrieved" />
         </Property>
-        <Property Name="Permission" Type="Capabilities.PermissionType" Nullable="true">
-          <Annotation Term="Core.Description" String="List of required scopes to invoke an action or function" />
+        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to read." />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />

@@ -16,7 +16,7 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Authorization](Org.OData.Authorization.V1.xml#L75)|String|The name of a required authorization scheme
+[Authorization](Org.OData.Authorization.V1.xml#L75)|[SchemeName](#SchemeName)|The name of a required authorization scheme
 [RequiredScopes](Org.OData.Authorization.V1.xml#L78)|\[String\]|The names of scopes required from this authorization scheme
 
 ## <a name="Authorization"></a>[*Authorization*](Org.OData.Authorization.V1.xml#L87)
@@ -144,3 +144,8 @@ Member|Value|Description
 [Header](Org.OData.Authorization.V1.xml#L180)|0|API Key is passed in the header
 [QueryOption](Org.OData.Authorization.V1.xml#L183)|1|API Key is passed as a query option
 [Cookie](Org.OData.Authorization.V1.xml#L186)|2|API Key is passed as a cookie
+
+## <a name="SchemeName"></a>[SchemeName](Org.OData.Authorization.V1.xml#L191)
+**Type:** String
+
+The name of the authorization scheme.
