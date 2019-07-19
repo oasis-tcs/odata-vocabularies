@@ -622,8 +622,8 @@ supported:
       </ComplexType>
 
       <ComplexType Name="PermissionType">
-        <Property Name="Scheme" Type="Auth.SecurityScheme" Nullable="false">
-          <Annotation Term="Core.Description" String="Auth flow scheme name" />
+        <Property Name="SchemeName" Type="Auth.SchemeName" Nullable="false">
+          <Annotation Term="Core.Description" String="Authorization flow scheme name" />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of scopes that can provide access to the resource" />
@@ -817,12 +817,12 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="OperationRestrictions" Type="Collection(Capabilities.OperationRestriction)" Nullable="false"
+      <Term Name="OperationRestrictions" Type="Capabilities.OperationRestrictionsType" Nullable="false"
         AppliesTo="Action Function"
       >
         <Annotation Term="Core.Description" String="Restrictions for function or action operation" />
       </Term>
-      <ComplexType Name="OperationRestriction">
+      <ComplexType Name="OperationRestrictionsType">
         <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment" />
@@ -868,9 +868,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton FunctionImport">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description"
-          String="Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function" />
+          String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">

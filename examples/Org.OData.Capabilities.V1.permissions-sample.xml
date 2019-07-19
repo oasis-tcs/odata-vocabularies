@@ -47,13 +47,13 @@
                   <PropertyValue Property="Scopes">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -71,16 +71,16 @@
                   <PropertyValue Property="Scopes">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -90,7 +90,7 @@
                   <PropertyValue Property="Scopes">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -115,7 +115,7 @@
         <!-- Read restrictions :select restrictions and then props to filter, expand, etc. -->
         <Annotation Term="Capabilities.ReadRestrictions">
           <Record>
-            <PropertyValue Property="Permissions">
+            <PropertyValue Property="Permission">
               <Collection>
                 <Record>
                   <PropertyValue Property="Scheme" String="DelegatedWork" />
@@ -177,9 +177,7 @@
       </Annotations>
       <!-- annotations on actions/functions -->
       <Annotations Target="microsoft.graph.reminderView(microsoft.graph.user,Edm.String,Edm.String)">
-        <!-- for a path that looks like "GET /users/{id | userPrincipalName}/reminderView(startDateTime=startDateTime-value,endDateTime=endDateTime-value)" -->
         <Annotation Term="Capabilities.OperationRestrictions">
-          <Collection>
             <Record>
               <PropertyValue Property="QualifiedOperationName" String="reminderView" />
               <PropertyValue Property="Permissions">
@@ -226,7 +224,6 @@
                 </Collection>
               </PropertyValue>
             </Record>
-          </Collection>
         </Annotation>
       </Annotations>
       <!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes,
