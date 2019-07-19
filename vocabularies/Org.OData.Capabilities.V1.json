@@ -241,7 +241,7 @@
             "Navigability": {
                 "$Nullable": true,
                 "$Type": "Capabilities.NavigationType",
-                "@Core.Description": "Supported Navigability"
+                "@Core.Description": "Default navigability for all navigation properties of the annotation target. Individual navigation properties can override this value via `RestrictedProperties/Navigability`."
             },
             "RestrictedProperties": {
                 "$Collection": true,
@@ -259,7 +259,7 @@
             "Navigability": {
                 "$Nullable": true,
                 "$Type": "Capabilities.NavigationType",
-                "@Core.Description": "Navigation properties can be navigated to this level"
+                "@Core.Description": "Supported navigability of this navigation property"
             },
             "FilterFunctions": {
                 "$Collection": true,
