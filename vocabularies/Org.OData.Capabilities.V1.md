@@ -79,10 +79,10 @@ Term|Type|Description
 [DeepUpdateSupport](Org.OData.Capabilities.V1.xml#L723)|[DeepUpdateSupportType](#DeepUpdateSupportType)|<a name="DeepUpdateSupport"></a>Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
 [DeleteRestrictions](Org.OData.Capabilities.V1.xml#L737)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
 [CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L780)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
-[OperationRestrictions](Org.OData.Capabilities.V1.xml#L826)|\[[OperationRestriction](#OperationRestriction)\]|<a name="OperationRestrictions"></a>Restrictions for function or action operation
+[OperationRestrictions](Org.OData.Capabilities.V1.xml#L826)|[OperationRestrictionsType](#OperationRestrictionsType)|<a name="OperationRestrictions"></a>Restrictions for function or action operation
 [AnnotationValuesInQuerySupported](Org.OData.Capabilities.V1.xml#L844)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
 [ModificationQueryOptions](Org.OData.Capabilities.V1.xml#L850)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
-[ReadRestrictions](Org.OData.Capabilities.V1.xml#L875)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function
+[ReadRestrictions](Org.OData.Capabilities.V1.xml#L875)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance.
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L912)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L914))
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L940)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L944))<p>If the entity container is annotated, the query option is supported/required by all resources in that container.</p>
 [MediaLocationUpdateSupported](Org.OData.Capabilities.V1.xml#L997)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property supports update of its media edit URL and/or media read URL
@@ -142,7 +142,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Navigability](Org.OData.Capabilities.V1.xml#L242)|[NavigationType](#NavigationType)|Supported Navigability
+[Navigability](Org.OData.Capabilities.V1.xml#L242)|[NavigationType](#NavigationType)|Default navigability for all navigation properties of the annotation target. Individual navigation properties can override this value via `RestrictedProperties/Navigability`.
 [RestrictedProperties](Org.OData.Capabilities.V1.xml#L245)|\[[NavigationPropertyRestriction](#NavigationPropertyRestriction)\]|List of navigation properties with restrictions
 
 ## <a name="NavigationPropertyRestriction"></a>[NavigationPropertyRestriction](Org.OData.Capabilities.V1.xml#L249)
@@ -151,7 +151,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [NavigationProperty](Org.OData.Capabilities.V1.xml#L250)|NavigationPropertyPath|Navigation properties can be navigated
-[Navigability](Org.OData.Capabilities.V1.xml#L253)|[NavigationType](#NavigationType)|Navigation properties can be navigated to this level
+[Navigability](Org.OData.Capabilities.V1.xml#L253)|[NavigationType](#NavigationType)|Supported navigability of this navigation property
 [FilterFunctions](Org.OData.Capabilities.V1.xml#L256)|\[String\]|List of functions and operators supported in filter expressions<p>If not specified, null, or empty, all functions and operators may be attempted.</p>
 [FilterRestrictions](Org.OData.Capabilities.V1.xml#L261)|[FilterRestrictionsType](#FilterRestrictionsType)|Restrictions on filter expressions
 [SearchRestrictions](Org.OData.Capabilities.V1.xml#L264)|[SearchRestrictionsType](#SearchRestrictionsType)|Restrictions on search expressions
@@ -291,7 +291,7 @@ Property|Type|Description
 [NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L595)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
 [MaxLevels](Org.OData.Capabilities.V1.xml#L598)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
 [TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L602)|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
-[Permission](Org.OData.Capabilities.V1.xml#L606)|[PermissionType](#PermissionType)|Required scopes to perform the insert
+[Permissions](Org.OData.Capabilities.V1.xml#L606)|\[[PermissionType](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the insert.
 [QueryOptions](Org.OData.Capabilities.V1.xml#L609)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|Support for query options with insert requests
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L612)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L615)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
@@ -303,7 +303,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Scheme](Org.OData.Capabilities.V1.xml#L629)|[SecurityScheme](Org.OData.Authorization.V1.md#SecurityScheme)|Auth flow scheme name
+[SchemeName](Org.OData.Capabilities.V1.xml#L629)|[SchemeName](Org.OData.Authorization.V1.md#SchemeName)|Authorization flow scheme name
 [Scopes](Org.OData.Capabilities.V1.xml#L632)|\[[ScopeType](#ScopeType)\]|List of scopes that can provide access to the resource
 
 ## <a name="ScopeType"></a>[ScopeType](Org.OData.Capabilities.V1.xml#L637)
@@ -334,7 +334,7 @@ Property|Type|Description
 [TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L690)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
 [NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L694)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
 [MaxLevels](Org.OData.Capabilities.V1.xml#L697)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
-[Permission](Org.OData.Capabilities.V1.xml#L701)|[PermissionType](#PermissionType)|Required scopes to perform update
+[Permissions](Org.OData.Capabilities.V1.xml#L701)|\[[PermissionType](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
 [QueryOptions](Org.OData.Capabilities.V1.xml#L704)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|Support for query options with update requests
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L707)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L710)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
@@ -359,7 +359,7 @@ Property|Type|Description
 [MaxLevels](Org.OData.Capabilities.V1.xml#L747)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
 [FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L751)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
 [TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L755)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
-[Permission](Org.OData.Capabilities.V1.xml#L759)|[PermissionType](#PermissionType)|Required scopes to perform delete
+[Permissions](Org.OData.Capabilities.V1.xml#L759)|\[[PermissionType](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the delete.
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L762)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L765)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [Description](Org.OData.Capabilities.V1.xml#L768)|String|A brief description of the request
@@ -382,13 +382,13 @@ Property|Type|Description
 [Updatable](Org.OData.Capabilities.V1.xml#L816)|Boolean|Members of this ordered collection can be updated by ordinal
 [Deletable](Org.OData.Capabilities.V1.xml#L819)|Boolean|Members of this ordered collection can be deleted by ordinal
 
-## <a name="OperationRestriction"></a>[OperationRestriction](Org.OData.Capabilities.V1.xml#L829)
+## <a name="OperationRestrictionsType"></a>[OperationRestrictionsType](Org.OData.Capabilities.V1.xml#L829)
 
 
 Property|Type|Description
 :-------|:---|:----------
 [FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L830)|Boolean|Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment
-[Permission](Org.OData.Capabilities.V1.xml#L834)|[PermissionType](#PermissionType)|List of required scopes to invoke an action or function
+[Permissions](Org.OData.Capabilities.V1.xml#L834)|\[[PermissionType](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to invoke an action or function
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L837)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L840)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 
@@ -414,7 +414,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Readable](Org.OData.Capabilities.V1.xml#L880)|Boolean|Entities can be retrieved
-[Permission](Org.OData.Capabilities.V1.xml#L883)|[PermissionType](#PermissionType)|List of required scopes to invoke an action or function
+[Permissions](Org.OData.Capabilities.V1.xml#L883)|\[[PermissionType](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L886)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L889)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [Description](Org.OData.Capabilities.V1.xml#L892)|String|A brief description of the request
@@ -426,7 +426,7 @@ Restrictions for retrieving an entity by key
 Property|Type|Description
 :-------|:---|:----------
 [*Readable*](Org.OData.Capabilities.V1.xml#L880)|Boolean|Entities can be retrieved
-[*Permission*](Org.OData.Capabilities.V1.xml#L883)|[PermissionType](#PermissionType)|List of required scopes to invoke an action or function
+[*Permissions*](Org.OData.Capabilities.V1.xml#L883)|\[[PermissionType](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
 [*CustomHeaders*](Org.OData.Capabilities.V1.xml#L886)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L889)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [*Description*](Org.OData.Capabilities.V1.xml#L892)|String|A brief description of the request
@@ -438,7 +438,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Readable*](Org.OData.Capabilities.V1.xml#L880)|Boolean|Entities can be retrieved
-[*Permission*](Org.OData.Capabilities.V1.xml#L883)|[PermissionType](#PermissionType)|List of required scopes to invoke an action or function
+[*Permissions*](Org.OData.Capabilities.V1.xml#L883)|\[[PermissionType](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
 [*CustomHeaders*](Org.OData.Capabilities.V1.xml#L886)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L889)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [*Description*](Org.OData.Capabilities.V1.xml#L892)|String|A brief description of the request
