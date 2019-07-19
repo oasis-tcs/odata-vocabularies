@@ -765,10 +765,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities of a specific derived type can be created by specifying a type-cast segment"
             },
-            "Permission": {
+            "Permissions": {
                 "$Nullable": true,
+                "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
-                "@Core.Description": "Required scopes to perform the insert"
+                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the insert."
             },
             "QueryOptions": {
                 "$Nullable": true,
@@ -798,9 +799,9 @@
         },
         "PermissionType": {
             "$Kind": "ComplexType",
-            "Scheme": {
-                "$Type": "Auth.SecurityScheme",
-                "@Core.Description": "Auth flow scheme name"
+            "SchemeName": {
+                "$Type": "Auth.SchemeName",
+                "@Core.Description": "Authorization flow scheme name"
             },
             "Scopes": {
                 "$Collection": true,
@@ -889,10 +890,11 @@
                 "$DefaultValue": -1,
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
             },
-            "Permission": {
+            "Permissions": {
                 "$Nullable": true,
+                "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
-                "@Core.Description": "Required scopes to perform update"
+                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the update."
             },
             "QueryOptions": {
                 "$Nullable": true,
@@ -980,10 +982,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
-            "Permission": {
+            "Permissions": {
                 "$Nullable": true,
+                "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
-                "@Core.Description": "Required scopes to perform delete"
+                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the delete."
             },
             "CustomHeaders": {
                 "$Collection": true,
@@ -1077,25 +1080,25 @@
         },
         "OperationRestrictions": {
             "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Capabilities.OperationRestriction",
+            "$Type": "Capabilities.OperationRestrictionsType",
             "$AppliesTo": [
                 "Action",
                 "Function"
             ],
             "@Core.Description": "Restrictions for function or action operation"
         },
-        "OperationRestriction": {
+        "OperationRestrictionsType": {
             "$Kind": "ComplexType",
             "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment"
             },
-            "Permission": {
+            "Permissions": {
                 "$Nullable": true,
+                "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
-                "@Core.Description": "List of required scopes to invoke an action or function"
+                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to invoke an action or function"
             },
             "CustomHeaders": {
                 "$Collection": true,
@@ -1167,10 +1170,9 @@
             "$Type": "Capabilities.ReadRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton",
-                "FunctionImport"
+                "Singleton"
             ],
-            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance, invoking a function"
+            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance."
         },
         "ReadRestrictionsBase": {
             "$Kind": "ComplexType",
@@ -1180,10 +1182,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be retrieved"
             },
-            "Permission": {
+            "Permissions": {
                 "$Nullable": true,
+                "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
-                "@Core.Description": "List of required scopes to invoke an action or function"
+                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to read."
             },
             "CustomHeaders": {
                 "$Collection": true,
