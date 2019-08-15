@@ -217,7 +217,7 @@
 
   <xsl:template name="experimental-deprecated">
     <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
-      <xsl:text> *(Experimental)*</xsl:text>
+      <xsl:text> *([Experimental](Common.md#Experimental))*</xsl:text>
     </xsl:if>
     <xsl:if
       test="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]"
