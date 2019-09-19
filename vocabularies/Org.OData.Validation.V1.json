@@ -155,7 +155,7 @@
         "OpenPropertyTypeConstraint": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Core.QualifiedTypeName",
+            "$Type": "Core.TypeSpecification",
             "$AppliesTo": [
                 "ComplexType",
                 "EntityType"

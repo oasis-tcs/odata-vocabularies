@@ -533,6 +533,11 @@
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of a type in scope."
         },
+        "TypeSpecification": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of a type in scope, or the literal `Collection(` followed by the qualified name of a type in scope and followed by `)`"
+        },
         "Ordered": {
             "$Kind": "Term",
             "$Type": "Core.Tag",

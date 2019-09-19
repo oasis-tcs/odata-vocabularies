@@ -459,6 +459,11 @@
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
       </TypeDefinition>
 
+      <TypeDefinition Name="TypeSpecification" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description"
+          String="The qualified name of a type in scope, or the literal `Collection(` followed by the qualified name of a type in scope and followed by `)`" />
+      </TypeDefinition>
+
       <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true"
         AppliesTo="Property NavigationProperty EntitySet ReturnType"
       >
