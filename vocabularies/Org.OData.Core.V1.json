@@ -271,16 +271,16 @@
                 "@Core.IsURL": true
             }
         },
-        "ModificationException": {
+        "DataModificationException": {
             "$Kind": "Term",
-            "$Type": "Core.ModificationExceptionType",
+            "$Type": "Core.DataModificationExceptionType",
             "@Core.Description": "A modification operation failed on the annotated instance or collection within a success payload"
         },
-        "ModificationExceptionType": {
+        "DataModificationExceptionType": {
             "$Kind": "ComplexType",
             "$BaseType": "Core.ExceptionType",
             "failedOperation": {
-                "$Type": "Core.ModificationOperationKind",
+                "$Type": "Core.DataModificationOperationKind",
                 "@Core.Description": "The kind of modification operation that failed"
             },
             "responseCode": {
@@ -291,7 +291,7 @@
                 "@Validation.Maximum": 599
             }
         },
-        "ModificationOperationKind": {
+        "DataModificationOperationKind": {
             "$Kind": "EnumType",
             "$UnderlyingType": "Edm.Int32",
             "insert": 0,
