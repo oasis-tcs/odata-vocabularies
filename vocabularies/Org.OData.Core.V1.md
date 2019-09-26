@@ -18,7 +18,7 @@ Term|Type|Description
 [Messages](Org.OData.Core.V1.xml#L209)|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
 [ValueException](Org.OData.Core.V1.xml#L254)|[ValueExceptionType](#ValueExceptionType)|<a name="ValueException"></a>The annotated value is problematic
 [ResourceException](Org.OData.Core.V1.xml#L268)|[ResourceExceptionType](#ResourceExceptionType)|<a name="ResourceException"></a>The annotated instance within a success payload is problematic
-[ModificationException](Org.OData.Core.V1.xml#L278)|[ModificationExceptionType](#ModificationExceptionType)|<a name="ModificationException"></a>A modification operation failed on the annotated instance or collection within a success payload
+[DataModificationException](Org.OData.Core.V1.xml#L278)|[DataModificationExceptionType](#DataModificationExceptionType)|<a name="DataModificationException"></a>A modification operation failed on the annotated instance or collection within a success payload
 [IsLanguageDependent](Org.OData.Core.V1.xml#L319)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
 [RequiresType](Org.OData.Core.V1.xml#L330)|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
 [ResourcePath](Org.OData.Core.V1.xml#L337)|URL|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
@@ -145,7 +145,7 @@ Allowed Value|Description
 **Derived Types:**
 - [ValueExceptionType](#ValueExceptionType)
 - [ResourceExceptionType](#ResourceExceptionType)
-- [ModificationExceptionType](#ModificationExceptionType)
+- [DataModificationExceptionType](#DataModificationExceptionType)
 
 Property|Type|Description
 :-------|:---|:----------
@@ -167,16 +167,16 @@ Property|Type|Description
 [*info*](Org.OData.Core.V1.xml#L258)|[MessageType](#MessageType)|Information about the exception
 [retryLink](Org.OData.Core.V1.xml#L272)|URL|A GET request to this URL retries retrieving the problematic instance
 
-## <a name="ModificationExceptionType"></a>[ModificationExceptionType](Org.OData.Core.V1.xml#L282): [ExceptionType](#ExceptionType)
+## <a name="DataModificationExceptionType"></a>[DataModificationExceptionType](Org.OData.Core.V1.xml#L282): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
 :-------|:---|:----------
 [*info*](Org.OData.Core.V1.xml#L258)|[MessageType](#MessageType)|Information about the exception
-[failedOperation](Org.OData.Core.V1.xml#L283)|[ModificationOperationKind](#ModificationOperationKind)|The kind of modification operation that failed
+[failedOperation](Org.OData.Core.V1.xml#L283)|[DataModificationOperationKind](#DataModificationOperationKind)|The kind of modification operation that failed
 [responseCode](Org.OData.Core.V1.xml#L286)|Int16|Response code of the failed operation, e.g. 424 for a failed dependency
 
-## <a name="ModificationOperationKind"></a>[ModificationOperationKind](Org.OData.Core.V1.xml#L292)
+## <a name="DataModificationOperationKind"></a>[DataModificationOperationKind](Org.OData.Core.V1.xml#L292)
 
 
 Member|Value|Description
