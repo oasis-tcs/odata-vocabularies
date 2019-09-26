@@ -409,14 +409,13 @@
 
       <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property">
         <Annotation Term="Core.Description"
-          String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated stream property" />
+          String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
       <Term Name="MediaType" Type="Edm.String" AppliesTo="Property">
-        <Annotation Term="Core.Description" String="The media type of a binary resource" />
+        <Annotation Term="Core.Description" String="The media type of the values of a binary or string property" />
         <Annotation Term="Core.IsMediaType" />
-        <Annotation Term="Core.RequiresType" String="Edm.Binary" />
       </Term>
 
       <Term Name="IsMediaType" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">

@@ -454,7 +454,7 @@
                 "EntityType",
                 "Property"
             ],
-            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated stream property",
+            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property",
             "@Core.IsMediaType": true
         },
         "MediaType": {
@@ -463,9 +463,8 @@
             "$AppliesTo": [
                 "Property"
             ],
-            "@Core.Description": "The media type of a binary resource",
-            "@Core.IsMediaType": true,
-            "@Core.RequiresType": "Edm.Binary"
+            "@Core.Description": "The media type of the values of a binary or string property",
+            "@Core.IsMediaType": true
         },
         "IsMediaType": {
             "$Kind": "Term",
