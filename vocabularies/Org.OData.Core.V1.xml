@@ -275,12 +275,12 @@
         </Property>
       </ComplexType>
 
-      <Term Name="ModificationException" Type="Core.ModificationExceptionType" Nullable="false">
+      <Term Name="DataModificationException" Type="Core.DataModificationExceptionType" Nullable="false">
         <Annotation Term="Core.Description"
           String="A modification operation failed on the annotated instance or collection within a success payload" />
       </Term>
-      <ComplexType Name="ModificationExceptionType" BaseType="Core.ExceptionType">
-        <Property Name="failedOperation" Type="Core.ModificationOperationKind" Nullable="false">
+      <ComplexType Name="DataModificationExceptionType" BaseType="Core.ExceptionType">
+        <Property Name="failedOperation" Type="Core.DataModificationOperationKind" Nullable="false">
           <Annotation Term="Core.Description" String="The kind of modification operation that failed" />
         </Property>
         <Property Name="responseCode" Type="Edm.Int16" Nullable="true">
@@ -289,7 +289,7 @@
           <Annotation Term="Validation.Maximum" Decimal="599" />
         </Property>
       </ComplexType>
-      <EnumType Name="ModificationOperationKind" UnderlyingType="Edm.Int32">
+      <EnumType Name="DataModificationOperationKind" UnderlyingType="Edm.Int32">
         <Member Name="insert">
           <Annotation Term="Core.Description" String="Insert new instance" />
         </Member>
@@ -409,14 +409,13 @@
 
       <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property">
         <Annotation Term="Core.Description"
-          String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated stream property" />
+          String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
       <Term Name="MediaType" Type="Edm.String" AppliesTo="Property">
-        <Annotation Term="Core.Description" String="The media type of a binary resource" />
+        <Annotation Term="Core.Description" String="The media type of the values of a binary or string property" />
         <Annotation Term="Core.IsMediaType" />
-        <Annotation Term="Core.RequiresType" String="Edm.Binary" />
       </Term>
 
       <Term Name="IsMediaType" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
