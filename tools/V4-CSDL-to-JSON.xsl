@@ -648,6 +648,20 @@
           <xsl:with-param name="new" select="'\\'" />
         </xsl:call-template>
       </xsl:when>
+      <xsl:when test="contains($string,'&#x09;')">
+        <xsl:call-template name="replace">
+          <xsl:with-param name="string" select="$string" />
+          <xsl:with-param name="old" select="'&#x09;'" />
+          <xsl:with-param name="new" select="'\t'" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="contains($string,'&#x0D;&#x0A;')">
+        <xsl:call-template name="replace">
+          <xsl:with-param name="string" select="$string" />
+          <xsl:with-param name="old" select="'&#x0D;&#x0A;'" />
+          <xsl:with-param name="new" select="'\n'" />
+        </xsl:call-template>
+      </xsl:when>
       <xsl:when test="contains($string,'&#x0A;')">
         <xsl:call-template name="replace">
           <xsl:with-param name="string" select="$string" />
@@ -659,14 +673,7 @@
         <xsl:call-template name="replace">
           <xsl:with-param name="string" select="$string" />
           <xsl:with-param name="old" select="'&#x0D;'" />
-          <xsl:with-param name="new" select="'\r'" />
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="contains($string,'&#x09;')">
-        <xsl:call-template name="replace">
-          <xsl:with-param name="string" select="$string" />
-          <xsl:with-param name="old" select="'&#x09;'" />
-          <xsl:with-param name="new" select="'\t'" />
+          <xsl:with-param name="new" select="'\n'" />
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
