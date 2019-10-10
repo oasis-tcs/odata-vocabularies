@@ -1,8 +1,5 @@
-<?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" xmlns:json="http://json.org/"
-  xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo"
->
+<?xml version="1.0" encoding="utf-8" ?>
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" xmlns:json="http://json.org/" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo">
   <!--
     This style sheet transforms OData 4.0 CSDL XML documents into CSDL JSON
 
@@ -59,20 +56,14 @@
     <xsl:apply-templates select="edm:Annotation" mode="list">
       <xsl:with-param name="after" select="@Alias" />
     </xsl:apply-templates>
-    <xsl:apply-templates
-      select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term
+    <xsl:apply-templates select="edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term
              |edm:Action[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]
              |edm:Function[generate-id()=generate-id(key('methods',concat(../@Namespace,'.',@Name))[1])]
-             |edm:EntityContainer"
-      mode="list"
-    >
+             |edm:EntityContainer" mode="list">
       <xsl:with-param name="after" select="@Alias|edm:Annotation" />
     </xsl:apply-templates>
-    <xsl:apply-templates
-      select="edm:Annotations[generate-id() = generate-id(key('targets', concat(../@Namespace,'/',@Target))[1])]"
-    >
-      <xsl:with-param name="after"
-        select="@Alias|edm:Annotation|edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action|edm:Function|edm:EntityContainer" />
+    <xsl:apply-templates select="edm:Annotations[generate-id() = generate-id(key('targets', concat(../@Namespace,'/',@Target))[1])]">
+      <xsl:with-param name="after" select="@Alias|edm:Annotation|edm:EntityType|edm:ComplexType|edm:TypeDefinition|edm:EnumType|edm:Term|edm:Action|edm:Function|edm:EntityContainer" />
     </xsl:apply-templates>
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -156,8 +147,7 @@
     <xsl:text>,"</xsl:text>
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name' and not(name()='IncludeInServiceDocument' and .='false')]"
-      mode="list" />
+    <xsl:apply-templates select="@*[name()!='Name' and not(name()='IncludeInServiceDocument' and .='false')]" mode="list" />
     <xsl:apply-templates select="edm:Annotation" mode="list2" />
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -222,13 +212,11 @@
     <xsl:value-of select="@Name" />
     <xsl:text>":{</xsl:text>
     <xsl:variable name="members">
-      <xsl:apply-templates
-        select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' 
+      <xsl:apply-templates select="@*[local-name()=name() and name()!='Name' and name()!='Nullable' 
                    and not(name()='Type' and .='Edm.String' and ../@Nullable='false')
                    and not(name()='MaxLength' and .='max') 
                    and not(name()='Scale' and .='variable') 
-                   and not(name()='Unicode' and .='true')]|edm:*"
-        mode="list" />
+                   and not(name()='Unicode' and .='true')]|edm:*" mode="list" />
     </xsl:variable>
     <xsl:if test="local-name()!='Property'">
       <xsl:text>"$Kind":"</xsl:text>
@@ -248,8 +236,7 @@
     <xsl:text>":{"$Kind":"</xsl:text>
     <xsl:value-of select="local-name()" />
     <xsl:text>"</xsl:text>
-    <xsl:apply-templates select="@*[name()!='Name' and name()!='Nullable']|*[name()!='ReferentialConstraint']"
-      mode="list2" />
+    <xsl:apply-templates select="@*[name()!='Name' and name()!='Nullable']|*[name()!='ReferentialConstraint']" mode="list2" />
     <xsl:apply-templates select="edm:ReferentialConstraint" mode="hash" />
     <xsl:text>}</xsl:text>
   </xsl:template>
@@ -277,8 +264,7 @@
         <xsl:with-param name="marker" select="'.'" />
       </xsl:call-template>
     </xsl:variable>
-    <xsl:variable name="url"
-      select="//edmx:Reference[edmx:Include[@Namespace=$qualifier]|edmx:Include[@Alias=$qualifier]]/@Uri" />
+    <xsl:variable name="url" select="//edmx:Reference[edmx:Include[@Namespace=$qualifier]|edmx:Include[@Alias=$qualifier]]/@Uri" />
     <xsl:text>"@type":"</xsl:text>
     <xsl:value-of select="$url" />
     <xsl:text>#</xsl:text>
@@ -303,8 +289,7 @@
       </xsl:choose>
     </xsl:variable>
 
-    <xsl:variable name="nullable"
-      select="../@Nullable='true' or (not(../@Nullable='false') and local-name(..)!='Singleton' and local-name(..)!='Cast' and local-name(..)!='IsOf' and not($collection))" />
+    <xsl:variable name="nullable" select="../@Nullable='true' or (not(../@Nullable='false') and local-name(..)!='Singleton' and local-name(..)!='Cast' and local-name(..)!='IsOf' and not($collection))" />
 
     <xsl:if test="$nullable">
       <xsl:text>"$Nullable":true</xsl:text>
@@ -346,14 +331,11 @@
   </xsl:template>
 
   <!-- default value is suppressed -->
-  <xsl:template
-    match="@Abstract[.='false']|@ContainsTarget[.='false']|@HasStream[.='false']|@IsBound[.='false']|@IsComposable[.='false']|@IsFlags[.='false']|@MaxLength[.='max']|@OpenType[.='false']|@Unicode[.='true']" />
+  <xsl:template match="@Abstract[.='false']|@ContainsTarget[.='false']|@HasStream[.='false']|@IsBound[.='false']|@IsComposable[.='false']|@IsFlags[.='false']|@MaxLength[.='max']|@OpenType[.='false']|@Unicode[.='true']" />
   <xsl:template match="edm:EntitySet/@IncludeInServiceDocument[.='true']" />
 
   <!-- name : unquoted value -->
-  <xsl:template
-    match="@Abstract|@HasStream|@IsFlags|@OpenType|@ContainsTarget|@IsBound|@IsComposable|@IncludeInServiceDocument|@MaxLength|@Precision|@Scale[.!='variable' and .!='floating']|@Unicode"
-  >
+  <xsl:template match="@Abstract|@HasStream|@IsFlags|@OpenType|@ContainsTarget|@IsBound|@IsComposable|@IncludeInServiceDocument|@MaxLength|@Precision|@Scale[.!='variable' and .!='floating']|@Unicode">
     <xsl:text>"$</xsl:text>
     <xsl:value-of select="name()" />
     <xsl:text>":</xsl:text>
@@ -367,19 +349,15 @@
       <xsl:when test="$type='Edm.Boolean' and (.='true' or .='false' or .='null')">
         <xsl:value-of select="." />
       </xsl:when>
-      <xsl:when
-        test="($type='Edm.Decimal' or $type='Edm.Double' or $type='Edm.Single' or 
-       $type='Edm.Byte' or $type='Edm.SByte' or $type='Edm.Int16' or $type='Edm.Int32') and .=number(.)"
-      >
+      <xsl:when test="($type='Edm.Decimal' or $type='Edm.Double' or $type='Edm.Single' or 
+       $type='Edm.Byte' or $type='Edm.SByte' or $type='Edm.Int16' or $type='Edm.Int32') and .=number(.)">
         <xsl:value-of select="." />
       </xsl:when>
       <xsl:when test="$type='Edm.Int64' and number(.) &lt; 9007199254740992">
         <xsl:value-of select="." />
       </xsl:when>
       <!-- FAKE: couldn't determine underlying primitive type, so guess from value -->
-      <xsl:when
-        test="substring($type,4)!='Edm.' and (.='true' or .='false' or .='null' or (.=number(.) and string-length(.) &lt; 16))"
-      >
+      <xsl:when test="substring($type,4)!='Edm.' and (.='true' or .='false' or .='null' or (.=number(.) and string-length(.) &lt; 16))">
         <xsl:value-of select="." />
       </xsl:when>
       <xsl:otherwise>
@@ -391,7 +369,7 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:template>
-  
+
   <xsl:template match="edm:ReferentialConstraint" mode="hashpair">
     <xsl:text>"</xsl:text>
     <xsl:value-of select="@Property" />
@@ -470,9 +448,7 @@
     <xsl:text>"$</xsl:text>
     <xsl:value-of select="local-name()" />
     <xsl:text>":{</xsl:text>
-    <xsl:apply-templates
-      select="@*[local-name()=name() and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and name()!='Nullable' and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*"
-      mode="list" />
+    <xsl:apply-templates select="@*[local-name()=name() and not(name()='Type' and .='Edm.String' and ../@Nullable='false') and name()!='Nullable' and not(name()='MaxLength' and .='max') and not(name()='Unicode' and .='true')]|edm:*" mode="list" />
     <xsl:text>}</xsl:text>
   </xsl:template>
 
@@ -522,9 +498,7 @@
     <xsl:text>"</xsl:text>
     <xsl:value-of select="$name" />
     <xsl:text>":</xsl:text>
-    <xsl:apply-templates
-      select="@*[local-name()=name() and name()!='Term' and name()!='Qualifier']|edm:*[local-name()!='Annotation']" mode="list"
-    >
+    <xsl:apply-templates select="@*[local-name()=name() and name()!='Term' and name()!='Qualifier']|edm:*[local-name()!='Annotation']" mode="list">
       <xsl:with-param name="target" select="$name" />
     </xsl:apply-templates>
     <!-- tagging terms without explicit value are assumed to have DefaultValue="true" -->
@@ -564,17 +538,13 @@
     </xsl:if>
   </xsl:template>
 
-  <xsl:template
-    match="@Binary|edm:Binary|@Date|edm:Date|@DateTimeOffset|edm:DateTimeOffset|@Duration|edm:Duration|@Guid|edm:Guid|@TimeOfDay|edm:TimeOfDay"
-  >
+  <xsl:template match="@Binary|edm:Binary|@Date|edm:Date|@DateTimeOffset|edm:DateTimeOffset|@Duration|edm:Duration|@Guid|edm:Guid|@TimeOfDay|edm:TimeOfDay">
     <xsl:text>"</xsl:text>
     <xsl:value-of select="." />
     <xsl:text>"</xsl:text>
   </xsl:template>
 
-  <xsl:template
-    match="@Path|edm:Path|@AnnotationPath|edm:AnnotationPath|@ModelElementPath|edm:ModelElementPath|@NavigationPropertyPath|edm:NavigationPropertyPath|@PropertyPath|edm:PropertyPath"
-  >
+  <xsl:template match="@Path|edm:Path|@AnnotationPath|edm:AnnotationPath|@ModelElementPath|edm:ModelElementPath|@NavigationPropertyPath|edm:NavigationPropertyPath|@PropertyPath|edm:PropertyPath">
     <xsl:text>"</xsl:text>
     <xsl:call-template name="normalizedPath">
       <xsl:with-param name="path" select="." />
@@ -606,19 +576,28 @@
   <xsl:template match="@String|edm:String">
     <xsl:text>"</xsl:text>
     <xsl:choose>
-      <xsl:when
-        test="name(..)='PropertyValue' and ../@Property='href' and (../../edm:PropertyValue[@Property='rel']/@String='latest-version' or ../../edm:PropertyValue[@Property='rel']/edm:String='latest-version') and substring(.,string-length(.)-3) = '.xml'"
-      >
+      <xsl:when test="name(..)='PropertyValue' and ../@Property='href' and (../../edm:PropertyValue[@Property='rel']/@String='latest-version' or ../../edm:PropertyValue[@Property='rel']/edm:String='latest-version') and substring(.,string-length(.)-3) = '.xml'">
         <xsl:call-template name="escape">
           <xsl:with-param name="string" select="substring(.,1,string-length(.)-3)" />
         </xsl:call-template>
-        <xsl:text>json</xsl:text>
+        <xsl:choose>
+          <xsl:when test="substring(.,1,51)='https://wiki.scn.sap.com/wiki/download/attachments/'">
+            <xsl:text>json.txt</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>json</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
       </xsl:when>
-      <xsl:when
-        test="name(..)='PropertyValue' and ../@Property='href' and (../../edm:PropertyValue[@Property='rel']/@String='alternate' or ../../edm:PropertyValue[@Property='rel']/edm:String='alternate') and substring(.,string-length(.)-4) = '.json'"
-      >
+      <xsl:when test="name(..)='PropertyValue' and ../@Property='href' and (../../edm:PropertyValue[@Property='rel']/@String='alternate' or ../../edm:PropertyValue[@Property='rel']/edm:String='alternate') and substring(.,string-length(.)-4) = '.json'">
         <xsl:call-template name="escape">
           <xsl:with-param name="string" select="substring(.,1,string-length(.)-4)" />
+        </xsl:call-template>
+        <xsl:text>xml</xsl:text>
+      </xsl:when>
+      <xsl:when test="name(..)='PropertyValue' and ../@Property='href' and (../../edm:PropertyValue[@Property='rel']/@String='alternate' or ../../edm:PropertyValue[@Property='rel']/edm:String='alternate') and substring(.,string-length(.)-8) = '.json.txt'">
+        <xsl:call-template name="escape">
+          <xsl:with-param name="string" select="substring(.,1,string-length(.)-8)" />
         </xsl:call-template>
         <xsl:text>xml</xsl:text>
       </xsl:when>
@@ -648,6 +627,20 @@
           <xsl:with-param name="new" select="'\\'" />
         </xsl:call-template>
       </xsl:when>
+      <xsl:when test="contains($string,'&#x09;')">
+        <xsl:call-template name="replace">
+          <xsl:with-param name="string" select="$string" />
+          <xsl:with-param name="old" select="'&#x09;'" />
+          <xsl:with-param name="new" select="'\t'" />
+        </xsl:call-template>
+      </xsl:when>
+      <xsl:when test="contains($string,'&#x0D;&#x0A;')">
+        <xsl:call-template name="replace">
+          <xsl:with-param name="string" select="$string" />
+          <xsl:with-param name="old" select="'&#x0D;&#x0A;'" />
+          <xsl:with-param name="new" select="'\n'" />
+        </xsl:call-template>
+      </xsl:when>
       <xsl:when test="contains($string,'&#x0A;')">
         <xsl:call-template name="replace">
           <xsl:with-param name="string" select="$string" />
@@ -659,14 +652,7 @@
         <xsl:call-template name="replace">
           <xsl:with-param name="string" select="$string" />
           <xsl:with-param name="old" select="'&#x0D;'" />
-          <xsl:with-param name="new" select="'\r'" />
-        </xsl:call-template>
-      </xsl:when>
-      <xsl:when test="contains($string,'&#x09;')">
-        <xsl:call-template name="replace">
-          <xsl:with-param name="string" select="$string" />
-          <xsl:with-param name="old" select="'&#x09;'" />
-          <xsl:with-param name="new" select="'\t'" />
+          <xsl:with-param name="new" select="'\n'" />
         </xsl:call-template>
       </xsl:when>
       <xsl:otherwise>
@@ -710,9 +696,7 @@
     <xsl:text>]</xsl:text>
   </xsl:template>
 
-  <xsl:template
-    match="edm:If|edm:Eq|edm:Ne|edm:Ge|edm:Gt|edm:Le|edm:Lt|edm:And|edm:Or|edm:Has|edm:In|edm:Add|edm:Sub|edm:Mul|edm:Div|edm:DivBy|edm:Mod"
-  >
+  <xsl:template match="edm:If|edm:Eq|edm:Ne|edm:Ge|edm:Gt|edm:Le|edm:Lt|edm:And|edm:Or|edm:Has|edm:In|edm:Add|edm:Sub|edm:Mul|edm:Div|edm:DivBy|edm:Mod">
     <xsl:text>{"$</xsl:text>
     <xsl:value-of select="local-name()" />
     <xsl:text>":[</xsl:text>
