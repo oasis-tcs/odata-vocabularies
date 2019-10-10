@@ -452,18 +452,20 @@
             "$Collection": true,
             "$AppliesTo": [
                 "EntityType",
-                "Property"
+                "Property",
+                "Term"
             ],
-            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property",
+            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term",
             "@Core.IsMediaType": true
         },
         "MediaType": {
             "$Kind": "Term",
             "$Nullable": true,
             "$AppliesTo": [
-                "Property"
+                "Property",
+                "Term"
             ],
-            "@Core.Description": "The media type of the values of a binary or string property",
+            "@Core.Description": "The media type of the values of a binary or string property or term",
             "@Core.IsMediaType": true
         },
         "IsMediaType": {
