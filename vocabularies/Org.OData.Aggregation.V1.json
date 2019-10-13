@@ -15,12 +15,12 @@
         "@Core.Description": "Terms to describe which data in a given entity model can be aggregated, and how.",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json"
             },
             {
                 "rel": "describedby",
@@ -29,8 +29,8 @@
         ],
         "ApplySupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Aggregation.ApplySupportedType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType",
@@ -49,46 +49,46 @@
                 "@Core.Description": "Qualified names of custom aggregation methods that can be used in aggregate(...with...)"
             },
             "Rollup": {
-                "$DefaultValue": "MultipleHierarchies",
                 "$Type": "Aggregation.RollupType",
+                "$DefaultValue": "MultipleHierarchies",
                 "@Core.Description": "The service supports rollup hierarchies in a groupby transformation"
             },
             "PropertyRestrictions": {
-                "$DefaultValue": false,
                 "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
                 "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation"
             }
         },
         "RollupType": {
             "$Kind": "EnumType",
+            "@Core.Description": "The number of rollup operators allowed in a groupby transformation",
             "None": 0,
             "None@Core.Description": "No rollup support",
             "SingleHierarchy": 1,
             "SingleHierarchy@Core.Description": "Only one rollup operator per groupby",
             "MultipleHierarchies": 2,
-            "MultipleHierarchies@Core.Description": "Full rollup support",
-            "@Core.Description": "The number of rollup operators allowed in a groupby transformation"
+            "MultipleHierarchies@Core.Description": "Full rollup support"
         },
         "Groupable": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty"
             ],
-            "$DefaultValue": true,
             "@Core.Description": "This property can be used in the groupby transformation"
         },
         "Aggregatable": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty"
             ],
-            "$DefaultValue": true,
             "@Core.Description": "This property can be used in the aggregate transformation"
         },
         "CustomAggregate": {
@@ -125,8 +125,8 @@
         },
         "RecursiveHierarchy": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Aggregation.RecursiveHierarchyType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType"
@@ -144,13 +144,13 @@
                 "@Core.Description": "Property for navigating to the parent node"
             },
             "DistanceFromRootProperty": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Property holding the number of edges between the node and the root node"
             },
             "IsLeafProperty": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.RequiresType": "Edm.Boolean",
                 "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
             }
@@ -193,8 +193,8 @@
                     },
                     {
                         "$Name": "MaxDistance",
-                        "$Nullable": true,
-                        "$Type": "Edm.Int16"
+                        "$Type": "Edm.Int16",
+                        "$Nullable": true
                     }
                 ],
                 "$ReturnType": {
@@ -221,8 +221,8 @@
                     },
                     {
                         "$Name": "MaxDistance",
-                        "$Nullable": true,
-                        "$Type": "Edm.Int16"
+                        "$Type": "Edm.Int16",
+                        "$Nullable": true
                     }
                 ],
                 "$ReturnType": {
@@ -274,8 +274,8 @@
         ],
         "AvailableOnAggregates": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Aggregation.AvailableOnAggregatesType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Action",
                 "Function"

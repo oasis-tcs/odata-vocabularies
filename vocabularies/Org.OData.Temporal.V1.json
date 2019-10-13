@@ -16,12 +16,12 @@
         "@Core.LongDescription": "*This is a working draft that may incompatibly change any time.*",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json"
             },
             {
                 "rel": "describedby",
@@ -30,8 +30,8 @@
         ],
         "TemporalSupport": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Temporal.TemporalSupportType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "NavigationProperty"
@@ -41,13 +41,13 @@
         "TemporalSupportType": {
             "$Kind": "ComplexType",
             "ApplicationTime": {
-                "$Nullable": true,
                 "$Type": "Temporal.TimeDimensionType",
+                "$Nullable": true,
                 "@Core.Description": "Application time granularity"
             },
             "SystemTime": {
-                "$Nullable": true,
                 "$Type": "Temporal.GranularityDateTimeOffset",
+                "$Nullable": true,
                 "@Core.Description": "System time granularity"
             },
             "ObjectKey": {
@@ -143,8 +143,8 @@
         "UpdateObject": [
             {
                 "$Kind": "Action",
-                "$IsBound": true,
                 "$EntitySetPath": "timeslices",
+                "$IsBound": true,
                 "@Core.Description": "Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
                 "$Parameter": [
                     {
@@ -180,15 +180,15 @@
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Modified time slices",
-                    "@Core.Description": "Same entity type as binding parameter."
+                    "@Core.LongDescription": "Same entity type as binding parameter."
                 }
             }
         ],
         "UpsertObject": [
             {
                 "$Kind": "Action",
-                "$IsBound": true,
                 "$EntitySetPath": "timeslices",
+                "$IsBound": true,
                 "@Core.Description": "Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period",
                 "$Parameter": [
                     {
@@ -224,15 +224,15 @@
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Modified time slices",
-                    "@Core.Description": "Same entity type as binding parameter."
+                    "@Core.LongDescription": "Same entity type as binding parameter."
                 }
             }
         ],
         "UpdateObjectFrom": [
             {
                 "$Kind": "Action",
-                "$IsBound": true,
                 "$EntitySetPath": "timeslices",
+                "$IsBound": true,
                 "@Core.Description": "Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next",
                 "$Parameter": [
                     {
@@ -254,8 +254,8 @@
                     },
                     {
                         "$Name": "To",
-                        "$Nullable": true,
                         "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
                         "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
                     },
                     {
@@ -269,15 +269,15 @@
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Modified time slices",
-                    "@Core.Description": "Same entity type as binding parameter."
+                    "@Core.LongDescription": "Same entity type as binding parameter."
                 }
             }
         ],
         "SynchronizeObject": [
             {
                 "$Kind": "Action",
-                "$IsBound": true,
                 "$EntitySetPath": "timeslices",
+                "$IsBound": true,
                 "@Core.Description": "Synchronizes time slices of a temporal object to match the provided full application timeline",
                 "$Parameter": [
                     {
@@ -305,8 +305,8 @@
         "DeleteObject": [
             {
                 "$Kind": "Action",
-                "$IsBound": true,
                 "$EntitySetPath": "timeslices",
+                "$IsBound": true,
                 "@Core.Description": "Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
                 "$Parameter": [
                     {
@@ -336,15 +336,15 @@
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Deleted time slices",
-                    "@Core.Description": "Same entity type as binding parameter."
+                    "@Core.LongDescription": "Same entity type as binding parameter."
                 }
             }
         ],
         "DeleteObjectFrom": [
             {
                 "$Kind": "Action",
-                "$IsBound": true,
                 "$EntitySetPath": "timeslices",
+                "$IsBound": true,
                 "@Core.Description": "Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next",
                 "$Parameter": [
                     {
@@ -366,8 +366,8 @@
                     },
                     {
                         "$Name": "To",
-                        "$Nullable": true,
                         "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
                         "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
                     }
                 ],
@@ -375,7 +375,7 @@
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Deleted time slices",
-                    "@Core.Description": "Same entity type as binding parameter."
+                    "@Core.LongDescription": "Same entity type as binding parameter."
                 }
             }
         ]

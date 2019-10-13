@@ -4,8 +4,8 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Validation",
-                    "$Namespace": "Org.OData.Validation.V1"
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
                 }
             ]
         }
@@ -15,12 +15,12 @@
         "@Core.Description": "Core terms needed to write vocabularies",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json"
             },
             {
                 "rel": "describedby",
@@ -244,8 +244,8 @@
             "$Kind": "ComplexType",
             "$Abstract": true,
             "info": {
-                "$Nullable": true,
                 "$Type": "Core.MessageType",
+                "$Nullable": true,
                 "@Core.Description": "Information about the exception"
             }
         },
@@ -284,8 +284,8 @@
                 "@Core.Description": "The kind of modification operation that failed"
             },
             "responseCode": {
-                "$Nullable": true,
                 "$Type": "Edm.Int16",
+                "$Nullable": true,
                 "@Core.Description": "Response code of the failed operation, e.g. 424 for a failed dependency",
                 "@Validation.Minimum": 100,
                 "@Validation.Maximum": 599
@@ -365,8 +365,8 @@
         },
         "Permissions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Permission",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "ComplexType",
@@ -557,13 +557,13 @@
         },
         "AlternateKeys": {
             "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.AlternateKey",
             "$AppliesTo": [
                 "EntityType",
                 "EntitySet",
                 "NavigationProperty"
             ],
-            "$Collection": true,
-            "$Type": "Core.AlternateKey",
             "@Core.Description": "Communicates available alternate keys"
         },
         "AlternateKey": {
@@ -592,8 +592,8 @@
         },
         "OptionalParameter": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.OptionalParameterType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Parameter"
             ],
@@ -610,8 +610,8 @@
         },
         "OperationAvailable": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.Boolean",
+            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Action",

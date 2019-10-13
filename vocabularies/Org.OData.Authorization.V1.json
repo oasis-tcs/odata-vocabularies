@@ -15,12 +15,12 @@
         "@Core.Description": "The Authorization Vocabulary provides terms for describing authorization requirements of the service",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json"
             },
             {
                 "rel": "describedby",
@@ -89,8 +89,8 @@
         },
         "OAuthAuthorization": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.Authorization",
             "$Abstract": true,
+            "$BaseType": "Auth.Authorization",
             "Scopes": {
                 "$Collection": true,
                 "$Type": "Auth.AuthorizationScope",
