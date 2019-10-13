@@ -44,3 +44,12 @@ If you installed the script locally, start it via
 ```sh
 node lib/cli.js ...
 ```
+
+
+## Usage for OData TC vocabulary editors
+
+To produce fresh Markdown and CSDL JSON files from all XML vocabularies in the [`/vocabularies`](../vocabularies) folder, use
+```sh
+npm run build
+```
+anywhere in this repository.
