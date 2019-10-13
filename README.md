@@ -24,7 +24,7 @@
 
 <div>
 <h3>Further Description of this Repository</h3>
-<p>This repository contains XML sources as well as auto-generated markdown documentation for the following vocabularies:</p>
+<p>This repository contains XML sources as well as auto-generated JSON sources and Markdown documentation for the following vocabularies:</p>
 </div>
 
 * [Core](vocabularies/Org.OData.Core.V1.md)

@@ -187,7 +187,7 @@
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
@@ -217,7 +217,7 @@
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
@@ -247,7 +247,7 @@
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
@@ -289,7 +289,7 @@
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
-          <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
@@ -314,7 +314,7 @@
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
-          <Annotation Term="Core.Description" String="Same entity type as binding parameter." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
