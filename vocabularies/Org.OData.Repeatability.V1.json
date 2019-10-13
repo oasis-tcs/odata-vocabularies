@@ -4,8 +4,8 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         }
@@ -15,12 +15,12 @@
         "@Core.Description": "Terms describing repeatable requests",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.json"
             },
             {
                 "rel": "describedby",
@@ -37,9 +37,10 @@
                 "ActionImport",
                 "EntitySet"
             ],
-            "@Core.Description": "Repeatable requests are supported for the annotated service, entity set, or action"
+            "@Core.Description": "Repeatable requests are supported for the annotated service, entity set, or action",
+            "@Core.LongDescription": "Annotations on entity set or action import level override an annotation on entity container level, and an annotation on action level override an annotation on action import level. "
         },
-        "DeleteByClientIDSupported": {
+        "DeleteWithClientIDSupported": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$DefaultValue": true,
@@ -47,9 +48,9 @@
                 "EntityContainer"
             ],
             "@Core.Description": "Deletion of remembered requests by client ID is supported",
-            "@Core.LongDescription": "Clients that specify a `RepeatabilityClientID` header can delete all remembered requests for that client ID by sending a\n\n`DELETE $RepeatableRequests/{ClientID}`\n\nrequest to the service root."
+            "@Core.LongDescription": "Clients that specify a `RepeatabilityClientID` header can delete all remembered requests for that client ID by sending a\n\n`DELETE $RepeatableRequestsWithClientID/{Repeatability-Client-ID}`\n\nrequest to the service root."
         },
-        "DeleteByRequestIDSupported": {
+        "DeleteWithRequestIDSupported": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$DefaultValue": true,
@@ -57,7 +58,7 @@
                 "EntityContainer"
             ],
             "@Core.Description": "Deletion of remembered requests by request ID is supported",
-            "@Core.LongDescription": "Clients can delete a single remembered request by sending a\n\n`DELETE $RepeatableRequest/{RequestID}`\n\nrequest to the service root."
+            "@Core.LongDescription": "Clients can delete a single remembered request by sending a\n\n`DELETE $RepeatableRequestWithRequestID/{Repeatability-Request-ID}`\n\nrequest to the service root."
         }
     }
 }

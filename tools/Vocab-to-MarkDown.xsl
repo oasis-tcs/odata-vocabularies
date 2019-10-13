@@ -64,7 +64,7 @@
         </xsl:variable>
         <xsl:if test="string-length($longDescription)>0">
           <xsl:text>&lt;p></xsl:text>
-          <xsl:copy-of select="$longDescription" />
+          <xsl:copy-of select="normalize-space($longDescription)" />
           <xsl:text>&lt;/p></xsl:text>
         </xsl:if>
       </xsl:otherwise>

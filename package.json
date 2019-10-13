@@ -1,0 +1,31 @@
+{
+  "name": "odata-vocabularies",
+  "version": "0.1.0",
+  "description": "Convert OData vocabularies in CSDL XML or CSDL JSON to GitHub Flavored Markdown",
+  "homepage": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/lib/README.md",
+  "bugs": "https://github.com/oasis-tcs/odata-vocabularies/issues",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oasis-tcs/odata-vocabularies.git"
+  },
+  "files": [
+    "lib/*"
+  ],
+  "bin": {
+    "odata-vocab2md": "lib/cli.js"
+  },
+  "main": "lib/csdl2markdown.js",
+  "dependencies": {
+    "minimist": "^1.2.0",
+    "odata-csdl": "oasis-tcs/odata-csdl-schemas"
+  },
+  "devDependencies": {
+    "mocha": "^6.1.4"
+  },
+  "scripts": {
+    "build": "node lib/transform.js",
+    "test": "mocha"
+  },
+  "author": "",
+  "license": "SEE LICENSE IN LICENSE.md"
+}

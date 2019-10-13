@@ -4,24 +4,24 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Auth",
-                    "$Namespace": "Org.OData.Authorization.V1"
+                    "$Namespace": "Org.OData.Authorization.V1",
+                    "$Alias": "Auth"
                 }
             ]
         },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Validation",
-                    "$Namespace": "Org.OData.Validation.V1"
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
                 }
             ]
         }
@@ -31,12 +31,12 @@
         "@Core.Description": "Terms describing capabilities of a service",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json"
             },
             {
                 "rel": "describedby",
@@ -46,8 +46,8 @@
         "@Core.LongDescription": "\nThere are some capabilities which are strongly recommended for services to support even\nthough they are optional. Support for $top and $skip is a good example as\nsupporting these query options helps with performance of a service and are essential. Such\ncapabilities are assumed to be default capabilities of an OData service even in\nthe case that a capabilities annotation doesn’t exist. Capabilities annotations are\nmainly expected to be used to explicitly specify that a service doesn’t support such\ncapabilities. Capabilities annotations can as well be used to declaratively\nspecify the support of such capabilities.\n\nOn the other hand, there are some capabilities that a service may choose to support or\nnot support and in varying degrees. $filter and $orderby are such good examples.\nThis vocabulary aims to define terms to specify support or no support for such\ncapabilities.\n\nA service is assumed to support by default the following capabilities even though an\nannotation doesn’t exist:\n- Countability ($count)\n- Client pageability ($top, $skip)\n- Expandability ($expand)\n- Indexability by key\n- Batch support ($batch)\n- Navigability of navigation properties\n\nA service is expected to support the following capabilities. If not supported, the\nservice is expected to call out the restrictions using annotations:\n- Filterability ($filter)\n- Sortability ($orderby)\n- Queryability of top level entity sets\n- Query functions\n\nA client cannot assume that a service supports certain capabilities. A client can try, but\nit needs to be prepared to handle an error in case the following capabilities are not\nsupported:\n- Insertability\n- Updatability\n- Deletability\n        ",
         "ConformanceLevel": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.ConformanceLevelType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -108,8 +108,8 @@
         },
         "IsolationSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.IsolationLevel",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -132,8 +132,8 @@
         },
         "CallbackSupported": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.CallbackType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet"
@@ -167,8 +167,8 @@
         },
         "ChangeTracking": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.ChangeTrackingType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
@@ -200,8 +200,8 @@
         },
         "CountRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.CountRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -227,8 +227,8 @@
         },
         "NavigationRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.NavigationRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -239,8 +239,8 @@
         "NavigationRestrictionsType": {
             "$Kind": "ComplexType",
             "Navigability": {
-                "$Nullable": true,
                 "$Type": "Capabilities.NavigationType",
+                "$Nullable": true,
                 "@Core.Description": "Default navigability for all navigation properties of the annotation target. Individual navigation properties can override this value via `RestrictedProperties/Navigability`."
             },
             "RestrictedProperties": {
@@ -252,13 +252,13 @@
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
             "NavigationProperty": {
-                "$Nullable": true,
                 "$Type": "Edm.NavigationPropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Navigation properties can be navigated"
             },
             "Navigability": {
-                "$Nullable": true,
                 "$Type": "Capabilities.NavigationType",
+                "$Nullable": true,
                 "@Core.Description": "Supported navigability of this navigation property"
             },
             "FilterFunctions": {
@@ -267,18 +267,18 @@
                 "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
             },
             "FilterRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.FilterRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on filter expressions"
             },
             "SearchRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SearchRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on search expressions"
             },
             "SortRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SortRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on orderby expressions"
             },
             "TopSupported": {
@@ -292,8 +292,8 @@
                 "@Core.Description": "Supports $skip"
             },
             "SelectSupport": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SelectSupportType",
+                "$Nullable": true,
                 "@Core.Description": "Support for $select"
             },
             "IndexableByKey": {
@@ -302,28 +302,28 @@
                 "@Core.Description": "Supports key values according to OData URL conventions"
             },
             "InsertRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.InsertRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on insert operations"
             },
             "DeepInsertSupport": {
-                "$Nullable": true,
                 "$Type": "Capabilities.DeepInsertSupportType",
+                "$Nullable": true,
                 "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
             },
             "UpdateRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.UpdateRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on update operations"
             },
             "DeepUpdateSupport": {
-                "$Nullable": true,
                 "$Type": "Capabilities.DeepUpdateSupportType",
+                "$Nullable": true,
                 "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
             },
             "DeleteRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.DeleteRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on delete operations"
             },
             "OptimisticConcurrencyControl": {
@@ -332,8 +332,8 @@
                 "@Core.Description": "Data modification (including insert) along this navigation property requires the use of ETags"
             },
             "ReadRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.ReadRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions for retrieving entities"
             }
         },
@@ -456,8 +456,8 @@
         },
         "BatchSupport": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.BatchSupportType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -523,8 +523,8 @@
         },
         "FilterRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.FilterRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -566,13 +566,13 @@
         "FilterExpressionRestrictionType": {
             "$Kind": "ComplexType",
             "Property": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Path to the restricted property"
             },
             "AllowedExpressions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.FilterExpressionType",
+                "$Nullable": true,
                 "@Core.Description": "Allowed subset of expressions"
             }
         },
@@ -610,8 +610,8 @@
         },
         "SortRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.SortRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -642,8 +642,8 @@
         },
         "ExpandRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.ExpandRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -675,8 +675,8 @@
         },
         "SearchRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.SearchRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -731,8 +731,8 @@
         },
         "InsertRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.InsertRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -766,14 +766,14 @@
                 "@Core.Description": "Entities of a specific derived type can be created by specifying a type-cast segment"
             },
             "Permissions": {
-                "$Nullable": true,
                 "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
+                "$Nullable": true,
                 "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the insert."
             },
             "QueryOptions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.ModificationQueryOptionsType",
+                "$Nullable": true,
                 "@Core.Description": "Support for query options with insert requests"
             },
             "CustomHeaders": {
@@ -822,8 +822,8 @@
         },
         "DeepInsertSupport": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.DeepInsertSupportType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet"
@@ -845,8 +845,8 @@
         },
         "UpdateRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.UpdateRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -891,14 +891,14 @@
                 "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
             },
             "Permissions": {
-                "$Nullable": true,
                 "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
+                "$Nullable": true,
                 "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the update."
             },
             "QueryOptions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.ModificationQueryOptionsType",
+                "$Nullable": true,
                 "@Core.Description": "Support for query options with update requests"
             },
             "CustomHeaders": {
@@ -924,8 +924,8 @@
         },
         "DeepUpdateSupport": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.DeepUpdateSupportType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet"
@@ -947,8 +947,8 @@
         },
         "DeleteRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.DeleteRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -983,9 +983,9 @@
                 "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
             "Permissions": {
-                "$Nullable": true,
                 "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
+                "$Nullable": true,
                 "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the delete."
             },
             "CustomHeaders": {
@@ -1022,8 +1022,8 @@
         "CollectionPropertyRestrictionsType": {
             "$Kind": "ComplexType",
             "CollectionProperty": {
-                "$Nullable": true,
                 "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
                 "@Core.Description": "Restricted Collection-valued property"
             },
             "FilterFunctions": {
@@ -1032,18 +1032,18 @@
                 "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
             },
             "FilterRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.FilterRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on filter expressions"
             },
             "SearchRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SearchRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on search expressions"
             },
             "SortRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SortRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions on orderby expressions"
             },
             "TopSupported": {
@@ -1057,8 +1057,8 @@
                 "@Core.Description": "Supports $skip"
             },
             "SelectSupport": {
-                "$Nullable": true,
                 "$Type": "Capabilities.SelectSupportType",
+                "$Nullable": true,
                 "@Core.Description": "Support for $select"
             },
             "Insertable": {
@@ -1095,9 +1095,9 @@
                 "@Core.Description": "Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment"
             },
             "Permissions": {
-                "$Nullable": true,
                 "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
+                "$Nullable": true,
                 "@Core.Description": "Required permissions. One of the specified sets of scopes is required to invoke an action or function"
             },
             "CustomHeaders": {
@@ -1122,8 +1122,8 @@
         },
         "ModificationQueryOptions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.ModificationQueryOptionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "Action",
@@ -1166,8 +1166,8 @@
         },
         "ReadRestrictions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Capabilities.ReadRestrictionsType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -1183,9 +1183,9 @@
                 "@Core.Description": "Entities can be retrieved"
             },
             "Permissions": {
-                "$Nullable": true,
                 "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
+                "$Nullable": true,
                 "@Core.Description": "Required permissions. One of the specified sets of scopes is required to read."
             },
             "CustomHeaders": {
@@ -1218,8 +1218,8 @@
             "$Kind": "ComplexType",
             "$BaseType": "Capabilities.ReadRestrictionsBase",
             "ReadByKeyRestrictions": {
-                "$Nullable": true,
                 "$Type": "Capabilities.ReadByKeyRestrictionsType",
+                "$Nullable": true,
                 "@Core.Description": "Restrictions for retrieving an entity by key",
                 "@Core.LongDescription": "Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies."
             }

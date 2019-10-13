@@ -4,8 +4,8 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         }
@@ -15,12 +15,12 @@
         "@Core.Description": "Terms describing validation rules",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json"
             },
             {
                 "rel": "describedby",
@@ -40,8 +40,8 @@
         },
         "Minimum": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.Decimal",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -54,8 +54,8 @@
         },
         "Maximum": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.Decimal",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -68,8 +68,8 @@
         },
         "Exclusive": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Core.Tag",
+            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Annotation"
@@ -90,15 +90,15 @@
         "AllowedValue": {
             "$Kind": "ComplexType",
             "Value": {
-                "$Nullable": true,
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "An allowed value for the property, parameter, or type definition"
             }
         },
         "MultipleOf": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Edm.Decimal",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -108,8 +108,8 @@
         },
         "Constraint": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$Type": "Validation.ConstraintType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "EntityType",
