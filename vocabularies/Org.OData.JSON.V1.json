@@ -4,8 +4,8 @@
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
-                    "$Alias": "Core",
-                    "$Namespace": "Org.OData.Core.V1"
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
                 }
             ]
         }
@@ -15,12 +15,12 @@
         "@Core.Description": "Terms and functions for JSON properties",
         "@Core.Links": [
             {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json"
-            },
-            {
                 "rel": "alternate",
                 "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json"
             },
             {
                 "rel": "describedby",
