@@ -4,8 +4,7 @@ const fs = require('fs');
 const csdl = require('odata-csdl');
 const lib = require('../lib/csdl2markdown');
 
-//TODO: Core, Measures, Repeatability, Temporal, Validation
-const vocabularies = ['Aggregation', 'Authorization', 'Capabilities'];
+const vocabularies = ['Aggregation', 'Authorization', 'Capabilities', 'Core', 'Measures', 'Repeatability', 'Temporal', 'Validation'];
 const input = {};
 const expected = {};
 
