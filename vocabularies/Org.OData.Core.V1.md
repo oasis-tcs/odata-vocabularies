@@ -31,8 +31,8 @@ Term|Type|Description
 [Computed](Org.OData.Core.V1.xml#L396)|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
 [ComputedDefaultValue](Org.OData.Core.V1.xml#L400)|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
 [IsURL](Org.OData.Core.V1.xml#L405)|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
-[AcceptableMediaTypes](Org.OData.Core.V1.xml#L410)|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated binary, stream, or string property
-[MediaType](Org.OData.Core.V1.xml#L416)|MediaType|<a name="MediaType"></a>The media type of the values of a binary or string property
+[AcceptableMediaTypes](Org.OData.Core.V1.xml#L410)|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated binary, stream, or string property or term
+[MediaType](Org.OData.Core.V1.xml#L416)|MediaType|<a name="MediaType"></a>The media type of the values of a binary or string property or term
 [IsMediaType](Org.OData.Core.V1.xml#L421)|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
 [OptimisticConcurrency](Org.OData.Core.V1.xml#L426)|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag.
 [AdditionalProperties](Org.OData.Core.V1.xml#L431)|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata<p>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.</p>

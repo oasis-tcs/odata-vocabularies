@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <!--
 
   Technical Committee:
@@ -53,44 +53,41 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.xml" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.json" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Repeatability.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href"
-              String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Repeatability.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Repeatability.V1.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="Supported" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityContainer Action ActionImport EntitySet"
-      >
-        <Annotation Term="Core.Description"
-          String="Repeatable requests are supported for the annotated service, entity set, or action" />
+      <Term Name="Supported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer Action ActionImport EntitySet">
+        <Annotation Term="Core.Description" String="Repeatable requests are supported for the annotated service, entity set, or action" />
+        <Annotation Term="Core.LongDescription" String="Annotations on entity set or action import level override an annotation on entity container level, and an annotation on action level override an annotation on action import level. " />
       </Term>
-      <Term Name="DeleteByClientIDSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+
+      <Term Name="DeleteWithClientIDSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Deletion of remembered requests by client ID is supported" />
         <Annotation Term="Core.LongDescription">
           <String>Clients that specify a `RepeatabilityClientID` header can delete all remembered requests for that client ID by sending a
 
-`DELETE $RepeatableRequests/{ClientID}`
+`DELETE $RepeatableRequestsWithClientID/{Repeatability-Client-ID}`
 
 request to the service root.</String>
         </Annotation>
       </Term>
-      <Term Name="DeleteByRequestIDSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+
+      <Term Name="DeleteWithRequestIDSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Deletion of remembered requests by request ID is supported" />
         <Annotation Term="Core.LongDescription">
           <String>Clients can delete a single remembered request by sending a
 
-`DELETE $RepeatableRequest/{RequestID}`
+`DELETE $RepeatableRequestWithRequestID/{Repeatability-Request-ID}`
 
 request to the service root.</String>
         </Annotation>
