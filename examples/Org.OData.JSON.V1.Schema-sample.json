@@ -24,7 +24,15 @@
             "$UnderlyingType": "Edm.Stream",
             "@Core.LongDescription": "Dictionary of response code --> description",
             "@Core.AutoExpand": true,
-            "@JSON.Schema": "{\"type\":\"object\",\"additionalProperties\":false,\"patternProperties\":{\"^[0-9]{3}$\":{\"type\":\"string\"}}}",
+            "@JSON.Schema": {
+                "type": "object",
+                "additionalProperties": false,
+                "patternProperties": {
+                    "^[0-9]{3}$": {
+                        "type": "string"
+                    }
+                }
+            },
             "@Core.AcceptableMediaTypes": [
                 "application/json"
             ]
