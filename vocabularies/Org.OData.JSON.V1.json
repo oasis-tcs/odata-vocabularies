@@ -29,6 +29,7 @@
         ],
         "Schema": {
             "$Kind": "Term",
+            "$Type": "Core.JSON",
             "$AppliesTo": [
                 "Property"
             ],
