@@ -1,0 +1,33 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.JSON.V1",
+                    "$Alias": "JSON"
+                }
+            ]
+        }
+    },
+    "json.schema.sample": {
+        "ResponseCodes": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.Stream",
+            "@Core.LongDescription": "Dictionary of response code --> description",
+            "@Core.AutoExpand": true,
+            "@JSON.Schema": "{\"type\":\"object\",\"additionalProperties\":false,\"patternProperties\":{\"^[0-9]{3}$\":{\"type\":\"string\"}}}",
+            "@Core.AcceptableMediaTypes": [
+                "application/json"
+            ]
+        }
+    }
+}
