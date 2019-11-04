@@ -250,8 +250,3 @@ Property|Type|Description
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
-
-## <a name="JSON"></a>[JSON](Org.OData.Core.V1.xml#L490)
-**Type:** Stream
-
-A stream of media type `application/json`

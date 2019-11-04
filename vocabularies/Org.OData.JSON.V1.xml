@@ -21,10 +21,11 @@
   - OData Validation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml.
   - OData Aggregation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml.
   - OData Authorization Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml.
+  - OData JSON Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON .V1.xml.
 
   Related work:
   This vocabulary replaces or supersedes:
-  - OData Version 4.0 Vocabulary components: OData Measures Vocabulary.
+  - OData Version 4.0 Vocabulary components: OData JSON Vocabulary.
   This vocabulary is related to:
   - OData Version 4.01 Part 1: Protocol. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
   - OData Version 4.01 Part 2: URL Conventions. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
@@ -34,7 +35,7 @@
   - OData Extension for Data Aggregation Version 4.0. Latest version: http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
 
   Abstract:
-  This document contains terms describing monetary amounts and measured quantities.
+  This document contains terms for JSON properties.
 
 -->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
@@ -44,7 +45,7 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.JSON.V1" Alias="JSON">
       <Annotation Term="Core.Description">
-        <String>Terms and functions for JSON properties</String>
+        <String>Terms for JSON properties</String>
       </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
@@ -63,14 +64,22 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Schema" Type="Core.JSON" Nullable="false" AppliesTo="Property">
+      <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.AutoExpand" Bool="true" />
         <Annotation Term="Core.Description" String="The JSON Schema for this JSON property" />
         <Annotation Term="Core.LongDescription">
           <String>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
         </Annotation>
       </Term>
+
+      <TypeDefinition Name="JSON" UnderlyingType="Edm.Stream">
+        <Annotation Term="Core.Description" String="A stream of media type `application/json`" />
+        <Annotation Term="Core.AcceptableMediaTypes">
+          <Collection>
+            <String>application/json</String>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
 
     </Schema>
   </edmx:DataServices>
