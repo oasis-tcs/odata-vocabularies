@@ -9,19 +9,17 @@
   <edmx:DataServices>
     <Schema Namespace="json.schema.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
-      <TypeDefinition Name="ResponseCodes" UnderlyingType="Edm.Stream">
-        <Annotation Term="Core.LongDescription" String="Dictionary of response code --> description" />
-        <Annotation Term="Core.AutoExpand" Bool="true" />
-        <Annotation Term="JSON.Schema">
-          <String>{"type":"object","additionalProperties":false,"patternProperties":{"^[0-9]{3}$":{"type":"string"}}}</String>
-        </Annotation>
-        <Annotation Term="Core.AcceptableMediaTypes">
-          <Collection>
-            <String>application/json</String>
-          </Collection>
-        </Annotation>
-      </TypeDefinition>
-      
+      <ComplexType Name="example">
+        <Property Name="CodeDictionary" Type="JSON.JSON" Nullable="false">
+          <Annotation Term="Core.LongDescription" String="Dictionary of three-digit code --> description" />
+          <Annotation Term="Core.AutoExpand" Bool="true" />
+          <Annotation Term="JSON.Schema">
+            <String>{"type":"object","additionalProperties":false,"patternProperties":{"^[0-9]{3}$":{"type":"string"}}}</String>
+            <Annotation Term="Core.MediaType" String="application/json" />
+          </Annotation>
+        </Property>
+      </ComplexType>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

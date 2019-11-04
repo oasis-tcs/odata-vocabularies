@@ -19,23 +19,23 @@
         }
     },
     "json.schema.sample": {
-        "ResponseCodes": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.Stream",
-            "@Core.LongDescription": "Dictionary of response code --> description",
-            "@Core.AutoExpand": true,
-            "@JSON.Schema": {
-                "type": "object",
-                "additionalProperties": false,
-                "patternProperties": {
-                    "^[0-9]{3}$": {
-                        "type": "string"
+        "example": {
+            "$Kind": "ComplexType",
+            "CodeDictionary": {
+                "$Type": "JSON.JSON",
+                "@Core.LongDescription": "Dictionary of three-digit code --> description",
+                "@Core.AutoExpand": true,
+                "@JSON.Schema@Core.MediaType": "application/json",
+                "@JSON.Schema": {
+                    "type": "object",
+                    "additionalProperties": false,
+                    "patternProperties": {
+                        "^[0-9]{3}$": {
+                            "type": "string"
+                        }
                     }
                 }
-            },
-            "@Core.AcceptableMediaTypes": [
-                "application/json"
-            ]
+            }
         }
     }
 }
