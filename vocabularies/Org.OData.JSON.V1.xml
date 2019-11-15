@@ -63,6 +63,7 @@
           </Record>
         </Collection>
       </Annotation>
+      
 
       <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
