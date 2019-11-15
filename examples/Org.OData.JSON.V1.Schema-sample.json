@@ -26,15 +26,7 @@
                 "@Core.LongDescription": "Dictionary of three-digit code --> description",
                 "@Core.AutoExpand": true,
                 "@JSON.Schema@Core.MediaType": "application/json",
-                "@JSON.Schema": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "patternProperties": {
-                        "^[0-9]{3}$": {
-                            "type": "string"
-                        }
-                    }
-                }
+                "@JSON.Schema": "{\"type\":\"object\",\"additionalProperties\":false,\"patternProperties\":{\"^[0-9]{3}$\":{\"type\":\"string\"}}}"
             }
         }
     }
