@@ -1,0 +1,27 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Capabilities.V1",
+                    "$Alias": "Capabilities"
+                }
+            ]
+        }
+    },
+    "filterrestrictions.sample": {
+        "$Annotations": {
+            "my.container/someset": {
+                "@Capabilities.FilterRestrictions": {
+                    "FilterExpressionRestrictions": [
+                        {
+                            "Property": "CompanyCode",
+                            "AllowedExpressions": "MultiValue"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}
