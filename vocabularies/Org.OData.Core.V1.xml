@@ -459,7 +459,7 @@
       </TypeDefinition>
 
       <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property NavigationProperty EntitySet ReturnType"
+        AppliesTo="Property NavigationProperty EntitySet ReturnType Term"
       >
         <Annotation Term="Core.Description"
           String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
