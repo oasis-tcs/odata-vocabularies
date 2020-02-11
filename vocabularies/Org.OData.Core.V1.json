@@ -547,7 +547,8 @@
                 "Property",
                 "NavigationProperty",
                 "EntitySet",
-                "ReturnType"
+                "ReturnType",
+                "Term"
             ],
             "@Core.Description": "Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal."
         },
