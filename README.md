@@ -33,7 +33,8 @@
 * [Validation](vocabularies/Org.OData.Validation.V1.md)
 * [Authorization](vocabularies/Org.OData.Authorization.V1.md)
 * [Aggregation](vocabularies/Org.OData.Aggregation.V1.md)
-
+* [JSON](vocabularies/Org.OData.JSON.V1.md)
+  
 <div>
 <h3>Contact</h3>
 <p>Please send questions or comments about <a href="https://www.oasis-open.org/resources/tcadmin/github-repositories-for-oasis-tc-members-chartered-work">OASIS TC GitHub repositories</a> to <a href="mailto:robin@oasis-open.org">Robin Cover</a> and <a href="mailto:chet.ensign@oasis-open.org">Chet Ensign</a>.  For questions about content in this repository, please contact the TC Chair or Co-Chairs as listed on the the OData TC's <a href="https://www.oasis-open.org/committees/odata/">home page</a>.</p>
