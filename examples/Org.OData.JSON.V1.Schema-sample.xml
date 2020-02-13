@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml">
+    <edmx:Include Namespace="Org.OData.JSON.V1" Alias="JSON" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="json.schema.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <ComplexType Name="example">
+        <Property Name="CodeDictionary" Type="JSON.JSON" Nullable="false">
+          <Annotation Term="Core.LongDescription" String="Dictionary of three-digit code --> description" />
+          <Annotation Term="Core.AutoExpand" Bool="true" />
+          <Annotation Term="JSON.Schema">
+            <String>{"type":"object","additionalProperties":false,"patternProperties":{"^[0-9]{3}$":{"type":"string"}}}</String>
+            <Annotation Term="Core.MediaType" String="application/json" />
+          </Annotation>
+        </Property>
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
