@@ -40,7 +40,7 @@
         },
         "Minimum": {
             "$Kind": "Term",
-            "$Type": "Edm.Decimal",
+            "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "$AppliesTo": [
                 "Property",
@@ -54,7 +54,7 @@
         },
         "Maximum": {
             "$Kind": "Term",
-            "$Type": "Edm.Decimal",
+            "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "$AppliesTo": [
                 "Property",

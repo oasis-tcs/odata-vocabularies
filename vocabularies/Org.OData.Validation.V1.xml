@@ -73,7 +73,7 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="Minimum" Type="Edm.Decimal" Scale="variable" AppliesTo="Property Parameter Term">
+      <Term Name="Minimum" Type="Edm.PrimitiveType" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="Minimum value that a property, parameter, or term can have." />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
@@ -82,7 +82,7 @@
         </Annotation>
       </Term>
 
-      <Term Name="Maximum" Type="Edm.Decimal" Scale="variable" AppliesTo="Property Parameter Term">
+      <Term Name="Maximum" Type="Edm.PrimitiveType" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="Maximum value that a property, parameter, or term can have." />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
