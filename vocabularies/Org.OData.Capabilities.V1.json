@@ -203,7 +203,8 @@
             "$Type": "Capabilities.CountRestrictionsType",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
         },
@@ -212,17 +213,17 @@
             "Countable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be counted"
+                "@Core.Description": "Entities can be counted (only valid if targeting an entity set)"
             },
             "NonCountableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These collection properties do not allow /$count segments"
+                "@Core.Description": "Members of these collection properties cannot be counted"
             },
             "NonCountableNavigationProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "These navigation properties do not allow /$count segments"
+                "@Core.Description": "Members of these navigation properties cannot be counted"
             }
         },
         "NavigationRestrictions": {
@@ -666,6 +667,12 @@
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "These properties cannot be used in expand expressions"
+            },
+            "NonExpandableStreamProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These stream properties cannot be used in expand expressions",
+                "@Core.RequiresType": "Edm.Stream"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
