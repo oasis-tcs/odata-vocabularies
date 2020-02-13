@@ -218,18 +218,18 @@ supported:
 
       <!--Query Capabilities -->
 
-      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
       <ComplexType Name="CountRestrictionsType">
         <Property Name="Countable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Entities can be counted" />
+          <Annotation Term="Core.Description" String="Entities can be counted (only valid if targeting an entity set)" />
         </Property>
         <Property Name="NonCountableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These collection properties do not allow /$count segments" />
+          <Annotation Term="Core.Description" String="Members of these collection properties cannot be counted" />
         </Property>
         <Property Name="NonCountableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These navigation properties do not allow /$count segments" />
+          <Annotation Term="Core.Description" String="Members of these navigation properties cannot be counted" />
         </Property>
       </ComplexType>
 
@@ -527,6 +527,10 @@ supported:
         </Property>
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions" />
+        </Property>
+        <Property Name="NonExpandableStreamProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These stream properties cannot be used in expand expressions" />
+          <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
