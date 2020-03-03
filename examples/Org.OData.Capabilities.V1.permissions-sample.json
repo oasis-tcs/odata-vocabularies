@@ -185,7 +185,7 @@
             "microsoft.graph.GraphService": {
                 "@Auth.Authorizations": [
                     {
-                        "@type": "#Org.OData.Authorization.V1.OAuth2Implicit",
+                        "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
                         "Name": "DelegatedWork",
                         "AuthorizationUrl": "https://graph.microsoft.com",
                         "RefreshUrl": "https://refreshUrl",
@@ -207,7 +207,7 @@
                         ]
                     },
                     {
-                        "@type": "#Org.OData.Authorization.V1.OAuth2Implicit",
+                        "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
                         "Name": "DelegatedPersonal",
                         "AuthorizationUrl": "https://graph.microsoft.com",
                         "RefreshUrl": "https://refreshUrl",
@@ -230,7 +230,7 @@
                         ]
                     },
                     {
-                        "@type": "#Org.OData.Authorization.V1.OAuth2Implicit",
+                        "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
                         "Name": "Application",
                         "AuthorizationUrl": "https://graph.microsoft.com",
                         "RefreshUrl": "https://refreshUrl",
