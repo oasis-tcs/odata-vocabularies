@@ -119,26 +119,26 @@
             "@Core.Example": {
                 "Description": "The value of Core.Example is a record/object containing the example value and/or annotation examples.",
                 "@Core.Example#primitive": {
-                    "@type": "#Core.PrimitiveExampleValue",
+                    "@odata.type": "#Core.PrimitiveExampleValue",
                     "Description": "Primitive example value",
                     "Value": "Hello World"
                 },
                 "@Core.Example#complex": {
-                    "@type": "#Core.ComplexExampleValue",
+                    "@odata.type": "#Core.ComplexExampleValue",
                     "Description": "Complex example value",
                     "Value": {
                         "ExampleProperty": "with value"
                     }
                 },
                 "@Core.Example#entity": {
-                    "@type": "#Core.EntityExampleValue",
+                    "@odata.type": "#Core.EntityExampleValue",
                     "Description": "Entity example value",
                     "Value": {
                         "ExampleKeyProperty": "with value"
                     }
                 },
                 "@Core.Example#external": {
-                    "@type": "#Core.ExternalExampleValue",
+                    "@odata.type": "#Core.ExternalExampleValue",
                     "Description": "External example",
                     "ExternalValue": "https://services.odata.org/TripPinRESTierService/(S(5fjoyrzpnvzrrvmxzzq25i4q))/Me"
                 }
