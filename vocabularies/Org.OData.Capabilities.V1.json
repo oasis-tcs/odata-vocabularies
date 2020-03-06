@@ -466,16 +466,10 @@
         },
         "BatchSupportType": {
             "$Kind": "ComplexType",
-            "Description": {
-                "$Nullable": true,
-                "@Core.Description": "A brief description of the supported batch features",
-                "@Core.IsLanguageDependent": true
-            },
-            "LongDescription": {
-                "$Nullable": true,
-                "@Core.Description": "A lengthy description of the supported batch features",
-                "@Core.IsLanguageDependent": true
-            },
+            "@Validation.ApplicableTerms": [
+                "Core.Description",
+                "Core.LongDescription"
+            ],
             "Supported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
@@ -543,16 +537,9 @@
         },
         "FilterRestrictionsType": {
             "$Kind": "ComplexType",
-            "Description": {
-                "$Nullable": true,
-                "@Core.Description": "A brief description of the supported filter features",
-                "@Core.IsLanguageDependent": true
-            },
-            "LongDescription": {
-                "$Nullable": true,
-                "@Core.Description": "A lengthy description of the supported filter features",
-                "@Core.IsLanguageDependent": true
-            },
+            "@Validation.ApplicableTerms": [
+                "Core.Description"
+            ],
             "Filterable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
@@ -640,16 +627,9 @@
         },
         "SortRestrictionsType": {
             "$Kind": "ComplexType",
-            "Description": {
-                "$Nullable": true,
-                "@Core.Description": "A brief description of the supported sort features",
-                "@Core.IsLanguageDependent": true
-            },
-            "LongDescription": {
-                "$Nullable": true,
-                "@Core.Description": "A lengthy description of the supported sort features",
-                "@Core.IsLanguageDependent": true
-            },
+            "@Validation.ApplicableTerms": [
+                "Core.Description"
+            ],
             "Sortable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
@@ -683,16 +663,9 @@
         },
         "ExpandRestrictionsType": {
             "$Kind": "ComplexType",
-            "Description": {
-                "$Nullable": true,
-                "@Core.Description": "A brief description of the supported expand features",
-                "@Core.IsLanguageDependent": true
-            },
-            "LongDescription": {
-                "$Nullable": true,
-                "@Core.Description": "A lengthy description of the supported expand features",
-                "@Core.IsLanguageDependent": true
-            },
+            "@Validation.ApplicableTerms": [
+                "Core.Description"
+            ],
             "Expandable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
@@ -731,16 +704,9 @@
         },
         "SearchRestrictionsType": {
             "$Kind": "ComplexType",
-            "Description": {
-                "$Nullable": true,
-                "@Core.Description": "A brief description of the supported search features",
-                "@Core.IsLanguageDependent": true
-            },
-            "LongDescription": {
-                "$Nullable": true,
-                "@Core.Description": "A lengthy description of the supported search features",
-                "@Core.IsLanguageDependent": true
-            },
+            "@Validation.ApplicableTerms": [
+                "Core.Description"
+            ],
             "Searchable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
