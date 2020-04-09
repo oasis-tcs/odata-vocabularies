@@ -377,6 +377,12 @@ supported:
         <Annotation Term="Core.Description" String="Batch Support for the service" />
       </Term>
       <ComplexType Name="BatchSupportType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Core.Description</String>
+            <String>Core.LongDescription</String>
+          </Collection>
+        </Annotation>
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Service supports requests to $batch" />
         </Property>
@@ -425,6 +431,11 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
       </Term>
       <ComplexType Name="FilterRestrictionsType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Core.Description</String>
+          </Collection>
+        </Annotation>
         <Property Name="Filterable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$filter is supported" />
         </Property>
@@ -501,6 +512,11 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
       </Term>
       <ComplexType Name="SortRestrictionsType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Core.Description</String>
+          </Collection>
+        </Annotation>
         <Property Name="Sortable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$orderby is supported" />
         </Property>
@@ -519,6 +535,11 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Core.Description</String>
+          </Collection>
+        </Annotation>
         <Property Name="Expandable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$expand is supported" />
         </Property>
@@ -542,6 +563,11 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on search expressions" />
       </Term>
       <ComplexType Name="SearchRestrictionsType">
+        <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Core.Description</String>
+          </Collection>
+        </Annotation>
         <Property Name="Searchable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="$search is supported" />
         </Property>
