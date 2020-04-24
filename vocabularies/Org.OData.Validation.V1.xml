@@ -102,6 +102,9 @@
           String="A collection of valid values for the annotated property, parameter, or type definition" />
       </Term>
       <ComplexType Name="AllowedValue">
+        <Property Name="Name" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="A unique symbolic name for the allowed value" />
+        </Property>
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="An allowed value for the property, parameter, or type definition" />
         </Property>
