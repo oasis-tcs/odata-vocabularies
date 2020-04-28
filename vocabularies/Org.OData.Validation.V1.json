@@ -90,7 +90,6 @@
         "AllowedValue": {
             "$Kind": "ComplexType",
             "Name": {
-                "$Type": "Edm.PrimitiveType",
                 "$Nullable": true,
                 "@Core.Description": "A unique symbolic name for the allowed value"
             },

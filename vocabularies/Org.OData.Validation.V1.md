@@ -28,7 +28,7 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Validation.V1.xml#L105)|PrimitiveType|A unique symbolic name for the allowed value
+[Name](Org.OData.Validation.V1.xml#L105)|String|A unique symbolic name for the allowed value
 [Value](Org.OData.Validation.V1.xml#L108)|PrimitiveType|An allowed value for the property, parameter, or type definition
 
 ## <a name="ConstraintType"></a>[ConstraintType](Org.OData.Validation.V1.xml#L121)
