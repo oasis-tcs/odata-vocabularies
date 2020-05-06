@@ -91,7 +91,7 @@
             "$Kind": "ComplexType",
             "Name": {
                 "$Nullable": true,
-                "@Core.Description": "A unique symbolic name for the allowed value"
+                "@Core.Description": "A unique symbolic name for the allowed value, which must be in the form of an OData CSDL Simple Identifier"
             },
             "Value": {
                 "$Type": "Edm.PrimitiveType",

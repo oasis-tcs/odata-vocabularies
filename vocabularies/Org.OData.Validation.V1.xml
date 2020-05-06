@@ -103,7 +103,7 @@
       </Term>
       <ComplexType Name="AllowedValue">
         <Property Name="Name" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A unique symbolic name for the allowed value" />
+          <Annotation Term="Core.Description" String="A unique symbolic name for the allowed value, which must be in the form of an OData CSDL Simple Identifier" />
         </Property>
         <Property Name="Value" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="An allowed value for the property, parameter, or type definition" />
