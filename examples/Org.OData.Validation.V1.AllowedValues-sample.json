@@ -38,24 +38,24 @@
                 "$Nullable": true,
                 "@Validation.AllowedValues": [
                     {
+                        "Value": 1,
                         "@Core.Description": "Order has been submitted",
-                        "@Core.SymbolicName": "submitted",
-                        "Value": 1
+                        "@Core.SymbolicName": "submitted"
                     },
                     {
+                        "Value": 2,
                         "@Core.Description": "Order has been fulfilled",
-                        "@Core.SymbolicName": "fulfilled",
-                        "Value": 2
+                        "@Core.SymbolicName": "fulfilled"
                     },
                     {
+                        "Value": 3,
                         "@Core.Description": "Order has been shipped",
-                        "@Core.SymbolicName": "shipped",
-                        "Value": 3
+                        "@Core.SymbolicName": "shipped"
                     },
                     {
+                        "Value": -1,
                         "@Core.Description": "Order has been canceled",
-                        "@Core.SymbolicName": "canceled",
-                        "Value": -1
+                        "@Core.SymbolicName": "canceled"
                     }
                 ]
             }

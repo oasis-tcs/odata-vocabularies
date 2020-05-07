@@ -27,24 +27,24 @@
           <Annotation Term="Validation.AllowedValues">
             <Collection>
               <Record>
+                <PropertyValue Property="Value" Int="1" />
                 <Annotation Term="Core.Description" String="Order has been submitted" />
                 <Annotation Term="Core.SymbolicName" String="submitted" />
-                <PropertyValue Property="Value" Int="1" />
               </Record>
               <Record>
+                <PropertyValue Property="Value" Int="2" />
                 <Annotation Term="Core.Description" String="Order has been fulfilled" />
                 <Annotation Term="Core.SymbolicName" String="fulfilled" />
-                <PropertyValue Property="Value" Int="2" />
               </Record>
               <Record>
+                <PropertyValue Property="Value" Int="3" />
                 <Annotation Term="Core.Description" String="Order has been shipped" />
                 <Annotation Term="Core.SymbolicName" String="shipped" />
-                <PropertyValue Property="Value" Int="3" />
               </Record>
               <Record>
+                <PropertyValue Property="Value" Int="-1" />
                 <Annotation Term="Core.Description" String="Order has been canceled" />
                 <Annotation Term="Core.SymbolicName" String="canceled" />
-                <PropertyValue Property="Value" Int="-1" />
               </Record>
             </Collection>
           </Annotation>
