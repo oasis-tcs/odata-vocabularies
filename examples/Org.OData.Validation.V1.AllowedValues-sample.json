@@ -1,0 +1,64 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        }
+    },
+    "validation.allowedvalues.sample": {
+        "Gender": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "male"
+                },
+                {
+                    "Value": "female"
+                }
+            ]
+        },
+        "Order": {
+            "$Kind": "EntityType",
+            "status": {
+                "$Type": "Edm.Int32",
+                "$Nullable": true,
+                "@Validation.AllowedValues": [
+                    {
+                        "@Core.Description": "Order has been submitted",
+                        "@Core.SymbolicName": "submitted",
+                        "Value": 1
+                    },
+                    {
+                        "@Core.Description": "Order has been fulfilled",
+                        "@Core.SymbolicName": "fulfilled",
+                        "Value": 2
+                    },
+                    {
+                        "@Core.Description": "Order has been shipped",
+                        "@Core.SymbolicName": "shipped",
+                        "Value": 3
+                    },
+                    {
+                        "@Core.Description": "Order has been canceled",
+                        "@Core.SymbolicName": "canceled",
+                        "Value": -1
+                    }
+                ]
+            }
+        }
+    }
+}

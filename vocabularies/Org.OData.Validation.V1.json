@@ -89,10 +89,11 @@
         },
         "AllowedValue": {
             "$Kind": "ComplexType",
-            "Name": {
-                "$Nullable": true,
-                "@Core.Description": "A unique symbolic name for the allowed value, which must be in the form of an OData CSDL Simple Identifier"
-            },
+            "@Validation.ApplicableTerms": [
+                "Core.Description",
+                "Core.LongDescription",
+                "Core.SymbolicName"
+            ],
             "Value": {
                 "$Type": "Edm.PrimitiveType",
                 "$Nullable": true,
