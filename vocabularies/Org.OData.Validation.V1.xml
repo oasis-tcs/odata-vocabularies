@@ -97,8 +97,6 @@
       <ComplexType Name="AllowedValue">
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
-            <String>Core.Description</String>
-            <String>Core.LongDescription</String>
             <String>Core.SymbolicName</String>
           </Collection>
         </Annotation>

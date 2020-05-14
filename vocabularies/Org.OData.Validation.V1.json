@@ -90,8 +90,6 @@
         "AllowedValue": {
             "$Kind": "ComplexType",
             "@Validation.ApplicableTerms": [
-                "Core.Description",
-                "Core.LongDescription",
                 "Core.SymbolicName"
             ],
             "Value": {
