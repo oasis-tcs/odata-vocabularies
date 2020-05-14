@@ -89,6 +89,9 @@
         },
         "AllowedValue": {
             "$Kind": "ComplexType",
+            "@Validation.ApplicableTerms": [
+                "Core.SymbolicName"
+            ],
             "Value": {
                 "$Type": "Edm.PrimitiveType",
                 "$Nullable": true,
