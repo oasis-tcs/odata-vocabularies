@@ -29,7 +29,12 @@ Term|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Value](Org.OData.Validation.V1.xml#L103)|PrimitiveType|An allowed value for the property, parameter, or type definition
-@Core.SymbolicName|[SymbolicName](Org.OData.Core.V1.md#SymbolicName)|Annotation
+
+Notable terms
+
+Term|Type
+:-------|:---
+@Core.SymbolicName|[SymbolicName](Org.OData.Core.V1.md#SymbolicName)
 
 ## <a name="ConstraintType"></a>[ConstraintType](Org.OData.Validation.V1.xml#L115)
 
