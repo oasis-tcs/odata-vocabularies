@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="validation.allowedvalues.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <TypeDefinition Name="Gender" UnderlyingType="Edm.String">
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="male" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="female" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
+      <EntityType Name="Order">
+        <Property Name="status" Type="Edm.Int32">
+          <Annotation Term="Validation.AllowedValues">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Value" Int="1" />
+                <Annotation Term="Core.Description" String="Order has been submitted" />
+                <Annotation Term="Core.SymbolicName" String="submitted" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" Int="2" />
+                <Annotation Term="Core.Description" String="Order has been fulfilled" />
+                <Annotation Term="Core.SymbolicName" String="fulfilled" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" Int="3" />
+                <Annotation Term="Core.Description" String="Order has been shipped" />
+                <Annotation Term="Core.SymbolicName" String="shipped" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" Int="-1" />
+                <Annotation Term="Core.Description" String="Order has been canceled" />
+                <Annotation Term="Core.SymbolicName" String="canceled" />
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+      </EntityType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
