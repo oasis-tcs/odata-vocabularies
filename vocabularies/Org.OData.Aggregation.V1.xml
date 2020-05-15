@@ -7,11 +7,12 @@
 
   Chairs:
   - Ralf Handl (ralf.handl@sap.com), SAP SE
-  - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+  - Michael Pizzo (mikep@microsoft.com), Microsoft
 
   Editors:
   - Ralf Handl (ralf.handl@sap.com), SAP SE
   - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+  - Gerald Krause (gerald.krause@sap.com), SAP SE
   - Michael Pizzo (mikep@microsoft.com), Microsoft
 
   Additional artifacts:
@@ -139,6 +140,9 @@
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property for navigating to the parent node" />
+        </Property>
+        <Property Type="Edm.NavigationPropertyPath" Name="ChildrenNavigationProperty" Nullable="true">
+          <Annotation Term="Core.Description" String="Property for navigating to the children nodes"/>
         </Property>
         <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property holding the number of edges between the node and the root node" />

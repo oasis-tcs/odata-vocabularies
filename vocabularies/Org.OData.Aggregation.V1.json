@@ -143,6 +143,11 @@
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Property for navigating to the parent node"
             },
+            "ChildrenNavigationProperty": {
+                "$Type": "Edm.NavigationPropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property for navigating to the children nodes"
+            },
             "DistanceFromRootProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
