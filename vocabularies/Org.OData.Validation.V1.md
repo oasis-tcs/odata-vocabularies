@@ -30,7 +30,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Value](Org.OData.Validation.V1.xml#L103)|PrimitiveType|An allowed value for the property, parameter, or type definition
 
-**Notable terms:**
+**Applicable Terms:**
 
 - [SymbolicName](Org.OData.Core.V1.md#SymbolicName)
 
