@@ -110,6 +110,18 @@
         <Annotation Term="Core.Description" String="This property can be used in the aggregate transformation" />
       </Term>
 
+      <Term Name="SupportedAggregationMethods" Type="Collection(Edm.String)" AppliesTo="Property">
+        <Annotation Term="Core.Description">
+          <String>Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="RecommendedAggregationMethod" Type="Edm.String" AppliesTo="Property">
+        <Annotation Term="Core.Description">
+          <String>Recommended method for aggregating values of the property</String>
+        </Annotation>
+      </Term>
+
       <Term Name="CustomAggregate" Type="Edm.String" AppliesTo="EntityType ComplexType EntityContainer">
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the aggregate transformation" />
         <Annotation Term="Core.LongDescription"

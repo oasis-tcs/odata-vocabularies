@@ -91,6 +91,22 @@
             ],
             "@Core.Description": "This property can be used in the aggregate transformation"
         },
+        "SupportedAggregationMethods": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied"
+        },
+        "RecommendedAggregationMethod": {
+            "$Kind": "Term",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "Recommended method for aggregating values of the property"
+        },
         "CustomAggregate": {
             "$Kind": "Term",
             "$Nullable": true,
