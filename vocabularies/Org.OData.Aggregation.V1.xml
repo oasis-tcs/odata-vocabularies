@@ -164,6 +164,13 @@
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
+        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false"/>
+            </Record>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
@@ -174,6 +181,13 @@
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
         <Parameter Name="MaxDistance" Type="Edm.Int16" />
+        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false"/>
+            </Record>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 

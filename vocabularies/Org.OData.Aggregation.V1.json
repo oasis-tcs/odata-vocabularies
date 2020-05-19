@@ -195,6 +195,14 @@
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
                         "$Nullable": true
+                    },
+                    {
+                        "$Name": "IncludeParent",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -223,6 +231,14 @@
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
                         "$Nullable": true
+                    },
+                    {
+                        "$Name": "IncludeChild",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {

@@ -15,7 +15,7 @@ Term|Type|Description
 [ContextDefiningProperties](Org.OData.Aggregation.V1.xml#L119)|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<p>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.</p>
 [LeveledHierarchy](Org.OData.Aggregation.V1.xml#L127)|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
 [RecursiveHierarchy](Org.OData.Aggregation.V1.xml#L132)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L197)|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the RequiredProperties are still defined
+[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L211)|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the RequiredProperties are still defined
 
 
 ## Functions
@@ -23,10 +23,10 @@ Term|Type|Description
 Function|Signature|Description
 :-------|:--------|:----------
 [isroot](Org.OData.Aggregation.V1.xml#L152)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String &rarr;&nbsp;Boolean|<a name="isroot"></a>Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
-[isdescendant](Org.OData.Aggregation.V1.xml#L160)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType, MaxDistance:&nbsp;Int16 &rarr;&nbsp;Boolean|<a name="isdescendant"></a>Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance
-[isancestor](Org.OData.Aggregation.V1.xml#L170)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType, MaxDistance:&nbsp;Int16 &rarr;&nbsp;Boolean|<a name="isancestor"></a>Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance
-[issibling](Org.OData.Aggregation.V1.xml#L180)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType &rarr;&nbsp;Boolean|<a name="issibling"></a>Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
-[isleaf](Org.OData.Aggregation.V1.xml#L189)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String &rarr;&nbsp;Boolean|<a name="isleaf"></a>Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
+[isdescendant](Org.OData.Aggregation.V1.xml#L160)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType, MaxDistance:&nbsp;Int16, IncludeParent:&nbsp;Boolean &rarr;&nbsp;Boolean|<a name="isdescendant"></a>Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance
+[isancestor](Org.OData.Aggregation.V1.xml#L177)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType, MaxDistance:&nbsp;Int16, IncludeChild:&nbsp;Boolean &rarr;&nbsp;Boolean|<a name="isancestor"></a>Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance
+[issibling](Org.OData.Aggregation.V1.xml#L194)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType &rarr;&nbsp;Boolean|<a name="issibling"></a>Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
+[isleaf](Org.OData.Aggregation.V1.xml#L203)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String &rarr;&nbsp;Boolean|<a name="isleaf"></a>Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
 
 ## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L75)
 
@@ -57,9 +57,9 @@ Property|Type|Description
 [DistanceFromRootProperty](Org.OData.Aggregation.V1.xml#L143)|PropertyPath|Property holding the number of edges between the node and the root node
 [IsLeafProperty](Org.OData.Aggregation.V1.xml#L146)|PropertyPath|Property indicating whether the node is a leaf of the hierarchy
 
-## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](Org.OData.Aggregation.V1.xml#L201)
+## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](Org.OData.Aggregation.V1.xml#L215)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[RequiredProperties](Org.OData.Aggregation.V1.xml#L202)|\[PropertyPath\]|Properties required to apply this action or function
+[RequiredProperties](Org.OData.Aggregation.V1.xml#L216)|\[PropertyPath\]|Properties required to apply this action or function
