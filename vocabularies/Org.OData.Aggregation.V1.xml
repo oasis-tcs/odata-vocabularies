@@ -163,7 +163,13 @@
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" Int="32767"/>
+            </Record>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
@@ -173,7 +179,13 @@
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" Int="32767"/>
+            </Record>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 

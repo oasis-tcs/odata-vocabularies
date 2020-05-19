@@ -194,7 +194,10 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": 32767
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -222,7 +225,10 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": 32767
+                        }
                     }
                 ],
                 "$ReturnType": {
