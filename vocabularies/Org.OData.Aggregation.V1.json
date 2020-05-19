@@ -8,6 +8,14 @@
                     "$Alias": "Core"
                 }
             ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
         }
     },
     "Org.OData.Aggregation.V1": {
@@ -197,7 +205,8 @@
                         "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
-                        }
+                        },
+                        "@Validation.Minimum": 1
                     }
                 ],
                 "$ReturnType": {
@@ -228,7 +237,8 @@
                         "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
-                        }
+                        },
+                        "@Validation.Minimum": 1
                     }
                 ],
                 "$ReturnType": {

@@ -42,6 +42,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>  
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Aggregation.V1" Alias="Aggregation">
       <Annotation Term="Core.Description">
@@ -169,6 +172,7 @@
               <PropertyValue Property="DefaultValue" Int="32767"/>
             </Record>
           </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1"/>
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
@@ -185,6 +189,7 @@
               <PropertyValue Property="DefaultValue" Int="32767"/>
             </Record>
           </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1"/>
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
