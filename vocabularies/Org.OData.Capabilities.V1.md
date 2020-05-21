@@ -206,7 +206,7 @@ Property|Type|Description
 [RequestDependencyConditionsSupported](Org.OData.Capabilities.V1.xml#L401)|Boolean|Service supports the `if` member in JSON batch requests
 [SupportedFormats](Org.OData.Capabilities.V1.xml#L404)|\[MediaType\]|Media types of supported formats for $batch
 
-**Applicable Terms:**
+**Applicable Annotation Terms:**
 
 - [Description](Org.OData.Core.V1.md#Description)
 - [LongDescription](Org.OData.Core.V1.md#LongDescription)
@@ -223,7 +223,7 @@ Property|Type|Description
 [FilterExpressionRestrictions](Org.OData.Capabilities.V1.xml#L454)|\[[FilterExpressionRestrictionType](#FilterExpressionRestrictionType)\]|These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties.
 [MaxLevels](Org.OData.Capabilities.V1.xml#L458)|Int32|The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction.
 
-**Applicable Terms:**
+**Applicable Annotation Terms:**
 
 - [Description](Org.OData.Core.V1.md#Description)
 
@@ -259,7 +259,7 @@ Property|Type|Description
 [DescendingOnlyProperties](Org.OData.Capabilities.V1.xml#L526)|\[PropertyPath\]|These properties can only be used for sorting in Descending order
 [NonSortableProperties](Org.OData.Capabilities.V1.xml#L529)|\[PropertyPath\]|These structural properties cannot be used in orderby expressions
 
-**Applicable Terms:**
+**Applicable Annotation Terms:**
 
 - [Description](Org.OData.Core.V1.md#Description)
 
@@ -274,7 +274,7 @@ Property|Type|Description
 [NonExpandableStreamProperties](Org.OData.Capabilities.V1.xml#L552)|\[PropertyPath\]|These stream properties cannot be used in expand expressions
 [MaxLevels](Org.OData.Capabilities.V1.xml#L556)|Int32|The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction.
 
-**Applicable Terms:**
+**Applicable Annotation Terms:**
 
 - [Description](Org.OData.Core.V1.md#Description)
 
@@ -286,7 +286,7 @@ Property|Type|Description
 [Searchable](Org.OData.Capabilities.V1.xml#L571)|Boolean|$search is supported
 [UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L574)|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
 
-**Applicable Terms:**
+**Applicable Annotation Terms:**
 
 - [Description](Org.OData.Core.V1.md#Description)
 
