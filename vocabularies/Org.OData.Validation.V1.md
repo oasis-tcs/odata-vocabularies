@@ -20,8 +20,8 @@ Term|Type|Description
 [DerivedTypeConstraint](Org.OData.Validation.V1.xml#L147)|\[[QualifiedTypeName](Org.OData.Core.V1.md#QualifiedTypeName)\]|<a name="DerivedTypeConstraint"></a>Values are restricted to types that are both identical to or derived from the declared type and a type listed in this collection.<p>This allows restricting values to certain sub-trees of an inheritance hierarchy. Types listed in this collection that are not derived from the declared type of the annotated model element are ignored.</p>
 [AllowedTerms](Org.OData.Validation.V1.xml#L152)|\[[QualifiedTermName](Org.OData.Core.V1.md#QualifiedTermName)\]|<a name="AllowedTerms"></a>Annotate a term of type Edm.AnnotationPath, or a property of type Edm.AnnotationPath that is used within a structured term, to restrict the terms that can be targeted by the path.<p>The annotation path expression is intended to end in a path segment with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed.</p>
 [ApplicableTerms](Org.OData.Validation.V1.xml#L158)|\[[QualifiedTermName](Org.OData.Core.V1.md#QualifiedTermName)\]|<a name="ApplicableTerms"></a>Names of specific terms that are applicable and may be applied in the current context. This annotation does not restrict the use of other terms.
-[MaxItems](Org.OData.Validation.V1.xml#L162)|Int64|<a name="MaxItems"></a>The annotated collection must have at most the specified number of items.
-[MinItems](Org.OData.Validation.V1.xml#L166)|Int64|<a name="MinItems"></a>The annotated collection must have at least the specified number of items.
+[MaxItems](Org.OData.Validation.V1.xml#L162)|Int64!|<a name="MaxItems"></a>The annotated collection must have at most the specified number of items.
+[MinItems](Org.OData.Validation.V1.xml#L166)|Int64!|<a name="MinItems"></a>The annotated collection must have at least the specified number of items.
 
 ## <a name="AllowedValue"></a>[AllowedValue](Org.OData.Validation.V1.xml#L97)
 
@@ -40,12 +40,12 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [FailureMessage](Org.OData.Validation.V1.xml#L116)|String|Human-readable message that can be shown to end users if the constraint is not fulfilled
-[Condition](Org.OData.Validation.V1.xml#L120)|Boolean|Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled
+[Condition](Org.OData.Validation.V1.xml#L120)|Boolean!|Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled
 
 ## <a name="ItemsOfType"></a>[ItemsOfType](Org.OData.Validation.V1.xml#L133)
 Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`.
 
 Property|Type|Description
 :-------|:---|:----------
-[path](Org.OData.Validation.V1.xml#L135)|NavigationPropertyPath|A path to a single- or collection-valued navigation property
-[target](Org.OData.Validation.V1.xml#L138)|NavigationPropertyPath|A path to a collection-valued navigation property
+[path](Org.OData.Validation.V1.xml#L135)|NavigationPropertyPath!|A path to a single- or collection-valued navigation property
+[target](Org.OData.Validation.V1.xml#L138)|NavigationPropertyPath!|A path to a collection-valued navigation property

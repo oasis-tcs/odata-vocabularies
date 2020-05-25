@@ -35,8 +35,8 @@ Property|Type|Description
 :-------|:---|:----------
 [Transformations](Org.OData.Aggregation.V1.xml#L76)|\[String\]|Transformations that can be used in $apply
 [CustomAggregationMethods](Org.OData.Aggregation.V1.xml#L79)|\[String\]|Qualified names of custom aggregation methods that can be used in aggregate(...with...)
-[Rollup](Org.OData.Aggregation.V1.xml#L83)|[RollupType](#RollupType)|The service supports rollup hierarchies in a groupby transformation
-[PropertyRestrictions](Org.OData.Aggregation.V1.xml#L86)|Boolean|Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation
+[Rollup](Org.OData.Aggregation.V1.xml#L83)|[RollupType](#RollupType)!|The service supports rollup hierarchies in a groupby transformation
+[PropertyRestrictions](Org.OData.Aggregation.V1.xml#L86)|Boolean!|Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation
 
 ## <a name="RollupType"></a>[RollupType](Org.OData.Aggregation.V1.xml#L92)
 The number of rollup operators allowed in a groupby transformation
@@ -52,8 +52,8 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeProperty](Org.OData.Aggregation.V1.xml#L137)|PropertyPath|Property holding the hierarchy node value
-[ParentNavigationProperty](Org.OData.Aggregation.V1.xml#L140)|NavigationPropertyPath|Property for navigating to the parent node
+[NodeProperty](Org.OData.Aggregation.V1.xml#L137)|PropertyPath!|Property holding the hierarchy node value
+[ParentNavigationProperty](Org.OData.Aggregation.V1.xml#L140)|NavigationPropertyPath!|Property for navigating to the parent node
 [DistanceFromRootProperty](Org.OData.Aggregation.V1.xml#L143)|PropertyPath|Property holding the number of edges between the node and the root node
 [IsLeafProperty](Org.OData.Aggregation.V1.xml#L146)|PropertyPath|Property indicating whether the node is a leaf of the hierarchy
 
