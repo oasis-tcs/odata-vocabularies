@@ -429,8 +429,8 @@ Property|Type|Description
 
 
 **Derived Types:**
-- [ReadByKeyRestrictionsType](#ReadByKeyRestrictionsType)!
-- [ReadRestrictionsType](#ReadRestrictionsType)!
+- [ReadByKeyRestrictionsType](#ReadByKeyRestrictionsType)
+- [ReadRestrictionsType](#ReadRestrictionsType)
 
 Property|Type|Description
 :-------|:---|:----------

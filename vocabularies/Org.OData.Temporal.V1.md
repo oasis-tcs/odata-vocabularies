@@ -43,8 +43,8 @@ Property|Type|Description
 
 
 **Derived Types:**
-- [GranularityDateTimeOffset](#GranularityDateTimeOffset)!
-- [GranularityDate](#GranularityDate)!
+- [GranularityDateTimeOffset](#GranularityDateTimeOffset)
+- [GranularityDate](#GranularityDate)
 
 Property|Type|Description
 :-------|:---|:----------

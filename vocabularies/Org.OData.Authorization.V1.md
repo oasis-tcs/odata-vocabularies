@@ -23,14 +23,14 @@ Property|Type|Description
 Base type for all Authorization types
 
 **Derived Types:**
-- [OpenIDConnect](#OpenIDConnect)!
-- [Http](#Http)!
-- *[OAuthAuthorization](#OAuthAuthorization)!*
-  - [OAuth2ClientCredentials](#OAuth2ClientCredentials)!
-  - [OAuth2Implicit](#OAuth2Implicit)!
-  - [OAuth2Password](#OAuth2Password)!
-  - [OAuth2AuthCode](#OAuth2AuthCode)!
-- [ApiKey](#ApiKey)!
+- [OpenIDConnect](#OpenIDConnect)
+- [Http](#Http)
+- *[OAuthAuthorization](#OAuthAuthorization)*
+  - [OAuth2ClientCredentials](#OAuth2ClientCredentials)
+  - [OAuth2Implicit](#OAuth2Implicit)
+  - [OAuth2Password](#OAuth2Password)
+  - [OAuth2AuthCode](#OAuth2AuthCode)
+- [ApiKey](#ApiKey)
 
 Property|Type|Description
 :-------|:---|:----------
@@ -60,10 +60,10 @@ Property|Type|Description
 
 
 **Derived Types:**
-- [OAuth2ClientCredentials](#OAuth2ClientCredentials)!
-- [OAuth2Implicit](#OAuth2Implicit)!
-- [OAuth2Password](#OAuth2Password)!
-- [OAuth2AuthCode](#OAuth2AuthCode)!
+- [OAuth2ClientCredentials](#OAuth2ClientCredentials)
+- [OAuth2Implicit](#OAuth2Implicit)
+- [OAuth2Password](#OAuth2Password)
+- [OAuth2AuthCode](#OAuth2AuthCode)
 
 Property|Type|Description
 :-------|:---|:----------

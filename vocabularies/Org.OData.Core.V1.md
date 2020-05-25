@@ -76,10 +76,10 @@ Property|Type|Description
 
 
 **Derived Types:**
-- [PrimitiveExampleValue](#PrimitiveExampleValue)!
-- [ComplexExampleValue](#ComplexExampleValue)!
-- [EntityExampleValue](#EntityExampleValue)!
-- [ExternalExampleValue](#ExternalExampleValue)!
+- [PrimitiveExampleValue](#PrimitiveExampleValue)
+- [ComplexExampleValue](#ComplexExampleValue)
+- [EntityExampleValue](#EntityExampleValue)
+- [ExternalExampleValue](#ExternalExampleValue)
 
 Property|Type|Description
 :-------|:---|:----------
@@ -144,9 +144,9 @@ Allowed Value|Description
 
 
 **Derived Types:**
-- [ValueExceptionType](#ValueExceptionType)!
-- [ResourceExceptionType](#ResourceExceptionType)!
-- [DataModificationExceptionType](#DataModificationExceptionType)!
+- [ValueExceptionType](#ValueExceptionType)
+- [ResourceExceptionType](#ResourceExceptionType)
+- [DataModificationExceptionType](#DataModificationExceptionType)
 
 Property|Type|Description
 :-------|:---|:----------
