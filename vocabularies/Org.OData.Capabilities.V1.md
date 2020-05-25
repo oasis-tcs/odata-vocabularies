@@ -205,8 +205,11 @@ Property|Type|Description
 [EtagReferencesSupported](Org.OData.Capabilities.V1.xml#L398)|Boolean!|Service supports referencing Etags from previous requests
 [RequestDependencyConditionsSupported](Org.OData.Capabilities.V1.xml#L401)|Boolean!|Service supports the `if` member in JSON batch requests
 [SupportedFormats](Org.OData.Capabilities.V1.xml#L404)|\[MediaType\]|Media types of supported formats for $batch
-@Core.Description|[Description](Org.OData.Core.V1.md#Description)!|Annotation
-@Core.LongDescription|[LongDescription](Org.OData.Core.V1.md#LongDescription)!|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Description](Org.OData.Core.V1.md#Description)!
+- [LongDescription](Org.OData.Core.V1.md#LongDescription)!
 
 ## <a name="FilterRestrictionsType"></a>[FilterRestrictionsType](Org.OData.Capabilities.V1.xml#L433)
 
@@ -219,7 +222,10 @@ Property|Type|Description
 [NonFilterableProperties](Org.OData.Capabilities.V1.xml#L449)|\[PropertyPath\]|These structural properties cannot be used in filter expressions
 [FilterExpressionRestrictions](Org.OData.Capabilities.V1.xml#L454)|\[[FilterExpressionRestrictionType](#FilterExpressionRestrictionType)\]|These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties.
 [MaxLevels](Org.OData.Capabilities.V1.xml#L458)|Int32!|The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction.
-@Core.Description|[Description](Org.OData.Core.V1.md#Description)!|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Description](Org.OData.Core.V1.md#Description)!
 
 ## <a name="FilterExpressionRestrictionType"></a>[FilterExpressionRestrictionType](Org.OData.Capabilities.V1.xml#L463)
 
@@ -252,7 +258,10 @@ Property|Type|Description
 [AscendingOnlyProperties](Org.OData.Capabilities.V1.xml#L523)|\[PropertyPath\]|These properties can only be used for sorting in Ascending order
 [DescendingOnlyProperties](Org.OData.Capabilities.V1.xml#L526)|\[PropertyPath\]|These properties can only be used for sorting in Descending order
 [NonSortableProperties](Org.OData.Capabilities.V1.xml#L529)|\[PropertyPath\]|These structural properties cannot be used in orderby expressions
-@Core.Description|[Description](Org.OData.Core.V1.md#Description)!|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Description](Org.OData.Core.V1.md#Description)!
 
 ## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L537)
 
@@ -264,7 +273,10 @@ Property|Type|Description
 [NonExpandableProperties](Org.OData.Capabilities.V1.xml#L549)|\[NavigationPropertyPath\]|These properties cannot be used in expand expressions
 [NonExpandableStreamProperties](Org.OData.Capabilities.V1.xml#L552)|\[PropertyPath\]|These stream properties cannot be used in expand expressions
 [MaxLevels](Org.OData.Capabilities.V1.xml#L556)|Int32!|The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction.
-@Core.Description|[Description](Org.OData.Core.V1.md#Description)!|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Description](Org.OData.Core.V1.md#Description)!
 
 ## <a name="SearchRestrictionsType"></a>[SearchRestrictionsType](Org.OData.Capabilities.V1.xml#L565)
 
@@ -273,7 +285,10 @@ Property|Type|Description
 :-------|:---|:----------
 [Searchable](Org.OData.Capabilities.V1.xml#L571)|Boolean!|$search is supported
 [UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L574)|[SearchExpressions](#SearchExpressions)!|Expressions not supported in $search
-@Core.Description|[Description](Org.OData.Core.V1.md#Description)!|Annotation
+
+**Applicable Annotation Terms:**
+
+- [Description](Org.OData.Core.V1.md#Description)!
 
 ## <a name="SearchExpressions"></a>[SearchExpressions](Org.OData.Capabilities.V1.xml#L578)
 
