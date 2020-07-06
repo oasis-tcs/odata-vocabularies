@@ -36,11 +36,19 @@ If the term has a primitive type
 <Term Name="StringTerm" Type="Edm.String" />
 ```
 
-The annotation value is provided in a [corresponding attribute](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression).
+A constant annotation value is provided in a [corresponding attribute](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression).
 
 ```xml
 <Annotation Term="Vocab.StringTerm" String="annotation value" />
 ```
+
+A dynamic annotation value can be provided for the same term using a [value path expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ValuePath).
+
+```xml
+<Annotation Term="Vocab.StringTerm" Path="SomeStringProperty" />
+```
+
+The property referenced via the value path expression needs to have the same type as the term.
 
 ## Collections
 
