@@ -6,18 +6,18 @@ Here's how.
 
 ## Vocabularies
 
-Terms are defined within a "vocabulary", which is just an EDMX document:
+Terms are defined within a "vocabulary", which is just an EDMX document.
 
 ```xml
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:DataServices>
 
-    <Schema Namespace="Vocab" 
+    <Schema Namespace="Vocab"
 
       xmlns="http://docs.oasis-open.org/odata/ns/edm">
 ```
 
-To use a term in an annotation, the vocabulary of the term needs to be referenced:
+To use a term in an annotation, the vocabulary of the term needs to be referenced and included.
 
 ```xml
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
@@ -30,13 +30,13 @@ To use a term in an annotation, the vocabulary of the term needs to be reference
 
 ## Primitive Terms
 
-If the term has a primitive type,
+If the term has a primitive type
 
 ```xml
 <Term Name="StringTerm" Type="Edm.String" />
 ```
 
-the annotation value is provided in a [corresponding attribute](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression):
+The annotation value is provided in a [corresponding attribute](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression).
 
 ```xml
 <Annotation Term="Vocab.StringTerm" String="annotation value" />
@@ -44,13 +44,13 @@ the annotation value is provided in a [corresponding attribute](https://docs.oas
 
 ## Collections
 
-If the term has a collection type,
+If the term has a collection type
 
 ```xml
 <Term Name="CollectionTerm" Type="Collection(Edm.Decimal)" />
 ```
 
-the annotation value is provided as a [collection expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Collection):
+the annotation value is provided as a [collection expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Collection)
 
 ```xml
 <Annotation Term="Vocab.CollectionTerm">
@@ -63,16 +63,17 @@ the annotation value is provided as a [collection expression](https://docs.oasis
 
 ## Structures
 
-If the term has a structured type,
+If the term has a structured type
 
 ```xml
 <Term Name="StructuredTerm" Type="Vocab.Complex" />
+
 <ComplexType Name="Complex">
   <Property Name="IntegerField" Type="Edm.Int32" />
 </ComplexType>
 ```
 
-the annotation value is provided as a [record expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Record):
+the annotation value is provided as a [record expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Record)
 
 ```xml
 <Annotation Term="Vocab.StructuredTerm">
@@ -84,7 +85,7 @@ the annotation value is provided as a [record expression](https://docs.oasis-ope
 
 ## Collection of Structures
 
-Terms can also have a collection of structured type,
+Terms can also be typed as a collection of a structured type.
 
 ```xml
 <Term Name="StructuredCollectionTerm" Type="Collection(Vocab.AnotherComplex)" />
@@ -95,7 +96,7 @@ Terms can also have a collection of structured type,
 </ComplexType>
 ```
 
-and the annotation value is provided as a collection of records:
+The annotation value is provided as a collection of records.
 
 ```xml
 <Annotation Term="Vocab.StructuredCollectionTerm">
@@ -118,7 +119,7 @@ Properties that are nullable or have a default value can be omitted.
 
 ## Nested Structures and Collections
 
-Properties of a structured type can themselves be structured or collections,
+Properties of a structured type can themselves be structured or collections.
 
 ```xml
 <Term Name="NestedTerm" Type="Collection(Vocab.YetAnotherComplex)" />
@@ -128,7 +129,7 @@ Properties of a structured type can themselves be structured or collections,
 </ComplexType>
 ```
 
-and the property value is provided as a record or collection:
+The property value is provided as a record or collection.
 
 ```xml
 <Annotation Term="Vocab.NestedTerm">
