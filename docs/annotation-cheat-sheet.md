@@ -48,7 +48,7 @@ A dynamic annotation value can be provided for the same term using a [value path
 <Annotation Term="Vocab.StringTerm" Path="SomeStringProperty" />
 ```
 
-The property referenced via the value path expression needs to have the same type as the term.
+The property referenced via the value path expression needs to have the same type as the term. A value path expression can always be used instead of a constant value, also in the more complicated cases below.
 
 ## Collections
 
