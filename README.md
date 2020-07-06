@@ -36,6 +36,8 @@
 * [JSON](vocabularies/Org.OData.JSON.V1.md)
 * [Repeatability](vocabularies/Org.OData.Repeatability.V1.md)
 * [Temporal](vocabularies/Org.OData.JSON.V1.md) - *This is a working draft that may incompatibly change any time.*
+
+Check the [annotation cheat-sheet](docs/annotation-cheat-sheet.md) to learn how to construct an annotation value from a term definition, or vice versa.
  
 <div>
 <h3>Contact</h3>
