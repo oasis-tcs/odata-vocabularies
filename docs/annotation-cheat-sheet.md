@@ -123,6 +123,7 @@ Properties of a structured type can themselves be structured or collections.
 
 ```xml
 <Term Name="NestedTerm" Type="Collection(Vocab.YetAnotherComplex)" />
+
 <ComplexType Name="YetAnotherComplex">
   <Property Name="StructuredField" Type="Vocab.Complex" />
   <Property Name="CollectionField" Type="Collection(Vocab.AnotherComplex)" />
