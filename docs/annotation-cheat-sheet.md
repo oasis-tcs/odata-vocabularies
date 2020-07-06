@@ -4,16 +4,18 @@ How to construct an annotation from a term definition, or re-engineer a term def
 
 Here's how:
 
+<!--
 <style type="text/css">
 th { background-color: white; text-align: left; }
 td { background-color: white; vertical-align: top; }
 </style>
+-->
 
 <table>
 <tr><th>Term Definition</th><th>Annotation Example</th></tr>
 
 <tr>
-<td>
+<td bgcolor="white">
 Terms are defined within a "vocabulary", which is just an EDMX document:
 
 ```xml
@@ -24,7 +26,7 @@ Terms are defined within a "vocabulary", which is just an EDMX document:
 ```
 
 </td>
-<td>
+<td bgcolor="white">
 To use a term in an annotation, the vocabulary of the term needs to be referenced:
 
 ```xml
@@ -38,7 +40,7 @@ To use a term in an annotation, the vocabulary of the term needs to be reference
 </tr>
 
 <tr>
-<td>
+<td bgcolor="white">
 If the term has a primitive type,
 
 ```xml
@@ -46,7 +48,7 @@ If the term has a primitive type,
 ```
 
 </td>
-<td>
+<td bgcolor="white">
 the annotation value is provided in a <a href="https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression">corresponding attribute</a>:
 
 ```xml
@@ -57,7 +59,7 @@ the annotation value is provided in a <a href="https://docs.oasis-open.org/odata
 </tr>
 
 <tr>
-<td>
+<td bgcolor="white">
 If the term has a collection type,
 
 ```xml
@@ -65,7 +67,7 @@ If the term has a collection type,
 ```
 
 </td>
-<td>
+<td bgcolor="white">
 the annotation value is provided as a <a href="https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Collection">collection expression</a>:
 
 ```xml
@@ -81,7 +83,7 @@ the annotation value is provided as a <a href="https://docs.oasis-open.org/odata
 </tr>
 
 <tr>
-<td>
+<td bgcolor="white">
 If the term has a structured type,
 
 ```xml
@@ -92,7 +94,7 @@ If the term has a structured type,
 ```
 
 </td>
-<td>
+<td bgcolor="white">
 the annotation value is provided as a <a href="https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Record">record expression</a>:
 
 ```xml
@@ -107,7 +109,7 @@ the annotation value is provided as a <a href="https://docs.oasis-open.org/odata
 </tr>
 
 <tr>
-<td>
+<td bgcolor="white">
 Terms can also have a collection of structured type,
 
 ```xml
@@ -120,7 +122,7 @@ Terms can also have a collection of structured type,
 ```
 
 </td>
-<td>
+<td bgcolor="white">
 and the annotation value is provided as a collection of records:
 
 ```xml
@@ -145,7 +147,7 @@ Properties that are nullable or have a default value can be omitted.
 </tr>
 
 <tr>
-<td>
+<td bgcolor="white">
 Properties of a structured type can themselves be structured or collections,
 
 ```xml
@@ -161,7 +163,7 @@ Properties of a structured type can themselves be structured or collections,
 ```
 
 </td>
-<td>
+<td bgcolor="white">
 and the property value is provided as a record or collection:
 
 ```xml
