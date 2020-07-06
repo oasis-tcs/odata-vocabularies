@@ -2,73 +2,55 @@
 
 How to construct an annotation from a term definition, or re-engineer a term definition from an annotation example?
 
-Here's how:
+Here's how.
 
-<!--
-<style type="text/css">
-th { background-color: white; text-align: left; }
-td { background-color: white; vertical-align: top; }
-</style>
--->
+## Vocabularies
 
-<table>
-<tr><th>Term Definition</th><th>Annotation Example</th></tr>
-
-<tr>
-<td bgcolor="white">
 Terms are defined within a "vocabulary", which is just an EDMX document:
 
 ```xml
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:DataServices>
+
     <Schema Namespace="Vocab" 
+
       xmlns="http://docs.oasis-open.org/odata/ns/edm">
 ```
 
-</td>
-<td bgcolor="white">
 To use a term in an annotation, the vocabulary of the term needs to be referenced:
 
 ```xml
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
   <edmx:Reference Uri="https://somewhere.org/vocab.xml">
+
     <edmx:Include Namespace="Vocab" />
+
   </edmx:Reference>
 ```
 
-</td>
-</tr>
+## Primitive Terms
 
-<tr>
-<td bgcolor="white">
 If the term has a primitive type,
 
 ```xml
 <Term Name="StringTerm" Type="Edm.String" />
 ```
 
-</td>
-<td bgcolor="white">
-the annotation value is provided in a <a href="https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression">corresponding attribute</a>:
+the annotation value is provided in a [corresponding attribute](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression):
 
 ```xml
 <Annotation Term="Vocab.StringTerm" String="annotation value" />
 ```
 
-</td>
-</tr>
+## Collections
 
-<tr>
-<td bgcolor="white">
 If the term has a collection type,
 
 ```xml
 <Term Name="CollectionTerm" Type="Collection(Edm.Decimal)" />
 ```
 
-</td>
-<td bgcolor="white">
-the annotation value is provided as a <a href="https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Collection">collection expression</a>:
+the annotation value is provided as a [collection expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Collection):
 
 ```xml
 <Annotation Term="Vocab.CollectionTerm">
@@ -79,11 +61,8 @@ the annotation value is provided as a <a href="https://docs.oasis-open.org/odata
 </Annotation>
 ```
 
-</td>
-</tr>
+## Structures
 
-<tr>
-<td bgcolor="white">
 If the term has a structured type,
 
 ```xml
@@ -93,9 +72,7 @@ If the term has a structured type,
 </ComplexType>
 ```
 
-</td>
-<td bgcolor="white">
-the annotation value is provided as a <a href="https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Record">record expression</a>:
+the annotation value is provided as a [record expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_Record):
 
 ```xml
 <Annotation Term="Vocab.StructuredTerm">
@@ -105,11 +82,8 @@ the annotation value is provided as a <a href="https://docs.oasis-open.org/odata
 </Annotation>
 ```
 
-</td>
-</tr>
+## Collection of Structures
 
-<tr>
-<td bgcolor="white">
 Terms can also have a collection of structured type,
 
 ```xml
@@ -121,8 +95,6 @@ Terms can also have a collection of structured type,
 </ComplexType>
 ```
 
-</td>
-<td bgcolor="white">
 and the annotation value is provided as a collection of records:
 
 ```xml
@@ -143,27 +115,19 @@ and the annotation value is provided as a collection of records:
 ```
 
 Properties that are nullable or have a default value can be omitted.
-</td>
-</tr>
 
-<tr>
-<td bgcolor="white">
+## Nested Structures and Collections
+
 Properties of a structured type can themselves be structured or collections,
 
 ```xml
 <Term Name="NestedTerm" Type="Collection(Vocab.YetAnotherComplex)" />
 <ComplexType Name="YetAnotherComplex">
   <Property Name="StructuredField" Type="Vocab.Complex" />
-
-
-
-
   <Property Name="CollectionField" Type="Collection(Vocab.AnotherComplex)" />
 </ComplexType>
 ```
 
-</td>
-<td bgcolor="white">
 and the property value is provided as a record or collection:
 
 ```xml
@@ -185,8 +149,3 @@ and the property value is provided as a record or collection:
   </Record>
 </Annotation>
 ```
-
-</td>
-</tr>
-
-</table>
