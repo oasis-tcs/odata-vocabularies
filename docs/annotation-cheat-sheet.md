@@ -36,7 +36,7 @@ If the term has a primitive type
 <Term Name="StringTerm" Type="Edm.String" />
 ```
 
-A constant annotation value is provided in a [corresponding attribute](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression).
+A constant annotation value can be provided in a [corresponding attribute](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ConstantExpression).
 
 ```xml
 <Annotation Term="Vocab.StringTerm" String="annotation value" />
