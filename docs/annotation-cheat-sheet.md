@@ -42,13 +42,43 @@ A constant annotation value can be provided in a [corresponding attribute](https
 <Annotation Term="Vocab.StringTerm" String="annotation value" />
 ```
 
-A dynamic annotation value can be provided for the same term using a [value path expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ValuePath).
+### Constant Annotation Values
+
+The name of the attribute to provide a constant annotation value depends on the type of the term or term property.
+
+| Type of Term or Term Property | Attribute with Example Value |
+|-|-|
+| `Edm.Binary` | `Binary="T0RhdGE"` |
+| `Edm.Boolean` | `Bool="true"` |
+| `Edm.Date` | `Date="2000-01-01"` |
+| `Edm.DateTimeOffset` | `DateTimeOffset="2000-01-01T16:00:00.000Z"` |
+| `Edm.Decimal` | `Decimal="3.14"` |
+| `Edm.Duration` | `Duration="P7D"` |
+| Enumeration Type | `EnumMember="org.example.Pattern/Red"` |
+| `Edm.Double` or `Edm.Single` | `Float="3.14"` |
+| `Edm.Guid` | `Guid="21EC2020-3AEA-1069-A2DD-08002B30309D"` |
+| `Edm.Int16`, `Edm.Int32`, `Edm.64`, `Edm.Byte`, `Edm.SByte` | `Int="42"` |
+| `Edm.String` | `String="annotation value"` |
+| `Edm.TimeOfDay` | `TimeOfDay="21:45:00"` |
+| `Edm.AnnotationPath` | `AnnotationPath="Product/Supplier/@UI.LineItem"` |
+| `Edm.NavigationPropertyPath` | `NavigationPropertyPath="Supplier"` |
+| `Edm.PropertyPath` | `PropertyPath="Details/ChangedAt"` |
+
+### Dynamic Annotation Values
+
+A dynamic annotation value can be provided for the same term 
+
+```xml
+<Term Name="StringTerm" Type="Edm.String" />
+```
+
+using a [value path expression](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_ValuePath).
 
 ```xml
 <Annotation Term="Vocab.StringTerm" Path="SomeStringProperty" />
 ```
 
-The property referenced via the value path expression needs to have the same type as the term. A value path expression can always be used instead of a constant value, also in the more complicated cases below.
+The property referenced via the value path expression, here `SomeStringProperty` needs to have the same type as the term. A value path expression can always be used instead of a constant value, also in the more complicated cases below.
 
 ## Collections
 
