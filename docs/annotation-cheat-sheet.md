@@ -93,6 +93,8 @@ the annotation value is provided as a [record expression](https://docs.oasis-ope
 </Annotation>
 ```
 
+[Constant annotation values](#constant-annotation-values) for primitive properties are provided in the same way as for primitive terms.
+
 ## Collection of Structures
 
 Terms can also be typed as a collection of a structured type.
