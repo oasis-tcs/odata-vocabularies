@@ -27,7 +27,7 @@ To use a term in an annotation, the vocabulary of the term needs to be reference
         }
       ]
     }
-  },
+  }
 ```
 
 ## Primitive Terms
@@ -37,7 +37,7 @@ If the term has a primitive type
 ```json
 "StringTerm": {
   "$Kind": "Term"
-},
+}
 ```
 
 A _constant annotation value_ can be provided as a [corresponding JSON value](https://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html#sec_ConstantExpression).
@@ -67,7 +67,7 @@ If the term has a collection type
   "$Kind": "Term",
   "$Collection": true,
   "$Type": "Edm.Decimal"
-},
+}
 ```
 
 the annotation value is provided as a [collection expression](https://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html#sec_Collection)
@@ -161,7 +161,7 @@ Properties of a structured type can themselves be structured or collections.
   "$Kind": "Term",
   "$Collection": true,
   "$Type": "Vocab.YetAnotherComplex",
- },
+},
 
 "YetAnotherComplex": {
   "StructuredField": {
