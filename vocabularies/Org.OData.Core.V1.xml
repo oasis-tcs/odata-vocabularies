@@ -401,6 +401,16 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
+      <Term Name="ContentDisposition" Type="Core.ContentDispositionType" AppliesTo="Property Term">
+        <Annotation Term="Core.Description" String="The content disposition of a binary or string property or term" />
+      </Term>
+
+      <ComplexType Name="ContentDispositionType">
+        <Property Name="Filename" Type="Edm.String">
+          <Annotation Term="Core.Description" String="The proposed filename for downloading the binary or stream value" />
+        </Property>
+      </ComplexType>
+
       <Term Name="OptimisticConcurrency" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag." />
       </Term>
