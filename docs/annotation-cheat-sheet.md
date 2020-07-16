@@ -1,4 +1,4 @@
-# Annotation Cheat-Sheet
+# Annotation Cheat-Sheet for CSDL XML
 
 How to construct an annotation from a term definition, or re-engineer a term definition from an annotation example?
 
