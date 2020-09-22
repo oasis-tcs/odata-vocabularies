@@ -25,26 +25,6 @@ describe('OASIS Vocabularies', function () {
 
 })
 
-//TODO: remove from here
-// const sapVocabs = ['Analytics', 'CodeList', 'Common', 'Communication', 'Hierarchy', 'PersonalData', 'Session', 'UI'];
-
-// sapVocabs.forEach(v => {
-//     input[v] = csdl.xml2json(fs.readFileSync('../vocabularies/' + v + '.xml'), true);
-//     expected[v] = fs.readFileSync('../vocabularies/' + v + '.md', 'utf8');
-// })
-
-// describe('SAP Vocabularies', function () {
-
-//     sapVocabs.forEach(v => {
-//         it(v, function () {
-//             const markdown = lib.csdl2markdown(v + '.xml', input[v]);
-//             check(markdown, expected[v]);
-//         })
-//     })
-
-// })
-//TODO: remove up to here
-
 function check(actual, expected) {
     assert.deepStrictEqual(actual, expected.split(/\r\n|\r|\n/g), 'Markdown');
 }
