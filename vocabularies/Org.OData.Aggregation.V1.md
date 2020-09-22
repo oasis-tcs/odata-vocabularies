@@ -67,9 +67,11 @@ Property|Type|Description
 ## <a name="NavigationPropertyRestriction"></a>[NavigationPropertyRestriction](Org.OData.Aggregation.V1.xml#L210): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction)
 Aggregation restrictions on a navigation path
 
+This type derives from type NavigationPropertyRestriction in the Capabilities vocabulary and therefore additionally includes all properties from that type.
+
 Property|Type|Description
 :-------|:---|:----------
-[ApplySupported](Org.OData.Aggregation.V1.xml#L212)|[ApplySupportedType](#ApplySupportedType)|Support for $apply
-[CustomAggregates](Org.OData.Aggregation.V1.xml#L215)|\[String\]|Supported custom aggregates identified by their qualifier
-[GroupableProperties](Org.OData.Aggregation.V1.xml#L218)|\[String\]|Properties supported by the groupby transformation
-[AggregatableProperties](Org.OData.Aggregation.V1.xml#L221)|\[String\]|Properties supported by the aggregate transformation
+[ApplySupported](Org.OData.Aggregation.V1.xml#L213)|[ApplySupportedType](#ApplySupportedType)|Support for $apply
+[CustomAggregates](Org.OData.Aggregation.V1.xml#L216)|\[String\]|Supported custom aggregates identified by their qualifier
+[GroupableProperties](Org.OData.Aggregation.V1.xml#L219)|\[String\]|Properties supported by the groupby transformation
+[AggregatableProperties](Org.OData.Aggregation.V1.xml#L222)|\[String\]|Properties supported by the aggregate transformation

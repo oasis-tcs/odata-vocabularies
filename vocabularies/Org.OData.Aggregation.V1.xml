@@ -209,6 +209,7 @@
 
       <ComplexType Name="NavigationPropertyRestriction" BaseType="Capabilities.NavigationPropertyRestriction">
         <Annotation Term="Core.Description" String="Aggregation restrictions on a navigation path" />
+        <Annotation Term="Core.LongDescription" String="This type derives from type NavigationPropertyRestriction in the Capabilities vocabulary and therefore additionally includes all properties from that type." />
         <Property Name="ApplySupported" Type="Aggregation.ApplySupportedType">
           <Annotation Term="Core.Description" String="Support for $apply" />
         </Property>
