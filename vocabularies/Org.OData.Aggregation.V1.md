@@ -64,8 +64,8 @@ Property|Type|Description
 :-------|:---|:----------
 [RequiredProperties](Org.OData.Aggregation.V1.xml#L205)|\[PropertyPath\]|Properties required to apply this action or function
 
-## <a name="NavigationPropertyRestriction"></a>[NavigationPropertyRestriction](Org.OData.Aggregation.V1.xml#L210): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction)
-Aggregation restrictions on a navigation path
+## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](Org.OData.Aggregation.V1.xml#L210): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction)
+Aggregation capabilities on a navigation path
 
 This type derives from type NavigationPropertyRestriction in the Capabilities vocabulary and therefore additionally includes all properties from that type.
 

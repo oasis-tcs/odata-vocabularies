@@ -40,7 +40,7 @@
             "$Type": "Aggregation.ApplySupportedType",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntityType",
+                "EntitySet",
                 "ComplexType",
                 "EntityContainer"
             ],
@@ -103,7 +103,7 @@
             "$Kind": "Term",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntityType",
+                "EntitySet",
                 "ComplexType",
                 "EntityContainer"
             ],
@@ -298,10 +298,10 @@
                 "@Core.Description": "Properties required to apply this action or function"
             }
         },
-        "NavigationPropertyRestriction": {
+        "NavigationPropertyAggregationCapabilities": {
             "$Kind": "ComplexType",
             "$BaseType": "Capabilities.NavigationPropertyRestriction",
-            "@Core.Description": "Aggregation restrictions on a navigation path",
+            "@Core.Description": "Aggregation capabilities on a navigation path",
             "@Core.LongDescription": "This type derives from type NavigationPropertyRestriction in the Capabilities vocabulary and therefore additionally includes all properties from that type.",
             "ApplySupported": {
                 "$Type": "Aggregation.ApplySupportedType",

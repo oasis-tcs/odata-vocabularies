@@ -70,7 +70,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" AppliesTo="EntityType ComplexType EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description">
           <String>This structured type or entity container supports the $apply system query option</String>
         </Annotation>
@@ -113,7 +113,7 @@
         <Annotation Term="Core.Description" String="This property can be used in the aggregate transformation" />
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" AppliesTo="EntityType ComplexType EntityContainer">
+      <Term Name="CustomAggregate" Type="Edm.String" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the aggregate transformation" />
         <Annotation Term="Core.LongDescription"
           String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated values will be of that type." />
@@ -207,8 +207,8 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="NavigationPropertyRestriction" BaseType="Capabilities.NavigationPropertyRestriction">
-        <Annotation Term="Core.Description" String="Aggregation restrictions on a navigation path" />
+      <ComplexType Name="NavigationPropertyAggregationCapabilities" BaseType="Capabilities.NavigationPropertyRestriction">
+        <Annotation Term="Core.Description" String="Aggregation capabilities on a navigation path" />
         <Annotation Term="Core.LongDescription" String="This type derives from type NavigationPropertyRestriction in the Capabilities vocabulary and therefore additionally includes all properties from that type." />
         <Property Name="ApplySupported" Type="Aggregation.ApplySupportedType">
           <Annotation Term="Core.Description" String="Support for $apply" />
