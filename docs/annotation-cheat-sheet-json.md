@@ -6,7 +6,7 @@ Here's how.
 
 ## Vocabularies
 
-Terms are defined within a "vocabulary", which is just an EDMX document.
+Terms are defined within a "vocabulary", which is just an EDMX document. 
 
 ```json
 {
