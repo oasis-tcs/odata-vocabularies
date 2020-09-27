@@ -16,9 +16,14 @@ vocabularies.forEach(v => {
 
 describe('OASIS Vocabularies', function () {
 
+    it('Validation without potentially referenced vocabularies', function () {
+        const markdown = lib.csdl2markdown('Org.OData.Validation.V1.xml', input.Validation);
+        check(markdown, expected.Validation);
+    })
+
     vocabularies.forEach(v => {
         it(v, function () {
-            const markdown = lib.csdl2markdown('Org.OData.' + v + '.V1.xml', input[v]);
+            const markdown = lib.csdl2markdown('Org.OData.' + v + '.V1.xml', input[v], input);
             check(markdown, expected[v]);
         })
     })

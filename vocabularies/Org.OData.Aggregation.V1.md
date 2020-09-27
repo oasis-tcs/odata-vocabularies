@@ -71,6 +71,23 @@ This type derives from type NavigationPropertyRestriction in the Capabilities vo
 
 Property|Type|Description
 :-------|:---|:----------
+[*NavigationProperty*](Org.OData.Capabilities.V1.xml#L250)|NavigationPropertyPath|Navigation properties can be navigated
+[*Navigability*](Org.OData.Capabilities.V1.xml#L253)|[NavigationType](Org.OData.Capabilities.V1.md#NavigationType)|Supported navigability of this navigation property
+[*FilterFunctions*](Org.OData.Capabilities.V1.xml#L256)|\[String\]|List of functions and operators supported in filter expressions<p>If not specified, null, or empty, all functions and operators may be attempted.</p>
+[*FilterRestrictions*](Org.OData.Capabilities.V1.xml#L261)|[FilterRestrictionsType](Org.OData.Capabilities.V1.md#FilterRestrictionsType)|Restrictions on filter expressions
+[*SearchRestrictions*](Org.OData.Capabilities.V1.xml#L264)|[SearchRestrictionsType](Org.OData.Capabilities.V1.md#SearchRestrictionsType)|Restrictions on search expressions
+[*SortRestrictions*](Org.OData.Capabilities.V1.xml#L267)|[SortRestrictionsType](Org.OData.Capabilities.V1.md#SortRestrictionsType)|Restrictions on orderby expressions
+[*TopSupported*](Org.OData.Capabilities.V1.xml#L270)|Boolean|Supports $top
+[*SkipSupported*](Org.OData.Capabilities.V1.xml#L273)|Boolean|Supports $skip
+[*SelectSupport*](Org.OData.Capabilities.V1.xml#L276)|[SelectSupportType](Org.OData.Capabilities.V1.md#SelectSupportType)|Support for $select
+[*IndexableByKey*](Org.OData.Capabilities.V1.xml#L279)|Boolean|Supports key values according to OData URL conventions
+[*InsertRestrictions*](Org.OData.Capabilities.V1.xml#L282)|[InsertRestrictionsType](Org.OData.Capabilities.V1.md#InsertRestrictionsType)|Restrictions on insert operations
+[*DeepInsertSupport*](Org.OData.Capabilities.V1.xml#L285)|[DeepInsertSupportType](Org.OData.Capabilities.V1.md#DeepInsertSupportType)|Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
+[*UpdateRestrictions*](Org.OData.Capabilities.V1.xml#L289)|[UpdateRestrictionsType](Org.OData.Capabilities.V1.md#UpdateRestrictionsType)|Restrictions on update operations
+[*DeepUpdateSupport*](Org.OData.Capabilities.V1.xml#L292)|[DeepUpdateSupportType](Org.OData.Capabilities.V1.md#DeepUpdateSupportType)|Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
+[*DeleteRestrictions*](Org.OData.Capabilities.V1.xml#L296)|[DeleteRestrictionsType](Org.OData.Capabilities.V1.md#DeleteRestrictionsType)|Restrictions on delete operations
+[*OptimisticConcurrencyControl*](Org.OData.Capabilities.V1.xml#L299)|Boolean|Data modification (including insert) along this navigation property requires the use of ETags
+[*ReadRestrictions*](Org.OData.Capabilities.V1.xml#L303)|[ReadRestrictionsType](Org.OData.Capabilities.V1.md#ReadRestrictionsType)|Restrictions for retrieving entities
 [ApplySupported](Org.OData.Aggregation.V1.xml#L213)|[ApplySupportedType](#ApplySupportedType)|Support for $apply
 [CustomAggregates](Org.OData.Aggregation.V1.xml#L216)|\[String\]|Supported custom aggregates identified by their qualifier
 [GroupableProperties](Org.OData.Aggregation.V1.xml#L219)|\[String\]|Properties supported by the groupby transformation
