@@ -67,8 +67,6 @@ Property|Type|Description
 ## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](Org.OData.Aggregation.V1.xml#L210): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction)
 Aggregation capabilities on a navigation path
 
-This type derives from type NavigationPropertyRestriction in the Capabilities vocabulary and therefore additionally includes all properties from that type.
-
 Property|Type|Description
 :-------|:---|:----------
 [*NavigationProperty*](Org.OData.Capabilities.V1.xml#L250)|NavigationPropertyPath|Navigation properties can be navigated
@@ -88,7 +86,7 @@ Property|Type|Description
 [*DeleteRestrictions*](Org.OData.Capabilities.V1.xml#L296)|[DeleteRestrictionsType](Org.OData.Capabilities.V1.md#DeleteRestrictionsType)|Restrictions on delete operations
 [*OptimisticConcurrencyControl*](Org.OData.Capabilities.V1.xml#L299)|Boolean|Data modification (including insert) along this navigation property requires the use of ETags
 [*ReadRestrictions*](Org.OData.Capabilities.V1.xml#L303)|[ReadRestrictionsType](Org.OData.Capabilities.V1.md#ReadRestrictionsType)|Restrictions for retrieving entities
-[ApplySupported](Org.OData.Aggregation.V1.xml#L213)|[ApplySupportedType](#ApplySupportedType)|Support for $apply
-[CustomAggregates](Org.OData.Aggregation.V1.xml#L216)|\[String\]|Supported custom aggregates identified by their qualifier
-[GroupableProperties](Org.OData.Aggregation.V1.xml#L219)|\[String\]|Properties supported by the groupby transformation
-[AggregatableProperties](Org.OData.Aggregation.V1.xml#L222)|\[String\]|Properties supported by the aggregate transformation
+[ApplySupported](Org.OData.Aggregation.V1.xml#L212)|[ApplySupportedType](#ApplySupportedType)|Support for $apply
+[CustomAggregates](Org.OData.Aggregation.V1.xml#L215)|\[String\]|Supported custom aggregates identified by their qualifier
+[GroupableProperties](Org.OData.Aggregation.V1.xml#L218)|\[String\]|Properties supported by the groupby transformation
+[AggregatableProperties](Org.OData.Aggregation.V1.xml#L221)|\[String\]|Properties supported by the aggregate transformation
