@@ -66,7 +66,6 @@
 
       <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="Property">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.MediaType" String="application/json" />
         <Annotation Term="Core.Description" String="The JSON Schema for this JSON property" />
         <Annotation Term="Core.LongDescription">
           <String>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
@@ -75,6 +74,7 @@
 
       <TypeDefinition Name="JSON" UnderlyingType="Edm.Stream">
         <Annotation Term="Core.Description" String="A stream of media type `application/json`" />
+        <Annotation Term="Core.MediaType" String="application/json" />
         <Annotation Term="Core.AcceptableMediaTypes">
           <Collection>
             <String>application/json</String>
