@@ -73,7 +73,7 @@
       </Term>
 
       <TypeDefinition Name="JSON" UnderlyingType="Edm.Stream">
-        <Annotation Term="Core.Description" String="A stream of media type `application/json`" />
+        <Annotation Term="Core.Description" String="Textual data of media type `application/json`" />
         <Annotation Term="Core.MediaType" String="application/json" />
         <Annotation Term="Core.AcceptableMediaTypes">
           <Collection>
