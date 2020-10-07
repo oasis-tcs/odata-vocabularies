@@ -20,11 +20,13 @@
     "odata-csdl": "oasis-tcs/odata-csdl-schemas"
   },
   "devDependencies": {
+    "c8": "^7.3.1",
     "mocha": "^6.1.4"
   },
   "scripts": {
     "build": "node lib/transform.js",
-    "test": "mocha"
+    "test": "c8 mocha",
+    "watch": "mocha --watch"
   },
   "author": "",
   "license": "SEE LICENSE IN LICENSE.md"

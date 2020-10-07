@@ -8,6 +8,14 @@
                     "$Alias": "Core"
                 }
             ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Capabilities.V1",
+                    "$Alias": "Capabilities"
+                }
+            ]
         }
     },
     "Org.OData.Aggregation.V1": {
@@ -32,7 +40,7 @@
             "$Type": "Aggregation.ApplySupportedType",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntityType",
+                "EntitySet",
                 "ComplexType",
                 "EntityContainer"
             ],
@@ -95,7 +103,7 @@
             "$Kind": "Term",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntityType",
+                "EntitySet",
                 "ComplexType",
                 "EntityContainer"
             ],
@@ -288,6 +296,28 @@
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Properties required to apply this action or function"
+            }
+        },
+        "NavigationPropertyAggregationCapabilities": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.NavigationPropertyRestriction",
+            "@Core.Description": "Aggregation capabilities on a navigation path",
+            "ApplySupported": {
+                "$Type": "Aggregation.ApplySupportedType",
+                "$Nullable": true,
+                "@Core.Description": "Support for $apply"
+            },
+            "CustomAggregates": {
+                "$Collection": true,
+                "@Core.Description": "Supported custom aggregates identified by their qualifier"
+            },
+            "GroupableProperties": {
+                "$Collection": true,
+                "@Core.Description": "Properties supported by the groupby transformation"
+            },
+            "AggregatableProperties": {
+                "$Collection": true,
+                "@Core.Description": "Properties supported by the aggregate transformation"
             }
         }
     }
