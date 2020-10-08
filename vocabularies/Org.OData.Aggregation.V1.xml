@@ -218,16 +218,8 @@
         <Property Name="ApplySupported" Type="Aggregation.ApplySupportedType">
           <Annotation Term="Core.Description" String="Support for $apply" />
         </Property>
-
         <Property Name="CustomAggregates" Type="Collection(Aggregation.CustomAggregateType)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported custom aggregates" />        
-        </Property>
-
-        <Property Name="GroupableProperties" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties supported by the groupby transformation" />
-        </Property>
-        <Property Name="AggregatableProperties" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties supported by the aggregate transformation" />
         </Property>
       </ComplexType>
       

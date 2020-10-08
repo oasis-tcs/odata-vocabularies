@@ -321,14 +321,6 @@
                 "$Collection": true,
                 "$Type": "Aggregation.CustomAggregateType",
                 "@Core.Description": "Supported custom aggregates"
-            },
-            "GroupableProperties": {
-                "$Collection": true,
-                "@Core.Description": "Properties supported by the groupby transformation"
-            },
-            "AggregatableProperties": {
-                "$Collection": true,
-                "@Core.Description": "Properties supported by the aggregate transformation"
             }
         },
         "CustomAggregateType": {

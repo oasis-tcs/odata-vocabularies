@@ -89,14 +89,12 @@ Property|Type|Description
 [*OptimisticConcurrencyControl*](Org.OData.Capabilities.V1.xml#L299)|Boolean|Data modification (including insert) along this navigation property requires the use of ETags
 [*ReadRestrictions*](Org.OData.Capabilities.V1.xml#L303)|[ReadRestrictionsType](Org.OData.Capabilities.V1.md#ReadRestrictionsType)|Restrictions for retrieving entities
 [ApplySupported](Org.OData.Aggregation.V1.xml#L218)|[ApplySupportedType](#ApplySupportedType)|Support for $apply
-[CustomAggregates](Org.OData.Aggregation.V1.xml#L222)|\[[CustomAggregateType](#CustomAggregateType)\]|Supported custom aggregates
-[GroupableProperties](Org.OData.Aggregation.V1.xml#L226)|\[String\]|Properties supported by the groupby transformation
-[AggregatableProperties](Org.OData.Aggregation.V1.xml#L229)|\[String\]|Properties supported by the aggregate transformation
+[CustomAggregates](Org.OData.Aggregation.V1.xml#L221)|\[[CustomAggregateType](#CustomAggregateType)\]|Supported custom aggregates
 
-## <a name="CustomAggregateType"></a>[CustomAggregateType](Org.OData.Aggregation.V1.xml#L234)
+## <a name="CustomAggregateType"></a>[CustomAggregateType](Org.OData.Aggregation.V1.xml#L226)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Aggregation.V1.xml#L235)|String|
-[Type](Org.OData.Aggregation.V1.xml#L236)|String|
+[Name](Org.OData.Aggregation.V1.xml#L227)|String|
+[Type](Org.OData.Aggregation.V1.xml#L228)|String|
