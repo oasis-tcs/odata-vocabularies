@@ -69,12 +69,12 @@
             "GroupableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties supported by the groupby transformation. Setting this collection implies that PropertyRestriction is true"
+                "@Core.Description": "Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true"
             },
             "AggregatableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestriction is true "
+                "@Core.Description": "Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true "
             }
         },
         "RollupType": {

@@ -37,8 +37,8 @@ Property|Type|Description
 [CustomAggregationMethods](Org.OData.Aggregation.V1.xml#L82)|\[String\]|Qualified names of custom aggregation methods that can be used in aggregate(...with...)
 [Rollup](Org.OData.Aggregation.V1.xml#L86)|[RollupType](#RollupType)|The service supports rollup hierarchies in a groupby transformation
 [PropertyRestrictions](Org.OData.Aggregation.V1.xml#L89)|Boolean|Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation
-[GroupableProperties](Org.OData.Aggregation.V1.xml#L93)|\[PropertyPath\]|Properties supported by the groupby transformation. Setting this collection implies that PropertyRestriction is true
-[AggregatableProperties](Org.OData.Aggregation.V1.xml#L96)|\[PropertyPath\]|Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestriction is true
+[GroupableProperties](Org.OData.Aggregation.V1.xml#L93)|\[PropertyPath\]|Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true
+[AggregatableProperties](Org.OData.Aggregation.V1.xml#L96)|\[PropertyPath\]|Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true
 
 ## <a name="RollupType"></a>[RollupType](Org.OData.Aggregation.V1.xml#L101)
 The number of rollup operators allowed in a groupby transformation
