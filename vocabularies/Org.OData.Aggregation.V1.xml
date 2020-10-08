@@ -90,6 +90,12 @@
           <Annotation Term="Core.Description"
             String="Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation" />
         </Property>
+        <Property Name="GroupableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties supported by the groupby transformation. Setting this collection implies that PropertyRestriction is true" />
+        </Property>
+        <Property Name="AggregatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestriction is true " />
+        </Property>        
       </ComplexType>
 
       <EnumType Name="RollupType">
@@ -212,9 +218,11 @@
         <Property Name="ApplySupported" Type="Aggregation.ApplySupportedType">
           <Annotation Term="Core.Description" String="Support for $apply" />
         </Property>
-        <Property Name="CustomAggregates" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Supported custom aggregates identified by their qualifier" />
+
+        <Property Name="CustomAggregates" Type="Collection(Aggregation.CustomAggregateType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Supported custom aggregates" />        
         </Property>
+
         <Property Name="GroupableProperties" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties supported by the groupby transformation" />
         </Property>
@@ -222,6 +230,12 @@
           <Annotation Term="Core.Description" String="Properties supported by the aggregate transformation" />
         </Property>
       </ComplexType>
+      
+      <ComplexType Name="CustomAggregateType">
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Type" Type="Edm.String" Nullable="false" />
+      </ComplexType>
+      
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
