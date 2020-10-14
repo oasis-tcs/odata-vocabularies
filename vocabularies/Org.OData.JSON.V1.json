@@ -40,7 +40,8 @@
         "JSON": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Stream",
-            "@Core.Description": "A stream of media type `application/json`",
+            "@Core.Description": "Textual data of media type `application/json`",
+            "@Core.MediaType": "application/json",
             "@Core.AcceptableMediaTypes": [
                 "application/json"
             ]
