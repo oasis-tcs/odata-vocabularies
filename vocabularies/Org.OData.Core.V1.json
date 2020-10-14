@@ -479,6 +479,23 @@
             "@Core.Description": "Properties and terms annotated with this term MUST contain a valid MIME type",
             "@Core.RequiresType": "Edm.String"
         },
+        "ContentDisposition": {
+            "$Kind": "Term",
+            "$Type": "Core.ContentDispositionType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "Property",
+                "Term"
+            ],
+            "@Core.Description": "The content disposition of a binary or string property or term"
+        },
+        "ContentDispositionType": {
+            "$Kind": "ComplexType",
+            "Filename": {
+                "$Nullable": true,
+                "@Core.Description": "The proposed filename for downloading the binary or stream value"
+            }
+        },
         "OptimisticConcurrency": {
             "$Kind": "Term",
             "$Collection": true,
