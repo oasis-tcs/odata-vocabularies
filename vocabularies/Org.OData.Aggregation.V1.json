@@ -8,6 +8,14 @@
                     "$Alias": "Core"
                 }
             ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Capabilities.V1",
+                    "$Alias": "Capabilities"
+                }
+            ]
         }
     },
     "Org.OData.Aggregation.V1": {
@@ -32,7 +40,7 @@
             "$Type": "Aggregation.ApplySupportedType",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntityType",
+                "EntitySet",
                 "ComplexType",
                 "EntityContainer"
             ],
@@ -57,6 +65,16 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation"
+            },
+            "GroupableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true"
+            },
+            "AggregatableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true "
             }
         },
         "RollupType": {
@@ -95,7 +113,7 @@
             "$Kind": "Term",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntityType",
+                "EntitySet",
                 "ComplexType",
                 "EntityContainer"
             ],
@@ -289,6 +307,26 @@
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Properties required to apply this action or function"
             }
+        },
+        "NavigationPropertyAggregationCapabilities": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.NavigationPropertyRestriction",
+            "@Core.Description": "Aggregation capabilities on a navigation path",
+            "ApplySupported": {
+                "$Type": "Aggregation.ApplySupportedType",
+                "$Nullable": true,
+                "@Core.Description": "Support for $apply"
+            },
+            "CustomAggregates": {
+                "$Collection": true,
+                "$Type": "Aggregation.CustomAggregateType",
+                "@Core.Description": "Supported custom aggregates"
+            }
+        },
+        "CustomAggregateType": {
+            "$Kind": "ComplexType",
+            "Name": {},
+            "Type": {}
         }
     }
 }

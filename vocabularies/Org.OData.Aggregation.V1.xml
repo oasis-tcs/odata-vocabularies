@@ -42,6 +42,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
+    <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Aggregation.V1" Alias="Aggregation">
       <Annotation Term="Core.Description">
@@ -67,7 +70,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" AppliesTo="EntityType ComplexType EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description">
           <String>This structured type or entity container supports the $apply system query option</String>
         </Annotation>
@@ -87,6 +90,12 @@
           <Annotation Term="Core.Description"
             String="Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation" />
         </Property>
+        <Property Name="GroupableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true" />
+        </Property>
+        <Property Name="AggregatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true " />
+        </Property>        
       </ComplexType>
 
       <EnumType Name="RollupType">
@@ -110,7 +119,7 @@
         <Annotation Term="Core.Description" String="This property can be used in the aggregate transformation" />
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" AppliesTo="EntityType ComplexType EntityContainer">
+      <Term Name="CustomAggregate" Type="Edm.String" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the aggregate transformation" />
         <Annotation Term="Core.LongDescription"
           String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated values will be of that type." />
@@ -204,6 +213,21 @@
         </Property>
       </ComplexType>
 
+      <ComplexType Name="NavigationPropertyAggregationCapabilities" BaseType="Capabilities.NavigationPropertyRestriction">
+        <Annotation Term="Core.Description" String="Aggregation capabilities on a navigation path" />
+        <Property Name="ApplySupported" Type="Aggregation.ApplySupportedType">
+          <Annotation Term="Core.Description" String="Support for $apply" />
+        </Property>
+        <Property Name="CustomAggregates" Type="Collection(Aggregation.CustomAggregateType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Supported custom aggregates" />        
+        </Property>
+      </ComplexType>
+      
+      <ComplexType Name="CustomAggregateType">
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Type" Type="Edm.String" Nullable="false" />
+      </ComplexType>
+      
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

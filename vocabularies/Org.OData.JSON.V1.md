@@ -13,4 +13,4 @@ Term|Type|Description
 ## <a name="JSON"></a>[JSON](Org.OData.JSON.V1.xml#L75)
 **Type:** Stream
 
-A stream of media type `application/json`
+Textual data of media type `application/json`
