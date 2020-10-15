@@ -35,7 +35,7 @@ Base type for all Authorization types
 Property|Type|Description
 :-------|:---|:----------
 [Name](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[Description](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[Description](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 
 ## <a name="OpenIDConnect"></a>[OpenIDConnect](Org.OData.Authorization.V1.xml#L97): [Authorization](#Authorization)
 
@@ -43,7 +43,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [IssuerUrl](Org.OData.Authorization.V1.xml#L98)|URL|Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.
 
 ## <a name="Http"></a>[Http](Org.OData.Authorization.V1.xml#L105): [Authorization](#Authorization)
@@ -52,9 +52,9 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [Scheme](Org.OData.Authorization.V1.xml#L106)|String|HTTP Authorization scheme to be used in the Authorization header, as per RFC7235
-[BearerFormat](Org.OData.Authorization.V1.xml#L110)|String|Format of the bearer token
+[BearerFormat](Org.OData.Authorization.V1.xml#L110)|String?|Format of the bearer token
 
 ## <a name="OAuthAuthorization"></a>[*OAuthAuthorization*](Org.OData.Authorization.V1.xml#L115): [Authorization](#Authorization)
 
@@ -68,9 +68,9 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [Scopes](Org.OData.Authorization.V1.xml#L116)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-[RefreshUrl](Org.OData.Authorization.V1.xml#L119)|URL|Refresh Url
+[RefreshUrl](Org.OData.Authorization.V1.xml#L119)|URL?|Refresh Url
 
 ## <a name="OAuth2ClientCredentials"></a>[OAuth2ClientCredentials](Org.OData.Authorization.V1.xml#L125): [OAuthAuthorization](#OAuthAuthorization)
 
@@ -78,9 +78,9 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [*Scopes*](Org.OData.Authorization.V1.xml#L116)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL|Refresh Url
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL?|Refresh Url
 [TokenUrl](Org.OData.Authorization.V1.xml#L126)|URL|Token Url
 
 ## <a name="OAuth2Implicit"></a>[OAuth2Implicit](Org.OData.Authorization.V1.xml#L132): [OAuthAuthorization](#OAuthAuthorization)
@@ -89,9 +89,9 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [*Scopes*](Org.OData.Authorization.V1.xml#L116)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL|Refresh Url
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL?|Refresh Url
 [AuthorizationUrl](Org.OData.Authorization.V1.xml#L133)|URL|Authorization URL
 
 ## <a name="OAuth2Password"></a>[OAuth2Password](Org.OData.Authorization.V1.xml#L139): [OAuthAuthorization](#OAuthAuthorization)
@@ -100,9 +100,9 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [*Scopes*](Org.OData.Authorization.V1.xml#L116)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL|Refresh Url
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL?|Refresh Url
 [TokenUrl](Org.OData.Authorization.V1.xml#L140)|URL|Token Url
 
 ## <a name="OAuth2AuthCode"></a>[OAuth2AuthCode](Org.OData.Authorization.V1.xml#L146): [OAuthAuthorization](#OAuthAuthorization)
@@ -111,9 +111,9 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [*Scopes*](Org.OData.Authorization.V1.xml#L116)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
-[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL|Refresh Url
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L119)|URL?|Refresh Url
 [AuthorizationUrl](Org.OData.Authorization.V1.xml#L147)|URL|Authorization URL
 [TokenUrl](Org.OData.Authorization.V1.xml#L151)|URL|Token Url
 
@@ -123,7 +123,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Scope](Org.OData.Authorization.V1.xml#L158)|String|Scope name
-[Grant](Org.OData.Authorization.V1.xml#L161)|String|Identity that has access to the scope or can grant access to the scope.
+[Grant](Org.OData.Authorization.V1.xml#L161)|String?|Identity that has access to the scope or can grant access to the scope.
 [Description](Org.OData.Authorization.V1.xml#L165)|String|Description of the scope
 
 ## <a name="ApiKey"></a>[ApiKey](Org.OData.Authorization.V1.xml#L170): [Authorization](#Authorization)
@@ -132,7 +132,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L89)|String|Name that can be used to reference the authorization scheme
-[*Description*](Org.OData.Authorization.V1.xml#L92)|String|Description of the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L92)|String?|Description of the authorization scheme
 [KeyName](Org.OData.Authorization.V1.xml#L171)|String|The name of the header or query parameter
 [Location](Org.OData.Authorization.V1.xml#L174)|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
 
