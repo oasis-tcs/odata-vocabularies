@@ -70,7 +70,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" AppliesTo="EntitySet ComplexType EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description">
           <String>This structured type or entity container supports the $apply system query option</String>
         </Annotation>
@@ -128,15 +128,15 @@
         </Member>
       </EnumType>
 
-      <Term Name="Groupable" Type="Core.Tag" AppliesTo="Property NavigationProperty" DefaultValue="true">
+      <Term Name="Groupable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
         <Annotation Term="Core.Description" String="This property can be used in the `groupby` transformation" />
       </Term>
 
-      <Term Name="Aggregatable" Type="Core.Tag" AppliesTo="Property NavigationProperty" DefaultValue="true">
+      <Term Name="Aggregatable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
         <Annotation Term="Core.Description" String="This property can be used in the `aggregate` transformation" />
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" AppliesTo="EntitySet ComplexType EntityContainer">
+      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the `aggregate` transformation" />
         <Annotation Term="Core.LongDescription"
           String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type." />
@@ -155,7 +155,7 @@
           String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
 
-      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" AppliesTo="EntityType ComplexType">
+      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
       </Term>
 
@@ -220,7 +220,7 @@
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
-      <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" AppliesTo="Action Function">
+      <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description"
           String="This action or function is available on aggregated entities if the `RequiredProperties` are still defined" />
       </Term>
