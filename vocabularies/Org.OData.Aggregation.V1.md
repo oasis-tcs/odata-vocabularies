@@ -9,13 +9,13 @@ Terms to describe which data in a given entity model can be aggregated, and how.
 Term|Type|Description
 :---|:---|:----------
 [ApplySupported](Org.OData.Aggregation.V1.xml#L73)|[ApplySupportedType?](#ApplySupportedType)|<a name="ApplySupported"></a>This structured type or entity container supports the $apply system query option
-[Groupable](Org.OData.Aggregation.V1.xml#L131)|[Tag?](Org.OData.Core.V1.md#Tag)|<a name="Groupable"></a>This property can be used in the groupby transformation
-[Aggregatable](Org.OData.Aggregation.V1.xml#L135)|[Tag?](Org.OData.Core.V1.md#Tag)|<a name="Aggregatable"></a>This property can be used in the aggregate transformation
-[CustomAggregate](Org.OData.Aggregation.V1.xml#L139)|String?|<a name="CustomAggregate"></a>Dynamic property that can be used in the aggregate transformation<p>This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated values will be of that type.</p>
+[Groupable](Org.OData.Aggregation.V1.xml#L131)|[Tag?](Org.OData.Core.V1.md#Tag)|<a name="Groupable"></a>This property can be used in the `groupby` transformation
+[Aggregatable](Org.OData.Aggregation.V1.xml#L135)|[Tag?](Org.OData.Core.V1.md#Tag)|<a name="Aggregatable"></a>This property can be used in the `aggregate` transformation
+[CustomAggregate](Org.OData.Aggregation.V1.xml#L139)|String?|<a name="CustomAggregate"></a>Dynamic property that can be used in the `aggregate` transformation<p>This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type.</p>
 [ContextDefiningProperties](Org.OData.Aggregation.V1.xml#L145)|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<p>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.</p>
 [LeveledHierarchy](Org.OData.Aggregation.V1.xml#L153)|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
 [RecursiveHierarchy](Org.OData.Aggregation.V1.xml#L158)|[RecursiveHierarchyType?](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L223)|[AvailableOnAggregatesType?](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the RequiredProperties are still defined
+[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L223)|[AvailableOnAggregatesType?](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
 
 
 ## Functions
@@ -33,12 +33,12 @@ Function|Signature|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Transformations](Org.OData.Aggregation.V1.xml#L79)|\[String\]|Transformations that can be used in $apply
-[CustomAggregationMethods](Org.OData.Aggregation.V1.xml#L82)|\[String\]|Qualified names of custom aggregation methods that can be used in aggregate(...with...)
-[Rollup](Org.OData.Aggregation.V1.xml#L86)|[RollupType](#RollupType)|The service supports rollup hierarchies in a groupby transformation
-[PropertyRestrictions](Org.OData.Aggregation.V1.xml#L89)|Boolean|Only properties tagged as Groupable can be used in the groupby transformation, and only those marked as Aggregatable can be used in the aggregate transformation
-[GroupableProperties](Org.OData.Aggregation.V1.xml#L93)|\[PropertyPath\]|Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true
-[AggregatableProperties](Org.OData.Aggregation.V1.xml#L96)|\[[AggregatablePropertyType](#AggregatablePropertyType)\]|Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true
+[Transformations](Org.OData.Aggregation.V1.xml#L79)|\[String\]|Transformations that can be used in `$apply`
+[CustomAggregationMethods](Org.OData.Aggregation.V1.xml#L82)|\[String\]|Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`
+[Rollup](Org.OData.Aggregation.V1.xml#L86)|[RollupType](#RollupType)|The service supports rollup hierarchies in a `groupby` transformation
+[PropertyRestrictions](Org.OData.Aggregation.V1.xml#L89)|Boolean|Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the `aggregate` transformation
+[GroupableProperties](Org.OData.Aggregation.V1.xml#L93)|\[PropertyPath\]|Properties supported by the `groupby` transformation. Setting this collection implies that `PropertyRestrictions` is true
+[AggregatableProperties](Org.OData.Aggregation.V1.xml#L96)|\[[AggregatablePropertyType](#AggregatablePropertyType)\]|Properties supported by the `aggregate` transformation. Setting this collection implies that `PropertyRestrictions` is true
 
 ## <a name="AggregatablePropertyType"></a>[AggregatablePropertyType](Org.OData.Aggregation.V1.xml#L100)
 
@@ -50,13 +50,13 @@ Property|Type|Description
 [RecommendedAggregationMethod](Org.OData.Aggregation.V1.xml#L111)|String?|Recommended method for aggregating values of the property
 
 ## <a name="RollupType"></a>[RollupType](Org.OData.Aggregation.V1.xml#L118)
-The number of rollup operators allowed in a groupby transformation
+The number of `rollup` operators allowed in a `groupby` transformation
 
 Member|Value|Description
 :-----|----:|:----------
-[None](Org.OData.Aggregation.V1.xml#L120)|0|No rollup support
-[SingleHierarchy](Org.OData.Aggregation.V1.xml#L123)|1|Only one rollup operator per groupby
-[MultipleHierarchies](Org.OData.Aggregation.V1.xml#L126)|2|Full rollup support
+[None](Org.OData.Aggregation.V1.xml#L120)|0|No `rollup` support
+[SingleHierarchy](Org.OData.Aggregation.V1.xml#L123)|1|Only one `rollup` operator per `groupby`
+[MultipleHierarchies](Org.OData.Aggregation.V1.xml#L126)|2|Full `rollup` support
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](Org.OData.Aggregation.V1.xml#L162)
 
@@ -97,7 +97,7 @@ Property|Type|Description
 [*DeleteRestrictions*](Org.OData.Capabilities.V1.xml#L296)|[DeleteRestrictionsType?](Org.OData.Capabilities.V1.md#DeleteRestrictionsType)|Restrictions on delete operations
 [*OptimisticConcurrencyControl*](Org.OData.Capabilities.V1.xml#L299)|Boolean|Data modification (including insert) along this navigation property requires the use of ETags
 [*ReadRestrictions*](Org.OData.Capabilities.V1.xml#L303)|[ReadRestrictionsType?](Org.OData.Capabilities.V1.md#ReadRestrictionsType)|Restrictions for retrieving entities
-[ApplySupported](Org.OData.Aggregation.V1.xml#L235)|[ApplySupportedType?](#ApplySupportedType)|Support for $apply
+[ApplySupported](Org.OData.Aggregation.V1.xml#L235)|[ApplySupportedType?](#ApplySupportedType)|Support for `$apply`
 [CustomAggregates](Org.OData.Aggregation.V1.xml#L238)|\[[CustomAggregateType](#CustomAggregateType)\]|Supported custom aggregates
 
 ## <a name="CustomAggregateType"></a>[CustomAggregateType](Org.OData.Aggregation.V1.xml#L243)
@@ -105,5 +105,5 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Aggregation.V1.xml#L244)|String|
-[Type](Org.OData.Aggregation.V1.xml#L245)|String|
+[Name](Org.OData.Aggregation.V1.xml#L244)|String|Name of the dynamic property that can be used in the `aggregate` transformation
+[Type](Org.OData.Aggregation.V1.xml#L247)|String|Qualified name of a primitive type. The aggregated value will be of that type
