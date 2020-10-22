@@ -88,7 +88,7 @@
         </Property>
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
           <Annotation Term="Core.Description"
-            String="Only properties tagged as Groupable can be used in the groupby transformation, and only those marked as Aggregatable can be used in the aggregate transformation" />
+            String="Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation" />
         </Property>
         <Property Name="GroupableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true" />
