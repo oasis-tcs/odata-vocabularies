@@ -103,7 +103,7 @@
             <String>Aggregatable property</String>
           </Annotation>
         </Property>
-        <Property Name="SupportedAggregationMethods" Type="Collection(Edm.String)">
+        <Property Name="SupportedAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description">
             <String>Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied</String>
           </Annotation>
