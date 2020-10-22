@@ -64,7 +64,7 @@
             "PropertyRestrictions": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation"
+                "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those marked as Aggregatable can be used in the aggregate transformation"
             },
             "GroupableProperties": {
                 "$Collection": true,
@@ -73,8 +73,23 @@
             },
             "AggregatableProperties": {
                 "$Collection": true,
-                "$Type": "Edm.PropertyPath",
+                "$Type": "Aggregation.AggregatablePropertyType",
                 "@Core.Description": "Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true "
+            }
+        },
+        "AggregatablePropertyType": {
+            "$Kind": "ComplexType",
+            "Property": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Aggregatable property"
+            },
+            "SupportedAggregationMethods": {
+                "$Collection": true,
+                "@Core.Description": "Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied"
+            },
+            "RecommendedAggregationMethod": {
+                "$Nullable": true,
+                "@Core.Description": "Recommended method for aggregating values of the property"
             }
         },
         "RollupType": {
