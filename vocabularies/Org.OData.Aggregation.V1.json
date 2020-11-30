@@ -38,7 +38,6 @@
         "ApplySupported": {
             "$Kind": "Term",
             "$Type": "Aggregation.ApplySupportedType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "ComplexType",
@@ -105,7 +104,6 @@
         "Groupable": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
@@ -116,7 +114,6 @@
         "Aggregatable": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
@@ -126,7 +123,6 @@
         },
         "CustomAggregate": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "ComplexType",
@@ -159,7 +155,6 @@
         "RecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Aggregation.RecursiveHierarchyType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType"
@@ -308,7 +303,6 @@
         "AvailableOnAggregates": {
             "$Kind": "Term",
             "$Type": "Aggregation.AvailableOnAggregatesType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Action",
                 "Function"
