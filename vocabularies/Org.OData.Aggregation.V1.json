@@ -38,7 +38,6 @@
         "ApplySupported": {
             "$Kind": "Term",
             "$Type": "Aggregation.ApplySupportedType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "ComplexType",
@@ -50,75 +49,87 @@
             "$Kind": "ComplexType",
             "Transformations": {
                 "$Collection": true,
-                "@Core.Description": "Transformations that can be used in $apply"
+                "@Core.Description": "Transformations that can be used in `$apply`"
             },
             "CustomAggregationMethods": {
                 "$Collection": true,
-                "@Core.Description": "Qualified names of custom aggregation methods that can be used in aggregate(...with...)"
+                "@Core.Description": "Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`"
             },
             "Rollup": {
                 "$Type": "Aggregation.RollupType",
                 "$DefaultValue": "MultipleHierarchies",
-                "@Core.Description": "The service supports rollup hierarchies in a groupby transformation"
+                "@Core.Description": "The service supports rollup hierarchies in a `groupby` transformation"
             },
             "PropertyRestrictions": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation"
+                "@Core.Description": "Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation"
             },
             "GroupableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true"
+                "@Core.Description": "Properties supported by the `groupby` transformation. Setting this collection implies that `PropertyRestrictions` is true"
             },
             "AggregatableProperties": {
                 "$Collection": true,
+                "$Type": "Aggregation.AggregatablePropertyType",
+                "@Core.Description": "Properties supported by the `aggregate` transformation. Setting this collection implies that `PropertyRestrictions` is true "
+            }
+        },
+        "AggregatablePropertyType": {
+            "$Kind": "ComplexType",
+            "Property": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true "
+                "@Core.Description": "Aggregatable property"
+            },
+            "SupportedAggregationMethods": {
+                "$Collection": true,
+                "@Core.Description": "Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied"
+            },
+            "RecommendedAggregationMethod": {
+                "$Nullable": true,
+                "@Core.Description": "Recommended method for aggregating values of the property"
             }
         },
         "RollupType": {
             "$Kind": "EnumType",
-            "@Core.Description": "The number of rollup operators allowed in a groupby transformation",
+            "@Core.Description": "The number of `rollup` operators allowed in a `groupby` transformation",
             "None": 0,
-            "None@Core.Description": "No rollup support",
+            "None@Core.Description": "No `rollup` support",
             "SingleHierarchy": 1,
-            "SingleHierarchy@Core.Description": "Only one rollup operator per groupby",
+            "SingleHierarchy@Core.Description": "Only one `rollup` operator per `groupby`",
             "MultipleHierarchies": 2,
-            "MultipleHierarchies@Core.Description": "Full rollup support"
+            "MultipleHierarchies@Core.Description": "Full `rollup` support"
         },
         "Groupable": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty"
             ],
-            "@Core.Description": "This property can be used in the groupby transformation"
+            "@Core.Description": "This property can be used in the `groupby` transformation"
         },
         "Aggregatable": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty"
             ],
-            "@Core.Description": "This property can be used in the aggregate transformation"
+            "@Core.Description": "This property can be used in the `aggregate` transformation"
         },
         "CustomAggregate": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "ComplexType",
                 "EntityContainer"
             ],
-            "@Core.Description": "Dynamic property that can be used in the aggregate transformation",
-            "@Core.LongDescription": "This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated values will be of that type."
+            "@Core.Description": "Dynamic property that can be used in the `aggregate` transformation",
+            "@Core.LongDescription": "This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type."
         },
         "ContextDefiningProperties": {
             "$Kind": "Term",
@@ -144,7 +155,6 @@
         "RecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Aggregation.RecursiveHierarchyType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityType",
                 "ComplexType"
@@ -293,12 +303,11 @@
         "AvailableOnAggregates": {
             "$Kind": "Term",
             "$Type": "Aggregation.AvailableOnAggregatesType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Action",
                 "Function"
             ],
-            "@Core.Description": "This action or function is available on aggregated entities if the RequiredProperties are still defined"
+            "@Core.Description": "This action or function is available on aggregated entities if the `RequiredProperties` are still defined"
         },
         "AvailableOnAggregatesType": {
             "$Kind": "ComplexType",
@@ -315,7 +324,7 @@
             "ApplySupported": {
                 "$Type": "Aggregation.ApplySupportedType",
                 "$Nullable": true,
-                "@Core.Description": "Support for $apply"
+                "@Core.Description": "Support for `$apply`"
             },
             "CustomAggregates": {
                 "$Collection": true,
@@ -325,8 +334,12 @@
         },
         "CustomAggregateType": {
             "$Kind": "ComplexType",
-            "Name": {},
-            "Type": {}
+            "Name": {
+                "@Core.Description": "Name of the dynamic property that can be used in the `aggregate` transformation"
+            },
+            "Type": {
+                "@Core.Description": "Qualified name of a primitive type. The aggregated value will be of that type"
+            }
         }
     }
 }
