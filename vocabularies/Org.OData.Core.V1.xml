@@ -317,6 +317,10 @@
       <Term Name="RequiresType" Type="Edm.String" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name" />
       </Term>
+      
+      <Term Name="AppliesToEntityTypeIfDynamic" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
+        <Annotation Term="Core.Description" String="An annotation with this term may target an entity type, but only in order to allow dynamic expressions that depend on properties of the entity type"/>
+      </Term>
 
       <!--Resource Paths -->
 
