@@ -333,6 +333,16 @@
             ],
             "@Core.Description": "Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name"
         },
+        "AppliesToTypeIfDynamic": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Term"
+            ],
+            "@Core.Description": "An annotation with this term may target a type, but only in order to allow dynamic expressions [OData-CSDL, section 14.4] that depend on properties of the type"
+        },
         "ResourcePath": {
             "$Kind": "Term",
             "$Nullable": true,
