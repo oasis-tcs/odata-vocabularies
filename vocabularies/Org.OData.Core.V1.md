@@ -21,7 +21,7 @@ Term|Type|Description
 [DataModificationException](Org.OData.Core.V1.xml#L266)|[DataModificationExceptionType](#DataModificationExceptionType)|<a name="DataModificationException"></a>A modification operation failed on the annotated instance or collection within a success payload
 [IsLanguageDependent](Org.OData.Core.V1.xml#L306)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
 [RequiresType](Org.OData.Core.V1.xml#L317)|String?|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
-[AppliesToTypeIfDynamic](Org.OData.Core.V1.xml#L321)|[Tag?](#Tag)|<a name="AppliesToTypeIfDynamic"></a>An annotation with this term may target a type, but only in order to allow dynamic expressions [OData-CSDL, section 14.4] that depend on properties of the type
+[AppliesToTypeIfDynamic](Org.OData.Core.V1.xml#L321)|[Tag?](#Tag)|<a name="AppliesToTypeIfDynamic"></a>An annotation with this term may target a type, but only in order to allow dynamic expressions ([OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)) that depend on properties of the type
 [ResourcePath](Org.OData.Core.V1.xml#L327)|URL?|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
 [DereferenceableIDs](Org.OData.Core.V1.xml#L332)|[Tag](#Tag)|<a name="DereferenceableIDs"></a>Entity-ids are URLs that locate the identified entity
 [ConventionalIDs](Org.OData.Core.V1.xml#L336)|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
