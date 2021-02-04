@@ -319,7 +319,7 @@
       </Term>
       
       <Term Name="AppliesToTypeIfDynamic" Type="Core.Tag" DefaultValue="true" AppliesTo="Term">
-        <Annotation Term="Core.Description" String="An annotation with this term may target a type, but only in order to allow dynamic expressions that depend on properties of the type"/>
+        <Annotation Term="Core.Description" String="An annotation with this term may target a type, but only in order to allow dynamic expressions [OData-CSDL, section 14.4] that depend on properties of the type"/>
       </Term>
 
       <!--Resource Paths -->
