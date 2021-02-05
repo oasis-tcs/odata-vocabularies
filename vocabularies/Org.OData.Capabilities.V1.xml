@@ -609,8 +609,8 @@ supported:
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet EntityType">
+        <Annotation Term="Core.AppliesToTypeIfDynamic"/>
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
-        <Annotation Term="Core.LongDescription" String="Should be annotated on entity sets. Annotate entity types only if annotation value is dynamic, using a path expression." />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -697,8 +697,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </ComplexType>
 
       <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Singleton EntityType">
+        <Annotation Term="Core.AppliesToTypeIfDynamic"/>
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
-        <Annotation Term="Core.LongDescription" String="Should be annotated on entity sets and singletons. Annotate entity types only if annotation value is dynamic, using a path expression." />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -763,8 +763,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </ComplexType>
 
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Singleton EntityType">
+        <Annotation Term="Core.AppliesToTypeIfDynamic"/>
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
-        <Annotation Term="Core.LongDescription" String="Should be annotated on entity sets and singletons. Annotate entity types only if annotation value is dynamic, using a path expression." />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
         <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">

@@ -760,8 +760,8 @@
                 "EntitySet",
                 "EntityType"
             ],
-            "@Core.Description": "Restrictions on insert operations",
-            "@Core.LongDescription": "Should be annotated on entity sets. Annotate entity types only if annotation value is dynamic, using a path expression."
+            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.Description": "Restrictions on insert operations"
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
@@ -877,8 +877,8 @@
                 "Singleton",
                 "EntityType"
             ],
-            "@Core.Description": "Restrictions on update operations",
-            "@Core.LongDescription": "Should be annotated on entity sets and singletons. Annotate entity types only if annotation value is dynamic, using a path expression."
+            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.Description": "Restrictions on update operations"
         },
         "UpdateRestrictionsType": {
             "$Kind": "ComplexType",
@@ -981,8 +981,8 @@
                 "Singleton",
                 "EntityType"
             ],
-            "@Core.Description": "Restrictions on delete operations",
-            "@Core.LongDescription": "Should be annotated on entity sets and singletons. Annotate entity types only if annotation value is dynamic, using a path expression."
+            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.Description": "Restrictions on delete operations"
         },
         "DeleteRestrictionsType": {
             "$Kind": "ComplexType",
