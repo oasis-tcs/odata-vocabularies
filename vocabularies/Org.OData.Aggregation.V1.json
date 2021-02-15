@@ -40,10 +40,12 @@
             "$Type": "Aggregation.ApplySupportedType",
             "$AppliesTo": [
                 "EntitySet",
+                "Collection",
                 "ComplexType",
                 "EntityContainer"
             ],
-            "@Core.Description": "This structured type or entity container supports the $apply system query option"
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "This structured type, entity set or entity container supports the $apply system query option"
         },
         "ApplySupportedType": {
             "$Kind": "ComplexType",

@@ -70,9 +70,10 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection ComplexType EntityContainer">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
-          <String>This structured type or entity container supports the $apply system query option</String>
+          <String>This structured type, entity set or entity container supports the $apply system query option</String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedType">
