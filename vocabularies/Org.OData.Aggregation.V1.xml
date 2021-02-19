@@ -261,7 +261,7 @@
           <Collection>
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) with this type are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"/>
+              <PropertyValue Property="Description" String="[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"/>
             </Record>
           </Collection>
         </Annotation>
