@@ -65,6 +65,12 @@
             "PropertyRestrictions": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated"
+                    }
+                ],
                 "@Core.Description": "Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation"
             },
             "GroupableProperties": {
@@ -111,6 +117,12 @@
                 "Property",
                 "NavigationProperty"
             ],
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`ApplySupported/GroupableProperties`](#ApplySupported)"
+                }
+            ],
             "@Core.Description": "This property can be used in the `groupby` transformation"
         },
         "Aggregatable": {
@@ -120,6 +132,12 @@
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty"
+            ],
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)"
+                }
             ],
             "@Core.Description": "This property can be used in the `aggregate` transformation"
         },
@@ -324,6 +342,12 @@
         "NavigationPropertyAggregationCapabilities": {
             "$Kind": "ComplexType",
             "$BaseType": "Capabilities.NavigationPropertyRestriction",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) with this type are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"
+                }
+            ],
             "@Core.Description": "Aggregation capabilities on a navigation path",
             "ApplySupported": {
                 "$Type": "Aggregation.ApplySupportedType",
