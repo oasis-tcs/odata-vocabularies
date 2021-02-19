@@ -345,7 +345,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) with this type are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"
+                    "Description": "[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"
                 }
             ],
             "@Core.Description": "Aggregation capabilities on a navigation path",
