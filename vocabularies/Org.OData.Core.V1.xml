@@ -317,6 +317,10 @@
       <Term Name="RequiresType" Type="Edm.String" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name" />
       </Term>
+      
+      <Term Name="AppliesToTypeIfDynamic" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">
+        <Annotation Term="Core.Description" String="An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type"/>
+      </Term>
 
       <!--Resource Paths -->
 

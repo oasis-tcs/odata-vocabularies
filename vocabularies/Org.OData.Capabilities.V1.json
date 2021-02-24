@@ -757,8 +757,10 @@
             "$Type": "Capabilities.InsertRestrictionsType",
             "$Nullable": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "EntityType"
             ],
+            "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on insert operations"
         },
         "InsertRestrictionsType": {
@@ -872,8 +874,10 @@
             "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "EntityType"
             ],
+            "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on update operations"
         },
         "UpdateRestrictionsType": {
@@ -974,8 +978,10 @@
             "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "EntityType"
             ],
+            "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on delete operations"
         },
         "DeleteRestrictionsType": {
