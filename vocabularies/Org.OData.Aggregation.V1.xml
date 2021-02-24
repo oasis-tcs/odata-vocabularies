@@ -70,59 +70,76 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" AppliesTo="EntitySet ComplexType EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description">
           <String>This structured type or entity container supports the $apply system query option</String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedType">
         <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Transformations that can be used in $apply" />
+          <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
         </Property>
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description"
-            String="Qualified names of custom aggregation methods that can be used in aggregate(...with...)" />
+            String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
         </Property>
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
-          <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a groupby transformation" />
+          <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
           <Annotation Term="Core.Description"
-            String="Only properties tagged as Groupable can be used in the groupby transformation, and only those tagged as Aggregatable can be used in the aggregate transformation" />
+            String="Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation" />
         </Property>
         <Property Name="GroupableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties supported by the groupby transformation. Setting this collection implies that PropertyRestrictions is true" />
+          <Annotation Term="Core.Description" String="Properties supported by the `groupby` transformation. Setting this collection implies that `PropertyRestrictions` is true" />
         </Property>
-        <Property Name="AggregatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties supported by the aggregate transformation. Setting this collection implies that PropertyRestrictions is true " />
+        <Property Name="AggregatableProperties" Type="Collection(Aggregation.AggregatablePropertyType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Properties supported by the `aggregate` transformation. Setting this collection implies that `PropertyRestrictions` is true " />
         </Property>        
+      </ComplexType>
+      <ComplexType Name="AggregatablePropertyType">
+        <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description">
+            <String>Aggregatable property</String>
+          </Annotation>
+        </Property>
+        <Property Name="SupportedAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description">
+            <String>Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied</String>
+          </Annotation>
+        </Property>
+        <Property Name="RecommendedAggregationMethod" Type="Edm.String">
+          <Annotation Term="Core.Description">
+            <String>Recommended method for aggregating values of the property</String>
+          </Annotation>
+        </Property>
       </ComplexType>
 
       <EnumType Name="RollupType">
-        <Annotation Term="Core.Description" String="The number of rollup operators allowed in a groupby transformation" />
+        <Annotation Term="Core.Description" String="The number of `rollup` operators allowed in a `groupby` transformation" />
         <Member Name="None">
-          <Annotation Term="Core.Description" String="No rollup support" />
+          <Annotation Term="Core.Description" String="No `rollup` support" />
         </Member>
         <Member Name="SingleHierarchy">
-          <Annotation Term="Core.Description" String="Only one rollup operator per groupby" />
+          <Annotation Term="Core.Description" String="Only one `rollup` operator per `groupby`" />
         </Member>
         <Member Name="MultipleHierarchies">
-          <Annotation Term="Core.Description" String="Full rollup support" />
+          <Annotation Term="Core.Description" String="Full `rollup` support" />
         </Member>
       </EnumType>
 
-      <Term Name="Groupable" Type="Core.Tag" AppliesTo="Property NavigationProperty" DefaultValue="true">
-        <Annotation Term="Core.Description" String="This property can be used in the groupby transformation" />
+      <Term Name="Groupable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
+        <Annotation Term="Core.Description" String="This property can be used in the `groupby` transformation" />
       </Term>
 
-      <Term Name="Aggregatable" Type="Core.Tag" AppliesTo="Property NavigationProperty" DefaultValue="true">
-        <Annotation Term="Core.Description" String="This property can be used in the aggregate transformation" />
+      <Term Name="Aggregatable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
+        <Annotation Term="Core.Description" String="This property can be used in the `aggregate` transformation" />
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" AppliesTo="EntitySet ComplexType EntityContainer">
-        <Annotation Term="Core.Description" String="Dynamic property that can be used in the aggregate transformation" />
+      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
+        <Annotation Term="Core.Description" String="Dynamic property that can be used in the `aggregate` transformation" />
         <Annotation Term="Core.LongDescription"
-          String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated values will be of that type." />
+          String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type." />
       </Term>
 
       <Term Name="ContextDefiningProperties" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="Property Annotation">
@@ -138,7 +155,7 @@
           String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
 
-      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" AppliesTo="EntityType ComplexType">
+      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
       </Term>
 
@@ -217,9 +234,9 @@
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
-      <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" AppliesTo="Action Function">
+      <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description"
-          String="This action or function is available on aggregated entities if the RequiredProperties are still defined" />
+          String="This action or function is available on aggregated entities if the `RequiredProperties` are still defined" />
       </Term>
       <ComplexType Name="AvailableOnAggregatesType">
         <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -230,7 +247,7 @@
       <ComplexType Name="NavigationPropertyAggregationCapabilities" BaseType="Capabilities.NavigationPropertyRestriction">
         <Annotation Term="Core.Description" String="Aggregation capabilities on a navigation path" />
         <Property Name="ApplySupported" Type="Aggregation.ApplySupportedType">
-          <Annotation Term="Core.Description" String="Support for $apply" />
+          <Annotation Term="Core.Description" String="Support for `$apply`" />
         </Property>
         <Property Name="CustomAggregates" Type="Collection(Aggregation.CustomAggregateType)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported custom aggregates" />        
@@ -238,8 +255,12 @@
       </ComplexType>
       
       <ComplexType Name="CustomAggregateType">
-        <Property Name="Name" Type="Edm.String" Nullable="false" />
-        <Property Name="Type" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Name of the dynamic property that can be used in the `aggregate` transformation" />
+        </Property>
+        <Property Name="Type" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Qualified name of a primitive type. The aggregated value will be of that type" />
+        </Property>
       </ComplexType>
       
     </Schema>
