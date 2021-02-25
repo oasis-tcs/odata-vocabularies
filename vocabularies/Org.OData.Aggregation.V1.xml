@@ -74,6 +74,9 @@
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
           <String>This structured type, entity set or entity container supports the $apply system query option</String>
+        </Annotation> 
+        <Annotation Term="Core.LongDescription">
+          <String>An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation.</String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedType">
