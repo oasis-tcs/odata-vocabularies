@@ -73,7 +73,10 @@
 
       <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
         <Annotation Term="Core.Description">
-          <String>This structured type or entity container supports the $apply system query option</String>
+          <String>This structured type or entity container supports the $apply system query option.</String>
+        </Annotation> 
+        <Annotation Term="Core.LongDescription">
+          <String>An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation.</String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedType">
