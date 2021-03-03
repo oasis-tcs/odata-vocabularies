@@ -711,6 +711,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Entities can be inserted, updated, and deleted via a PATCH request with a delta payload" />
         </Property>
+        <Property Name="UpdateMethod" Type="Capabilities.HttpMethod" Nullable="true">
+          <Annotation Term="Core.Description" String="Supported HTTP Methods (PUT or PATCH) for updating an entity.  If null, PATCH SHOULD be supported and PUT MAY be supported." />
+        </Property>
         <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description"
             String="Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
@@ -747,6 +750,30 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
+
+      <EnumType Name="HttpMethod" IsFlags="true">
+        <Member Name="GET" Value = "1">
+          <Annotation Term="Core.Description" String="The HTTP GET Method" />
+        </Member>
+        <Member Name="PATCH" Value = "2">
+          <Annotation Term="Core.Description" String="The HTTP PATCH Method" />
+        </Member>
+        <Member Name="PUT" Value = "4">
+          <Annotation Term="Core.Description" String="The HTTP PUT Method" />
+        </Member>
+        <Member Name="POST" Value = "8">
+          <Annotation Term="Core.Description" String="The HTTP POST Method" />
+        </Member>
+        <Member Name="DELETE" Value = "16">
+          <Annotation Term="Core.Description" String="The HTTP DELETE Method" />
+        </Member>
+        <Member Name="OPTIONS" Value = "32">
+          <Annotation Term="Core.Description" String="The HTTP OPTIONS Method" />
+        </Member>
+        <Member Name="HEAD" Value = "64">
+          <Annotation Term="Core.Description" String="The HTTP OPTIONS Method" />
+        </Member>
+      </EnumType>
 
       <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description"
