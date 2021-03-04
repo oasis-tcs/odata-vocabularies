@@ -771,7 +771,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="The HTTP OPTIONS Method" />
         </Member>
         <Member Name="HEAD" Value = "64">
-          <Annotation Term="Core.Description" String="The HTTP OPTIONS Method" />
+          <Annotation Term="Core.Description" String="The HTTP HEAD Method" />
         </Member>
       </EnumType>
 

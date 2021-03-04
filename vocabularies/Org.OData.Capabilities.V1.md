@@ -374,7 +374,7 @@ Flag Member|Value|Description
 [POST](Org.OData.Capabilities.V1.xml#L764)|8|The HTTP POST Method
 [DELETE](Org.OData.Capabilities.V1.xml#L767)|16|The HTTP DELETE Method
 [OPTIONS](Org.OData.Capabilities.V1.xml#L770)|32|The HTTP OPTIONS Method
-[HEAD](Org.OData.Capabilities.V1.xml#L773)|64|The HTTP OPTIONS Method
+[HEAD](Org.OData.Capabilities.V1.xml#L773)|64|The HTTP HEAD Method
 
 ## <a name="DeepUpdateSupportType"></a>[DeepUpdateSupportType](Org.OData.Capabilities.V1.xml#L782)
 

@@ -970,7 +970,7 @@
             "OPTIONS": 32,
             "OPTIONS@Core.Description": "The HTTP OPTIONS Method",
             "HEAD": 64,
-            "HEAD@Core.Description": "The HTTP OPTIONS Method"
+            "HEAD@Core.Description": "The HTTP HEAD Method"
         },
         "DeepUpdateSupport": {
             "$Kind": "Term",
