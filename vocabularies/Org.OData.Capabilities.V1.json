@@ -770,6 +770,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be inserted"
             },
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties must be specified on insert"
+            },
             "NonInsertableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -911,6 +916,11 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
+            },
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties must be specified on update"
             },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,

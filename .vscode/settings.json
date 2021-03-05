@@ -10,5 +10,6 @@
     ],
     "xml.catalogs": [
         "./node_modules/odata-csdl/catalog.xml"
-    ]
+    ],
+    "editor.formatOnSave": false
 }
