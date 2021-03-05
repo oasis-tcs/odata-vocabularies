@@ -308,9 +308,9 @@ Flag Member|Value|Description
 Property|Type|Description
 :-------|:---|:----------
 [Insertable](Org.OData.Capabilities.V1.xml#L616)|Boolean|Entities can be inserted
-[RequiredProperties](Org.OData.Capabilities.V1.xml#L619)|\[PropertyPath\]|These structural properties must be specified on insert
-[NonInsertableProperties](Org.OData.Capabilities.V1.xml#L622)|\[PropertyPath\]|These structural properties cannot be specified on insert
-[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L625)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
+[NonInsertableProperties](Org.OData.Capabilities.V1.xml#L619)|\[PropertyPath\]|These structural properties cannot be specified on insert
+[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L622)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
+[RequiredProperties](Org.OData.Capabilities.V1.xml#L625)|\[PropertyPath\]|These structural properties must be specified on insert
 [MaxLevels](Org.OData.Capabilities.V1.xml#L628)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
 [TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L632)|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
 [Permissions](Org.OData.Capabilities.V1.xml#L636)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the insert.
@@ -355,8 +355,8 @@ Property|Type|Description
 [UpdateMethod](Org.OData.Capabilities.V1.xml#L717)|[HttpMethod?](#HttpMethod)|Supported HTTP Methods (PUT or PATCH) for updating an entity. If null, PATCH SHOULD be supported and PUT MAY be supported.
 [FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L720)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
 [TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L724)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
-[RequiredProperties](Org.OData.Capabilities.V1.xml#L728)|\[PropertyPath\]|These structural properties must be specified on update
-[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L731)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
+[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L728)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
+[RequiredProperties](Org.OData.Capabilities.V1.xml#L731)|\[PropertyPath\]|These structural properties must be specified on update
 [MaxLevels](Org.OData.Capabilities.V1.xml#L734)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
 [Permissions](Org.OData.Capabilities.V1.xml#L738)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
 [QueryOptions](Org.OData.Capabilities.V1.xml#L741)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with update requests

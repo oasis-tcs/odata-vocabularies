@@ -616,14 +616,14 @@ supported:
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
         </Property>
-        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These structural properties must be specified on insert" />
-        </Property>
         <Property Name="NonInsertableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties cannot be specified on insert" />
         </Property>
         <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow deep inserts" />
+        </Property>
+        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties must be specified on insert" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
@@ -725,11 +725,11 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
-        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These structural properties must be specified on update" />
-        </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
+        </Property>
+        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties must be specified on update" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"

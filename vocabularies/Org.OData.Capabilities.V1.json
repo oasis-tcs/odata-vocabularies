@@ -770,11 +770,6 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be inserted"
             },
-            "RequiredProperties": {
-                "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties must be specified on insert"
-            },
             "NonInsertableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -784,6 +779,11 @@
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "These navigation properties do not allow deep inserts"
+            },
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties must be specified on insert"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
@@ -917,15 +917,15 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
-            "RequiredProperties": {
-                "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties must be specified on update"
-            },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "These navigation properties do not allow rebinding"
+            },
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties must be specified on update"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
