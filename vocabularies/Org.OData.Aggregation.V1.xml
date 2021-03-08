@@ -278,6 +278,14 @@
       </ComplexType>
       
       <ComplexType Name="CustomAggregateType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Property Name="Name" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the dynamic property that can be used in the `aggregate` transformation" />
         </Property>

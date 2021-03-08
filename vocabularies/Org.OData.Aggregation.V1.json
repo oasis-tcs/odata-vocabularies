@@ -363,6 +363,12 @@
         },
         "CustomAggregateType": {
             "$Kind": "ComplexType",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated"
+                }
+            ],
             "Name": {
                 "@Core.Description": "Name of the dynamic property that can be used in the `aggregate` transformation"
             },

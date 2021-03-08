@@ -78,10 +78,5 @@ Property|Type|Description
 ## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](Org.OData.Aggregation.V1.xml#L262): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
-## <a name="CustomAggregateType"></a>[CustomAggregateType](Org.OData.Aggregation.V1.xml#L280)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Name](Org.OData.Aggregation.V1.xml#L281)|String|Name of the dynamic property that can be used in the `aggregate` transformation
-[Type](Org.OData.Aggregation.V1.xml#L284)|String|Qualified name of a primitive type. The aggregated value will be of that type
+## <a name="CustomAggregateType"></a>[CustomAggregateType](Org.OData.Aggregation.V1.xml#L280) *(Deprecated)*
+Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated
