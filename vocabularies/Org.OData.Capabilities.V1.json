@@ -897,6 +897,11 @@
                 "$DefaultValue": false,
                 "@Core.Description": "Entities can be inserted, updated, and deleted via a PATCH request with a delta payload"
             },
+            "UpdateMethod": {
+                "$Type": "Capabilities.HttpMethod",
+                "$Nullable": true,
+                "@Core.Description": "Supported HTTP Methods (PUT or PATCH) for updating an entity.  If null, PATCH SHOULD be supported and PUT MAY be supported."
+            },
             "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
@@ -948,6 +953,24 @@
                 "@Core.Description": "A lengthy description of the request",
                 "@Core.IsLanguageDependent": true
             }
+        },
+        "HttpMethod": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "GET": 1,
+            "GET@Core.Description": "The HTTP GET Method",
+            "PATCH": 2,
+            "PATCH@Core.Description": "The HTTP PATCH Method",
+            "PUT": 4,
+            "PUT@Core.Description": "The HTTP PUT Method",
+            "POST": 8,
+            "POST@Core.Description": "The HTTP POST Method",
+            "DELETE": 16,
+            "DELETE@Core.Description": "The HTTP DELETE Method",
+            "OPTIONS": 32,
+            "OPTIONS@Core.Description": "The HTTP OPTIONS Method",
+            "HEAD": 64,
+            "HEAD@Core.Description": "The HTTP HEAD Method"
         },
         "DeepUpdateSupport": {
             "$Kind": "Term",
