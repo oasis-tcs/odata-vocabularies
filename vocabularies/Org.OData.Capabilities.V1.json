@@ -917,6 +917,11 @@
                 "$DefaultValue": true,
                 "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
             },
+            "NonUpdatableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties cannot be specified on update"
+            },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
