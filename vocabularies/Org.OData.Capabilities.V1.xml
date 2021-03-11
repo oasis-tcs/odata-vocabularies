@@ -722,6 +722,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description"
             String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
+        <Property Name="NonUpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties cannot be specified on update" />
+        </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
         </Property>
