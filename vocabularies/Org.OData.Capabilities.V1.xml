@@ -622,6 +622,9 @@ supported:
         <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow deep inserts" />
         </Property>
+        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties must be specified on insert" />
+        </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
             String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
@@ -727,6 +730,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
+        </Property>
+        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties must be specified on update" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description"
