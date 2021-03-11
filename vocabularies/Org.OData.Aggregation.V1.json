@@ -41,7 +41,6 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Collection",
-                "ComplexType",
                 "EntityContainer"
             ],
             "@Core.AppliesViaContainer": true,
