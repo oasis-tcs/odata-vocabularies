@@ -505,7 +505,7 @@
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The content disposition of a binary or string property or term"
+            "@Core.Description": "The content disposition of a binary or stream property or term"
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",
