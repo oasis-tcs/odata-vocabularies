@@ -23,42 +23,42 @@ Term|Type|Description
 Action|Parameter|Description
 :-------|:--------|:----------
 [UpdateObject](Org.OData.Temporal.V1.xml#L164)||<a name="UpdateObject"></a>Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices
-|timeslices:&nbsp;\[EntityType\]|Time slices to modify
-|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
-|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
-|To:&nbsp;PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
-|Values:&nbsp;EntityType|Property values to update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
-|&rarr;&nbsp;\[EntityType\]|Modified time slices<p>Same entity type as binding parameter.</p>
+&nbsp;|timeslices:&nbsp;\[EntityType\]|Time slices to modify
+&nbsp;|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+&nbsp;|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
+&nbsp;|To:&nbsp;PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
+&nbsp;|Values:&nbsp;EntityType|Property values to update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
+&nbsp;|&rarr;&nbsp;\[EntityType\]|Modified time slices<p>Same entity type as binding parameter.</p>
 [UpsertObject](Org.OData.Temporal.V1.xml#L194)||<a name="UpsertObject"></a>Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period
-|timeslices:&nbsp;\[EntityType\]|Time slices to modify
-|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
-|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`
-|To:&nbsp;PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
-|Values:&nbsp;EntityType|Property values to insert or update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
-|&rarr;&nbsp;\[EntityType\]|Modified time slices<p>Same entity type as binding parameter.</p>
+&nbsp;|timeslices:&nbsp;\[EntityType\]|Time slices to modify
+&nbsp;|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+&nbsp;|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`
+&nbsp;|To:&nbsp;PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
+&nbsp;|Values:&nbsp;EntityType|Property values to insert or update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
+&nbsp;|&rarr;&nbsp;\[EntityType\]|Modified time slices<p>Same entity type as binding parameter.</p>
 [UpdateObjectFrom](Org.OData.Temporal.V1.xml#L224)||<a name="UpdateObjectFrom"></a>Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next
-|timeslices:&nbsp;\[EntityType\]|Time slices to modify
-|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
-|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
-|To:&nbsp;PrimitiveType?|Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
-|Values:&nbsp;EntityType|Property values to update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
-|&rarr;&nbsp;\[EntityType\]|Modified time slices<p>Same entity type as binding parameter.</p>
+&nbsp;|timeslices:&nbsp;\[EntityType\]|Time slices to modify
+&nbsp;|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+&nbsp;|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
+&nbsp;|To:&nbsp;PrimitiveType?|Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
+&nbsp;|Values:&nbsp;EntityType|Property values to update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
+&nbsp;|&rarr;&nbsp;\[EntityType\]|Modified time slices<p>Same entity type as binding parameter.</p>
 [SynchronizeObject](Org.OData.Temporal.V1.xml#L254)||<a name="SynchronizeObject"></a>Synchronizes time slices of a temporal object to match the provided full application timeline
-|timeslices:&nbsp;\[EntityType\]|Time slices to modify
-|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
-|Timeline:&nbsp;\[EntityType\]|List of time slices covering the full timeline of the temporal object<p>Same entity type as the binding parameter.</p>
+&nbsp;|timeslices:&nbsp;\[EntityType\]|Time slices to modify
+&nbsp;|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+&nbsp;|Timeline:&nbsp;\[EntityType\]|List of time slices covering the full timeline of the temporal object<p>Same entity type as the binding parameter.</p>
 [DeleteObject](Org.OData.Temporal.V1.xml#L271)||<a name="DeleteObject"></a>Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices
-|timeslices:&nbsp;\[EntityType\]|Time slices to modify
-|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
-|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
-|To:&nbsp;PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
-|&rarr;&nbsp;\[EntityType\]|Deleted time slices<p>Same entity type as binding parameter.</p>
+&nbsp;|timeslices:&nbsp;\[EntityType\]|Time slices to modify
+&nbsp;|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+&nbsp;|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
+&nbsp;|To:&nbsp;PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
+&nbsp;|&rarr;&nbsp;\[EntityType\]|Deleted time slices<p>Same entity type as binding parameter.</p>
 [DeleteObjectFrom](Org.OData.Temporal.V1.xml#L296)||<a name="DeleteObjectFrom"></a>Deletes time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next
-|timeslices:&nbsp;\[EntityType\]|Time slices to modify
-|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
-|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
-|To:&nbsp;PrimitiveType?|Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
-|&rarr;&nbsp;\[EntityType\]|Deleted time slices<p>Same entity type as binding parameter.</p>
+&nbsp;|timeslices:&nbsp;\[EntityType\]|Time slices to modify
+&nbsp;|ObjectKey:&nbsp;EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+&nbsp;|From:&nbsp;PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
+&nbsp;|To:&nbsp;PrimitiveType?|Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
+&nbsp;|&rarr;&nbsp;\[EntityType\]|Deleted time slices<p>Same entity type as binding parameter.</p>
 
 ## <a name="TemporalSupportType"></a>[TemporalSupportType](Org.OData.Temporal.V1.xml#L81)
 
