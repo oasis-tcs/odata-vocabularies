@@ -24,16 +24,16 @@ Term|Type|Description
 Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
 Parameter|Type|Description
 :------- |:---|:----------
-Entity|EntityType|
-Hierarchy|String|**Binding parameter** 
+Entity|EntityType|**Binding parameter** 
+Hierarchy|String|
 &rarr;|Boolean|
 
 ### <a name="isdescendant"></a>[isdescendant](Org.OData.Aggregation.V1.xml#L189)
 Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance
 Parameter|Type|Description
 :------- |:---|:----------
-Entity|EntityType|
-Hierarchy|String|**Binding parameter** 
+Entity|EntityType|**Binding parameter** 
+Hierarchy|String|
 Node|PrimitiveType|
 MaxDistance|Int16?|
 &rarr;|Boolean|
@@ -42,8 +42,8 @@ MaxDistance|Int16?|
 Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance
 Parameter|Type|Description
 :------- |:---|:----------
-Entity|EntityType|
-Hierarchy|String|**Binding parameter** 
+Entity|EntityType|**Binding parameter** 
+Hierarchy|String|
 Node|PrimitiveType|
 MaxDistance|Int16?|
 &rarr;|Boolean|
@@ -52,8 +52,8 @@ MaxDistance|Int16?|
 Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
 Parameter|Type|Description
 :------- |:---|:----------
-Entity|EntityType|
-Hierarchy|String|**Binding parameter** 
+Entity|EntityType|**Binding parameter** 
+Hierarchy|String|
 Node|PrimitiveType|
 &rarr;|Boolean|
 
@@ -61,8 +61,8 @@ Node|PrimitiveType|
 Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
 Parameter|Type|Description
 :------- |:---|:----------
-Entity|EntityType|
-Hierarchy|String|**Binding parameter** 
+Entity|EntityType|**Binding parameter** 
+Hierarchy|String|
 &rarr;|Boolean|
 
 ## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L81)
