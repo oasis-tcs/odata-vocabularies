@@ -25,7 +25,7 @@ Returns true, if and only if the value of the node property of the specified hie
 Parameter|Type|Description
 :------- |:---|:----------
 Entity|EntityType|
-Hierarchy|String|
+Hierarchy|String|**Binding parameter** 
 &rarr;|Boolean|
 
 ### <a name="isdescendant"></a>[isdescendant](Org.OData.Aggregation.V1.xml#L189)
@@ -33,7 +33,7 @@ Returns true, if and only if the value of the node property of the specified hie
 Parameter|Type|Description
 :------- |:---|:----------
 Entity|EntityType|
-Hierarchy|String|
+Hierarchy|String|**Binding parameter** 
 Node|PrimitiveType|
 MaxDistance|Int16?|
 &rarr;|Boolean|
@@ -43,7 +43,7 @@ Returns true, if and only if the value of the node property of the specified hie
 Parameter|Type|Description
 :------- |:---|:----------
 Entity|EntityType|
-Hierarchy|String|
+Hierarchy|String|**Binding parameter** 
 Node|PrimitiveType|
 MaxDistance|Int16?|
 &rarr;|Boolean|
@@ -53,7 +53,7 @@ Returns true, if and only if the value of the node property of the specified hie
 Parameter|Type|Description
 :------- |:---|:----------
 Entity|EntityType|
-Hierarchy|String|
+Hierarchy|String|**Binding parameter** 
 Node|PrimitiveType|
 &rarr;|Boolean|
 
@@ -62,7 +62,7 @@ Returns true, if and only if the value of the node property of the specified hie
 Parameter|Type|Description
 :------- |:---|:----------
 Entity|EntityType|
-Hierarchy|String|
+Hierarchy|String|**Binding parameter** 
 &rarr;|Boolean|
 
 ## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L81)

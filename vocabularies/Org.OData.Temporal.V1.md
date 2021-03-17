@@ -25,7 +25,7 @@ Updates all time slices of a temporal object in a given period of application ti
 Parameter|Type|Description
 :------- |:---|:----------
 timeslices|\[EntityType\]|Time slices to modify
-ObjectKey|EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+ObjectKey|EntityType|**Binding parameter** Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
 From|PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
 To|PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
 Values|EntityType|Property values to update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
@@ -36,7 +36,7 @@ Upserts a temporal object in a given period of application time after splitting 
 Parameter|Type|Description
 :------- |:---|:----------
 timeslices|\[EntityType\]|Time slices to modify
-ObjectKey|EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+ObjectKey|EntityType|**Binding parameter** Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
 From|PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`
 To|PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
 Values|EntityType|Property values to insert or update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
@@ -47,7 +47,7 @@ Updates properties of time slices of a temporal object from a given point in tim
 Parameter|Type|Description
 :------- |:---|:----------
 timeslices|\[EntityType\]|Time slices to modify
-ObjectKey|EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+ObjectKey|EntityType|**Binding parameter** Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
 From|PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
 To|PrimitiveType?|Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
 Values|EntityType|Property values to update<p>Same entity type as binding parameter and return type, specify only values of non-key properties.</p>
@@ -58,7 +58,7 @@ Synchronizes time slices of a temporal object to match the provided full applica
 Parameter|Type|Description
 :------- |:---|:----------
 timeslices|\[EntityType\]|Time slices to modify
-ObjectKey|EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+ObjectKey|EntityType|**Binding parameter** Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
 Timeline|\[EntityType\]|List of time slices covering the full timeline of the temporal object<p>Same entity type as the binding parameter.</p>
 
 ### <a name="DeleteObject"></a>[DeleteObject](Org.OData.Temporal.V1.xml#L271)
@@ -66,7 +66,7 @@ Deletes all time slices of a temporal object in a given period of application ti
 Parameter|Type|Description
 :------- |:---|:----------
 timeslices|\[EntityType\]|Time slices to modify
-ObjectKey|EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+ObjectKey|EntityType|**Binding parameter** Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
 From|PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
 To|PrimitiveType|Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
 &rarr;|\[EntityType\]|Deleted time slices<p>Same entity type as binding parameter.</p>
@@ -76,7 +76,7 @@ Deletes time slices of a temporal object from a a given point in application tim
 Parameter|Type|Description
 :------- |:---|:----------
 timeslices|\[EntityType\]|Time slices to modify
-ObjectKey|EntityType|Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
+ObjectKey|EntityType|**Binding parameter** Property values that identify a single temporal object<p>Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type.</p>
 From|PrimitiveType|Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w
 To|PrimitiveType?|Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`
 &rarr;|\[EntityType\]|Deleted time slices<p>Same entity type as binding parameter.</p>
