@@ -20,13 +20,50 @@ Term|Type|Description
 
 ## Functions
 
-Function|Signature|Description
-:-------|:--------|:----------
-[isroot](Org.OData.Aggregation.V1.xml#L181)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String &rarr;&nbsp;Boolean|<a name="isroot"></a>Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
-[isdescendant](Org.OData.Aggregation.V1.xml#L189)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType, MaxDistance:&nbsp;Int16? &rarr;&nbsp;Boolean|<a name="isdescendant"></a>Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance
-[isancestor](Org.OData.Aggregation.V1.xml#L199)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType, MaxDistance:&nbsp;Int16? &rarr;&nbsp;Boolean|<a name="isancestor"></a>Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance
-[issibling](Org.OData.Aggregation.V1.xml#L209)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String, Node:&nbsp;PrimitiveType &rarr;&nbsp;Boolean|<a name="issibling"></a>Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
-[isleaf](Org.OData.Aggregation.V1.xml#L218)|Entity:&nbsp;EntityType, Hierarchy:&nbsp;String &rarr;&nbsp;Boolean|<a name="isleaf"></a>Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
+### <a name="isroot"></a>[isroot](Org.OData.Aggregation.V1.xml#L181)
+Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
+Parameter|Type|Description
+:--------|:---|:----------
+Entity|EntityType|**Binding parameter**
+Hierarchy|String|
+&rarr;|Boolean|
+
+### <a name="isdescendant"></a>[isdescendant](Org.OData.Aggregation.V1.xml#L189)
+Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance
+Parameter|Type|Description
+:--------|:---|:----------
+Entity|EntityType|**Binding parameter**
+Hierarchy|String|
+Node|PrimitiveType|
+MaxDistance|Int16?|
+&rarr;|Boolean|
+
+### <a name="isancestor"></a>[isancestor](Org.OData.Aggregation.V1.xml#L199)
+Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance
+Parameter|Type|Description
+:--------|:---|:----------
+Entity|EntityType|**Binding parameter**
+Hierarchy|String|
+Node|PrimitiveType|
+MaxDistance|Int16?|
+&rarr;|Boolean|
+
+### <a name="issibling"></a>[issibling](Org.OData.Aggregation.V1.xml#L209)
+Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
+Parameter|Type|Description
+:--------|:---|:----------
+Entity|EntityType|**Binding parameter**
+Hierarchy|String|
+Node|PrimitiveType|
+&rarr;|Boolean|
+
+### <a name="isleaf"></a>[isleaf](Org.OData.Aggregation.V1.xml#L218)
+Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
+Parameter|Type|Description
+:--------|:---|:----------
+Entity|EntityType|**Binding parameter**
+Hierarchy|String|
+&rarr;|Boolean|
 
 ## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L81)
 
