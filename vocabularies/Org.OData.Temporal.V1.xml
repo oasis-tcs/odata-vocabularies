@@ -53,18 +53,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href"
-              String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -87,8 +84,7 @@
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
-          <Annotation Term="Core.LongDescription"
-            String="A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated entity set are time slices of temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the object key is identical to the entity key." />
+          <Annotation Term="Core.LongDescription" String="A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated entity set are time slices of temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the object key is identical to the entity key." />
         </Property>
         <Property Name="SupportedActions" Type="Collection(Temporal.QualifiedActionName)" Nullable="false">
           <Annotation Term="Core.Description" String="List of supported temporal actions" />
@@ -101,8 +97,7 @@
 
       <TypeDefinition Name="QualifiedActionName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
-        <Annotation Term="Core.LongDescription"
-          String="*TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName?*" />
+        <Annotation Term="Core.LongDescription" String="*TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName?*" />
       </TypeDefinition>
 
       <ComplexType Name="GranularityDateTimeOffset" BaseType="Temporal.TimeDimensionType">
@@ -116,8 +111,7 @@
         <Annotation Term="Core.Description" String="Granularity of this time dimension is Date" />
         <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Application-time periods are stored with closed-closed semantics" />
-          <Annotation Term="Core.LongDescription"
-            String="Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries." />
+          <Annotation Term="Core.LongDescription" String="Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries." />
         </Property>
       </ComplexType>
 
@@ -130,23 +124,19 @@
       <!-- Metadata annotations that can also appear as instance annotations -->
 
       <Term Name="From" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description"
-          String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now" />
+        <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now" />
       </Term>
 
       <Term Name="To" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description"
-          String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max" />
+        <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max" />
       </Term>
 
       <Term Name="SystemFrom" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description"
-          String="Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min" />
+        <Annotation Term="Core.Description" String="Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min" />
       </Term>
 
       <Term Name="SystemTo" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description"
-          String="Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max" />
+        <Annotation Term="Core.Description" String="Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max" />
       </Term>
 
 
@@ -154,36 +144,30 @@
 
       <Term Name="History" Type="Collection(Edm.EntityType)" Nullable="false">
         <Annotation Term="Core.Description" String="A collection of time slices representing the history of the annotated entity" />
-        <Annotation Term="Core.LongDescription"
-          String="The time slices have the same entity type as the annotated entity and use the same select-expand projection." />
+        <Annotation Term="Core.LongDescription" String="The time slices have the same entity type as the annotated entity and use the same select-expand projection." />
       </Term>
 
 
       <!-- Operations on Temporal Objects -->
 
       <Action Name="UpdateObject" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description"
-          String="Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
+        <Annotation Term="Core.Description" String="Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription"
-            String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w" />
+          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
         </Parameter>
         <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
+          <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
         </Parameter>
         <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values to update" />
-          <Annotation Term="Core.LongDescription"
-            String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -192,28 +176,23 @@
       </Action>
 
       <Action Name="UpsertObject" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description"
-          String="Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period" />
+        <Annotation Term="Core.Description" String="Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription"
-            String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
+          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
         </Parameter>
         <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
+          <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
         </Parameter>
         <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values to insert or update" />
-          <Annotation Term="Core.LongDescription"
-            String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -222,28 +201,23 @@
       </Action>
 
       <Action Name="UpdateObjectFrom" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description"
-          String="Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next" />
+        <Annotation Term="Core.Description" String="Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription"
-            String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w" />
+          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
         </Parameter>
         <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
+          <Annotation Term="Core.Description" String="Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
         </Parameter>
         <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values to update" />
-          <Annotation Term="Core.LongDescription"
-            String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -252,15 +226,13 @@
       </Action>
 
       <Action Name="SynchronizeObject" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description"
-          String="Synchronizes time slices of a temporal object to match the provided full application timeline" />
+        <Annotation Term="Core.Description" String="Synchronizes time slices of a temporal object to match the provided full application timeline" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription"
-            String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <Parameter Name="Timeline" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of time slices covering the full timeline of the temporal object" />
@@ -269,23 +241,19 @@
       </Action>
 
       <Action Name="DeleteObject" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description"
-          String="Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
+        <Annotation Term="Core.Description" String="Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription"
-            String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w" />
+          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
         </Parameter>
         <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
+          <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
@@ -294,23 +262,19 @@
       </Action>
 
       <Action Name="DeleteObjectFrom" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description"
-          String="Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next" />
+        <Annotation Term="Core.Description" String="Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription"
-            String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w" />
+          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
         </Parameter>
         <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
+          <Annotation Term="Core.Description" String="Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
