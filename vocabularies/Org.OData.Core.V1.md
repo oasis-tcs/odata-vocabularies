@@ -28,7 +28,7 @@ Term|Type|Description
 [ConventionalIDs](Org.OData.Core.V1.xml#L340)|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
 [Permissions](Org.OData.Core.V1.xml#L346)|[Permission?](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
 [ContentID](Org.OData.Core.V1.xml#L369)|String?|<a name="ContentID"></a>A unique identifier for nested entities within a request.
-[DefaultNamespace](Org.OData.Core.V1.xml#L375)|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification. <p>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.</p>
+[DefaultNamespace](Org.OData.Core.V1.xml#L375)|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification. <br>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.
 [Immutable](Org.OData.Core.V1.xml#L380)|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided by the client on insert and remains unchanged on update
 [Computed](Org.OData.Core.V1.xml#L384)|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
 [ComputedDefaultValue](Org.OData.Core.V1.xml#L388)|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
@@ -38,15 +38,15 @@ Term|Type|Description
 [IsMediaType](Org.OData.Core.V1.xml#L407)|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
 [ContentDisposition](Org.OData.Core.V1.xml#L412)|[ContentDispositionType?](#ContentDispositionType)|<a name="ContentDisposition"></a>The content disposition of a binary or stream property or term
 [OptimisticConcurrency](Org.OData.Core.V1.xml#L422)|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag.
-[AdditionalProperties](Org.OData.Core.V1.xml#L426)|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata <p>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.</p>
+[AdditionalProperties](Org.OData.Core.V1.xml#L426)|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata <br>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.
 [AutoExpand](Org.OData.Core.V1.xml#L431)|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this stream or navigation property even if not requested with $expand
 [AutoExpandReferences](Org.OData.Core.V1.xml#L435)|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
 [MayImplement](Org.OData.Core.V1.xml#L439)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
 [Ordered](Org.OData.Core.V1.xml#L451)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
 [PositionalInsert](Org.OData.Core.V1.xml#L455)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
 [AlternateKeys](Org.OData.Core.V1.xml#L459)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](Org.OData.Core.V1.xml#L487)|[OptionalParameterType?](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional. <p>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.</p>
-[OperationAvailable](Org.OData.Core.V1.xml#L498)|Boolean?|<a name="OperationAvailable"></a>Action or function is available <p>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.</p>
+[OptionalParameter](Org.OData.Core.V1.xml#L487)|[OptionalParameterType?](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional. <br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
+[OperationAvailable](Org.OData.Core.V1.xml#L498)|Boolean?|<a name="OperationAvailable"></a>Action or function is available <br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
 [SymbolicName](Org.OData.Core.V1.xml#L509)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L80)
@@ -255,7 +255,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](Org.OData.Core.V1.xml#L492)|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs. <p>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.</p>
+[DefaultValue](Org.OData.Core.V1.xml#L492)|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs. <br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
 
 ## <a name="LocalDateTime"></a>[LocalDateTime](Org.OData.Core.V1.xml#L503)
 **Type:** String
