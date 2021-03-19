@@ -71,9 +71,10 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection EntityContainer">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
-          <String>This structured type or entity container supports the $apply system query option.</String>
+          <String>This structured type, entity set or entity container supports the $apply system query option</String>
         </Annotation> 
         <Annotation Term="Core.LongDescription">
           <String>An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation.</String>
@@ -91,6 +92,14 @@
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+                <PropertyValue Property="Description" String="Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated"/>
+              </Record>
+            </Collection>
+          </Annotation>
           <Annotation Term="Core.Description"
             String="Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation" />
         </Property>
@@ -133,14 +142,31 @@
       </EnumType>
 
       <Term Name="Groupable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated in favor of [`ApplySupported/GroupableProperties`](#ApplySupported)"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="This property can be used in the `groupby` transformation" />
       </Term>
 
       <Term Name="Aggregatable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="This property can be used in the `aggregate` transformation" />
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet ComplexType EntityContainer">
+      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection ComplexType EntityContainer">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the `aggregate` transformation" />
         <Annotation Term="Core.LongDescription"
           String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type." />
@@ -238,6 +264,14 @@
       </ComplexType>
 
       <ComplexType Name="NavigationPropertyAggregationCapabilities" BaseType="Capabilities.NavigationPropertyRestriction">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Annotation Term="Core.Description" String="Aggregation capabilities on a navigation path" />
         <Property Name="ApplySupported" Type="Aggregation.ApplySupportedType">
           <Annotation Term="Core.Description" String="Support for `$apply`" />
@@ -248,6 +282,14 @@
       </ComplexType>
       
       <ComplexType Name="CustomAggregateType">
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
+              <PropertyValue Property="Description" String="Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated"/>
+            </Record>
+          </Collection>
+        </Annotation>
         <Property Name="Name" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the dynamic property that can be used in the `aggregate` transformation" />
         </Property>

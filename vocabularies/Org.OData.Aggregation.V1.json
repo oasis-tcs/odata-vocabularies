@@ -40,10 +40,11 @@
             "$Type": "Aggregation.ApplySupportedType",
             "$AppliesTo": [
                 "EntitySet",
-                "ComplexType",
+                "Collection",
                 "EntityContainer"
             ],
-            "@Core.Description": "This structured type or entity container supports the $apply system query option.",
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "This structured type, entity set or entity container supports the $apply system query option",
             "@Core.LongDescription": "An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation."
         },
         "ApplySupportedType": {
@@ -64,6 +65,12 @@
             "PropertyRestrictions": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated"
+                    }
+                ],
                 "@Core.Description": "Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation"
             },
             "GroupableProperties": {
@@ -110,6 +117,12 @@
                 "Property",
                 "NavigationProperty"
             ],
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`ApplySupported/GroupableProperties`](#ApplySupported)"
+                }
+            ],
             "@Core.Description": "This property can be used in the `groupby` transformation"
         },
         "Aggregatable": {
@@ -120,15 +133,23 @@
                 "Property",
                 "NavigationProperty"
             ],
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)"
+                }
+            ],
             "@Core.Description": "This property can be used in the `aggregate` transformation"
         },
         "CustomAggregate": {
             "$Kind": "Term",
             "$AppliesTo": [
                 "EntitySet",
+                "Collection",
                 "ComplexType",
                 "EntityContainer"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Dynamic property that can be used in the `aggregate` transformation",
             "@Core.LongDescription": "This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type."
         },
@@ -326,6 +347,12 @@
         "NavigationPropertyAggregationCapabilities": {
             "$Kind": "ComplexType",
             "$BaseType": "Capabilities.NavigationPropertyRestriction",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"
+                }
+            ],
             "@Core.Description": "Aggregation capabilities on a navigation path",
             "ApplySupported": {
                 "$Type": "Aggregation.ApplySupportedType",
@@ -340,6 +367,12 @@
         },
         "CustomAggregateType": {
             "$Kind": "ComplexType",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated"
+                }
+            ],
             "Name": {
                 "@Core.Description": "Name of the dynamic property that can be used in the `aggregate` transformation"
             },
