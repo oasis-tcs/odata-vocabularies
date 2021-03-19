@@ -162,7 +162,7 @@
                     {
                         "$Name": "From",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w"
+                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
                     },
                     {
                         "$Name": "To",
@@ -250,7 +250,7 @@
                     {
                         "$Name": "From",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w"
+                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
                     },
                     {
                         "$Name": "To",
@@ -324,7 +324,7 @@
                     {
                         "$Name": "From",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w"
+                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
                     },
                     {
                         "$Name": "To",
@@ -362,7 +362,7 @@
                     {
                         "$Name": "From",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`w"
+                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
                     },
                     {
                         "$Name": "To",

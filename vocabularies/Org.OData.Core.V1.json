@@ -342,6 +342,15 @@
             ],
             "@Core.Description": "An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type"
         },
+        "AppliesViaContainer": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Term"
+            ],
+            "@Core.Description": "The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton"
+        },
         "ResourcePath": {
             "$Kind": "Term",
             "$Nullable": true,
@@ -496,7 +505,7 @@
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The content disposition of a binary or string property or term"
+            "@Core.Description": "The content disposition of a binary or stream property or term"
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",
