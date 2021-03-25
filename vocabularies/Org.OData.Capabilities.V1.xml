@@ -112,7 +112,7 @@ supported:
 
       <!-- Conformance Level -->
 
-      <Term Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType" AppliesTo="EntityContainer">
+      <Term Name="ConformanceLevel" Type="Capabilities.ConformanceLevelType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="The conformance level achieved by this service" />
       </Term>
       <EnumType Name="ConformanceLevelType">
@@ -153,7 +153,7 @@ supported:
         <Annotation Term="Core.Description" String="Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term." />
       </Term>
 
-      <Term Name="IsolationSupported" Type="Capabilities.IsolationLevel" AppliesTo="EntityContainer">
+      <Term Name="IsolationSupported" Type="Capabilities.IsolationLevel" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supported odata.isolation levels" />
       </Term>
       <EnumType Name="IsolationLevel" IsFlags="true">
@@ -166,7 +166,7 @@ supported:
         <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container" />
       </Term>
 
-      <Term Name="CallbackSupported" Type="Capabilities.CallbackType" AppliesTo="EntityContainer EntitySet">
+      <Term Name="CallbackSupported" Type="Capabilities.CallbackType" Nullable="false" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Supports callbacks for the specified protocols" />
       </Term>
       <ComplexType Name="CallbackType">
@@ -188,7 +188,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType" AppliesTo="EntitySet Singleton Function FunctionImport NavigationProperty">
+      <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType" Nullable="false" AppliesTo="EntitySet Singleton Function FunctionImport NavigationProperty">
         <Annotation Term="Core.Description" String="Change tracking capabilities of this service or entity set" />
       </Term>
       <ComplexType Name="ChangeTrackingType">
@@ -207,7 +207,7 @@ supported:
 
       <!--Query Capabilities -->
 
-      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" AppliesTo="EntitySet Singleton">
+      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
       <ComplexType Name="CountRestrictionsType">
@@ -222,7 +222,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" AppliesTo="EntitySet Singleton">
+      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
         <Annotation Term="Core.LongDescription" String="Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence." />
       </Term>
@@ -356,7 +356,7 @@ supported:
         <Annotation Term="Core.Description" String="Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term." />
       </Term>
 
-      <Term Name="BatchSupport" Type="Capabilities.BatchSupportType" AppliesTo="EntityContainer">
+      <Term Name="BatchSupport" Type="Capabilities.BatchSupportType" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Batch Support for the service" />
       </Term>
       <ComplexType Name="BatchSupportType">
@@ -407,7 +407,7 @@ supported:
         <Annotation Term="Core.LongDescription" String="If not specified, null, or empty, all functions and operators may be attempted." />
       </Term>
 
-      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
       </Term>
       <ComplexType Name="FilterRestrictionsType">
@@ -476,7 +476,7 @@ supported:
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
       </Term>
       <ComplexType Name="SortRestrictionsType">
@@ -499,7 +499,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" AppliesTo="EntitySet Singleton">
+      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
@@ -526,7 +526,7 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" AppliesTo="EntitySet">
+      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on search expressions" />
       </Term>
       <ComplexType Name="SearchRestrictionsType">
@@ -573,7 +573,7 @@ supported:
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" AppliesTo="EntitySet EntityType">
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet EntityType">
         <Annotation Term="Core.AppliesToTypeIfDynamic" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
@@ -659,7 +659,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" AppliesTo="EntitySet Singleton EntityType">
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
         <Annotation Term="Core.AppliesToTypeIfDynamic" />
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
@@ -740,7 +740,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Member>
       </EnumType>
 
-      <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" AppliesTo="EntityContainer EntitySet">
+      <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepUpdateSupportType">
@@ -752,7 +752,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" AppliesTo="EntitySet Singleton EntityType">
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
         <Annotation Term="Core.AppliesToTypeIfDynamic" />
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
@@ -853,7 +853,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
       </Term>
 
-      <Term Name="ModificationQueryOptions" Type="Capabilities.ModificationQueryOptionsType" AppliesTo="EntityContainer Action ActionImport">
+      <Term Name="ModificationQueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="false" AppliesTo="EntityContainer Action ActionImport">
         <Annotation Term="Core.Description" String="Support for query options with modification requests (insert, update, action invocation)" />
       </Term>
       <ComplexType Name="ModificationQueryOptionsType">
@@ -877,7 +877,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" AppliesTo="EntitySet Singleton">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
