@@ -29,7 +29,6 @@
         ],
         "Pattern": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -41,7 +40,6 @@
         "Minimum": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -55,7 +53,6 @@
         "Maximum": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -69,7 +66,6 @@
         "Exclusive": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
-            "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
                 "Annotation"
@@ -101,7 +97,6 @@
         "MultipleOf": {
             "$Kind": "Term",
             "$Type": "Edm.Decimal",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "Parameter",
@@ -112,7 +107,6 @@
         "Constraint": {
             "$Kind": "Term",
             "$Type": "Validation.ConstraintType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "EntityType",
