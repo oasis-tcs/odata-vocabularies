@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml">
+    <edmx:Include Alias="Temporal" Namespace="Org.OData.Temporal.V1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="OrgModel" Namespace="org.example.odata.orgservice">
+
+      <EntityType Name="Employee">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Jobtitle" Type="Edm.String" />
+        <NavigationProperty Name="history" Type="Collection(OrgModel.Employee_history)" ContainsTarget="true" />
+      </EntityType>
+
+      <EntityType Name="Employee_history">
+        <Annotation Term="Temporal.From" Path="From" />
+        <Annotation Term="Temporal.To" Path="To" />
+        <Key>
+          <PropertyRef Name="From" />
+        </Key>
+        <Property Name="From" Type="Edm.Date" Nullable="false" />
+        <Property Name="To" Type="Edm.Date" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Jobtitle" Type="Edm.String" />
+        <NavigationProperty Name="Department" Type="OrgModel.Department" />
+      </EntityType>
+
+      <EntityType Name="Department">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="history" Type="Collection(OrgModel.Department_history)" ContainsTarget="true" />
+      </EntityType>
+
+      <EntityType Name="Department_history">
+        <Annotation Term="Temporal.From" Path="From" />
+        <Annotation Term="Temporal.To" Path="To" />
+        <Key>
+          <PropertyRef Name="From" />
+        </Key>
+        <Property Name="From" Type="Edm.Date" Nullable="false" />
+        <Property Name="To" Type="Edm.Date" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Budget" Type="Edm.Decimal" />
+      </EntityType>
+
+      <EntityContainer Name="Default">
+        <EntitySet Name="Employees" EntityType="OrgModel.Employee" />
+        <EntitySet Name="Departments" EntityType="OrgModel.Department" />
+      </EntityContainer>
+
+      <Annotations Target="OrgModel.Default/Employees/history">
+        <Annotation Term="Temporal.TemporalSupport">
+          <Record>
+            <PropertyValue Property="ApplicationTime">
+              <Record Type="Temporal.GranularityDate">
+                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel Temporal.QueryType/TimeSeries" />
+                <PropertyValue Property="SupportedActions">
+                  <Collection>
+                    <String>Temporal.Update</String>
+                    <String>Temporal.Upsert</String>
+                    <String>Temporal.Delete</String>
+                  </Collection>
+                </PropertyValue>
+              </Record>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+
+      <Annotations Target="OrgModel.Default/Departments/history">
+        <Annotation Term="Temporal.TemporalSupport">
+          <Record>
+            <PropertyValue Property="ApplicationTime">
+              <Record Type="Temporal.GranularityDate">
+                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel Temporal.QueryType/TimeSeries" />
+                <PropertyValue Property="SupportedActions">
+                  <Collection>
+                    <String>Temporal.Update</String>
+                    <String>Temporal.Upsert</String>
+                    <String>Temporal.Delete</String>
+                  </Collection>
+                </PropertyValue>
+              </Record>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

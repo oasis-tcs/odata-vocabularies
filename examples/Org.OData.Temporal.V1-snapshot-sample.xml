@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml">
+    <edmx:Include Alias="Temporal" Namespace="Org.OData.Temporal.V1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="OrgModel" Namespace="org.example.odata.orgservice">
+
+      <EntityType Name="Employee">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <Property Name="Jobtitle" Type="Edm.String" />
+        <NavigationProperty Name="Department" Type="OrgModel.Department" />
+      </EntityType>
+
+      <EntityType Name="Department">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" Nullable="false" />
+        <NavigationProperty Name="Employees" Type="Collection(OrgModel.Employee)" />
+      </EntityType>
+
+      <EntityContainer Name="Default">
+
+        <EntitySet Name="Employees" EntityType="OrgModel.Employee">
+          <Annotation Term="Temporal.TemporalSupport">
+            <Record>
+              <PropertyValue Property="ApplicationTime">
+                <Record Type="Temporal.GranularityDate">
+                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel" />
+                </Record>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </EntitySet>
+
+        <EntitySet Name="Departments" EntityType="OrgModel.Department">
+          <Annotation Term="Temporal.TemporalSupport">
+            <Record>
+              <PropertyValue Property="ApplicationTime">
+                <Record Type="Temporal.GranularityDate">
+                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel" />
+                </Record>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </EntitySet>
+
+      </EntityContainer>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
