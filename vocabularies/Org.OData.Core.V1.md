@@ -8,8 +8,8 @@ Core terms needed to write vocabularies
 
 Term|Type|Description
 :---|:---|:----------
-[ODataVersions](Org.OData.Core.V1.xml#L69)|String?|<a name="ODataVersions"></a>A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed.
-[SchemaVersion](Org.OData.Core.V1.xml#L73)|String?|<a name="SchemaVersion"></a>Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case.
+[ODataVersions](Org.OData.Core.V1.xml#L69)|String|<a name="ODataVersions"></a>A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed.
+[SchemaVersion](Org.OData.Core.V1.xml#L73)|String|<a name="SchemaVersion"></a>Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case.
 [Revisions](Org.OData.Core.V1.xml#L77)|\[[RevisionType](#RevisionType)\]|<a name="Revisions"></a>List of revisions of a model element
 [Description](Org.OData.Core.V1.xml#L105)|String?|<a name="Description"></a>A brief description of a model element
 [LongDescription](Org.OData.Core.V1.xml#L110)|String?|<a name="LongDescription"></a>A lengthy description of a model element
@@ -20,14 +20,14 @@ Term|Type|Description
 [ResourceException](Org.OData.Core.V1.xml#L256)|[ResourceExceptionType](#ResourceExceptionType)|<a name="ResourceException"></a>The annotated instance within a success payload is problematic
 [DataModificationException](Org.OData.Core.V1.xml#L266)|[DataModificationExceptionType](#DataModificationExceptionType)|<a name="DataModificationException"></a>A modification operation failed on the annotated instance or collection within a success payload
 [IsLanguageDependent](Org.OData.Core.V1.xml#L306)|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
-[RequiresType](Org.OData.Core.V1.xml#L317)|String?|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
+[RequiresType](Org.OData.Core.V1.xml#L317)|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
 [AppliesToTypeIfDynamic](Org.OData.Core.V1.xml#L321)|[Tag](#Tag)|<a name="AppliesToTypeIfDynamic"></a>An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type
 [AppliesViaContainer](Org.OData.Core.V1.xml#L325)|[Tag](#Tag)|<a name="AppliesViaContainer"></a>The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton
-[ResourcePath](Org.OData.Core.V1.xml#L331)|URL?|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
+[ResourcePath](Org.OData.Core.V1.xml#L331)|URL|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
 [DereferenceableIDs](Org.OData.Core.V1.xml#L336)|[Tag](#Tag)|<a name="DereferenceableIDs"></a>Entity-ids are URLs that locate the identified entity
 [ConventionalIDs](Org.OData.Core.V1.xml#L340)|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
-[Permissions](Org.OData.Core.V1.xml#L346)|[Permission?](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
-[ContentID](Org.OData.Core.V1.xml#L369)|String?|<a name="ContentID"></a>A unique identifier for nested entities within a request.
+[Permissions](Org.OData.Core.V1.xml#L346)|[Permission](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
+[ContentID](Org.OData.Core.V1.xml#L369)|String|<a name="ContentID"></a>A unique identifier for nested entities within a request.
 [DefaultNamespace](Org.OData.Core.V1.xml#L375)|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.<br>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.
 [Immutable](Org.OData.Core.V1.xml#L380)|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided by the client on insert and remains unchanged on update
 [Computed](Org.OData.Core.V1.xml#L384)|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
@@ -45,7 +45,7 @@ Term|Type|Description
 [Ordered](Org.OData.Core.V1.xml#L451)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
 [PositionalInsert](Org.OData.Core.V1.xml#L455)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
 [AlternateKeys](Org.OData.Core.V1.xml#L459)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](Org.OData.Core.V1.xml#L487)|[OptionalParameterType?](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
+[OptionalParameter](Org.OData.Core.V1.xml#L487)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
 [OperationAvailable](Org.OData.Core.V1.xml#L498)|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
 [SymbolicName](Org.OData.Core.V1.xml#L509)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 
