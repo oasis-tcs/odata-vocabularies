@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
   Technical Committee:
@@ -149,13 +149,13 @@ even though they are defined in an `Orders` entity set.</String>
         <Annotation Term="Core.LongDescription" String="This allows restricting values to certain sub-trees of an inheritance hierarchy, including hierarchies starting at the [Built-In Abstract Types](https://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html#sec_BuiltInAbstractTypes). Types listed in this collection that are not derived from the declared type of the annotated model element are ignored." />
       </Term>
 
-      <Term Name="AllowedTerms" Type="Collection(Core.QualifiedTermName)" AppliesTo="Term Property">
+      <Term Name="AllowedTerms" Type="Collection(Core.QualifiedTermName)" Nullable="false" AppliesTo="Term Property">
         <Annotation Term="Core.Description" String="Annotate a term of type Edm.AnnotationPath, or a property of type Edm.AnnotationPath that is used within a structured term, to restrict the terms that can be targeted by the path." />
         <Annotation Term="Core.LongDescription" String="The annotation path expression is intended to end in a path segment with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed." />
         <Annotation Term="Core.RequiresType" String="Edm.AnnotationPath" />
       </Term>
 
-      <Term Name="ApplicableTerms" Type="Collection(Core.QualifiedTermName)">
+      <Term Name="ApplicableTerms" Type="Collection(Core.QualifiedTermName)" Nullable="false">
         <Annotation Term="Core.Description" String="Names of specific terms that are applicable and may be applied in the current context. This annotation does not restrict the use of other terms." />
       </Term>
 
