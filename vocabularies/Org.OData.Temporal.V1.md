@@ -10,7 +10,7 @@ Terms for describing time-dependent data
 
 Term|Type|Description
 :---|:---|:----------
-[TemporalSupport](Org.OData.Temporal.V1.xml#L72)|[TemporalSupportType?](#TemporalSupportType)|<a name="TemporalSupport"></a>This entity set or navigation property supports temporal requests
+[TemporalSupport](Org.OData.Temporal.V1.xml#L72)|[TemporalSupportType](#TemporalSupportType)|<a name="TemporalSupport"></a>This entity set or navigation property supports temporal requests
 [From](Org.OData.Temporal.V1.xml#L123)|PrimitiveType|<a name="From"></a>Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now
 [To](Org.OData.Temporal.V1.xml#L127)|PrimitiveType|<a name="To"></a>Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max
 

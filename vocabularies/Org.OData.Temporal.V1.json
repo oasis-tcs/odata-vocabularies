@@ -31,7 +31,6 @@
         "TemporalSupport": {
             "$Kind": "Term",
             "$Type": "Temporal.TemporalSupportType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "NavigationProperty"
