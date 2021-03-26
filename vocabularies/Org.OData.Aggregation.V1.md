@@ -8,10 +8,10 @@ Terms to describe which data in a given entity model can be aggregated, and how.
 
 Term|Type|Description
 :---|:---|:----------
-[ApplySupported](Org.OData.Aggregation.V1.xml#L73) *([AppliesViaContainer](Org.OData.Core.V1.md#AppliesViaContainer))*|[ApplySupportedType](#ApplySupportedType)|<a name="ApplySupported"></a>This structured type, entity set or entity container supports the $apply system query option<br>An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation.
+[ApplySupported](Org.OData.Aggregation.V1.xml#L73)|[ApplySupportedType](#ApplySupportedType)|<a name="ApplySupported"></a>This structured type, entity set or entity container supports the $apply system query option<br>An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation.
 [Groupable](Org.OData.Aggregation.V1.xml#L143) *(Deprecated)*|[Tag](Org.OData.Core.V1.md#Tag)|<a name="Groupable"></a>Deprecated in favor of [`ApplySupported/GroupableProperties`](#ApplySupported)
 [Aggregatable](Org.OData.Aggregation.V1.xml#L155) *(Deprecated)*|[Tag](Org.OData.Core.V1.md#Tag)|<a name="Aggregatable"></a>Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)
-[CustomAggregate](Org.OData.Aggregation.V1.xml#L167) *([AppliesViaContainer](Org.OData.Core.V1.md#AppliesViaContainer))*|String|<a name="CustomAggregate"></a>Dynamic property that can be used in the `aggregate` transformation<br>This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type.
+[CustomAggregate](Org.OData.Aggregation.V1.xml#L167)|String|<a name="CustomAggregate"></a>Dynamic property that can be used in the `aggregate` transformation<br>This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type.
 [ContextDefiningProperties](Org.OData.Aggregation.V1.xml#L174)|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
 [LeveledHierarchy](Org.OData.Aggregation.V1.xml#L182)|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
 [RecursiveHierarchy](Org.OData.Aggregation.V1.xml#L187)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
@@ -26,9 +26,9 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entity](Org.OData.Aggregation.V1.xml#L210)|EntityType|**Binding parameter**
+**[Entity](Org.OData.Aggregation.V1.xml#L210)**|EntityType|**Binding parameter**
 [Hierarchy](Org.OData.Aggregation.V1.xml#L211)|String|
-&rarr;|Boolean|
+[&rarr;](Org.OData.Aggregation.V1.xml#L212)|Boolean|
 
 
 ### <a name="isdescendant"></a>[isdescendant](Org.OData.Aggregation.V1.xml#L215)
@@ -37,11 +37,11 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entity](Org.OData.Aggregation.V1.xml#L218)|EntityType|**Binding parameter**
+**[Entity](Org.OData.Aggregation.V1.xml#L218)**|EntityType|**Binding parameter**
 [Hierarchy](Org.OData.Aggregation.V1.xml#L219)|String|
 [Node](Org.OData.Aggregation.V1.xml#L220)|PrimitiveType|
 [MaxDistance](Org.OData.Aggregation.V1.xml#L221)|Int16?|
-&rarr;|Boolean|
+[&rarr;](Org.OData.Aggregation.V1.xml#L222)|Boolean|
 
 
 ### <a name="isancestor"></a>[isancestor](Org.OData.Aggregation.V1.xml#L225)
@@ -50,11 +50,11 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entity](Org.OData.Aggregation.V1.xml#L228)|EntityType|**Binding parameter**
+**[Entity](Org.OData.Aggregation.V1.xml#L228)**|EntityType|**Binding parameter**
 [Hierarchy](Org.OData.Aggregation.V1.xml#L229)|String|
 [Node](Org.OData.Aggregation.V1.xml#L230)|PrimitiveType|
 [MaxDistance](Org.OData.Aggregation.V1.xml#L231)|Int16?|
-&rarr;|Boolean|
+[&rarr;](Org.OData.Aggregation.V1.xml#L232)|Boolean|
 
 
 ### <a name="issibling"></a>[issibling](Org.OData.Aggregation.V1.xml#L235)
@@ -63,10 +63,10 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entity](Org.OData.Aggregation.V1.xml#L238)|EntityType|**Binding parameter**
+**[Entity](Org.OData.Aggregation.V1.xml#L238)**|EntityType|**Binding parameter**
 [Hierarchy](Org.OData.Aggregation.V1.xml#L239)|String|
 [Node](Org.OData.Aggregation.V1.xml#L240)|PrimitiveType|
-&rarr;|Boolean|
+[&rarr;](Org.OData.Aggregation.V1.xml#L241)|Boolean|
 
 
 ### <a name="isleaf"></a>[isleaf](Org.OData.Aggregation.V1.xml#L244)
@@ -75,9 +75,9 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entity](Org.OData.Aggregation.V1.xml#L247)|EntityType|**Binding parameter**
+**[Entity](Org.OData.Aggregation.V1.xml#L247)**|EntityType|**Binding parameter**
 [Hierarchy](Org.OData.Aggregation.V1.xml#L248)|String|
-&rarr;|Boolean|
+[&rarr;](Org.OData.Aggregation.V1.xml#L249)|Boolean|
 
 
 ## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L82)
