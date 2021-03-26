@@ -17,7 +17,7 @@
   "main": "lib/csdl2markdown.js",
   "dependencies": {
     "minimist": "^1.2.0",
-    "odata-csdl": "github:oasis-tcs/odata-csdl-schemas"
+    "odata-csdl": "^0.2.6"
   },
   "devDependencies": {
     "c8": "^7.3.1",
