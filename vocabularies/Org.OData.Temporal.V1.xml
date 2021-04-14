@@ -112,9 +112,9 @@
         </Property>
       </ComplexType>
 
+      <!-- TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName? -->
       <TypeDefinition Name="QualifiedActionName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
-        <Annotation Term="Core.LongDescription" String="*TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName?*" />
       </TypeDefinition>
 
 

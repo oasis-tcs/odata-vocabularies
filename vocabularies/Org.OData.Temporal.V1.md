@@ -134,9 +134,7 @@ Property|Type|Description
 [*SupportedQueries*](Org.OData.Temporal.V1.xml#L92)|[QueryType](#QueryType)|
 [ClosedClosedPeriods](Org.OData.Temporal.V1.xml#L109)|Boolean|Application-time periods are stored with closed-closed semantics<br>Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries.
 
-## <a name="QualifiedActionName"></a>[QualifiedActionName](Org.OData.Temporal.V1.xml#L115)
+## <a name="QualifiedActionName"></a>[QualifiedActionName](Org.OData.Temporal.V1.xml#L116)
 **Type:** String
 
 The qualified name of an action in scope.
-
-*TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName?*

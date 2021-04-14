@@ -92,8 +92,7 @@
         "QualifiedActionName": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
-            "@Core.Description": "The qualified name of an action in scope.",
-            "@Core.LongDescription": "*TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName?*"
+            "@Core.Description": "The qualified name of an action in scope."
         },
         "From": {
             "$Kind": "Term",
