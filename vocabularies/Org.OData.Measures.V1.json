@@ -58,6 +58,13 @@
             ],
             "@Core.Description": "The unit of measure for this measured quantity, e.g. cm for centimeters or % for percentages"
         },
+        "UNECEUnit": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "The unit of measure for this measured quantity, according to the [UN/CEFACT Recommendation 20](http://tfig.unece.org/contents/recommendation-20.htm)"
+        },
         "DurationGranularity": {
             "$Kind": "Term",
             "$Type": "Measures.DurationGranularityType",
