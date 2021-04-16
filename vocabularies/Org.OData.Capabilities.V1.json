@@ -1365,6 +1365,106 @@
             ],
             "@Core.RequiresType": "Edm.Stream",
             "@Core.Description": "Stream property supports update of its media edit URL and/or media read URL"
+        },
+        "DefaultCapabilities": {
+            "$Kind": "Term",
+            "$Type": "Capabilities.DefaultCapabilitiesType",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Default capability settings for all collection-valued resources in the container. Annotating a capability term for a specific collection-valued resource overrides the default setting"
+        },
+        "DefaultCapabilitiesType": {
+            "$Kind": "ComplexType",
+            "ChangeTrackingSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "`odata.track-changes` preference is supported"
+            },
+            "IndexableByKey": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Supports key values according to OData URL conventions",
+                "@Core.LongDescription": "Can be overruled by annotating term `IndexableByKey` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/IndexableByKey` for a navigation property path starting at a set"
+            },
+            "CountSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be counted (only valid if targeting an entity set)",
+                "@Core.LongDescription": "Can be overruled by annotating term `CountRestrictions` on an entity set"
+            },
+            "TopSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$top` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `TopSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/TopSupported` for a navigation property path starting at a set"
+            },
+            "SkipSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$skip` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `SkipSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SkipSupported` for a navigation property path starting at a set"
+            },
+            "ComputeSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$compute` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `ComputeSupported` on an entity set"
+            },
+            "SelectSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$select` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `SelectSupport` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SelectSupport` for a navigation property path starting at a set"
+            },
+            "FilterSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$filter` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `FilterRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/FilterRestrictions` for a navigation property path starting at a set"
+            },
+            "SortSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$orderby` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `SortRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SortRestrictions` for a navigation property path starting at a set"
+            },
+            "ExpandSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$expand` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `ExpandRestrictions` on an entity set"
+            },
+            "SearchSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "`$search` is supported",
+                "@Core.LongDescription": "Can be overruled by annotating term `SearchRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SearchRestrictions` for a navigation property path starting at a set"
+            },
+            "ReadSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be retrieved",
+                "@Core.LongDescription": "Can be overruled by annotating term `ReadRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/ReadRestrictions` for a navigation property path starting at a set"
+            },
+            "InsertSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be inserted",
+                "@Core.LongDescription": "Can be overruled by annotating term `InsertRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/InsertRestrictions` for a navigation property path starting at a set"
+            },
+            "UpdateSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be updated",
+                "@Core.LongDescription": "Can be overruled by annotating term `UpdateRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/UpdateRestrictions` for a navigation property path starting at a set"
+            },
+            "DeleteSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Entities can be deleted",
+                "@Core.LongDescription": "Can be overruled by annotating term `DeleteRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/DeleteRestrictions` for a navigation property path starting at a set"
+            }
         }
     }
 }

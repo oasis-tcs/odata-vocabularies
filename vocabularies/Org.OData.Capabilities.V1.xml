@@ -995,6 +995,72 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Stream property supports update of its media edit URL and/or media read URL" />
       </Term>
 
+      <Term Name="DefaultCapabilities" Type="Capabilities.DefaultCapabilitiesType" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Default capability settings for all collection-valued resources in the container. Annotating a capability term for a specific collection-valued resource overrides the default setting" />
+      </Term>
+      <ComplexType Name="DefaultCapabilitiesType">
+        <Property Name="ChangeTrackingSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="`odata.track-changes` preference is supported" />
+        </Property>
+        <Property Name="IndexableByKey" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `IndexableByKey` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/IndexableByKey` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="CountSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be counted (only valid if targeting an entity set)" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `CountRestrictions` on an entity set" />
+        </Property>
+        <Property Name="TopSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$top` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `TopSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/TopSupported` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="SkipSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$skip` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SkipSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SkipSupported` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$compute` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `ComputeSupported` on an entity set" />
+        </Property>
+        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$select` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SelectSupport` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SelectSupport` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$filter` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `FilterRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/FilterRestrictions` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="SortSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$orderby` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SortRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SortRestrictions` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$expand` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `ExpandRestrictions` on an entity set" />
+        </Property>
+        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="`$search` is supported" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SearchRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SearchRestrictions` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="ReadSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be retrieved" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `ReadRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/ReadRestrictions` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="InsertSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be inserted" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `InsertRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/InsertRestrictions` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="UpdateSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be updated" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `UpdateRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/UpdateRestrictions` for a navigation property path starting at a set" />
+        </Property>
+        <Property Name="DeleteSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be deleted" />
+          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `DeleteRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/DeleteRestrictions` for a navigation property path starting at a set" />
+        </Property>
+      </ComplexType>
+      
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

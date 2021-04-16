@@ -86,6 +86,7 @@ Term|Type|Description
 [CustomHeaders](Org.OData.Capabilities.V1.xml#L915)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L917))
 [CustomQueryOptions](Org.OData.Capabilities.V1.xml#L941)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L944))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
 [MediaLocationUpdateSupported](Org.OData.Capabilities.V1.xml#L993)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property supports update of its media edit URL and/or media read URL
+[DefaultCapabilities](Org.OData.Capabilities.V1.xml#L998)|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container. Annotating a capability term for a specific collection-valued resource overrides the default setting
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
 
@@ -495,3 +496,24 @@ Property|Type|Description
 [DocumentationURL](Org.OData.Capabilities.V1.xml#L981)|URL?|URL of related documentation
 [Required](Org.OData.Capabilities.V1.xml#L985)|Boolean|true: parameter is required, false or not specified: parameter is optional
 [ExampleValues](Org.OData.Capabilities.V1.xml#L988)|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
+
+## <a name="DefaultCapabilitiesType"></a>[DefaultCapabilitiesType](Org.OData.Capabilities.V1.xml#L1001)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[ChangeTrackingSupported](Org.OData.Capabilities.V1.xml#L1002)|Boolean|`odata.track-changes` preference is supported
+[IndexableByKey](Org.OData.Capabilities.V1.xml#L1005)|Boolean|Supports key values according to OData URL conventions<br>Can be overruled by annotating term `IndexableByKey` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/IndexableByKey` for a navigation property path starting at a set
+[CountSupported](Org.OData.Capabilities.V1.xml#L1009)|Boolean|Entities can be counted (only valid if targeting an entity set)<br>Can be overruled by annotating term `CountRestrictions` on an entity set
+[TopSupported](Org.OData.Capabilities.V1.xml#L1013)|Boolean|`$top` is supported<br>Can be overruled by annotating term `TopSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/TopSupported` for a navigation property path starting at a set
+[SkipSupported](Org.OData.Capabilities.V1.xml#L1017)|Boolean|`$skip` is supported<br>Can be overruled by annotating term `SkipSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SkipSupported` for a navigation property path starting at a set
+[ComputeSupported](Org.OData.Capabilities.V1.xml#L1021)|Boolean|`$compute` is supported<br>Can be overruled by annotating term `ComputeSupported` on an entity set
+[SelectSupported](Org.OData.Capabilities.V1.xml#L1025)|Boolean|`$select` is supported<br>Can be overruled by annotating term `SelectSupport` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SelectSupport` for a navigation property path starting at a set
+[FilterSupported](Org.OData.Capabilities.V1.xml#L1029)|Boolean|`$filter` is supported<br>Can be overruled by annotating term `FilterRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/FilterRestrictions` for a navigation property path starting at a set
+[SortSupported](Org.OData.Capabilities.V1.xml#L1033)|Boolean|`$orderby` is supported<br>Can be overruled by annotating term `SortRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SortRestrictions` for a navigation property path starting at a set
+[ExpandSupported](Org.OData.Capabilities.V1.xml#L1037)|Boolean|`$expand` is supported<br>Can be overruled by annotating term `ExpandRestrictions` on an entity set
+[SearchSupported](Org.OData.Capabilities.V1.xml#L1041)|Boolean|`$search` is supported<br>Can be overruled by annotating term `SearchRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SearchRestrictions` for a navigation property path starting at a set
+[ReadSupported](Org.OData.Capabilities.V1.xml#L1045)|Boolean|Entities can be retrieved<br>Can be overruled by annotating term `ReadRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/ReadRestrictions` for a navigation property path starting at a set
+[InsertSupported](Org.OData.Capabilities.V1.xml#L1049)|Boolean|Entities can be inserted<br>Can be overruled by annotating term `InsertRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/InsertRestrictions` for a navigation property path starting at a set
+[UpdateSupported](Org.OData.Capabilities.V1.xml#L1053)|Boolean|Entities can be updated<br>Can be overruled by annotating term `UpdateRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/UpdateRestrictions` for a navigation property path starting at a set
+[DeleteSupported](Org.OData.Capabilities.V1.xml#L1057)|Boolean|Entities can be deleted<br>Can be overruled by annotating term `DeleteRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/DeleteRestrictions` for a navigation property path starting at a set
