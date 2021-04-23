@@ -26,9 +26,9 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L210)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L211)|String|
-[&rarr;](Org.OData.Aggregation.V1.xml#L212)|Boolean|
+**[Entity](Org.OData.Aggregation.V1.xml#L213)**|EntityType|**Binding parameter**
+[Hierarchy](Org.OData.Aggregation.V1.xml#L214)|String|
+[&rarr;](Org.OData.Aggregation.V1.xml#L215)|Boolean|
 
 
 ### <a name="isdescendant"></a>[isdescendant](Org.OData.Aggregation.V1.xml#L218)
@@ -37,11 +37,11 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L218)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L219)|String|
-[Node](Org.OData.Aggregation.V1.xml#L220)|PrimitiveType|
-[MaxDistance](Org.OData.Aggregation.V1.xml#L221)|Int16?|
-[&rarr;](Org.OData.Aggregation.V1.xml#L222)|Boolean|
+**[Entity](Org.OData.Aggregation.V1.xml#L221)**|EntityType|**Binding parameter**
+[Hierarchy](Org.OData.Aggregation.V1.xml#L222)|String|
+[Node](Org.OData.Aggregation.V1.xml#L223)|PrimitiveType|
+*[MaxDistance](Org.OData.Aggregation.V1.xml#L224)*|Int16?|*Optional parameter*
+[&rarr;](Org.OData.Aggregation.V1.xml#L232)|Boolean|
 
 
 ### <a name="isancestor"></a>[isancestor](Org.OData.Aggregation.V1.xml#L235)
@@ -50,11 +50,11 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L228)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L229)|String|
-[Node](Org.OData.Aggregation.V1.xml#L230)|PrimitiveType|
-[MaxDistance](Org.OData.Aggregation.V1.xml#L231)|Int16?|
-[&rarr;](Org.OData.Aggregation.V1.xml#L232)|Boolean|
+**[Entity](Org.OData.Aggregation.V1.xml#L238)**|EntityType|**Binding parameter**
+[Hierarchy](Org.OData.Aggregation.V1.xml#L239)|String|
+[Node](Org.OData.Aggregation.V1.xml#L240)|PrimitiveType|
+*[MaxDistance](Org.OData.Aggregation.V1.xml#L241)*|Int16?|*Optional parameter*
+[&rarr;](Org.OData.Aggregation.V1.xml#L249)|Boolean|
 
 
 ### <a name="issibling"></a>[issibling](Org.OData.Aggregation.V1.xml#L252)
@@ -63,10 +63,10 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L238)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L239)|String|
-[Node](Org.OData.Aggregation.V1.xml#L240)|PrimitiveType|
-[&rarr;](Org.OData.Aggregation.V1.xml#L241)|Boolean|
+**[Entity](Org.OData.Aggregation.V1.xml#L255)**|EntityType|**Binding parameter**
+[Hierarchy](Org.OData.Aggregation.V1.xml#L256)|String|
+[Node](Org.OData.Aggregation.V1.xml#L257)|PrimitiveType|
+[&rarr;](Org.OData.Aggregation.V1.xml#L258)|Boolean|
 
 
 ### <a name="isleaf"></a>[isleaf](Org.OData.Aggregation.V1.xml#L261)
@@ -75,9 +75,9 @@ Returns true, if and only if the value of the node property of the specified hie
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L247)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L248)|String|
-[&rarr;](Org.OData.Aggregation.V1.xml#L249)|Boolean|
+**[Entity](Org.OData.Aggregation.V1.xml#L264)**|EntityType|**Binding parameter**
+[Hierarchy](Org.OData.Aggregation.V1.xml#L265)|String|
+[&rarr;](Org.OData.Aggregation.V1.xml#L266)|Boolean|
 
 
 ## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L85)
