@@ -32,9 +32,9 @@
             "$Kind": "Term",
             "$Type": "Temporal.TemporalSupportType",
             "$AppliesTo": [
-                "EntitySet",
-                "NavigationProperty"
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "This entity set or navigation property supports temporal requests"
         },
         "TemporalSupportType": {
