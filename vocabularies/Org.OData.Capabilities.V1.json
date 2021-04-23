@@ -47,7 +47,6 @@
         "ConformanceLevel": {
             "$Kind": "Term",
             "$Type": "Capabilities.ConformanceLevelType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -109,7 +108,6 @@
         "IsolationSupported": {
             "$Kind": "Term",
             "$Type": "Capabilities.IsolationLevel",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -133,7 +131,6 @@
         "CallbackSupported": {
             "$Kind": "Term",
             "$Type": "Capabilities.CallbackType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet"
@@ -168,7 +165,6 @@
         "ChangeTracking": {
             "$Kind": "Term",
             "$Type": "Capabilities.ChangeTrackingType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
@@ -201,7 +197,6 @@
         "CountRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.CountRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -229,7 +224,6 @@
         "NavigationRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.NavigationRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -458,7 +452,6 @@
         "BatchSupport": {
             "$Kind": "Term",
             "$Type": "Capabilities.BatchSupportType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -529,7 +522,6 @@
         "FilterRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.FilterRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -619,7 +611,6 @@
         "SortRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.SortRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -654,7 +645,6 @@
         "ExpandRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.ExpandRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
@@ -696,7 +686,6 @@
         "SearchRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.SearchRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet"
             ],
@@ -755,7 +744,6 @@
         "InsertRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.InsertRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "EntityType"
@@ -876,7 +864,6 @@
         "UpdateRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.UpdateRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
@@ -990,7 +977,6 @@
         "DeepUpdateSupport": {
             "$Kind": "Term",
             "$Type": "Capabilities.DeepUpdateSupportType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet"
@@ -1013,7 +999,6 @@
         "DeleteRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.DeleteRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
@@ -1190,7 +1175,6 @@
         "ModificationQueryOptions": {
             "$Kind": "Term",
             "$Type": "Capabilities.ModificationQueryOptionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
                 "Action",
@@ -1234,7 +1218,6 @@
         "ReadRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.ReadRestrictionsType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton"
