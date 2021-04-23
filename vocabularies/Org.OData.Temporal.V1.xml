@@ -69,7 +69,8 @@
 
       <!-- Metadata annotations -->
 
-      <Term Name="TemporalSupport" Type="Temporal.TemporalSupportType" Nullable="false" AppliesTo="EntitySet NavigationProperty">
+      <Term Name="TemporalSupport" Type="Temporal.TemporalSupportType" Nullable="false" AppliesTo="Collection">
+        <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description">
           <String>This entity set or navigation property supports temporal requests</String>
         </Annotation>
