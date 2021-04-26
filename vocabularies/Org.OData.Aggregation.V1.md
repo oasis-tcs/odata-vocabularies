@@ -15,69 +15,69 @@ Term|Type|Description
 [ContextDefiningProperties](Org.OData.Aggregation.V1.xml#L174)|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
 [LeveledHierarchy](Org.OData.Aggregation.V1.xml#L182)|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
 [RecursiveHierarchy](Org.OData.Aggregation.V1.xml#L187)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L252)|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
+[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L245)|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
 
 
 ## Functions
 
-### <a name="isroot"></a>[isroot](Org.OData.Aggregation.V1.xml#L207)
+### <a name="isroot"></a>[isroot](Org.OData.Aggregation.V1.xml#L200)
 
 Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L210)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L211)|String|
-[&rarr;](Org.OData.Aggregation.V1.xml#L212)|Boolean|
+**Entity**|EntityType|**Binding parameter**
+Hierarchy|String|
+&rarr;|Boolean|
 
 
-### <a name="isdescendant"></a>[isdescendant](Org.OData.Aggregation.V1.xml#L215)
+### <a name="isdescendant"></a>[isdescendant](Org.OData.Aggregation.V1.xml#L208)
 
 Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L218)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L219)|String|
-[Node](Org.OData.Aggregation.V1.xml#L220)|PrimitiveType|
-[MaxDistance](Org.OData.Aggregation.V1.xml#L221)|Int16?|
-[&rarr;](Org.OData.Aggregation.V1.xml#L222)|Boolean|
+**Entity**|EntityType|**Binding parameter**
+Hierarchy|String|
+Node|PrimitiveType|
+MaxDistance|Int16?|
+&rarr;|Boolean|
 
 
-### <a name="isancestor"></a>[isancestor](Org.OData.Aggregation.V1.xml#L225)
+### <a name="isancestor"></a>[isancestor](Org.OData.Aggregation.V1.xml#L218)
 
 Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L228)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L229)|String|
-[Node](Org.OData.Aggregation.V1.xml#L230)|PrimitiveType|
-[MaxDistance](Org.OData.Aggregation.V1.xml#L231)|Int16?|
-[&rarr;](Org.OData.Aggregation.V1.xml#L232)|Boolean|
+**Entity**|EntityType|**Binding parameter**
+Hierarchy|String|
+Node|PrimitiveType|
+MaxDistance|Int16?|
+&rarr;|Boolean|
 
 
-### <a name="issibling"></a>[issibling](Org.OData.Aggregation.V1.xml#L235)
+### <a name="issibling"></a>[issibling](Org.OData.Aggregation.V1.xml#L228)
 
 Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L238)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L239)|String|
-[Node](Org.OData.Aggregation.V1.xml#L240)|PrimitiveType|
-[&rarr;](Org.OData.Aggregation.V1.xml#L241)|Boolean|
+**Entity**|EntityType|**Binding parameter**
+Hierarchy|String|
+Node|PrimitiveType|
+&rarr;|Boolean|
 
 
-### <a name="isleaf"></a>[isleaf](Org.OData.Aggregation.V1.xml#L244)
+### <a name="isleaf"></a>[isleaf](Org.OData.Aggregation.V1.xml#L237)
 
 Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](Org.OData.Aggregation.V1.xml#L247)**|EntityType|**Binding parameter**
-[Hierarchy](Org.OData.Aggregation.V1.xml#L248)|String|
-[&rarr;](Org.OData.Aggregation.V1.xml#L249)|Boolean|
+**Entity**|EntityType|**Binding parameter**
+Hierarchy|String|
+&rarr;|Boolean|
 
 
 ## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L82)
@@ -116,19 +116,17 @@ Member|Value|Description
 Property|Type|Description
 :-------|:---|:----------
 [NodeProperty](Org.OData.Aggregation.V1.xml#L192)|PropertyPath|Property holding the hierarchy node value
-[ParentNavigationProperty](Org.OData.Aggregation.V1.xml#L195)|NavigationPropertyPath|Property for navigating to the parent node
-[DistanceFromRootProperty](Org.OData.Aggregation.V1.xml#L198)|PropertyPath?|Property holding the number of edges between the node and the root node
-[IsLeafProperty](Org.OData.Aggregation.V1.xml#L201)|PropertyPath?|Property indicating whether the node is a leaf of the hierarchy
+[ParentNavigationProperty](Org.OData.Aggregation.V1.xml#L195)|NavigationPropertyPath|Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be nullable.
 
-## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](Org.OData.Aggregation.V1.xml#L256)
+## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](Org.OData.Aggregation.V1.xml#L249)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[RequiredProperties](Org.OData.Aggregation.V1.xml#L257)|\[PropertyPath\]|Properties required to apply this action or function
+[RequiredProperties](Org.OData.Aggregation.V1.xml#L250)|\[PropertyPath\]|Properties required to apply this action or function
 
-## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](Org.OData.Aggregation.V1.xml#L262): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
+## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](Org.OData.Aggregation.V1.xml#L255): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
-## <a name="CustomAggregateType"></a>[CustomAggregateType](Org.OData.Aggregation.V1.xml#L280) *(Deprecated)*
+## <a name="CustomAggregateType"></a>[CustomAggregateType](Org.OData.Aggregation.V1.xml#L273) *(Deprecated)*
 Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated
