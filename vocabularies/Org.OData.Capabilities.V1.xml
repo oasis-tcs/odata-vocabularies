@@ -410,7 +410,7 @@ supported:
       <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
       </Term>
-      <ComplexType Name="FilterRestrictionsType">
+      <ComplexType Name="CommonFilterRestrictionsType">
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Core.Description</String>
@@ -422,7 +422,7 @@ supported:
         <Property Name="RequiresFilter" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="$filter is required" />
         </Property>
-        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+<!--    <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties must be specified in the $filter clause (properties of derived types are not allowed here)" />
         </Property>
         <Property Name="NonFilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -431,10 +431,35 @@ supported:
         <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties." />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
+-->     <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
+      <ComplexType Name="FilterRestrictionsType" BaseType="Capabilities.CommonFilterRestrictionsType">
+<!--    <Annotation Term="Validation.ApplicableTerms">
+          <Collection>
+            <String>Core.Description</String>
+          </Collection>
+        </Annotation>
+        <Property Name="Filterable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="$filter is supported" />
+        </Property>
+        <Property Name="RequiresFilter" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="$filter is required" />
+        </Property>
+-->     <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These properties must be specified in the $filter clause (properties of derived types are not allowed here)" />
+        </Property>
+        <Property Name="NonFilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties cannot be used in filter expressions" />
+        </Property>
+        <Property Name="FilterExpressionRestrictions" Type="Collection(Capabilities.FilterExpressionRestrictionType)" Nullable="false">
+          <Annotation Term="Core.Description" String="These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties." />
+        </Property>
+<!--    <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
+          <Annotation Term="Core.Description" String="The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction." />
+        </Property>
+-->   </ComplexType>
       <ComplexType Name="FilterExpressionRestrictionType">
         <Property Name="Property" Type="Edm.PropertyPath">
           <Annotation Term="Core.Description" String="Path to the restricted property" />
@@ -577,11 +602,11 @@ supported:
         <Annotation Term="Core.AppliesToTypeIfDynamic" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
-      <ComplexType Name="InsertRestrictionsType">
+      <ComplexType Name="CommonInsertRestrictionsType">
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
         </Property>
-        <Property Name="NonInsertableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+<!--    <Property Name="NonInsertableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties cannot be specified on insert" />
         </Property>
         <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
@@ -590,16 +615,16 @@ supported:
         <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties must be specified on insert" />
         </Property>
-        <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
+-->     <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
         </Property>
         <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities of a specific derived type can be created by specifying a type-cast segment" />
         </Property>
-        <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
+<!--    <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
           <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the insert." />
         </Property>
-        <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
+-->     <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
           <Annotation Term="Core.Description" String="Support for query options with insert requests" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
@@ -617,6 +642,46 @@ supported:
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
+      <ComplexType Name="InsertRestrictionsType" BaseType="Capabilities.CommonInsertRestrictionsType">
+<!--    <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Entities can be inserted" />
+        </Property>
+-->     <Property Name="NonInsertableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties cannot be specified on insert" />
+        </Property>
+        <Property Name="NonInsertableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These navigation properties do not allow deep inserts" />
+        </Property>
+        <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These structural properties must be specified on insert" />
+        </Property>
+<!--    <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
+          <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction." />
+        </Property>
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Entities of a specific derived type can be created by specifying a type-cast segment" />
+        </Property>
+-->     <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the insert." />
+        </Property>
+<!--    <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
+          <Annotation Term="Core.Description" String="Support for query options with insert requests" />
+        </Property>
+        <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
+          <Annotation Term="Core.Description" String="Supported or required custom headers" />
+        </Property>
+        <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
+          <Annotation Term="Core.Description" String="Supported or required custom query options" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A brief description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="LongDescription" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+-->   </ComplexType>
 
       <ComplexType Name="PermissionType">
         <Property Name="SchemeName" Type="Auth.SchemeName" Nullable="false">
@@ -999,65 +1064,21 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Default capability settings for all collection-valued resources in the container. Annotating a capability term for a specific collection-valued resource overrides the default setting" />
       </Term>
       <ComplexType Name="DefaultCapabilitiesType">
-        <Property Name="ChangeTrackingSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="`odata.track-changes` preference is supported" />
+        <Property Name="TopSupported" Type="Edm.Boolean">
+          <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
-        <Property Name="IndexableByKey" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `IndexableByKey` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/IndexableByKey` for a navigation property path starting at a set" />
+        <Property Name="SelectSupport" Type="Capabilities.SelectSupportType">
+          <Annotation Term="Core.Description" String="Support for $select and nested query options within $select" />
         </Property>
-        <Property Name="CountSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Entities can be counted (only valid if targeting an entity set)" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `CountRestrictions` on an entity set" />
+        <Property Name="FilterRestrictions" Type="Capabilities.CommonFilterRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
         </Property>
-        <Property Name="TopSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$top` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `TopSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/TopSupported` for a navigation property path starting at a set" />
+        <Property Name="InsertRestrictions" Type="Capabilities.CommonInsertRestrictionsType">
+          <Annotation Term="Core.Description" String="Restrictions on insert operations" />
         </Property>
-        <Property Name="SkipSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$skip` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SkipSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SkipSupported` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="ComputeSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$compute` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `ComputeSupported` on an entity set" />
-        </Property>
-        <Property Name="SelectSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$select` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SelectSupport` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SelectSupport` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="FilterSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$filter` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `FilterRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/FilterRestrictions` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="SortSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$orderby` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SortRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SortRestrictions` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$expand` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `ExpandRestrictions` on an entity set" />
-        </Property>
-        <Property Name="SearchSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="`$search` is supported" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `SearchRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SearchRestrictions` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="ReadSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Entities can be retrieved" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `ReadRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/ReadRestrictions` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="InsertSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Entities can be inserted" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `InsertRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/InsertRestrictions` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="UpdateSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Entities can be updated" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `UpdateRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/UpdateRestrictions` for a navigation property path starting at a set" />
-        </Property>
-        <Property Name="DeleteSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Entities can be deleted" />
-          <Annotation Term="Core.LongDescription" String="Can be overruled by annotating term `DeleteRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/DeleteRestrictions` for a navigation property path starting at a set" />
-        </Property>
+<!--
+        ... 
+ -->
       </ComplexType>
       
 

@@ -527,7 +527,7 @@
             ],
             "@Core.Description": "Restrictions on filter expressions"
         },
-        "FilterRestrictionsType": {
+        "CommonFilterRestrictionsType": {
             "$Kind": "ComplexType",
             "@Validation.ApplicableTerms": [
                 "Core.Description"
@@ -542,6 +542,15 @@
                 "$DefaultValue": false,
                 "@Core.Description": "$filter is required"
             },
+            "MaxLevels": {
+                "$Type": "Edm.Int32",
+                "$DefaultValue": -1,
+                "@Core.Description": "The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction."
+            }
+        },
+        "FilterRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonFilterRestrictionsType",
             "RequiredProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -556,11 +565,6 @@
                 "$Collection": true,
                 "$Type": "Capabilities.FilterExpressionRestrictionType",
                 "@Core.Description": "These properties only allow a subset of filter expressions. A valid filter expression for a single property can be enclosed in parentheses and combined by `and` with valid expressions for other properties."
-            },
-            "MaxLevels": {
-                "$Type": "Edm.Int32",
-                "$DefaultValue": -1,
-                "@Core.Description": "The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction."
             }
         },
         "FilterExpressionRestrictionType": {
@@ -751,27 +755,12 @@
             "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on insert operations"
         },
-        "InsertRestrictionsType": {
+        "CommonInsertRestrictionsType": {
             "$Kind": "ComplexType",
             "Insertable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be inserted"
-            },
-            "NonInsertableProperties": {
-                "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties cannot be specified on insert"
-            },
-            "NonInsertableNavigationProperties": {
-                "$Collection": true,
-                "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "These navigation properties do not allow deep inserts"
-            },
-            "RequiredProperties": {
-                "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties must be specified on insert"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
@@ -782,12 +771,6 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities of a specific derived type can be created by specifying a type-cast segment"
-            },
-            "Permissions": {
-                "$Collection": true,
-                "$Type": "Capabilities.PermissionType",
-                "$Nullable": true,
-                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the insert."
             },
             "QueryOptions": {
                 "$Type": "Capabilities.ModificationQueryOptionsType",
@@ -813,6 +796,31 @@
                 "$Nullable": true,
                 "@Core.Description": "A lengthy description of the request",
                 "@Core.IsLanguageDependent": true
+            }
+        },
+        "InsertRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonInsertRestrictionsType",
+            "NonInsertableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties cannot be specified on insert"
+            },
+            "NonInsertableNavigationProperties": {
+                "$Collection": true,
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "These navigation properties do not allow deep inserts"
+            },
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties must be specified on insert"
+            },
+            "Permissions": {
+                "$Collection": true,
+                "$Type": "Capabilities.PermissionType",
+                "$Nullable": true,
+                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the insert."
             }
         },
         "PermissionType": {
@@ -1376,94 +1384,25 @@
         },
         "DefaultCapabilitiesType": {
             "$Kind": "ComplexType",
-            "ChangeTrackingSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "`odata.track-changes` preference is supported"
-            },
-            "IndexableByKey": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Supports key values according to OData URL conventions",
-                "@Core.LongDescription": "Can be overruled by annotating term `IndexableByKey` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/IndexableByKey` for a navigation property path starting at a set"
-            },
-            "CountSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Entities can be counted (only valid if targeting an entity set)",
-                "@Core.LongDescription": "Can be overruled by annotating term `CountRestrictions` on an entity set"
-            },
             "TopSupported": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$top` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `TopSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/TopSupported` for a navigation property path starting at a set"
+                "$Nullable": true,
+                "@Core.Description": "Supports $top"
             },
-            "SkipSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$skip` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `SkipSupported` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SkipSupported` for a navigation property path starting at a set"
+            "SelectSupport": {
+                "$Type": "Capabilities.SelectSupportType",
+                "$Nullable": true,
+                "@Core.Description": "Support for $select and nested query options within $select"
             },
-            "ComputeSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$compute` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `ComputeSupported` on an entity set"
+            "FilterRestrictions": {
+                "$Type": "Capabilities.CommonFilterRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on filter expressions"
             },
-            "SelectSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$select` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `SelectSupport` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SelectSupport` for a navigation property path starting at a set"
-            },
-            "FilterSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$filter` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `FilterRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/FilterRestrictions` for a navigation property path starting at a set"
-            },
-            "SortSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$orderby` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `SortRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SortRestrictions` for a navigation property path starting at a set"
-            },
-            "ExpandSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$expand` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `ExpandRestrictions` on an entity set"
-            },
-            "SearchSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "`$search` is supported",
-                "@Core.LongDescription": "Can be overruled by annotating term `SearchRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/SearchRestrictions` for a navigation property path starting at a set"
-            },
-            "ReadSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Entities can be retrieved",
-                "@Core.LongDescription": "Can be overruled by annotating term `ReadRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/ReadRestrictions` for a navigation property path starting at a set"
-            },
-            "InsertSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Entities can be inserted",
-                "@Core.LongDescription": "Can be overruled by annotating term `InsertRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/InsertRestrictions` for a navigation property path starting at a set"
-            },
-            "UpdateSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Entities can be updated",
-                "@Core.LongDescription": "Can be overruled by annotating term `UpdateRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/UpdateRestrictions` for a navigation property path starting at a set"
-            },
-            "DeleteSupported": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Entities can be deleted",
-                "@Core.LongDescription": "Can be overruled by annotating term `DeleteRestrictions` on an entity set or term `NavigationRestrictions`, property `RestrictedProperties/DeleteRestrictions` for a navigation property path starting at a set"
+            "InsertRestrictions": {
+                "$Type": "Capabilities.CommonInsertRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on insert operations"
             }
         }
     }
