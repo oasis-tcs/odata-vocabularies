@@ -81,7 +81,7 @@
             "AggregatableProperties": {
                 "$Collection": true,
                 "$Type": "Aggregation.AggregatablePropertyType",
-                "@Core.Description": "A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation together with the optionally specified restrictions on supported aggregation methods"
+                "@Core.Description": "A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods"
             }
         },
         "AggregatablePropertyType": {

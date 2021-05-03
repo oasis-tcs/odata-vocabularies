@@ -90,7 +90,7 @@ Property|Type|Description
 [Rollup](Org.OData.Aggregation.V1.xml#L90)|[RollupType](#RollupType)|The service supports rollup hierarchies in a `groupby` transformation
 [PropertyRestrictions](Org.OData.Aggregation.V1.xml#L93) *(Deprecated)*|Boolean|Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated
 [GroupableProperties](Org.OData.Aggregation.V1.xml#L105)|\[PropertyPath\]|A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation
-[AggregatableProperties](Org.OData.Aggregation.V1.xml#L108)|\[[AggregatablePropertyType](#AggregatablePropertyType)\]|A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation together with the optionally specified restrictions on supported aggregation methods
+[AggregatableProperties](Org.OData.Aggregation.V1.xml#L108)|\[[AggregatablePropertyType](#AggregatablePropertyType)\]|A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods
 
 ## <a name="AggregatablePropertyType"></a>[AggregatablePropertyType](Org.OData.Aggregation.V1.xml#L112)
 
