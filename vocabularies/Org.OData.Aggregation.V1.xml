@@ -106,7 +106,7 @@
           <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation" />
         </Property>
         <Property Name="AggregatableProperties" Type="Collection(Aggregation.AggregatablePropertyType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation together with the optionally specified restrictions on supported aggregation methods" />
+          <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods" />
         </Property>        
       </ComplexType>
       <ComplexType Name="AggregatablePropertyType">
