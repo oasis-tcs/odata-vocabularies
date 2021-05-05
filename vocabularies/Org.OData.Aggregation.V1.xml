@@ -127,6 +127,7 @@
         </Property>
       </ComplexType>
 
+
       <EnumType Name="RollupType">
         <Annotation Term="Core.Description" String="The number of `rollup` or `rollupall` operators allowed in a `groupby` transformation" />
         <Member Name="None">
