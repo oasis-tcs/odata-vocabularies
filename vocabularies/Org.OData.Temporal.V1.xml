@@ -70,7 +70,7 @@
       <!-- Metadata annotations -->
 
       <Term Name="TemporalSupport" Type="Temporal.TemporalSupportType" Nullable="false" AppliesTo="Collection">
-        <Annotation Term="Core.AppliesViaContainer"/>
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
           <String>This entity set or navigation property supports temporal requests</String>
         </Annotation>
@@ -94,8 +94,8 @@
       </ComplexType>
 
       <EnumType Name="QueryType" IsFlags="true">
-        <Member Name="TimeTravel" Value="1" />
-        <Member Name="TimeSeries" Value="2" />
+        <Member Name="PointInTime" Value="1" />
+        <Member Name="TimePeriod" Value="2" />
       </EnumType>
 
       <ComplexType Name="GranularityDateTimeOffset" BaseType="Temporal.TimeDimensionType">

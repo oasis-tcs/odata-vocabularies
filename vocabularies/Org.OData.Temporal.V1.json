@@ -66,8 +66,8 @@
         "QueryType": {
             "$Kind": "EnumType",
             "$IsFlags": true,
-            "TimeTravel": 1,
-            "TimeSeries": 2
+            "PointInTime": 1,
+            "TimePeriod": 2
         },
         "GranularityDateTimeOffset": {
             "$Kind": "ComplexType",

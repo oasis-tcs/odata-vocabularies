@@ -121,8 +121,8 @@ Property|Type|Description
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[TimeTravel](Org.OData.Temporal.V1.xml#L97)|1|
-[TimeSeries](Org.OData.Temporal.V1.xml#L98)|2|
+[PointInTime](Org.OData.Temporal.V1.xml#L97)|1|
+[TimePeriod](Org.OData.Temporal.V1.xml#L98)|2|
 
 ## <a name="GranularityDateTimeOffset"></a>[GranularityDateTimeOffset](Org.OData.Temporal.V1.xml#L101): [TimeDimensionType](#TimeDimensionType)
 Granularity of this time dimension is DateTimeOffset
