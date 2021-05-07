@@ -209,14 +209,19 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy",
+                "@Core.Description": "Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is the root of the hierarchy in the given entity set of hierarchy nodes",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "Nodes",
+                        "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy"
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
                     }
                 ],
                 "$ReturnType": {
@@ -228,18 +233,24 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance",
+                "@Core.Description": "Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is a descendant of the given parent node in the given entity set of hierarchy nodes with a distance of less than or equal to the optionally specified maximum distance",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "Nodes",
+                        "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy"
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType"
+                        "$Type": "Edm.PrimitiveType",
+                        "@Core.Description": "Parent node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -256,18 +267,24 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance",
+                "@Core.Description": "Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is an ancestor of the given child node in the given entity set of hierarchy nodes with a distance of less than or equal to the optionally specified maximum distance",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "Nodes",
+                        "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy"
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType"
+                        "$Type": "Edm.PrimitiveType",
+                        "@Core.Description": "Child node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -284,18 +301,24 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node",
+                "@Core.Description": "Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation has the same parent node as the specified node in the given entity set of hierarchy nodes",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "Nodes",
+                        "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy"
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType"
+                        "$Type": "Edm.PrimitiveType",
+                        "@Core.Description": "Sibling node value"
                     }
                 ],
                 "$ReturnType": {
@@ -307,14 +330,19 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has no descendants",
+                "@Core.Description": "Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation has no descendants in the given entity set of hierarchy nodes",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "Nodes",
+                        "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy"
+                    },
+                    {
+                        "$Name": "Hierarchy",
+                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
                     }
                 ],
                 "$ReturnType": {
