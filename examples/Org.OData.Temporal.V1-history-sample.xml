@@ -33,7 +33,6 @@
           <PropertyRef Name="ID" />
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
-        <Property Name="Name" Type="Edm.String" Nullable="false" />
         <NavigationProperty Name="history" Type="Collection(OrgModel.Department_history)" ContainsTarget="true" />
       </EntityType>
 

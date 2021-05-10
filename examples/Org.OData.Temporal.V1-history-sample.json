@@ -60,7 +60,6 @@
                 "ID"
             ],
             "ID": {},
-            "Name": {},
             "history": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
