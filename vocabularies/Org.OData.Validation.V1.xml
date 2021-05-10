@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <!--
 
   Technical Committee:
@@ -64,12 +64,12 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Pattern" Type="Edm.String" AppliesTo="Property Parameter Term">
+      <Term Name="Pattern" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="The pattern that a string property, parameter, or term must match. This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect." />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="Minimum" Type="Edm.PrimitiveType" AppliesTo="Property Parameter Term">
+      <Term Name="Minimum" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="Minimum value that a property, parameter, or term can have." />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
@@ -78,7 +78,7 @@
         </Annotation>
       </Term>
 
-      <Term Name="Maximum" Type="Edm.PrimitiveType" AppliesTo="Property Parameter Term">
+      <Term Name="Maximum" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="Maximum value that a property, parameter, or term can have." />
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
@@ -87,7 +87,7 @@
         </Annotation>
       </Term>
 
-      <Term Name="Exclusive" Type="Core.Tag" DefaultValue="true" AppliesTo="Annotation">
+      <Term Name="Exclusive" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Annotation">
         <Annotation Term="Core.Description" String="Tags a Minimum or Maximum as exclusive, i.e. an open interval boundary." />
       </Term>
 
@@ -105,11 +105,11 @@
         </Property>
       </ComplexType>
 
-      <Term Name="MultipleOf" Type="Edm.Decimal" Scale="variable" AppliesTo="Property Parameter Term">
+      <Term Name="MultipleOf" Type="Edm.Decimal" Scale="variable" Nullable="false" AppliesTo="Property Parameter Term">
         <Annotation Term="Core.Description" String="The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds." />
       </Term>
 
-      <Term Name="Constraint" Type="Validation.ConstraintType" AppliesTo="Property EntityType ComplexType">
+      <Term Name="Constraint" Type="Validation.ConstraintType" Nullable="false" AppliesTo="Property EntityType ComplexType">
         <Annotation Term="Core.Description" String="Condition that the annotation target has to fulfill" />
       </Term>
       <ComplexType Name="ConstraintType">
@@ -149,13 +149,13 @@ even though they are defined in an `Orders` entity set.</String>
         <Annotation Term="Core.LongDescription" String="This allows restricting values to certain sub-trees of an inheritance hierarchy, including hierarchies starting at the [Built-In Abstract Types](https://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html#sec_BuiltInAbstractTypes). Types listed in this collection that are not derived from the declared type of the annotated model element are ignored." />
       </Term>
 
-      <Term Name="AllowedTerms" Type="Collection(Core.QualifiedTermName)" AppliesTo="Term Property">
+      <Term Name="AllowedTerms" Type="Collection(Core.QualifiedTermName)" Nullable="false" AppliesTo="Term Property">
         <Annotation Term="Core.Description" String="Annotate a term of type Edm.AnnotationPath, or a property of type Edm.AnnotationPath that is used within a structured term, to restrict the terms that can be targeted by the path." />
         <Annotation Term="Core.LongDescription" String="The annotation path expression is intended to end in a path segment with one of the listed terms. For forward compatibility, clients should be prepared for the annotation to reference terms besides those listed." />
         <Annotation Term="Core.RequiresType" String="Edm.AnnotationPath" />
       </Term>
 
-      <Term Name="ApplicableTerms" Type="Collection(Core.QualifiedTermName)">
+      <Term Name="ApplicableTerms" Type="Collection(Core.QualifiedTermName)" Nullable="false">
         <Annotation Term="Core.Description" String="Names of specific terms that are applicable and may be applied in the current context. This annotation does not restrict the use of other terms." />
       </Term>
 

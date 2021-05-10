@@ -29,7 +29,6 @@
         ],
         "ODataVersions": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -37,7 +36,6 @@
         },
         "SchemaVersion": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Schema",
                 "Reference"
@@ -327,7 +325,6 @@
         },
         "RequiresType": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Term"
             ],
@@ -353,7 +350,6 @@
         },
         "ResourcePath": {
             "$Kind": "Term",
-            "$Nullable": true,
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
@@ -384,7 +380,6 @@
         "Permissions": {
             "$Kind": "Term",
             "$Type": "Core.Permission",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "ComplexType",
@@ -413,7 +408,6 @@
         },
         "ContentID": {
             "$Kind": "Term",
-            "$Nullable": true,
             "@Core.Description": "A unique identifier for nested entities within a request."
         },
         "DefaultNamespace": {
@@ -636,7 +630,6 @@
         "OptionalParameter": {
             "$Kind": "Term",
             "$Type": "Core.OptionalParameterType",
-            "$Nullable": true,
             "$AppliesTo": [
                 "Parameter"
             ],

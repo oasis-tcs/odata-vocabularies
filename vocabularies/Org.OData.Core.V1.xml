@@ -66,11 +66,11 @@
 
       <!-- Versioning -->
 
-      <Term Name="ODataVersions" Type="Edm.String" AppliesTo="EntityContainer">
+      <Term Name="ODataVersions" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed." />
       </Term>
 
-      <Term Name="SchemaVersion" Type="Edm.String" AppliesTo="Schema Reference">
+      <Term Name="SchemaVersion" Type="Edm.String" Nullable="false" AppliesTo="Schema Reference">
         <Annotation Term="Core.Description" String="Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case." />
       </Term>
 
@@ -314,7 +314,7 @@
 
       <!-- Term Restrictions -->
 
-      <Term Name="RequiresType" Type="Edm.String" AppliesTo="Term">
+      <Term Name="RequiresType" Type="Edm.String" Nullable="false" AppliesTo="Term">
         <Annotation Term="Core.Description" String="Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name" />
       </Term>
 
@@ -328,7 +328,7 @@
 
       <!--Resource Paths -->
 
-      <Term Name="ResourcePath" Type="Edm.String" AppliesTo="EntitySet Singleton ActionImport FunctionImport">
+      <Term Name="ResourcePath" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Singleton ActionImport FunctionImport">
         <Annotation Term="Core.Description" String="Resource path for entity container child, can be relative to xml:base and the request URL" />
         <Annotation Term="Core.IsURL" />
       </Term>
@@ -343,7 +343,7 @@
 
       <!-- Permissions -->
 
-      <Term Name="Permissions" Type="Core.Permission" AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function">
+      <Term Name="Permissions" Type="Core.Permission" Nullable="false" AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function">
         <Annotation Term="Core.Description" String="Permissions for accessing a resource" />
       </Term>
       <EnumType Name="Permission" IsFlags="true">
@@ -366,7 +366,7 @@
 
       <!-- Batch Content ID -->
 
-      <Term Name="ContentID" Type="Edm.String">
+      <Term Name="ContentID" Nullable="false" Type="Edm.String">
         <Annotation Term="Core.Description" String="A unique identifier for nested entities within a request." />
       </Term>
 
@@ -488,7 +488,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Annotation>
       </ComplexType>
 
-      <Term Name="OptionalParameter" Type="Core.OptionalParameterType" AppliesTo="Parameter">
+      <Term Name="OptionalParameter" Type="Core.OptionalParameterType" Nullable="false" AppliesTo="Parameter">
         <Annotation Term="Core.Description" String="Supplying a value for the action or function parameter is optional." />
         <Annotation Term="Core.LongDescription" String="All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional." />
       </Term>
