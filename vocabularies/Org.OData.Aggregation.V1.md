@@ -91,7 +91,7 @@ Property|Type|Description
 [CustomAggregationMethods](Org.OData.Aggregation.V1.xml#L83)|\[String\]|Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`
 [Rollup](Org.OData.Aggregation.V1.xml#L86)|[RollupType](#RollupType)|The service supports rollup hierarchies in a `groupby` transformation
 [PropertyRestrictions](Org.OData.Aggregation.V1.xml#L89) *(Deprecated)*|Boolean|Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated
-[GroupableProperties](Org.OData.Aggregation.V1.xml#L100)|\[PropertyPath\]|Properties supported by the `groupby` transformation. Setting this collection implies that `PropertyRestrictions` is true
+[GroupableProperties](Org.OData.Aggregation.V1.xml#L100)|\[PropertyPath\]|A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation
 [AggregatableProperties](Org.OData.Aggregation.V1.xml#L103)|\[[AggregatablePropertyType](#AggregatablePropertyType)\]|Properties supported by the `aggregate` transformation. Setting this collection implies that `PropertyRestrictions` is true
 
 ## <a name="AggregatablePropertyType"></a>[AggregatablePropertyType](Org.OData.Aggregation.V1.xml#L107)

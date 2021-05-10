@@ -76,7 +76,7 @@
             "GroupableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties supported by the `groupby` transformation. Setting this collection implies that `PropertyRestrictions` is true"
+                "@Core.Description": "A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation"
             },
             "AggregatableProperties": {
                 "$Collection": true,
