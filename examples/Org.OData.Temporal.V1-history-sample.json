@@ -106,7 +106,7 @@
                 "@Temporal.TemporalSupport": {
                     "ApplicationTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
-                        "SupportedQueries": "TimeTravel,TimeSeries",
+                        "SupportedQueries": "PointInTime,TimePeriod",
                         "TimeSliceStart": "history/From",
                         "TimeSliceEnd": "history/To",
                         "SupportedActions": [
@@ -121,7 +121,7 @@
                 "@Temporal.TemporalSupport": {
                     "ApplicationTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
-                        "SupportedQueries": "TimeTravel,TimeSeries",
+                        "SupportedQueries": "PointInTime,TimePeriod",
                         "TimeSliceStart": "history/From",
                         "TimeSliceEnd": "history/To",
                         "SupportedActions": [

@@ -35,7 +35,7 @@
             <Record>
               <PropertyValue Property="ApplicationTime">
                 <Record Type="Temporal.GranularityDate">
-                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel" />
+                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime" />
                 </Record>
               </PropertyValue>
             </Record>
@@ -47,7 +47,7 @@
             <Record>
               <PropertyValue Property="ApplicationTime">
                 <Record Type="Temporal.GranularityDate">
-                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel" />
+                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime" />
                 </Record>
               </PropertyValue>
             </Record>

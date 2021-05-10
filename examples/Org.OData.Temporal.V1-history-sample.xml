@@ -59,7 +59,7 @@
           <Record>
             <PropertyValue Property="ApplicationTime">
               <Record Type="Temporal.GranularityDate">
-                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel Temporal.QueryType/TimeSeries" />
+                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
                 <PropertyValue Property="SupportedActions">
@@ -80,7 +80,7 @@
           <Record>
             <PropertyValue Property="ApplicationTime">
               <Record Type="Temporal.GranularityDate">
-                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel Temporal.QueryType/TimeSeries" />
+                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
                 <PropertyValue Property="SupportedActions">
