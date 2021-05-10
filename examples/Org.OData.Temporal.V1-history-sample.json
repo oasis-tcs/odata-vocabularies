@@ -39,12 +39,6 @@
         },
         "Employee_history": {
             "$Kind": "EntityType",
-            "@Temporal.From": {
-                "$Path": "From"
-            },
-            "@Temporal.To": {
-                "$Path": "To"
-            },
             "$Key": [
                 "From"
             ],
@@ -80,12 +74,6 @@
         },
         "Department_history": {
             "$Kind": "EntityType",
-            "@Temporal.From": {
-                "$Path": "From"
-            },
-            "@Temporal.To": {
-                "$Path": "To"
-            },
             "$Key": [
                 "From"
             ],
@@ -119,6 +107,8 @@
                     "ApplicationTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
                         "SupportedQueries": "TimeTravel,TimeSeries",
+                        "TimeSliceStart": "history/From",
+                        "TimeSliceEnd": "history/To",
                         "SupportedActions": [
                             "Temporal.Update",
                             "Temporal.Upsert",
@@ -132,6 +122,8 @@
                     "ApplicationTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
                         "SupportedQueries": "TimeTravel,TimeSeries",
+                        "TimeSliceStart": "history/From",
+                        "TimeSliceEnd": "history/To",
                         "SupportedActions": [
                             "Temporal.Update",
                             "Temporal.Upsert",

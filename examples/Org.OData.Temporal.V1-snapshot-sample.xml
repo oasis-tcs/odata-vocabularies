@@ -56,26 +56,6 @@
 
       </EntityContainer>
 
-      <Annotations Target="OrgModel.Default/Departments/history">
-        <Annotation Term="Temporal.TemporalSupport">
-          <Record>
-            <PropertyValue Property="ApplicationTime">
-              <Record Type="Temporal.GranularityDate">
-                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel 
-                                           Temporal.QueryType/TimeSeries" />
-                <PropertyValue Property="SupportedActions">
-                  <Collection>
-                    <String>Temporal.Update</String>
-                    <String>Temporal.Upsert</String>
-                    <String>Temporal.Delete</String>
-                  </Collection>
-                </PropertyValue>
-              </Record>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-      </Annotations>
-
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

@@ -61,6 +61,18 @@
             "$Abstract": true,
             "SupportedQueries": {
                 "$Type": "Temporal.QueryType"
+            },
+            "TimeSliceStart": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property containing lower boundary of a time slice",
+                "@Core.LongDescription": "Must be present if time-period queries are supported"
+            },
+            "TimeSliceEnd": {
+                "$Type": "Edm.PropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Property containing upper boundary of a time slice",
+                "@Core.LongDescription": "Must be present if time-period queries are supported"
             }
         },
         "QueryType": {
@@ -86,29 +98,13 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "Application-time periods are stored with closed-closed semantics",
-                "@Core.LongDescription": "Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries."
+                "@Core.LongDescription": "If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice, and the temporal query option `$toInclusive` must be used instead of `$to` for specifying the period end in time-series queries."
             }
         },
         "QualifiedActionName": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of an action in scope."
-        },
-        "From": {
-            "$Kind": "Term",
-            "$Type": "Edm.PrimitiveType",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now"
-        },
-        "To": {
-            "$Kind": "Term",
-            "$Type": "Edm.PrimitiveType",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max"
         },
         "Update": [
             {

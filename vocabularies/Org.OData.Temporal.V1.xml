@@ -91,6 +91,14 @@
 
       <ComplexType Name="TimeDimensionType" Abstract="true">
         <Property Name="SupportedQueries" Type="Temporal.QueryType" Nullable="false" />
+        <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
+          <Annotation Term="Core.LongDescription" String="Must be present if time-period queries are supported" />
+        </Property>
+        <Property Name="TimeSliceEnd" Type="Edm.PropertyPath" Nullable="true">
+          <Annotation Term="Core.Description" String="Property containing upper boundary of a time slice" />
+          <Annotation Term="Core.LongDescription" String="Must be present if time-period queries are supported" />
+        </Property>
       </ComplexType>
 
       <EnumType Name="QueryType" IsFlags="true">
@@ -109,7 +117,7 @@
         <Annotation Term="Core.Description" String="Granularity of this time dimension is Date" />
         <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Application-time periods are stored with closed-closed semantics" />
-          <Annotation Term="Core.LongDescription" String="Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries." />
+          <Annotation Term="Core.LongDescription" String="If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice, and the temporal query option `$toInclusive` must be used instead of `$to` for specifying the period end in time-series queries." />
         </Property>
       </ComplexType>
 
@@ -117,17 +125,6 @@
       <TypeDefinition Name="QualifiedActionName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
       </TypeDefinition>
-
-
-      <!-- Metadata annotations that can also appear as instance annotations -->
-
-      <Term Name="From" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now" />
-      </Term>
-
-      <Term Name="To" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max" />
-      </Term>
 
 
       <!-- TODO: move to separate TemporalActions vocabulary? -->

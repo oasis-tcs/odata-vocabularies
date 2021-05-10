@@ -20,8 +20,6 @@
       </EntityType>
 
       <EntityType Name="Employee_history">
-        <Annotation Term="Temporal.From" Path="From" />
-        <Annotation Term="Temporal.To" Path="To" />
         <Key>
           <PropertyRef Name="From" />
         </Key>
@@ -42,8 +40,6 @@
       </EntityType>
 
       <EntityType Name="Department_history">
-        <Annotation Term="Temporal.From" Path="From" />
-        <Annotation Term="Temporal.To" Path="To" />
         <Key>
           <PropertyRef Name="From" />
         </Key>
@@ -64,6 +60,8 @@
             <PropertyValue Property="ApplicationTime">
               <Record Type="Temporal.GranularityDate">
                 <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel Temporal.QueryType/TimeSeries" />
+                <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
+                <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
                 <PropertyValue Property="SupportedActions">
                   <Collection>
                     <String>Temporal.Update</String>
@@ -83,6 +81,8 @@
             <PropertyValue Property="ApplicationTime">
               <Record Type="Temporal.GranularityDate">
                 <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/TimeTravel Temporal.QueryType/TimeSeries" />
+                <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
+                <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
                 <PropertyValue Property="SupportedActions">
                   <Collection>
                     <String>Temporal.Update</String>
