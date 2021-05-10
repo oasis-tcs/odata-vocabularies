@@ -26,10 +26,6 @@
                 "ID"
             ],
             "ID": {},
-            "Name": {},
-            "Jobtitle": {
-                "$Nullable": true
-            },
             "history": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,

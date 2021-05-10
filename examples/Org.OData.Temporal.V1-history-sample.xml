@@ -14,8 +14,6 @@
           <PropertyRef Name="ID" />
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
-        <Property Name="Name" Type="Edm.String" Nullable="false" />
-        <Property Name="Jobtitle" Type="Edm.String" />
         <NavigationProperty Name="history" Type="Collection(OrgModel.Employee_history)" ContainsTarget="true" />
       </EntityType>
 
