@@ -47,7 +47,9 @@
       </EntityType>
 
       <EntityContainer Name="Default">
-        <EntitySet Name="Employees" EntityType="OrgModel.Employee" />
+        <EntitySet Name="Employees" EntityType="OrgModel.Employee">
+          <NavigationPropertyBinding Path="history/Department" Target="Departments" />
+        </EntitySet>
         <EntitySet Name="Departments" EntityType="OrgModel.Department" />
       </EntityContainer>
 
@@ -59,14 +61,14 @@
                 <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
-                <PropertyValue Property="SupportedActions">
-                  <Collection>
-                    <String>Temporal.Update</String>
-                    <String>Temporal.Upsert</String>
-                    <String>Temporal.Delete</String>
-                  </Collection>
-                </PropertyValue>
               </Record>
+            </PropertyValue>
+            <PropertyValue Property="SupportedActions">
+              <Collection>
+                <String>Temporal.Update</String>
+                <String>Temporal.Upsert</String>
+                <String>Temporal.Delete</String>
+              </Collection>
             </PropertyValue>
           </Record>
         </Annotation>
@@ -80,14 +82,14 @@
                 <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
-                <PropertyValue Property="SupportedActions">
-                  <Collection>
-                    <String>Temporal.Update</String>
-                    <String>Temporal.Upsert</String>
-                    <String>Temporal.Delete</String>
-                  </Collection>
-                </PropertyValue>
               </Record>
+            </PropertyValue>
+            <PropertyValue Property="SupportedActions">
+              <Collection>
+                <String>Temporal.Update</String>
+                <String>Temporal.Upsert</String>
+                <String>Temporal.Delete</String>
+              </Collection>
             </PropertyValue>
           </Record>
         </Annotation>

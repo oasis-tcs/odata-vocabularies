@@ -31,6 +31,7 @@
       <EntityContainer Name="Default">
 
         <EntitySet Name="Employees" EntityType="OrgModel.Employee">
+          <NavigationPropertyBinding Path="Department" Target="Departments" />
           <Annotation Term="Temporal.TemporalSupport">
             <Record>
               <PropertyValue Property="ApplicationTime">
@@ -43,6 +44,7 @@
         </EntitySet>
 
         <EntitySet Name="Departments" EntityType="OrgModel.Department">
+          <NavigationPropertyBinding Path="Employees" Target="Employees" />
           <Annotation Term="Temporal.TemporalSupport">
             <Record>
               <PropertyValue Property="ApplicationTime">

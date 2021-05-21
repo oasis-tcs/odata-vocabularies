@@ -67,8 +67,6 @@
       </Annotation>
 
 
-      <!-- Metadata annotations -->
-
       <Term Name="TemporalSupport" Type="Temporal.TemporalSupportType" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">

@@ -89,7 +89,10 @@
             "$Kind": "EntityContainer",
             "Employees": {
                 "$Collection": true,
-                "$Type": "OrgModel.Employee"
+                "$Type": "OrgModel.Employee",
+                "$NavigationPropertyBinding": {
+                    "history/Department": "Departments"
+                }
             },
             "Departments": {
                 "$Collection": true,
@@ -103,13 +106,13 @@
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
                         "SupportedQueries": "PointInTime,TimePeriod",
                         "TimeSliceStart": "history/From",
-                        "TimeSliceEnd": "history/To",
-                        "SupportedActions": [
-                            "Temporal.Update",
-                            "Temporal.Upsert",
-                            "Temporal.Delete"
-                        ]
-                    }
+                        "TimeSliceEnd": "history/To"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Upsert",
+                        "Temporal.Delete"
+                    ]
                 }
             },
             "OrgModel.Default/Departments/history": {
@@ -118,13 +121,13 @@
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
                         "SupportedQueries": "PointInTime,TimePeriod",
                         "TimeSliceStart": "history/From",
-                        "TimeSliceEnd": "history/To",
-                        "SupportedActions": [
-                            "Temporal.Update",
-                            "Temporal.Upsert",
-                            "Temporal.Delete"
-                        ]
-                    }
+                        "TimeSliceEnd": "history/To"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Upsert",
+                        "Temporal.Delete"
+                    ]
                 }
             }
         }

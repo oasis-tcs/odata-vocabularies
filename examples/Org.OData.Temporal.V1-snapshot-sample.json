@@ -54,6 +54,9 @@
             "Employees": {
                 "$Collection": true,
                 "$Type": "OrgModel.Employee",
+                "$NavigationPropertyBinding": {
+                    "Department": "Departments"
+                },
                 "@Temporal.TemporalSupport": {
                     "ApplicationTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
@@ -64,6 +67,9 @@
             "Departments": {
                 "$Collection": true,
                 "$Type": "OrgModel.Department",
+                "$NavigationPropertyBinding": {
+                    "Employees": "Employees"
+                },
                 "@Temporal.TemporalSupport": {
                     "ApplicationTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
