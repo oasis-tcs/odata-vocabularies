@@ -66,20 +66,20 @@
         },
         "CollectionKindSnapshot": {
             "$Kind": "ComplexType",
+            "$BaseType": "Temporal.CollectionKindType",
             "@Core.Description": "Each OData entity corresponds to a temporal object and by default only shows data of the current time slice"
         },
         "CollectionKindTimeSlice": {
             "$Kind": "ComplexType",
+            "$BaseType": "Temporal.CollectionKindType",
             "@Core.Description": "Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property containing lower boundary of a time slice",
-                "@Core.LongDescription": "Must be present if time-period queries are supported"
+                "@Core.Description": "Property containing lower boundary of a time slice"
             },
             "TimeSliceEnd": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property containing upper boundary of a time slice",
-                "@Core.LongDescription": "Must be present if time-period queries are supported"
+                "@Core.Description": "Property containing upper boundary of a time slice"
             }
         },
         "GranularityType": {

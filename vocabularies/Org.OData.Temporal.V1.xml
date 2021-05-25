@@ -102,11 +102,9 @@
         <Annotation Term="Core.Description" String="Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection" />
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
-          <Annotation Term="Core.LongDescription" String="Must be present if time-period queries are supported" />
         </Property>
         <Property Name="TimeSliceEnd" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing upper boundary of a time slice" />
-          <Annotation Term="Core.LongDescription" String="Must be present if time-period queries are supported" />
         </Property>
       </ComplexType>
 
