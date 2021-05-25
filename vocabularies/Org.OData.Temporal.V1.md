@@ -142,7 +142,7 @@ Property|Type|Description
 [*SupportedQueries*](Org.OData.Temporal.V1.xml#L91)|[QueryType](#QueryType)|
 [*TimeSliceStart*](Org.OData.Temporal.V1.xml#L92)|PropertyPath?|Property containing lower boundary of a time slice<br>Must be present if time-period queries are supported
 [*TimeSliceEnd*](Org.OData.Temporal.V1.xml#L96)|PropertyPath?|Property containing upper boundary of a time slice<br>Must be present if time-period queries are supported
-[ClosedClosedPeriods](Org.OData.Temporal.V1.xml#L116)|Boolean|Application-time periods are stored with closed-closed semantics<br>If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice, and the temporal query option `$toInclusive` must be used instead of `$to` for specifying the period end in time-series queries.
+[ClosedClosedPeriods](Org.OData.Temporal.V1.xml#L116)|Boolean|Application-time periods are stored with closed-closed semantics<br>If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice.
 
 ## <a name="QualifiedActionName"></a>[QualifiedActionName](Org.OData.Temporal.V1.xml#L123)
 **Type:** String

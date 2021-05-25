@@ -115,7 +115,7 @@
         <Annotation Term="Core.Description" String="Granularity of this time dimension is Date" />
         <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Application-time periods are stored with closed-closed semantics" />
-          <Annotation Term="Core.LongDescription" String="If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice, and the temporal query option `$toInclusive` must be used instead of `$to` for specifying the period end in time-series queries." />
+          <Annotation Term="Core.LongDescription" String="If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice." />
         </Property>
       </ComplexType>
 
