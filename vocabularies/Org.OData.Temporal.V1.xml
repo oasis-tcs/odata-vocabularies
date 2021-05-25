@@ -94,11 +94,11 @@
         <Annotation Term="Core.Description" String="Kind of temporal collection" />
       </ComplexType>
 
-      <ComplexType Name="CollectionKindSnapshot">
+      <ComplexType Name="CollectionKindSnapshot" BaseType="Temporal.CollectionKindType">
         <Annotation Term="Core.Description" String="Each OData entity corresponds to a temporal object and by default only shows data of the current time slice" />
       </ComplexType>
 
-      <ComplexType Name="CollectionKindTimeSlice">
+      <ComplexType Name="CollectionKindTimeSlice" BaseType="Temporal.CollectionKindType">
         <Annotation Term="Core.Description" String="Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection" />
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
