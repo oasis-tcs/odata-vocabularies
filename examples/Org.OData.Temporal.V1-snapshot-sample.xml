@@ -32,9 +32,9 @@
 
         <EntitySet Name="Employees" EntityType="OrgModel.Employee">
           <NavigationPropertyBinding Path="Department" Target="Departments" />
-          <Annotation Term="Temporal.TemporalSupport">
+          <Annotation Term="Temporal.ApplicationTimeSupport">
             <Record>
-              <PropertyValue Property="ApplicationTime">
+              <PropertyValue Property="Granularity">
                 <Record Type="Temporal.GranularityDate">
                   <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime" />
                 </Record>
@@ -45,9 +45,9 @@
 
         <EntitySet Name="Departments" EntityType="OrgModel.Department">
           <NavigationPropertyBinding Path="Employees" Target="Employees" />
-          <Annotation Term="Temporal.TemporalSupport">
+          <Annotation Term="Temporal.ApplicationTimeSupport">
             <Record>
-              <PropertyValue Property="ApplicationTime">
+              <PropertyValue Property="Granularity">
                 <Record Type="Temporal.GranularityDate">
                   <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime" />
                 </Record>

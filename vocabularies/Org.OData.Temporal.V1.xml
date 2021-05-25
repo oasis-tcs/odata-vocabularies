@@ -67,15 +67,15 @@
       </Annotation>
 
 
-      <Term Name="TemporalSupport" Type="Temporal.TemporalSupportType" Nullable="false" AppliesTo="Collection">
+      <Term Name="ApplicationTimeSupport" Type="Temporal.ApplicationTimeSupportType" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
           <String>This entity set or navigation property supports temporal requests</String>
         </Annotation>
       </Term>
 
-      <ComplexType Name="TemporalSupportType">
-        <Property Name="ApplicationTime" Type="Temporal.TimeDimensionType">
+      <ComplexType Name="ApplicationTimeSupportType">
+        <Property Name="Granularity" Type="Temporal.GranularityType">
           <Annotation Term="Core.Description" String="Application time granularity" />
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -87,7 +87,7 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="TimeDimensionType" Abstract="true">
+      <ComplexType Name="GranularityType" Abstract="true">
         <Property Name="SupportedQueries" Type="Temporal.QueryType" Nullable="false" />
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="true">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
@@ -104,14 +104,14 @@
         <Member Name="TimePeriod" Value="2" />
       </EnumType>
 
-      <ComplexType Name="GranularityDateTimeOffset" BaseType="Temporal.TimeDimensionType">
+      <ComplexType Name="GranularityDateTimeOffset" BaseType="Temporal.GranularityType">
         <Annotation Term="Core.Description" String="Granularity of this time dimension is DateTimeOffset" />
         <Property Name="Precision" Type="Edm.Byte" Nullable="false">
           <Annotation Term="Core.Description" String="Precision of Edm.DateTimeOffset values for granularity DateTimeOffset" />
         </Property>
       </ComplexType>
 
-      <ComplexType Name="GranularityDate" BaseType="Temporal.TimeDimensionType">
+      <ComplexType Name="GranularityDate" BaseType="Temporal.GranularityType">
         <Annotation Term="Core.Description" String="Granularity of this time dimension is Date" />
         <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Application-time periods are stored with closed-closed semantics" />

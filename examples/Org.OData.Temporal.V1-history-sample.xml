@@ -54,9 +54,9 @@
       </EntityContainer>
 
       <Annotations Target="OrgModel.Default/Employees/history">
-        <Annotation Term="Temporal.TemporalSupport">
+        <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
-            <PropertyValue Property="ApplicationTime">
+            <PropertyValue Property="Granularity">
               <Record Type="Temporal.GranularityDate">
                 <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
@@ -75,9 +75,9 @@
       </Annotations>
 
       <Annotations Target="OrgModel.Default/Departments/history">
-        <Annotation Term="Temporal.TemporalSupport">
+        <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
-            <PropertyValue Property="ApplicationTime">
+            <PropertyValue Property="Granularity">
               <Record Type="Temporal.GranularityDate">
                 <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
