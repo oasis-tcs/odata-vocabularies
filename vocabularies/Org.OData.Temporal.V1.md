@@ -10,7 +10,7 @@ Terms for describing time-dependent data
 
 Term|Type|Description
 :---|:---|:----------
-[TemporalSupport](Org.OData.Temporal.V1.xml#L70)|[TemporalSupportType](#TemporalSupportType)|<a name="TemporalSupport"></a>This entity set or navigation property supports temporal requests
+[ApplicationTimeSupport](Org.OData.Temporal.V1.xml#L70)|[ApplicationTimeSupportType](#ApplicationTimeSupportType)|<a name="ApplicationTimeSupport"></a>This entity set or navigation property supports temporal requests
 
 
 ## Actions
@@ -94,16 +94,16 @@ Parameter|Type|Description
 [&rarr;](Org.OData.Temporal.V1.xml#L275)|\[EntityType\]|Deleted time slices<br>Same entity type as binding parameter.
 
 
-## <a name="TemporalSupportType"></a>[TemporalSupportType](Org.OData.Temporal.V1.xml#L77)
+## <a name="ApplicationTimeSupportType"></a>[ApplicationTimeSupportType](Org.OData.Temporal.V1.xml#L77)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ApplicationTime](Org.OData.Temporal.V1.xml#L78)|[TimeDimensionType?](#TimeDimensionType)|Application time granularity
+[Granularity](Org.OData.Temporal.V1.xml#L78)|[GranularityType?](#GranularityType)|Application time granularity
 [ObjectKey](Org.OData.Temporal.V1.xml#L81)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated collection are time slices of potentially multiple temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the annotated collection only contains time slices for a single one temporal object.
 [SupportedActions](Org.OData.Temporal.V1.xml#L85)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
 
-## <a name="TimeDimensionType"></a>[*TimeDimensionType*](Org.OData.Temporal.V1.xml#L90)
+## <a name="GranularityType"></a>[*GranularityType*](Org.OData.Temporal.V1.xml#L90)
 
 
 **Derived Types:**
@@ -124,7 +124,7 @@ Flag Member|Value|Description
 [PointInTime](Org.OData.Temporal.V1.xml#L103)|1|
 [TimePeriod](Org.OData.Temporal.V1.xml#L104)|2|
 
-## <a name="GranularityDateTimeOffset"></a>[GranularityDateTimeOffset](Org.OData.Temporal.V1.xml#L107): [TimeDimensionType](#TimeDimensionType)
+## <a name="GranularityDateTimeOffset"></a>[GranularityDateTimeOffset](Org.OData.Temporal.V1.xml#L107): [GranularityType](#GranularityType)
 Granularity of this time dimension is DateTimeOffset
 
 Property|Type|Description
@@ -134,7 +134,7 @@ Property|Type|Description
 [*TimeSliceEnd*](Org.OData.Temporal.V1.xml#L96)|PropertyPath?|Property containing upper boundary of a time slice<br>Must be present if time-period queries are supported
 [Precision](Org.OData.Temporal.V1.xml#L109)|Byte|Precision of Edm.DateTimeOffset values for granularity DateTimeOffset
 
-## <a name="GranularityDate"></a>[GranularityDate](Org.OData.Temporal.V1.xml#L114): [TimeDimensionType](#TimeDimensionType)
+## <a name="GranularityDate"></a>[GranularityDate](Org.OData.Temporal.V1.xml#L114): [GranularityType](#GranularityType)
 Granularity of this time dimension is Date
 
 Property|Type|Description

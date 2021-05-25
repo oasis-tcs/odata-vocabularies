@@ -28,19 +28,19 @@
                 "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md"
             }
         ],
-        "TemporalSupport": {
+        "ApplicationTimeSupport": {
             "$Kind": "Term",
-            "$Type": "Temporal.TemporalSupportType",
+            "$Type": "Temporal.ApplicationTimeSupportType",
             "$AppliesTo": [
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "This entity set or navigation property supports temporal requests"
         },
-        "TemporalSupportType": {
+        "ApplicationTimeSupportType": {
             "$Kind": "ComplexType",
-            "ApplicationTime": {
-                "$Type": "Temporal.TimeDimensionType",
+            "Granularity": {
+                "$Type": "Temporal.GranularityType",
                 "$Nullable": true,
                 "@Core.Description": "Application time granularity"
             },
@@ -56,7 +56,7 @@
                 "@Core.Description": "List of supported temporal actions"
             }
         },
-        "TimeDimensionType": {
+        "GranularityType": {
             "$Kind": "ComplexType",
             "$Abstract": true,
             "SupportedQueries": {
@@ -83,7 +83,7 @@
         },
         "GranularityDateTimeOffset": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.TimeDimensionType",
+            "$BaseType": "Temporal.GranularityType",
             "@Core.Description": "Granularity of this time dimension is DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
@@ -92,7 +92,7 @@
         },
         "GranularityDate": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.TimeDimensionType",
+            "$BaseType": "Temporal.GranularityType",
             "@Core.Description": "Granularity of this time dimension is Date",
             "ClosedClosedPeriods": {
                 "$Type": "Edm.Boolean",

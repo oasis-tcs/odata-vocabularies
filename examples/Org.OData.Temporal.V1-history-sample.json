@@ -101,8 +101,8 @@
         },
         "$Annotations": {
             "OrgModel.Default/Employees/history": {
-                "@Temporal.TemporalSupport": {
-                    "ApplicationTime": {
+                "@Temporal.ApplicationTimeSupport": {
+                    "Granularity": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
                         "SupportedQueries": "PointInTime,TimePeriod",
                         "TimeSliceStart": "history/From",
@@ -116,8 +116,8 @@
                 }
             },
             "OrgModel.Default/Departments/history": {
-                "@Temporal.TemporalSupport": {
-                    "ApplicationTime": {
+                "@Temporal.ApplicationTimeSupport": {
+                    "Granularity": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate",
                         "SupportedQueries": "PointInTime,TimePeriod",
                         "TimeSliceStart": "history/From",
