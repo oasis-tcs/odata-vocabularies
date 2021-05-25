@@ -39,9 +39,12 @@
         },
         "ApplicationTimeSupportType": {
             "$Kind": "ComplexType",
+            "CollectionKind": {
+                "$Type": "Temporal.CollectionKindType",
+                "@Core.Description": "Kind of temporal collection"
+            },
             "Granularity": {
                 "$Type": "Temporal.GranularityType",
-                "$Nullable": true,
                 "@Core.Description": "Application time granularity"
             },
             "ObjectKey": {
@@ -56,35 +59,38 @@
                 "@Core.Description": "List of supported temporal actions"
             }
         },
-        "GranularityType": {
+        "CollectionKindType": {
             "$Kind": "ComplexType",
             "$Abstract": true,
-            "SupportedQueries": {
-                "$Type": "Temporal.QueryType"
-            },
+            "@Core.Description": "Kind of temporal collection"
+        },
+        "CollectionKindSnapshot": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Each OData entity corresponds to a temporal object and by default only shows data of the current time slice"
+        },
+        "CollectionKindTimeSlice": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
                 "@Core.Description": "Property containing lower boundary of a time slice",
                 "@Core.LongDescription": "Must be present if time-period queries are supported"
             },
             "TimeSliceEnd": {
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
                 "@Core.Description": "Property containing upper boundary of a time slice",
                 "@Core.LongDescription": "Must be present if time-period queries are supported"
             }
         },
-        "QueryType": {
-            "$Kind": "EnumType",
-            "$IsFlags": true,
-            "PointInTime": 1,
-            "TimePeriod": 2
+        "GranularityType": {
+            "$Kind": "ComplexType",
+            "$Abstract": true,
+            "@Core.Description": "Granularity of a time dimension"
         },
         "GranularityDateTimeOffset": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.GranularityType",
-            "@Core.Description": "Granularity of this time dimension is DateTimeOffset",
+            "@Core.Description": "Granularity of time dimension is DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
                 "@Core.Description": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
@@ -93,7 +99,7 @@
         "GranularityDate": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.GranularityType",
-            "@Core.Description": "Granularity of this time dimension is Date",
+            "@Core.Description": "Granularity of time dimension is Date",
             "ClosedClosedPeriods": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,

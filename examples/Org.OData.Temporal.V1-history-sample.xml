@@ -56,12 +56,14 @@
       <Annotations Target="OrgModel.Default/Employees/history">
         <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
-            <PropertyValue Property="Granularity">
-              <Record Type="Temporal.GranularityDate">
-                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
+            <PropertyValue Property="CollectionKind">
+              <Record Type="Temporal.CollectionKindTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
               </Record>
+            </PropertyValue>
+            <PropertyValue Property="Granularity">
+              <Record Type="Temporal.GranularityDate" />
             </PropertyValue>
             <PropertyValue Property="SupportedActions">
               <Collection>
@@ -77,12 +79,14 @@
       <Annotations Target="OrgModel.Default/Departments/history">
         <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
-            <PropertyValue Property="Granularity">
-              <Record Type="Temporal.GranularityDate">
-                <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime Temporal.QueryType/TimePeriod" />
+            <PropertyValue Property="CollectionKind">
+              <Record Type="Temporal.CollectionKindTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
               </Record>
+            </PropertyValue>
+            <PropertyValue Property="Granularity">
+              <Record Type="Temporal.GranularityDate" />
             </PropertyValue>
             <PropertyValue Property="SupportedActions">
               <Collection>

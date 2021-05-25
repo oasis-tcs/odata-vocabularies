@@ -34,10 +34,11 @@
           <NavigationPropertyBinding Path="Department" Target="Departments" />
           <Annotation Term="Temporal.ApplicationTimeSupport">
             <Record>
+              <PropertyValue Property="CollectionKind">
+                <Record Type="Temporal.CollectionKindSnapshot" />
+              </PropertyValue>
               <PropertyValue Property="Granularity">
-                <Record Type="Temporal.GranularityDate">
-                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime" />
-                </Record>
+                <Record Type="Temporal.GranularityDate" />
               </PropertyValue>
             </Record>
           </Annotation>
@@ -47,10 +48,11 @@
           <NavigationPropertyBinding Path="Employees" Target="Employees" />
           <Annotation Term="Temporal.ApplicationTimeSupport">
             <Record>
+              <PropertyValue Property="CollectionKind">
+                <Record Type="Temporal.CollectionKindSnapshot" />
+              </PropertyValue>
               <PropertyValue Property="Granularity">
-                <Record Type="Temporal.GranularityDate">
-                  <PropertyValue Property="SupportedQueries" EnumMember="Temporal.QueryType/PointInTime" />
-                </Record>
+                <Record Type="Temporal.GranularityDate" />
               </PropertyValue>
             </Record>
           </Annotation>

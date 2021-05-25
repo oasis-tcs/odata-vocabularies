@@ -75,7 +75,10 @@
       </Term>
 
       <ComplexType Name="ApplicationTimeSupportType">
-        <Property Name="Granularity" Type="Temporal.GranularityType">
+        <Property Name="CollectionKind" Type="Temporal.CollectionKindType" Nullable="false">
+          <Annotation Term="Core.Description" String="Kind of temporal collection" />
+        </Property>
+        <Property Name="Granularity" Type="Temporal.GranularityType" Nullable="false">
           <Annotation Term="Core.Description" String="Application time granularity" />
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -87,32 +90,39 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="GranularityType" Abstract="true">
-        <Property Name="SupportedQueries" Type="Temporal.QueryType" Nullable="false" />
-        <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="true">
+      <ComplexType Name="CollectionKindType" Abstract="true">
+        <Annotation Term="Core.Description" String="Kind of temporal collection" />
+      </ComplexType>
+
+      <ComplexType Name="CollectionKindSnapshot">
+        <Annotation Term="Core.Description" String="Each OData entity corresponds to a temporal object and by default only shows data of the current time slice" />
+      </ComplexType>
+
+      <ComplexType Name="CollectionKindTimeSlice">
+        <Annotation Term="Core.Description" String="Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection" />
+        <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
           <Annotation Term="Core.LongDescription" String="Must be present if time-period queries are supported" />
         </Property>
-        <Property Name="TimeSliceEnd" Type="Edm.PropertyPath" Nullable="true">
+        <Property Name="TimeSliceEnd" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing upper boundary of a time slice" />
           <Annotation Term="Core.LongDescription" String="Must be present if time-period queries are supported" />
         </Property>
       </ComplexType>
 
-      <EnumType Name="QueryType" IsFlags="true">
-        <Member Name="PointInTime" Value="1" />
-        <Member Name="TimePeriod" Value="2" />
-      </EnumType>
+      <ComplexType Name="GranularityType" Abstract="true">
+        <Annotation Term="Core.Description" String="Granularity of a time dimension" />
+      </ComplexType>
 
       <ComplexType Name="GranularityDateTimeOffset" BaseType="Temporal.GranularityType">
-        <Annotation Term="Core.Description" String="Granularity of this time dimension is DateTimeOffset" />
+        <Annotation Term="Core.Description" String="Granularity of time dimension is DateTimeOffset" />
         <Property Name="Precision" Type="Edm.Byte" Nullable="false">
           <Annotation Term="Core.Description" String="Precision of Edm.DateTimeOffset values for granularity DateTimeOffset" />
         </Property>
       </ComplexType>
 
       <ComplexType Name="GranularityDate" BaseType="Temporal.GranularityType">
-        <Annotation Term="Core.Description" String="Granularity of this time dimension is Date" />
+        <Annotation Term="Core.Description" String="Granularity of time dimension is Date" />
         <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Application-time periods are stored with closed-closed semantics" />
           <Annotation Term="Core.LongDescription" String="If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice." />
