@@ -164,7 +164,7 @@
         <Annotation Term="Core.Description" String="This property can be used in the `aggregate` transformation" />
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection ComplexType EntityContainer">
+      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection EntityContainer">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the `aggregate` transformation" />
         <Annotation Term="Core.LongDescription"
