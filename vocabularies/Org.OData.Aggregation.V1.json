@@ -162,7 +162,6 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Collection",
-                "ComplexType",
                 "EntityContainer"
             ],
             "@Core.Description": "Dynamic property that can be used in the aggregate transformation",

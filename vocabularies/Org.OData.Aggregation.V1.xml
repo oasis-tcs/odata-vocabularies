@@ -171,7 +171,7 @@
         </Annotation>
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection ComplexType EntityContainer">
+      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection EntityContainer">
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the aggregate transformation" />
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.LongDescription" String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type." />
