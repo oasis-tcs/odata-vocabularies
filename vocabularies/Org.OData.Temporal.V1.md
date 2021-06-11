@@ -100,7 +100,7 @@ Parameter|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [CollectionKind](Org.OData.Temporal.V1.xml#L78)|[CollectionKindType](#CollectionKindType)|Kind of temporal collection
-[PeriodSpecification](Org.OData.Temporal.V1.xml#L81)|[PeriodSpecificationType](#PeriodSpecificationType)|Specification of application time period
+[PeriodKind](Org.OData.Temporal.V1.xml#L81)|[PeriodKindType](#PeriodKindType)|Kind of application time period
 [ObjectKey](Org.OData.Temporal.V1.xml#L84)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated collection are time slices of potentially multiple temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the annotated collection only contains time slices for a single one temporal object.
 [SupportedActions](Org.OData.Temporal.V1.xml#L88)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
 
@@ -122,21 +122,21 @@ Property|Type|Description
 [TimeSliceStart](Org.OData.Temporal.V1.xml#L103)|PropertyPath|Property containing lower boundary of a time slice
 [TimeSliceEnd](Org.OData.Temporal.V1.xml#L106)|PropertyPath|Property containing upper boundary of a time slice
 
-## <a name="PeriodSpecificationType"></a>[*PeriodSpecificationType*](Org.OData.Temporal.V1.xml#L111)
-Specification of a time period
+## <a name="PeriodKindType"></a>[*PeriodKindType*](Org.OData.Temporal.V1.xml#L111)
+Kind of a time period
 
 **Derived Types:**
-- [PeriodSpecificationDateTimeOffset](#PeriodSpecificationDateTimeOffset)
-- [PeriodSpecificationDate](#PeriodSpecificationDate)
+- [PeriodKindDateTimeOffset](#PeriodKindDateTimeOffset)
+- [PeriodKindDate](#PeriodKindDate)
 
-## <a name="PeriodSpecificationDateTimeOffset"></a>[PeriodSpecificationDateTimeOffset](Org.OData.Temporal.V1.xml#L115): [PeriodSpecificationType](#PeriodSpecificationType)
+## <a name="PeriodKindDateTimeOffset"></a>[PeriodKindDateTimeOffset](Org.OData.Temporal.V1.xml#L115): [PeriodKindType](#PeriodKindType)
 Period start and end are of type Edm.DateTimeOffset
 
 Property|Type|Description
 :-------|:---|:----------
 [Precision](Org.OData.Temporal.V1.xml#L117)|Byte|Precision of Edm.DateTimeOffset values for period start and end
 
-## <a name="PeriodSpecificationDate"></a>[PeriodSpecificationDate](Org.OData.Temporal.V1.xml#L122): [PeriodSpecificationType](#PeriodSpecificationType)
+## <a name="PeriodKindDate"></a>[PeriodKindDate](Org.OData.Temporal.V1.xml#L122): [PeriodKindType](#PeriodKindType)
 Period start and end are of type Edm.Date
 
 Property|Type|Description

@@ -43,9 +43,9 @@
                 "$Type": "Temporal.CollectionKindType",
                 "@Core.Description": "Kind of temporal collection"
             },
-            "PeriodSpecification": {
-                "$Type": "Temporal.PeriodSpecificationType",
-                "@Core.Description": "Specification of application time period"
+            "PeriodKind": {
+                "$Type": "Temporal.PeriodKindType",
+                "@Core.Description": "Kind of application time period"
             },
             "ObjectKey": {
                 "$Collection": true,
@@ -82,23 +82,23 @@
                 "@Core.Description": "Property containing upper boundary of a time slice"
             }
         },
-        "PeriodSpecificationType": {
+        "PeriodKindType": {
             "$Kind": "ComplexType",
             "$Abstract": true,
-            "@Core.Description": "Specification of a time period"
+            "@Core.Description": "Kind of a time period"
         },
-        "PeriodSpecificationDateTimeOffset": {
+        "PeriodKindDateTimeOffset": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.PeriodSpecificationType",
+            "$BaseType": "Temporal.PeriodKindType",
             "@Core.Description": "Period start and end are of type Edm.DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
                 "@Core.Description": "Precision of Edm.DateTimeOffset values for period start and end"
             }
         },
-        "PeriodSpecificationDate": {
+        "PeriodKindDate": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.PeriodSpecificationType",
+            "$BaseType": "Temporal.PeriodKindType",
             "@Core.Description": "Period start and end are of type Edm.Date",
             "ClosedClosedPeriods": {
                 "$Type": "Edm.Boolean",

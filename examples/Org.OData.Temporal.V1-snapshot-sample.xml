@@ -37,8 +37,8 @@
               <PropertyValue Property="CollectionKind">
                 <Record Type="Temporal.CollectionKindSnapshot" />
               </PropertyValue>
-              <PropertyValue Property="Granularity">
-                <Record Type="Temporal.GranularityDate" />
+              <PropertyValue Property="PeriodKind">
+                <Record Type="Temporal.PeriodKindDate" />
               </PropertyValue>
             </Record>
           </Annotation>
@@ -51,8 +51,8 @@
               <PropertyValue Property="CollectionKind">
                 <Record Type="Temporal.CollectionKindSnapshot" />
               </PropertyValue>
-              <PropertyValue Property="Granularity">
-                <Record Type="Temporal.GranularityDate" />
+              <PropertyValue Property="PeriodKind">
+                <Record Type="Temporal.PeriodKindDate" />
               </PropertyValue>
             </Record>
           </Annotation>
