@@ -43,9 +43,9 @@
                 "$Type": "Temporal.CollectionKindType",
                 "@Core.Description": "Kind of temporal collection"
             },
-            "Granularity": {
-                "$Type": "Temporal.GranularityType",
-                "@Core.Description": "Application time granularity"
+            "PeriodSpecification": {
+                "$Type": "Temporal.PeriodSpecificationType",
+                "@Core.Description": "Specification of application time period"
             },
             "ObjectKey": {
                 "$Collection": true,
@@ -82,29 +82,28 @@
                 "@Core.Description": "Property containing upper boundary of a time slice"
             }
         },
-        "GranularityType": {
+        "PeriodSpecificationType": {
             "$Kind": "ComplexType",
             "$Abstract": true,
-            "@Core.Description": "Granularity of a time dimension"
+            "@Core.Description": "Specification of a time period"
         },
-        "GranularityDateTimeOffset": {
+        "PeriodSpecificationDateTimeOffset": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.GranularityType",
-            "@Core.Description": "Granularity of time dimension is DateTimeOffset",
+            "$BaseType": "Temporal.PeriodSpecificationType",
+            "@Core.Description": "Period start and end are of type Edm.DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
-                "@Core.Description": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
+                "@Core.Description": "Precision of Edm.DateTimeOffset values for period start and end"
             }
         },
-        "GranularityDate": {
+        "PeriodSpecificationDate": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.GranularityType",
-            "@Core.Description": "Granularity of time dimension is Date",
+            "$BaseType": "Temporal.PeriodSpecificationType",
+            "@Core.Description": "Period start and end are of type Edm.Date",
             "ClosedClosedPeriods": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Application-time periods are stored with closed-closed semantics",
-                "@Core.LongDescription": "If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice."
+                "@Core.Description": "If `true`, the period end is included in the time period"
             }
         },
         "QualifiedActionName": {
