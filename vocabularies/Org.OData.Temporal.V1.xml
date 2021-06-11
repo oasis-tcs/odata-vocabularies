@@ -108,7 +108,7 @@
           if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap
           and their other, *non-temporal*, key properties are identical.
           A temporal collection of this kind MUST NOT contain overlapping entities;
-          and if it contains an entity, it MUST contain all entities from the same entity set
+          and if it contains an entity, it MUST contain all entities
           that agree with the given one in their non-temporal key properties.</String>
         </Annotation>
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
