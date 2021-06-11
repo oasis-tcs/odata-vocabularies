@@ -117,43 +117,27 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
+                "@Core.Description": "Adds time slices to a time-slice entity set, splitting other time slices in case of overlap",
+                "@Core.LongDescription": "Two time slices of the same time-slice entity set overlap if the intervals defined by their [`Temporal.CollectionKindTimeSlice/TimeSliceStart`](#CollectionKindTimeSlice) and\n          `Temporal.CollectionKindTimeSlice/TimeSliceEnd` properties overlap and their other key properties are identical.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Time slices to modify"
+                        "@Core.Description": "Collection of time slices to which new time slices are added"
                     },
                     {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "Values",
+                        "$Name": "newTimeslices",
+                        "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values to update",
-                        "@Core.LongDescription": "Same entity type as binding parameter and return type, specify only values of non-key properties."
-                    },
-                    {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.OptionalParameter": {},
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                        "@Core.Description": "Time slices to be added into the collection"
                     }
                 ],
                 "$ReturnType": {
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
                     "@Core.Description": "Modified time slices",
-                    "@Core.LongDescription": "Same entity type as binding parameter."
+                    "@Core.LongDescription": "Same entity type as binding parameter"
                 }
             }
         ],

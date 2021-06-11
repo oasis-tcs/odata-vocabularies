@@ -137,30 +137,20 @@
       <!-- Operations on Temporal Objects -->
 
       <Action Name="Update" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
+        <Annotation Term="Core.Description" String="Adds time slices to a time-slice entity set, splitting other time slices in case of overlap" />
+        <Annotation Term="Core.LongDescription">
+          <String>Two time slices of the same time-slice entity set overlap if the intervals defined by their [`Temporal.CollectionKindTimeSlice/TimeSliceStart`](#CollectionKindTimeSlice) and
+          `Temporal.CollectionKindTimeSlice/TimeSliceEnd` properties overlap and their other key properties are identical.</String>
+        </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Time slices to modify" />
+          <Annotation Term="Core.Description" String="Collection of time slices to which new time slices are added" />
         </Parameter>
-        <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
-        </Parameter>
-        <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
-        </Parameter>
-        <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Property values to update" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
-        </Parameter>
-        <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.OptionalParameter">
-            <Record />
-          </Annotation>
-          <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
+        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="Time slices to be added into the collection" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter" />
         </ReturnType>
       </Action>
 
