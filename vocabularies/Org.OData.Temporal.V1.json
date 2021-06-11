@@ -130,7 +130,8 @@
                         "$Name": "newTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Time slices to be added into the collection"
+                        "@Core.Description": "Time slices to be added into the collection",
+                        "@Core.LongDescription": "Same entity type as binding parameter"
                     }
                 ],
                 "$ReturnType": {

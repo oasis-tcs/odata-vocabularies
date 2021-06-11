@@ -147,6 +147,7 @@
         </Parameter>
         <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to be added into the collection" />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
