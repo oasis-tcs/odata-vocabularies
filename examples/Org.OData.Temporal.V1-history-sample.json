@@ -107,8 +107,8 @@
                         "TimeSliceStart": "history/From",
                         "TimeSliceEnd": "history/To"
                     },
-                    "Granularity": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate"
+                    "PeriodKind": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.PeriodKindDate"
                     },
                     "SupportedActions": [
                         "Temporal.Update",
@@ -124,8 +124,8 @@
                         "TimeSliceStart": "history/From",
                         "TimeSliceEnd": "history/To"
                     },
-                    "Granularity": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate"
+                    "PeriodKind": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.PeriodKindDate"
                     },
                     "SupportedActions": [
                         "Temporal.Update",

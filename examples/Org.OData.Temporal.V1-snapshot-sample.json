@@ -61,8 +61,8 @@
                     "CollectionKind": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.CollectionKindSnapshot"
                     },
-                    "Granularity": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate"
+                    "PeriodKind": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.PeriodKindDate"
                     }
                 }
             },
@@ -76,8 +76,8 @@
                     "CollectionKind": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.CollectionKindSnapshot"
                     },
-                    "Granularity": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.GranularityDate"
+                    "PeriodKind": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.PeriodKindDate"
                     }
                 }
             }

@@ -34,7 +34,7 @@
   - OData Extension for Data Aggregation Version 4.0. Latest version: http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
 
   Abstract:
-  This vocabulary defines terms to describe which data in a given entity model is time-dependent, and in which dimensions.
+  This vocabulary defines terms to describe which data in a given entity model is time-dependent, and how.
 
 -->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
@@ -78,8 +78,8 @@
         <Property Name="CollectionKind" Type="Temporal.CollectionKindType" Nullable="false">
           <Annotation Term="Core.Description" String="Kind of temporal collection" />
         </Property>
-        <Property Name="Granularity" Type="Temporal.GranularityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Application time granularity" />
+        <Property Name="PeriodKind" Type="Temporal.PeriodKindType" Nullable="false">
+          <Annotation Term="Core.Description" String="Kind of application time period" />
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
@@ -119,22 +119,21 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="GranularityType" Abstract="true">
-        <Annotation Term="Core.Description" String="Granularity of a time dimension" />
+      <ComplexType Name="PeriodKindType" Abstract="true">
+        <Annotation Term="Core.Description" String="Kind of a time period" />
       </ComplexType>
 
-      <ComplexType Name="GranularityDateTimeOffset" BaseType="Temporal.GranularityType">
-        <Annotation Term="Core.Description" String="Granularity of time dimension is DateTimeOffset" />
+      <ComplexType Name="PeriodKindDateTimeOffset" BaseType="Temporal.PeriodKindType">
+        <Annotation Term="Core.Description" String="Period start and end are of type Edm.DateTimeOffset" />
         <Property Name="Precision" Type="Edm.Byte" Nullable="false">
-          <Annotation Term="Core.Description" String="Precision of Edm.DateTimeOffset values for granularity DateTimeOffset" />
+          <Annotation Term="Core.Description" String="Precision of Edm.DateTimeOffset values for period start and end" />
         </Property>
       </ComplexType>
 
-      <ComplexType Name="GranularityDate" BaseType="Temporal.GranularityType">
-        <Annotation Term="Core.Description" String="Granularity of time dimension is Date" />
+      <ComplexType Name="PeriodKindDate" BaseType="Temporal.PeriodKindType">
+        <Annotation Term="Core.Description" String="Period start and end are of type Edm.Date" />
         <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Application-time periods are stored with closed-closed semantics" />
-          <Annotation Term="Core.LongDescription" String="If `true`, the value of the property referenced by `TimeSliceEnd` is included in the time slice." />
+          <Annotation Term="Core.Description" String="If `true`, the period end is included in the time period" />
         </Property>
       </ComplexType>
 

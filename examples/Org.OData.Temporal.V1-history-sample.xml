@@ -62,8 +62,8 @@
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
               </Record>
             </PropertyValue>
-            <PropertyValue Property="Granularity">
-              <Record Type="Temporal.GranularityDate" />
+            <PropertyValue Property="PeriodKind">
+              <Record Type="Temporal.PeriodKindDate" />
             </PropertyValue>
             <PropertyValue Property="SupportedActions">
               <Collection>
@@ -85,8 +85,8 @@
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
               </Record>
             </PropertyValue>
-            <PropertyValue Property="Granularity">
-              <Record Type="Temporal.GranularityDate" />
+            <PropertyValue Property="PeriodKind">
+              <Record Type="Temporal.PeriodKindDate" />
             </PropertyValue>
             <PropertyValue Property="SupportedActions">
               <Collection>
