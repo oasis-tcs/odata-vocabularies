@@ -17,13 +17,13 @@ Term|Type|Description
 
 ### <a name="Update"></a>[Update](Org.OData.Temporal.V1.xml#L149)
 
-Adds time slices to a time-slice entity set, splitting other time slices in case of overlap
+Adds time slices to a time-slice entity set, splitting and updating other time slices in order to avoid overlap
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L151)**|\[EntityType\]|**Binding parameter:** Collection of time slices to which new time slices are added
-[newTimeslices](Org.OData.Temporal.V1.xml#L154)|\[EntityType\]|Time slices to be added into the collection<br>Same entity type as binding parameter
-[&rarr;](Org.OData.Temporal.V1.xml#L158)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter
+**[timeslices](Org.OData.Temporal.V1.xml#L151)**|\[EntityType\]|**Binding parameter:** Collection of all time slices with given non-temporal key properties
+[newTimeslices](Org.OData.Temporal.V1.xml#L154)|\[EntityType\]|Time slices with the same non-temporal key properties to be merged into the `timeslices` collection<br>Same entity type as binding parameter.
+[&rarr;](Org.OData.Temporal.V1.xml#L158)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
 
 
 ### <a name="Upsert"></a>[Upsert](Org.OData.Temporal.V1.xml#L164)
@@ -116,10 +116,10 @@ The point in application time is defined by the `$at` clause of a request; defau
 ## <a name="CollectionKindTimeSlice"></a>[CollectionKindTimeSlice](Org.OData.Temporal.V1.xml#L104): [CollectionKindType](#CollectionKindType)
 Each OData entity represents data during an interval of application time; it is called a *time slice*
 
-An entity in a temporal collection of this kind and an instance of the same entity type are said to *overlap*
+Entities in a temporal collection of this kind are said to *overlap*
           if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap
-          and their other ("non-temporal") key properties are identical.
-          A temporal collection of this kind MUST NOT contain overlapping entities from the same entity set;
+          and their other, *non-temporal*, key properties are identical.
+          A temporal collection of this kind MUST NOT contain overlapping entities;
           and if it contains an entity, it MUST contain all entities from the same entity set
           that agree with the given one in their non-temporal key properties.
 

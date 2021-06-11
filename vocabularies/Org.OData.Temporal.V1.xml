@@ -104,10 +104,10 @@
       <ComplexType Name="CollectionKindTimeSlice" BaseType="Temporal.CollectionKindType">
         <Annotation Term="Core.Description" String="Each OData entity represents data during an interval of application time; it is called a *time slice*" />
         <Annotation Term="Core.LongDescription">
-          <String>An entity in a temporal collection of this kind and an instance of the same entity type are said to *overlap*
+          <String>Entities in a temporal collection of this kind are said to *overlap*
           if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap
-          and their other ("non-temporal") key properties are identical.
-          A temporal collection of this kind MUST NOT contain overlapping entities from the same entity set;
+          and their other, *non-temporal*, key properties are identical.
+          A temporal collection of this kind MUST NOT contain overlapping entities;
           and if it contains an entity, it MUST contain all entities from the same entity set
           that agree with the given one in their non-temporal key properties.</String>
         </Annotation>
@@ -147,17 +147,17 @@
       <!-- Operations on Temporal Objects -->
 
       <Action Name="Update" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Adds time slices to a time-slice entity set, splitting other time slices in case of overlap" />
+        <Annotation Term="Core.Description" String="Adds time slices to a time-slice entity set, splitting and updating other time slices in order to avoid overlap" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of time slices to which new time slices are added" />
+          <Annotation Term="Core.Description" String="Collection of all time slices with given non-temporal key properties" />
         </Parameter>
         <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Time slices to be added into the collection" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter" />
+          <Annotation Term="Core.Description" String="Time slices with the same non-temporal key properties to be merged into the `timeslices` collection" />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter" />
+          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
