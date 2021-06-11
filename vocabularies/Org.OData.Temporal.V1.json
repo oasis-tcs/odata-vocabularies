@@ -67,12 +67,14 @@
         "CollectionKindSnapshot": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.CollectionKindType",
-            "@Core.Description": "Each OData entity corresponds to a temporal object and by default only shows data of the current time slice"
+            "@Core.Description": "Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection",
+            "@Core.LongDescription": "The point in application time is defined by the `$at` clause of a request; default is the current point in time."
         },
         "CollectionKindTimeSlice": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.CollectionKindType",
-            "@Core.Description": "Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection",
+            "@Core.Description": "Each OData entity represents data during an interval of application time; it is called a *time slice*",
+            "@Core.LongDescription": "An entity in a temporal collection of this kind and an instance of the same entity type are said to *overlap*\n          if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap\n          and their other (\"non-temporal\") key properties are identical.\n          A temporal collection of this kind MUST NOT contain overlapping entities from the same entity set;\n          and if it contains an entity, it MUST contain all entities from the same entity set\n          that agree with the given one in their non-temporal key properties.",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing lower boundary of a time slice"
@@ -118,7 +120,6 @@
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
                 "@Core.Description": "Adds time slices to a time-slice entity set, splitting other time slices in case of overlap",
-                "@Core.LongDescription": "Two time slices of the same time-slice entity set overlap if the intervals defined by their [`Temporal.CollectionKindTimeSlice/TimeSliceStart`](#CollectionKindTimeSlice) and\n          `Temporal.CollectionKindTimeSlice/TimeSliceEnd` properties overlap and their other key properties are identical.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
