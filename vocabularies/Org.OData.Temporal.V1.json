@@ -74,7 +74,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.CollectionKindType",
             "@Core.Description": "Each OData entity represents data during an interval of application time; it is called a *time slice*",
-            "@Core.LongDescription": "Entities in a temporal collection of this kind are said to *overlap*\n          if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap\n          and their other, *non-temporal*, key properties are identical.\n          A temporal collection of this kind MUST NOT contain overlapping entities;\n          and if it contains an entity, it MUST contain all entities\n          that agree with the given one in their non-temporal key properties.",
+            "@Core.LongDescription": "Entities in a temporal collection of this kind are said to *overlap*\n          if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap\n          and their other, *non-temporal*, key properties are identical.\n          A temporal collection of this kind MUST NOT contain overlapping entities;\n          and it contains with every entity all entities\n          that agree with the given one in their non-temporal key properties.",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing lower boundary of a time slice"

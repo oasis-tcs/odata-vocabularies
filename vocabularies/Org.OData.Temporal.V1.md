@@ -120,7 +120,7 @@ Entities in a temporal collection of this kind are said to *overlap*
           if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap
           and their other, *non-temporal*, key properties are identical.
           A temporal collection of this kind MUST NOT contain overlapping entities;
-          and if it contains an entity, it MUST contain all entities
+          and it contains with every entity all entities
           that agree with the given one in their non-temporal key properties.
 
 Property|Type|Description
