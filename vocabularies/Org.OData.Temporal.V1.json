@@ -118,19 +118,19 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Adds time slices to a time-slice entity set, splitting and updating other time slices in order to avoid overlap",
+                "@Core.Description": "Adds time slices to a time-slice collection, splitting and updating other time slices in order to avoid overlap",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Collection of all time slices with given non-temporal key properties"
+                        "@Core.Description": "Collection of time slices to be updated with additional time slices"
                     },
                     {
                         "$Name": "newTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Time slices with the same non-temporal key properties to be merged into the `timeslices` collection",
+                        "@Core.Description": "Time slices to be merged into the `timeslices` collection",
                         "@Core.LongDescription": "Same entity type as binding parameter."
                     }
                 ],

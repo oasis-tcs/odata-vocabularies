@@ -17,12 +17,12 @@ Term|Type|Description
 
 ### <a name="Update"></a>[Update](Org.OData.Temporal.V1.xml#L149)
 
-Adds time slices to a time-slice entity set, splitting and updating other time slices in order to avoid overlap
+Adds time slices to a time-slice collection, splitting and updating other time slices in order to avoid overlap
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L151)**|\[EntityType\]|**Binding parameter:** Collection of all time slices with given non-temporal key properties
-[newTimeslices](Org.OData.Temporal.V1.xml#L154)|\[EntityType\]|Time slices with the same non-temporal key properties to be merged into the `timeslices` collection<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L151)**|\[EntityType\]|**Binding parameter:** Collection of time slices to be updated with additional time slices
+[newTimeslices](Org.OData.Temporal.V1.xml#L154)|\[EntityType\]|Time slices to be merged into the `timeslices` collection<br>Same entity type as binding parameter.
 [&rarr;](Org.OData.Temporal.V1.xml#L158)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
 
 

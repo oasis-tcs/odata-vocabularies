@@ -147,12 +147,12 @@
       <!-- Operations on Temporal Objects -->
 
       <Action Name="Update" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Adds time slices to a time-slice entity set, splitting and updating other time slices in order to avoid overlap" />
+        <Annotation Term="Core.Description" String="Adds time slices to a time-slice collection, splitting and updating other time slices in order to avoid overlap" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of all time slices with given non-temporal key properties" />
+          <Annotation Term="Core.Description" String="Collection of time slices to be updated with additional time slices" />
         </Parameter>
         <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Time slices with the same non-temporal key properties to be merged into the `timeslices` collection" />
+          <Annotation Term="Core.Description" String="Time slices to be merged into the `timeslices` collection" />
           <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
