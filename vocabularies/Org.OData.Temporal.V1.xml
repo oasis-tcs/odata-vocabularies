@@ -152,13 +152,13 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="newValues" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Partial time slices whose property values are used to update the `timeslices` collection" />
+        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="New time slices whose property values are used to update the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
-            The partial time slices need not contain all properties, but at least the boundary values of the interval to change.
+            The new time slices need not contain all properties, but at least the boundary values of the interval to change.
             An absent object key property matches any key property value.
-            Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap.</String>
+            New time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap.</String>
           </Annotation>
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
