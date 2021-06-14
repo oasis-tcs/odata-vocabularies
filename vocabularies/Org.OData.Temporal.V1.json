@@ -74,7 +74,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.CollectionKindType",
             "@Core.Description": "Each OData entity represents data during an interval of application time; it is called a *time slice*",
-            "@Core.LongDescription": "Entities in a temporal collection of this kind are said to *overlap*\n          if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap\n          and their other, *non-temporal*, key properties are identical.\n          A temporal collection of this kind MUST NOT contain overlapping entities;\n          and it contains with every entity all entities\n          that agree with the given one in their non-temporal key properties.",
+            "@Core.LongDescription": "A temporal collection of this kind MUST NOT contain two entities with the same\n          [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType) whose intervals\n          defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;\n          and it always contains all entities (with consecutive intervals) for a given `ObjectKey`.",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing lower boundary of a time slice"
@@ -118,21 +118,21 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates existing time slices with values from new time slices where the latter overlap the former",
+                "@Core.Description": "Updates existing time slices with values from new time slices whose [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType)s match and whose intervals overlap",
                 "@Core.LongDescription": "(Splitting of existing time slices will be explained here.)",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Collection of time slices to be updated"
+                        "@Core.Description": "Time slices to modify"
                     },
                     {
                         "$Name": "newValues",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "Partial time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The partial time slices need not contain all properties, but at least the boundary values of the interval to change.\n            An absent non-temporal key property matches any key property value.\n            Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The partial time slices need not contain all properties, but at least the boundary values of the interval to change.\n            An absent object key property matches any key property value.\n            Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap."
                     }
                 ],
                 "$ReturnType": {

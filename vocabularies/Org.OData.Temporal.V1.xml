@@ -104,12 +104,10 @@
       <ComplexType Name="CollectionKindTimeSlice" BaseType="Temporal.CollectionKindType">
         <Annotation Term="Core.Description" String="Each OData entity represents data during an interval of application time; it is called a *time slice*" />
         <Annotation Term="Core.LongDescription">
-          <String>Entities in a temporal collection of this kind are said to *overlap*
-          if the intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap
-          and their other, *non-temporal*, key properties are identical.
-          A temporal collection of this kind MUST NOT contain overlapping entities;
-          and it contains with every entity all entities
-          that agree with the given one in their non-temporal key properties.</String>
+          <String>A temporal collection of this kind MUST NOT contain two entities with the same
+          [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType) whose intervals
+          defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
+          and it always contains all entities (with consecutive intervals) for a given `ObjectKey`.</String>
         </Annotation>
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
@@ -147,19 +145,19 @@
       <!-- Operations on Temporal Objects -->
 
       <Action Name="Update" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Updates existing time slices with values from new time slices where the latter overlap the former" />
+        <Annotation Term="Core.Description" String="Updates existing time slices with values from new time slices whose [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType)s match and whose intervals overlap" />
         <Annotation Term="Core.LongDescription">
           <String>(Splitting of existing time slices will be explained here.)</String>
         </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Collection of time slices to be updated" />
+          <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
         <Parameter Name="newValues" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Partial time slices whose property values are used to update the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
             The partial time slices need not contain all properties, but at least the boundary values of the interval to change.
-            An absent non-temporal key property matches any key property value.
+            An absent object key property matches any key property value.
             Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap.</String>
           </Annotation>
         </Parameter>
