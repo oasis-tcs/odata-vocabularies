@@ -131,8 +131,8 @@
                         "$Name": "newValues",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Non-overlapping time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter."
+                        "@Core.Description": "Partial time slices whose property values are used to update the `timeslices` collection",
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The partial time slices need not contain all properties, but at least the boundary values of the interval to change.\n            They are processed in the order of the collection, which especially matters if some of the specified change intervals overlap."
                     }
                 ],
                 "$ReturnType": {
