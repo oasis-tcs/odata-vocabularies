@@ -107,7 +107,7 @@
           <String>A temporal collection of this kind MUST NOT contain two entities with the same
           [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType) whose intervals
           defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
-          and it always contains all entities (with consecutive intervals) for a given `ObjectKey`.</String>
+          and it always contains all entities (with consecutive intervals) for a given object key.</String>
         </Annotation>
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />

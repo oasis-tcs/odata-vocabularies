@@ -121,7 +121,7 @@ Each OData entity represents data during an interval of application time; it is 
 A temporal collection of this kind MUST NOT contain two entities with the same
           [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType) whose intervals
           defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
-          and it always contains all entities (with consecutive intervals) for a given `ObjectKey`.
+          and it always contains all entities (with consecutive intervals) for a given object key.
 
 Property|Type|Description
 :-------|:---|:----------
