@@ -132,7 +132,7 @@
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "Partial time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The partial time slices need not contain all properties, but at least the boundary values of the interval to change.\n            An absent non-temporal key property overlaps any key property value.\n            Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The partial time slices need not contain all properties, but at least the boundary values of the interval to change.\n            An absent non-temporal key property matches any key property value.\n            Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap."
                     }
                 ],
                 "$ReturnType": {

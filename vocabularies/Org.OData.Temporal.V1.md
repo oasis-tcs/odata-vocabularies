@@ -24,7 +24,7 @@ Updates existing time slices with values from new time slices where the latter o
 Parameter|Type|Description
 :--------|:---|:----------
 **[timeslices](Org.OData.Temporal.V1.xml#L154)**|\[EntityType\]|**Binding parameter:** Collection of time slices to be updated
-[newValues](Org.OData.Temporal.V1.xml#L157)|\[EntityType\]|Partial time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The partial time slices need not contain all properties, but at least the boundary values of the interval to change. An absent non-temporal key property overlaps any key property value. Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap.
+[newValues](Org.OData.Temporal.V1.xml#L157)|\[EntityType\]|Partial time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The partial time slices need not contain all properties, but at least the boundary values of the interval to change. An absent non-temporal key property matches any key property value. Partial time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap.
 [&rarr;](Org.OData.Temporal.V1.xml#L166)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
 
 
