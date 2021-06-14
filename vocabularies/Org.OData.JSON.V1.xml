@@ -64,7 +64,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="Property">
+      <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="Parameter Property ReturnType Term TypeDefinition">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         <Annotation Term="Core.Description" String="The JSON Schema for this JSON property" />
         <Annotation Term="Core.LongDescription">

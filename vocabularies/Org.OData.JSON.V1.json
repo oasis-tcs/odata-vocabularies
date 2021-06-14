@@ -31,7 +31,11 @@
             "$Kind": "Term",
             "$Type": "JSON.JSON",
             "$AppliesTo": [
-                "Property"
+                "Parameter",
+                "Property",
+                "ReturnType",
+                "Term",
+                "TypeDefinition"
             ],
             "@Core.RequiresType": "Edm.Stream",
             "@Core.Description": "The JSON Schema for this JSON property",
