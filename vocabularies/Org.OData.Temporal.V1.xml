@@ -101,7 +101,7 @@
         <Annotation Term="Core.Description" String="Each OData entity represents data during a period of application time; it is called a *time slice*" />
         <Annotation Term="Core.LongDescription">
           <String>A temporal collection of this kind MUST NOT contain two entities with the same
-          `ObjectKey` whose application-time defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
+          `ObjectKey` whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
           and it always contains all entities (with consecutive time periods) for a given object key.</String>
         </Annotation>
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
