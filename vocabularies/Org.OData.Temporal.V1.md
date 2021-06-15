@@ -119,7 +119,7 @@ The point in application time is defined by the `$at` clause of a request; defau
 Each OData entity represents data during a period of application time; it is called a *time slice*
 
 A temporal collection of this kind MUST NOT contain two entities with the same
-          `ObjectKey` whose application-time defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
+          `ObjectKey` whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
           and it always contains all entities (with consecutive time periods) for a given object key.
 
 Property|Type|Description
