@@ -96,6 +96,7 @@
 
       <ComplexType Name="CollectionKindSnapshot" BaseType="Temporal.CollectionKindType">
         <Annotation Term="Core.Description" String="Each OData entity corresponds to a temporal object and by default only shows data of the current time slice" />
+        <Annotation Term="Core.LongDescription" String="Each OData entity is uniquely identified by its [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType)" />
       </ComplexType>
 
       <ComplexType Name="CollectionKindTimeSlice" BaseType="Temporal.CollectionKindType">
