@@ -39,13 +39,13 @@
         },
         "ApplicationTimeSupportType": {
             "$Kind": "ComplexType",
-            "CollectionKind": {
-                "$Type": "Temporal.CollectionKindType",
-                "@Core.Description": "Kind of temporal collection"
+            "DataHistory": {
+                "$Type": "Temporal.DataHistory",
+                "@Core.Description": "Describes how the data history is represented"
             },
-            "PeriodKind": {
-                "$Type": "Temporal.PeriodKindType",
-                "@Core.Description": "Kind of application time period"
+            "UnitOfTime": {
+                "$Type": "Temporal.UnitOfTime",
+                "@Core.Description": "Unit of time and other properties of a time period"
             },
             "SupportedActions": {
                 "$Collection": true,
@@ -53,20 +53,22 @@
                 "@Core.Description": "List of supported temporal actions"
             }
         },
-        "CollectionKindType": {
+        "DataHistory": {
             "$Kind": "ComplexType",
             "$Abstract": true,
-            "@Core.Description": "Kind of temporal collection"
+            "@Core.Description": "Describes how the data history is represented"
         },
-        "CollectionKindSnapshot": {
+        "DataHistorySnapshot ": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.CollectionKindType",
-            "@Core.Description": "Each OData entity corresponds to a temporal object and by default only shows data of the current time slice"
+            "$BaseType": "Temporal.DataHistory",
+            "@Core.Description": "Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection",
+            "@Core.LongDescription": "The point in application time is defined by the `$at` clause of a request; default is the current point in time."
         },
-        "CollectionKindTimeSlice": {
+        "DataHistoryVisible ": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.CollectionKindType",
-            "@Core.Description": "Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection",
+            "$BaseType": "Temporal.DataHistory",
+            "@Core.Description": "Each OData entity represents data during a period of application time; it is called a *time slice*",
+            "@Core.LongDescription": "A temporal collection of this kind MUST NOT contain two entities with the same\n          `ObjectKey` whose application-time defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;\n          and it always contains all entities (with consecutive time periods) for a given object key.",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing lower boundary of a time slice"
@@ -82,23 +84,23 @@
                 "@Core.LongDescription": "A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection."
             }
         },
-        "PeriodKindType": {
+        "UnitOfTime": {
             "$Kind": "ComplexType",
             "$Abstract": true,
-            "@Core.Description": "Kind of a time period"
+            "@Core.Description": "Unit of time and other properties of a time period"
         },
-        "PeriodKindDateTimeOffset": {
+        "UnitOfTimeDateTimeOffset": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.PeriodKindType",
+            "$BaseType": "Temporal.UnitOfTime",
             "@Core.Description": "Period start and end are of type Edm.DateTimeOffset",
             "Precision": {
                 "$Type": "Edm.Byte",
                 "@Core.Description": "Precision of Edm.DateTimeOffset values for period start and end"
             }
         },
-        "PeriodKindDate": {
+        "UnitOfTimeDate": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.PeriodKindType",
+            "$BaseType": "Temporal.UnitOfTime",
             "@Core.Description": "Period start and end are of type Edm.Date",
             "ClosedClosedPeriods": {
                 "$Type": "Edm.Boolean",

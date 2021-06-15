@@ -34,11 +34,11 @@
           <NavigationPropertyBinding Path="Department" Target="Departments" />
           <Annotation Term="Temporal.ApplicationTimeSupport">
             <Record>
-              <PropertyValue Property="CollectionKind">
-                <Record Type="Temporal.CollectionKindSnapshot" />
+              <PropertyValue Property="DataHistory">
+                <Record Type="Temporal.DataHistorySnapshot" />
               </PropertyValue>
-              <PropertyValue Property="PeriodKind">
-                <Record Type="Temporal.PeriodKindDate" />
+              <PropertyValue Property="UnitOfTime">
+                <Record Type="Temporal.UnitOfTimeDate" />
               </PropertyValue>
             </Record>
           </Annotation>
@@ -48,11 +48,11 @@
           <NavigationPropertyBinding Path="Employees" Target="Employees" />
           <Annotation Term="Temporal.ApplicationTimeSupport">
             <Record>
-              <PropertyValue Property="CollectionKind">
-                <Record Type="Temporal.CollectionKindSnapshot" />
+              <PropertyValue Property="DataHistory">
+                <Record Type="Temporal.DataHistorySnapshot" />
               </PropertyValue>
-              <PropertyValue Property="PeriodKind">
-                <Record Type="Temporal.PeriodKindDate" />
+              <PropertyValue Property="UnitOfTime">
+                <Record Type="Temporal.UnitOfTimeDate" />
               </PropertyValue>
             </Record>
           </Annotation>

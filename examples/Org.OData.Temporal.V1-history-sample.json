@@ -102,13 +102,13 @@
         "$Annotations": {
             "OrgModel.Default/Employees/history": {
                 "@Temporal.ApplicationTimeSupport": {
-                    "CollectionKind": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.CollectionKindTimeSlice",
+                    "DataHistory": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
                         "TimeSliceStart": "history/From",
                         "TimeSliceEnd": "history/To"
                     },
-                    "PeriodKind": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.PeriodKindDate"
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     },
                     "SupportedActions": [
                         "Temporal.Update",
@@ -119,13 +119,13 @@
             },
             "OrgModel.Default/Departments/history": {
                 "@Temporal.ApplicationTimeSupport": {
-                    "CollectionKind": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.CollectionKindTimeSlice",
+                    "DataHistory": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
                         "TimeSliceStart": "history/From",
                         "TimeSliceEnd": "history/To"
                     },
-                    "PeriodKind": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.PeriodKindDate"
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     },
                     "SupportedActions": [
                         "Temporal.Update",

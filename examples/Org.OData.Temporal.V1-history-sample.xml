@@ -56,14 +56,14 @@
       <Annotations Target="OrgModel.Default/Employees/history">
         <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
-            <PropertyValue Property="CollectionKind">
-              <Record Type="Temporal.CollectionKindTimeSlice">
+            <PropertyValue Property="DataHistory">
+              <Record Type="Temporal.DataHistoryTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
               </Record>
             </PropertyValue>
-            <PropertyValue Property="PeriodKind">
-              <Record Type="Temporal.PeriodKindDate" />
+            <PropertyValue Property="UnitOfTime">
+              <Record Type="Temporal.UnitOfTimeDate" />
             </PropertyValue>
             <PropertyValue Property="SupportedActions">
               <Collection>
@@ -79,14 +79,14 @@
       <Annotations Target="OrgModel.Default/Departments/history">
         <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
-            <PropertyValue Property="CollectionKind">
-              <Record Type="Temporal.CollectionKindTimeSlice">
+            <PropertyValue Property="DataHistory">
+              <Record Type="Temporal.DataHistoryTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
               </Record>
             </PropertyValue>
-            <PropertyValue Property="PeriodKind">
-              <Record Type="Temporal.PeriodKindDate" />
+            <PropertyValue Property="UnitOfTime">
+              <Record Type="Temporal.UnitOfTimeDate" />
             </PropertyValue>
             <PropertyValue Property="SupportedActions">
               <Collection>
