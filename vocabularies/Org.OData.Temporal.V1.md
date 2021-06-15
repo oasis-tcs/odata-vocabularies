@@ -107,15 +107,15 @@ Property|Type|Description
 Describes how the data history is represented
 
 **Derived Types:**
-- [DataHistorySnapshot ](#DataHistorySnapshot )
-- [DataHistoryVisible ](#DataHistoryVisible )
+- [DataHistorySnapshot](#DataHistorySnapshot)
+- [DataHistoryVisible](#DataHistoryVisible)
 
-## <a name="DataHistorySnapshot "></a>[DataHistorySnapshot ](Org.OData.Temporal.V1.xml#L93): [DataHistory](#DataHistory)
+## <a name="DataHistorySnapshot"></a>[DataHistorySnapshot](Org.OData.Temporal.V1.xml#L93): [DataHistory](#DataHistory)
 Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection
 
 The point in application time is defined by the `$at` clause of a request; default is the current point in time.
 
-## <a name="DataHistoryVisible "></a>[DataHistoryVisible ](Org.OData.Temporal.V1.xml#L100): [DataHistory](#DataHistory)
+## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L100): [DataHistory](#DataHistory)
 Each OData entity represents data during a period of application time; it is called a *time slice*
 
 A temporal collection of this kind MUST NOT contain two entities with the same

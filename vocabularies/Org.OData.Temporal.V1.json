@@ -58,13 +58,13 @@
             "$Abstract": true,
             "@Core.Description": "Describes how the data history is represented"
         },
-        "DataHistorySnapshot ": {
+        "DataHistorySnapshot": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.DataHistory",
             "@Core.Description": "Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection",
             "@Core.LongDescription": "The point in application time is defined by the `$at` clause of a request; default is the current point in time."
         },
-        "DataHistoryVisible ": {
+        "DataHistoryVisible": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.DataHistory",
             "@Core.Description": "Each OData entity represents data during a period of application time; it is called a *time slice*",
