@@ -70,7 +70,7 @@
       <Term Name="ApplicationTimeSupport" Type="Temporal.ApplicationTimeSupportType" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
-          <String>This entity set or navigation property supports temporal requests</String>
+          <String>This collection supports temporal requests</String>
         </Annotation>
       </Term>
 
@@ -83,7 +83,7 @@
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
-          <Annotation Term="Core.LongDescription" String="A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated collection are time slices of potentially multiple temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the annotated collection only contains time slices for a single one temporal object." />
+          <Annotation Term="Core.LongDescription" String="A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection." />
         </Property>
         <Property Name="SupportedActions" Type="Collection(Temporal.QualifiedActionName)" Nullable="false">
           <Annotation Term="Core.Description" String="List of supported temporal actions" />
