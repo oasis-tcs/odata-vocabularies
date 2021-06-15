@@ -91,11 +91,19 @@
       </ComplexType>
 
       <ComplexType Name="CollectionKindSnapshot" BaseType="Temporal.CollectionKindType">
-        <Annotation Term="Core.Description" String="Each OData entity corresponds to a temporal object and by default only shows data of the current time slice" />
+        <Annotation Term="Core.Description" String="Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection" />
+        <Annotation Term="Core.LongDescription">
+          <String>The point in application time is defined by the `$at` clause of a request; default is the current point in time.</String>
+        </Annotation>
       </ComplexType>
 
       <ComplexType Name="CollectionKindTimeSlice" BaseType="Temporal.CollectionKindType">
-        <Annotation Term="Core.Description" String="Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection" />
+        <Annotation Term="Core.Description" String="Each OData entity represents data during an interval of application time; it is called a *time slice*" />
+        <Annotation Term="Core.LongDescription">
+          <String>A temporal collection of this kind MUST NOT contain two entities with the same
+          `ObjectKey` whose intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
+          and it always contains all entities (with consecutive intervals) for a given object key.</String>
+        </Annotation>
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
         </Property>
@@ -136,26 +144,22 @@
       <!-- Operations on Temporal Objects -->
 
       <Action Name="Update" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices" />
+        <Annotation Term="Core.Description" String="Updates existing time slices with values from new time slices whose [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType)s match and whose intervals overlap" />
+        <Annotation Term="Core.LongDescription">
+          <String>The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
+          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.</String>
+        </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
-        </Parameter>
-        <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
-        </Parameter>
-        <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Property values to update" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
-        </Parameter>
-        <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.OptionalParameter">
-            <Record />
+        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="New time slices whose property values are used to update the `timeslices` collection" />
+          <Annotation Term="Core.LongDescription">
+            <String>Same entity type as binding parameter.
+            The new time slices need not contain all properties, but at least the boundary values of the interval to change.
+            An absent object key property matches any key property value.
+            New time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap.</String>
           </Annotation>
-          <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
