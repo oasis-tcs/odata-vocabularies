@@ -99,28 +99,28 @@ Parameter|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[CollectionKind](Org.OData.Temporal.V1.xml#L78)|[CollectionKindType](#CollectionKindType)|Kind of temporal collection
-[PeriodKind](Org.OData.Temporal.V1.xml#L81)|[PeriodKindType](#PeriodKindType)|Kind of application time period
+[DataHistory](Org.OData.Temporal.V1.xml#L78)|[DataHistory](#DataHistory)|Describes how the data history is represented
+[UnitOfTime](Org.OData.Temporal.V1.xml#L81)|[UnitOfTime](#UnitOfTime)|Unit of time and other properties of a time period
 [SupportedActions](Org.OData.Temporal.V1.xml#L84)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
 
-## <a name="CollectionKindType"></a>[*CollectionKindType*](Org.OData.Temporal.V1.xml#L89)
-Kind of temporal collection
+## <a name="DataHistory"></a>[*DataHistory*](Org.OData.Temporal.V1.xml#L89)
+Describes how the data history is represented
 
 **Derived Types:**
-- [CollectionKindSnapshot](#CollectionKindSnapshot)
-- [CollectionKindTimeSlice](#CollectionKindTimeSlice)
+- [DataHistorySnapshot](#DataHistorySnapshot)
+- [DataHistoryVisible](#DataHistoryVisible)
 
-## <a name="CollectionKindSnapshot"></a>[CollectionKindSnapshot](Org.OData.Temporal.V1.xml#L93): [CollectionKindType](#CollectionKindType)
+## <a name="DataHistorySnapshot"></a>[DataHistorySnapshot](Org.OData.Temporal.V1.xml#L93): [DataHistory](#DataHistory)
 Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection
 
 The point in application time is defined by the `$at` clause of a request; default is the current point in time.
 
-## <a name="CollectionKindTimeSlice"></a>[CollectionKindTimeSlice](Org.OData.Temporal.V1.xml#L100): [CollectionKindType](#CollectionKindType)
-Each OData entity represents data during an interval of application time; it is called a *time slice*
+## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L100): [DataHistory](#DataHistory)
+Each OData entity represents data during a period of application time; it is called a *time slice*
 
 A temporal collection of this kind MUST NOT contain two entities with the same
-          `ObjectKey` whose intervals defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
-          and it always contains all entities (with consecutive intervals) for a given object key.
+          `ObjectKey` whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
+          and it always contains all entities (with consecutive time periods) for a given object key.
 
 Property|Type|Description
 :-------|:---|:----------
@@ -128,21 +128,21 @@ Property|Type|Description
 [TimeSliceEnd](Org.OData.Temporal.V1.xml#L110)|PropertyPath|Property containing upper boundary of a time slice
 [ObjectKey](Org.OData.Temporal.V1.xml#L113)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 
-## <a name="PeriodKindType"></a>[*PeriodKindType*](Org.OData.Temporal.V1.xml#L119)
-Kind of a time period
+## <a name="UnitOfTime"></a>[*UnitOfTime*](Org.OData.Temporal.V1.xml#L119)
+Unit of time and other properties of a time period
 
 **Derived Types:**
-- [PeriodKindDateTimeOffset](#PeriodKindDateTimeOffset)
-- [PeriodKindDate](#PeriodKindDate)
+- [UnitOfTimeDateTimeOffset](#UnitOfTimeDateTimeOffset)
+- [UnitOfTimeDate](#UnitOfTimeDate)
 
-## <a name="PeriodKindDateTimeOffset"></a>[PeriodKindDateTimeOffset](Org.OData.Temporal.V1.xml#L123): [PeriodKindType](#PeriodKindType)
+## <a name="UnitOfTimeDateTimeOffset"></a>[UnitOfTimeDateTimeOffset](Org.OData.Temporal.V1.xml#L123): [UnitOfTime](#UnitOfTime)
 Period start and end are of type Edm.DateTimeOffset
 
 Property|Type|Description
 :-------|:---|:----------
 [Precision](Org.OData.Temporal.V1.xml#L125)|Byte|Precision of Edm.DateTimeOffset values for period start and end
 
-## <a name="PeriodKindDate"></a>[PeriodKindDate](Org.OData.Temporal.V1.xml#L130): [PeriodKindType](#PeriodKindType)
+## <a name="UnitOfTimeDate"></a>[UnitOfTimeDate](Org.OData.Temporal.V1.xml#L130): [UnitOfTime](#UnitOfTime)
 Period start and end are of type Edm.Date
 
 Property|Type|Description
