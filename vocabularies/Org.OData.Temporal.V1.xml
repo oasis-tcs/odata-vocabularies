@@ -90,14 +90,14 @@
         <Annotation Term="Core.Description" String="Describes how the data history is represented" />
       </ComplexType>
 
-      <ComplexType Name="DataHistorySnapshot " BaseType="Temporal.DataHistory">
+      <ComplexType Name="DataHistorySnapshot" BaseType="Temporal.DataHistory">
         <Annotation Term="Core.Description" String="Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection" />
         <Annotation Term="Core.LongDescription">
           <String>The point in application time is defined by the `$at` clause of a request; default is the current point in time.</String>
         </Annotation>
       </ComplexType>
 
-      <ComplexType Name="DataHistoryVisible " BaseType="Temporal.DataHistory">
+      <ComplexType Name="DataHistoryVisible" BaseType="Temporal.DataHistory">
         <Annotation Term="Core.Description" String="Each OData entity represents data during a period of application time; it is called a *time slice*" />
         <Annotation Term="Core.LongDescription">
           <String>A temporal collection of this kind MUST NOT contain two entities with the same
