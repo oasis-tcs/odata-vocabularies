@@ -10,7 +10,7 @@ Terms for describing time-dependent data
 
 Term|Type|Description
 :---|:---|:----------
-[ApplicationTimeSupport](Org.OData.Temporal.V1.xml#L70)|[ApplicationTimeSupportType](#ApplicationTimeSupportType)|<a name="ApplicationTimeSupport"></a>This entity set or navigation property supports temporal requests
+[ApplicationTimeSupport](Org.OData.Temporal.V1.xml#L70)|[ApplicationTimeSupportType](#ApplicationTimeSupportType)|<a name="ApplicationTimeSupport"></a>This collection supports temporal requests
 
 
 ## Actions
@@ -101,26 +101,26 @@ Property|Type|Description
 :-------|:---|:----------
 [CollectionKind](Org.OData.Temporal.V1.xml#L78)|[CollectionKindType](#CollectionKindType)|Kind of temporal collection
 [PeriodKind](Org.OData.Temporal.V1.xml#L81)|[PeriodKindType](#PeriodKindType)|Kind of application time period
-[ObjectKey](Org.OData.Temporal.V1.xml#L84)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated collection are time slices of potentially multiple temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the annotated collection only contains time slices for a single one temporal object.
-[SupportedActions](Org.OData.Temporal.V1.xml#L88)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
+[SupportedActions](Org.OData.Temporal.V1.xml#L84)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
 
-## <a name="CollectionKindType"></a>[*CollectionKindType*](Org.OData.Temporal.V1.xml#L93)
+## <a name="CollectionKindType"></a>[*CollectionKindType*](Org.OData.Temporal.V1.xml#L89)
 Kind of temporal collection
 
 **Derived Types:**
 - [CollectionKindSnapshot](#CollectionKindSnapshot)
 - [CollectionKindTimeSlice](#CollectionKindTimeSlice)
 
-## <a name="CollectionKindSnapshot"></a>[CollectionKindSnapshot](Org.OData.Temporal.V1.xml#L97): [CollectionKindType](#CollectionKindType)
+## <a name="CollectionKindSnapshot"></a>[CollectionKindSnapshot](Org.OData.Temporal.V1.xml#L93): [CollectionKindType](#CollectionKindType)
 Each OData entity corresponds to a temporal object and by default only shows data of the current time slice
 
-## <a name="CollectionKindTimeSlice"></a>[CollectionKindTimeSlice](Org.OData.Temporal.V1.xml#L101): [CollectionKindType](#CollectionKindType)
+## <a name="CollectionKindTimeSlice"></a>[CollectionKindTimeSlice](Org.OData.Temporal.V1.xml#L97): [CollectionKindType](#CollectionKindType)
 Each OData entity corresponds to a time slice and all time slices of a temporal object are part of the collection
 
 Property|Type|Description
 :-------|:---|:----------
-[TimeSliceStart](Org.OData.Temporal.V1.xml#L103)|PropertyPath|Property containing lower boundary of a time slice
-[TimeSliceEnd](Org.OData.Temporal.V1.xml#L106)|PropertyPath|Property containing upper boundary of a time slice
+[TimeSliceStart](Org.OData.Temporal.V1.xml#L99)|PropertyPath|Property containing lower boundary of a time slice
+[TimeSliceEnd](Org.OData.Temporal.V1.xml#L102)|PropertyPath|Property containing upper boundary of a time slice
+[ObjectKey](Org.OData.Temporal.V1.xml#L105)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 
 ## <a name="PeriodKindType"></a>[*PeriodKindType*](Org.OData.Temporal.V1.xml#L111)
 Kind of a time period

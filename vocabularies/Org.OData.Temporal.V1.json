@@ -35,7 +35,7 @@
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
-            "@Core.Description": "This entity set or navigation property supports temporal requests"
+            "@Core.Description": "This collection supports temporal requests"
         },
         "ApplicationTimeSupportType": {
             "$Kind": "ComplexType",
@@ -46,12 +46,6 @@
             "PeriodKind": {
                 "$Type": "Temporal.PeriodKindType",
                 "@Core.Description": "Kind of application time period"
-            },
-            "ObjectKey": {
-                "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "The set of primitive properties that identify a temporal object",
-                "@Core.LongDescription": "A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated collection are time slices of potentially multiple temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the annotated collection only contains time slices for a single one temporal object."
             },
             "SupportedActions": {
                 "$Collection": true,
@@ -80,6 +74,12 @@
             "TimeSliceEnd": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing upper boundary of a time slice"
+            },
+            "ObjectKey": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "The set of primitive properties that identify a temporal object",
+                "@Core.LongDescription": "A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection."
             }
         },
         "PeriodKindType": {
