@@ -63,7 +63,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.DataHistory",
             "@Core.Description": "Each OData entity represents data during a period of application time; it is called a *time slice*",
-            "@Core.LongDescription": "The temporal collection MUST NOT contain two entities with the same temporal object key\n          whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;\n          and it always contains all entities (with consecutive time periods) for a given temporal object key.\n          The actions defined in this vocabulary MUST be invoked on collections with visible data history only.",
+            "@Core.LongDescription": "The temporal collection MUST NOT contain two entities with the same values in their `ObjectKey` properties\n          and whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;\n          and it always contains all entities (with consecutive time periods) for a given object key.\n          The actions defined in this vocabulary MUST be invoked on collections with visible data history only.",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing lower boundary of a time slice"
