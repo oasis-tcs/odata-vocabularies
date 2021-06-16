@@ -101,21 +101,20 @@ Property|Type|Description
 :-------|:---|:----------
 [DataHistory](Org.OData.Temporal.V1.xml#L78)|[DataHistory](#DataHistory)|Describes how the data history is represented
 [UnitOfTime](Org.OData.Temporal.V1.xml#L81)|[UnitOfTime](#UnitOfTime)|Unit of time and other properties of a time period
-[SupportedActions](Org.OData.Temporal.V1.xml#L84)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
 
-## <a name="DataHistory"></a>[*DataHistory*](Org.OData.Temporal.V1.xml#L89)
+## <a name="DataHistory"></a>[*DataHistory*](Org.OData.Temporal.V1.xml#L86)
 Describes how the data history is represented
 
 **Derived Types:**
 - [DataHistorySnapshot](#DataHistorySnapshot)
 - [DataHistoryVisible](#DataHistoryVisible)
 
-## <a name="DataHistorySnapshot"></a>[DataHistorySnapshot](Org.OData.Temporal.V1.xml#L93): [DataHistory](#DataHistory)
+## <a name="DataHistorySnapshot"></a>[DataHistorySnapshot](Org.OData.Temporal.V1.xml#L90): [DataHistory](#DataHistory)
 Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection
 
 The point in application time is defined by the `$at` clause of a request; default is the current point in time.
 
-## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L100): [DataHistory](#DataHistory)
+## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L97): [DataHistory](#DataHistory)
 Each OData entity represents data during a period of application time; it is called a *time slice*
 
 A temporal collection of this kind MUST NOT contain two entities with the same
@@ -125,9 +124,10 @@ A temporal collection of this kind MUST NOT contain two entities with the same
 
 Property|Type|Description
 :-------|:---|:----------
-[TimeSliceStart](Org.OData.Temporal.V1.xml#L108)|PropertyPath|Property containing lower boundary of a time slice
-[TimeSliceEnd](Org.OData.Temporal.V1.xml#L111)|PropertyPath|Property containing upper boundary of a time slice
-[ObjectKey](Org.OData.Temporal.V1.xml#L114)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
+[TimeSliceStart](Org.OData.Temporal.V1.xml#L105)|PropertyPath|Property containing lower boundary of a time slice
+[TimeSliceEnd](Org.OData.Temporal.V1.xml#L108)|PropertyPath|Property containing upper boundary of a time slice
+[ObjectKey](Org.OData.Temporal.V1.xml#L111)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
+[SupportedActions](Org.OData.Temporal.V1.xml#L115)|\[[QualifiedActionName](#QualifiedActionName)\]|List of supported temporal actions
 
 ## <a name="UnitOfTime"></a>[*UnitOfTime*](Org.OData.Temporal.V1.xml#L120)
 Unit of time and other properties of a time period
