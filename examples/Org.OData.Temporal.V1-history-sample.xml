@@ -60,17 +60,17 @@
               <Record Type="Temporal.DataHistoryTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
+                <PropertyValue Property="SupportedActions">
+                  <Collection>
+                    <String>Temporal.Update</String>
+                    <String>Temporal.Upsert</String>
+                    <String>Temporal.Delete</String>
+                  </Collection>
+                </PropertyValue>
               </Record>
             </PropertyValue>
             <PropertyValue Property="UnitOfTime">
               <Record Type="Temporal.UnitOfTimeDate" />
-            </PropertyValue>
-            <PropertyValue Property="SupportedActions">
-              <Collection>
-                <String>Temporal.Update</String>
-                <String>Temporal.Upsert</String>
-                <String>Temporal.Delete</String>
-              </Collection>
             </PropertyValue>
           </Record>
         </Annotation>
@@ -83,17 +83,17 @@
               <Record Type="Temporal.DataHistoryTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
                 <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
+                <PropertyValue Property="SupportedActions">
+                  <Collection>
+                    <String>Temporal.Update</String>
+                    <String>Temporal.Upsert</String>
+                    <String>Temporal.Delete</String>
+                  </Collection>
+                </PropertyValue>
               </Record>
             </PropertyValue>
             <PropertyValue Property="UnitOfTime">
               <Record Type="Temporal.UnitOfTimeDate" />
-            </PropertyValue>
-            <PropertyValue Property="SupportedActions">
-              <Collection>
-                <String>Temporal.Update</String>
-                <String>Temporal.Upsert</String>
-                <String>Temporal.Delete</String>
-              </Collection>
             </PropertyValue>
           </Record>
         </Annotation>

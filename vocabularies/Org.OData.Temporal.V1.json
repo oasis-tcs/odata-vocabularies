@@ -46,11 +46,6 @@
             "UnitOfTime": {
                 "$Type": "Temporal.UnitOfTime",
                 "@Core.Description": "Unit of time and other properties of a time period"
-            },
-            "SupportedActions": {
-                "$Collection": true,
-                "$Type": "Temporal.QualifiedActionName",
-                "@Core.Description": "List of supported temporal actions"
             }
         },
         "DataHistory": {
@@ -82,6 +77,11 @@
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "The set of primitive properties that identify a temporal object",
                 "@Core.LongDescription": "A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection."
+            },
+            "SupportedActions": {
+                "$Collection": true,
+                "$Type": "Temporal.QualifiedActionName",
+                "@Core.Description": "List of supported temporal actions"
             }
         },
         "UnitOfTime": {

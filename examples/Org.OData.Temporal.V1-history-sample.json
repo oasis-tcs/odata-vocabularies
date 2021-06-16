@@ -105,16 +105,16 @@
                     "DataHistory": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
                         "TimeSliceStart": "history/From",
-                        "TimeSliceEnd": "history/To"
+                        "TimeSliceEnd": "history/To",
+                        "SupportedActions": [
+                            "Temporal.Update",
+                            "Temporal.Upsert",
+                            "Temporal.Delete"
+                        ]
                     },
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
-                    },
-                    "SupportedActions": [
-                        "Temporal.Update",
-                        "Temporal.Upsert",
-                        "Temporal.Delete"
-                    ]
+                    }
                 }
             },
             "OrgModel.Default/Departments/history": {
@@ -122,16 +122,16 @@
                     "DataHistory": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
                         "TimeSliceStart": "history/From",
-                        "TimeSliceEnd": "history/To"
+                        "TimeSliceEnd": "history/To",
+                        "SupportedActions": [
+                            "Temporal.Update",
+                            "Temporal.Upsert",
+                            "Temporal.Delete"
+                        ]
                     },
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
-                    },
-                    "SupportedActions": [
-                        "Temporal.Update",
-                        "Temporal.Upsert",
-                        "Temporal.Delete"
-                    ]
+                    }
                 }
             }
         }
