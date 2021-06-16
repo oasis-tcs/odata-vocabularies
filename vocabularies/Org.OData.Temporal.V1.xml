@@ -97,10 +97,10 @@
       <ComplexType Name="DataHistoryVisible" BaseType="Temporal.DataHistory">
         <Annotation Term="Core.Description" String="Each OData entity represents data during a period of application time; it is called a *time slice*" />
         <Annotation Term="Core.LongDescription">
-          <String>A temporal collection of this kind MUST NOT contain two entities with the same
+          <String>The temporal collection MUST NOT contain two entities with the same
           `ObjectKey` whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
           and it always contains all entities (with consecutive time periods) for a given object key.
-          A collection MUST be of this kind if an action defined in this vocabulary is invoked on it.</String>
+          The actions defined in this vocabulary MUST be invoked on collections with visible data history only.</String>
         </Annotation>
         <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />

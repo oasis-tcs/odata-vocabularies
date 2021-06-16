@@ -117,10 +117,10 @@ The point in application time is defined by the `$at` clause of a request; defau
 ## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L97): [DataHistory](#DataHistory)
 Each OData entity represents data during a period of application time; it is called a *time slice*
 
-A temporal collection of this kind MUST NOT contain two entities with the same
+The temporal collection MUST NOT contain two entities with the same
           `ObjectKey` whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;
           and it always contains all entities (with consecutive time periods) for a given object key.
-          A collection MUST be of this kind if an action defined in this vocabulary is invoked on it.
+          The actions defined in this vocabulary MUST be invoked on collections with visible data history only.
 
 Property|Type|Description
 :-------|:---|:----------
