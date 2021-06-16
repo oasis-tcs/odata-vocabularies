@@ -119,7 +119,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates existing time slices with values from new time slices whose [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType)s match and whose intervals overlap",
+                "@Core.Description": "Updates existing time slices with values from new time slices whose object keys match and whose periods overlap",
                 "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.",
                 "$Parameter": [
                     {
@@ -133,7 +133,7 @@
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices need not contain all properties, but at least the boundary values of the interval to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {

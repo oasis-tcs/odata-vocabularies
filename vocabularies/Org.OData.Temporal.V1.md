@@ -17,7 +17,7 @@ Term|Type|Description
 
 ### <a name="Update"></a>[Update](Org.OData.Temporal.V1.xml#L148)
 
-Updates existing time slices with values from new time slices whose [`ApplicationTimeSupport/ObjectKey`](#ApplicationTimeSupportType)s match and whose intervals overlap
+Updates existing time slices with values from new time slices whose object keys match and whose periods overlap
 
 The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
           `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.
@@ -25,7 +25,7 @@ The update behavior for a given object key is known from the [SQL statement](htt
 Parameter|Type|Description
 :--------|:---|:----------
 **[timeslices](Org.OData.Temporal.V1.xml#L154)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[newTimeslices](Org.OData.Temporal.V1.xml#L157)|\[EntityType\]|New time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The new time slices need not contain all properties, but at least the boundary values of the interval to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change intervals overlap.
+[newTimeslices](Org.OData.Temporal.V1.xml#L157)|\[EntityType\]|New time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The new time slices need not contain all properties, but at least the boundary values of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
 [&rarr;](Org.OData.Temporal.V1.xml#L166)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
 
 
