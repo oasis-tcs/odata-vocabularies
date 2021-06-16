@@ -102,10 +102,11 @@
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.UnitOfTime",
             "@Core.Description": "Period start and end are of type Edm.Date",
+            "@Core.LongDescription": "The period is a contiguous set of days and does not consider the time of the day.",
             "ClosedClosedPeriods": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "If `true`, the period end is included in the time period"
+                "@Core.Description": "If `true`, the period end is the last day in the period; if `false`, the period end is the first day after the period"
             }
         },
         "QualifiedActionName": {
