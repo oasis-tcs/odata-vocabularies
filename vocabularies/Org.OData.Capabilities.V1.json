@@ -174,13 +174,17 @@
             ],
             "@Core.Description": "Change tracking capabilities of this service or entity set"
         },
-        "ChangeTrackingType": {
+        "CommonChangeTrackingType": {
             "$Kind": "ComplexType",
             "Supported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "This entity set supports the odata.track-changes preference"
-            },
+                "@Core.Description": "odata.track-changes preference is supported"
+            }
+        },
+        "ChangeTrackingType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonChangeTrackingType",
             "FilterableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -203,13 +207,17 @@
             ],
             "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
         },
-        "CountRestrictionsType": {
+        "CommonCountRestrictionsType": {
             "$Kind": "ComplexType",
             "Countable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be counted (only valid if targeting an entity set)"
-            },
+            }
+        },
+        "CountRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonCountRestrictionsType",
             "NonCountableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -620,7 +628,7 @@
             ],
             "@Core.Description": "Restrictions on orderby expressions"
         },
-        "SortRestrictionsType": {
+        "CommonSortRestrictionsType": {
             "$Kind": "ComplexType",
             "@Validation.ApplicableTerms": [
                 "Core.Description"
@@ -629,7 +637,11 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "$orderby is supported"
-            },
+            }
+        },
+        "SortRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonSortRestrictionsType",
             "AscendingOnlyProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -655,7 +667,7 @@
             ],
             "@Core.Description": "Restrictions on expand expressions"
         },
-        "ExpandRestrictionsType": {
+        "CommonExpandRestrictionsType": {
             "$Kind": "ComplexType",
             "@Validation.ApplicableTerms": [
                 "Core.Description"
@@ -670,6 +682,15 @@
                 "$DefaultValue": false,
                 "@Core.Description": "$expand is supported for stream properties and media resources"
             },
+            "MaxLevels": {
+                "$Type": "Edm.Int32",
+                "$DefaultValue": -1,
+                "@Core.Description": "The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction."
+            }
+        },
+        "ExpandRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonExpandRestrictionsType",
             "NonExpandableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -680,11 +701,6 @@
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "These stream properties cannot be used in expand expressions",
                 "@Core.RequiresType": "Edm.Stream"
-            },
-            "MaxLevels": {
-                "$Type": "Edm.Int32",
-                "$DefaultValue": -1,
-                "@Core.Description": "The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction."
             }
         },
         "SearchRestrictions": {
@@ -880,7 +896,7 @@
             "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on update operations"
         },
-        "UpdateRestrictionsType": {
+        "CommonUpdateRestrictionsType": {
             "$Kind": "ComplexType",
             "Updatable": {
                 "$Type": "Edm.Boolean",
@@ -911,21 +927,6 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
-            },
-            "NonUpdatableProperties": {
-                "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties cannot be specified on update"
-            },
-            "NonUpdatableNavigationProperties": {
-                "$Collection": true,
-                "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "These navigation properties do not allow rebinding"
-            },
-            "RequiredProperties": {
-                "$Collection": true,
-                "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties must be specified on update"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
@@ -962,6 +963,25 @@
                 "$Nullable": true,
                 "@Core.Description": "A lengthy description of the request",
                 "@Core.IsLanguageDependent": true
+            }
+        },
+        "UpdateRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonUpdateRestrictionsType",
+            "NonUpdatableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties cannot be specified on update"
+            },
+            "NonUpdatableNavigationProperties": {
+                "$Collection": true,
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "These navigation properties do not allow rebinding"
+            },
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties must be specified on update"
             }
         },
         "HttpMethod": {
@@ -1015,17 +1035,12 @@
             "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on delete operations"
         },
-        "DeleteRestrictionsType": {
+        "CommonDeleteRestrictionsType": {
             "$Kind": "ComplexType",
             "Deletable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Entities can be deleted"
-            },
-            "NonDeletableNavigationProperties": {
-                "$Collection": true,
-                "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "These navigation properties do not allow DeleteLink requests"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
@@ -1067,6 +1082,15 @@
                 "$Nullable": true,
                 "@Core.Description": "A lengthy description of the request",
                 "@Core.IsLanguageDependent": true
+            }
+        },
+        "DeleteRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.CommonDeleteRestrictionsType",
+            "NonDeletableNavigationProperties": {
+                "$Collection": true,
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "These navigation properties do not allow DeleteLink requests"
             }
         },
         "CollectionPropertyRestrictions": {
@@ -1384,10 +1408,35 @@
         },
         "DefaultCapabilitiesType": {
             "$Kind": "ComplexType",
+            "ChangeTracking": {
+                "$Type": "Capabilities.CommonChangeTrackingType",
+                "$Nullable": true,
+                "@Core.Description": "Change tracking capabilities"
+            },
+            "CountRestrictions": {
+                "$Type": "Capabilities.CommonCountRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
+            },
+            "IndexableByKey": {
+                "$Type": "Core.Tag",
+                "$Nullable": true,
+                "@Core.Description": "Supports key values according to OData URL conventions"
+            },
             "TopSupported": {
-                "$Type": "Edm.Boolean",
+                "$Type": "Core.Tag",
                 "$Nullable": true,
                 "@Core.Description": "Supports $top"
+            },
+            "SkipSupported": {
+                "$Type": "Core.Tag",
+                "$Nullable": true,
+                "@Core.Description": "Supports $skip"
+            },
+            "ComputeSupported": {
+                "$Type": "Core.Tag",
+                "$Nullable": true,
+                "@Core.Description": "Supports $compute"
             },
             "SelectSupport": {
                 "$Type": "Capabilities.SelectSupportType",
@@ -1399,10 +1448,45 @@
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on filter expressions"
             },
+            "SortRestrictions": {
+                "$Type": "Capabilities.CommonSortRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on orderby expressions"
+            },
+            "ExpandRestrictions": {
+                "$Type": "Capabilities.CommonExpandRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on expand expressions"
+            },
+            "SearchRestrictions": {
+                "$Type": "Capabilities.SearchRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on search expressions"
+            },
             "InsertRestrictions": {
                 "$Type": "Capabilities.CommonInsertRestrictionsType",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on insert operations"
+            },
+            "UpdateRestrictions": {
+                "$Type": "Capabilities.CommonUpdateRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on update operations"
+            },
+            "DeleteRestrictions": {
+                "$Type": "Capabilities.CommonDeleteRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on delete operations"
+            },
+            "OperationRestrictions": {
+                "$Type": "Capabilities.OperationRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions for function or action operations"
+            },
+            "ReadRestrictions": {
+                "$Type": "Capabilities.ReadRestrictionsType",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance"
             }
         }
     }
