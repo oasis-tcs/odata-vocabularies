@@ -129,6 +129,7 @@
 
       <ComplexType Name="UnitOfTimeDate" BaseType="Temporal.UnitOfTime">
         <Annotation Term="Core.Description" String="Period start and end are of type Edm.Date" />
+        <Annotation Term="Core.LongDescription" String="The period is a contiguous set of days and does not consider the time of the day." />
         <Property Name="ClosedClosedPeriods" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="If `true`, the period end is included in the time period" />
         </Property>
