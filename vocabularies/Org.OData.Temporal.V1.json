@@ -120,7 +120,7 @@
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
                 "@Core.Description": "Updates existing time slices with values from new time slices whose object keys match and whose periods overlap",
-                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.",
+                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n          `newTimeslices` with non-matching object keys and non-overlapping sub-periods of `newTimeslices` are disregarded.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -149,7 +149,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period",
+                "@Core.Description": "Like `Update`, but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -158,27 +158,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "Values",
+                        "$Name": "newTimeslices",
+                        "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values to insert or update",
-                        "@Core.LongDescription": "Same entity type as binding parameter and return type, specify only values of non-key properties."
-                    },
-                    {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.OptionalParameter": {},
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                        "@Core.Description": "New time slices to be merged into the `timeslices` collection",
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {

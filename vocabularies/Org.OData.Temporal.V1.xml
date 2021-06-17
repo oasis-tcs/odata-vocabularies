@@ -151,7 +151,8 @@
         <Annotation Term="Core.Description" String="Updates existing time slices with values from new time slices whose object keys match and whose periods overlap" />
         <Annotation Term="Core.LongDescription">
           <String>The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
-          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.</String>
+          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.
+          `newTimeslices` with non-matching object keys and non-overlapping sub-periods of `newTimeslices` are disregarded.</String>
         </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
@@ -172,26 +173,17 @@
       </Action>
 
       <Action Name="Upsert" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period" />
+        <Annotation Term="Core.Description" String="Like `Update`, but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="From" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`" />
-        </Parameter>
-        <Parameter Name="To" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`" />
-        </Parameter>
-        <Parameter Name="Values" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="Property values to insert or update" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter and return type, specify only values of non-key properties." />
-        </Parameter>
-        <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.OptionalParameter">
-            <Record />
+        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="New time slices to be merged into the `timeslices` collection" />
+          <Annotation Term="Core.LongDescription">
+            <String>Same entity type as binding parameter.
+            The new time slices must contain all properties that are needed for insertion.
+            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
-          <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
