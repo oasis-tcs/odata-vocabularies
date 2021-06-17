@@ -102,6 +102,9 @@
         "$Annotations": {
             "OrgModel.Default/Employees/history": {
                 "@Temporal.ApplicationTimeSupport": {
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
                     "DataHistory": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
                         "TimeSliceStart": "history/From",
@@ -111,14 +114,14 @@
                             "Temporal.Upsert",
                             "Temporal.Delete"
                         ]
-                    },
-                    "UnitOfTime": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     }
                 }
             },
             "OrgModel.Default/Departments/history": {
                 "@Temporal.ApplicationTimeSupport": {
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
                     "DataHistory": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
                         "TimeSliceStart": "history/From",
@@ -128,9 +131,6 @@
                             "Temporal.Upsert",
                             "Temporal.Delete"
                         ]
-                    },
-                    "UnitOfTime": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     }
                 }
             }

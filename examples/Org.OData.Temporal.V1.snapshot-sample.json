@@ -58,11 +58,11 @@
                     "Department": "Departments"
                 },
                 "@Temporal.ApplicationTimeSupport": {
-                    "DataHistory": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistorySnapshot"
-                    },
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
+                    "DataHistory": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistorySnapshot"
                     }
                 }
             },
@@ -73,11 +73,11 @@
                     "Employees": "Employees"
                 },
                 "@Temporal.ApplicationTimeSupport": {
-                    "DataHistory": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistorySnapshot"
-                    },
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
+                    "DataHistory": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistorySnapshot"
                     }
                 }
             }
