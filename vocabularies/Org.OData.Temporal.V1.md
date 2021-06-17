@@ -119,7 +119,7 @@ Each OData entity represents data during a period of application time; it is cal
 
 The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties
           and with overlapping application-time periods as defined by their `TimeSliceStart` and `TimeSliceEnd` properties.
-          A temporal collection always contains all entities (with consecutive time periods) for a given object key.
+          The temporal collection always contains all entities (with consecutive time periods) for a given object key.
           The actions defined in this vocabulary MUST be invoked on collections with visible data history only.
 
 Property|Type|Description
