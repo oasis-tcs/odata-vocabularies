@@ -56,6 +56,9 @@
       <Annotations Target="OrgModel.Default/Employees/history">
         <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
+            <PropertyValue Property="UnitOfTime">
+              <Record Type="Temporal.UnitOfTimeDate" />
+            </PropertyValue>
             <PropertyValue Property="DataHistory">
               <Record Type="Temporal.DataHistoryTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
@@ -68,9 +71,6 @@
                   </Collection>
                 </PropertyValue>
               </Record>
-            </PropertyValue>
-            <PropertyValue Property="UnitOfTime">
-              <Record Type="Temporal.UnitOfTimeDate" />
             </PropertyValue>
           </Record>
         </Annotation>
@@ -79,6 +79,9 @@
       <Annotations Target="OrgModel.Default/Departments/history">
         <Annotation Term="Temporal.ApplicationTimeSupport">
           <Record>
+            <PropertyValue Property="UnitOfTime">
+              <Record Type="Temporal.UnitOfTimeDate" />
+            </PropertyValue>
             <PropertyValue Property="DataHistory">
               <Record Type="Temporal.DataHistoryTimeSlice">
                 <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
@@ -91,9 +94,6 @@
                   </Collection>
                 </PropertyValue>
               </Record>
-            </PropertyValue>
-            <PropertyValue Property="UnitOfTime">
-              <Record Type="Temporal.UnitOfTimeDate" />
             </PropertyValue>
           </Record>
         </Annotation>
