@@ -88,7 +88,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.DataHistory",
             "@Core.Description": "Each OData entity represents data during a period of application time; it is called a *time slice*",
-            "@Core.LongDescription": "A temporal collection of this kind MUST NOT contain two entities with the same\n          `ObjectKey` whose application-time periods defined by their `TimeSliceStart` and `TimeSliceEnd` properties overlap;\n          and it always contains all entities (with consecutive time periods) for a given object key.",
+            "@Core.LongDescription": "The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties\n          and with overlapping application-time periods as defined by their `TimeSliceStart` and `TimeSliceEnd` properties.\n          The temporal collection always contains all entities (with consecutive time periods) for a given object key.\n          The actions defined in this vocabulary MUST be invoked on collections with visible data history only.",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing lower boundary of a time slice"
@@ -119,7 +119,8 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
+                "@Core.Description": "Updates existing time slices with values from new time slices whose object keys match and whose periods overlap",
+                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -128,27 +129,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "Values",
+                        "$Name": "newTimeslices",
+                        "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values to update",
-                        "@Core.LongDescription": "Same entity type as binding parameter and return type, specify only values of non-key properties."
-                    },
-                    {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.OptionalParameter": {},
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                        "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
