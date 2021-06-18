@@ -137,13 +137,6 @@
         </Property>
       </ComplexType>
 
-
-      <!-- TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName? -->
-      <TypeDefinition Name="QualifiedActionName" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
-      </TypeDefinition>
-
-
       <!-- TODO: move to separate TemporalActions vocabulary? -->
       <!-- Operations on Temporal Objects -->
 
@@ -173,7 +166,7 @@
       </Action>
 
       <Action Name="Upsert" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Like `Update`, but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards" />
+        <Annotation Term="Core.Description" String="Like [`Update`](#Update), but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>

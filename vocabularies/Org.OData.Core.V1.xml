@@ -448,6 +448,10 @@
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
       </TypeDefinition>
 
+      <TypeDefinition Name="QualifiedActionName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
+      </TypeDefinition>
+
       <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType Term">
         <Annotation Term="Core.Description" String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>

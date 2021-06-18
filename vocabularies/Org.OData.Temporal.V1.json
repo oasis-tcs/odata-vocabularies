@@ -109,11 +109,6 @@
                 "@Core.Description": "List of supported temporal actions"
             }
         },
-        "QualifiedActionName": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Core.Description": "The qualified name of an action in scope."
-        },
         "Update": [
             {
                 "$Kind": "Action",
@@ -149,7 +144,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Like `Update`, but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards",
+                "@Core.Description": "Like [`Update`](#Update), but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
