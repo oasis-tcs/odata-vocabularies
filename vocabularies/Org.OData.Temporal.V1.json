@@ -225,7 +225,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and where periods overlap",
+                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap",
                 "@Core.LongDescription": "The sub-period of an existing time slice that lies outside a given instance of `deletionTimeslices`\n          is kept, effectively shortening the time slice.",
                 "$Parameter": [
                     {
