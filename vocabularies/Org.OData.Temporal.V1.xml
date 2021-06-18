@@ -204,7 +204,7 @@
         </ReturnType>
       </Action>
 
-      <Action Name="Synchronize" IsBound="true" EntitySetPath="timeslices">
+      <Action Name="Synchronize" IsBound="true">
         <Annotation Term="Core.Description" String="Synchronizes time slices of a temporal object to match the provided full application timeline" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
