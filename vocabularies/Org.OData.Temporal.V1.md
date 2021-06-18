@@ -54,17 +54,17 @@ Parameter|Type|Description
 
 ### <a name="Synchronize"></a>[Synchronize](Org.OData.Temporal.V1.xml#L207)
 
-Synchronizes time slices of a temporal object to match the provided full application timeline
+Overwrites per object key existing time slices with new timeslices, updating the entire object history
 
 Parameter|Type|Description
 :--------|:---|:----------
 **[timeslices](Org.OData.Temporal.V1.xml#L209)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[timeline](Org.OData.Temporal.V1.xml#L212)|\[EntityType\]|List of time slices covering the full timeline of the temporal object(s) to be synchronized<br>Same entity type as binding parameter.
+[newTimeslices](Org.OData.Temporal.V1.xml#L212)|\[EntityType\]|List of time slices covering the entire history of the temporal object(s) to be synchronized<br>Same entity type as binding parameter. The new time slices must contain all properties that are needed for overwriting.
 
 
-### <a name="Delete"></a>[Delete](Org.OData.Temporal.V1.xml#L220)
+### <a name="Delete"></a>[Delete](Org.OData.Temporal.V1.xml#L221)
 
-Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap
+Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deletionTimeslices`
 
 The sub-period of an existing time slice that lies outside a given instance of `deletionTimeslices`
           is kept, effectively shortening the time slice.

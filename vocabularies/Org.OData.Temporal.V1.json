@@ -202,7 +202,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Synchronizes time slices of a temporal object to match the provided full application timeline",
+                "@Core.Description": "Overwrites per object key existing time slices with new timeslices, updating the entire object history",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -211,11 +211,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "timeline",
+                        "$Name": "newTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "List of time slices covering the full timeline of the temporal object(s) to be synchronized",
-                        "@Core.LongDescription": "Same entity type as binding parameter."
+                        "@Core.Description": "List of time slices covering the entire history of the temporal object(s) to be synchronized",
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices must contain all properties that are needed for overwriting."
                     }
                 ]
             }
@@ -225,7 +225,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap",
+                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deletionTimeslices`",
                 "@Core.LongDescription": "The sub-period of an existing time slice that lies outside a given instance of `deletionTimeslices`\n          is kept, effectively shortening the time slice.",
                 "$Parameter": [
                     {

@@ -205,21 +205,21 @@
       </Action>
 
       <Action Name="Synchronize" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Synchronizes time slices of a temporal object to match the provided full application timeline" />
+        <Annotation Term="Core.Description" String="Overwrites per object key existing time slices with new timeslices, updating the entire object history" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="timeline" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="List of time slices covering the full timeline of the temporal object(s) to be synchronized" />
+        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of time slices covering the entire history of the temporal object(s) to be synchronized" />
           <Annotation Term="Core.LongDescription">
-            <String>Same entity type as binding parameter.</String>
+            <String>Same entity type as binding parameter.
+            The new time slices must contain all properties that are needed for overwriting.</String>
           </Annotation>
         </Parameter>
       </Action>
 
       <Action Name="Delete" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap" />
-
+        <Annotation Term="Core.Description" String="Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deletionTimeslices`" />
         <Annotation Term="Core.LongDescription">
           <String>The sub-period of an existing time slice that lies outside a given instance of `deletionTimeslices`
           is kept, effectively shortening the time slice.</String>
