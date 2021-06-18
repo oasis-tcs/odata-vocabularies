@@ -200,7 +200,6 @@
         "Synchronize": [
             {
                 "$Kind": "Action",
-                "$EntitySetPath": "timeslices",
                 "$IsBound": true,
                 "@Core.Description": "Synchronizes time slices of a temporal object to match the provided full application timeline",
                 "$Parameter": [
