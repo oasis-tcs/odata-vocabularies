@@ -76,7 +76,7 @@ Parameter|Type|Description
 
 ### <a name="DeleteFrom"></a>[DeleteFrom](Org.OData.Temporal.V1.xml#L244)
 
-Like [`Delete`](#DeleteFrom), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries
+Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries
 
 Parameter|Type|Description
 :--------|:---|:----------
