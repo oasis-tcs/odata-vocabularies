@@ -173,7 +173,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next",
+                "@Core.Description": "Like [`Update`](#Update), but updates a given property from a given new time slice only in those contiguous time slices, starting with the earliest, that have same the original value for that property",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -182,28 +182,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true,
-                        "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "Values",
+                        "$Name": "newTimeslices",
+                        "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values to update",
-                        "@Core.LongDescription": "Same entity type as binding parameter and return type, specify only values of non-key properties."
-                    },
-                    {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.OptionalParameter": {},
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                        "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -249,7 +232,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
+                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and where periods overlap",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -258,27 +241,17 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "ObjectKey",
+                        "$Name": "deletionTimeslices",
+                        "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.OptionalParameter": {},
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                        "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The deletion time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
-                    "@Core.Description": "Deleted time slices",
+                    "@Core.Description": "Deleted (sub-periods of) time slices",
                     "@Core.LongDescription": "Same entity type as binding parameter."
                 }
             }
@@ -288,7 +261,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next",
+                "@Core.Description": "Like [`Delete`](#DeleteFrom), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -297,22 +270,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true,
-                        "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "ObjectKey",
+                        "$Name": "deletionTimeslices",
+                        "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.OptionalParameter": {},
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                        "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The deletion time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
