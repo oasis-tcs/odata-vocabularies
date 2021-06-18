@@ -218,7 +218,8 @@
       </Action>
 
       <Action Name="Delete" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Deletes (sub-periods of) existing time slices whose object keys match and where periods overlap" />
+        <Annotation Term="Core.Description" String="Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap" />
+
         <Annotation Term="Core.LongDescription">
           <String>The sub-period of an existing time slice that lies outside a given instance of `deletionTimeslices`
           is kept, effectively shortening the time slice.</String>
