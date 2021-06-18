@@ -201,7 +201,8 @@
             {
                 "$Kind": "Action",
                 "$IsBound": true,
-                "@Core.Description": "Overwrites per object key existing time slices with new timeslices, updating the entire object history",
+                "@Core.Description": "Overwrites per object key existing time slices with new time slices, updating the entire object history",
+                "@Core.LongDescription": "The server is free to merge and split time slices if this does not change the value of any property at any point in time.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",

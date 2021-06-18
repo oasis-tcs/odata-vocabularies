@@ -205,7 +205,10 @@
       </Action>
 
       <Action Name="Synchronize" IsBound="true">
-        <Annotation Term="Core.Description" String="Overwrites per object key existing time slices with new timeslices, updating the entire object history" />
+        <Annotation Term="Core.Description" String="Overwrites per object key existing time slices with new time slices, updating the entire object history" />
+        <Annotation Term="Core.LongDescription">
+          <String>The server is free to merge and split time slices if this does not change the value of any property at any point in time.</String>
+        </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
