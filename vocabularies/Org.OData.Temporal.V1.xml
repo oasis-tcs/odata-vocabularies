@@ -141,20 +141,20 @@
       <!-- Operations on Temporal Objects -->
 
       <Action Name="Update" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Updates existing time slices with values from new time slices whose object keys match and whose periods overlap" />
+        <Annotation Term="Core.Description" String="Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap" />
         <Annotation Term="Core.LongDescription">
           <String>The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
           `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.
-          `newTimeslices` with non-matching object keys and non-overlapping sub-periods of `newTimeslices` are disregarded.</String>
+          `deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.</String>
         </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="New time slices whose property values are used to update the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
-            The new time slices need not contain all properties, but at least the boundary values of the period to change.
+            The delta time slices need not contain all properties, but at least the boundary values of the period to change.
             An absent object key property matches any key property value.
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
@@ -166,15 +166,15 @@
       </Action>
 
       <Action Name="Upsert" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Like [`Update`](#Update), but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards" />
+        <Annotation Term="Core.Description" String="Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="New time slices to be merged into the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
-            The new time slices must contain all properties that are needed for insertion.
+            The delta time slices must contain all properties that are needed for insertion.
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
         </Parameter>
@@ -189,11 +189,11 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="New time slices whose property values are used to update the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
-            The new time slices need not contain all properties, but at least the lower boundary of the period to change.
+            The delta time slices need not contain all properties, but at least the lower boundary of the period to change.
             An absent object key property matches any key property value.
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
@@ -204,7 +204,7 @@
         </ReturnType>
       </Action>
 
-      <Action Name="Synchronize" IsBound="true" EntitySetPath="timeslices">
+      <Action Name="Synchronize" IsBound="true">
         <Annotation Term="Core.Description" String="Overwrites per object key existing time slices with new timeslices, updating the entire object history" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
@@ -219,19 +219,19 @@
       </Action>
 
       <Action Name="Delete" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deletionTimeslices`" />
+        <Annotation Term="Core.Description" String="Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`" />
         <Annotation Term="Core.LongDescription">
-          <String>The sub-period of an existing time slice that lies outside a given instance of `deletionTimeslices`
+          <String>The sub-period of an existing time slice that lies outside a given instance of `deltaTimeslices`
           is kept, effectively shortening the time slice.</String>
         </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="deletionTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to be deleted from the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
-            The deletion time slices contain only the boundary values of the period to delete and (parts of) the object key.
+            The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.
             An absent object key property matches any key property value.</String>
           </Annotation>
         </Parameter>
@@ -246,11 +246,11 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="deletionTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to be deleted from the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
-            The deletion time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.
+            The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.
             An absent object key property matches any key property value.</String>
           </Annotation>
         </Parameter>

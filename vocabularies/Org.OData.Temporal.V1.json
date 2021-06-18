@@ -114,8 +114,8 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates existing time slices with values from new time slices whose object keys match and whose periods overlap",
-                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n          `newTimeslices` with non-matching object keys and non-overlapping sub-periods of `newTimeslices` are disregarded.",
+                "@Core.Description": "Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap",
+                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n          `deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -124,11 +124,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "newTimeslices",
+                        "$Name": "deltaTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -144,7 +144,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Like [`Update`](#Update), but additionally inserts those (sub-periods of) `newTimeslices` that `Update` disregards",
+                "@Core.Description": "Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -153,11 +153,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "newTimeslices",
+                        "$Name": "deltaTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "New time slices to be merged into the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -182,11 +182,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "newTimeslices",
+                        "$Name": "deltaTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -200,7 +200,6 @@
         "Synchronize": [
             {
                 "$Kind": "Action",
-                "$EntitySetPath": "timeslices",
                 "$IsBound": true,
                 "@Core.Description": "Overwrites per object key existing time slices with new timeslices, updating the entire object history",
                 "$Parameter": [
@@ -225,8 +224,8 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deletionTimeslices`",
-                "@Core.LongDescription": "The sub-period of an existing time slice that lies outside a given instance of `deletionTimeslices`\n          is kept, effectively shortening the time slice.",
+                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`",
+                "@Core.LongDescription": "The sub-period of an existing time slice that lies outside a given instance of `deltaTimeslices`\n          is kept, effectively shortening the time slice.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -235,11 +234,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "deletionTimeslices",
+                        "$Name": "deltaTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The deletion time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
@@ -264,11 +263,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "deletionTimeslices",
+                        "$Name": "deltaTimeslices",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The deletion time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
+                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
