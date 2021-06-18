@@ -211,18 +211,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "Timeline",
+                        "$Name": "timeline",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "List of time slices covering the full timeline of the temporal object",
-                        "@Core.LongDescription": "Same entity type as the binding parameter."
-                    },
-                    {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.OptionalParameter": {},
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
+                        "@Core.Description": "List of time slices covering the full timeline of the temporal object(s) to be synchronized",
+                        "@Core.LongDescription": "Same entity type as binding parameter."
                     }
                 ]
             }

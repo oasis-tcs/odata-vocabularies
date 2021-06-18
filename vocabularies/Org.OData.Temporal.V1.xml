@@ -209,16 +209,11 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="Timeline" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="List of time slices covering the full timeline of the temporal object" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as the binding parameter." />
-        </Parameter>
-        <Parameter Name="ObjectKey" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.OptionalParameter">
-            <Record />
+        <Parameter Name="timeline" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="List of time slices covering the full timeline of the temporal object(s) to be synchronized" />
+          <Annotation Term="Core.LongDescription">
+            <String>Same entity type as binding parameter.</String>
           </Annotation>
-          <Annotation Term="Core.Description" String="Property values that identify a single temporal object" />
-          <Annotation Term="Core.LongDescription" String="Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type." />
         </Parameter>
       </Action>
 
