@@ -105,7 +105,7 @@
             },
             "SupportedActions": {
                 "$Collection": true,
-                "$Type": "Temporal.QualifiedActionName",
+                "$Type": "Core.QualifiedActionName",
                 "@Core.Description": "List of supported temporal actions"
             }
         },
