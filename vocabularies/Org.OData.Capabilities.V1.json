@@ -174,7 +174,7 @@
             ],
             "@Core.Description": "Change tracking capabilities of this service or entity set"
         },
-        "CommonChangeTrackingType": {
+        "ChangeTrackingBase": {
             "$Kind": "ComplexType",
             "Supported": {
                 "$Type": "Edm.Boolean",
@@ -184,7 +184,7 @@
         },
         "ChangeTrackingType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonChangeTrackingType",
+            "$BaseType": "Capabilities.ChangeTrackingBase",
             "FilterableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -207,7 +207,7 @@
             ],
             "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
         },
-        "CommonCountRestrictionsType": {
+        "CountRestrictionsBase": {
             "$Kind": "ComplexType",
             "Countable": {
                 "$Type": "Edm.Boolean",
@@ -217,7 +217,7 @@
         },
         "CountRestrictionsType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonCountRestrictionsType",
+            "$BaseType": "Capabilities.CountRestrictionsBase",
             "NonCountableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -535,7 +535,7 @@
             ],
             "@Core.Description": "Restrictions on filter expressions"
         },
-        "CommonFilterRestrictionsType": {
+        "FilterRestrictionsBase": {
             "$Kind": "ComplexType",
             "@Validation.ApplicableTerms": [
                 "Core.Description"
@@ -558,7 +558,7 @@
         },
         "FilterRestrictionsType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonFilterRestrictionsType",
+            "$BaseType": "Capabilities.FilterRestrictionsBase",
             "RequiredProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -628,7 +628,7 @@
             ],
             "@Core.Description": "Restrictions on orderby expressions"
         },
-        "CommonSortRestrictionsType": {
+        "SortRestrictionsBase": {
             "$Kind": "ComplexType",
             "@Validation.ApplicableTerms": [
                 "Core.Description"
@@ -641,7 +641,7 @@
         },
         "SortRestrictionsType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonSortRestrictionsType",
+            "$BaseType": "Capabilities.SortRestrictionsBase",
             "AscendingOnlyProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -667,7 +667,7 @@
             ],
             "@Core.Description": "Restrictions on expand expressions"
         },
-        "CommonExpandRestrictionsType": {
+        "ExpandRestrictionsBase": {
             "$Kind": "ComplexType",
             "@Validation.ApplicableTerms": [
                 "Core.Description"
@@ -690,7 +690,7 @@
         },
         "ExpandRestrictionsType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonExpandRestrictionsType",
+            "$BaseType": "Capabilities.ExpandRestrictionsBase",
             "NonExpandableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -771,7 +771,7 @@
             "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on insert operations"
         },
-        "CommonInsertRestrictionsType": {
+        "InsertRestrictionsBase": {
             "$Kind": "ComplexType",
             "Insertable": {
                 "$Type": "Edm.Boolean",
@@ -816,7 +816,7 @@
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonInsertRestrictionsType",
+            "$BaseType": "Capabilities.InsertRestrictionsBase",
             "NonInsertableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -896,7 +896,7 @@
             "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on update operations"
         },
-        "CommonUpdateRestrictionsType": {
+        "UpdateRestrictionsBase": {
             "$Kind": "ComplexType",
             "Updatable": {
                 "$Type": "Edm.Boolean",
@@ -967,7 +967,7 @@
         },
         "UpdateRestrictionsType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonUpdateRestrictionsType",
+            "$BaseType": "Capabilities.UpdateRestrictionsBase",
             "NonUpdatableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
@@ -1035,7 +1035,7 @@
             "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on delete operations"
         },
-        "CommonDeleteRestrictionsType": {
+        "DeleteRestrictionsBase": {
             "$Kind": "ComplexType",
             "Deletable": {
                 "$Type": "Edm.Boolean",
@@ -1086,7 +1086,7 @@
         },
         "DeleteRestrictionsType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.CommonDeleteRestrictionsType",
+            "$BaseType": "Capabilities.DeleteRestrictionsBase",
             "NonDeletableNavigationProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -1409,12 +1409,12 @@
         "DefaultCapabilitiesType": {
             "$Kind": "ComplexType",
             "ChangeTracking": {
-                "$Type": "Capabilities.CommonChangeTrackingType",
+                "$Type": "Capabilities.ChangeTrackingBase",
                 "$Nullable": true,
                 "@Core.Description": "Change tracking capabilities"
             },
             "CountRestrictions": {
-                "$Type": "Capabilities.CommonCountRestrictionsType",
+                "$Type": "Capabilities.CountRestrictionsBase",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
             },
@@ -1444,17 +1444,17 @@
                 "@Core.Description": "Support for $select and nested query options within $select"
             },
             "FilterRestrictions": {
-                "$Type": "Capabilities.CommonFilterRestrictionsType",
+                "$Type": "Capabilities.FilterRestrictionsBase",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on filter expressions"
             },
             "SortRestrictions": {
-                "$Type": "Capabilities.CommonSortRestrictionsType",
+                "$Type": "Capabilities.SortRestrictionsBase",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on orderby expressions"
             },
             "ExpandRestrictions": {
-                "$Type": "Capabilities.CommonExpandRestrictionsType",
+                "$Type": "Capabilities.ExpandRestrictionsBase",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on expand expressions"
             },
@@ -1464,17 +1464,17 @@
                 "@Core.Description": "Restrictions on search expressions"
             },
             "InsertRestrictions": {
-                "$Type": "Capabilities.CommonInsertRestrictionsType",
+                "$Type": "Capabilities.InsertRestrictionsBase",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on insert operations"
             },
             "UpdateRestrictions": {
-                "$Type": "Capabilities.CommonUpdateRestrictionsType",
+                "$Type": "Capabilities.UpdateRestrictionsBase",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on update operations"
             },
             "DeleteRestrictions": {
-                "$Type": "Capabilities.CommonDeleteRestrictionsType",
+                "$Type": "Capabilities.DeleteRestrictionsBase",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions on delete operations"
             },

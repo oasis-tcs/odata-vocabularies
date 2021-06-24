@@ -120,7 +120,7 @@ Property|Type|Description
 [UrlTemplate](Org.OData.Capabilities.V1.xml#L182)|String?|URL Template including parameters. Parameters are enclosed in curly braces {} as defined in RFC6570
 [DocumentationUrl](Org.OData.Capabilities.V1.xml#L185)|URL?|Human readable description of the meaning of the URL Template parameters
 
-## <a name="CommonChangeTrackingType"></a>[CommonChangeTrackingType](Org.OData.Capabilities.V1.xml#L194)
+## <a name="ChangeTrackingBase"></a>[ChangeTrackingBase](Org.OData.Capabilities.V1.xml#L194)
 
 
 **Derived Types:**
@@ -130,7 +130,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Supported](Org.OData.Capabilities.V1.xml#L195)|Boolean|odata.track-changes preference is supported
 
-## <a name="ChangeTrackingType"></a>[ChangeTrackingType](Org.OData.Capabilities.V1.xml#L199): [CommonChangeTrackingType](#CommonChangeTrackingType)
+## <a name="ChangeTrackingType"></a>[ChangeTrackingType](Org.OData.Capabilities.V1.xml#L199): [ChangeTrackingBase](#ChangeTrackingBase)
 
 
 Property|Type|Description
@@ -139,7 +139,7 @@ Property|Type|Description
 [FilterableProperties](Org.OData.Capabilities.V1.xml#L200)|\[PropertyPath\]|Change tracking supports filters on these properties<br>If no properties are specified or FilterableProperties is omitted, clients cannot assume support for filtering on any properties in combination with change tracking.
 [ExpandableProperties](Org.OData.Capabilities.V1.xml#L204)|\[NavigationPropertyPath\]|Change tracking supports these properties expanded<br>If no properties are specified or ExpandableProperties is omitted, clients cannot assume support for expanding any properties in combination with change tracking.
 
-## <a name="CommonCountRestrictionsType"></a>[CommonCountRestrictionsType](Org.OData.Capabilities.V1.xml#L215)
+## <a name="CountRestrictionsBase"></a>[CountRestrictionsBase](Org.OData.Capabilities.V1.xml#L215)
 
 
 **Derived Types:**
@@ -149,7 +149,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Countable](Org.OData.Capabilities.V1.xml#L216)|Boolean|Entities can be counted (only valid if targeting an entity set)
 
-## <a name="CountRestrictionsType"></a>[CountRestrictionsType](Org.OData.Capabilities.V1.xml#L220): [CommonCountRestrictionsType](#CommonCountRestrictionsType)
+## <a name="CountRestrictionsType"></a>[CountRestrictionsType](Org.OData.Capabilities.V1.xml#L220): [CountRestrictionsBase](#CountRestrictionsBase)
 
 
 Property|Type|Description
@@ -232,7 +232,7 @@ Property|Type|Description
 - [Description](Org.OData.Core.V1.md#Description)
 - [LongDescription](Org.OData.Core.V1.md#LongDescription)
 
-## <a name="CommonFilterRestrictionsType"></a>[CommonFilterRestrictionsType](Org.OData.Capabilities.V1.xml#L417)
+## <a name="FilterRestrictionsBase"></a>[FilterRestrictionsBase](Org.OData.Capabilities.V1.xml#L417)
 
 
 **Derived Types:**
@@ -248,7 +248,7 @@ Property|Type|Description
 
 - [Description](Org.OData.Core.V1.md#Description)
 
-## <a name="FilterRestrictionsType"></a>[FilterRestrictionsType](Org.OData.Capabilities.V1.xml#L433): [CommonFilterRestrictionsType](#CommonFilterRestrictionsType)
+## <a name="FilterRestrictionsType"></a>[FilterRestrictionsType](Org.OData.Capabilities.V1.xml#L433): [FilterRestrictionsBase](#FilterRestrictionsBase)
 
 
 Property|Type|Description
@@ -286,7 +286,7 @@ Allowed Value|Description
 [SearchExpression](Org.OData.Capabilities.V1.xml#L472)|String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses
 [MultiRangeOrSearchExpression](Org.OData.Capabilities.V1.xml#L476)|Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns<br>The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See MultiRange for a definition of an interval expression. See SearchExpression for the allowed string comparison functions.
 
-## <a name="CommonSortRestrictionsType"></a>[CommonSortRestrictionsType](Org.OData.Capabilities.V1.xml#L488)
+## <a name="SortRestrictionsBase"></a>[SortRestrictionsBase](Org.OData.Capabilities.V1.xml#L488)
 
 
 **Derived Types:**
@@ -300,7 +300,7 @@ Property|Type|Description
 
 - [Description](Org.OData.Core.V1.md#Description)
 
-## <a name="SortRestrictionsType"></a>[SortRestrictionsType](Org.OData.Capabilities.V1.xml#L498): [CommonSortRestrictionsType](#CommonSortRestrictionsType)
+## <a name="SortRestrictionsType"></a>[SortRestrictionsType](Org.OData.Capabilities.V1.xml#L498): [SortRestrictionsBase](#SortRestrictionsBase)
 
 
 Property|Type|Description
@@ -314,7 +314,7 @@ Property|Type|Description
 
 - [Description](Org.OData.Core.V1.md#Description)
 
-## <a name="CommonExpandRestrictionsType"></a>[CommonExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L513)
+## <a name="ExpandRestrictionsBase"></a>[ExpandRestrictionsBase](Org.OData.Capabilities.V1.xml#L513)
 
 
 **Derived Types:**
@@ -330,7 +330,7 @@ Property|Type|Description
 
 - [Description](Org.OData.Core.V1.md#Description)
 
-## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L529): [CommonExpandRestrictionsType](#CommonExpandRestrictionsType)
+## <a name="ExpandRestrictionsType"></a>[ExpandRestrictionsType](Org.OData.Capabilities.V1.xml#L529): [ExpandRestrictionsBase](#ExpandRestrictionsBase)
 
 
 Property|Type|Description
@@ -369,7 +369,7 @@ Flag Member|Value|Description
 [phrase](Org.OData.Capabilities.V1.xml#L568)|8|Search phrases enclosed in double quotes
 [group](Org.OData.Capabilities.V1.xml#L571)|16|Precedence grouping of search expressions with parentheses
 
-## <a name="CommonInsertRestrictionsType"></a>[CommonInsertRestrictionsType](Org.OData.Capabilities.V1.xml#L590)
+## <a name="InsertRestrictionsBase"></a>[InsertRestrictionsBase](Org.OData.Capabilities.V1.xml#L590)
 
 
 **Derived Types:**
@@ -386,7 +386,7 @@ Property|Type|Description
 [Description](Org.OData.Capabilities.V1.xml#L609)|String?|A brief description of the request
 [LongDescription](Org.OData.Capabilities.V1.xml#L613)|String?|A lengthy description of the request
 
-## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L618): [CommonInsertRestrictionsType](#CommonInsertRestrictionsType)
+## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L618): [InsertRestrictionsBase](#InsertRestrictionsBase)
 
 
 Property|Type|Description
@@ -428,7 +428,7 @@ Property|Type|Description
 [Supported](Org.OData.Capabilities.V1.xml#L666)|Boolean|Annotation target supports deep inserts
 [ContentIDSupported](Org.OData.Capabilities.V1.xml#L669)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
 
-## <a name="CommonUpdateRestrictionsType"></a>[CommonUpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L678)
+## <a name="UpdateRestrictionsBase"></a>[UpdateRestrictionsBase](Org.OData.Capabilities.V1.xml#L678)
 
 
 **Derived Types:**
@@ -450,7 +450,7 @@ Property|Type|Description
 [Description](Org.OData.Capabilities.V1.xml#L712)|String?|A brief description of the request
 [LongDescription](Org.OData.Capabilities.V1.xml#L716)|String?|A lengthy description of the request
 
-## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L721): [CommonUpdateRestrictionsType](#CommonUpdateRestrictionsType)
+## <a name="UpdateRestrictionsType"></a>[UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L721): [UpdateRestrictionsBase](#UpdateRestrictionsBase)
 
 
 Property|Type|Description
@@ -493,7 +493,7 @@ Property|Type|Description
 [Supported](Org.OData.Capabilities.V1.xml#L761)|Boolean|Annotation target supports deep updates
 [ContentIDSupported](Org.OData.Capabilities.V1.xml#L764)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
 
-## <a name="CommonDeleteRestrictionsType"></a>[CommonDeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L773)
+## <a name="DeleteRestrictionsBase"></a>[DeleteRestrictionsBase](Org.OData.Capabilities.V1.xml#L773)
 
 
 **Derived Types:**
@@ -511,7 +511,7 @@ Property|Type|Description
 [Description](Org.OData.Capabilities.V1.xml#L795)|String?|A brief description of the request
 [LongDescription](Org.OData.Capabilities.V1.xml#L799)|String?|A lengthy description of the request
 
-## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L804): [CommonDeleteRestrictionsType](#CommonDeleteRestrictionsType)
+## <a name="DeleteRestrictionsType"></a>[DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L804): [DeleteRestrictionsBase](#DeleteRestrictionsBase)
 
 
 Property|Type|Description
@@ -625,19 +625,19 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[ChangeTracking](Org.OData.Capabilities.V1.xml#L1018)|[CommonChangeTrackingType?](#CommonChangeTrackingType)|Change tracking capabilities
-[CountRestrictions](Org.OData.Capabilities.V1.xml#L1021)|[CommonCountRestrictionsType?](#CommonCountRestrictionsType)|Restrictions on /$count path suffix and $count=true system query option
+[ChangeTracking](Org.OData.Capabilities.V1.xml#L1018)|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
+[CountRestrictions](Org.OData.Capabilities.V1.xml#L1021)|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
 [IndexableByKey](Org.OData.Capabilities.V1.xml#L1024)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
 [TopSupported](Org.OData.Capabilities.V1.xml#L1027)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
 [SkipSupported](Org.OData.Capabilities.V1.xml#L1030)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
 [ComputeSupported](Org.OData.Capabilities.V1.xml#L1033)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
 [SelectSupport](Org.OData.Capabilities.V1.xml#L1036)|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
-[FilterRestrictions](Org.OData.Capabilities.V1.xml#L1039)|[CommonFilterRestrictionsType?](#CommonFilterRestrictionsType)|Restrictions on filter expressions
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L1042)|[CommonSortRestrictionsType?](#CommonSortRestrictionsType)|Restrictions on orderby expressions
-[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L1045)|[CommonExpandRestrictionsType?](#CommonExpandRestrictionsType)|Restrictions on expand expressions
+[FilterRestrictions](Org.OData.Capabilities.V1.xml#L1039)|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L1042)|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
+[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L1045)|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
 [SearchRestrictions](Org.OData.Capabilities.V1.xml#L1048)|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
-[InsertRestrictions](Org.OData.Capabilities.V1.xml#L1051)|[CommonInsertRestrictionsType?](#CommonInsertRestrictionsType)|Restrictions on insert operations
-[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L1054)|[CommonUpdateRestrictionsType?](#CommonUpdateRestrictionsType)|Restrictions on update operations
-[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L1057)|[CommonDeleteRestrictionsType?](#CommonDeleteRestrictionsType)|Restrictions on delete operations
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L1051)|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L1054)|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L1057)|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
 [OperationRestrictions](Org.OData.Capabilities.V1.xml#L1060)|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
 [ReadRestrictions](Org.OData.Capabilities.V1.xml#L1063)|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance

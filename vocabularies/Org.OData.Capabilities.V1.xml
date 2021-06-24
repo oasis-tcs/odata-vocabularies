@@ -191,12 +191,12 @@ supported:
       <Term Name="ChangeTracking" Type="Capabilities.ChangeTrackingType" Nullable="false" AppliesTo="EntitySet Singleton Function FunctionImport NavigationProperty">
         <Annotation Term="Core.Description" String="Change tracking capabilities of this service or entity set" />
       </Term>
-      <ComplexType Name="CommonChangeTrackingType">
+      <ComplexType Name="ChangeTrackingBase">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="odata.track-changes preference is supported" />
         </Property>
       </ComplexType>
-      <ComplexType Name="ChangeTrackingType" BaseType="Capabilities.CommonChangeTrackingType">
+      <ComplexType Name="ChangeTrackingType" BaseType="Capabilities.ChangeTrackingBase">
         <Property Name="FilterableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Change tracking supports filters on these properties" />
           <Annotation Term="Core.LongDescription" String="If no properties are specified or FilterableProperties is omitted, clients cannot assume support for filtering on any properties in combination with change tracking." />
@@ -212,12 +212,12 @@ supported:
       <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
-      <ComplexType Name="CommonCountRestrictionsType">
+      <ComplexType Name="CountRestrictionsBase">
         <Property Name="Countable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be counted (only valid if targeting an entity set)" />
         </Property>
       </ComplexType>
-      <ComplexType Name="CountRestrictionsType" BaseType="Capabilities.CommonCountRestrictionsType">
+      <ComplexType Name="CountRestrictionsType" BaseType="Capabilities.CountRestrictionsBase">
         <Property Name="NonCountableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="Members of these collection properties cannot be counted" />
         </Property>
@@ -414,7 +414,7 @@ supported:
       <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
       </Term>
-      <ComplexType Name="CommonFilterRestrictionsType">
+      <ComplexType Name="FilterRestrictionsBase">
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Core.Description</String>
@@ -430,7 +430,7 @@ supported:
           <Annotation Term="Core.Description" String="The maximum number of levels (including recursion) that can be traversed in a filter expression. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
-      <ComplexType Name="FilterRestrictionsType" BaseType="Capabilities.CommonFilterRestrictionsType">
+      <ComplexType Name="FilterRestrictionsType" BaseType="Capabilities.FilterRestrictionsBase">
         <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties must be specified in the $filter clause (properties of derived types are not allowed here)" />
         </Property>
@@ -485,7 +485,7 @@ supported:
       <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
       </Term>
-      <ComplexType Name="CommonSortRestrictionsType">
+      <ComplexType Name="SortRestrictionsBase">
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Core.Description</String>
@@ -495,7 +495,7 @@ supported:
           <Annotation Term="Core.Description" String="$orderby is supported" />
         </Property>
       </ComplexType>
-      <ComplexType Name="SortRestrictionsType" BaseType="Capabilities.CommonSortRestrictionsType">
+      <ComplexType Name="SortRestrictionsType" BaseType="Capabilities.SortRestrictionsBase">
         <Property Name="AscendingOnlyProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties can only be used for sorting in Ascending order" />
         </Property>
@@ -510,7 +510,7 @@ supported:
       <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
       </Term>
-      <ComplexType Name="CommonExpandRestrictionsType">
+      <ComplexType Name="ExpandRestrictionsBase">
         <Annotation Term="Validation.ApplicableTerms">
           <Collection>
             <String>Core.Description</String>
@@ -526,7 +526,7 @@ supported:
           <Annotation Term="Core.Description" String="The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
-      <ComplexType Name="ExpandRestrictionsType" BaseType="Capabilities.CommonExpandRestrictionsType">
+      <ComplexType Name="ExpandRestrictionsType" BaseType="Capabilities.ExpandRestrictionsBase">
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions" />
         </Property>
@@ -587,7 +587,7 @@ supported:
         <Annotation Term="Core.AppliesToTypeIfDynamic" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
-      <ComplexType Name="CommonInsertRestrictionsType">
+      <ComplexType Name="InsertRestrictionsBase">
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
         </Property>
@@ -615,7 +615,7 @@ supported:
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
-      <ComplexType Name="InsertRestrictionsType" BaseType="Capabilities.CommonInsertRestrictionsType">
+      <ComplexType Name="InsertRestrictionsType" BaseType="Capabilities.InsertRestrictionsBase">
         <Property Name="NonInsertableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties cannot be specified on insert" />
         </Property>
@@ -675,7 +675,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.AppliesToTypeIfDynamic" />
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
-      <ComplexType Name="CommonUpdateRestrictionsType">
+      <ComplexType Name="UpdateRestrictionsBase">
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be updated" />
         </Property>
@@ -718,7 +718,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
-      <ComplexType Name="UpdateRestrictionsType" BaseType="Capabilities.CommonUpdateRestrictionsType">
+      <ComplexType Name="UpdateRestrictionsType" BaseType="Capabilities.UpdateRestrictionsBase">
         <Property Name="NonUpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These structural properties cannot be specified on update" />
         </Property>
@@ -770,7 +770,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.AppliesToTypeIfDynamic" />
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
-      <ComplexType Name="CommonDeleteRestrictionsType">
+      <ComplexType Name="DeleteRestrictionsBase">
         <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be deleted" />
         </Property>
@@ -801,7 +801,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
-      <ComplexType Name="DeleteRestrictionsType" BaseType="Capabilities.CommonDeleteRestrictionsType">
+      <ComplexType Name="DeleteRestrictionsType" BaseType="Capabilities.DeleteRestrictionsBase">
         <Property Name="NonDeletableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow DeleteLink requests" />
         </Property>
@@ -1015,16 +1015,16 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Default capability settings for all collection-valued resources in the container. Annotating a capability term for a specific collection-valued resource overrides the default setting" />
       </Term>
       <ComplexType Name="DefaultCapabilitiesType">
-        <Property Name="ChangeTracking" Type="Capabilities.CommonChangeTrackingType">
+        <Property Name="ChangeTracking" Type="Capabilities.ChangeTrackingBase">
           <Annotation Term="Core.Description" String="Change tracking capabilities" />
         </Property>
-        <Property Name="CountRestrictions" Type="Capabilities.CommonCountRestrictionsType">
+        <Property Name="CountRestrictions" Type="Capabilities.CountRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
         </Property>
         <Property Name="IndexableByKey" Type="Core.Tag">
           <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
         </Property>
-        <Property Name="TopSupported" Type="Core.Tag"> 
+        <Property Name="TopSupported" Type="Core.Tag">
           <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
         <Property Name="SkipSupported" Type="Core.Tag">
@@ -1036,25 +1036,25 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="SelectSupport" Type="Capabilities.SelectSupportType">
           <Annotation Term="Core.Description" String="Support for $select and nested query options within $select" />
         </Property>
-        <Property Name="FilterRestrictions" Type="Capabilities.CommonFilterRestrictionsType">
+        <Property Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
         </Property>
-        <Property Name="SortRestrictions" Type="Capabilities.CommonSortRestrictionsType">
+        <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
         </Property>
-        <Property Name="ExpandRestrictions" Type="Capabilities.CommonExpandRestrictionsType">
+        <Property Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
         </Property>
         <Property Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on search expressions" />
         </Property>
-        <Property Name="InsertRestrictions" Type="Capabilities.CommonInsertRestrictionsType">
+        <Property Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on insert operations" />
         </Property>
-        <Property Name="UpdateRestrictions" Type="Capabilities.CommonUpdateRestrictionsType">
+        <Property Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on update operations" />
         </Property>
-        <Property Name="DeleteRestrictions" Type="Capabilities.CommonDeleteRestrictionsType">
+        <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
         <Property Name="OperationRestrictions" Type="Capabilities.OperationRestrictionsType">
@@ -1064,7 +1064,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance" />
         </Property>
       </ComplexType>
-      
+
 
     </Schema>
   </edmx:DataServices>
