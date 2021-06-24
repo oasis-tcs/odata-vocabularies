@@ -204,16 +204,16 @@
         </Property>
       </ComplexType>
 
+      <TypeDefinition Name="HierarchyReference" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Annotation path that references a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation"/>
+        <Annotation Term="Core.LongDescription" String="The referenced annotation specifies a hierarchy that is evaluated by the functions defined in this vocabulary."/>
+      </TypeDefinition>
+      
       <Function Name="isroot" IsBound="true">
         <Annotation Term="Core.Description"
           String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is the root of the hierarchy in the given entity set of hierarchy nodes" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
@@ -224,12 +224,7 @@
         <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
         </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Parent node value" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
@@ -241,12 +236,7 @@
         <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
         </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Child node value" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
         <Parameter Name="MaxDistance" Type="Edm.Int16" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
@@ -258,12 +248,7 @@
         <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
         </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Sibling node value" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
@@ -271,12 +256,7 @@
         <Annotation Term="Core.Description"
           String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation has no descendants in the given entity set of hierarchy nodes" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 

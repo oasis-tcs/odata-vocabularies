@@ -204,6 +204,12 @@
                 "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
             }
         },
+        "HierarchyReference": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "Annotation path that references a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
+            "@Core.LongDescription": "The referenced annotation specifies a hierarchy that is evaluated by the functions defined in this vocabulary."
+        },
         "isroot": [
             {
                 "$Kind": "Function",
@@ -215,12 +221,8 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Nodes",
-                        "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy"
-                    },
-                    {
                         "$Name": "Hierarchy",
-                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
+                        "$Type": "Aggregation.HierarchyReference"
                     }
                 ],
                 "$ReturnType": {
@@ -244,12 +246,7 @@
                     },
                     {
                         "$Name": "Hierarchy",
-                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Parent node value"
+                        "$Type": "Aggregation.HierarchyReference"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -278,12 +275,7 @@
                     },
                     {
                         "$Name": "Hierarchy",
-                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Child node value"
+                        "$Type": "Aggregation.HierarchyReference"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -312,12 +304,7 @@
                     },
                     {
                         "$Name": "Hierarchy",
-                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Sibling node value"
+                        "$Type": "Aggregation.HierarchyReference"
                     }
                 ],
                 "$ReturnType": {
@@ -336,12 +323,8 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Nodes",
-                        "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy"
-                    },
-                    {
                         "$Name": "Hierarchy",
-                        "@Core.Description": "Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`"
+                        "$Type": "Aggregation.HierarchyReference"
                     }
                 ],
                 "$ReturnType": {
