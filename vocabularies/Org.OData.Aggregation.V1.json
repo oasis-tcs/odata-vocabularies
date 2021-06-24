@@ -47,13 +47,13 @@
         },
         "ApplySupportedDefaults": {
             "$Kind": "Term",
-            "$Type": "Aggregation.CommonApplySupportedType",
+            "$Type": "Aggregation.ApplySupportedBase",
             "$AppliesTo": [
                 "EntityContainer"
             ],
             "@Core.Description": "Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting"
         },
-        "CommonApplySupportedType": {
+        "ApplySupportedBase": {
             "$Kind": "ComplexType",
             "Transformations": {
                 "$Collection": true,
@@ -71,7 +71,7 @@
         },
         "ApplySupportedType": {
             "$Kind": "ComplexType",
-            "$BaseType": "Aggregation.CommonApplySupportedType",
+            "$BaseType": "Aggregation.ApplySupportedBase",
             "PropertyRestrictions": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,

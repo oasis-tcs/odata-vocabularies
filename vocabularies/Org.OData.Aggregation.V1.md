@@ -9,7 +9,7 @@ Terms to describe which data in a given entity model can be aggregated, and how.
 Term|Type|Description
 :---|:---|:----------
 [ApplySupported](Org.OData.Aggregation.V1.xml#L74)|[ApplySupportedType](#ApplySupportedType)|<a name="ApplySupported"></a>This entity set or collection supports the `$apply` system query option
-[ApplySupportedDefaults](Org.OData.Aggregation.V1.xml#L80)|[CommonApplySupportedType](#CommonApplySupportedType)|<a name="ApplySupportedDefaults"></a>Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting
+[ApplySupportedDefaults](Org.OData.Aggregation.V1.xml#L80)|[ApplySupportedBase](#ApplySupportedBase)|<a name="ApplySupportedDefaults"></a>Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting
 [Groupable](Org.OData.Aggregation.V1.xml#L160) *(Deprecated)*|[Tag](Org.OData.Core.V1.md#Tag)|<a name="Groupable"></a>Deprecated in favor of [`ApplySupported/GroupableProperties`](#ApplySupported)
 [Aggregatable](Org.OData.Aggregation.V1.xml#L172) *(Deprecated)*|[Tag](Org.OData.Core.V1.md#Tag)|<a name="Aggregatable"></a>Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)
 [CustomAggregate](Org.OData.Aggregation.V1.xml#L184)|String|<a name="CustomAggregate"></a>Dynamic property that can be used in the `aggregate` transformation<br>This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type.
@@ -81,7 +81,7 @@ Parameter|Type|Description
 [&rarr;](Org.OData.Aggregation.V1.xml#L266)|Boolean|
 
 
-## <a name="CommonApplySupportedType"></a>[CommonApplySupportedType](Org.OData.Aggregation.V1.xml#L85)
+## <a name="ApplySupportedBase"></a>[ApplySupportedBase](Org.OData.Aggregation.V1.xml#L85)
 
 
 **Derived Types:**
@@ -93,7 +93,7 @@ Property|Type|Description
 [CustomAggregationMethods](Org.OData.Aggregation.V1.xml#L89)|\[String\]|Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`
 [Rollup](Org.OData.Aggregation.V1.xml#L93)|[RollupType](#RollupType)|The service supports rollup hierarchies in a `groupby` transformation
 
-## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L97): [CommonApplySupportedType](#CommonApplySupportedType)
+## <a name="ApplySupportedType"></a>[ApplySupportedType](Org.OData.Aggregation.V1.xml#L97): [ApplySupportedBase](#ApplySupportedBase)
 
 
 Property|Type|Description

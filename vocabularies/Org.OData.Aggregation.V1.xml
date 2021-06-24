@@ -77,12 +77,12 @@
           <String>This entity set or collection supports the `$apply` system query option</String>
         </Annotation> 
       </Term>
-      <Term Name="ApplySupportedDefaults" Type="Aggregation.CommonApplySupportedType" Nullable="false" AppliesTo="EntityContainer">
+      <Term Name="ApplySupportedDefaults" Type="Aggregation.ApplySupportedBase" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description">
           <String>Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting</String>
         </Annotation> 
       </Term>
-      <ComplexType Name="CommonApplySupportedType">
+      <ComplexType Name="ApplySupportedBase">
         <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
         </Property>
@@ -94,7 +94,7 @@
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
       </ComplexType>
-      <ComplexType Name="ApplySupportedType" BaseType="Aggregation.CommonApplySupportedType">
+      <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
 <!-- 
         <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
