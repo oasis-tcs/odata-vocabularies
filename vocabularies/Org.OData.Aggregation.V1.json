@@ -207,8 +207,8 @@
         "HierarchyReference": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
-            "@Core.Description": "Absolute annotation path that references a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Functions defined in this vocabulary have a parameter of this type. It specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
+            "@Core.Description": "Annotation path that references a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
+            "@Core.LongDescription": "Functions defined in this vocabulary have a parameter of this type. It specifies the hierarchy that is evaluated by the function.\n          The annotation path is evaluated relative to the entity set of the function's binding parameter,\n          so it can have the form `@Aggregation.RecursiveHierarchy#qualifier`.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
         },
         "isroot": [
             {
