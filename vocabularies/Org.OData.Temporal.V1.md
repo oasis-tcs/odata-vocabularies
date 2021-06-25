@@ -130,7 +130,7 @@ Describes how the data history is represented
 ## <a name="DataHistorySnapshot"></a>[DataHistorySnapshot](Org.OData.Temporal.V1.xml#L110): [DataHistory](#DataHistory)
 Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection
 
-The point in application time is defined by the `$at` clause of a request; default is the current point in time.
+The point in application time is defined by the query option `$at` [OData-Temporal, section 4.2.1]; default is the current point in time.
 
 ## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L117): [DataHistory](#DataHistory)
 Each OData entity represents data during a period of application time; it is called a *time slice*

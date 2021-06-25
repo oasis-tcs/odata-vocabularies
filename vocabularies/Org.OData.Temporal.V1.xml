@@ -110,7 +110,7 @@
       <ComplexType Name="DataHistorySnapshot" BaseType="Temporal.DataHistory">
         <Annotation Term="Core.Description" String="Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection" />
         <Annotation Term="Core.LongDescription">
-          <String>The point in application time is defined by the `$at` clause of a request; default is the current point in time.</String>
+          <String>The point in application time is defined by the query option `$at` [OData-Temporal, section 4.2.1]; default is the current point in time.</String>
         </Annotation>
       </ComplexType>
 
