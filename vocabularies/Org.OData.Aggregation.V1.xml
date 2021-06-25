@@ -12,6 +12,7 @@
   Editors:
   - Ralf Handl (ralf.handl@sap.com), SAP SE
   - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+  - Gerald Krause (gerald.krause@sap.com), SAP SE
   - Michael Pizzo (mikep@microsoft.com), Microsoft
 
   Additional artifacts:
@@ -70,16 +71,18 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
-          <String>This structured type, entity set or entity container supports the $apply system query option</String>
+          <String>This entity set or collection supports the `$apply` system query option</String>
         </Annotation> 
-        <Annotation Term="Core.LongDescription">
-          <String>An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation.</String>
-        </Annotation>
       </Term>
-      <ComplexType Name="ApplySupportedType">
+      <Term Name="ApplySupportedDefaults" Type="Aggregation.ApplySupportedBase" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description">
+          <String>Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting</String>
+        </Annotation> 
+      </Term>
+      <ComplexType Name="ApplySupportedBase">
         <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
         </Property>
@@ -90,6 +93,20 @@
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
+      </ComplexType>
+      <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
+<!-- 
+        <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
+        </Property>
+        <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
+          <Annotation Term="Core.Description"
+            String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
+        </Property>
+        <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
+          <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
+        </Property>
+-->        
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
           <Annotation Term="Core.Revisions">
             <Collection>

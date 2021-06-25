@@ -40,14 +40,20 @@
             "$Type": "Aggregation.ApplySupportedType",
             "$AppliesTo": [
                 "EntitySet",
-                "Collection",
-                "EntityContainer"
+                "Collection"
             ],
             "@Core.AppliesViaContainer": true,
-            "@Core.Description": "This structured type, entity set or entity container supports the $apply system query option",
-            "@Core.LongDescription": "An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation."
+            "@Core.Description": "This entity set or collection supports the `$apply` system query option"
         },
-        "ApplySupportedType": {
+        "ApplySupportedDefaults": {
+            "$Kind": "Term",
+            "$Type": "Aggregation.ApplySupportedBase",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting"
+        },
+        "ApplySupportedBase": {
             "$Kind": "ComplexType",
             "Transformations": {
                 "$Collection": true,
@@ -61,7 +67,11 @@
                 "$Type": "Aggregation.RollupType",
                 "$DefaultValue": "MultipleHierarchies",
                 "@Core.Description": "The service supports rollup hierarchies in a `groupby` transformation"
-            },
+            }
+        },
+        "ApplySupportedType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Aggregation.ApplySupportedBase",
             "PropertyRestrictions": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
