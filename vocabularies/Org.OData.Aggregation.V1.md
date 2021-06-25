@@ -126,7 +126,7 @@ Property|Type|Description
 Annotation path that references a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
 
 Functions defined in this vocabulary have a parameter of this type. It specifies the hierarchy that is evaluated by the function.
-          The annotation path is evaluated relative to the entity set of the function's binding parameter,
+          The annotation path is evaluated starting at the entity set of the function's binding parameter,
           so it can have the form `@Aggregation.RecursiveHierarchy#qualifier`.
           Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.
 
