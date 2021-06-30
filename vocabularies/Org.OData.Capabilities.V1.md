@@ -300,7 +300,7 @@ Flag Member|Value|Description
 [OR](Org.OData.Capabilities.V1.xml#L553)|2|Multiple search terms separated by `OR` are not supported
 [NOT](Org.OData.Capabilities.V1.xml#L556)|4|Search terms preceded by `NOT` are not supported
 [phrase](Org.OData.Capabilities.V1.xml#L559)|8|Search phrases enclosed in double quotes are not supported
-[group](Org.OData.Capabilities.V1.xml#L562)|16|Precedence grouping of search expressions with parentheses are not supported
+[group](Org.OData.Capabilities.V1.xml#L562)|16|Precedence grouping of search expressions with parentheses is not supported
 
 ## <a name="InsertRestrictionsType"></a>[InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L581)
 

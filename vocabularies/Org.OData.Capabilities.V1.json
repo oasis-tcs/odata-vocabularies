@@ -722,7 +722,7 @@
             "phrase": 8,
             "phrase@Core.Description": "Search phrases enclosed in double quotes are not supported",
             "group": 16,
-            "group@Core.Description": "Precedence grouping of search expressions with parentheses are not supported"
+            "group@Core.Description": "Precedence grouping of search expressions with parentheses is not supported"
         },
         "KeyAsSegmentSupported": {
             "$Kind": "Term",
