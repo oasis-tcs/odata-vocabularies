@@ -710,18 +710,19 @@
         "SearchExpressions": {
             "$Kind": "EnumType",
             "$IsFlags": true,
+            "@Core.Description": "Expressions _not_ supported in $search",
             "none": 0,
             "none@Core.Description": "No restrictions, all search terms are supported",
             "AND": 1,
-            "AND@Core.Description": "Multiple search terms separated by `AND`",
+            "AND@Core.Description": "Multiple search terms separated by `AND` are not supported",
             "OR": 2,
-            "OR@Core.Description": "Multiple search terms separated by `OR`",
+            "OR@Core.Description": "Multiple search terms separated by `OR` are not supported",
             "NOT": 4,
-            "NOT@Core.Description": "Search terms preceded by `NOT`",
+            "NOT@Core.Description": "Search terms preceded by `NOT` are not supported",
             "phrase": 8,
-            "phrase@Core.Description": "Search phrases enclosed in double quotes",
+            "phrase@Core.Description": "Search phrases enclosed in double quotes are not supported",
             "group": 16,
-            "group@Core.Description": "Precedence grouping of search expressions with parentheses"
+            "group@Core.Description": "Precedence grouping of search expressions with parentheses are not supported"
         },
         "KeyAsSegmentSupported": {
             "$Kind": "Term",

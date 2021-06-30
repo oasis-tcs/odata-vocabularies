@@ -543,23 +543,24 @@ supported:
         </Property>
       </ComplexType>
       <EnumType Name="SearchExpressions" IsFlags="true">
+        <Annotation Term="Core.Description" String="Expressions _not_ supported in $search" />
         <Member Name="none" Value="0">
           <Annotation Term="Core.Description" String="No restrictions, all search terms are supported" />
         </Member>
         <Member Name="AND" Value="1">
-          <Annotation Term="Core.Description" String="Multiple search terms separated by `AND`" />
+          <Annotation Term="Core.Description" String="Multiple search terms separated by `AND` are not supported" />
         </Member>
         <Member Name="OR" Value="2">
-          <Annotation Term="Core.Description" String="Multiple search terms separated by `OR`" />
+          <Annotation Term="Core.Description" String="Multiple search terms separated by `OR` are not supported" />
         </Member>
         <Member Name="NOT" Value="4">
-          <Annotation Term="Core.Description" String="Search terms preceded by `NOT`" />
+          <Annotation Term="Core.Description" String="Search terms preceded by `NOT` are not supported" />
         </Member>
         <Member Name="phrase" Value="8">
-          <Annotation Term="Core.Description" String="Search phrases enclosed in double quotes" />
+          <Annotation Term="Core.Description" String="Search phrases enclosed in double quotes are not supported" />
         </Member>
         <Member Name="group" Value="16">
-          <Annotation Term="Core.Description" String="Precedence grouping of search expressions with parentheses" />
+          <Annotation Term="Core.Description" String="Precedence grouping of search expressions with parentheses are not supported" />
         </Member>
       </EnumType>
 
