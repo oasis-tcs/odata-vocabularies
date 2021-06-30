@@ -560,7 +560,7 @@ supported:
           <Annotation Term="Core.Description" String="Search phrases enclosed in double quotes are not supported" />
         </Member>
         <Member Name="group" Value="16">
-          <Annotation Term="Core.Description" String="Precedence grouping of search expressions with parentheses are not supported" />
+          <Annotation Term="Core.Description" String="Precedence grouping of search expressions with parentheses is not supported" />
         </Member>
       </EnumType>
 
