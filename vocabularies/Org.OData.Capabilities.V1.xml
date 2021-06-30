@@ -544,7 +544,7 @@ supported:
       </ComplexType>
       <EnumType Name="SearchExpressions" IsFlags="true">
         <Member Name="none" Value="0">
-          <Annotation Term="Core.Description" String="Single search term" />
+          <Annotation Term="Core.Description" String="No restrictions, all search terms are supported" />
         </Member>
         <Member Name="AND" Value="1">
           <Annotation Term="Core.Description" String="Multiple search terms separated by `AND`" />

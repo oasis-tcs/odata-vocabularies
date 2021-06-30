@@ -711,7 +711,7 @@
             "$Kind": "EnumType",
             "$IsFlags": true,
             "none": 0,
-            "none@Core.Description": "Single search term",
+            "none@Core.Description": "No restrictions, all search terms are supported",
             "AND": 1,
             "AND@Core.Description": "Multiple search terms separated by `AND`",
             "OR": 2,

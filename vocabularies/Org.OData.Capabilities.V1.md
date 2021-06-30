@@ -295,7 +295,7 @@ Property|Type|Description
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[none](Org.OData.Capabilities.V1.xml#L546)|0|Single search term
+[none](Org.OData.Capabilities.V1.xml#L546)|0|No restrictions, all search terms are supported
 [AND](Org.OData.Capabilities.V1.xml#L549)|1|Multiple search terms separated by `AND`
 [OR](Org.OData.Capabilities.V1.xml#L552)|2|Multiple search terms separated by `OR`
 [NOT](Org.OData.Capabilities.V1.xml#L555)|4|Search terms preceded by `NOT`
