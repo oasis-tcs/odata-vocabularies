@@ -88,7 +88,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.DataHistory",
             "@Core.Description": "Each OData entity represents data during a period of application time; it is called a *time slice*",
-            "@Core.LongDescription": "The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties\n          and with overlapping application-time periods as defined by their `TimeSliceStart` and `TimeSliceEnd` properties.\n          The temporal collection always contains all entities (with consecutive time periods) for a given object key.\n          The actions defined in this vocabulary MUST be invoked on collections with visible data history only.",
+            "@Core.LongDescription": "The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties\n          and with overlapping application-time periods as defined by their `TimeSliceStart` and `TimeSliceEnd` properties.\n          The temporal collection always contains all entities (with consecutive time periods) for a given object key.",
             "TimeSliceStart": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing lower boundary of a time slice"
@@ -107,6 +107,19 @@
                 "$Collection": true,
                 "$Type": "Core.QualifiedActionName",
                 "@Core.Description": "List of supported temporal actions"
+            }
+        },
+        "Period": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A period to be changed with an action defined in this vocabulary",
+            "@Core.LongDescription": "The action parameter with this type MUST be provided if the action is invoked on a collection\n          without visible data history. It MUST NOT be provided otherwise.",
+            "TimeSliceStart": {
+                "$Type": "Edm.PrimitiveType",
+                "@Core.Description": "Lower boundary of a time slice"
+            },
+            "TimeSliceEnd": {
+                "$Type": "Edm.PrimitiveType",
+                "@Core.Description": "Upper boundary of a time slice"
             }
         },
         "Update": [
@@ -129,6 +142,12 @@
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                    },
+                    {
+                        "$Name": "deltaIntervals",
+                        "$Collection": true,
+                        "$Type": "Temporal.Period",
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -158,6 +177,12 @@
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "New time slices to be merged into the `timeslices` collection",
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                    },
+                    {
+                        "$Name": "deltaIntervals",
+                        "$Collection": true,
+                        "$Type": "Temporal.Period",
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -187,6 +212,12 @@
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                    },
+                    {
+                        "$Name": "deltaIntervals",
+                        "$Collection": true,
+                        "$Type": "Temporal.Period",
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -216,6 +247,12 @@
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "List of time slices covering the entire history of the temporal object(s) to be synchronized",
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices must contain all properties that are needed for overwriting."
+                    },
+                    {
+                        "$Name": "newIntervals",
+                        "$Collection": true,
+                        "$Type": "Temporal.Period",
+                        "@Core.Description": "Periods in 1:1 correspondence with `newTimeslices` in case the collection to be updated does not have visible data history"
                     }
                 ]
             }
@@ -240,6 +277,12 @@
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
+                    },
+                    {
+                        "$Name": "deltaIntervals",
+                        "$Collection": true,
+                        "$Type": "Temporal.Period",
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -269,6 +312,12 @@
                         "$Type": "Edm.EntityType",
                         "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
+                    },
+                    {
+                        "$Name": "deltaIntervals",
+                        "$Collection": true,
+                        "$Type": "Temporal.Period",
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
