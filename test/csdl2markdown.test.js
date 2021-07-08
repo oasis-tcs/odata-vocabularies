@@ -96,7 +96,7 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Foo *(Deprecated)*|[Tag](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Foo"></a>Use term `Foo` from the OASIS Core vocabulary instead',
+      'Foo *(Deprecated)*|[Tag](https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.html#Tag)|<a name="Foo"></a>Use term `Foo` from the OASIS Core vocabulary instead',
       'Bar|[Type](Another.md#Type)|<a name="Bar"></a>',
       "",
     ];
