@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
-  xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm"
-  exclude-result-prefixes="edmx edm nodeinfo" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo"
->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" exclude-result-prefixes="edmx edm nodeinfo" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo">
   <!--
     This style sheet transforms OData 4.0 XML Vocabulary documents into GitHub-Flavored MarkDown (GFM)
 
-    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/Vocab-to-MarkDown.xsl
+    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/main/tools/Vocab-to-MarkDown.xsl
 
   -->
 
@@ -30,20 +27,15 @@
   </xsl:variable>
 
   <xsl:variable name="coreNamespace" select="'Org.OData.Core.V1'" />
-  <xsl:variable name="coreAlias"
-    select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
+  <xsl:variable name="coreAlias" select="//edmx:Include[@Namespace=$coreNamespace]/@Alias|//edm:Schema[@Namespace=$coreNamespace]/@Alias" />
 
   <xsl:variable name="validationNamespace" select="'Org.OData.Validation.V1'" />
-  <xsl:variable name="validationAlias"
-    select="//edmx:Include[@Namespace=$validationNamespace]/@Alias|//edm:Schema[@Namespace=$validationNamespace]/@Alias" />
+  <xsl:variable name="validationAlias" select="//edmx:Include[@Namespace=$validationNamespace]/@Alias|//edm:Schema[@Namespace=$validationNamespace]/@Alias" />
 
   <xsl:template name="descriptions-in-table">
     <xsl:choose>
-      <xsl:when
-        test="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]"
-      >
-        <xsl:variable name="description"
-          select="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]/../edm:PropertyValue[@Property='Description']" />
+      <xsl:when test="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]">
+        <xsl:variable name="description" select="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]/../edm:PropertyValue[@Property='Description']" />
         <xsl:call-template name="escape">
           <xsl:with-param name="string" select="normalize-space($description/@String)" />
         </xsl:call-template>
@@ -55,8 +47,7 @@
         <xsl:call-template name="Core.Description">
           <xsl:with-param name="node" select="." />
         </xsl:call-template>
-        <xsl:apply-templates
-          select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]" mode="example" />
+        <xsl:apply-templates select="edm:Annotation[@Term=concat($coreNamespace,'.Example') or @Term=concat($coreAlias,'.Example')]" mode="example" />
         <xsl:variable name="longDescription">
           <xsl:call-template name="Core.LongDescription-escaped">
             <xsl:with-param name="node" select="." />
@@ -73,8 +64,7 @@
 
   <xsl:template name="Core.Description">
     <xsl:param name="node" />
-    <xsl:variable name="description"
-      select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.Description') or @Term=concat($coreAlias,'.Description')) and not(@Qualifier)]" />
+    <xsl:variable name="description" select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.Description') or @Term=concat($coreAlias,'.Description')) and not(@Qualifier)]" />
     <xsl:call-template name="escape">
       <xsl:with-param name="string" select="normalize-space($description/@String)" />
     </xsl:call-template>
@@ -85,8 +75,7 @@
 
   <xsl:template name="Core.LongDescription-escaped">
     <xsl:param name="node" />
-    <xsl:variable name="description"
-      select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
+    <xsl:variable name="description" select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
     <xsl:call-template name="escape">
       <xsl:with-param name="string" select="$description/@String" />
     </xsl:call-template>
@@ -97,8 +86,7 @@
 
   <xsl:template name="Core.LongDescription">
     <xsl:param name="node" />
-    <xsl:variable name="description"
-      select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
+    <xsl:variable name="description" select="$node/edm:Annotation[(@Term=concat($coreNamespace,'.LongDescription') or @Term=concat($coreAlias,'.LongDescription')) and not(@Qualifier)]" />
     <xsl:if test="$description">
       <xsl:text>&#xA;</xsl:text>
       <xsl:value-of select="$description/@String|$description/edm:String" />
@@ -172,9 +160,9 @@
   <xsl:template match="edm:Action|edm:Function">
     <xsl:if test="position()=1">
       <xsl:text>&#xA;&#xA;## </xsl:text>
-      <xsl:value-of select="local-name()"/>
+      <xsl:value-of select="local-name()" />
       <xsl:text>s&#xA;&#xA;</xsl:text>
-      <xsl:value-of select="local-name()"/>
+      <xsl:value-of select="local-name()" />
       <xsl:text>|Signature|Description</xsl:text>
       <xsl:text>&#xA;:-------|:--------|:----------&#xA;</xsl:text>
     </xsl:if>
@@ -219,9 +207,7 @@
     <xsl:if test="edm:Annotation[@Term='Common.Experimental']">
       <xsl:text> *([Experimental](Common.md#Experimental))*</xsl:text>
     </xsl:if>
-    <xsl:if
-      test="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]"
-    >
+    <xsl:if test="edm:Annotation[@Term=concat($coreNamespace,'.Revisions') or @Term=concat($coreAlias,'.Revisions')]/edm:Collection/edm:Record/edm:PropertyValue[@Property='Kind' and (@EnumMember=concat($coreNamespace,'.RevisionKind/Deprecated') or @EnumMember=concat($coreAlias,'.RevisionKind/Deprecated'))]">
       <xsl:text> *(Deprecated)*</xsl:text>
     </xsl:if>
   </xsl:template>
@@ -289,8 +275,7 @@
     <xsl:if test="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]">
       <xsl:text>&#xA;**Derived Types:**&#xA;</xsl:text>
     </xsl:if>
-    <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
-      mode="inheritance" />
+    <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]" mode="inheritance" />
 
     <xsl:variable name="properties">
       <xsl:call-template name="properties">
@@ -321,9 +306,7 @@
 
     <xsl:variable name="namespaceQualifiedName" select="concat(../@Namespace,'.',@Name)" />
     <xsl:variable name="aliasQualifiedName" select="concat(../@Alias,'.',@Name)" />
-    <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]"
-      mode="inheritance"
-    >
+    <xsl:apply-templates select="//edm:ComplexType[@BaseType=$namespaceQualifiedName or @BaseType=$aliasQualifiedName]" mode="inheritance">
       <xsl:with-param name="indent" select="concat($indent,'  ')" />
     </xsl:apply-templates>
   </xsl:template>
@@ -346,8 +329,7 @@
       </xsl:variable>
       <!-- recurse to base type -->
       <xsl:call-template name="properties">
-        <xsl:with-param name="complexType"
-          select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
+        <xsl:with-param name="complexType" select="//edm:Schema[@Namespace=$qualifier or @Alias=$qualifier]/edm:ComplexType[@Name=$name]" />
         <xsl:with-param name="parent" select="true()" />
       </xsl:call-template>
     </xsl:if>
@@ -465,8 +447,7 @@
   </xsl:template>
 
   <xsl:template name="allowedValues">
-    <xsl:variable name="allowedValues"
-      select="edm:Annotation[(@Term=concat($validationNamespace,'.AllowedValues') or @Term=concat($validationAlias,'.AllowedValues')) and not(@Qualifier)]" />
+    <xsl:variable name="allowedValues" select="edm:Annotation[(@Term=concat($validationNamespace,'.AllowedValues') or @Term=concat($validationAlias,'.AllowedValues')) and not(@Qualifier)]" />
     <xsl:if test="$allowedValues">
       <xsl:text>&#xA;</xsl:text>
       <xsl:text>Allowed Value|Description&#xA;</xsl:text>
@@ -517,10 +498,8 @@
     </xsl:if>
     <xsl:choose>
       <xsl:when test="$qualifier='Edm' and $name='String'">
-        <xsl:variable name="isMediaType"
-          select="edm:Annotation[(@Term=concat($coreNamespace,'.IsMediaType') or @Term=concat($coreAlias,'.IsMediaType')) and not(@Qualifier)]" />
-        <xsl:variable name="isUrl"
-          select="edm:Annotation[(@Term=concat($coreNamespace,'.IsURL') or @Term=concat($coreAlias,'.IsURL')) and not(@Qualifier)]" />
+        <xsl:variable name="isMediaType" select="edm:Annotation[(@Term=concat($coreNamespace,'.IsMediaType') or @Term=concat($coreAlias,'.IsMediaType')) and not(@Qualifier)]" />
+        <xsl:variable name="isUrl" select="edm:Annotation[(@Term=concat($coreNamespace,'.IsURL') or @Term=concat($coreAlias,'.IsURL')) and not(@Qualifier)]" />
         <xsl:choose>
           <xsl:when test="$isMediaType">
             <xsl:text>MediaType</xsl:text>

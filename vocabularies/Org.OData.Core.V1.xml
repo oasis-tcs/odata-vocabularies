@@ -59,7 +59,7 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -394,13 +394,15 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property Term">
-        <Annotation Term="Core.Description" String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
+      <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
+        <Annotation Term="Core.Description" String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term." />
+        <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
-      <Term Name="MediaType" Type="Edm.String" AppliesTo="Property Term">
-        <Annotation Term="Core.Description" String="The media type of the values of a binary or string property or term" />
+      <Term Name="MediaType" Type="Edm.String" AppliesTo="Property Term TypeDefinition Parameter ReturnType">
+        <Annotation Term="Core.Description" String="The media type of the values of a binary or string or stream property or term." />
+        <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
