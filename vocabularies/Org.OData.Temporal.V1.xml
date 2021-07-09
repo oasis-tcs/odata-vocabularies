@@ -137,7 +137,7 @@
       </ComplexType>
 
       <ComplexType Name="Period">
-        <Annotation Term="Core.Description" String="A period to be changed with an action defined in this vocabulary" />
+        <Annotation Term="Core.Description" String="Validity period of a &quot;delta timeslice&quot; in an action defined in this vocabulary" />
         <Annotation Term="Core.LongDescription">
           <String>The action parameter with this type MUST be provided if the action is invoked on a collection
           without visible data history. It MUST NOT be provided otherwise.
@@ -176,7 +176,7 @@
           </Annotation>
         </Parameter>
         <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
+          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -198,7 +198,7 @@
           </Annotation>
         </Parameter>
         <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
+          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -221,7 +221,7 @@
           </Annotation>
         </Parameter>
         <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
+          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -245,7 +245,7 @@
           </Annotation>
         </Parameter>
         <Parameter Name="newPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `newTimeslices` in case the collection to be modified does not have visible data history" />
+          <Annotation Term="Core.Description" String="Periods corresponding to the `newTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
       </Action>
 
@@ -267,7 +267,7 @@
           </Annotation>
         </Parameter>
         <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
+          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted (sub-periods of) time slices" />
@@ -289,7 +289,7 @@
           </Annotation>
         </Parameter>
         <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
+          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
