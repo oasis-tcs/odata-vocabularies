@@ -33,21 +33,21 @@ Term|Type|Description
 [Computed](Org.OData.Core.V1.xml#L384)|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
 [ComputedDefaultValue](Org.OData.Core.V1.xml#L388)|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
 [IsURL](Org.OData.Core.V1.xml#L392)|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
-[AcceptableMediaTypes](Org.OData.Core.V1.xml#L397)|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated binary, stream, or string property or term
-[MediaType](Org.OData.Core.V1.xml#L402)|MediaType?|<a name="MediaType"></a>The media type of the values of a binary or string property or term
-[IsMediaType](Org.OData.Core.V1.xml#L407)|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
-[ContentDisposition](Org.OData.Core.V1.xml#L412)|[ContentDispositionType?](#ContentDispositionType)|<a name="ContentDisposition"></a>The content disposition of a binary or stream property or term
-[OptimisticConcurrency](Org.OData.Core.V1.xml#L422)|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag.
-[AdditionalProperties](Org.OData.Core.V1.xml#L426)|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata<br>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.
-[AutoExpand](Org.OData.Core.V1.xml#L431)|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this stream or navigation property even if not requested with $expand
-[AutoExpandReferences](Org.OData.Core.V1.xml#L435)|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
-[MayImplement](Org.OData.Core.V1.xml#L439)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
-[Ordered](Org.OData.Core.V1.xml#L455)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
-[PositionalInsert](Org.OData.Core.V1.xml#L459)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
-[AlternateKeys](Org.OData.Core.V1.xml#L463)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](Org.OData.Core.V1.xml#L491)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
-[OperationAvailable](Org.OData.Core.V1.xml#L502)|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
-[SymbolicName](Org.OData.Core.V1.xml#L513)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
+[AcceptableMediaTypes](Org.OData.Core.V1.xml#L397)|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated binary, stream, or string property or term.<br>The annotation of a TypeDefinition propagates to the model elements having this type
+[MediaType](Org.OData.Core.V1.xml#L403)|MediaType?|<a name="MediaType"></a>The media type of the values of a binary or string or stream property or term.<br>The annotation of a TypeDefinition propagates to the model elements having this type
+[IsMediaType](Org.OData.Core.V1.xml#L409)|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
+[ContentDisposition](Org.OData.Core.V1.xml#L414)|[ContentDispositionType?](#ContentDispositionType)|<a name="ContentDisposition"></a>The content disposition of a binary or stream property or term
+[OptimisticConcurrency](Org.OData.Core.V1.xml#L424)|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag.
+[AdditionalProperties](Org.OData.Core.V1.xml#L428)|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata<br>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.
+[AutoExpand](Org.OData.Core.V1.xml#L433)|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this stream or navigation property even if not requested with $expand
+[AutoExpandReferences](Org.OData.Core.V1.xml#L437)|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
+[MayImplement](Org.OData.Core.V1.xml#L441)|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
+[Ordered](Org.OData.Core.V1.xml#L457)|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
+[PositionalInsert](Org.OData.Core.V1.xml#L461)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
+[AlternateKeys](Org.OData.Core.V1.xml#L465)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
+[OptionalParameter](Org.OData.Core.V1.xml#L493)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
+[OperationAvailable](Org.OData.Core.V1.xml#L504)|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
+[SymbolicName](Org.OData.Core.V1.xml#L515)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L80)
 
@@ -209,44 +209,44 @@ Flag Member|Value|Description
 [ReadWrite](Org.OData.Core.V1.xml#L359)|3|Read and write permission
 [Invoke](Org.OData.Core.V1.xml#L362)|4|Permission to invoke actions
 
-## <a name="ContentDispositionType"></a>[ContentDispositionType](Org.OData.Core.V1.xml#L416)
+## <a name="ContentDispositionType"></a>[ContentDispositionType](Org.OData.Core.V1.xml#L418)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Filename](Org.OData.Core.V1.xml#L417)|String?|The proposed filename for downloading the binary or stream value
+[Filename](Org.OData.Core.V1.xml#L419)|String?|The proposed filename for downloading the binary or stream value
 
-## <a name="QualifiedTermName"></a>[QualifiedTermName](Org.OData.Core.V1.xml#L443)
+## <a name="QualifiedTermName"></a>[QualifiedTermName](Org.OData.Core.V1.xml#L445)
 **Type:** String
 
 The qualified name of a term in scope.
 
-## <a name="QualifiedTypeName"></a>[QualifiedTypeName](Org.OData.Core.V1.xml#L447)
+## <a name="QualifiedTypeName"></a>[QualifiedTypeName](Org.OData.Core.V1.xml#L449)
 **Type:** String
 
 The qualified name of a type in scope.
 
-## <a name="QualifiedActionName"></a>[QualifiedActionName](Org.OData.Core.V1.xml#L451)
+## <a name="QualifiedActionName"></a>[QualifiedActionName](Org.OData.Core.V1.xml#L453)
 **Type:** String
 
 The qualified name of an action in scope.
 
-## <a name="AlternateKey"></a>[AlternateKey](Org.OData.Core.V1.xml#L466)
+## <a name="AlternateKey"></a>[AlternateKey](Org.OData.Core.V1.xml#L468)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Key](Org.OData.Core.V1.xml#L467)|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
+[Key](Org.OData.Core.V1.xml#L469)|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
-## <a name="PropertyRef"></a>[PropertyRef](Org.OData.Core.V1.xml#L471)
+## <a name="PropertyRef"></a>[PropertyRef](Org.OData.Core.V1.xml#L473)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](Org.OData.Core.V1.xml#L472)|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
-[Alias](Org.OData.Core.V1.xml#L475)|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
+[Name](Org.OData.Core.V1.xml#L474)|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
+[Alias](Org.OData.Core.V1.xml#L477)|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
-## <a name="Dictionary"></a>[Dictionary](Org.OData.Core.V1.xml#L480)
+## <a name="Dictionary"></a>[Dictionary](Org.OData.Core.V1.xml#L482)
 A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.
 
 
@@ -255,19 +255,19 @@ Property|Type
 Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
 
 
-## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L495)
+## <a name="OptionalParameterType"></a>[OptionalParameterType](Org.OData.Core.V1.xml#L497)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](Org.OData.Core.V1.xml#L496)|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
+[DefaultValue](Org.OData.Core.V1.xml#L498)|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
 
-## <a name="LocalDateTime"></a>[LocalDateTime](Org.OData.Core.V1.xml#L507)
+## <a name="LocalDateTime"></a>[LocalDateTime](Org.OData.Core.V1.xml#L509)
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Org.OData.Core.V1.xml#L516)
+## <a name="SimpleIdentifier"></a>[SimpleIdentifier](Org.OData.Core.V1.xml#L518)
 **Type:** String
 
 A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)

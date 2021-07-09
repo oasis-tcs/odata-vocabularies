@@ -95,18 +95,6 @@
         </Property>
       </ComplexType>
       <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
-<!-- 
-        <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
-        </Property>
-        <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
-        </Property>
-        <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
-          <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
-        </Property>
--->        
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
           <Annotation Term="Core.Revisions">
             <Collection>

@@ -465,9 +465,13 @@
             "$AppliesTo": [
                 "EntityType",
                 "Property",
-                "Term"
+                "Term",
+                "TypeDefinition",
+                "Parameter",
+                "ReturnType"
             ],
-            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term",
+            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term.",
+            "@Core.LongDescription": "The annotation of a TypeDefinition propagates to the model elements having this type",
             "@Core.IsMediaType": true
         },
         "MediaType": {
@@ -475,9 +479,13 @@
             "$Nullable": true,
             "$AppliesTo": [
                 "Property",
-                "Term"
+                "Term",
+                "TypeDefinition",
+                "Parameter",
+                "ReturnType"
             ],
-            "@Core.Description": "The media type of the values of a binary or string property or term",
+            "@Core.Description": "The media type of the values of a binary or string or stream property or term.",
+            "@Core.LongDescription": "The annotation of a TypeDefinition propagates to the model elements having this type",
             "@Core.IsMediaType": true
         },
         "IsMediaType": {
