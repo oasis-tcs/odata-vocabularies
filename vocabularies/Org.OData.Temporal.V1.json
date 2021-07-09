@@ -112,13 +112,14 @@
         "Period": {
             "$Kind": "ComplexType",
             "@Core.Description": "A period to be changed with an action defined in this vocabulary",
-            "@Core.LongDescription": "The action parameter with this type MUST be provided if the action is invoked on a collection\n          without visible data history. It MUST NOT be provided otherwise.",
+            "@Core.LongDescription": "The action parameter with this type MUST be provided if the action is invoked on a collection\n          without visible data history. It MUST NOT be provided otherwise.\n          Either both `TimeSliceStart` and `TimeSliceEnd` are of type `Edm.Date`\n          or both are of type `Edm.DateTimeOffset`,\n          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection on which the action is invoked.",
             "TimeSliceStart": {
                 "$Type": "Edm.PrimitiveType",
                 "@Core.Description": "Lower boundary of a time slice"
             },
             "TimeSliceEnd": {
                 "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
                 "@Core.Description": "Upper boundary of a time slice"
             }
         },
@@ -147,7 +148,7 @@
                         "$Name": "deltaIntervals",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
-                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -182,7 +183,7 @@
                         "$Name": "deltaIntervals",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
-                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -217,7 +218,7 @@
                         "$Name": "deltaIntervals",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
-                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -252,7 +253,7 @@
                         "$Name": "newIntervals",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
-                        "@Core.Description": "Periods in 1:1 correspondence with `newTimeslices` in case the collection to be updated does not have visible data history"
+                        "@Core.Description": "Periods in 1:1 correspondence with `newTimeslices` in case the collection to be modified does not have visible data history"
                     }
                 ]
             }
@@ -282,7 +283,7 @@
                         "$Name": "deltaIntervals",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
-                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
                     }
                 ],
                 "$ReturnType": {
@@ -317,7 +318,7 @@
                         "$Name": "deltaIntervals",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
-                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history"
+                        "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
                     }
                 ],
                 "$ReturnType": {

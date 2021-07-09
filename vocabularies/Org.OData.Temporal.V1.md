@@ -15,7 +15,7 @@ Term|Type|Description
 
 ## Actions
 
-### <a name="Update"></a>[Update](Org.OData.Temporal.V1.xml#L156)
+### <a name="Update"></a>[Update](Org.OData.Temporal.V1.xml#L159)
 
 Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap
 
@@ -25,37 +25,37 @@ The update behavior for a given object key is known from the [SQL statement](htt
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L163)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](Org.OData.Temporal.V1.xml#L166)|\[EntityType\]|New time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices need not contain all properties, but at least the boundary values of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[deltaIntervals](Org.OData.Temporal.V1.xml#L175)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history
-[&rarr;](Org.OData.Temporal.V1.xml#L178)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L166)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L169)|\[EntityType\]|New time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices need not contain all properties, but at least the boundary values of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
+[deltaIntervals](Org.OData.Temporal.V1.xml#L178)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history
+[&rarr;](Org.OData.Temporal.V1.xml#L181)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
 
 
-### <a name="Upsert"></a>[Upsert](Org.OData.Temporal.V1.xml#L184)
+### <a name="Upsert"></a>[Upsert](Org.OData.Temporal.V1.xml#L187)
 
 Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L186)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](Org.OData.Temporal.V1.xml#L189)|\[EntityType\]|New time slices to be merged into the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices must contain all properties that are needed for insertion. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[deltaIntervals](Org.OData.Temporal.V1.xml#L197)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history
-[&rarr;](Org.OData.Temporal.V1.xml#L200)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L189)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L192)|\[EntityType\]|New time slices to be merged into the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices must contain all properties that are needed for insertion. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
+[deltaIntervals](Org.OData.Temporal.V1.xml#L200)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history
+[&rarr;](Org.OData.Temporal.V1.xml#L203)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
 
 
-### <a name="UpdateFrom"></a>[UpdateFrom](Org.OData.Temporal.V1.xml#L206)
+### <a name="UpdateFrom"></a>[UpdateFrom](Org.OData.Temporal.V1.xml#L209)
 
 Like [`Update`](#Update), but updates a given property from a given new time slice only in those contiguous time slices, starting with the earliest, that have same the original value for that property
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L208)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](Org.OData.Temporal.V1.xml#L211)|\[EntityType\]|New time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices need not contain all properties, but at least the lower boundary of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[deltaIntervals](Org.OData.Temporal.V1.xml#L220)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history
-[&rarr;](Org.OData.Temporal.V1.xml#L223)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L211)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L214)|\[EntityType\]|New time slices whose property values are used to update the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices need not contain all properties, but at least the lower boundary of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
+[deltaIntervals](Org.OData.Temporal.V1.xml#L223)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history
+[&rarr;](Org.OData.Temporal.V1.xml#L226)|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
 
 
-### <a name="Synchronize"></a>[Synchronize](Org.OData.Temporal.V1.xml#L229)
+### <a name="Synchronize"></a>[Synchronize](Org.OData.Temporal.V1.xml#L232)
 
 Overwrites per object key existing time slices with new time slices, updating the entire object history
 
@@ -63,12 +63,12 @@ The server is free to merge and split time slices if this does not change the va
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L234)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[newTimeslices](Org.OData.Temporal.V1.xml#L237)|\[EntityType\]|List of time slices covering the entire history of the temporal object(s) to be synchronized<br>Same entity type as binding parameter. The new time slices must contain all properties that are needed for overwriting.
-[newIntervals](Org.OData.Temporal.V1.xml#L244)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `newTimeslices` in case the collection to be updated does not have visible data history
+**[timeslices](Org.OData.Temporal.V1.xml#L237)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[newTimeslices](Org.OData.Temporal.V1.xml#L240)|\[EntityType\]|List of time slices covering the entire history of the temporal object(s) to be synchronized<br>Same entity type as binding parameter. The new time slices must contain all properties that are needed for overwriting.
+[newIntervals](Org.OData.Temporal.V1.xml#L247)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `newTimeslices` in case the collection to be modified does not have visible data history
 
 
-### <a name="Delete"></a>[Delete](Org.OData.Temporal.V1.xml#L249)
+### <a name="Delete"></a>[Delete](Org.OData.Temporal.V1.xml#L252)
 
 Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`
 
@@ -77,22 +77,22 @@ The sub-period of an existing time slice that lies outside a given instance of `
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L255)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](Org.OData.Temporal.V1.xml#L258)|\[EntityType\]|Time slices to be deleted from the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
-[deltaIntervals](Org.OData.Temporal.V1.xml#L266)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history
-[&rarr;](Org.OData.Temporal.V1.xml#L269)|\[EntityType\]|Deleted (sub-periods of) time slices<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L258)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L261)|\[EntityType\]|Time slices to be deleted from the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
+[deltaIntervals](Org.OData.Temporal.V1.xml#L269)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history
+[&rarr;](Org.OData.Temporal.V1.xml#L272)|\[EntityType\]|Deleted (sub-periods of) time slices<br>Same entity type as binding parameter.
 
 
-### <a name="DeleteFrom"></a>[DeleteFrom](Org.OData.Temporal.V1.xml#L275)
+### <a name="DeleteFrom"></a>[DeleteFrom](Org.OData.Temporal.V1.xml#L278)
 
 Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L277)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](Org.OData.Temporal.V1.xml#L280)|\[EntityType\]|Time slices to be deleted from the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
-[deltaIntervals](Org.OData.Temporal.V1.xml#L288)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be updated does not have visible data history
-[&rarr;](Org.OData.Temporal.V1.xml#L291)|\[EntityType\]|Deleted time slices<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L280)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L283)|\[EntityType\]|Time slices to be deleted from the `timeslices` collection<br>Same entity type as binding parameter. The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
+[deltaIntervals](Org.OData.Temporal.V1.xml#L291)|\[[Period](#Period)\]|Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history
+[&rarr;](Org.OData.Temporal.V1.xml#L294)|\[EntityType\]|Deleted time slices<br>Same entity type as binding parameter.
 
 
 ## <a name="ApplicationTimeSupportType"></a>[ApplicationTimeSupportType](Org.OData.Temporal.V1.xml#L77)
@@ -157,8 +157,11 @@ A period to be changed with an action defined in this vocabulary
 
 The action parameter with this type MUST be provided if the action is invoked on a collection
           without visible data history. It MUST NOT be provided otherwise.
+          Either both `TimeSliceStart` and `TimeSliceEnd` are of type `Edm.Date`
+          or both are of type `Edm.DateTimeOffset`,
+          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection on which the action is invoked.
 
 Property|Type|Description
 :-------|:---|:----------
-[TimeSliceStart](Org.OData.Temporal.V1.xml#L145)|PrimitiveType|Lower boundary of a time slice
-[TimeSliceEnd](Org.OData.Temporal.V1.xml#L148)|PrimitiveType|Upper boundary of a time slice
+[TimeSliceStart](Org.OData.Temporal.V1.xml#L148)|PrimitiveType|Lower boundary of a time slice
+[TimeSliceEnd](Org.OData.Temporal.V1.xml#L151)|PrimitiveType?|Upper boundary of a time slice
