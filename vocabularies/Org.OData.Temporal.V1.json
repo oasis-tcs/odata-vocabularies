@@ -81,8 +81,8 @@
         "DataHistorySnapshot": {
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.DataHistory",
-            "@Core.Description": "Each OData entity represents a snapshot of data at a point in application time that is the same for all entities in the collection",
-            "@Core.LongDescription": "The point in application time is defined by the query option `$at` [OData-Temporal, section 4.2.2]; default is the current point in time."
+            "@Core.Description": "Each OData entity maps each point in application time to an instance of the entity type",
+            "@Core.LongDescription": "To address an entity, a point in application time must be specified as described in [OData-Temporal, section 4.2.1]."
         },
         "DataHistoryVisible": {
             "$Kind": "ComplexType",
