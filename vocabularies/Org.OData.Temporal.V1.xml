@@ -175,7 +175,7 @@
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
         </Parameter>
-        <Parameter Name="deltaIntervals" Type="Collection(Temporal.Period)" Nullable="false">
+        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
           <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
@@ -197,7 +197,7 @@
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
         </Parameter>
-        <Parameter Name="deltaIntervals" Type="Collection(Temporal.Period)" Nullable="false">
+        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
           <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
@@ -220,7 +220,7 @@
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
         </Parameter>
-        <Parameter Name="deltaIntervals" Type="Collection(Temporal.Period)" Nullable="false">
+        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
           <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
@@ -244,7 +244,7 @@
             The new time slices must contain all properties that are needed for overwriting.</String>
           </Annotation>
         </Parameter>
-        <Parameter Name="newIntervals" Type="Collection(Temporal.Period)" Nullable="false">
+        <Parameter Name="newPeriods" Type="Collection(Temporal.Period)" Nullable="false">
           <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `newTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
       </Action>
@@ -266,7 +266,7 @@
             An absent object key property matches any key property value.</String>
           </Annotation>
         </Parameter>
-        <Parameter Name="deltaIntervals" Type="Collection(Temporal.Period)" Nullable="false">
+        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
           <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
@@ -288,7 +288,7 @@
             An absent object key property matches any key property value.</String>
           </Annotation>
         </Parameter>
-        <Parameter Name="deltaIntervals" Type="Collection(Temporal.Period)" Nullable="false">
+        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
           <Annotation Term="Core.Description" String="Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">

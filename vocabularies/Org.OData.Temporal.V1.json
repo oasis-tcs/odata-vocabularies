@@ -145,7 +145,7 @@
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     },
                     {
-                        "$Name": "deltaIntervals",
+                        "$Name": "deltaPeriods",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
                         "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
@@ -180,7 +180,7 @@
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     },
                     {
-                        "$Name": "deltaIntervals",
+                        "$Name": "deltaPeriods",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
                         "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
@@ -215,7 +215,7 @@
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     },
                     {
-                        "$Name": "deltaIntervals",
+                        "$Name": "deltaPeriods",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
                         "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
@@ -250,7 +250,7 @@
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices must contain all properties that are needed for overwriting."
                     },
                     {
-                        "$Name": "newIntervals",
+                        "$Name": "newPeriods",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
                         "@Core.Description": "Periods in 1:1 correspondence with `newTimeslices` in case the collection to be modified does not have visible data history"
@@ -280,7 +280,7 @@
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     },
                     {
-                        "$Name": "deltaIntervals",
+                        "$Name": "deltaPeriods",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
                         "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
@@ -315,7 +315,7 @@
                         "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     },
                     {
-                        "$Name": "deltaIntervals",
+                        "$Name": "deltaPeriods",
                         "$Collection": true,
                         "$Type": "Temporal.Period",
                         "@Core.Description": "Periods in 1:1 correspondence with `deltaTimeslices` in case the collection to be modified does not have visible data history"
