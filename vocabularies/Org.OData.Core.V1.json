@@ -346,7 +346,8 @@
             "$AppliesTo": [
                 "Term"
             ],
-            "@Core.Description": "The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton"
+            "@Core.Description": "The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton",
+            "@Core.LongDescription": "Servers that apply the tagged term based solely on the entity type, structural or navigation property,\n          independently of the container MAY additionally annotate the EntityType, Property or NavigationProperty model element\n          in order to facilitate the annotation consumption by OData clients."
         },
         "ResourcePath": {
             "$Kind": "Term",
