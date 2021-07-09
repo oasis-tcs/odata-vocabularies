@@ -25,7 +25,7 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md"
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.md"
             }
         ],
         "ApplicationTimeSupport": {
