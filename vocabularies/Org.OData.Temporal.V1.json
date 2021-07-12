@@ -112,9 +112,10 @@
         "TimesliceWithPeriod": {
             "$Kind": "ComplexType",
             "@Core.Description": "Delta timeslices with validity period in an action defined in this vocabulary",
-            "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present if the collection has visible data history.\n           Otherwise, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection on which the action is invoked.",
+            "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present\n          if the entity type of the `Timeslice` already contains time slice start and end, that is,\n          if collection on which the action is invoked has visible data history.\n          If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.",
             "Timeslice": {
-                "$Type": "Edm.EntityType"
+                "$Type": "Edm.EntityType",
+                "@Core.Description": "A time slice with the same entity type as the binding parameter of the action"
             },
             "PeriodStart": {
                 "$Type": "Edm.PrimitiveType",
@@ -146,7 +147,7 @@
                         "$Collection": true,
                         "$Type": "Temporal.TimesliceWithPeriod",
                         "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                        "@Core.LongDescription": "The delta time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -175,7 +176,7 @@
                         "$Collection": true,
                         "$Type": "Temporal.TimesliceWithPeriod",
                         "@Core.Description": "New time slices to be merged into the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                        "@Core.LongDescription": "The delta time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -204,7 +205,7 @@
                         "$Collection": true,
                         "$Type": "Temporal.TimesliceWithPeriod",
                         "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
+                        "@Core.LongDescription": "The delta time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -233,7 +234,7 @@
                         "$Collection": true,
                         "$Type": "Temporal.TimesliceWithPeriod",
                         "@Core.Description": "List of time slices covering the entire history of the temporal object(s) to be synchronized",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The new time slices must contain all properties that are needed for overwriting."
+                        "@Core.LongDescription": "The new time slices must contain all properties that are needed for overwriting."
                     }
                 ]
             }
@@ -257,7 +258,7 @@
                         "$Collection": true,
                         "$Type": "Temporal.TimesliceWithPeriod",
                         "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
+                        "@Core.LongDescription": "The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
@@ -286,7 +287,7 @@
                         "$Collection": true,
                         "$Type": "Temporal.TimesliceWithPeriod",
                         "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
-                        "@Core.LongDescription": "Same entity type as binding parameter.\n            The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
+                        "@Core.LongDescription": "The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
