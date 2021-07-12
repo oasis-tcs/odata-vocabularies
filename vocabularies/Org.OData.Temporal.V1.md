@@ -151,7 +151,7 @@ Delta timeslices with validity period in an action defined in this vocabulary
 
 The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
           if the entity type of the `Timeslice` already contains time slice start and end, that is,
-          if collection on which the action is invoked has visible data history.
+          if the collection on which the action is invoked has visible data history.
           If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,
           depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.
 
