@@ -137,20 +137,19 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="Period">
-        <Annotation Term="Core.Description" String="Validity period of a &quot;delta timeslice&quot; in an action defined in this vocabulary" />
+      <ComplexType Name="TimesliceWithPeriod">
+        <Annotation Term="Core.Description" String="Delta timeslices with validity period in an action defined in this vocabulary" />
         <Annotation Term="Core.LongDescription">
-          <String>The action parameter with this type MUST be provided if the action is invoked on a collection
-          without visible data history. It MUST NOT be provided otherwise.
-          Either both `TimeSliceStart` and `TimeSliceEnd` are of type `Edm.Date`
-          or both are of type `Edm.DateTimeOffset`,
+          <String>The properties `PeriodStart` and `PeriodEnd` MUST NOT be present if the collection has visible data history.
+           Otherwise, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,
           depending on the `ApplicationTimeSupport/UnitOfTime` of the collection on which the action is invoked.</String>
         </Annotation>
-        <Property Name="TimeSliceStart" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Lower boundary of a time slice" />
+        <Property Name="Timeslice" Type="Edm.EntityType" Nullable="false"/>
+        <Property Name="PeriodStart" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Lower boundary of the time slice" />
         </Property>
-        <Property Name="TimeSliceEnd" Type="Edm.PrimitiveType">
-          <Annotation Term="Core.Description" String="Upper boundary of a time slice" />
+        <Property Name="PeriodEnd" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Upper boundary of the time slice" />
         </Property>
       </ComplexType>
 
@@ -167,7 +166,7 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="New time slices whose property values are used to update the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
@@ -175,9 +174,6 @@
             An absent object key property matches any key property value.
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
-        </Parameter>
-        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -190,16 +186,13 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="New time slices to be merged into the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
             The delta time slices must contain all properties that are needed for insertion.
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
-        </Parameter>
-        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -212,7 +205,7 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="New time slices whose property values are used to update the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
@@ -220,9 +213,6 @@
             An absent object key property matches any key property value.
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
-        </Parameter>
-        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
@@ -238,15 +228,12 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="newTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="newTimeslices" Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="List of time slices covering the entire history of the temporal object(s) to be synchronized" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
             The new time slices must contain all properties that are needed for overwriting.</String>
           </Annotation>
-        </Parameter>
-        <Parameter Name="newPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods corresponding to the `newTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
       </Action>
 
@@ -259,16 +246,13 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to be deleted from the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
             The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.
             An absent object key property matches any key property value.</String>
           </Annotation>
-        </Parameter>
-        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted (sub-periods of) time slices" />
@@ -281,16 +265,13 @@
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
-        <Parameter Name="deltaTimeslices" Type="Collection(Edm.EntityType)" Nullable="false">
+        <Parameter Name="deltaTimeslices" Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to be deleted from the `timeslices` collection" />
           <Annotation Term="Core.LongDescription">
             <String>Same entity type as binding parameter.
             The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.
             An absent object key property matches any key property value.</String>
           </Annotation>
-        </Parameter>
-        <Parameter Name="deltaPeriods" Type="Collection(Temporal.Period)" Nullable="false">
-          <Annotation Term="Core.Description" String="Periods corresponding to the `deltaTimeslices` in case the collection to be modified does not have visible data history" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted time slices" />
