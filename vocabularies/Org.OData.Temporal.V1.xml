@@ -116,17 +116,17 @@
       </ComplexType>
 
       <ComplexType Name="DataHistoryVisible" BaseType="Temporal.DataHistory">
-        <Annotation Term="Core.Description" String="Each OData entity represents data during a period of application time; it is called a *time slice*" />
+        <Annotation Term="Core.Description" String="Each OData entity represents data during a period of application time" />
         <Annotation Term="Core.LongDescription">
           <String>The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties
-          and with overlapping application-time periods as defined by their `TimeSliceStart` and `TimeSliceEnd` properties.
+          and with overlapping application-time periods as defined by their `PeriodStart` and `PeriodEnd` properties.
           The temporal collection always contains all entities (with consecutive time periods) for a given object key.</String>
         </Annotation>
-        <Property Name="TimeSliceStart" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property containing lower boundary of a time slice" />
+        <Property Name="PeriodStart" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property containing lower boundary of a period" />
         </Property>
-        <Property Name="TimeSliceEnd" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property containing upper boundary of a time slice" />
+        <Property Name="PeriodEnd" Type="Edm.PropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Property containing upper boundary of a period" />
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
