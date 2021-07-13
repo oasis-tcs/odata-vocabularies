@@ -133,16 +133,16 @@ Each OData entity maps each point in application time to an instance of the enti
 To address an entity, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].
 
 ## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L118): [DataHistory](#DataHistory)
-Each OData entity represents data during a period of application time; it is called a *time slice*
+Each OData entity represents data during a period of application time
 
 The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties
-          and with overlapping application-time periods as defined by their `TimeSliceStart` and `TimeSliceEnd` properties.
+          and with overlapping application-time periods as defined by their `PeriodStart` and `PeriodEnd` properties.
           The temporal collection always contains all entities (with consecutive time periods) for a given object key.
 
 Property|Type|Description
 :-------|:---|:----------
-[TimeSliceStart](Org.OData.Temporal.V1.xml#L125)|PropertyPath|Property containing lower boundary of a time slice
-[TimeSliceEnd](Org.OData.Temporal.V1.xml#L128)|PropertyPath|Property containing upper boundary of a time slice
+[PeriodStart](Org.OData.Temporal.V1.xml#L125)|PropertyPath|Property containing lower boundary of a period
+[PeriodEnd](Org.OData.Temporal.V1.xml#L128)|PropertyPath|Property containing upper boundary of a period
 [ObjectKey](Org.OData.Temporal.V1.xml#L131)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 [SupportedActions](Org.OData.Temporal.V1.xml#L135)|\[[QualifiedActionName](Org.OData.Core.V1.md#QualifiedActionName)\]|List of supported temporal actions
 
