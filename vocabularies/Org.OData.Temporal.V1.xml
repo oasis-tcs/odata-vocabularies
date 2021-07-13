@@ -138,7 +138,7 @@
       </ComplexType>
 
       <ComplexType Name="TimesliceWithPeriod">
-        <Annotation Term="Core.Description" String="Delta timeslices with validity period in an action defined in this vocabulary" />
+        <Annotation Term="Core.Description" String="Delta time slices with validity period in an action defined in this vocabulary" />
         <Annotation Term="Core.LongDescription">
           <String>The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
           if the entity type of the `Timeslice` already contains time slice start and end, that is,

@@ -147,7 +147,7 @@ Property|Type|Description
 [SupportedActions](Org.OData.Temporal.V1.xml#L135)|\[[QualifiedActionName](Org.OData.Core.V1.md#QualifiedActionName)\]|List of supported temporal actions
 
 ## <a name="TimesliceWithPeriod"></a>[TimesliceWithPeriod](Org.OData.Temporal.V1.xml#L140)
-Delta timeslices with validity period in an action defined in this vocabulary
+Delta time slices with validity period in an action defined in this vocabulary
 
 The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
           if the entity type of the `Timeslice` already contains time slice start and end, that is,
