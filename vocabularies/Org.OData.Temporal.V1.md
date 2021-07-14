@@ -96,44 +96,45 @@ Property|Type|Description
 :-------|:---|:----------
 [UnitOfTime](Org.OData.Temporal.V1.xml#L79)|[UnitOfTime](#UnitOfTime)|Unit of time and other properties of a time period
 [DataHistory](Org.OData.Temporal.V1.xml#L82)|[DataHistory](#DataHistory)|Describes how the data history is represented
+[SupportedActions](Org.OData.Temporal.V1.xml#L85)|\[[QualifiedActionName](Org.OData.Core.V1.md#QualifiedActionName)\]|List of supported temporal actions
 
-## <a name="UnitOfTime"></a>[*UnitOfTime*](Org.OData.Temporal.V1.xml#L87)
+## <a name="UnitOfTime"></a>[*UnitOfTime*](Org.OData.Temporal.V1.xml#L90)
 Unit of time and other properties of a time period
 
 **Derived Types:**
 - [UnitOfTimeDateTimeOffset](#UnitOfTimeDateTimeOffset)
 - [UnitOfTimeDate](#UnitOfTimeDate)
 
-## <a name="UnitOfTimeDateTimeOffset"></a>[UnitOfTimeDateTimeOffset](Org.OData.Temporal.V1.xml#L91): [UnitOfTime](#UnitOfTime)
+## <a name="UnitOfTimeDateTimeOffset"></a>[UnitOfTimeDateTimeOffset](Org.OData.Temporal.V1.xml#L94): [UnitOfTime](#UnitOfTime)
 Period start and end are of type Edm.DateTimeOffset
 
 Property|Type|Description
 :-------|:---|:----------
-[Precision](Org.OData.Temporal.V1.xml#L93)|Byte|Precision of Edm.DateTimeOffset values for period start and end
+[Precision](Org.OData.Temporal.V1.xml#L96)|Byte|Precision of Edm.DateTimeOffset values for period start and end
 
-## <a name="UnitOfTimeDate"></a>[UnitOfTimeDate](Org.OData.Temporal.V1.xml#L98): [UnitOfTime](#UnitOfTime)
+## <a name="UnitOfTimeDate"></a>[UnitOfTimeDate](Org.OData.Temporal.V1.xml#L101): [UnitOfTime](#UnitOfTime)
 Period start and end are of type Edm.Date
 
 The period is a contiguous set of days and does not consider the time of the day.
 
 Property|Type|Description
 :-------|:---|:----------
-[ClosedClosedPeriods](Org.OData.Temporal.V1.xml#L101)|Boolean|If `true`, the period end is the last day in the period; if `false`, the period end is the first day after the period
+[ClosedClosedPeriods](Org.OData.Temporal.V1.xml#L104)|Boolean|If `true`, the period end is the last day in the period; if `false`, the period end is the first day after the period
 
-## <a name="DataHistory"></a>[*DataHistory*](Org.OData.Temporal.V1.xml#L107)
+## <a name="DataHistory"></a>[*DataHistory*](Org.OData.Temporal.V1.xml#L110)
 Describes how the data history is represented
 
 **Derived Types:**
 - [DataHistorySnapshot](#DataHistorySnapshot)
 - [DataHistoryVisible](#DataHistoryVisible)
 
-## <a name="DataHistorySnapshot"></a>[DataHistorySnapshot](Org.OData.Temporal.V1.xml#L111): [DataHistory](#DataHistory)
+## <a name="DataHistorySnapshot"></a>[DataHistorySnapshot](Org.OData.Temporal.V1.xml#L114): [DataHistory](#DataHistory)
 Each OData entity maps each point in application time to an instance of the entity type
 
 To address an entity in a resource path or path to related resources, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].
           The addressed entity is then a snapshot of the data at the given point in time.
 
-## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L119): [DataHistory](#DataHistory)
+## <a name="DataHistoryVisible"></a>[DataHistoryVisible](Org.OData.Temporal.V1.xml#L122): [DataHistory](#DataHistory)
 Each OData entity represents data during a period of application time
 
 The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties
@@ -142,10 +143,9 @@ The temporal collection MUST NOT contain two entities with the same object key a
 
 Property|Type|Description
 :-------|:---|:----------
-[PeriodStart](Org.OData.Temporal.V1.xml#L126)|PropertyPath|Property containing lower boundary of a period
-[PeriodEnd](Org.OData.Temporal.V1.xml#L129)|PropertyPath|Property containing upper boundary of a period
-[ObjectKey](Org.OData.Temporal.V1.xml#L132)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
-[SupportedActions](Org.OData.Temporal.V1.xml#L136)|\[[QualifiedActionName](Org.OData.Core.V1.md#QualifiedActionName)\]|List of supported temporal actions
+[PeriodStart](Org.OData.Temporal.V1.xml#L129)|PropertyPath|Property containing lower boundary of a period
+[PeriodEnd](Org.OData.Temporal.V1.xml#L132)|PropertyPath|Property containing upper boundary of a period
+[ObjectKey](Org.OData.Temporal.V1.xml#L135)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 
 ## <a name="TimesliceWithPeriod"></a>[TimesliceWithPeriod](Org.OData.Temporal.V1.xml#L141)
 Delta time slices with validity period in an action defined in this vocabulary
