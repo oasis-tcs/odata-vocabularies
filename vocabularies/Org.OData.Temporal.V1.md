@@ -68,25 +68,27 @@ Parameter|Type|Description
 
 Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`
 
-The sub-period of an existing time slice that lies outside a given instance of `deltaTimeslices`
+The deletion behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-delete)
+          `DELETE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.
+          The sub-period of an existing time slice that lies outside a given instance of `deltaTimeslices`
           is kept, effectively shortening the time slice.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L247)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](Org.OData.Temporal.V1.xml#L250)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
-[&rarr;](Org.OData.Temporal.V1.xml#L257)|\[EntityType\]|Deleted (sub-periods of) time slices<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L249)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L252)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
+[&rarr;](Org.OData.Temporal.V1.xml#L259)|\[EntityType\]|Deleted (sub-periods of) time slices<br>Same entity type as binding parameter.
 
 
-### <a name="DeleteFrom"></a>[DeleteFrom](Org.OData.Temporal.V1.xml#L263)
+### <a name="DeleteFrom"></a>[DeleteFrom](Org.OData.Temporal.V1.xml#L265)
 
 Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](Org.OData.Temporal.V1.xml#L265)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](Org.OData.Temporal.V1.xml#L268)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
-[&rarr;](Org.OData.Temporal.V1.xml#L275)|\[EntityType\]|Deleted time slices<br>Same entity type as binding parameter.
+**[timeslices](Org.OData.Temporal.V1.xml#L267)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L270)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
+[&rarr;](Org.OData.Temporal.V1.xml#L277)|\[EntityType\]|Deleted time slices<br>Same entity type as binding parameter.
 
 
 ## <a name="ApplicationTimeSupportType"></a>[ApplicationTimeSupportType](Org.OData.Temporal.V1.xml#L78)

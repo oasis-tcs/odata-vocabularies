@@ -245,7 +245,7 @@
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
                 "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`",
-                "@Core.LongDescription": "The sub-period of an existing time slice that lies outside a given instance of `deltaTimeslices`\n          is kept, effectively shortening the time slice.",
+                "@Core.LongDescription": "The deletion behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-delete)\n          `DELETE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n          The sub-period of an existing time slice that lies outside a given instance of `deltaTimeslices`\n          is kept, effectively shortening the time slice.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
