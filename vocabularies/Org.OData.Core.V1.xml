@@ -324,6 +324,11 @@
 
       <Term Name="AppliesViaContainer" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">
         <Annotation Term="Core.Description" String="The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton" />
+        <Annotation Term="Core.LongDescription">
+          <String>Servers that apply the tagged term based solely on the entity type, structural or navigation property,
+          independently of the container, MAY additionally annotate the EntityType, Property or NavigationProperty model element
+          in order to facilitate the annotation consumption by OData clients.</String>
+        </Annotation>
       </Term>
 
       <!--Resource Paths -->
