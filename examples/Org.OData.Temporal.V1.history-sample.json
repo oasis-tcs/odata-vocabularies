@@ -105,16 +105,16 @@
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     },
-                    "DataHistory": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
-                        "TimeSliceStart": "history/From",
-                        "TimeSliceEnd": "history/To",
-                        "SupportedActions": [
-                            "Temporal.Update",
-                            "Temporal.Upsert",
-                            "Temporal.Delete"
-                        ]
-                    }
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
+                        "PeriodStart": "history/From",
+                        "PeriodEnd": "history/To"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Upsert",
+                        "Temporal.Delete"
+                    ]
                 }
             },
             "OrgModel.Default/Departments/history": {
@@ -122,16 +122,16 @@
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     },
-                    "DataHistory": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistoryTimeSlice",
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
                         "TimeSliceStart": "history/From",
-                        "TimeSliceEnd": "history/To",
-                        "SupportedActions": [
-                            "Temporal.Update",
-                            "Temporal.Upsert",
-                            "Temporal.Delete"
-                        ]
-                    }
+                        "TimeSliceEnd": "history/To"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Upsert",
+                        "Temporal.Delete"
+                    ]
                 }
             }
         }

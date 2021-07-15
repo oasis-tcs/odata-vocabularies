@@ -43,9 +43,9 @@
                 "$Type": "Temporal.UnitOfTime",
                 "@Core.Description": "Unit of time and other properties of a time period"
             },
-            "DataHistory": {
-                "$Type": "Temporal.DataHistory",
-                "@Core.Description": "Describes how the data history is represented"
+            "Timeline": {
+                "$Type": "Temporal.Timeline",
+                "@Core.Description": "Describes how the history and future of the data are represented"
             },
             "SupportedActions": {
                 "$Collection": true,
@@ -78,20 +78,20 @@
                 "@Core.Description": "If `true`, the period end is the last day in the period; if `false`, the period end is the first day after the period"
             }
         },
-        "DataHistory": {
+        "Timeline": {
             "$Kind": "ComplexType",
             "$Abstract": true,
-            "@Core.Description": "Describes how the data history is represented"
+            "@Core.Description": "Describes how the history and future of the data are represented"
         },
-        "DataHistorySnapshot": {
+        "TimelineSnapshot": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.DataHistory",
+            "$BaseType": "Temporal.Timeline",
             "@Core.Description": "Each OData entity maps each point in application time to an instance of the entity type",
             "@Core.LongDescription": "To address an entity in a resource path or path to related resources, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].\n          The addressed entity is then a snapshot of the data at the given point in time."
         },
-        "DataHistoryVisible": {
+        "TimelineVisible": {
             "$Kind": "ComplexType",
-            "$BaseType": "Temporal.DataHistory",
+            "$BaseType": "Temporal.Timeline",
             "@Core.Description": "Each OData entity represents data during a period of application time",
             "@Core.LongDescription": "The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties\n          and with overlapping application-time periods as defined by their `PeriodStart` and `PeriodEnd` properties.\n          The temporal collection always contains all entities (with consecutive time periods) for a given object key.",
             "PeriodStart": {
@@ -112,7 +112,7 @@
         "TimesliceWithPeriod": {
             "$Kind": "ComplexType",
             "@Core.Description": "Delta time slices with validity period in an action defined in this vocabulary",
-            "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present\n          if the entity type of the `Timeslice` already contains period start and end, that is,\n          if the collection on which the action is invoked has visible data history.\n          If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.",
+            "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present\n          if the entity type of the `Timeslice` already contains period start and end, that is,\n          if the collection on which the action is invoked has visible timeline.\n          If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.",
             "Timeslice": {
                 "$Type": "Edm.EntityType",
                 "@Core.Description": "A time slice with the same entity type as the binding parameter of the action"
@@ -192,7 +192,7 @@
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Like [`Update`](#Update), but updates a given property from a given new time slice only in those contiguous time slices, starting with the earliest, that have same the original value for that property",
+                "@Core.Description": "Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have same the original value for all these properties",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -214,29 +214,6 @@
                     "@Core.Description": "Modified time slices",
                     "@Core.LongDescription": "Same entity type as binding parameter."
                 }
-            }
-        ],
-        "Synchronize": [
-            {
-                "$Kind": "Action",
-                "$IsBound": true,
-                "@Core.Description": "Overwrites per object key existing time slices with new time slices, updating the entire object history",
-                "@Core.LongDescription": "The server is free to merge and split time slices if this does not change the value of any property at any point in time.",
-                "$Parameter": [
-                    {
-                        "$Name": "timeslices",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Time slices to modify"
-                    },
-                    {
-                        "$Name": "newTimeslices",
-                        "$Collection": true,
-                        "$Type": "Temporal.TimesliceWithPeriod",
-                        "@Core.Description": "List of time slices covering the entire history of the temporal object(s) to be synchronized",
-                        "@Core.LongDescription": "The new time slices must contain all properties that are needed for overwriting."
-                    }
-                ]
             }
         ],
         "Delete": [

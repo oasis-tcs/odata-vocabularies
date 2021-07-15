@@ -37,8 +37,8 @@
               <PropertyValue Property="UnitOfTime">
                 <Record Type="Temporal.UnitOfTimeDate" />
               </PropertyValue>
-              <PropertyValue Property="DataHistory">
-                <Record Type="Temporal.DataHistorySnapshot" />
+              <PropertyValue Property="Timeline">
+                <Record Type="Temporal.TimelineSnapshot" />
               </PropertyValue>
             </Record>
           </Annotation>
@@ -51,8 +51,8 @@
               <PropertyValue Property="UnitOfTime">
                 <Record Type="Temporal.UnitOfTimeDate" />
               </PropertyValue>
-              <PropertyValue Property="DataHistory">
-                <Record Type="Temporal.DataHistorySnapshot" />
+              <PropertyValue Property="Timeline">
+                <Record Type="Temporal.TimelineSnapshot" />
               </PropertyValue>
             </Record>
           </Annotation>

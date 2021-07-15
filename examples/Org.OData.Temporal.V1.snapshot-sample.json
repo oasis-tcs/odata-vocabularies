@@ -61,8 +61,8 @@
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     },
-                    "DataHistory": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistorySnapshot"
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineSnapshot"
                     }
                 }
             },
@@ -76,8 +76,8 @@
                     "UnitOfTime": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
                     },
-                    "DataHistory": {
-                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.DataHistorySnapshot"
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineSnapshot"
                     }
                 }
             }
