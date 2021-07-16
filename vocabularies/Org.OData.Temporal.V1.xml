@@ -139,7 +139,7 @@
       </ComplexType>
 
       <ComplexType Name="TimesliceWithPeriod">
-        <Annotation Term="Core.Description" String="Delta time slices with validity period in an action defined in this vocabulary" />
+        <Annotation Term="Core.Description" String="Delta time slices with validity period" />
         <Annotation Term="Core.LongDescription">
           <String>The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
           if the entity type of the `Timeslice` already contains period start and end, that is,
@@ -166,7 +166,8 @@
         <Annotation Term="Core.LongDescription">
           <String>The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
           `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.
-          `deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.</String>
+
+`deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.</String>
         </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />

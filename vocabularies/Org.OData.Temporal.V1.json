@@ -111,7 +111,7 @@
         },
         "TimesliceWithPeriod": {
             "$Kind": "ComplexType",
-            "@Core.Description": "Delta time slices with validity period in an action defined in this vocabulary",
+            "@Core.Description": "Delta time slices with validity period",
             "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present\n          if the entity type of the `Timeslice` already contains period start and end, that is,\n          if the collection on which the action is invoked has visible timeline.\n          If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.",
             "Timeslice": {
                 "$Type": "Edm.EntityType",
@@ -134,7 +134,7 @@
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
                 "@Core.Description": "Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap",
-                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n          `deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.",
+                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n\n`deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
