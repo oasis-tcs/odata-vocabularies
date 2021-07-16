@@ -79,8 +79,8 @@
         <Property Name="UnitOfTime" Type="Temporal.UnitOfTime" Nullable="false">
           <Annotation Term="Core.Description" String="Unit of time and other properties of a time period" />
         </Property>
-        <Property Name="DataHistory" Type="Temporal.DataHistory" Nullable="false">
-          <Annotation Term="Core.Description" String="Describes how the data history is represented" />
+        <Property Name="Timeline" Type="Temporal.Timeline" Nullable="false">
+          <Annotation Term="Core.Description" String="Describes how the history and future of the data are represented" />
         </Property>
         <Property Name="SupportedActions" Type="Collection(Core.QualifiedActionName)" Nullable="false">
           <Annotation Term="Core.Description" String="List of supported temporal actions" />
@@ -107,11 +107,11 @@
       </ComplexType>
 
 
-      <ComplexType Name="DataHistory" Abstract="true">
-        <Annotation Term="Core.Description" String="Describes how the data history is represented" />
+      <ComplexType Name="Timeline" Abstract="true">
+        <Annotation Term="Core.Description" String="Describes how the history and future of the data are represented" />
       </ComplexType>
 
-      <ComplexType Name="DataHistorySnapshot" BaseType="Temporal.DataHistory">
+      <ComplexType Name="TimelineSnapshot" BaseType="Temporal.Timeline">
         <Annotation Term="Core.Description" String="Each OData entity maps each point in application time to an instance of the entity type" />
         <Annotation Term="Core.LongDescription">
           <String>To address an entity in a resource path or path to related resources, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].
@@ -119,7 +119,7 @@
         </Annotation>
       </ComplexType>
 
-      <ComplexType Name="DataHistoryVisible" BaseType="Temporal.DataHistory">
+      <ComplexType Name="TimelineVisible" BaseType="Temporal.Timeline">
         <Annotation Term="Core.Description" String="Each OData entity represents data during a period of application time" />
         <Annotation Term="Core.LongDescription">
           <String>The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties
@@ -143,7 +143,7 @@
         <Annotation Term="Core.LongDescription">
           <String>The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
           if the entity type of the `Timeslice` already contains period start and end, that is,
-          if the collection on which the action is invoked has visible data history.
+          if the collection on which the action is invoked has visible timeline.
           If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,
           depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.</String>
         </Annotation>
@@ -204,7 +204,7 @@
       </Action>
 
       <Action Name="UpdateFrom" IsBound="true" EntitySetPath="timeslices">
-        <Annotation Term="Core.Description" String="Like [`Update`](#Update), but updates a given property from a given new time slice only in those contiguous time slices, starting with the earliest, that have same the original value for that property" />
+        <Annotation Term="Core.Description" String="Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have same the original value for all these properties" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
@@ -220,22 +220,6 @@
           <Annotation Term="Core.Description" String="Modified time slices" />
           <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
-      </Action>
-
-      <Action Name="Synchronize" IsBound="true">
-        <Annotation Term="Core.Description" String="Overwrites per object key existing time slices with new time slices, updating the entire object history" />
-        <Annotation Term="Core.LongDescription">
-          <String>The server is free to merge and split time slices if this does not change the value of any property at any point in time.</String>
-        </Annotation>
-        <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Time slices to modify" />
-        </Parameter>
-        <Parameter Name="newTimeslices" Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
-          <Annotation Term="Core.Description" String="List of time slices covering the entire history of the temporal object(s) to be synchronized" />
-          <Annotation Term="Core.LongDescription">
-            <String>The new time slices must contain all properties that are needed for overwriting.</String>
-          </Annotation>
-        </Parameter>
       </Action>
 
       <Action Name="Delete" IsBound="true" EntitySetPath="timeslices">

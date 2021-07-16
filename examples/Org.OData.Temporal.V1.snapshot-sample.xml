@@ -37,8 +37,14 @@
               <PropertyValue Property="UnitOfTime">
                 <Record Type="Temporal.UnitOfTimeDate" />
               </PropertyValue>
-              <PropertyValue Property="DataHistory">
-                <Record Type="Temporal.DataHistorySnapshot" />
+              <PropertyValue Property="Timeline">
+                <Record Type="Temporal.TimelineSnapshot" />
+              </PropertyValue>
+              <PropertyValue Property="SupportedActions">
+                <Collection>
+                  <String>Temporal.Update</String>
+                  <String>Temporal.Delete</String>
+                </Collection>
               </PropertyValue>
             </Record>
           </Annotation>
@@ -51,8 +57,13 @@
               <PropertyValue Property="UnitOfTime">
                 <Record Type="Temporal.UnitOfTimeDate" />
               </PropertyValue>
-              <PropertyValue Property="DataHistory">
-                <Record Type="Temporal.DataHistorySnapshot" />
+              <PropertyValue Property="Timeline">
+                <Record Type="Temporal.TimelineSnapshot" />
+              </PropertyValue>
+              <PropertyValue Property="SupportedActions">
+                <Collection>
+                  <String>Temporal.Update</String>
+                </Collection>
               </PropertyValue>
             </Record>
           </Annotation>
