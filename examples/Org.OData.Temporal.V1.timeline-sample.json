@@ -124,8 +124,8 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
-                        "TimeSliceStart": "history/From",
-                        "TimeSliceEnd": "history/To"
+                        "PeriodStart": "history/From",
+                        "PeriodEnd": "history/To"
                     },
                     "SupportedActions": [
                         "Temporal.Update",

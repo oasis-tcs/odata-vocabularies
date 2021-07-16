@@ -84,8 +84,8 @@
             </PropertyValue>
             <PropertyValue Property="Timeline">
               <Record Type="Temporal.TimelineVisible">
-                <PropertyValue Property="TimeSliceStart" PropertyPath="history/From" />
-                <PropertyValue Property="TimeSliceEnd" PropertyPath="history/To" />
+                <PropertyValue Property="PeriodStart" PropertyPath="history/From" />
+                <PropertyValue Property="PeriodEnd" PropertyPath="history/To" />
               </Record>
             </PropertyValue>
             <PropertyValue Property="SupportedActions">

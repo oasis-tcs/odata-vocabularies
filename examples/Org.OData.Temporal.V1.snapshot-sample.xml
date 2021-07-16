@@ -40,6 +40,12 @@
               <PropertyValue Property="Timeline">
                 <Record Type="Temporal.TimelineSnapshot" />
               </PropertyValue>
+              <PropertyValue Property="SupportedActions">
+                <Collection>
+                  <String>Temporal.Update</String>
+                  <String>Temporal.Delete</String>
+                </Collection>
+              </PropertyValue>
             </Record>
           </Annotation>
         </EntitySet>
@@ -53,6 +59,11 @@
               </PropertyValue>
               <PropertyValue Property="Timeline">
                 <Record Type="Temporal.TimelineSnapshot" />
+              </PropertyValue>
+              <PropertyValue Property="SupportedActions">
+                <Collection>
+                  <String>Temporal.Update</String>
+                </Collection>
               </PropertyValue>
             </Record>
           </Annotation>

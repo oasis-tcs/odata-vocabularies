@@ -63,7 +63,11 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineSnapshot"
-                    }
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Delete"
+                    ]
                 }
             },
             "Departments": {
@@ -78,7 +82,10 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineSnapshot"
-                    }
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update"
+                    ]
                 }
             }
         }
