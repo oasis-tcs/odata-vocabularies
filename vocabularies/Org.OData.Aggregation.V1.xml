@@ -76,7 +76,10 @@
       </Term>
       <Term Name="ApplySupportedDefaults" Type="Aggregation.ApplySupportedBase" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description">
-          <String>Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting</String>
+          <String>Default support of the `$apply` system query option for all collection-valued resources in the container</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting with the specified properties (PATCH semantics).</String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedBase">
