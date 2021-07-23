@@ -1,0 +1,140 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Temporal.V1",
+                    "$Alias": "Temporal"
+                }
+            ]
+        }
+    },
+    "org.example.odata.orgservice": {
+        "$Alias": "OrgModel",
+        "Employee": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "history": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "OrgModel.Employee_history",
+                "$ContainsTarget": true
+            }
+        },
+        "Employee_history": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "From"
+            ],
+            "From": {
+                "$Type": "Edm.Date"
+            },
+            "To": {
+                "$Type": "Edm.Date"
+            },
+            "Name": {},
+            "Jobtitle": {
+                "$Nullable": true
+            },
+            "Department": {
+                "$Kind": "NavigationProperty",
+                "$Type": "OrgModel.Department",
+                "$Nullable": true
+            }
+        },
+        "Department": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "history": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "OrgModel.Department_history",
+                "$ContainsTarget": true
+            }
+        },
+        "Department_history": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "From"
+            ],
+            "From": {
+                "$Type": "Edm.Date"
+            },
+            "To": {
+                "$Type": "Edm.Date"
+            },
+            "Name": {},
+            "Budget": {
+                "$Type": "Edm.Decimal",
+                "$Nullable": true,
+                "$Scale": 0
+            }
+        },
+        "Default": {
+            "$Kind": "EntityContainer",
+            "Employees": {
+                "$Collection": true,
+                "$Type": "OrgModel.Employee",
+                "$NavigationPropertyBinding": {
+                    "history/Department": "Departments"
+                }
+            },
+            "Departments": {
+                "$Collection": true,
+                "$Type": "OrgModel.Department"
+            }
+        },
+        "$Annotations": {
+            "OrgModel.Default/Employees/history": {
+                "@Temporal.ApplicationTimeSupport": {
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
+                        "PeriodStart": "history/From",
+                        "PeriodEnd": "history/To"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Upsert",
+                        "Temporal.Delete"
+                    ]
+                }
+            },
+            "OrgModel.Default/Departments/history": {
+                "@Temporal.ApplicationTimeSupport": {
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
+                        "PeriodStart": "history/From",
+                        "PeriodEnd": "history/To"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Upsert",
+                        "Temporal.Delete"
+                    ]
+                }
+            }
+        }
+    },
+    "$EntityContainer": "org.example.odata.orgservice.Default"
+}
