@@ -14,12 +14,12 @@
 
 <div>
 <h3>Contributions</h3>
-<p>As stated in this repository's <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/CONTRIBUTING.md">CONTRIBUTING file</a>, contributors to this repository are expected to be Members of the OASIS OData TC, for any substantive change requests.  Anyone wishing to contribute to this GitHub project and <a href="https://www.oasis-open.org/join/participation-instructions">participate</a> in the TC's technical activity is invited to join as an OASIS TC Member.  Public feedback is also accepted, subject to the terms of the <a href="https://www.oasis-open.org/policies-guidelines/ipr#appendixa">OASIS Feedback License</a>.</p>
+<p>As stated in this repository's <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/main/CONTRIBUTING.md">CONTRIBUTING file</a>, contributors to this repository are expected to be Members of the OASIS OData TC, for any substantive change requests.  Anyone wishing to contribute to this GitHub project and <a href="https://www.oasis-open.org/join/participation-instructions">participate</a> in the TC's technical activity is invited to join as an OASIS TC Member.  Public feedback is also accepted, subject to the terms of the <a href="https://www.oasis-open.org/policies-guidelines/ipr#appendixa">OASIS Feedback License</a>.</p>
 </div>
 
 <div>
 <h3>Licensing</h3>
-<p>Please see the <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/LICENSE.md">LICENSE</a> file for description of the license terms and OASIS policies applicable to the TC's work in this GitHub project. Content in this repository is intended to be part of the OData TC's permanent record of activity, visible and freely available for all to use, subject to applicable OASIS policies, as presented in the repository <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/master/LICENSE.md">LICENSE</a> file.</p>
+<p>Please see the <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/main/LICENSE.md">LICENSE</a> file for description of the license terms and OASIS policies applicable to the TC's work in this GitHub project. Content in this repository is intended to be part of the OData TC's permanent record of activity, visible and freely available for all to use, subject to applicable OASIS policies, as presented in the repository <a href="https://github.com/oasis-tcs/odata-vocabularies/blob/main/LICENSE.md">LICENSE</a> file.</p>
 </div>
 
 <div>
@@ -27,20 +27,20 @@
 <p>This repository contains XML sources as well as auto-generated JSON sources and Markdown documentation for the following vocabularies:</p>
 </div>
 
-* [Core](vocabularies/Org.OData.Core.V1.md)
-* [Capabilities](vocabularies/Org.OData.Capabilities.V1.md)
-* [Measures](vocabularies/Org.OData.Measures.V1.md)
-* [Validation](vocabularies/Org.OData.Validation.V1.md)
-* [Authorization](vocabularies/Org.OData.Authorization.V1.md)
-* [Aggregation](vocabularies/Org.OData.Aggregation.V1.md)
-* [JSON](vocabularies/Org.OData.JSON.V1.md)
-* [Repeatability](vocabularies/Org.OData.Repeatability.V1.md)
-* [Temporal](vocabularies/Org.OData.Temporal.V1.md) - *This is a working draft that may incompatibly change any time.*
+- [Core](vocabularies/Org.OData.Core.V1.md)
+- [Capabilities](vocabularies/Org.OData.Capabilities.V1.md)
+- [Measures](vocabularies/Org.OData.Measures.V1.md)
+- [Validation](vocabularies/Org.OData.Validation.V1.md)
+- [Authorization](vocabularies/Org.OData.Authorization.V1.md)
+- [Aggregation](vocabularies/Org.OData.Aggregation.V1.md)
+- [JSON](vocabularies/Org.OData.JSON.V1.md)
+- [Repeatability](vocabularies/Org.OData.Repeatability.V1.md)
+- [Temporal](vocabularies/Org.OData.Temporal.V1.md) - _This is a working draft that may incompatibly change any time._
 
 To learn how to construct an annotation value from a term definition, or vice versa, look here:
 
-* [Annotation Cheat-Sheet for CSDL JSON](docs/annotation-cheat-sheet-json.md)
-* [Annotation Cheat-Sheet for CSDL XML](docs/annotation-cheat-sheet.md)
+- [Annotation Cheat-Sheet for CSDL JSON](docs/annotation-cheat-sheet-json.md)
+- [Annotation Cheat-Sheet for CSDL XML](docs/annotation-cheat-sheet.md)
 
 <div>
 <h3>Contact</h3>
