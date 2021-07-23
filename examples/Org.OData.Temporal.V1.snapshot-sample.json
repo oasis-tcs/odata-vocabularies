@@ -1,0 +1,94 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Temporal.V1",
+                    "$Alias": "Temporal"
+                }
+            ]
+        }
+    },
+    "org.example.odata.orgservice": {
+        "$Alias": "OrgModel",
+        "Employee": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {},
+            "Jobtitle": {
+                "$Nullable": true
+            },
+            "Department": {
+                "$Kind": "NavigationProperty",
+                "$Type": "OrgModel.Department",
+                "$Nullable": true
+            }
+        },
+        "Department": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {},
+            "Employees": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "OrgModel.Employee"
+            }
+        },
+        "Default": {
+            "$Kind": "EntityContainer",
+            "Employees": {
+                "$Collection": true,
+                "$Type": "OrgModel.Employee",
+                "$NavigationPropertyBinding": {
+                    "Department": "Departments"
+                },
+                "@Temporal.ApplicationTimeSupport": {
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineSnapshot"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Delete"
+                    ]
+                }
+            },
+            "Departments": {
+                "$Collection": true,
+                "$Type": "OrgModel.Department",
+                "$NavigationPropertyBinding": {
+                    "Employees": "Employees"
+                },
+                "@Temporal.ApplicationTimeSupport": {
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate"
+                    },
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineSnapshot"
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update"
+                    ]
+                }
+            }
+        }
+    },
+    "$EntityContainer": "org.example.odata.orgservice.Default"
+}

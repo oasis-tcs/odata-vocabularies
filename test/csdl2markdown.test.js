@@ -49,13 +49,14 @@ describe("Non-OASIS Vocabularies", function () {
     const vocabulary = {
       $Version: "4.01",
       $Reference: {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-          $Include: [
-            {
-              $Namespace: "Org.OData.Core.V1",
-            },
-          ],
-        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json":
+          {
+            $Include: [
+              {
+                $Namespace: "Org.OData.Core.V1",
+              },
+            ],
+          },
         "Another.xml": {
           $Include: [
             {
@@ -96,7 +97,7 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Foo *(Deprecated)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Foo"></a>Use term `Foo` from the OASIS Core vocabulary instead',
+      'Foo *(Deprecated)*|[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)|<a name="Foo"></a>Use term `Foo` from the OASIS Core vocabulary instead',
       'Bar|[Type](Another.md#Type)|<a name="Bar"></a>',
       "",
     ];
