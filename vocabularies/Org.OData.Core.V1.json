@@ -682,6 +682,30 @@
             "$MaxLength": 128,
             "@Core.Description": "A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)",
             "@Validation.Pattern": "^[\\p{L}\\p{Nl}_][\\p{L}\\p{Nl}\\p{Nd}\\p{Mn}\\p{Mc}\\p{Pc}\\p{Cf}]{0,}$"
+        },
+        "GeometryFeature": {
+            "$Kind": "Term",
+            "$Type": "Core.GeometryFeatureType",
+            "$Nullable": true,
+            "@Core.Description": "A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing"
+        },
+        "GeometryFeatureType": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing",
+            "geometry": {
+                "$Type": "Edm.Geometry",
+                "$Nullable": true,
+                "@Core.Description": "Location of the Feature"
+            },
+            "properties": {
+                "$Type": "Edm.ComplexType",
+                "$Nullable": true,
+                "@Core.Description": "Properties of the Feature"
+            },
+            "id": {
+                "$Nullable": true,
+                "@Core.Description": "Commonly used identifer for a Feature"
+            }
         }
     }
 }
