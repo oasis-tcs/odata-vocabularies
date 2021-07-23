@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8"?>
 <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" xmlns:json="http://json.org/" xmlns:nodeinfo="xalan://org.apache.xalan.lib.NodeInfo">
   <!--
     This style sheet transforms OData 4.0 CSDL XML documents into CSDL JSON
 
-    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/V4-CSDL-to-JSON.xsl
+    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/main/tools/V4-CSDL-to-JSON.xsl
 
     TODO:
     - $DefaultValue depending on @Type and $safe-numbers (IEEE754Compatible)

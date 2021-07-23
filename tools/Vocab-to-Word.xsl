@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx"
-  xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml"
->
+<xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" xmlns:edm="http://docs.oasis-open.org/odata/ns/edm" xmlns:w="http://schemas.microsoft.com/office/word/2003/wordml">
   <!--
     This style sheet transforms OData 4.0 XML vocabulary documents into Word documents
     
-    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/master/tools/Vocab-to-Word.xsl
+    Latest version: https://github.com/oasis-tcs/odata-vocabularies/blob/main/tools/Vocab-to-Word.xsl
     
   -->
   <xsl:output method="xml" indent="yes" />
@@ -35,7 +33,7 @@
       </w:r>
       <w:hlink>
         <xsl:attribute name="w:dest">
-          <xsl:text>https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/</xsl:text>
+          <xsl:text>https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/</xsl:text>
           <xsl:value-of select="@Namespace" />
           <xsl:text>.md</xsl:text>
         </xsl:attribute>
@@ -124,8 +122,7 @@
           </w:pPr>
           <w:hlink>
             <xsl:attribute name="w:dest">
-              <xsl:value-of
-              select="concat('https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/',../@Namespace,'.md#',@Name)" />
+              <xsl:value-of select="concat('https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/',../@Namespace,'.md#',@Name)" />
             </xsl:attribute>
             <w:r>
               <w:rPr>
