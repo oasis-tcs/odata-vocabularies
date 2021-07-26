@@ -279,5 +279,5 @@ A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) re
 Property|Type|Description
 :-------|:---|:----------
 [geometry](Org.OData.Core.V1.xml#L533)|Geometry?|Location of the Feature
-[properties](Org.OData.Core.V1.xml#L536)|ComplexType?|Properties of the Feature
+[properties](Org.OData.Core.V1.xml#L536)|[Dictionary?](#Dictionary)|Properties of the Feature
 [id](Org.OData.Core.V1.xml#L539)|String?|Commonly used identifer for a Feature

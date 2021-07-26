@@ -533,7 +533,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Property Name="geometry" Type="Edm.Geometry" Nullable="true">
           <Annotation Term="Core.Description" String="Location of the Feature" />
         </Property>
-        <Property Name="properties" Type="Edm.ComplexType" Nullable="true">
+        <Property Name="properties" Type="Core.Dictionary" Nullable="true">
           <Annotation Term="Core.Description" String="Properties of the Feature" />
         </Property>
         <Property Name="id" Type="Edm.String" Nullable="true">

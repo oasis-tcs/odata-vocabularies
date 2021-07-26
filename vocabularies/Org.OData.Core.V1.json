@@ -698,7 +698,7 @@
                 "@Core.Description": "Location of the Feature"
             },
             "properties": {
-                "$Type": "Edm.ComplexType",
+                "$Type": "Core.Dictionary",
                 "$Nullable": true,
                 "@Core.Description": "Properties of the Feature"
             },
