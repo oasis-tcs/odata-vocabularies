@@ -15,7 +15,7 @@ Example data for the entity type [HolidayLocation](./Org.OData.Core.V1.GeometryF
 }
 ```
 
-Using the annotation [Core.GeometryFeature](./Org.OData.Core.V1.GeometryFeature-sample.xml#L16-L25) the data can be interpreted as this GeoJSON Feature Object:
+Using the annotation [Core.GeometryFeature](./Org.OData.Core.V1.GeometryFeature-sample.xml#L16-L26) the data can be interpreted as this GeoJSON Feature Object:
 
 ```json
 {
@@ -26,6 +26,7 @@ Using the annotation [Core.GeometryFeature](./Org.OData.Core.V1.GeometryFeature-
   },
   "properties": {
     "name": "Dinagat Islands"
-  }
+  },
+  "id": "42"
 }
 ```

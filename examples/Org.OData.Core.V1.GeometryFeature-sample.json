@@ -30,6 +30,9 @@
                     "name": {
                         "$Path": "displayName"
                     }
+                },
+                "id": {
+                    "$Path": "id"
                 }
             }
         }

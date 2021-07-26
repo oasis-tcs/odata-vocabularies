@@ -21,6 +21,7 @@
                 <PropertyValue Property="name" Path="displayName" />
               </Record>
             </PropertyValue>
+            <PropertyValue Property="id" Path="id" />
           </Record>
         </Annotation>
       </EntityType>
