@@ -2,7 +2,7 @@
 
 The term [Core.GeometryFeature](../vocabularies/Org.OData.Core.V1.md#GeometryFeature) allows servers to tell clients how to interpret parts of a structured type as a [GeoJSON Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2).
 
-Example data for the entity type [HolidayLocation](./Org.OData.Core.V1.GeometryFeature-sample.xml#L9):
+Example data for the entity type [HolidayLocation](./Org.OData.Core.V1.GeometryFeature-sample.xml#L13-L15):
 
 ```json
 {
