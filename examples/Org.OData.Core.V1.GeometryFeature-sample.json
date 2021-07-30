@@ -1,0 +1,40 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "geometryfeature.sample": {
+        "HolidayLocation": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "id"
+            ],
+            "id": {},
+            "displayName": {},
+            "location": {
+                "$Type": "Edm.GeometryPoint",
+                "$Nullable": true
+            },
+            "@Core.GeometryFeature": {
+                "geometry": {
+                    "$Path": "location"
+                },
+                "properties": {
+                    "name": {
+                        "$Path": "displayName"
+                    }
+                },
+                "id": {
+                    "$Path": "id"
+                }
+            }
+        }
+    }
+}
