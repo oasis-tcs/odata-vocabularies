@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="geometryfeature.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <EntityType Name="HolidayLocation">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" Nullable="false" />
+        <Property Name="location" Type="Edm.GeometryPoint" Nullable="true" />
+        <Annotation Term="Core.GeometryFeature">
+          <Record>
+            <PropertyValue Property="geometry" Path="location" />
+            <PropertyValue Property="properties">
+              <Record>
+                <PropertyValue Property="name" Path="displayName" />
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="id" Path="id" />
+          </Record>
+        </Annotation>
+      </EntityType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
