@@ -48,6 +48,7 @@ Term|Type|Description
 [OptionalParameter](Org.OData.Core.V1.xml#L502)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
 [OperationAvailable](Org.OData.Core.V1.xml#L513)|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
 [SymbolicName](Org.OData.Core.V1.xml#L524)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
+[GeometryFeature](Org.OData.Core.V1.xml#L532)|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 ## <a name="RevisionType"></a>[RevisionType](Org.OData.Core.V1.xml#L80)
 
@@ -276,3 +277,12 @@ A string representing a Local Date-Time value with no offset.
 **Type:** String
 
 A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)
+
+## <a name="GeometryFeatureType"></a>[GeometryFeatureType](Org.OData.Core.V1.xml#L535)
+A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
+
+Property|Type|Description
+:-------|:---|:----------
+[geometry](Org.OData.Core.V1.xml#L537)|Geometry?|Location of the Feature
+[properties](Org.OData.Core.V1.xml#L540)|[Dictionary?](#Dictionary)|Properties of the Feature
+[id](Org.OData.Core.V1.xml#L543)|String?|Commonly used identifer for a Feature
