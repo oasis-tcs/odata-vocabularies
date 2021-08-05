@@ -455,6 +455,10 @@
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
       </TypeDefinition>
 
+      <TypeDefinition Name="QualifiedActionName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
+      </TypeDefinition>
+
       <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType Term">
         <Annotation Term="Core.Description" String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>
@@ -520,6 +524,22 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.Description" String="A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)" />
         <Annotation Term="Validation.Pattern" String="^[\p{L}\p{Nl}_][\p{L}\p{Nl}\p{Nd}\p{Mn}\p{Mc}\p{Pc}\p{Cf}]{0,}$" />
       </TypeDefinition>
+
+      <Term Name="GeometryFeature" Type="Core.GeometryFeatureType">
+        <Annotation Term="Core.Description" String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
+      </Term>
+      <ComplexType Name="GeometryFeatureType">
+        <Annotation Term="Core.Description" String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
+        <Property Name="geometry" Type="Edm.Geometry" Nullable="true">
+          <Annotation Term="Core.Description" String="Location of the Feature" />
+        </Property>
+        <Property Name="properties" Type="Core.Dictionary" Nullable="true">
+          <Annotation Term="Core.Description" String="Properties of the Feature" />
+        </Property>
+        <Property Name="id" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Commonly used identifer for a Feature" />
+        </Property>
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>

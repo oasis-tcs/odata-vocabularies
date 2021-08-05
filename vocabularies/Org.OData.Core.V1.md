@@ -42,12 +42,13 @@ Term|Type|Description
 [AutoExpand](./Org.OData.Core.V1.xml#L438:~:text=Name="-,AutoExpand,-")|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this stream or navigation property even if not requested with $expand
 [AutoExpandReferences](./Org.OData.Core.V1.xml#L442:~:text=Name="-,AutoExpandReferences,-")|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
 [MayImplement](./Org.OData.Core.V1.xml#L446:~:text=Name="-,MayImplement,-")|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
-[Ordered](./Org.OData.Core.V1.xml#L458:~:text=Name="-,Ordered,-")|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
-[PositionalInsert](./Org.OData.Core.V1.xml#L462:~:text=Name="-,PositionalInsert,-")|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
-[AlternateKeys](./Org.OData.Core.V1.xml#L466:~:text=Name="-,AlternateKeys,-")|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](./Org.OData.Core.V1.xml#L494:~:text=Name="-,OptionalParameter,-")|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
-[OperationAvailable](./Org.OData.Core.V1.xml#L505:~:text=Name="-,OperationAvailable,-")|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
-[SymbolicName](./Org.OData.Core.V1.xml#L516:~:text=Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
+[Ordered](./Org.OData.Core.V1.xml#L462:~:text=Name="-,Ordered,-")|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
+[PositionalInsert](./Org.OData.Core.V1.xml#L466:~:text=Name="-,PositionalInsert,-")|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
+[AlternateKeys](./Org.OData.Core.V1.xml#L470:~:text=Name="-,AlternateKeys,-")|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
+[OptionalParameter](./Org.OData.Core.V1.xml#L498:~:text=Name="-,OptionalParameter,-")|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
+[OperationAvailable](./Org.OData.Core.V1.xml#L509:~:text=Name="-,OperationAvailable,-")|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
+[SymbolicName](./Org.OData.Core.V1.xml#L520:~:text=Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
+[GeometryFeature](./Org.OData.Core.V1.xml#L528:~:text=Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 ## <a name="RevisionType"></a>[RevisionType](./Org.OData.Core.V1.xml#L80:~:text=Name="-,RevisionType,-")
 
@@ -226,22 +227,27 @@ The qualified name of a term in scope.
 
 The qualified name of a type in scope.
 
-## <a name="AlternateKey"></a>[AlternateKey](./Org.OData.Core.V1.xml#L469:~:text=Name="-,AlternateKey,-")
+## <a name="QualifiedActionName"></a>[QualifiedActionName](./Org.OData.Core.V1.xml#L458:~:text=Name="-,QualifiedActionName,-")
+**Type:** String
+
+The qualified name of an action in scope.
+
+## <a name="AlternateKey"></a>[AlternateKey](./Org.OData.Core.V1.xml#L473:~:text=Name="-,AlternateKey,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Key](./Org.OData.Core.V1.xml#L470:~:text=Name="-,Key,-")|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
+[Key](./Org.OData.Core.V1.xml#L474:~:text=Name="-,Key,-")|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
-## <a name="PropertyRef"></a>[PropertyRef](./Org.OData.Core.V1.xml#L474:~:text=Name="-,PropertyRef,-")
+## <a name="PropertyRef"></a>[PropertyRef](./Org.OData.Core.V1.xml#L478:~:text=Name="-,PropertyRef,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](./Org.OData.Core.V1.xml#L475:~:text=Name="-,Name,-")|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
-[Alias](./Org.OData.Core.V1.xml#L478:~:text=Name="-,Alias,-")|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
+[Name](./Org.OData.Core.V1.xml#L479:~:text=Name="-,Name,-")|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
+[Alias](./Org.OData.Core.V1.xml#L482:~:text=Name="-,Alias,-")|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
-## <a name="Dictionary"></a>[Dictionary](./Org.OData.Core.V1.xml#L483:~:text=Name="-,Dictionary,-")
+## <a name="Dictionary"></a>[Dictionary](./Org.OData.Core.V1.xml#L487:~:text=Name="-,Dictionary,-")
 A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.
 
 
@@ -250,19 +256,28 @@ Property|Type
 Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
 
 
-## <a name="OptionalParameterType"></a>[OptionalParameterType](./Org.OData.Core.V1.xml#L498:~:text=Name="-,OptionalParameterType,-")
+## <a name="OptionalParameterType"></a>[OptionalParameterType](./Org.OData.Core.V1.xml#L502:~:text=Name="-,OptionalParameterType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](./Org.OData.Core.V1.xml#L499:~:text=Name="-,DefaultValue,-")|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
+[DefaultValue](./Org.OData.Core.V1.xml#L503:~:text=Name="-,DefaultValue,-")|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
 
-## <a name="LocalDateTime"></a>[LocalDateTime](./Org.OData.Core.V1.xml#L510:~:text=Name="-,LocalDateTime,-")
+## <a name="LocalDateTime"></a>[LocalDateTime](./Org.OData.Core.V1.xml#L514:~:text=Name="-,LocalDateTime,-")
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Org.OData.Core.V1.xml#L519:~:text=Name="-,SimpleIdentifier,-")
+## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Org.OData.Core.V1.xml#L523:~:text=Name="-,SimpleIdentifier,-")
 **Type:** String
 
 A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)
+
+## <a name="GeometryFeatureType"></a>[GeometryFeatureType](./Org.OData.Core.V1.xml#L531:~:text=Name="-,GeometryFeatureType,-")
+A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
+
+Property|Type|Description
+:-------|:---|:----------
+[geometry](./Org.OData.Core.V1.xml#L533:~:text=Name="-,geometry,-")|Geometry?|Location of the Feature
+[properties](./Org.OData.Core.V1.xml#L536:~:text=Name="-,properties,-")|[Dictionary?](#Dictionary)|Properties of the Feature
+[id](./Org.OData.Core.V1.xml#L539:~:text=Name="-,id,-")|String?|Commonly used identifer for a Feature
