@@ -44,31 +44,26 @@
   </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Authorization.V1" Alias="Auth">
-      <Annotation Term="Core.Description"
-        String="The Authorization Vocabulary provides terms for describing authorization requirements of the service" />
+      <Annotation Term="Core.Description" String="The Authorization Vocabulary provides terms for describing authorization requirements of the service" />
       <Annotation Term="Core.Links">
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href"
-              String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Authorization.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.md" />
           </Record>
         </Collection>
       </Annotation>
 
       <Term Name="SecuritySchemes" Type="Collection(Auth.SecurityScheme)" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description"
-          String="At least one of the specified security schemes are required to make a request against the service" />
+        <Annotation Term="Core.Description" String="At least one of the specified security schemes are required to make a request against the service" />
       </Term>
 
       <ComplexType Name="SecurityScheme">
@@ -96,16 +91,14 @@
 
       <ComplexType Name="OpenIDConnect" BaseType="Auth.Authorization">
         <Property Name="IssuerUrl" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url." />
+          <Annotation Term="Core.Description" String="Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url." />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
       <ComplexType Name="Http" BaseType="Auth.Authorization">
         <Property Name="Scheme" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="HTTP Authorization scheme to be used in the Authorization header, as per RFC7235" />
+          <Annotation Term="Core.Description" String="HTTP Authorization scheme to be used in the Authorization header, as per RFC7235" />
         </Property>
         <Property Name="BearerFormat" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="Format of the bearer token" />
@@ -189,7 +182,7 @@
       </EnumType>
 
       <TypeDefinition Name="SchemeName" UnderlyingType="Edm.String">
-          <Annotation Term="Core.Description" String="The name of the authorization scheme." />
+        <Annotation Term="Core.Description" String="The name of the authorization scheme." />
       </TypeDefinition>
 
     </Schema>

@@ -12,6 +12,7 @@
   Editors:
   - Ralf Handl (ralf.handl@sap.com), SAP SE
   - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+  - Gerald Krause (gerald.krause@sap.com), SAP SE
   - Michael Pizzo (mikep@microsoft.com), Microsoft
 
   Additional artifacts:
@@ -54,60 +55,59 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href"
-              String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Aggregation.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection EntityContainer">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
-          <String>This structured type, entity set or entity container supports the $apply system query option</String>
-        </Annotation> 
-        <Annotation Term="Core.LongDescription">
-          <String>An annotation of this term to an entity container propagates to all sets in the container except for those with their own annotation.</String>
+          <String>This entity set or collection supports the `$apply` system query option</String>
         </Annotation>
       </Term>
-      <ComplexType Name="ApplySupportedType">
+      <Term Name="ApplySupportedDefaults" Type="Aggregation.ApplySupportedBase" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description">
+          <String>Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="ApplySupportedBase">
         <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
         </Property>
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
+          <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
         </Property>
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
+      </ComplexType>
+      <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
           <Annotation Term="Core.Revisions">
             <Collection>
               <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-                <PropertyValue Property="Description" String="Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated"/>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated" />
               </Record>
             </Collection>
           </Annotation>
-          <Annotation Term="Core.Description"
-            String="Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation" />
+          <Annotation Term="Core.Description" String="Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation" />
         </Property>
         <Property Name="GroupableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation" />
         </Property>
         <Property Name="AggregatableProperties" Type="Collection(Aggregation.AggregatablePropertyType)" Nullable="false">
           <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods" />
-        </Property>        
+        </Property>
       </ComplexType>
       <ComplexType Name="AggregatablePropertyType">
         <Property Name="Property" Type="Edm.PropertyPath" Nullable="false">
@@ -144,8 +144,8 @@
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Deprecated in favor of [`ApplySupported/GroupableProperties`](#ApplySupported)"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`ApplySupported/GroupableProperties`](#ApplySupported)" />
             </Record>
           </Collection>
         </Annotation>
@@ -156,8 +156,8 @@
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)" />
             </Record>
           </Collection>
         </Annotation>
@@ -167,21 +167,18 @@
       <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection EntityContainer">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the `aggregate` transformation" />
-        <Annotation Term="Core.LongDescription"
-          String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type." />
+        <Annotation Term="Core.LongDescription" String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type." />
       </Term>
 
       <Term Name="ContextDefiningProperties" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="Property Annotation">
-        <Annotation Term="Core.Description"
-          String="The annotated property or custom aggregate is only well-defined in the context of these properties" />
+        <Annotation Term="Core.Description" String="The annotated property or custom aggregate is only well-defined in the context of these properties" />
         <Annotation Term="Core.LongDescription">
           <String>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.</String>
         </Annotation>
       </Term>
 
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description"
-          String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
+        <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType ComplexType">
@@ -205,7 +202,7 @@
       </ComplexType>
 
       <TypeDefinition Name="HierarchyReference" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="Annotation path that references a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation"/>
+        <Annotation Term="Core.Description" String="Annotation path that references a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
         <Annotation Term="Core.LongDescription">
           <String>Functions defined in this vocabulary have a parameter of this type. It specifies the hierarchy that is evaluated by the function.
           The annotation path is evaluated starting at the entity set of the function's binding parameter,
@@ -213,20 +210,18 @@
           Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.</String>
         </Annotation>
       </TypeDefinition>
-      
+
       <Function Name="isroot" IsBound="true">
-        <Annotation Term="Core.Description"
-          String="Is the entity the root of the specified hierarchy?" />
+        <Annotation Term="Core.Description" String="Is the entity the root of the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="isdescendant" IsBound="true">
-        <Annotation Term="Core.Description"
-          String="Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Parent node" />
         </Parameter>
@@ -235,10 +230,9 @@
       </Function>
 
       <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description"
-          String="Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Child node" />
         </Parameter>
@@ -247,10 +241,9 @@
       </Function>
 
       <Function Name="issibling" IsBound="true">
-        <Annotation Term="Core.Description"
-          String="Does the entity have the same parent node in the specified hierarchy as the sibling node?" />
+        <Annotation Term="Core.Description" String="Does the entity have the same parent node in the specified hierarchy as the sibling node?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Sibling node" />
         </Parameter>
@@ -258,16 +251,14 @@
       </Function>
 
       <Function Name="isleaf" IsBound="true">
-        <Annotation Term="Core.Description"
-          String="Is the entity without descendants in the specified hierarchy?" />
+        <Annotation Term="Core.Description" String="Is the entity without descendants in the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false"/>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyReference" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Action Function">
-        <Annotation Term="Core.Description"
-          String="This action or function is available on aggregated entities if the `RequiredProperties` are still defined" />
+        <Annotation Term="Core.Description" String="This action or function is available on aggregated entities if the `RequiredProperties` are still defined" />
       </Term>
       <ComplexType Name="AvailableOnAggregatesType">
         <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -279,8 +270,8 @@
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="[`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)" />
             </Record>
           </Collection>
         </Annotation>
@@ -289,16 +280,16 @@
           <Annotation Term="Core.Description" String="Support for `$apply`" />
         </Property>
         <Property Name="CustomAggregates" Type="Collection(Aggregation.CustomAggregateType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Supported custom aggregates" />        
+          <Annotation Term="Core.Description" String="Supported custom aggregates" />
         </Property>
       </ComplexType>
-      
+
       <ComplexType Name="CustomAggregateType">
         <Annotation Term="Core.Revisions">
           <Collection>
             <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated"/>
-              <PropertyValue Property="Description" String="Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated"/>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated" />
             </Record>
           </Collection>
         </Annotation>
@@ -309,7 +300,7 @@
           <Annotation Term="Core.Description" String="Qualified name of a primitive type. The aggregated value will be of that type" />
         </Property>
       </ComplexType>
-      
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

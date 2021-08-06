@@ -59,7 +59,7 @@
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Core.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -324,6 +324,11 @@
 
       <Term Name="AppliesViaContainer" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">
         <Annotation Term="Core.Description" String="The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton" />
+        <Annotation Term="Core.LongDescription">
+          <String>Servers that apply the tagged term based solely on the entity type, structural or navigation property,
+          independently of the container, MAY additionally annotate the EntityType, Property or NavigationProperty model element
+          in order to facilitate the annotation consumption by OData clients.</String>
+        </Annotation>
       </Term>
 
       <!--Resource Paths -->
@@ -394,13 +399,15 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property Term">
-        <Annotation Term="Core.Description" String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
+      <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
+        <Annotation Term="Core.Description" String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term." />
+        <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
-      <Term Name="MediaType" Type="Edm.String" AppliesTo="Property Term">
-        <Annotation Term="Core.Description" String="The media type of the values of a binary or string property or term" />
+      <Term Name="MediaType" Type="Edm.String" AppliesTo="Property Term TypeDefinition Parameter ReturnType">
+        <Annotation Term="Core.Description" String="The media type of the values of a binary or string or stream property or term." />
+        <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
@@ -446,6 +453,10 @@
 
       <TypeDefinition Name="QualifiedTypeName" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="The qualified name of a type in scope." />
+      </TypeDefinition>
+
+      <TypeDefinition Name="QualifiedActionName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
       </TypeDefinition>
 
       <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType Term">
@@ -513,6 +524,22 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.Description" String="A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)" />
         <Annotation Term="Validation.Pattern" String="^[\p{L}\p{Nl}_][\p{L}\p{Nl}\p{Nd}\p{Mn}\p{Mc}\p{Pc}\p{Cf}]{0,}$" />
       </TypeDefinition>
+
+      <Term Name="GeometryFeature" Type="Core.GeometryFeatureType">
+        <Annotation Term="Core.Description" String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
+      </Term>
+      <ComplexType Name="GeometryFeatureType">
+        <Annotation Term="Core.Description" String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
+        <Property Name="geometry" Type="Edm.Geometry" Nullable="true">
+          <Annotation Term="Core.Description" String="Location of the Feature" />
+        </Property>
+        <Property Name="properties" Type="Core.Dictionary" Nullable="true">
+          <Annotation Term="Core.Description" String="Properties of the Feature" />
+        </Property>
+        <Property Name="id" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Commonly used identifer for a Feature" />
+        </Property>
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>

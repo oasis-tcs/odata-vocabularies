@@ -12,8 +12,8 @@
     },
     "Org.OData.Temporal.V1": {
         "$Alias": "Temporal",
-        "@Core.Description": "Terms to describe which data in a given entity model is time-dependent, and in which dimensions.",
-        "@Core.LongDescription": "*This is a working draft that may incompatibly change any time.*",
+        "@Core.Description": "Terms for describing time-dependent data",
+        "@Core.LongDescription": "*This is a public review draft that may incompatibly change any time.*",
         "@Core.Links": [
             {
                 "rel": "alternate",
@@ -25,127 +25,116 @@
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/master/vocabularies/Org.OData.Temporal.V1.md"
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.md"
             }
         ],
-        "TemporalSupport": {
+        "ApplicationTimeSupport": {
             "$Kind": "Term",
-            "$Type": "Temporal.TemporalSupportType",
-            "$Nullable": true,
+            "$Type": "Temporal.ApplicationTimeSupportType",
             "$AppliesTo": [
-                "EntitySet",
-                "NavigationProperty"
+                "Collection"
             ],
-            "@Core.Description": "This entity set or navigation property supports  temporal requests"
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "This collection supports temporal requests"
         },
-        "TemporalSupportType": {
+        "ApplicationTimeSupportType": {
             "$Kind": "ComplexType",
-            "ApplicationTime": {
-                "$Type": "Temporal.TimeDimensionType",
-                "$Nullable": true,
-                "@Core.Description": "Application time granularity"
+            "UnitOfTime": {
+                "$Type": "Temporal.UnitOfTime",
+                "@Core.Description": "Unit of time and other properties of a time period"
             },
-            "SystemTime": {
-                "$Type": "Temporal.GranularityDateTimeOffset",
-                "$Nullable": true,
-                "@Core.Description": "System time granularity"
+            "Timeline": {
+                "$Type": "Temporal.Timeline",
+                "@Core.Description": "Describes how the history and future of the data are represented"
+            },
+            "SupportedActions": {
+                "$Collection": true,
+                "$Type": "Core.QualifiedActionName",
+                "@Core.Description": "List of supported temporal actions"
+            }
+        },
+        "UnitOfTime": {
+            "$Kind": "ComplexType",
+            "$Abstract": true,
+            "@Core.Description": "Unit of time and other properties of a time period"
+        },
+        "UnitOfTimeDateTimeOffset": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Temporal.UnitOfTime",
+            "@Core.Description": "Period start and end are of type Edm.DateTimeOffset",
+            "Precision": {
+                "$Type": "Edm.Byte",
+                "@Core.Description": "Precision of Edm.DateTimeOffset values for period start and end"
+            }
+        },
+        "UnitOfTimeDate": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Temporal.UnitOfTime",
+            "@Core.Description": "Period start and end are of type Edm.Date",
+            "@Core.LongDescription": "The period is a contiguous set of days and does not consider the time of the day.",
+            "ClosedClosedPeriods": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "If `true`, the period end is the last day in the period; if `false`, the period end is the first day after the period"
+            }
+        },
+        "Timeline": {
+            "$Kind": "ComplexType",
+            "$Abstract": true,
+            "@Core.Description": "Describes how the history and future of the data are represented"
+        },
+        "TimelineSnapshot": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Temporal.Timeline",
+            "@Core.Description": "Each OData entity maps each point in application time to an instance of the entity type",
+            "@Core.LongDescription": "To address an entity in a resource path or path to related resources, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].\n          The addressed entity is then a snapshot of the data at the given point in time."
+        },
+        "TimelineVisible": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Temporal.Timeline",
+            "@Core.Description": "Each OData entity represents data during a period of application time",
+            "@Core.LongDescription": "The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties\n          and with overlapping application-time periods as defined by their `PeriodStart` and `PeriodEnd` properties.\n          The temporal collection always contains all entities (with consecutive time periods) for a given object key.",
+            "PeriodStart": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property containing lower boundary of a period"
+            },
+            "PeriodEnd": {
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "Property containing upper boundary of a period"
             },
             "ObjectKey": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "The set of primitive properties that identify a temporal object",
-                "@Core.LongDescription": "A temporal object is a set of facts whose change over application and/or system time is tracked by the service. The entities of the annotated entity set are time slices of temporal objects. A temporal object is uniquely identified within this set by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, the object key is identical to the entity key."
+                "@Core.LongDescription": "A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection."
+            }
+        },
+        "TimesliceWithPeriod": {
+            "$Kind": "ComplexType",
+            "@Core.Description": "Delta time slices with validity period",
+            "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present\n          if the entity type of the `Timeslice` already contains period start and end, that is,\n          if the collection on which the action is invoked has visible timeline.\n          If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.",
+            "Timeslice": {
+                "$Type": "Edm.EntityType",
+                "@Core.Description": "A time slice with the same entity type as the binding parameter of the action"
             },
-            "SupportedActions": {
-                "$Collection": true,
-                "$Type": "Temporal.QualifiedActionName",
-                "@Core.Description": "List of supported temporal actions"
+            "PeriodStart": {
+                "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
+                "@Core.Description": "Lower boundary of the time slice"
+            },
+            "PeriodEnd": {
+                "$Type": "Edm.PrimitiveType",
+                "$Nullable": true,
+                "@Core.Description": "Upper boundary of the time slice"
             }
         },
-        "TimeDimensionType": {
-            "$Kind": "ComplexType",
-            "$Abstract": true,
-            "SupportedQueries": {
-                "$Type": "Temporal.QueryType"
-            }
-        },
-        "QualifiedActionName": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Core.Description": "The qualified name of an action in scope.",
-            "@Core.LongDescription": "*TODO: move this to Core, where we already have QualifiedTypeName and QualifiedTermName?*"
-        },
-        "GranularityDateTimeOffset": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Temporal.TimeDimensionType",
-            "@Core.Description": "Granularity of this time dimension is DateTimeOffset",
-            "Precision": {
-                "$Type": "Edm.Byte",
-                "@Core.Description": "Precision of Edm.DateTimeOffset values for granularity DateTimeOffset"
-            }
-        },
-        "GranularityDate": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Temporal.TimeDimensionType",
-            "@Core.Description": "Granularity of this time dimension is Date",
-            "ClosedClosedPeriods": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
-                "@Core.Description": "Application-time periods are stored with closed-closed semantics",
-                "@Core.LongDescription": "Use the temporal query option `$toInclusive` instead of `$to` for specifying the period end in time-series queries."
-            }
-        },
-        "QueryType": {
-            "$Kind": "EnumType",
-            "$IsFlags": true,
-            "TimeTravel": 1,
-            "TimeSeries": 2
-        },
-        "From": {
-            "$Kind": "Term",
-            "$Type": "Edm.PrimitiveType",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or String with values min or now"
-        },
-        "To": {
-            "$Kind": "Term",
-            "$Type": "Edm.PrimitiveType",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or String with values now or max"
-        },
-        "SystemFrom": {
-            "$Kind": "Term",
-            "$Type": "Edm.PrimitiveType",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Core.Description": "Read-only lower boundary (inclusive) of system time. DateTimeOffset value or String with value min"
-        },
-        "SystemTo": {
-            "$Kind": "Term",
-            "$Type": "Edm.PrimitiveType",
-            "$AppliesTo": [
-                "EntityType"
-            ],
-            "@Core.Description": "Read-only upper boundary (exclusive) of system time. DateTimeOffset value or String with value max"
-        },
-        "History": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Edm.EntityType",
-            "@Core.Description": "A collection of time slices representing the history of the annotated entity",
-            "@Core.LongDescription": "The time slices have the same entity type as the annotated entity and use the same select-expand projection."
-        },
-        "UpdateObject": [
+        "Update": [
             {
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
+                "@Core.Description": "Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap",
+                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n\n`deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -154,26 +143,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
-                    },
-                    {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "Values",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values to update",
-                        "@Core.LongDescription": "Same entity type as binding parameter and return type, specify only values of non-key properties."
+                        "$Name": "deltaTimeslices",
+                        "$Collection": true,
+                        "$Type": "Temporal.TimesliceWithPeriod",
+                        "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
+                        "@Core.LongDescription": "The delta time slices need not contain all properties, but at least the boundary values of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -184,12 +158,12 @@
                 }
             }
         ],
-        "UpsertObject": [
+        "Upsert": [
             {
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Upserts a temporal object in a given period of application time after splitting partially overlapping time slices by updating existing time slices in that period and creating new time slices to close gaps in that period",
+                "@Core.Description": "Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -198,26 +172,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
-                    },
-                    {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "Values",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values to insert or update",
-                        "@Core.LongDescription": "Same entity type as binding parameter and return type, specify only values of non-key properties."
+                        "$Name": "deltaTimeslices",
+                        "$Collection": true,
+                        "$Type": "Temporal.TimesliceWithPeriod",
+                        "@Core.Description": "New time slices to be merged into the `timeslices` collection",
+                        "@Core.LongDescription": "The delta time slices must contain all properties that are needed for insertion.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -228,12 +187,12 @@
                 }
             }
         ],
-        "UpdateObjectFrom": [
+        "UpdateFrom": [
             {
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Updates properties of time slices of a temporal object from a given point in time onwards and stops updating a property if its original value changes from one time slice to the next",
+                "@Core.Description": "Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have same the original value for all these properties",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -242,27 +201,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
-                    },
-                    {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true,
-                        "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
-                    },
-                    {
-                        "$Name": "Values",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values to update",
-                        "@Core.LongDescription": "Same entity type as binding parameter and return type, specify only values of non-key properties."
+                        "$Name": "deltaTimeslices",
+                        "$Collection": true,
+                        "$Type": "Temporal.TimesliceWithPeriod",
+                        "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
+                        "@Core.LongDescription": "The delta time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
                     }
                 ],
                 "$ReturnType": {
@@ -273,12 +216,13 @@
                 }
             }
         ],
-        "SynchronizeObject": [
+        "Delete": [
             {
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Synchronizes time slices of a temporal object to match the provided full application timeline",
+                "@Core.Description": "Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`",
+                "@Core.LongDescription": "The deletion behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-delete)\n          `DELETE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n          The sub-period of an existing time slice that lies outside a given instance of `deltaTimeslices`\n          is kept, effectively shortening the time slice.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -287,65 +231,27 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
-                    },
-                    {
-                        "$Name": "Timeline",
+                        "$Name": "deltaTimeslices",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "List of time slices covering the full timeline of the temporal object",
-                        "@Core.LongDescription": "Same entity type as the binding parameter."
-                    }
-                ]
-            }
-        ],
-        "DeleteObject": [
-            {
-                "$Kind": "Action",
-                "$EntitySetPath": "timeslices",
-                "$IsBound": true,
-                "@Core.Description": "Deletes all time slices of a temporal object in a given period of application time after splitting partially overlapping time slices",
-                "$Parameter": [
-                    {
-                        "$Name": "timeslices",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Time slices to modify"
-                    },
-                    {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
-                    },
-                    {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
+                        "$Type": "Temporal.TimesliceWithPeriod",
+                        "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
+                        "@Core.LongDescription": "The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
                     "$Collection": true,
                     "$Type": "Edm.EntityType",
-                    "@Core.Description": "Deleted time slices",
+                    "@Core.Description": "Deleted (sub-periods of) time slices",
                     "@Core.LongDescription": "Same entity type as binding parameter."
                 }
             }
         ],
-        "DeleteObjectFrom": [
+        "DeleteFrom": [
             {
                 "$Kind": "Action",
                 "$EntitySetPath": "timeslices",
                 "$IsBound": true,
-                "@Core.Description": "Deletes  time slices of a temporal object from a a given point in application time onwards and stops if a property changes its value from one time slice to the next",
+                "@Core.Description": "Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",
@@ -354,21 +260,11 @@
                         "@Core.Description": "Time slices to modify"
                     },
                     {
-                        "$Name": "ObjectKey",
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Property values that identify a single temporal object",
-                        "@Core.LongDescription": "Select-expand projection of the same entity type as binding parameter, containing all and only properties reference in the [`ObjectKey`](#ObjectKey) of that entity type."
-                    },
-                    {
-                        "$Name": "From",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Lower boundary (inclusive) of application time. Date or DateTimeOffset value, or string with value `min`"
-                    },
-                    {
-                        "$Name": "To",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true,
-                        "@Core.Description": "Optional upper boundary (exclusive) of application time. Date or DateTimeOffset value, or string with value `max`"
+                        "$Name": "deltaTimeslices",
+                        "$Collection": true,
+                        "$Type": "Temporal.TimesliceWithPeriod",
+                        "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
+                        "@Core.LongDescription": "The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
