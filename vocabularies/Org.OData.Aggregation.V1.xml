@@ -130,7 +130,7 @@
       <Term Name="IsCustomAggregationMethod" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Function">
         <Annotation Term="Core.Description" String="The annotated function is a custom aggregation method [OData-Aggr, section 3.1.3.6]"/>
         <Annotation Term="Core.LongDescription">
-          <String>The function is unbound and has one parameter whose type is a collection of a primitive type, this represents the aggregated property in the input set.
+          <String>The function is unbound and has one parameter whose type is a collection of a primitive type, this represents the property values in the input set which are to be aggregated.
           It has a primitive return type, this represents the aggregation result.
           It can only appear in `aggregate(... with &lt;namespace&gt;.&lt;function&gt; [as ...])`.
           It cannot be invoked like other functions, if this happens the server behavior is undefined.</String>
