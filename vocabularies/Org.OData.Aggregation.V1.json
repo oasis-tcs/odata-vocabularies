@@ -109,6 +109,16 @@
                 "@Core.Description": "Recommended method for aggregating values of the property"
             }
         },
+        "IsCustomAggregationMethod": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Function"
+            ],
+            "@Core.Description": "The annotated function is a custom aggregation method [OData-Aggr, section 3.1.3.6]",
+            "@Core.LongDescription": "The function is unbound and has one parameter whose type is a collection of a primitive type, this represents the aggregated property in the input set.\n          It has a primitive return type, this represents the aggregation result.\n          It can only appear in `aggregate(... with <namespace>.<function> [as ...])`.\n          It cannot be invoked like other functions, if this happens the server behavior is undefined."
+        },
         "RollupType": {
             "$Kind": "EnumType",
             "@Core.Description": "The number of `rollup` operators allowed in a `groupby` transformation",
