@@ -52,7 +52,7 @@
                 "EntityContainer"
             ],
             "@Core.Description": "Default support of the `$apply` system query option for all collection-valued resources in the container",
-            "@Core.LongDescription": "Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting with the specified properties (PATCH semantics)."
+            "@Core.LongDescription": "Annotating term [`ApplySupported`](#ApplySupported) for a specific collection-valued resource overrides the default setting with the specified properties using PATCH semantics:\n\n- Properties specified in `ApplySupported` replace properties specified in `ApplySupportedDefaults`, collections are replaced as a whole\n\n- Properties specified neither in `ApplySupported` nor in `ApplySupportedDefaults` have their default value\n          "
         },
         "ApplySupportedBase": {
             "$Kind": "ComplexType",

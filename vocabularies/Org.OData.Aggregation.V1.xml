@@ -79,7 +79,12 @@
           <String>Default support of the `$apply` system query option for all collection-valued resources in the container</String>
         </Annotation>
         <Annotation Term="Core.LongDescription">
-          <String>Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting with the specified properties (PATCH semantics).</String>
+          <String>Annotating term [`ApplySupported`](#ApplySupported) for a specific collection-valued resource overrides the default setting with the specified properties using PATCH semantics:
+
+- Properties specified in `ApplySupported` replace properties specified in `ApplySupportedDefaults`, collections are replaced as a whole
+
+- Properties specified neither in `ApplySupported` nor in `ApplySupportedDefaults` have their default value
+          </String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedBase">
