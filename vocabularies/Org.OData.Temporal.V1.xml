@@ -145,7 +145,9 @@
           if the entity type of the `Timeslice` already contains period start and end, that is,
           if the collection on which the action is invoked has visible timeline.
           If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,
-          depending on the `ApplicationTimeSupport/UnitOfTime` of the collection.</String>
+          and they are interpreted according to the [`ApplicationTimeSupport/UnitOfTime`](#ApplicationTimeSupportType) of the collection.
+          In particular, `ApplicationTimeSupport/UnitOfTime/ClosedClosedPeriods` governs whether a `PeriodEnd` of type `Edm.Date`
+          is the last day in the period or the first day after the period.</String>
         </Annotation>
         <Property Name="Timeslice" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="A time slice with the same entity type as the binding parameter of the action" />
