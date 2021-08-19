@@ -1404,7 +1404,8 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Core.Description": "Default capability settings for all collection-valued resources in the container. Annotating a capability term for a specific collection-valued resource overrides the default setting"
+            "@Core.Description": "Default capability settings for all collection-valued resources in the container",
+            "@Core.LongDescription": "Annotating a specific capability term, which is included as property in `DefaultCapabilitiesType`, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:\n\n- Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in `DefaultCapabilities`\n\n- Complex-valued properties specified in the specific capability term override the corresponding properties specified in `DefaultCapabilities` using PATCH semantics recursively\n\n- Properties specified neither in the specific term nor in `DefaultCapabilities` have their default value\n          "
         },
         "DefaultCapabilitiesType": {
             "$Kind": "ComplexType",

@@ -86,7 +86,7 @@ Term|Type|Description
 [CustomHeaders](./Org.OData.Capabilities.V1.xml#L931:~:text=Name="-,CustomHeaders,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L933:~:text=Name="-,Example,-"))
 [CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L957:~:text=Name="-,CustomQueryOptions,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L960:~:text=Name="-,Example,-"))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
 [MediaLocationUpdateSupported](./Org.OData.Capabilities.V1.xml#L1009:~:text=Name="-,MediaLocationUpdateSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property supports update of its media edit URL and/or media read URL
-[DefaultCapabilities](./Org.OData.Capabilities.V1.xml#L1014:~:text=Name="-,DefaultCapabilities,-")|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container. Annotating a capability term for a specific collection-valued resource overrides the default setting
+[DefaultCapabilities](./Org.OData.Capabilities.V1.xml#L1014:~:text=Name="-,DefaultCapabilities,-")|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container<br>Annotating a specific capability term, which is included as property in `DefaultCapabilitiesType`, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:<br/>- Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in `DefaultCapabilities`<br/>- Complex-valued properties specified in the specific capability term override the corresponding properties specified in `DefaultCapabilities` using PATCH semantics recursively<br/>- Properties specified neither in the specific term nor in `DefaultCapabilities` have their default value
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](./Org.OData.Capabilities.V1.xml#L118:~:text=Name="-,ConformanceLevelType,-")
 
@@ -620,24 +620,24 @@ Property|Type|Description
 [Required](./Org.OData.Capabilities.V1.xml#L1001:~:text=Name="-,Required,-")|Boolean|true: parameter is required, false or not specified: parameter is optional
 [ExampleValues](./Org.OData.Capabilities.V1.xml#L1004:~:text=Name="-,ExampleValues,-")|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
 
-## <a name="DefaultCapabilitiesType"></a>[DefaultCapabilitiesType](./Org.OData.Capabilities.V1.xml#L1017:~:text=Name="-,DefaultCapabilitiesType,-")
+## <a name="DefaultCapabilitiesType"></a>[DefaultCapabilitiesType](./Org.OData.Capabilities.V1.xml#L1027:~:text=Name="-,DefaultCapabilitiesType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ChangeTracking](./Org.OData.Capabilities.V1.xml#L1018:~:text=Name="-,ChangeTracking,-")|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
-[CountRestrictions](./Org.OData.Capabilities.V1.xml#L1021:~:text=Name="-,CountRestrictions,-")|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
-[IndexableByKey](./Org.OData.Capabilities.V1.xml#L1024:~:text=Name="-,IndexableByKey,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
-[TopSupported](./Org.OData.Capabilities.V1.xml#L1027:~:text=Name="-,TopSupported,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
-[SkipSupported](./Org.OData.Capabilities.V1.xml#L1030:~:text=Name="-,SkipSupported,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
-[ComputeSupported](./Org.OData.Capabilities.V1.xml#L1033:~:text=Name="-,ComputeSupported,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
-[SelectSupport](./Org.OData.Capabilities.V1.xml#L1036:~:text=Name="-,SelectSupport,-")|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
-[FilterRestrictions](./Org.OData.Capabilities.V1.xml#L1039:~:text=Name="-,FilterRestrictions,-")|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
-[SortRestrictions](./Org.OData.Capabilities.V1.xml#L1042:~:text=Name="-,SortRestrictions,-")|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
-[ExpandRestrictions](./Org.OData.Capabilities.V1.xml#L1045:~:text=Name="-,ExpandRestrictions,-")|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
-[SearchRestrictions](./Org.OData.Capabilities.V1.xml#L1048:~:text=Name="-,SearchRestrictions,-")|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
-[InsertRestrictions](./Org.OData.Capabilities.V1.xml#L1051:~:text=Name="-,InsertRestrictions,-")|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
-[UpdateRestrictions](./Org.OData.Capabilities.V1.xml#L1054:~:text=Name="-,UpdateRestrictions,-")|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
-[DeleteRestrictions](./Org.OData.Capabilities.V1.xml#L1057:~:text=Name="-,DeleteRestrictions,-")|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
-[OperationRestrictions](./Org.OData.Capabilities.V1.xml#L1060:~:text=Name="-,OperationRestrictions,-")|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
-[ReadRestrictions](./Org.OData.Capabilities.V1.xml#L1063:~:text=Name="-,ReadRestrictions,-")|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance
+[ChangeTracking](./Org.OData.Capabilities.V1.xml#L1028:~:text=Name="-,ChangeTracking,-")|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
+[CountRestrictions](./Org.OData.Capabilities.V1.xml#L1031:~:text=Name="-,CountRestrictions,-")|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
+[IndexableByKey](./Org.OData.Capabilities.V1.xml#L1034:~:text=Name="-,IndexableByKey,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
+[TopSupported](./Org.OData.Capabilities.V1.xml#L1037:~:text=Name="-,TopSupported,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
+[SkipSupported](./Org.OData.Capabilities.V1.xml#L1040:~:text=Name="-,SkipSupported,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
+[ComputeSupported](./Org.OData.Capabilities.V1.xml#L1043:~:text=Name="-,ComputeSupported,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
+[SelectSupport](./Org.OData.Capabilities.V1.xml#L1046:~:text=Name="-,SelectSupport,-")|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
+[FilterRestrictions](./Org.OData.Capabilities.V1.xml#L1049:~:text=Name="-,FilterRestrictions,-")|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
+[SortRestrictions](./Org.OData.Capabilities.V1.xml#L1052:~:text=Name="-,SortRestrictions,-")|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
+[ExpandRestrictions](./Org.OData.Capabilities.V1.xml#L1055:~:text=Name="-,ExpandRestrictions,-")|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
+[SearchRestrictions](./Org.OData.Capabilities.V1.xml#L1058:~:text=Name="-,SearchRestrictions,-")|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
+[InsertRestrictions](./Org.OData.Capabilities.V1.xml#L1061:~:text=Name="-,InsertRestrictions,-")|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
+[UpdateRestrictions](./Org.OData.Capabilities.V1.xml#L1064:~:text=Name="-,UpdateRestrictions,-")|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
+[DeleteRestrictions](./Org.OData.Capabilities.V1.xml#L1067:~:text=Name="-,DeleteRestrictions,-")|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
+[OperationRestrictions](./Org.OData.Capabilities.V1.xml#L1070:~:text=Name="-,OperationRestrictions,-")|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
+[ReadRestrictions](./Org.OData.Capabilities.V1.xml#L1073:~:text=Name="-,ReadRestrictions,-")|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance
