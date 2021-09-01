@@ -28,7 +28,7 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Value](./Org.OData.Validation.V1.xml#L103:~:text=Name="-,Value,-")|PrimitiveType?|An allowed value for the property, parameter, or type definition
+[Value](./Org.OData.Validation.V1.xml#L103:~:text=Name="-,AllowedValue,-")|PrimitiveType?|An allowed value for the property, parameter, or type definition
 
 **Applicable Annotation Terms:**
 
@@ -39,13 +39,13 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[FailureMessage](./Org.OData.Validation.V1.xml#L116:~:text=Name="-,FailureMessage,-")|String?|Human-readable message that can be shown to end users if the constraint is not fulfilled
-[Condition](./Org.OData.Validation.V1.xml#L120:~:text=Name="-,Condition,-")|Boolean|Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled
+[FailureMessage](./Org.OData.Validation.V1.xml#L116:~:text=Name="-,ConstraintType,-")|String?|Human-readable message that can be shown to end users if the constraint is not fulfilled
+[Condition](./Org.OData.Validation.V1.xml#L120:~:text=Name="-,ConstraintType,-")|Boolean|Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled
 
 ## <a name="ItemsOfType"></a>[ItemsOfType](./Org.OData.Validation.V1.xml#L133:~:text=Name="-,ItemsOfType,-")
 Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`.
 
 Property|Type|Description
 :-------|:---|:----------
-[path](./Org.OData.Validation.V1.xml#L135:~:text=Name="-,path,-")|NavigationPropertyPath|A path to a single- or collection-valued navigation property
-[target](./Org.OData.Validation.V1.xml#L138:~:text=Name="-,target,-")|NavigationPropertyPath|A path to a collection-valued navigation property
+[path](./Org.OData.Validation.V1.xml#L135:~:text=Name="-,ItemsOfType,-")|NavigationPropertyPath|A path to a single- or collection-valued navigation property
+[target](./Org.OData.Validation.V1.xml#L138:~:text=Name="-,ItemsOfType,-")|NavigationPropertyPath|A path to a collection-valued navigation property
