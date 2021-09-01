@@ -28,7 +28,7 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Value](./Org.OData.Validation.V1.xml#L103:~:text=undefined%20Name="-,Value,-")|PrimitiveType?|An allowed value for the property, parameter, or type definition
+[Value](./Org.OData.Validation.V1.xml#L103|PrimitiveType?|An allowed value for the property, parameter, or type definition
 
 **Applicable Annotation Terms:**
 
@@ -39,13 +39,13 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[FailureMessage](./Org.OData.Validation.V1.xml#L116:~:text=undefined%20Name="-,FailureMessage,-")|String?|Human-readable message that can be shown to end users if the constraint is not fulfilled
-[Condition](./Org.OData.Validation.V1.xml#L120:~:text=undefined%20Name="-,Condition,-")|Boolean|Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled
+[FailureMessage](./Org.OData.Validation.V1.xml#L116|String?|Human-readable message that can be shown to end users if the constraint is not fulfilled
+[Condition](./Org.OData.Validation.V1.xml#L120|Boolean|Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled
 
 ## <a name="ItemsOfType"></a>[ItemsOfType](./Org.OData.Validation.V1.xml#L133:~:text=ComplexType%20Name="-,ItemsOfType,-")
 Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`.
 
 Property|Type|Description
 :-------|:---|:----------
-[path](./Org.OData.Validation.V1.xml#L135:~:text=undefined%20Name="-,path,-")|NavigationPropertyPath|A path to a single- or collection-valued navigation property
-[target](./Org.OData.Validation.V1.xml#L138:~:text=undefined%20Name="-,target,-")|NavigationPropertyPath|A path to a collection-valued navigation property
+[path](./Org.OData.Validation.V1.xml#L135|NavigationPropertyPath|A path to a single- or collection-valued navigation property
+[target](./Org.OData.Validation.V1.xml#L138|NavigationPropertyPath|A path to a collection-valued navigation property

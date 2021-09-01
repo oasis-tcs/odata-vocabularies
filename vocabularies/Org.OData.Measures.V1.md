@@ -21,6 +21,6 @@ Term|Type|Description
 
 Allowed Value|Description
 :------------|:----------
-[days](./Org.OData.Measures.V1.xml#L95:~:text=undefined%20Name="-,days,-")|Duration in days, e.g. `P1D`
-[hours](./Org.OData.Measures.V1.xml#L99:~:text=undefined%20Name="-,hours,-")|Duration in days and hours, e.g. `P1DT23H`
-[minutes](./Org.OData.Measures.V1.xml#L103:~:text=undefined%20Name="-,minutes,-")|Duration in days, hours, and minutes, e.g. `P1DT23H59M`
+[days](./Org.OData.Measures.V1.xml#L95|Duration in days, e.g. `P1D`
+[hours](./Org.OData.Measures.V1.xml#L99|Duration in days and hours, e.g. `P1DT23H`
+[minutes](./Org.OData.Measures.V1.xml#L103|Duration in days, hours, and minutes, e.g. `P1DT23H59M`

@@ -14,7 +14,7 @@ Term|Type|Description
 [Description](./Org.OData.Core.V1.xml#L105:~:text=Term%20Name="-,Description,-")|String?|<a name="Description"></a>A brief description of a model element
 [LongDescription](./Org.OData.Core.V1.xml#L110:~:text=Term%20Name="-,LongDescription,-")|String?|<a name="LongDescription"></a>A lengthy description of a model element
 [Links](./Org.OData.Core.V1.xml#L115:~:text=Term%20Name="-,Links,-")|\[[Link](#Link)\]|<a name="Links"></a>Link to related information
-[Example](./Org.OData.Core.V1.xml#L129:~:text=Term%20Name="-,Example,-")|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element ([Example](./Org.OData.Core.V1.xml#L131:~:text=undefined%20Name="-,Example,-"))
+[Example](./Org.OData.Core.V1.xml#L129:~:text=Term%20Name="-,Example,-")|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element ([Example](./Org.OData.Core.V1.xml#L131)
 [Messages](./Org.OData.Core.V1.xml#L198:~:text=Term%20Name="-,Messages,-")|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
 [ValueException](./Org.OData.Core.V1.xml#L242:~:text=Term%20Name="-,ValueException,-")|[ValueExceptionType](#ValueExceptionType)|<a name="ValueException"></a>The annotated value is problematic
 [ResourceException](./Org.OData.Core.V1.xml#L256:~:text=Term%20Name="-,ResourceException,-")|[ResourceExceptionType](#ResourceExceptionType)|<a name="ResourceException"></a>The annotated instance within a success payload is problematic
@@ -55,26 +55,26 @@ Term|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Version](./Org.OData.Core.V1.xml#L81:~:text=undefined%20Name="-,Version,-")|String?|The schema version with which this revision was first published
-[Kind](./Org.OData.Core.V1.xml#L84:~:text=undefined%20Name="-,Kind,-")|[RevisionKind](#RevisionKind)|The kind of revision
-[Description](./Org.OData.Core.V1.xml#L87:~:text=undefined%20Name="-,Description,-")|String|Text describing the reason for the revision
+[Version](./Org.OData.Core.V1.xml#L81|String?|The schema version with which this revision was first published
+[Kind](./Org.OData.Core.V1.xml#L84|[RevisionKind](#RevisionKind)|The kind of revision
+[Description](./Org.OData.Core.V1.xml#L87|String|Text describing the reason for the revision
 
 ## <a name="RevisionKind"></a>[RevisionKind](./Org.OData.Core.V1.xml#L91:~:text=EnumType%20Name="-,RevisionKind,-")
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Added](./Org.OData.Core.V1.xml#L92:~:text=undefined%20Name="-,Added,-")|0|Model element was added
-[Modified](./Org.OData.Core.V1.xml#L95:~:text=undefined%20Name="-,Modified,-")|1|Model element was modified
-[Deprecated](./Org.OData.Core.V1.xml#L98:~:text=undefined%20Name="-,Deprecated,-")|2|Model element was deprecated
+[Added](./Org.OData.Core.V1.xml#L92|0|Model element was added
+[Modified](./Org.OData.Core.V1.xml#L95|1|Model element was modified
+[Deprecated](./Org.OData.Core.V1.xml#L98|2|Model element was deprecated
 
 ## <a name="Link"></a>[Link](./Org.OData.Core.V1.xml#L118:~:text=ComplexType%20Name="-,Link,-")
 The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)
 
 Property|Type|Description
 :-------|:---|:----------
-[rel](./Org.OData.Core.V1.xml#L120:~:text=undefined%20Name="-,rel,-")|String|Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
-[href](./Org.OData.Core.V1.xml#L123:~:text=undefined%20Name="-,href,-")|URL|URL of related information
+[rel](./Org.OData.Core.V1.xml#L120|String|Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
+[href](./Org.OData.Core.V1.xml#L123|URL|URL of related information
 
 ## <a name="ExampleValue"></a>[ExampleValue](./Org.OData.Core.V1.xml#L169:~:text=ComplexType%20Name="-,ExampleValue,-")
 
@@ -87,30 +87,30 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Description](./Org.OData.Core.V1.xml#L170:~:text=undefined%20Name="-,Description,-")|String?|Description of the example value
+[Description](./Org.OData.Core.V1.xml#L170|String?|Description of the example value
 
 ## <a name="PrimitiveExampleValue"></a>[PrimitiveExampleValue](./Org.OData.Core.V1.xml#L174:~:text=ComplexType%20Name="-,PrimitiveExampleValue,-"): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*Description*](./Org.OData.Core.V1.xml#L170:~:text=undefined%20Name="-,Description,-")|String?|Description of the example value
-[Value](./Org.OData.Core.V1.xml#L175:~:text=undefined%20Name="-,Value,-")|PrimitiveType|Example value for the custom parameter
+[*Description*](./Org.OData.Core.V1.xml#L170|String?|Description of the example value
+[Value](./Org.OData.Core.V1.xml#L175|PrimitiveType|Example value for the custom parameter
 
 ## <a name="ComplexExampleValue"></a>[ComplexExampleValue](./Org.OData.Core.V1.xml#L179:~:text=ComplexType%20Name="-,ComplexExampleValue,-"): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*Description*](./Org.OData.Core.V1.xml#L170:~:text=undefined%20Name="-,Description,-")|String?|Description of the example value
-[Value](./Org.OData.Core.V1.xml#L180:~:text=undefined%20Name="-,Value,-")|ComplexType|Example value for the custom parameter
+[*Description*](./Org.OData.Core.V1.xml#L170|String?|Description of the example value
+[Value](./Org.OData.Core.V1.xml#L180|ComplexType|Example value for the custom parameter
 
 ## <a name="EntityExampleValue"></a>[EntityExampleValue](./Org.OData.Core.V1.xml#L184:~:text=ComplexType%20Name="-,EntityExampleValue,-"): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*Description*](./Org.OData.Core.V1.xml#L170:~:text=undefined%20Name="-,Description,-")|String?|Description of the example value
+[*Description*](./Org.OData.Core.V1.xml#L170|String?|Description of the example value
 [Value](./Org.OData.Core.V1.xml#L185:~:text=NavigationProperty%20Name="-,Value,-")|EntityType|Example value for the custom parameter
 
 ## <a name="ExternalExampleValue"></a>[ExternalExampleValue](./Org.OData.Core.V1.xml#L189:~:text=ComplexType%20Name="-,ExternalExampleValue,-"): [ExampleValue](#ExampleValue)
@@ -118,19 +118,19 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*Description*](./Org.OData.Core.V1.xml#L170:~:text=undefined%20Name="-,Description,-")|String?|Description of the example value
-[ExternalValue](./Org.OData.Core.V1.xml#L190:~:text=undefined%20Name="-,ExternalValue,-")|URL|Url reference to the value in its literal format
+[*Description*](./Org.OData.Core.V1.xml#L170|String?|Description of the example value
+[ExternalValue](./Org.OData.Core.V1.xml#L190|URL|Url reference to the value in its literal format
 
 ## <a name="MessageType"></a>[MessageType](./Org.OData.Core.V1.xml#L201:~:text=ComplexType%20Name="-,MessageType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[code](./Org.OData.Core.V1.xml#L202:~:text=undefined%20Name="-,code,-")|String|Machine-readable, language-independent message code
-[message](./Org.OData.Core.V1.xml#L205:~:text=undefined%20Name="-,message,-")|String|Human-readable, language-dependent message text
-[severity](./Org.OData.Core.V1.xml#L209:~:text=undefined%20Name="-,severity,-")|[MessageSeverity](#MessageSeverity)|Severity of the message
-[target](./Org.OData.Core.V1.xml#L212:~:text=undefined%20Name="-,target,-")|String?|A path to the target of the message detail, relative to the annotated instance
-[details](./Org.OData.Core.V1.xml#L215:~:text=undefined%20Name="-,details,-")|\[[MessageType](#MessageType)\]|List of detail messages
+[code](./Org.OData.Core.V1.xml#L202|String|Machine-readable, language-independent message code
+[message](./Org.OData.Core.V1.xml#L205|String|Human-readable, language-dependent message text
+[severity](./Org.OData.Core.V1.xml#L209|[MessageSeverity](#MessageSeverity)|Severity of the message
+[target](./Org.OData.Core.V1.xml#L212|String?|A path to the target of the message detail, relative to the annotated instance
+[details](./Org.OData.Core.V1.xml#L215|\[[MessageType](#MessageType)\]|List of detail messages
 
 ## <a name="MessageSeverity"></a>[MessageSeverity](./Org.OData.Core.V1.xml#L219:~:text=TypeDefinition%20Name="-,MessageSeverity,-")
 **Type:** String
@@ -139,10 +139,10 @@ Property|Type|Description
 
 Allowed Value|Description
 :------------|:----------
-[success](./Org.OData.Core.V1.xml#L222:~:text=undefined%20Name="-,success,-")|Positive feedback - no action required
-[info](./Org.OData.Core.V1.xml#L226:~:text=undefined%20Name="-,info,-")|Additional information - no action required
-[warning](./Org.OData.Core.V1.xml#L230:~:text=undefined%20Name="-,warning,-")|Warning - action may be required
-[error](./Org.OData.Core.V1.xml#L234:~:text=undefined%20Name="-,error,-")|Error - action is required
+[success](./Org.OData.Core.V1.xml#L222|Positive feedback - no action required
+[info](./Org.OData.Core.V1.xml#L226|Additional information - no action required
+[warning](./Org.OData.Core.V1.xml#L230|Warning - action may be required
+[error](./Org.OData.Core.V1.xml#L234|Error - action is required
 
 ## <a name="ExceptionType"></a>[*ExceptionType*](./Org.OData.Core.V1.xml#L245:~:text=ComplexType%20Name="-,ExceptionType,-")
 
@@ -154,45 +154,45 @@ Allowed Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[info](./Org.OData.Core.V1.xml#L246:~:text=undefined%20Name="-,info,-")|[MessageType?](#MessageType)|Information about the exception
+[info](./Org.OData.Core.V1.xml#L246|[MessageType?](#MessageType)|Information about the exception
 
 ## <a name="ValueExceptionType"></a>[ValueExceptionType](./Org.OData.Core.V1.xml#L250:~:text=ComplexType%20Name="-,ValueExceptionType,-"): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*info*](./Org.OData.Core.V1.xml#L246:~:text=undefined%20Name="-,info,-")|[MessageType?](#MessageType)|Information about the exception
-[value](./Org.OData.Core.V1.xml#L251:~:text=undefined%20Name="-,value,-")|String?|String representation of the exact value
+[*info*](./Org.OData.Core.V1.xml#L246|[MessageType?](#MessageType)|Information about the exception
+[value](./Org.OData.Core.V1.xml#L251|String?|String representation of the exact value
 
 ## <a name="ResourceExceptionType"></a>[ResourceExceptionType](./Org.OData.Core.V1.xml#L259:~:text=ComplexType%20Name="-,ResourceExceptionType,-"): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*info*](./Org.OData.Core.V1.xml#L246:~:text=undefined%20Name="-,info,-")|[MessageType?](#MessageType)|Information about the exception
-[retryLink](./Org.OData.Core.V1.xml#L260:~:text=undefined%20Name="-,retryLink,-")|URL?|A GET request to this URL retries retrieving the problematic instance
+[*info*](./Org.OData.Core.V1.xml#L246|[MessageType?](#MessageType)|Information about the exception
+[retryLink](./Org.OData.Core.V1.xml#L260|URL?|A GET request to this URL retries retrieving the problematic instance
 
 ## <a name="DataModificationExceptionType"></a>[DataModificationExceptionType](./Org.OData.Core.V1.xml#L269:~:text=ComplexType%20Name="-,DataModificationExceptionType,-"): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[*info*](./Org.OData.Core.V1.xml#L246:~:text=undefined%20Name="-,info,-")|[MessageType?](#MessageType)|Information about the exception
-[failedOperation](./Org.OData.Core.V1.xml#L270:~:text=undefined%20Name="-,failedOperation,-")|[DataModificationOperationKind](#DataModificationOperationKind)|The kind of modification operation that failed
-[responseCode](./Org.OData.Core.V1.xml#L273:~:text=undefined%20Name="-,responseCode,-")|Int16?|Response code of the failed operation, e.g. 424 for a failed dependency
+[*info*](./Org.OData.Core.V1.xml#L246|[MessageType?](#MessageType)|Information about the exception
+[failedOperation](./Org.OData.Core.V1.xml#L270|[DataModificationOperationKind](#DataModificationOperationKind)|The kind of modification operation that failed
+[responseCode](./Org.OData.Core.V1.xml#L273|Int16?|Response code of the failed operation, e.g. 424 for a failed dependency
 
 ## <a name="DataModificationOperationKind"></a>[DataModificationOperationKind](./Org.OData.Core.V1.xml#L279:~:text=EnumType%20Name="-,DataModificationOperationKind,-")
 
 
 Member|Value|Description
 :-----|----:|:----------
-[insert](./Org.OData.Core.V1.xml#L280:~:text=undefined%20Name="-,insert,-")|0|Insert new instance
-[update](./Org.OData.Core.V1.xml#L283:~:text=undefined%20Name="-,update,-")|1|Update existing instance
-[upsert](./Org.OData.Core.V1.xml#L286:~:text=undefined%20Name="-,upsert,-")|2|Insert new instance or update it if it already exists
-[delete](./Org.OData.Core.V1.xml#L289:~:text=undefined%20Name="-,delete,-")|3|Delete existing instance
-[invoke](./Org.OData.Core.V1.xml#L292:~:text=undefined%20Name="-,invoke,-")|4|Invoke action or function
-[link](./Org.OData.Core.V1.xml#L295:~:text=undefined%20Name="-,link,-")|5|Add link between entities
-[unlink](./Org.OData.Core.V1.xml#L298:~:text=undefined%20Name="-,unlink,-")|6|Remove link between entities
+[insert](./Org.OData.Core.V1.xml#L280|0|Insert new instance
+[update](./Org.OData.Core.V1.xml#L283|1|Update existing instance
+[upsert](./Org.OData.Core.V1.xml#L286|2|Insert new instance or update it if it already exists
+[delete](./Org.OData.Core.V1.xml#L289|3|Delete existing instance
+[invoke](./Org.OData.Core.V1.xml#L292|4|Invoke action or function
+[link](./Org.OData.Core.V1.xml#L295|5|Add link between entities
+[unlink](./Org.OData.Core.V1.xml#L298|6|Remove link between entities
 
 ## <a name="Tag"></a>[Tag](./Org.OData.Core.V1.xml#L311:~:text=TypeDefinition%20Name="-,Tag,-")
 **Type:** Boolean
@@ -204,18 +204,18 @@ This is the type to use for all tagging terms
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[None](./Org.OData.Core.V1.xml#L355:~:text=undefined%20Name="-,None,-")|0|No permissions
-[Read](./Org.OData.Core.V1.xml#L358:~:text=undefined%20Name="-,Read,-")|1|Read permission
-[Write](./Org.OData.Core.V1.xml#L361:~:text=undefined%20Name="-,Write,-")|2|Write permission
-[ReadWrite](./Org.OData.Core.V1.xml#L364:~:text=undefined%20Name="-,ReadWrite,-")|3|Read and write permission
-[Invoke](./Org.OData.Core.V1.xml#L367:~:text=undefined%20Name="-,Invoke,-")|4|Permission to invoke actions
+[None](./Org.OData.Core.V1.xml#L355|0|No permissions
+[Read](./Org.OData.Core.V1.xml#L358|1|Read permission
+[Write](./Org.OData.Core.V1.xml#L361|2|Write permission
+[ReadWrite](./Org.OData.Core.V1.xml#L364|3|Read and write permission
+[Invoke](./Org.OData.Core.V1.xml#L367|4|Permission to invoke actions
 
 ## <a name="ContentDispositionType"></a>[ContentDispositionType](./Org.OData.Core.V1.xml#L423:~:text=ComplexType%20Name="-,ContentDispositionType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Filename](./Org.OData.Core.V1.xml#L424:~:text=undefined%20Name="-,Filename,-")|String?|The proposed filename for downloading the binary or stream value
+[Filename](./Org.OData.Core.V1.xml#L424|String?|The proposed filename for downloading the binary or stream value
 
 ## <a name="QualifiedTermName"></a>[QualifiedTermName](./Org.OData.Core.V1.xml#L450:~:text=TypeDefinition%20Name="-,QualifiedTermName,-")
 **Type:** String
@@ -237,15 +237,15 @@ The qualified name of an action in scope.
 
 Property|Type|Description
 :-------|:---|:----------
-[Key](./Org.OData.Core.V1.xml#L474:~:text=undefined%20Name="-,Key,-")|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
+[Key](./Org.OData.Core.V1.xml#L474|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
 ## <a name="PropertyRef"></a>[PropertyRef](./Org.OData.Core.V1.xml#L478:~:text=ComplexType%20Name="-,PropertyRef,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](./Org.OData.Core.V1.xml#L479:~:text=undefined%20Name="-,Name,-")|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
-[Alias](./Org.OData.Core.V1.xml#L482:~:text=undefined%20Name="-,Alias,-")|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
+[Name](./Org.OData.Core.V1.xml#L479|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
+[Alias](./Org.OData.Core.V1.xml#L482|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
 ## <a name="Dictionary"></a>[Dictionary](./Org.OData.Core.V1.xml#L487:~:text=ComplexType%20Name="-,Dictionary,-")
 A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.
@@ -261,7 +261,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](./Org.OData.Core.V1.xml#L503:~:text=undefined%20Name="-,DefaultValue,-")|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
+[DefaultValue](./Org.OData.Core.V1.xml#L503|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
 
 ## <a name="LocalDateTime"></a>[LocalDateTime](./Org.OData.Core.V1.xml#L514:~:text=TypeDefinition%20Name="-,LocalDateTime,-")
 **Type:** String
@@ -278,6 +278,6 @@ A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) re
 
 Property|Type|Description
 :-------|:---|:----------
-[geometry](./Org.OData.Core.V1.xml#L533:~:text=undefined%20Name="-,geometry,-")|Geometry?|Location of the Feature
-[properties](./Org.OData.Core.V1.xml#L536:~:text=undefined%20Name="-,properties,-")|[Dictionary?](#Dictionary)|Properties of the Feature
-[id](./Org.OData.Core.V1.xml#L539:~:text=undefined%20Name="-,id,-")|String?|Commonly used identifer for a Feature
+[geometry](./Org.OData.Core.V1.xml#L533|Geometry?|Location of the Feature
+[properties](./Org.OData.Core.V1.xml#L536|[Dictionary?](#Dictionary)|Properties of the Feature
+[id](./Org.OData.Core.V1.xml#L539|String?|Commonly used identifer for a Feature
