@@ -337,7 +337,13 @@
             "$AppliesTo": [
                 "Term"
             ],
-            "@Core.Description": "An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type"
+            "@Core.Description": "An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated since dynamic expressions are possible in annotations targeting collections with\n                a target path of the form `ns.Container/EntitySet/NavigationProperty`."
+                }
+            ]
         },
         "AppliesViaContainer": {
             "$Kind": "Term",
