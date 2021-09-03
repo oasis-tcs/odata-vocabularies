@@ -325,8 +325,7 @@
             <Record>
               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
               <PropertyValue Property="Description">
-                <String>Deprecated since dynamic expressions are possible in annotations targeting collections with
-                a target path of the form `ns.Container/EntitySet/NavigationProperty`.</String>
+                <String>Deprecated since dynamic expressions are possible in annotations targeting collections with a target path of the form `ns.Container/EntitySet/NavigationProperty`.</String>
               </PropertyValue>
             </Record>
           </Collection>
