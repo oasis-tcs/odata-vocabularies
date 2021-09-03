@@ -341,7 +341,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Deprecated",
-                    "Description": "Deprecated since dynamic expressions are possible in annotations targeting collections with a target path of the form `ns.Container/EntitySet/NavigationProperty`."
+                    "Description": "Deprecated since dynamic expressions are possible in annotations targeting collections\n                with a target path of the form `ns.Container/EntitySet/NavigationProperty`."
                 }
             ]
         },
