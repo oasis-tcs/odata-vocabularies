@@ -573,8 +573,7 @@ supported:
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
@@ -659,8 +658,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
@@ -752,8 +750,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
@@ -877,7 +874,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">

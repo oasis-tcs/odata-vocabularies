@@ -746,9 +746,8 @@
             "$Type": "Capabilities.InsertRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on insert operations"
         },
         "InsertRestrictionsType": {
@@ -867,9 +866,8 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on update operations"
         },
         "UpdateRestrictionsType": {
@@ -1002,9 +1000,8 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
             "@Core.Description": "Restrictions on delete operations"
         },
         "DeleteRestrictionsType": {
@@ -1220,7 +1217,8 @@
             "$Type": "Capabilities.ReadRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
             "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance."
         },
