@@ -320,17 +320,6 @@
 
       <Term Name="AppliesToTypeIfDynamic" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">
         <Annotation Term="Core.Description" String="An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type" />
-        <Annotation Term="Core.Revisions">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-              <PropertyValue Property="Description">
-                <String>Deprecated since dynamic expressions are possible in annotations targeting collections with
-                a target path of the form `ns.Container/EntitySet/NavigationProperty`.</String>
-              </PropertyValue>
-            </Record>
-          </Collection>
-        </Annotation>
       </Term>
 
       <Term Name="AppliesViaContainer" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">

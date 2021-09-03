@@ -299,7 +299,13 @@
             "InsertRestrictions": {
                 "$Type": "Capabilities.InsertRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on insert operations"
+                "@Core.Description": "Restrictions on insert operations",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of [`InsertRestrictions`](#InsertRestrictions)"
+                    }
+                ]
             },
             "DeepInsertSupport": {
                 "$Type": "Capabilities.DeepInsertSupportType",
@@ -309,7 +315,13 @@
             "UpdateRestrictions": {
                 "$Type": "Capabilities.UpdateRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on update operations"
+                "@Core.Description": "Restrictions on update operations",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of [`UpdateRestrictions`](#UpdateRestrictions)"
+                    }
+                ]
             },
             "DeepUpdateSupport": {
                 "$Type": "Capabilities.DeepUpdateSupportType",
@@ -319,7 +331,13 @@
             "DeleteRestrictions": {
                 "$Type": "Capabilities.DeleteRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on delete operations"
+                "@Core.Description": "Restrictions on delete operations",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of [`DeleteRestrictions`](#DeleteRestrictions)"
+                    }
+                ]
             },
             "OptimisticConcurrencyControl": {
                 "$Type": "Edm.Boolean",
@@ -329,7 +347,13 @@
             "ReadRestrictions": {
                 "$Type": "Capabilities.ReadRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions for retrieving entities"
+                "@Core.Description": "Restrictions for retrieving entities",
+                "@Core.Revisions": [
+                    {
+                        "Kind": "Deprecated",
+                        "Description": "Deprecated in favor of [`ReadRestrictions`](#ReadRestrictions)"
+                    }
+                ]
             }
         },
         "NavigationType": {
@@ -748,7 +772,8 @@
                 "EntitySet",
                 "Collection"
             ],
-            "@Core.Description": "Restrictions on insert operations"
+            "@Core.Description": "Restrictions on insert operations",
+            "@Core.AppliesViaContainer": true
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
@@ -868,7 +893,8 @@
                 "Singleton",
                 "Collection"
             ],
-            "@Core.Description": "Restrictions on update operations"
+            "@Core.Description": "Restrictions on update operations",
+            "@Core.AppliesViaContainer": true
         },
         "UpdateRestrictionsType": {
             "$Kind": "ComplexType",
@@ -1002,7 +1028,8 @@
                 "Singleton",
                 "Collection"
             ],
-            "@Core.Description": "Restrictions on delete operations"
+            "@Core.Description": "Restrictions on delete operations",
+            "@Core.AppliesViaContainer": true
         },
         "DeleteRestrictionsType": {
             "$Kind": "ComplexType",
@@ -1220,7 +1247,8 @@
                 "Singleton",
                 "Collection"
             ],
-            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance."
+            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance.",
+            "@Core.AppliesViaContainer": true
         },
         "ReadRestrictionsBase": {
             "$Kind": "ComplexType",

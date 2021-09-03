@@ -268,24 +268,56 @@ supported:
         </Property>
         <Property Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on insert operations" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of [`InsertRestrictions`](#InsertRestrictions)"/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType">
           <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
         </Property>
         <Property Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on update operations" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of [`UpdateRestrictions`](#UpdateRestrictions)"/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType">
           <Annotation Term="Core.Description" String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
         </Property>
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of [`DeleteRestrictions`](#DeleteRestrictions)"/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="OptimisticConcurrencyControl" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Data modification (including insert) along this navigation property requires the use of ETags" />
         </Property>
         <Property Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions for retrieving entities" />
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Deprecated in favor of [`ReadRestrictions`](#ReadRestrictions)"/>
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
@@ -575,6 +607,7 @@ supported:
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
+        <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="InsertRestrictionsType">
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -660,6 +693,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
+        <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -752,6 +786,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
+        <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
         <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -876,6 +911,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
+        <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
