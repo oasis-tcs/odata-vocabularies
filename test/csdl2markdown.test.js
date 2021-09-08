@@ -212,7 +212,7 @@ describe("Non-OASIS Vocabularies", function () {
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
 
-  it("Overloads", function () {
+  it("Text fragments", function () {
     const filename = "overload.tst.xml";
     const expectedMarkdown = [
        "# test Vocabulary",
