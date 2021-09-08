@@ -211,6 +211,42 @@ describe("Non-OASIS Vocabularies", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
+
+  it("Overloads", function () {
+    const filename = "overload.tst.xml";
+    const expectedMarkdown = [
+       "# test Vocabulary",
+       "**Namespace: [com.acme.test.overload1](overload.tst.xml)**",
+       "",
+       "Test case with multiple overloads",
+       "",
+       "",
+       "## Functions",
+       "",
+       "### <a name=\"condense\"></a>[condense](./overload.tst.xml#L11:~:text=<Function%20Name=\"-,condense,-\")",
+       "",
+       "Overload 1",
+       "",
+       "Parameter|Type|Description",
+       ":--------|:---|:----------",
+       "**[InputSet](./overload.tst.xml#L13:~:text=<Function%20Name=\"-,condense,-\")**|\\[EntityType\\]|**Binding parameter**",
+       "[&rarr;](./overload.tst.xml#L14:~:text=<Function%20Name=\"-,condense,-\")|\\[EntityType\\]|",
+       "",
+       "",
+       "### <a name=\"condense\"></a>[condense](./overload.tst.xml#L16)",
+       "",
+       "Overload 2",
+       "",
+       "Parameter|Type|Description",
+       ":--------|:---|:----------",
+       "**[InputSet](./overload.tst.xml#L18)**|\\[ComplexType\\]|**Binding parameter**",
+       "[&rarr;](./overload.tst.xml#L19)|\\[ComplexType\\]|",
+       "",
+       ""
+     ];
+    const markdown = lib.csdl2markdown(filename, csdl.xml2json(fs.readFileSync("test/" + filename, "utf8"), true));
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
 });
 
 function check(actual, expected) {

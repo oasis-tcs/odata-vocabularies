@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="com.acme.test.overload1">
+      <Annotation Term="Core.Description">
+        <String>Test case with multiple overloads</String>
+      </Annotation>
+      <Function Name="condense" IsBound="true">
+        <Annotation Term="Core.Description" String="Overload 1"/>
+        <Parameter Name="InputSet" Type="Collection(Edm.EntityType)"/>
+        <ReturnType Type="Collection(Edm.EntityType)"/>
+      </Function>
+      <Function Name="condense" IsBound="true">
+        <Annotation Term="Core.Description" String="Overload 2"/>
+        <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)"/>
+        <ReturnType Type="Collection(Edm.ComplexType)"/>
+      </Function>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
