@@ -15,6 +15,14 @@
       </Function>
       <Function Name="condense" IsBound="true">
         <Annotation Term="Core.Description" String="Overload 2"/>
+         <Annotation Term="Core.Revisions">
+           <Collection>
+             <Record>
+               <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+               <PropertyValue Property="Description" String="Deprecated in favor of overload 1" />
+             </Record>
+           </Collection>
+         </Annotation>
         <Parameter Name="InputSet" Type="Collection(Edm.ComplexType)"/>
         <ReturnType Type="Collection(Edm.ComplexType)"/>
       </Function>
