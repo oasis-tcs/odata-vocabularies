@@ -216,13 +216,21 @@ describe("Non-OASIS Vocabularies", function () {
     const filename = "volatile.xml";
     const vocabulary = {
       $Version: "4.01",
+      $Reference: {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+          $Include: [{
+            $Namespace: "Org.OData.Core.V1",
+            $Alias: "Core"
+          }]
+        }
+      },
       "com.acme.test.annotationPath": {
-        "@Org.OData.Core.V1.Description": "Annotation paths",
+        "@Core.Description": "Annotation paths",
         Reference: {
           $Kind: "Term",
           $Type: "Edm.AnnotationPath",
-          "@Org.OData.Core.V1.Description": "Reference to a description",
-          "@Org.OData.Validation.V1.AllowedTerms": ["Core.Description"]
+          "@Core.Description": "Reference to a description",
+          "@Org.OData.Validation.V1.AllowedTerms": ["Org.OData.Core.V1.Description"]
         }
       }
     };
@@ -237,7 +245,7 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      "Reference|AnnotationPath|<a name=\"Reference\"></a>Reference to a description<br>Allowed terms:<br>- [Description](#Description)",
+      "Reference|AnnotationPath|<a name=\"Reference\"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)",
       ""
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
