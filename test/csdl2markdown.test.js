@@ -212,6 +212,38 @@ describe("Non-OASIS Vocabularies", function () {
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
 
+  it("Annotation path", function () {
+    const filename = "volatile.xml";
+    const vocabulary = {
+      $Version: "4.01",
+      "com.acme.test.annotationPath": {
+        "@Org.OData.Core.V1.Description": "Annotation paths",
+        Reference: {
+          $Kind: "Term",
+          $Type: "Edm.AnnotationPath",
+          "@Org.OData.Core.V1.Description": "Reference to a description",
+          "@Org.OData.Validation.V1.AllowedTerms": ["Core.Description"]
+        }
+      }
+    };
+    const expectedMarkdown = [
+      "# test Vocabulary",
+      "**Namespace: [com.acme.test.annotationPath](volatile.xml)**",
+      "",
+      "Annotation paths",
+      "",
+      "",
+      "## Terms",
+      "",
+      "Term|Type|Description",
+      ":---|:---|:----------",
+      "Reference|AnnotationPath|<a name=\"Reference\"></a>Reference to a description<br>Allowed terms:<br>- [Description](#Description)",
+      ""
+    ];
+    const markdown = lib.csdl2markdown(filename, vocabulary);
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
+
   it("Text fragments", function () {
     const filename = "overload.tst.xml";
     const expectedMarkdown = [
