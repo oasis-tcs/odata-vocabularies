@@ -236,14 +236,6 @@ describe("Non-OASIS Vocabularies", function () {
        "### <a name=\"condense\"></a>[condense](./overload.tst.xml#L16) *(Deprecated)*",
        "Deprecated in favor of overload 1",
        "",
-       "Overload 2",
-       "",
-       "Parameter|Type|Description",
-       ":--------|:---|:----------",
-       "**[InputSet](./overload.tst.xml#L18)**|\\[ComplexType\\]|**Binding parameter**",
-       "[&rarr;](./overload.tst.xml#L19)|\\[ComplexType\\]|",
-       "",
-       ""
      ];
     const markdown = lib.csdl2markdown(filename, csdl.xml2json(fs.readFileSync("test/" + filename, "utf8"), true));
     assert.deepStrictEqual(markdown, expectedMarkdown);
