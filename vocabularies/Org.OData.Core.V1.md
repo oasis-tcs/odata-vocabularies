@@ -22,33 +22,33 @@ Term|Type|Description
 [IsLanguageDependent](./Org.OData.Core.V1.xml#L306:~:text=<Term%20Name="-,IsLanguageDependent,-")|[Tag](#Tag)|<a name="IsLanguageDependent"></a>Properties and terms annotated with this term are language-dependent
 [RequiresType](./Org.OData.Core.V1.xml#L317:~:text=<Term%20Name="-,RequiresType,-")|String|<a name="RequiresType"></a>Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name
 [AppliesToTypeIfDynamic](./Org.OData.Core.V1.xml#L321:~:text=<Term%20Name="-,AppliesToTypeIfDynamic,-")|[Tag](#Tag)|<a name="AppliesToTypeIfDynamic"></a>An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type
-[AppliesViaContainer](./Org.OData.Core.V1.xml#L325:~:text=<Term%20Name="-,AppliesViaContainer,-")|[Tag](#Tag)|<a name="AppliesViaContainer"></a>The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton<br>Servers that apply the tagged term based solely on the entity type, structural or navigation property, independently of the container, MAY additionally annotate the EntityType, Property or NavigationProperty model element in order to facilitate the annotation consumption by OData clients.
-[ResourcePath](./Org.OData.Core.V1.xml#L336:~:text=<Term%20Name="-,ResourcePath,-")|URL|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
-[DereferenceableIDs](./Org.OData.Core.V1.xml#L341:~:text=<Term%20Name="-,DereferenceableIDs,-")|[Tag](#Tag)|<a name="DereferenceableIDs"></a>Entity-ids are URLs that locate the identified entity
-[ConventionalIDs](./Org.OData.Core.V1.xml#L345:~:text=<Term%20Name="-,ConventionalIDs,-")|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
-[Permissions](./Org.OData.Core.V1.xml#L351:~:text=<Term%20Name="-,Permissions,-")|[Permission](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
-[ContentID](./Org.OData.Core.V1.xml#L374:~:text=<Term%20Name="-,ContentID,-")|String|<a name="ContentID"></a>A unique identifier for nested entities within a request.
-[DefaultNamespace](./Org.OData.Core.V1.xml#L380:~:text=<Term%20Name="-,DefaultNamespace,-")|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.<br>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.
-[Immutable](./Org.OData.Core.V1.xml#L385:~:text=<Term%20Name="-,Immutable,-")|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided by the client on insert and remains unchanged on update
-[Computed](./Org.OData.Core.V1.xml#L389:~:text=<Term%20Name="-,Computed,-")|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
-[ComputedDefaultValue](./Org.OData.Core.V1.xml#L393:~:text=<Term%20Name="-,ComputedDefaultValue,-")|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
-[IsURL](./Org.OData.Core.V1.xml#L397:~:text=<Term%20Name="-,IsURL,-")|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
-[AcceptableMediaTypes](./Org.OData.Core.V1.xml#L402:~:text=<Term%20Name="-,AcceptableMediaTypes,-")|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated binary, stream, or string property or term.<br>The annotation of a TypeDefinition propagates to the model elements having this type
-[MediaType](./Org.OData.Core.V1.xml#L408:~:text=<Term%20Name="-,MediaType,-")|MediaType?|<a name="MediaType"></a>The media type of the values of a binary or string or stream property or term.<br>The annotation of a TypeDefinition propagates to the model elements having this type
-[IsMediaType](./Org.OData.Core.V1.xml#L414:~:text=<Term%20Name="-,IsMediaType,-")|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
-[ContentDisposition](./Org.OData.Core.V1.xml#L419:~:text=<Term%20Name="-,ContentDisposition,-")|[ContentDispositionType?](#ContentDispositionType)|<a name="ContentDisposition"></a>The content disposition of a binary or stream property or term
-[OptimisticConcurrency](./Org.OData.Core.V1.xml#L429:~:text=<Term%20Name="-,OptimisticConcurrency,-")|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag.
-[AdditionalProperties](./Org.OData.Core.V1.xml#L433:~:text=<Term%20Name="-,AdditionalProperties,-")|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata<br>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.
-[AutoExpand](./Org.OData.Core.V1.xml#L438:~:text=<Term%20Name="-,AutoExpand,-")|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this stream or navigation property even if not requested with $expand
-[AutoExpandReferences](./Org.OData.Core.V1.xml#L442:~:text=<Term%20Name="-,AutoExpandReferences,-")|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
-[MayImplement](./Org.OData.Core.V1.xml#L446:~:text=<Term%20Name="-,MayImplement,-")|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
-[Ordered](./Org.OData.Core.V1.xml#L462:~:text=<Term%20Name="-,Ordered,-")|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
-[PositionalInsert](./Org.OData.Core.V1.xml#L466:~:text=<Term%20Name="-,PositionalInsert,-")|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
-[AlternateKeys](./Org.OData.Core.V1.xml#L470:~:text=<Term%20Name="-,AlternateKeys,-")|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
-[OptionalParameter](./Org.OData.Core.V1.xml#L498:~:text=<Term%20Name="-,OptionalParameter,-")|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
-[OperationAvailable](./Org.OData.Core.V1.xml#L509:~:text=<Term%20Name="-,OperationAvailable,-")|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
-[SymbolicName](./Org.OData.Core.V1.xml#L520:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
-[GeometryFeature](./Org.OData.Core.V1.xml#L528:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
+[AppliesViaContainer](./Org.OData.Core.V1.xml#L325:~:text=<Term%20Name="-,AppliesViaContainer,-")|[Tag](#Tag)|<a name="AppliesViaContainer"></a>The target path of an annotation with the tagged term should start with an entity container or the annotation should be embedded within an entity container, entity set or singleton<br>Servers may additionally annotate a container-independent model element (entity type, property, navigation property) if the annotation applies to all uses of that model element.
+[ResourcePath](./Org.OData.Core.V1.xml#L334:~:text=<Term%20Name="-,ResourcePath,-")|URL|<a name="ResourcePath"></a>Resource path for entity container child, can be relative to xml:base and the request URL
+[DereferenceableIDs](./Org.OData.Core.V1.xml#L339:~:text=<Term%20Name="-,DereferenceableIDs,-")|[Tag](#Tag)|<a name="DereferenceableIDs"></a>Entity-ids are URLs that locate the identified entity
+[ConventionalIDs](./Org.OData.Core.V1.xml#L343:~:text=<Term%20Name="-,ConventionalIDs,-")|[Tag](#Tag)|<a name="ConventionalIDs"></a>Entity-ids follow OData URL conventions
+[Permissions](./Org.OData.Core.V1.xml#L349:~:text=<Term%20Name="-,Permissions,-")|[Permission](#Permission)|<a name="Permissions"></a>Permissions for accessing a resource
+[ContentID](./Org.OData.Core.V1.xml#L372:~:text=<Term%20Name="-,ContentID,-")|String|<a name="ContentID"></a>A unique identifier for nested entities within a request.
+[DefaultNamespace](./Org.OData.Core.V1.xml#L378:~:text=<Term%20Name="-,DefaultNamespace,-")|[Tag](#Tag)|<a name="DefaultNamespace"></a>Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification.<br>Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type.
+[Immutable](./Org.OData.Core.V1.xml#L383:~:text=<Term%20Name="-,Immutable,-")|[Tag](#Tag)|<a name="Immutable"></a>A value for this non-key property can be provided by the client on insert and remains unchanged on update
+[Computed](./Org.OData.Core.V1.xml#L387:~:text=<Term%20Name="-,Computed,-")|[Tag](#Tag)|<a name="Computed"></a>A value for this property is generated on both insert and update
+[ComputedDefaultValue](./Org.OData.Core.V1.xml#L391:~:text=<Term%20Name="-,ComputedDefaultValue,-")|[Tag](#Tag)|<a name="ComputedDefaultValue"></a>A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated
+[IsURL](./Org.OData.Core.V1.xml#L395:~:text=<Term%20Name="-,IsURL,-")|[Tag](#Tag)|<a name="IsURL"></a>Properties and terms annotated with this term MUST contain a valid URL
+[AcceptableMediaTypes](./Org.OData.Core.V1.xml#L400:~:text=<Term%20Name="-,AcceptableMediaTypes,-")|\[MediaType\]|<a name="AcceptableMediaTypes"></a>Lists the MIME types acceptable for the annotated entity type marked with HasStream="true" or the annotated binary, stream, or string property or term.<br>The annotation of a TypeDefinition propagates to the model elements having this type
+[MediaType](./Org.OData.Core.V1.xml#L406:~:text=<Term%20Name="-,MediaType,-")|MediaType?|<a name="MediaType"></a>The media type of the values of a binary or string or stream property or term.<br>The annotation of a TypeDefinition propagates to the model elements having this type
+[IsMediaType](./Org.OData.Core.V1.xml#L412:~:text=<Term%20Name="-,IsMediaType,-")|[Tag](#Tag)|<a name="IsMediaType"></a>Properties and terms annotated with this term MUST contain a valid MIME type
+[ContentDisposition](./Org.OData.Core.V1.xml#L417:~:text=<Term%20Name="-,ContentDisposition,-")|[ContentDispositionType?](#ContentDispositionType)|<a name="ContentDisposition"></a>The content disposition of a binary or stream property or term
+[OptimisticConcurrency](./Org.OData.Core.V1.xml#L427:~:text=<Term%20Name="-,OptimisticConcurrency,-")|\[PropertyPath\]|<a name="OptimisticConcurrency"></a>Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag.
+[AdditionalProperties](./Org.OData.Core.V1.xml#L431:~:text=<Term%20Name="-,AdditionalProperties,-")|[Tag](#Tag)|<a name="AdditionalProperties"></a>Instances of this type may contain properties in addition to those declared in $metadata<br>If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute.
+[AutoExpand](./Org.OData.Core.V1.xml#L436:~:text=<Term%20Name="-,AutoExpand,-")|[Tag](#Tag)|<a name="AutoExpand"></a>The service will automatically expand this stream or navigation property even if not requested with $expand
+[AutoExpandReferences](./Org.OData.Core.V1.xml#L440:~:text=<Term%20Name="-,AutoExpandReferences,-")|[Tag](#Tag)|<a name="AutoExpandReferences"></a>The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref
+[MayImplement](./Org.OData.Core.V1.xml#L444:~:text=<Term%20Name="-,MayImplement,-")|\[[QualifiedTypeName](#QualifiedTypeName)\]|<a name="MayImplement"></a>A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment.
+[Ordered](./Org.OData.Core.V1.xml#L460:~:text=<Term%20Name="-,Ordered,-")|[Tag](#Tag)|<a name="Ordered"></a>Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal.
+[PositionalInsert](./Org.OData.Core.V1.xml#L464:~:text=<Term%20Name="-,PositionalInsert,-")|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
+[AlternateKeys](./Org.OData.Core.V1.xml#L468:~:text=<Term%20Name="-,AlternateKeys,-")|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
+[OptionalParameter](./Org.OData.Core.V1.xml#L496:~:text=<Term%20Name="-,OptionalParameter,-")|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
+[OperationAvailable](./Org.OData.Core.V1.xml#L507:~:text=<Term%20Name="-,OperationAvailable,-")|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
+[SymbolicName](./Org.OData.Core.V1.xml#L518:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
+[GeometryFeature](./Org.OData.Core.V1.xml#L526:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 ## <a name="RevisionType"></a>[RevisionType](./Org.OData.Core.V1.xml#L80:~:text=<ComplexType%20Name="-,RevisionType,-")
 
@@ -199,55 +199,55 @@ Member|Value|Description
 
 This is the type to use for all tagging terms
 
-## <a name="Permission"></a>[Permission](./Org.OData.Core.V1.xml#L354:~:text=<EnumType%20Name="-,Permission,-")
+## <a name="Permission"></a>[Permission](./Org.OData.Core.V1.xml#L352:~:text=<EnumType%20Name="-,Permission,-")
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[None](./Org.OData.Core.V1.xml#L355:~:text=<EnumType%20Name="-,Permission,-")|0|No permissions
-[Read](./Org.OData.Core.V1.xml#L358:~:text=<EnumType%20Name="-,Permission,-")|1|Read permission
-[Write](./Org.OData.Core.V1.xml#L361:~:text=<EnumType%20Name="-,Permission,-")|2|Write permission
-[ReadWrite](./Org.OData.Core.V1.xml#L364:~:text=<EnumType%20Name="-,Permission,-")|3|Read and write permission
-[Invoke](./Org.OData.Core.V1.xml#L367:~:text=<EnumType%20Name="-,Permission,-")|4|Permission to invoke actions
+[None](./Org.OData.Core.V1.xml#L353:~:text=<EnumType%20Name="-,Permission,-")|0|No permissions
+[Read](./Org.OData.Core.V1.xml#L356:~:text=<EnumType%20Name="-,Permission,-")|1|Read permission
+[Write](./Org.OData.Core.V1.xml#L359:~:text=<EnumType%20Name="-,Permission,-")|2|Write permission
+[ReadWrite](./Org.OData.Core.V1.xml#L362:~:text=<EnumType%20Name="-,Permission,-")|3|Read and write permission
+[Invoke](./Org.OData.Core.V1.xml#L365:~:text=<EnumType%20Name="-,Permission,-")|4|Permission to invoke actions
 
-## <a name="ContentDispositionType"></a>[ContentDispositionType](./Org.OData.Core.V1.xml#L423:~:text=<ComplexType%20Name="-,ContentDispositionType,-")
+## <a name="ContentDispositionType"></a>[ContentDispositionType](./Org.OData.Core.V1.xml#L421:~:text=<ComplexType%20Name="-,ContentDispositionType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Filename](./Org.OData.Core.V1.xml#L424:~:text=<ComplexType%20Name="-,ContentDispositionType,-")|String?|The proposed filename for downloading the binary or stream value
+[Filename](./Org.OData.Core.V1.xml#L422:~:text=<ComplexType%20Name="-,ContentDispositionType,-")|String?|The proposed filename for downloading the binary or stream value
 
-## <a name="QualifiedTermName"></a>[QualifiedTermName](./Org.OData.Core.V1.xml#L450:~:text=<TypeDefinition%20Name="-,QualifiedTermName,-")
+## <a name="QualifiedTermName"></a>[QualifiedTermName](./Org.OData.Core.V1.xml#L448:~:text=<TypeDefinition%20Name="-,QualifiedTermName,-")
 **Type:** String
 
 The qualified name of a term in scope.
 
-## <a name="QualifiedTypeName"></a>[QualifiedTypeName](./Org.OData.Core.V1.xml#L454:~:text=<TypeDefinition%20Name="-,QualifiedTypeName,-")
+## <a name="QualifiedTypeName"></a>[QualifiedTypeName](./Org.OData.Core.V1.xml#L452:~:text=<TypeDefinition%20Name="-,QualifiedTypeName,-")
 **Type:** String
 
 The qualified name of a type in scope.
 
-## <a name="QualifiedActionName"></a>[QualifiedActionName](./Org.OData.Core.V1.xml#L458:~:text=<TypeDefinition%20Name="-,QualifiedActionName,-")
+## <a name="QualifiedActionName"></a>[QualifiedActionName](./Org.OData.Core.V1.xml#L456:~:text=<TypeDefinition%20Name="-,QualifiedActionName,-")
 **Type:** String
 
 The qualified name of an action in scope.
 
-## <a name="AlternateKey"></a>[AlternateKey](./Org.OData.Core.V1.xml#L473:~:text=<ComplexType%20Name="-,AlternateKey,-")
+## <a name="AlternateKey"></a>[AlternateKey](./Org.OData.Core.V1.xml#L471:~:text=<ComplexType%20Name="-,AlternateKey,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Key](./Org.OData.Core.V1.xml#L474:~:text=<ComplexType%20Name="-,AlternateKey,-")|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
+[Key](./Org.OData.Core.V1.xml#L472:~:text=<ComplexType%20Name="-,AlternateKey,-")|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
-## <a name="PropertyRef"></a>[PropertyRef](./Org.OData.Core.V1.xml#L478:~:text=<ComplexType%20Name="-,PropertyRef,-")
+## <a name="PropertyRef"></a>[PropertyRef](./Org.OData.Core.V1.xml#L476:~:text=<ComplexType%20Name="-,PropertyRef,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](./Org.OData.Core.V1.xml#L479:~:text=<ComplexType%20Name="-,PropertyRef,-")|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
-[Alias](./Org.OData.Core.V1.xml#L482:~:text=<ComplexType%20Name="-,PropertyRef,-")|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
+[Name](./Org.OData.Core.V1.xml#L477:~:text=<ComplexType%20Name="-,PropertyRef,-")|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
+[Alias](./Org.OData.Core.V1.xml#L480:~:text=<ComplexType%20Name="-,PropertyRef,-")|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
-## <a name="Dictionary"></a>[Dictionary](./Org.OData.Core.V1.xml#L487:~:text=<ComplexType%20Name="-,Dictionary,-")
+## <a name="Dictionary"></a>[Dictionary](./Org.OData.Core.V1.xml#L485:~:text=<ComplexType%20Name="-,Dictionary,-")
 A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.
 
 
@@ -256,28 +256,28 @@ Property|Type
 Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
 
 
-## <a name="OptionalParameterType"></a>[OptionalParameterType](./Org.OData.Core.V1.xml#L502:~:text=<ComplexType%20Name="-,OptionalParameterType,-")
+## <a name="OptionalParameterType"></a>[OptionalParameterType](./Org.OData.Core.V1.xml#L500:~:text=<ComplexType%20Name="-,OptionalParameterType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](./Org.OData.Core.V1.xml#L503:~:text=<ComplexType%20Name="-,OptionalParameterType,-")|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
+[DefaultValue](./Org.OData.Core.V1.xml#L501:~:text=<ComplexType%20Name="-,OptionalParameterType,-")|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
 
-## <a name="LocalDateTime"></a>[LocalDateTime](./Org.OData.Core.V1.xml#L514:~:text=<TypeDefinition%20Name="-,LocalDateTime,-")
+## <a name="LocalDateTime"></a>[LocalDateTime](./Org.OData.Core.V1.xml#L512:~:text=<TypeDefinition%20Name="-,LocalDateTime,-")
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Org.OData.Core.V1.xml#L523:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-")
+## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Org.OData.Core.V1.xml#L521:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-")
 **Type:** String
 
 A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)
 
-## <a name="GeometryFeatureType"></a>[GeometryFeatureType](./Org.OData.Core.V1.xml#L531:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")
+## <a name="GeometryFeatureType"></a>[GeometryFeatureType](./Org.OData.Core.V1.xml#L529:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")
 A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 Property|Type|Description
 :-------|:---|:----------
-[geometry](./Org.OData.Core.V1.xml#L533:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|Geometry?|Location of the Feature
-[properties](./Org.OData.Core.V1.xml#L536:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|[Dictionary?](#Dictionary)|Properties of the Feature
-[id](./Org.OData.Core.V1.xml#L539:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|String?|Commonly used identifer for a Feature
+[geometry](./Org.OData.Core.V1.xml#L531:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|Geometry?|Location of the Feature
+[properties](./Org.OData.Core.V1.xml#L534:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|[Dictionary?](#Dictionary)|Properties of the Feature
+[id](./Org.OData.Core.V1.xml#L537:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|String?|Commonly used identifer for a Feature

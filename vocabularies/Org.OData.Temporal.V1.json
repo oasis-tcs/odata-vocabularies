@@ -32,7 +32,8 @@
             "$Kind": "Term",
             "$Type": "Temporal.ApplicationTimeSupportType",
             "$AppliesTo": [
-                "Collection"
+                "Collection",
+                "EntityType"
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "This collection supports temporal requests"
