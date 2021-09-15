@@ -87,7 +87,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "Temporal.Timeline",
             "@Core.Description": "Each OData entity maps each point in application time to an instance of the entity type",
-            "@Core.LongDescription": "To address an entity in a resource path or path to related resources, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].\n          The addressed entity is then a snapshot of the data at the given point in time."
+            "@Core.LongDescription": "To address an entity in a resource path or path to related resources, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].\n          The addressed entity is then a snapshot of the data at the given point in time.\n          When an action defined in this vocabulary is applied to a collection of this entity type,\n          the entity key plays the role of object key."
         },
         "TimelineVisible": {
             "$Kind": "ComplexType",
