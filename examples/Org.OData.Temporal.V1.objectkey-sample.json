@@ -54,7 +54,7 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
-                        "PeriodStart": "Valid/From",
+                        "PeriodStart": "ValidFrom",
                         "PeriodEnd": "ValidTo",
                         "ObjectKey": [
                             "AreaID",

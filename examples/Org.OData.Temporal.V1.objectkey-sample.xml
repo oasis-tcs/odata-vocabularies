@@ -40,7 +40,7 @@
             </PropertyValue>
             <PropertyValue Property="Timeline">
               <Record Type="Temporal.TimelineVisible">
-                <PropertyValue Property="PeriodStart" PropertyPath="Valid/From" />
+                <PropertyValue Property="PeriodStart" PropertyPath="ValidFrom" />
                 <PropertyValue Property="PeriodEnd" PropertyPath="ValidTo" />
                 <PropertyValue Property="ObjectKey">
                   <Collection>
