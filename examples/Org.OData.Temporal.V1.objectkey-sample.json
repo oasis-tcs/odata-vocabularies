@@ -35,8 +35,12 @@
             "ValidFrom": {
                 "$Type": "Edm.Date"
             },
-            "ProfitCenterID": {},
-            "DepartmentID": {}
+            "ProfitCenterID": {
+                "$Nullable": true
+            },
+            "DepartmentID": {
+                "$Nullable": true
+            }
         },
         "Default": {
             "$Kind": "EntityContainer",

@@ -9,8 +9,6 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this" Namespace="org.example.odata.costcenter">
 
-      <!-- TODO: use CostCenter inspired by S/4 with id + validFrom as top-level primary key -->
-
       <EntityType Name="CostCenter">
         <Key>
           <PropertyRef Name="AreaID" />
@@ -22,8 +20,8 @@
         <Property Name="ValidTo" Type="Edm.Date" Nullable="false" />
 
         <Property Name="ValidFrom" Type="Edm.Date" Nullable="false" />
-        <Property Name="ProfitCenterID" Type="Edm.String" Nullable="false" />
-        <Property Name="DepartmentID" Type="Edm.String" Nullable="false" />
+        <Property Name="ProfitCenterID" Type="Edm.String" />
+        <Property Name="DepartmentID" Type="Edm.String" />
       </EntityType>
 
       <EntityContainer Name="Default">
