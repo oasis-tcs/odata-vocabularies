@@ -26,7 +26,7 @@
   },
   "scripts": {
     "build": "node lib/transform.js",
-    "test": "c8 mocha",
+    "test": "c8 -r html -r text mocha",
     "watch": "mocha --watch"
   },
   "author": "",
