@@ -211,6 +211,75 @@ describe("Non-OASIS Vocabularies", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
+
+  it("Annotation path", function () {
+    const filename = "volatile.xml";
+    const vocabulary = {
+      $Version: "4.01",
+      $Reference: {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+          $Include: [{
+            $Namespace: "Org.OData.Core.V1",
+            $Alias: "Core"
+          }]
+        }
+      },
+      "com.acme.test.annotationPath": {
+        "@Core.Description": "Annotation paths",
+        Reference: {
+          $Kind: "Term",
+          $Type: "Edm.AnnotationPath",
+          "@Core.Description": "Reference to a description",
+          "@Org.OData.Validation.V1.AllowedTerms": ["Org.OData.Core.V1.Description"]
+        }
+      }
+    };
+    const expectedMarkdown = [
+      "# test Vocabulary",
+      "**Namespace: [com.acme.test.annotationPath](volatile.xml)**",
+      "",
+      "Annotation paths",
+      "",
+      "",
+      "## Terms",
+      "",
+      "Term|Type|Description",
+      ":---|:---|:----------",
+      "Reference|AnnotationPath|<a name=\"Reference\"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)",
+      ""
+    ];
+    const markdown = lib.csdl2markdown(filename, vocabulary);
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
+
+  it("Text fragments", function () {
+    const filename = "overload.tst.xml";
+    const expectedMarkdown = [
+       "# test Vocabulary",
+       "**Namespace: [com.acme.test.overload1](overload.tst.xml)**",
+       "",
+       "Test case with multiple overloads",
+       "",
+       "",
+       "## Functions",
+       "",
+       "### <a name=\"condense\"></a>[condense](./overload.tst.xml#L11:~:text=<Function%20Name=\"-,condense,-\")",
+       "",
+       "Overload 1",
+       "",
+       "Parameter|Type|Description",
+       ":--------|:---|:----------",
+       "**[InputSet](./overload.tst.xml#L13:~:text=<Function%20Name=\"-,condense,-\")**|\\[EntityType\\]|**Binding parameter**",
+       "[&rarr;](./overload.tst.xml#L14:~:text=<Function%20Name=\"-,condense,-\")|\\[EntityType\\]|",
+       "",
+       "",
+       "### <a name=\"condense\"></a>[condense](./overload.tst.xml#L16) *(Deprecated)*",
+       "Deprecated in favor of overload 1",
+       "",
+     ];
+    const markdown = lib.csdl2markdown(filename, csdl.xml2json(fs.readFileSync("test/" + filename, "utf8"), true));
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
 });
 
 function check(actual, expected) {
