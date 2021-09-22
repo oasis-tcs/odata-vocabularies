@@ -37,8 +37,15 @@ process.stdin.pipe(
 		} else if (line.startsWith("Date:"))
 			entry = [line + "\n"];
 		else if (entry && /^\s+\S/.test(line)) {
-			if (entry.length === 1) entry.push("");
-			else entry.push(line + "\n");
+			if (entry.length === 1)
+				entry.push("");
+			else if (entry.length === 2) {
+				if (!/^\s+CHANGELOG/.test(line))
+					entry = undefined;
+				else
+					entry.push("");
+			} else
+				entry.push(line + "\n");
 		}
 	})
 	.on("end", function() {
