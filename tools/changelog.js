@@ -42,6 +42,6 @@ process.stdin.pipe(
 		}
 	})
 	.on("end", function() {
-		if (entry && entry.length > 1) process.stdout.write(entry.join(""));
+		if (entry && entry.length > 2) process.stdout.write(entry.join(""));
 	})
 ).pipe(process.stdout);
