@@ -34,18 +34,18 @@ process.stdin.pipe(
 		if (line.startsWith("commit")) {
 			if (entry && entry.length > 2) this.push(entry.join(""));
 			entry = undefined;
-		} else if (line.startsWith("Date:"))
-			entry = [line + "\n"];
+		} else if (/^Date:\s+(.*)$/.test(line))
+			entry = ["# " + RegExp.$1 + "\n"];
 		else if (entry && /^\s+\S/.test(line)) {
 			if (entry.length === 1)
 				entry.push("");
 			else if (entry.length === 2) {
-				if (!/^\s+CHANGELOG/.test(line))
+				if (!/^\s+CHANGELOG\s*$/.test(line))
 					entry = undefined;
 				else
 					entry.push("");
 			} else
-				entry.push(line + "\n");
+				entry.push(line.replace(/^\s*/, "") + "\n");
 		}
 	})
 	.on("end", function() {
