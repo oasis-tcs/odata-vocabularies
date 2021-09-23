@@ -9,5 +9,5 @@ git push --force $remote main:changelog
 
 # Alternative
 # git log | node lib/changelog >$folder/CHANGELOG.md
-# git diff-index --quiet HEAD || git commit -m "auto-refreshed"
+# git diff-index --quiet HEAD || git commit -m "changelog"
 # git push
