@@ -8,12 +8,6 @@ Date:   Fri Sep 17 11:00:09 2021 +0200
     
     Co-authored-by: Heiko Theißen <heiko.theissen@sap.com>
 
-commit c231de3dbb043eae0deed124851055712da6ff59
-Author: Heiko Theißen <heiko.theissen@sap.com>
-Date:   Thu Sep 16 17:24:48 2021 +0200
-
-    Temporal vocabulary (#146)
-
 commit 122dff83ef4f139e3361e5af557519c898ee81bd
 Author: Ralf Handl <ralf.handl@sap.com>
 Date:   Thu Sep 16 17:19:02 2021 +0200
@@ -23,3 +17,19 @@ Date:   Thu Sep 16 17:19:02 2021 +0200
     CHANGELOG
     - All terms were deprecated
     - 100 new terms were introduced
+
+commit c231de3dbb043eae0deed124851055712da6ff59
+Author: Heiko Theißen <heiko.theissen@sap.com>
+Date:   Thu Sep 16 17:24:48 2021 +0200
+
+    Temporal vocabulary (#146)
+
+commit 122dff83ef4f139e3361e5af557519c898ee81bd
+Author: Ralf Handl <ralf.handl@sap.com>
+Date:   Thu Sep 16 17:19:01 2021 +0200
+
+     Temporal: example for timeline with object key (#154)
+    
+    CHANGELOG
+    New vocabulary
+
