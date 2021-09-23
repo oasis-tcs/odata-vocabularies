@@ -17,6 +17,7 @@ Date:   Thu Sep 16 17:19:02 2021 +0200
     CHANGELOG
     - All terms were deprecated
     - 100 new terms were introduced
+      - 99 of them redundant
 
 commit c231de3dbb043eae0deed124851055712da6ff59
 Author: Heiko Theißen <heiko.theissen@sap.com>

@@ -15,6 +15,7 @@ describe("Changelog", function () {
           "# Thu Sep 16 17:19:02 2021 +0200",
           "- All terms were deprecated",
           "- 100 new terms were introduced",
+          "  - 99 of them redundant",
           "# Thu Sep 16 17:19:01 2021 +0200",
           "New vocabulary",
           "",
