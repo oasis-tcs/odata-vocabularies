@@ -24,12 +24,21 @@ Date:   Thu Sep 16 17:24:48 2021 +0200
 
     Temporal vocabulary (#146)
 
-commit 122dff83ef4f139e3361e5af557519c898ee81bd
+commit 122dff93ef4f139e3361e5af557519c898ee81bd
+Author: Ralf Handl <ralf.handl@sap.com>
+Date:   Thu Sep 16 17:19:01 2021 +0200
+
+     Temporal: example for timeline with object key (#154)
+    
+    CHANGELOG 122dff73ef4f139e3361e5af557519c898ee81bd
+    New vocabulary
+
+commit 122dff73ef4f139e3361e5af557519c898ee81bd
 Author: Ralf Handl <ralf.handl@sap.com>
 Date:   Thu Sep 16 17:19:01 2021 +0200
 
      Temporal: example for timeline with object key (#154)
     
     CHANGELOG
-    New vocabulary
+    New vocabularie
 
