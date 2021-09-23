@@ -1,6 +1,6 @@
 remote=$(git remote show origin | grep -P -o "(?<=Push  URL: ).*")
 folder=$(mktemp -d)
-git log | node tools/changelog >$folder/CHANGELOG.md
+git log | node lib/changelog >$folder/CHANGELOG.md
 cd $folder
 git init -b main
 git add .
