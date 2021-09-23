@@ -30,9 +30,7 @@ jobs:
           CI: true
       - name: write changelog
         if: ${{ github.event.pull_request.merged == true }}
-        run: |
-          npm run changelog
-          git diff-index --quiet HEAD || git commit -m "auto-refreshed"
+        run: npm run changelog
         env:
           CI: true
           PUSHER_EMAIL: ${{ github.event.pusher.email }}
