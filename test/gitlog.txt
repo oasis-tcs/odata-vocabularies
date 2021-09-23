@@ -39,6 +39,15 @@ Date:   Thu Sep 16 17:19:01 2021 +0200
 
      Temporal: example for timeline with object key (#154)
     
-    CHANGELOG
+    CHANGELOG 022dff73ef4f139e3361e5af557519c898ee81bd
     New vocabularie
+
+commit 022dff73ef4f139e3361e5af557519c898ee81bd
+Author: Ralf Handl <ralf.handl@sap.com>
+Date:   Thu Sep 15 17:19:01 2021 +0200
+
+     Temporal: example for timeline with object key (#154)
+    
+    CHANGELOG
+    Initial commit
 
