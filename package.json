@@ -26,6 +26,7 @@
   },
   "scripts": {
     "build": "node lib/transform.js",
+    "changelog": "./tools/changelog.sh",
     "test": "c8 -r html -r text mocha",
     "watch": "mocha --watch"
   },
