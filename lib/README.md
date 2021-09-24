@@ -65,27 +65,3 @@ If you use [Visual Studio Code](https://code.visualstudio.com/), you can [run th
 
 You should also install the recommended extension for [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml). It will validate the XML files against the official [OData CDSL XML schemas](https://github.com/oasis-tcs/odata-csdl-schemas/tree/main/schemas).
 
-## Generation of change logs
-
-A GitHub workflow generates a file `CHANGELOG.md` from the long texts of the merge commits. If such a
-text has the form
-
-```
-CHANGELOG
-- All terms were deprecated
-- 100 new terms were introduced
-```
-
-with CHANGELOG on the first line and arbitrary markdown on subsequent lines, the markdown will be included
-in `CHANGELOG.md` under a heading that consists of the date and time of the commit.
-
-If a commit id follows the CHANGELOG, as in
-
-```
-CHANGELOG 122dff73ef4f139e3361e5af557519c898ee81bd
-- All terms were deprecated
-- 100 new terms were introduced
-```
-
-this entry replaces the one from the given commit in `CHANGELOG.md`, thus allowing corrections in the changelog even
-though commit texts cannot be changed afterwards.
