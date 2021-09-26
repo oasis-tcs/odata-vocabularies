@@ -16,14 +16,15 @@
   },
   "main": "lib/csdl2markdown.js",
   "dependencies": {
+    "conventional-changelog-core": "^4.2.4",
+    "conventional-changelog-writer": "^5.0.0",
     "minimist": "^1.2.0",
     "odata-csdl": "^0.2.9"
   },
   "devDependencies": {
     "c8": "^7.3.1",
     "eslint": "^7.21.0",
-    "mocha": "^8.3.1",
-    "standard-changelog": "^2.0.27"
+    "mocha": "^8.3.1"
   },
   "scripts": {
     "build": "node lib/transform.js",
