@@ -44,8 +44,8 @@
         "query": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Query stream values of media type `application/json`",
-                "@Core.LongDescription": "Extracts a JSON value, such as an array or object, or a JSON scalar value, such as a string, number, or boolean.\n\n_TODO: describe behavior and edge cases, especially null handling_\n          ",
+                "@Core.Description": "Query stream values of media type `application/json`, returning a stream value of media type `application/json`",
+                "@Core.LongDescription": "Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:\n- If `path` only consists of child member and single subscript operators, it returns the identified single node within `input`, or `null` if no node is identified. \n- If `path` potentially identifies multiple nodes within `input` (by using recursive descendant, wildcard, array subset, or array filter expressions), it returns an array containing the identified nodes, or an empty array if no node is identified. \n- If `input` is not a valid JSON value, the function returns `null`.\n- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input`, the function returns `null`. \n          ",
                 "$Parameter": [
                     {
                         "$Name": "input",
@@ -56,6 +56,7 @@
                     {
                         "$Name": "path",
                         "$Type": "JSON.Path",
+                        "$Nullable": true,
                         "@Core.Description": "JSONPath expression to be applied to value of `expr`"
                     }
                 ],
@@ -63,6 +64,32 @@
                     "$Type": "JSON.JSON",
                     "$Nullable": true,
                     "@Core.Description": "JSON value resulting from applying `path` to `input`"
+                }
+            }
+        ],
+        "value": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "Query stream values of media type `application/json`, returning an OData primitive value",
+                "@Core.LongDescription": "Extracts an OData primitive value from the `input` JSON value:\n- If `path` only consists of child member and single subscript operators and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).\n- If `path` identifies multiple nodes within `input` (by using recursive descendant, wildcard, array subset, or array filter expressions), identifies an object or array, or does not identify any node, the function returns `null`.\n- If `input` is not a valid JSON value, the function returns `null`.\n- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input`, the function returns `null`.\n\nIf a single non-null scalar JSON value is identified by `path` within `input`, the function returns that value as a primitive value of type\n- `Edm.String` if the value is a JSON string\n- `Edm.Boolean` if the value is `true` or `false`\n- `Edm.Decimal` with unspecified precision and floating scale if the value is a JSON number\n          ",
+                "$Parameter": [
+                    {
+                        "$Name": "input",
+                        "$Type": "JSON.JSON",
+                        "$Nullable": true,
+                        "@Core.Description": "JSON input"
+                    },
+                    {
+                        "$Name": "path",
+                        "$Type": "JSON.Path",
+                        "$Nullable": true,
+                        "@Core.Description": "JSONPath expression to be applied to value of `expr`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.PrimitiveType",
+                    "$Nullable": true,
+                    "@Core.Description": "OData primitive value resulting from applying `path` to `input`"
                 }
             }
         ],
