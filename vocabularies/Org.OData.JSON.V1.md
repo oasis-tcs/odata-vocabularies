@@ -18,10 +18,10 @@ Term|Type|Description
 Query stream values of media type `application/json`, returning a stream value of media type `application/json`
 
 Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:
-- If `path` only consists of child member and single subscript operators, it returns the identified single node within `input`, or `null` if no node is identified. 
-- If `path` potentially identifies multiple nodes within `input` (by using recursive descendant, wildcard, array subset, or array filter expressions), it returns an array containing the identified nodes, or an empty array if no node is identified. 
+- If `path` only consists of the root selector followed by member and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. 
+- If `path` potentially identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), it returns an array containing the identified nodes, or an empty array if no node is identified. 
 - If `input` is not a valid JSON value, the function returns `null`.
-- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input`, the function returns `null`. 
+- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`. 
           
 
 Parameter|Type|Description
@@ -35,13 +35,13 @@ Parameter|Type|Description
 
 Query stream values of media type `application/json`, returning an OData primitive value
 
-Extracts an OData primitive value from the `input` JSON value:
-- If `path` only consists of child member and single subscript operators and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
-- If `path` identifies multiple nodes within `input` (by using recursive descendant, wildcard, array subset, or array filter expressions), identifies an object or array, or does not identify any node, the function returns `null`.
+Extracts a single OData primitive value from the `input` JSON value:
+- If `path` only consists of the root selector followed by member and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
+- If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.
 - If `input` is not a valid JSON value, the function returns `null`.
-- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input`, the function returns `null`.
+- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.
 
-If a single non-null scalar JSON value is identified by `path` within `input`, the function returns that value as a primitive value of type
+If a single non-null scalar JSON value is identified by `path` within `input`, the function returns that value as an OData primitive value of type
 - `Edm.String` if the value is a JSON string
 - `Edm.Boolean` if the value is `true` or `false`
 - `Edm.Decimal` with unspecified precision and floating scale if the value is a JSON number
@@ -70,17 +70,17 @@ JSONPath | Description | Examples
 ---------|-------------|--------
 `$` | Root selector | `$`
 `.` | Member selector | `$.foo`, `$.foo.bar`
-`[]` | Index selector, accepting member names (single- or double-quoted strings using JSON escaping rules) or zero-based array indices (non-negative base-10 integers) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
+`[]` | Index selector with member name (single- or double-quoted string using JSON escaping rules) or zero-based array index (non-negative base-10 integer) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
 
 Implementations MAY support in addition:
 
 JSONPath | Description | Examples
 ---------|-------------|--------
-`[]` | Subscript selector with negative integer array indices (count from the end of the array) | `$.bar[-1]`
+`[]` | Index selector with negative integer array index (counts from the end of the array) | `$.bar[-1]`
 `..` | Descendant selector: searches for the specified member name recursively and returns an array of all values with this member name | `$..foo`
 `*` | Wildcard selector matching all elements in an object or array | `$.foo.*`, `$.bar[*]`, `$..*`
-`[,]` | Union selector for alternate names or array indices as a set | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
-`[start:end]` | Array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:4]`
+`[,]` | Union selector for alternate member names or array indices as a set | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
+`[start:end]` | Array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:5]`, same as `$.bar[2,3,4]`
 `[start:]` | Array subset from _start_ to end of array | `$.bar[2:]`
 `[:n]` | The first _n_ array items | `$.bar[:4]`
 `[-n:]` | The last _n_ array items | `$.bar[-3:]`
