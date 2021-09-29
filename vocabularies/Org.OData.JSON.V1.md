@@ -66,26 +66,28 @@ Textual data of media type `application/json`
 
 Implementations SHOULD support at least the following subset of JSONPath:
 
-_TODO: check which data sources support which subset, then reduce expressions_
-- SQL Server: https://docs.microsoft.com/en-us/sql/relational-databases/json/json-path-expressions-sql-server?view=sql-server-2017
-- SAP HANA: https://help.sap.com/products/SAP_HANA_PLATFORM/4fe29514fd584807ac9f2a04f6754767/3126ea33d50d42d19517a08fe22ec5a1.html?version=2.0.05#description
-- Google BigQuery references the Java implementation - all of it supported?
+JSONPath | Description | Examples
+---------|-------------|--------
+`$` | Root selector | `$`
+`.` | Member selector | `$.foo`, `$.foo.bar`
+`[]` | Index selector, accepting member names (single- or double-quoted strings using JSON escaping rules) or zero-based array indices (non-negative base-10 integers) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
+
+Implementations MAY support in addition:
 
 JSONPath | Description | Examples
 ---------|-------------|--------
-`$` | The root object, array, or value
-`.` | Child member operator | `$.foo`, `$.foo.bar`
-`..` | Recursive descendant operator: searches for the specified member name recursively and returns an array of all values with this property name | `$..foo`
-`*` | Wildcard matching all elements in an object or array | `$.foo.*`, `$.bar[*]`
-`[]` | Subscript operator, accepting names (single-quoted strings) or array indices (zero-based integers, negative integers count from the end of the array) | `$['foo']`, `$.foo['bar']`, `$.bar[0]`, `$.bar[-1]`
-`[,]` | Union operator for alternate names or array indices as a set | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
-`[start:end]` | Array subset by range of indices | `$.bar[2:4]`
-`[start:]` | Array subset from index to end of array | `$.bar[2:]`
-`[:end]` | Array subset from start of array to index | `$.bar[:4]`
-`[-start:]` | Array subset from _length-start_ to end of array | `$.bar[-3:]`
-`[?()]` | Filter expession | `$.bar[?(@.baz==42)]`
-`[()]` | Static expression | `$.bar[(@.length-1)]`
-`@` | in filter expressions: the current node being processed
+`[]` | Subscript selector with negative integer array indices (count from the end of the array) | `$.bar[-1]`
+`..` | Descendant selector: searches for the specified member name recursively and returns an array of all values with this member name | `$..foo`
+`*` | Wildcard selector matching all elements in an object or array | `$.foo.*`, `$.bar[*]`, `$..*`
+`[,]` | Union selector for alternate names or array indices as a set | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
+`[start:end]` | Array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:4]`
+`[start:]` | Array subset from _start_ to end of array | `$.bar[2:]`
+`[:n]` | The first _n_ array items | `$.bar[:4]`
+`[-n:]` | The last _n_ array items | `$.bar[-3:]`
+`[start:end:step]` | [Array slice selector](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01#section-3.5.6) |
+`[?()]` | Filter selector | `$.bar[?(@.baz==42)]`
+`()` | Static expression | `$.bar[(@.length-1)]`
+`@` | in expressions: the current node being processed
 
 **References**
 - Current IETF draft: https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01
