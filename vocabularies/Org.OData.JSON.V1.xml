@@ -80,8 +80,7 @@ One of its entities has a `resume` value of
     "zipcode": "10022", 
     "street": "ABC st"
   },
-  "experience": "excellent", 
-  ...
+  "experience": "excellent"
 }
 ```
 
@@ -133,12 +132,12 @@ receiving
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         <Annotation Term="Core.Description" String="The JSON Schema for JSON values of the annotated property, parameter, return type, term, or type definition" />
         <Annotation Term="Core.LongDescription">
-          <String>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
+          <String>The schema can be a reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
         </Annotation>
       </Term>
 
       <Function Name="query" IsBound="true" IsComposable="true">
-        <Annotation Term="Core.Description" String="Query stream values of media type `application/json`, returning a stream value of media type `application/json`" />
+        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning a stream value of media type `application/json`" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:
 - If `path` only consists of the root selector followed by member and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. 
@@ -159,7 +158,7 @@ receiving
       </Function>
 
       <Function Name="value" IsBound="true" IsComposable="true">
-        <Annotation Term="Core.Description" String="Query stream values of media type `application/json`, returning an OData primitive value" />
+        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning an OData primitive value" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a single OData primitive value from the `input` JSON value:
 - If `path` only consists of the root selector followed by member and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
@@ -223,7 +222,7 @@ JSONPath | Description | Examples
 `()` | Static expression | `$.bar[(@.length-1)]`
 `@` | in expressions: the current node being processed
 
-**References**
+**References for JSONPath**
 - Current IETF draft: https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01
 - Historic site: https://goessner.net/articles/JsonPath/
 - Node.js implementation: https://www.npmjs.com/package/jsonpath

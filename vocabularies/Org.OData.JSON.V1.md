@@ -35,8 +35,7 @@ One of its entities has a `resume` value of
     "zipcode": "10022", 
     "street": "ABC st"
   },
-  "experience": "excellent", 
-  ...
+  "experience": "excellent"
 }
 ```
 
@@ -71,14 +70,14 @@ receiving
 
 Term|Type|Description
 :---|:---|:----------
-[Schema](./Org.OData.JSON.V1.xml#L132:~:text=<Term%20Name="-,Schema,-")|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated property, parameter, return type, term, or type definition<br>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
+[Schema](./Org.OData.JSON.V1.xml#L131:~:text=<Term%20Name="-,Schema,-")|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated property, parameter, return type, term, or type definition<br>The schema can be a reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
 
 
 ## Functions
 
-### <a name="query"></a>[query](./Org.OData.JSON.V1.xml#L140:~:text=<Function%20Name="-,query,-")
+### <a name="query"></a>[query](./Org.OData.JSON.V1.xml#L139:~:text=<Function%20Name="-,query,-")
 
-Query stream values of media type `application/json`, returning a stream value of media type `application/json`
+Query a stream value of media type `application/json`, returning a stream value of media type `application/json`
 
 Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:
 - If `path` only consists of the root selector followed by member and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. 
@@ -89,14 +88,14 @@ Extracts a JSON value, such as an array, object, or a JSON scalar value (string,
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[input](./Org.OData.JSON.V1.xml#L150:~:text=<Function%20Name="-,query,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
-[path](./Org.OData.JSON.V1.xml#L153:~:text=<Function%20Name="-,query,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
-[&rarr;](./Org.OData.JSON.V1.xml#L156:~:text=<Function%20Name="-,query,-")|[JSON?](#JSON)|JSON value resulting from applying `path` to `input`
+**[input](./Org.OData.JSON.V1.xml#L149:~:text=<Function%20Name="-,query,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
+[path](./Org.OData.JSON.V1.xml#L152:~:text=<Function%20Name="-,query,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
+[&rarr;](./Org.OData.JSON.V1.xml#L155:~:text=<Function%20Name="-,query,-")|[JSON?](#JSON)|JSON value resulting from applying `path` to `input`
 
 
-### <a name="value"></a>[value](./Org.OData.JSON.V1.xml#L161:~:text=<Function%20Name="-,value,-")
+### <a name="value"></a>[value](./Org.OData.JSON.V1.xml#L160:~:text=<Function%20Name="-,value,-")
 
-Query stream values of media type `application/json`, returning an OData primitive value
+Query a stream value of media type `application/json`, returning an OData primitive value
 
 Extracts a single OData primitive value from the `input` JSON value:
 - If `path` only consists of the root selector followed by member and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
@@ -112,17 +111,17 @@ If a single non-null scalar JSON value is identified by `path` within `input`, t
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[input](./Org.OData.JSON.V1.xml#L176:~:text=<Function%20Name="-,value,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
-[path](./Org.OData.JSON.V1.xml#L179:~:text=<Function%20Name="-,value,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
-[&rarr;](./Org.OData.JSON.V1.xml#L182:~:text=<Function%20Name="-,value,-")|PrimitiveType?|OData primitive value resulting from applying `path` to `input`
+**[input](./Org.OData.JSON.V1.xml#L175:~:text=<Function%20Name="-,value,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
+[path](./Org.OData.JSON.V1.xml#L178:~:text=<Function%20Name="-,value,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
+[&rarr;](./Org.OData.JSON.V1.xml#L181:~:text=<Function%20Name="-,value,-")|PrimitiveType?|OData primitive value resulting from applying `path` to `input`
 
 
-## <a name="JSON"></a>[JSON](./Org.OData.JSON.V1.xml#L187:~:text=<TypeDefinition%20Name="-,JSON,-")
+## <a name="JSON"></a>[JSON](./Org.OData.JSON.V1.xml#L186:~:text=<TypeDefinition%20Name="-,JSON,-")
 **Type:** Stream
 
 Textual data of media type `application/json`
 
-## <a name="Path"></a>[Path](./Org.OData.JSON.V1.xml#L198:~:text=<TypeDefinition%20Name="-,Path,-")
+## <a name="Path"></a>[Path](./Org.OData.JSON.V1.xml#L197:~:text=<TypeDefinition%20Name="-,Path,-")
 **Type:** String
 
 [JSONPath](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01) expression
@@ -152,7 +151,7 @@ JSONPath | Description | Examples
 `()` | Static expression | `$.bar[(@.length-1)]`
 `@` | in expressions: the current node being processed
 
-**References**
+**References for JSONPath**
 - Current IETF draft: https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01
 - Historic site: https://goessner.net/articles/JsonPath/
 - Node.js implementation: https://www.npmjs.com/package/jsonpath
