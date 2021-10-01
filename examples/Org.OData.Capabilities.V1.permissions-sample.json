@@ -55,7 +55,7 @@
                             "$Path": "isExternalUser"
                         },
                         "NonInsertableProperties": [
-                            "voiceOverIpAddress"
+                            "phoneNumbers/voiceOverIpAddress"
                         ]
                     }
                 ],

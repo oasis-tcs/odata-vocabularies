@@ -67,7 +67,7 @@
               <PropertyValue Property="Insertable" Path="isExternalUser" /> <!-- phone numbers of internal users cannot be added via API -->
               <PropertyValue Property="NonInsertableProperties">
                 <Collection>
-                  <PropertyPath>voiceOverIpAddress</PropertyPath>
+                  <PropertyPath>phoneNumbers/voiceOverIpAddress</PropertyPath>
                 </Collection>
               </PropertyValue>
             </Record>
