@@ -268,56 +268,24 @@ supported:
         </Property>
         <Property Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on insert operations" />
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of [`InsertRestrictions`](#InsertRestrictions)"/>
-              </Record>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType">
           <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
         </Property>
         <Property Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on update operations" />
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of [`UpdateRestrictions`](#UpdateRestrictions)"/>
-              </Record>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType">
           <Annotation Term="Core.Description" String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
         </Property>
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of [`DeleteRestrictions`](#DeleteRestrictions)"/>
-              </Record>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="OptimisticConcurrencyControl" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Data modification (including insert) along this navigation property requires the use of ETags" />
         </Property>
         <Property Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions for retrieving entities" />
-          <Annotation Term="Core.Revisions">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
-                <PropertyValue Property="Description" String="Deprecated in favor of [`ReadRestrictions`](#ReadRestrictions)"/>
-              </Record>
-            </Collection>
-          </Annotation>
         </Property>
       </ComplexType>
       <EnumType Name="NavigationType">
@@ -610,6 +578,11 @@ supported:
         <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="InsertRestrictionsType">
+        <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection" />
+        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
+          <Annotation Term="Core.Description" String="Navigation property addressing the entity collection" />
+          <Annotation Term="Core.LongDescription" String="In the absence of this property, insert restrictions apply to the collection containing the annotation target." />
+        </Property>
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
         </Property>

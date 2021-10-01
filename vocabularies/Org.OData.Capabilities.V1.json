@@ -299,13 +299,7 @@
             "InsertRestrictions": {
                 "$Type": "Capabilities.InsertRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on insert operations",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`InsertRestrictions`](#InsertRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions on insert operations"
             },
             "DeepInsertSupport": {
                 "$Type": "Capabilities.DeepInsertSupportType",
@@ -315,13 +309,7 @@
             "UpdateRestrictions": {
                 "$Type": "Capabilities.UpdateRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on update operations",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`UpdateRestrictions`](#UpdateRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions on update operations"
             },
             "DeepUpdateSupport": {
                 "$Type": "Capabilities.DeepUpdateSupportType",
@@ -331,13 +319,7 @@
             "DeleteRestrictions": {
                 "$Type": "Capabilities.DeleteRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on delete operations",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`DeleteRestrictions`](#DeleteRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions on delete operations"
             },
             "OptimisticConcurrencyControl": {
                 "$Type": "Edm.Boolean",
@@ -347,13 +329,7 @@
             "ReadRestrictions": {
                 "$Type": "Capabilities.ReadRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions for retrieving entities",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`ReadRestrictions`](#ReadRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions for retrieving entities"
             }
         },
         "NavigationType": {
@@ -777,6 +753,13 @@
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
+            "@Core.Description": "Restrictions on insertions into an entity collection",
+            "NavigationProperty": {
+                "$Type": "Edm.NavigationPropertyPath",
+                "$Nullable": true,
+                "@Core.Description": "Navigation property addressing the entity collection",
+                "@Core.LongDescription": "In the absence of this property, insert restrictions apply to the collection containing the annotation target."
+            },
             "Insertable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
