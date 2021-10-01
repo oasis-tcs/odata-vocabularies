@@ -157,7 +157,7 @@ receiving
         </ReturnType>
       </Function>
 
-      <Function Name="value" IsBound="true" IsComposable="true">
+      <Function Name="value" IsBound="true">
         <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning an OData primitive value" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a single OData primitive value from the `input` JSON value:
