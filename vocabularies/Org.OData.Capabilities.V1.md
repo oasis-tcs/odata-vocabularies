@@ -307,7 +307,7 @@ Restrictions on insertions into an entity collection
 
 Property|Type|Description
 :-------|:---|:----------
-[NavigationProperty](./Org.OData.Capabilities.V1.xml#L582:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|NavigationPropertyPath?|Navigation property addressing the entity collection<br>In the absence of this property, insert restrictions apply to the collection containing the annotation target.
+[NavigationProperty](./Org.OData.Capabilities.V1.xml#L582:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|NavigationPropertyPath?|Navigation property addressing the entity collection<br>In the absence of this property, insert restrictions apply to the entity collection containing the annotation target.
 [Insertable](./Org.OData.Capabilities.V1.xml#L586:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|Boolean|Entities can be inserted
 [NonInsertableProperties](./Org.OData.Capabilities.V1.xml#L589:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[PropertyPath\]|These structural properties cannot be specified on insert
 [NonInsertableNavigationProperties](./Org.OData.Capabilities.V1.xml#L592:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts

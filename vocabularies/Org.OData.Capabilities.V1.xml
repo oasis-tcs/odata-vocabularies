@@ -581,7 +581,7 @@ supported:
         <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection" />
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation property addressing the entity collection" />
-          <Annotation Term="Core.LongDescription" String="In the absence of this property, insert restrictions apply to the collection containing the annotation target." />
+          <Annotation Term="Core.LongDescription" String="In the absence of this property, insert restrictions apply to the entity collection containing the annotation target." />
         </Property>
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />

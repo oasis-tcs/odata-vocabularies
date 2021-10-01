@@ -758,7 +758,7 @@
                 "$Type": "Edm.NavigationPropertyPath",
                 "$Nullable": true,
                 "@Core.Description": "Navigation property addressing the entity collection",
-                "@Core.LongDescription": "In the absence of this property, insert restrictions apply to the collection containing the annotation target."
+                "@Core.LongDescription": "In the absence of this property, insert restrictions apply to the entity collection containing the annotation target."
             },
             "Insertable": {
                 "$Type": "Edm.Boolean",
