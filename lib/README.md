@@ -85,5 +85,5 @@ If there is an additional line
 AMENDS: <commit id>
 ```
 
-before the `CHANGELOG:`, the generated entry replaces the one from the given commit in `CHANGELOG.md`.
+before the `CHANGELOG:`, the generated markdown is used not for the current commit but the one with the given `<commit_id>`.
 This allows corrections to be made in the changelog even though commit texts cannot be changed afterwards.
