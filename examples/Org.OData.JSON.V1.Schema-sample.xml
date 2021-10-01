@@ -10,7 +10,7 @@
     <Schema Namespace="json.schema.sample" Alias="this" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
       <EntityContainer Name="container">
-        <EntitySet Name="Employees" EntityType="this.Employee"></EntitySet>
+        <EntitySet Name="Employees" EntityType="this.Employee" />
       </EntityContainer>
 
       <EntityType Name="Employee">
