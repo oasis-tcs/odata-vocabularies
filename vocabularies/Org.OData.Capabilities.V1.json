@@ -247,7 +247,7 @@
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
             "@Core.Description": "Restrictions on entity collections addressed by a navigation property",
-            "@Core.LongDescription": "The `NavigationProperty` has no effect on the evaluation of paths in the other properties.\nFor example, with the annotation\n```\n\"HeadersEntitySet\": {\n  \"@Capabilities.NavigationRestrictions\": {\n    \"RestrictedProperties\": [{\n      \"NavigationProperty\": \"items\",\n      \"UpdateRestrictions\": {\n        \"Updatable\": {\"$Path\": \"updatableProperty\"}\n      }\n    }]\n  }\n}\n```\nthe updatability of the items is controlled by the `updatableProperty` of the header.",
+            "@Core.LongDescription": "The `NavigationProperty` has no effect on the evaluation of paths in the other properties.\nFor example, in the annotation\n```\n\"HeadersEntitySet\": {\n  \"@Capabilities.NavigationRestrictions\": {\n    \"RestrictedProperties\": [{\n      \"NavigationProperty\": \"items\",\n      \"UpdateRestrictions\": {\n        \"NonUpdatableProperties\": [\"items/nonUpdatableProperty\"]\n      }\n    }]\n  }\n}\n```\nthe path to the `nonUpdatableProperty` must include the navigation property `items`.",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "$Nullable": true,

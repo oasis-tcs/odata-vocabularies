@@ -149,20 +149,20 @@ Property|Type|Description
 Restrictions on entity collections addressed by a navigation property
 
 The `NavigationProperty` has no effect on the evaluation of paths in the other properties.
-For example, with the annotation
+For example, in the annotation
 ```
 "HeadersEntitySet": {
   "@Capabilities.NavigationRestrictions": {
     "RestrictedProperties": [{
       "NavigationProperty": "items",
       "UpdateRestrictions": {
-        "Updatable": {"$Path": "updatableProperty"}
+        "NonUpdatableProperties": ["items/nonUpdatableProperty"]
       }
     }]
   }
 }
 ```
-the updatability of the items is controlled by the `updatableProperty` of the header.
+the path to the `nonUpdatableProperty` must include the navigation property `items`.
 
 Property|Type|Description
 :-------|:---|:----------
