@@ -235,6 +235,24 @@ supported:
         </Property>
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
+        <Annotation Term="Core.Description" String="Restrictions on entity collections addressed by a navigation property"/>
+        <Annotation Term="Core.LongDescription">
+          <String>The `NavigationProperty` has no effect on the evaluation of paths in the other properties.
+For example, with the annotation
+```
+"HeadersEntitySet": {
+  "@Capabilities.NavigationRestrictions": {
+    "RestrictedProperties": [{
+      "NavigationProperty": "items",
+      "UpdateRestrictions": {
+        "Updatable": {"$Path": "updatableProperty"}
+      }
+    }]
+  }
+}
+```
+the updatability of the items is controlled by the `updatableProperty` of the header.</String>
+        </Annotation>
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
         </Property>
@@ -574,8 +592,8 @@ supported:
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
-        <Annotation Term="Core.Description" String="Restrictions on insert operations" />
         <Annotation Term="Core.AppliesViaContainer"/>
+        <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
         <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection" />
