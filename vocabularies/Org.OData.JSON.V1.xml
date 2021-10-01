@@ -45,8 +45,42 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.JSON.V1" Alias="JSON">
       <Annotation Term="Core.Description">
-        <String>Terms for JSON properties</String>
+        <String>Terms, types, and functions for JSON properties</String>
       </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>
+
+> Motivation from OData Extension for JSON Data - A Directional White Paper   
+
+> Example schema - separate files, link here, show excerpt
+
+**Example**
+
+The `Employees` entity set has a property `resume` of type `JSON.JSON`, and one of its entities has a `resume` of
+```json
+{ 
+  "ssn": "1234", 
+  "lastname": "Doe", 
+  "address": {
+    "zipcode": "10022", 
+    "street": "ABC st"
+  },
+  "experience": "excellent", 
+  ...
+  }
+```
+
+This allows to
+```http
+GET http://www.example.com/mycompany/Employees
+      ?$filter=JSON.value(resume,'$.lastname') eq 'Doe'
+      &amp;$orderby=JSON.value(resume,'$.experience')
+      &amp;$compute=JSON.query(resume,'$.address') as address
+      &amp;$expand=address
+```
+        </String>
+      </Annotation>
+
       <Annotation Term="Core.Links">
         <Collection>
           <Record>
