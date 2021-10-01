@@ -245,13 +245,15 @@ For example, in the annotation
     "RestrictedProperties": [{
       "NavigationProperty": "items",
       "UpdateRestrictions": {
+        "Updatable": {"$Path": "items/updatabilityProperty"},
         "NonUpdatableProperties": ["items/nonUpdatableProperty"]
       }
     }]
   }
 }
 ```
-the path to the `nonUpdatableProperty` must include the navigation property `items`.</String>
+the model path to the `nonUpdatableProperty` must include the navigation property `items`,
+and the instance path to the `updatabilityProperty` is collection-valued and therefore invalid.</String>
         </Annotation>
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
