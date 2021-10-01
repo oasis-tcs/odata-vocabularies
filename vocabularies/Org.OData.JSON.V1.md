@@ -1,17 +1,32 @@
 # JSON Vocabulary
 **Namespace: [Org.OData.JSON.V1](Org.OData.JSON.V1.xml)**
 
-Terms, types, and functions for JSON properties
+Terms, types, and functions for JSON streams
 
+OData [stream properties](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_ManagingStreamProperties) allow embedding data of arbitrary media types,
+and the OData JSON format allows [direct embedding of JSON data](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_StreamProperty) in request and response payloads.
+          
+This vocabulary defines a convenince [type for JSON streams](#JSON) streams as well as a term for referencing a [JSON Schema](#Schema) describing the structure of the JSON stream. 
 
-
-> Motivation from OData Extension for JSON Data - A Directional White Paper   
-
-> Example schema - separate files, link here, show excerpt
+In addition it defines two functions for [querying](#query) JSON streams and using a [primitive value](#value) extracted from a JSON stream in common expressions, for example in `$filter`, `$orderby`, or `$compute`.
 
 **Example**
 
-The `Employees` entity set has a property `resume` of type `JSON.JSON`, and one of its entities has a `resume` of
+The `Employees` entity set has a JSON stream property `resume`:
+```json
+"container": {
+  "$Kind": "EntityContainer",
+  "Employees": { "$Collection": true, "$Type": "this.Employee" }
+},
+"Employee": {
+  "$Kind": "EntityType",
+  "$Key": ["empid"],
+  "empid": { "$Type": "Edm.Int32" },
+  "resume": { "$Type": "JSON.JSON", "$Nullable": true }
+}
+```
+
+One of its entities has a `resume` value of
 ```json
 { 
   "ssn": "1234", 
@@ -22,16 +37,32 @@ The `Employees` entity set has a property `resume` of type `JSON.JSON`, and one 
   },
   "experience": "excellent", 
   ...
-  }
+}
 ```
 
-This allows to
+This allows to filter and sort by values in that resume, and extract parts of the resume as a dynamic JSON stream property
 ```http
 GET http://www.example.com/mycompany/Employees
-      ?$filter=JSON.value(resume,'$.lastname') eq 'Doe'
-      &$orderby=JSON.value(resume,'$.experience')
-      &$compute=JSON.query(resume,'$.address') as address
+      ?$filter=resume/JSON.value('$.lastname') eq 'Doe'
+      &$orderby=resume/JSON.value('$.experience')
+      &$compute=resume/JSON.query('$.address') as address
       &$expand=address
+```
+receiving
+```json
+{ 
+  "@odata.context": "$metadata#Employees", 
+  "value": [ 
+    {
+      "empid": 4711,
+      "address": {
+        "zipcode": "10022", 
+        "street": "ABC st"
+      }
+    },
+    ...
+  ]
+}
 ```
         
 
@@ -40,12 +71,12 @@ GET http://www.example.com/mycompany/Employees
 
 Term|Type|Description
 :---|:---|:----------
-[Schema](./Org.OData.JSON.V1.xml#L101:~:text=<Term%20Name="-,Schema,-")|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated property, parameter, return type, term, or type definition<br>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
+[Schema](./Org.OData.JSON.V1.xml#L132:~:text=<Term%20Name="-,Schema,-")|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated property, parameter, return type, term, or type definition<br>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
 
 
 ## Functions
 
-### <a name="query"></a>[query](./Org.OData.JSON.V1.xml#L109:~:text=<Function%20Name="-,query,-")
+### <a name="query"></a>[query](./Org.OData.JSON.V1.xml#L140:~:text=<Function%20Name="-,query,-")
 
 Query stream values of media type `application/json`, returning a stream value of media type `application/json`
 
@@ -58,12 +89,12 @@ Extracts a JSON value, such as an array, object, or a JSON scalar value (string,
 
 Parameter|Type|Description
 :--------|:---|:----------
-[input](./Org.OData.JSON.V1.xml#L119:~:text=<Function%20Name="-,query,-")|[JSON?](#JSON)|JSON input
-[path](./Org.OData.JSON.V1.xml#L122:~:text=<Function%20Name="-,query,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
-[&rarr;](./Org.OData.JSON.V1.xml#L125:~:text=<Function%20Name="-,query,-")|[JSON?](#JSON)|JSON value resulting from applying `path` to `input`
+**[input](./Org.OData.JSON.V1.xml#L150:~:text=<Function%20Name="-,query,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
+[path](./Org.OData.JSON.V1.xml#L153:~:text=<Function%20Name="-,query,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
+[&rarr;](./Org.OData.JSON.V1.xml#L156:~:text=<Function%20Name="-,query,-")|[JSON?](#JSON)|JSON value resulting from applying `path` to `input`
 
 
-### <a name="value"></a>[value](./Org.OData.JSON.V1.xml#L130:~:text=<Function%20Name="-,value,-")
+### <a name="value"></a>[value](./Org.OData.JSON.V1.xml#L161:~:text=<Function%20Name="-,value,-")
 
 Query stream values of media type `application/json`, returning an OData primitive value
 
@@ -81,17 +112,17 @@ If a single non-null scalar JSON value is identified by `path` within `input`, t
 
 Parameter|Type|Description
 :--------|:---|:----------
-[input](./Org.OData.JSON.V1.xml#L145:~:text=<Function%20Name="-,value,-")|[JSON?](#JSON)|JSON input
-[path](./Org.OData.JSON.V1.xml#L148:~:text=<Function%20Name="-,value,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
-[&rarr;](./Org.OData.JSON.V1.xml#L151:~:text=<Function%20Name="-,value,-")|PrimitiveType?|OData primitive value resulting from applying `path` to `input`
+**[input](./Org.OData.JSON.V1.xml#L176:~:text=<Function%20Name="-,value,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
+[path](./Org.OData.JSON.V1.xml#L179:~:text=<Function%20Name="-,value,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
+[&rarr;](./Org.OData.JSON.V1.xml#L182:~:text=<Function%20Name="-,value,-")|PrimitiveType?|OData primitive value resulting from applying `path` to `input`
 
 
-## <a name="JSON"></a>[JSON](./Org.OData.JSON.V1.xml#L156:~:text=<TypeDefinition%20Name="-,JSON,-")
+## <a name="JSON"></a>[JSON](./Org.OData.JSON.V1.xml#L187:~:text=<TypeDefinition%20Name="-,JSON,-")
 **Type:** Stream
 
 Textual data of media type `application/json`
 
-## <a name="Path"></a>[Path](./Org.OData.JSON.V1.xml#L167:~:text=<TypeDefinition%20Name="-,Path,-")
+## <a name="Path"></a>[Path](./Org.OData.JSON.V1.xml#L198:~:text=<TypeDefinition%20Name="-,Path,-")
 **Type:** String
 
 [JSONPath](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01) expression

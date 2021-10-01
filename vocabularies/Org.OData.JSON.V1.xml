@@ -35,7 +35,7 @@
   - OData Extension for Data Aggregation Version 4.0. Latest version: http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
 
   Abstract:
-  This document contains terms for JSON properties.
+  This document defines terms, types, and functions for JSON streams.
 
 -->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
@@ -45,18 +45,33 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.JSON.V1" Alias="JSON">
       <Annotation Term="Core.Description">
-        <String>Terms, types, and functions for JSON properties</String>
+        <String>Terms, types, and functions for JSON streams</String>
       </Annotation>
       <Annotation Term="Core.LongDescription">
-        <String>
+        <String>OData [stream properties](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_ManagingStreamProperties) allow embedding data of arbitrary media types,
+and the OData JSON format allows [direct embedding of JSON data](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_StreamProperty) in request and response payloads.
+          
+This vocabulary defines a convenince [type for JSON streams](#JSON) streams as well as a term for referencing a [JSON Schema](#Schema) describing the structure of the JSON stream. 
 
-> Motivation from OData Extension for JSON Data - A Directional White Paper   
-
-> Example schema - separate files, link here, show excerpt
+In addition it defines two functions for [querying](#query) JSON streams and using a [primitive value](#value) extracted from a JSON stream in common expressions, for example in `$filter`, `$orderby`, or `$compute`.
 
 **Example**
 
-The `Employees` entity set has a property `resume` of type `JSON.JSON`, and one of its entities has a `resume` of
+The `Employees` entity set has a JSON stream property `resume`:
+```json
+"container": {
+  "$Kind": "EntityContainer",
+  "Employees": { "$Collection": true, "$Type": "this.Employee" }
+},
+"Employee": {
+  "$Kind": "EntityType",
+  "$Key": ["empid"],
+  "empid": { "$Type": "Edm.Int32" },
+  "resume": { "$Type": "JSON.JSON", "$Nullable": true }
+}
+```
+
+One of its entities has a `resume` value of
 ```json
 { 
   "ssn": "1234", 
@@ -67,16 +82,32 @@ The `Employees` entity set has a property `resume` of type `JSON.JSON`, and one 
   },
   "experience": "excellent", 
   ...
-  }
+}
 ```
 
-This allows to
+This allows to filter and sort by values in that resume, and extract parts of the resume as a dynamic JSON stream property
 ```http
 GET http://www.example.com/mycompany/Employees
-      ?$filter=JSON.value(resume,'$.lastname') eq 'Doe'
-      &amp;$orderby=JSON.value(resume,'$.experience')
-      &amp;$compute=JSON.query(resume,'$.address') as address
+      ?$filter=resume/JSON.value('$.lastname') eq 'Doe'
+      &amp;$orderby=resume/JSON.value('$.experience')
+      &amp;$compute=resume/JSON.query('$.address') as address
       &amp;$expand=address
+```
+receiving
+```json
+{ 
+  "@odata.context": "$metadata#Employees", 
+  "value": [ 
+    {
+      "empid": 4711,
+      "address": {
+        "zipcode": "10022", 
+        "street": "ABC st"
+      }
+    },
+    ...
+  ]
+}
 ```
         </String>
       </Annotation>
@@ -106,7 +137,7 @@ GET http://www.example.com/mycompany/Employees
         </Annotation>
       </Term>
 
-      <Function Name="query">
+      <Function Name="query" IsBound="true" IsComposable="true">
         <Annotation Term="Core.Description" String="Query stream values of media type `application/json`, returning a stream value of media type `application/json`" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:
@@ -127,7 +158,7 @@ GET http://www.example.com/mycompany/Employees
         </ReturnType>
       </Function>
 
-      <Function Name="value">
+      <Function Name="value" IsBound="true" IsComposable="true">
         <Annotation Term="Core.Description" String="Query stream values of media type `application/json`, returning an OData primitive value" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a single OData primitive value from the `input` JSON value:
