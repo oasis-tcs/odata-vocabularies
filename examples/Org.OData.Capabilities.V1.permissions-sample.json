@@ -48,6 +48,15 @@
                         }
                     ]
                 },
+                "@Capabilities.InsertRestrictions#phoneNumbers": {
+                    "NavigationProperty": "phoneNumbers",
+                    "Insertable": {
+                        "$Path": "isExternalUser"
+                    },
+                    "NonInsertableProperties": [
+                        "voiceOverIpAddress"
+                    ]
+                },
                 "@Capabilities.UpdateRestrictions": {
                     "Permissions": [
                         {

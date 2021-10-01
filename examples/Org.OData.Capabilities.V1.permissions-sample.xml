@@ -62,6 +62,17 @@
             </PropertyValue>
           </Record>
         </Annotation>
+        <Annotation Term="Capabilities.InsertRestrictions" Qualifier="phoneNumbers">
+          <Record>
+            <PropertyValue Property="NavigationProperty" NavigationPropertyPath="phoneNumbers" />
+            <PropertyValue Property="Insertable" Path="isExternalUser" /> <!-- phone numbers of internal users cannot be added via API -->
+            <PropertyValue Property="NonInsertableProperties">
+              <Collection>
+                <PropertyPath>voiceOverIpAddress</PropertyPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
         <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>
             <PropertyValue Property="Permissions">
