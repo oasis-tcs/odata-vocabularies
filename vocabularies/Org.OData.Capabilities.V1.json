@@ -745,6 +745,16 @@
         },
         "InsertRestrictions": {
             "$Kind": "Term",
+            "$Type": "Capabilities.InsertRestrictionsType",
+            "$AppliesTo": [
+                "EntitySet",
+                "Collection"
+            ],
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "Restrictions on insert operations"
+        },
+        "NavigationInsertRestrictions": {
+            "$Kind": "Term",
             "$Collection": true,
             "$Type": "Capabilities.NavigationInsertRestrictionsType",
             "$AppliesTo": [
@@ -752,12 +762,11 @@
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
-            "@Core.Description": "Restrictions on insert operations",
-            "@Core.LongDescription": "Entries in the collection must differ in their [`NavigationProperty`](#InsertRestrictionsType)."
+            "@Core.Description": "Restrictions on insertions into an entity collection addressed via a navigation property",
+            "@Core.LongDescription": "Entries in the collection must differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType)."
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
-            "@Core.Description": "Restrictions on insertions into an entity collection",
             "Insertable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
@@ -825,9 +834,7 @@
             "$BaseType": "Capabilities.InsertRestrictionsType",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Navigation property addressing the entity collection",
-                "@Core.LongDescription": "In the absence of this property, [`InsertRestrictions`](#InsertRestrictions) apply to the entity collection which the annotation targets or is embedded within."
+                "@Core.Description": "Navigation property addressing the entity collection"
             }
         },
         "PermissionType": {

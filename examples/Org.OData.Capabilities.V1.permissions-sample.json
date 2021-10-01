@@ -13,42 +13,42 @@
     "microsoft.graph": {
         "$Annotations": {
             "microsoft.graph.GraphService/users": {
-                "@Capabilities.InsertRestrictions": [
-                    {
-                        "Permissions": [
-                            {
-                                "Scheme": "DelegatedWork",
-                                "Scopes": [
-                                    {
-                                        "Scope": "User.ReadWrite.All"
-                                    },
-                                    {
-                                        "Scope": "MailboxSettings.ReadWrite"
-                                    },
-                                    {
-                                        "Scope": "Directory.ReadWrite.All"
-                                    },
-                                    {
-                                        "Scope": "Directory.AccessAsUser.All"
-                                    }
-                                ]
-                            },
-                            {
-                                "Scheme": "Application",
-                                "Scopes": [
-                                    {
-                                        "Scope": "Directory.ReadWrite.All"
-                                    },
-                                    {
-                                        "Scope": "MailboxSettings.ReadWrite"
-                                    },
-                                    {
-                                        "Scope": "Directory.AccessAsUser.All"
-                                    }
-                                ]
-                            }
-                        ]
-                    },
+                "@Capabilities.InsertRestrictions": {
+                    "Permissions": [
+                        {
+                            "Scheme": "DelegatedWork",
+                            "Scopes": [
+                                {
+                                    "Scope": "User.ReadWrite.All"
+                                },
+                                {
+                                    "Scope": "MailboxSettings.ReadWrite"
+                                },
+                                {
+                                    "Scope": "Directory.ReadWrite.All"
+                                },
+                                {
+                                    "Scope": "Directory.AccessAsUser.All"
+                                }
+                            ]
+                        },
+                        {
+                            "Scheme": "Application",
+                            "Scopes": [
+                                {
+                                    "Scope": "Directory.ReadWrite.All"
+                                },
+                                {
+                                    "Scope": "MailboxSettings.ReadWrite"
+                                },
+                                {
+                                    "Scope": "Directory.AccessAsUser.All"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                "@Capabilities.NavigationInsertRestrictions": [
                     {
                         "NavigationProperty": "phoneNumbers",
                         "Insertable": {

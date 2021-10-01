@@ -593,15 +593,18 @@ and the instance path to the `updatabilityProperty` is collection-valued and the
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Collection(Capabilities.NavigationInsertRestrictionsType)" Nullable="false" AppliesTo="EntitySet Collection">
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
+      </Term>
+      <Term Name="NavigationInsertRestrictions" Type="Collection(Capabilities.NavigationInsertRestrictionsType)" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer"/>
+        <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection addressed via a navigation property" />
         <Annotation Term="Core.LongDescription">
-          <String>Entries in the collection must differ in their [`NavigationProperty`](#InsertRestrictionsType).</String>
+          <String>Entries in the collection must differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType).</String>
         </Annotation>
       </Term>
       <ComplexType Name="InsertRestrictionsType">
-        <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection" />
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
         </Property>
@@ -642,9 +645,8 @@ and the instance path to the `updatabilityProperty` is collection-valued and the
         </Property>
       </ComplexType>
       <ComplexType Name="NavigationInsertRestrictionsType" BaseType="Capabilities.InsertRestrictionsType">
-        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
+        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Navigation property addressing the entity collection" />
-          <Annotation Term="Core.LongDescription" String="In the absence of this property, [`InsertRestrictions`](#InsertRestrictions) apply to the entity collection which the annotation targets or is embedded within." />
         </Property>
       </ComplexType>
 
