@@ -745,13 +745,15 @@
         },
         "InsertRestrictions": {
             "$Kind": "Term",
+            "$Collection": true,
             "$Type": "Capabilities.InsertRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
-            "@Core.Description": "Restrictions on insert operations"
+            "@Core.Description": "Restrictions on insert operations",
+            "@Core.LongDescription": "Entries in the collection must differ in their [`NavigationProperty`](#InsertRestrictionsType)."
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",

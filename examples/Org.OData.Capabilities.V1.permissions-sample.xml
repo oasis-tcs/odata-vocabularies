@@ -7,71 +7,71 @@
     <Schema Namespace="microsoft.graph" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <Annotations Target="microsoft.graph.GraphService/users">
         <Annotation Term="Capabilities.InsertRestrictions">
-          <Record>
-            <PropertyValue Property="Permissions">
-              <Collection>
-                <Record>
-                  <PropertyValue Property="Scheme" String="DelegatedWork" />
-                  <PropertyValue Property="Scopes">
-                    <Collection>
-                      <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
-                        <!-- 
-                      * , [PROPERTY NAME], - list
-                      "*" denotes all properties are accessible
-                      "Property name" used to provide access to specific properties
-                      "-" sign prepended to property name used to exclude specific properties
-                      Absense of the PropertyValue denotes all properties are accessible using that scope.
-                      -->
-                        <PropertyValue Property="RestrictedProperties">
-                          <string>-mailboxSettings</string>
-                        </PropertyValue>
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
-                        <PropertyValue Property="RestrictedProperties">
-                          <string>mailboxSettings</string>
-                        </PropertyValue>
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
-                      </Record>
-                    </Collection>
-                  </PropertyValue>
-                </Record>
-                <Record>
-                  <PropertyValue Property="Scheme" String="Application" />
-                  <PropertyValue Property="Scopes">
-                    <Collection>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
-                      </Record>
-                      <Record>
-                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
-                      </Record>
-                    </Collection>
-                  </PropertyValue>
-                </Record>
-              </Collection>
-            </PropertyValue>
-          </Record>
-        </Annotation>
-        <Annotation Term="Capabilities.InsertRestrictions" Qualifier="phoneNumbers">
-          <Record>
-            <PropertyValue Property="NavigationProperty" NavigationPropertyPath="phoneNumbers" />
-            <PropertyValue Property="Insertable" Path="isExternalUser" /> <!-- phone numbers of internal users cannot be added via API -->
-            <PropertyValue Property="NonInsertableProperties">
-              <Collection>
-                <PropertyPath>voiceOverIpAddress</PropertyPath>
-              </Collection>
-            </PropertyValue>
-          </Record>
+          <Collection>
+            <Record>
+              <PropertyValue Property="Permissions">
+                <Collection>
+                  <Record>
+                    <PropertyValue Property="Scheme" String="DelegatedWork" />
+                    <PropertyValue Property="Scopes">
+                      <Collection>
+                        <Record>
+                          <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                          <!-- 
+                        * , [PROPERTY NAME], - list
+                        "*" denotes all properties are accessible
+                        "Property name" used to provide access to specific properties
+                        "-" sign prepended to property name used to exclude specific properties
+                        Absense of the PropertyValue denotes all properties are accessible using that scope.
+                        -->
+                          <PropertyValue Property="RestrictedProperties">
+                            <string>-mailboxSettings</string>
+                          </PropertyValue>
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+                          <PropertyValue Property="RestrictedProperties">
+                            <string>mailboxSettings</string>
+                          </PropertyValue>
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                        </Record>
+                      </Collection>
+                    </PropertyValue>
+                  </Record>
+                  <Record>
+                    <PropertyValue Property="Scheme" String="Application" />
+                    <PropertyValue Property="Scopes">
+                      <Collection>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
+                        </Record>
+                        <Record>
+                          <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
+                        </Record>
+                      </Collection>
+                    </PropertyValue>
+                  </Record>
+                </Collection>
+              </PropertyValue>
+            </Record>
+            <Record>
+              <PropertyValue Property="NavigationProperty" NavigationPropertyPath="phoneNumbers" />
+              <PropertyValue Property="Insertable" Path="isExternalUser" /> <!-- phone numbers of internal users cannot be added via API -->
+              <PropertyValue Property="NonInsertableProperties">
+                <Collection>
+                  <PropertyPath>voiceOverIpAddress</PropertyPath>
+                </Collection>
+              </PropertyValue>
+            </Record>
+          </Collection>
         </Annotation>
         <Annotation Term="Capabilities.UpdateRestrictions">
           <Record>

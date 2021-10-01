@@ -593,9 +593,12 @@ and the instance path to the `updatabilityProperty` is collection-valued and the
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+      <Term Name="InsertRestrictions" Type="Collection(Capabilities.InsertRestrictionsType)" Nullable="false" AppliesTo="EntitySet Collection">
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
+        <Annotation Term="Core.LongDescription">
+          <String>Entries in the collection must differ in their [`NavigationProperty`](#InsertRestrictionsType).</String>
+        </Annotation>
       </Term>
       <ComplexType Name="InsertRestrictionsType">
         <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection" />
