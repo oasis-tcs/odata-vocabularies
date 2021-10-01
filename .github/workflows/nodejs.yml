@@ -28,9 +28,3 @@ jobs:
           git diff --exit-code vocabularies
         env:
           CI: true
-      - name: write changelog
-        if: ${{ github.event.pull_request.merged == true }}
-        run: npm run changelog
-        env:
-          CI: true
-          PUSHER_EMAIL: ${{ github.event.pusher.email }}
