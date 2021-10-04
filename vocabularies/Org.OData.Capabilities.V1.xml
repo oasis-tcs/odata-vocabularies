@@ -601,7 +601,7 @@ and the instance path to the `updatabilityProperty` is collection-valued and the
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection addressed via a navigation property" />
         <Annotation Term="Core.LongDescription">
-          <String>Entries in the collection must differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType).</String>
+          <String>Entries in this collection-valued annotation must differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType).</String>
         </Annotation>
       </Term>
       <ComplexType Name="InsertRestrictionsType">
