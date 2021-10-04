@@ -834,7 +834,7 @@
             "$BaseType": "Capabilities.InsertRestrictionsType",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Navigation property addressing the entity collection"
+                "@Core.Description": "Navigation property path addressing the entity collection"
             }
         },
         "PermissionType": {

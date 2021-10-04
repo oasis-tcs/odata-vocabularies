@@ -646,7 +646,7 @@ and the instance path to the `updatabilityProperty` is collection-valued and the
       </ComplexType>
       <ComplexType Name="NavigationInsertRestrictionsType" BaseType="Capabilities.InsertRestrictionsType">
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Navigation property addressing the entity collection" />
+          <Annotation Term="Core.Description" String="Navigation property path addressing the entity collection" />
         </Property>
       </ComplexType>
 

@@ -359,7 +359,7 @@ Property|Type|Description
 [*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L635:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [*Description*](./Org.OData.Capabilities.V1.xml#L638:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|String?|A brief description of the request
 [*LongDescription*](./Org.OData.Capabilities.V1.xml#L642:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|String?|A lengthy description of the request
-[NavigationProperty](./Org.OData.Capabilities.V1.xml#L648:~:text=<ComplexType%20Name="-,NavigationInsertRestrictionsType,-")|NavigationPropertyPath|Navigation property addressing the entity collection
+[NavigationProperty](./Org.OData.Capabilities.V1.xml#L648:~:text=<ComplexType%20Name="-,NavigationInsertRestrictionsType,-")|NavigationPropertyPath|Navigation property path addressing the entity collection
 
 ## <a name="PermissionType"></a>[PermissionType](./Org.OData.Capabilities.V1.xml#L653:~:text=<ComplexType%20Name="-,PermissionType,-")
 
