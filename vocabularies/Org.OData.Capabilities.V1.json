@@ -763,7 +763,7 @@
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on insertions into an entity collection addressed via a navigation property",
-            "@Core.LongDescription": "Entries in this collection-valued annotation must differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType)."
+            "@Core.LongDescription": "The value of this annotation is a collection of entries that differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType)."
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
