@@ -235,6 +235,26 @@ supported:
         </Property>
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
+        <Annotation Term="Core.Description" String="Restrictions on entity collections addressed by a navigation property"/>
+        <Annotation Term="Core.LongDescription">
+          <String>The `NavigationProperty` has no effect on the evaluation of paths in the other properties.
+For example, in the annotation
+```json
+"HeadersEntitySet": {
+  "@Capabilities.NavigationRestrictions": {
+    "RestrictedProperties": [{
+      "NavigationProperty": "items",
+      "UpdateRestrictions": {
+        "Updatable": {"$Path": "items/updatabilityProperty"},
+        "NonUpdatableProperties": ["items/nonUpdatableProperty"]
+      }
+    }]
+  }
+}
+```
+the model path to the `nonUpdatableProperty` must include the navigation property `items`,
+and the instance path to the `updatabilityProperty` is collection-valued and therefore invalid.</String>
+        </Annotation>
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
         </Property>

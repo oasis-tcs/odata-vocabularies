@@ -246,6 +246,8 @@
         },
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
+            "@Core.Description": "Restrictions on entity collections addressed by a navigation property",
+            "@Core.LongDescription": "The `NavigationProperty` has no effect on the evaluation of paths in the other properties.\nFor example, in the annotation\n```json\n\"HeadersEntitySet\": {\n  \"@Capabilities.NavigationRestrictions\": {\n    \"RestrictedProperties\": [{\n      \"NavigationProperty\": \"items\",\n      \"UpdateRestrictions\": {\n        \"Updatable\": {\"$Path\": \"items/updatabilityProperty\"},\n        \"NonUpdatableProperties\": [\"items/nonUpdatableProperty\"]\n      }\n    }]\n  }\n}\n```\nthe model path to the `nonUpdatableProperty` must include the navigation property `items`,\nand the instance path to the `updatabilityProperty` is collection-valued and therefore invalid.",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "$Nullable": true,
