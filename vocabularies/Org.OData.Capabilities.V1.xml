@@ -235,7 +235,6 @@ supported:
         </Property>
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
-        <Annotation Term="Core.Description" String="Restrictions on entity collections addressed by a navigation property"/>
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
         </Property>
@@ -574,7 +573,7 @@ supported:
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet">
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
@@ -660,7 +659,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
         <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
@@ -753,7 +752,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
@@ -878,7 +877,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
         <Annotation Term="Core.AppliesViaContainer"/>
       </Term>

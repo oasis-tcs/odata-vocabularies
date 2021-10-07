@@ -246,7 +246,6 @@
         },
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
-            "@Core.Description": "Restrictions on entity collections addressed by a navigation property",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "$Nullable": true,
@@ -746,8 +745,7 @@
             "$Kind": "Term",
             "$Type": "Capabilities.InsertRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on insert operations"
@@ -867,8 +865,7 @@
             "$Type": "Capabilities.UpdateRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton",
-                "Collection"
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on update operations",
             "@Core.AppliesViaContainer": true
@@ -1002,8 +999,7 @@
             "$Type": "Capabilities.DeleteRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton",
-                "Collection"
+                "Singleton"
             ],
             "@Core.Description": "Restrictions on delete operations",
             "@Core.AppliesViaContainer": true
@@ -1221,8 +1217,7 @@
             "$Type": "Capabilities.ReadRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton",
-                "Collection"
+                "Singleton"
             ],
             "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance.",
             "@Core.AppliesViaContainer": true
