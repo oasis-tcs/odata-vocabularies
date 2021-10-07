@@ -23,12 +23,11 @@
         "CostCenter": {
             "$Kind": "EntityType",
             "$Key": [
-                "AreaID",
-                "ID",
-                "ValidTo"
+                "tsid"
             ],
+            "tsid": {},
             "AreaID": {},
-            "ID": {},
+            "CostCenterID": {},
             "ValidTo": {
                 "$Type": "Edm.Date"
             },
@@ -62,7 +61,7 @@
                         "PeriodEnd": "ValidTo",
                         "ObjectKey": [
                             "AreaID",
-                            "ID"
+                            "CostCenterID"
                         ]
                     },
                     "SupportedActions": [
