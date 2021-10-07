@@ -236,25 +236,6 @@ supported:
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
         <Annotation Term="Core.Description" String="Restrictions on entity collections addressed by a navigation property"/>
-        <Annotation Term="Core.LongDescription">
-          <String>The `NavigationProperty` has no effect on the evaluation of paths in the other properties.
-For example, in the annotation
-```json
-"HeadersEntitySet": {
-  "@Capabilities.NavigationRestrictions": {
-    "RestrictedProperties": [{
-      "NavigationProperty": "items",
-      "UpdateRestrictions": {
-        "Updatable": {"$Path": "items/updatabilityProperty"},
-        "NonUpdatableProperties": ["items/nonUpdatableProperty"]
-      }
-    }]
-  }
-}
-```
-the model path to the `nonUpdatableProperty` must include the navigation property `items`,
-and the instance path to the `updatabilityProperty` is collection-valued and therefore invalid.</String>
-        </Annotation>
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
         </Property>
@@ -597,13 +578,6 @@ and the instance path to the `updatabilityProperty` is collection-valued and the
         <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
-      <Term Name="NavigationInsertRestrictions" Type="Collection(Capabilities.NavigationInsertRestrictionsType)" Nullable="false" AppliesTo="EntitySet Collection">
-        <Annotation Term="Core.AppliesViaContainer"/>
-        <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection addressed via a navigation property" />
-        <Annotation Term="Core.LongDescription">
-          <String>The value of this annotation is a collection of entries that differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType).</String>
-        </Annotation>
-      </Term>
       <ComplexType Name="InsertRestrictionsType">
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Entities can be inserted" />
@@ -642,11 +616,6 @@ and the instance path to the `updatabilityProperty` is collection-valued and the
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="A lengthy description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
-        </Property>
-      </ComplexType>
-      <ComplexType Name="NavigationInsertRestrictionsType" BaseType="Capabilities.InsertRestrictionsType">
-        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Navigation property path addressing the entity collection" />
         </Property>
       </ComplexType>
 
