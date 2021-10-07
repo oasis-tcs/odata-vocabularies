@@ -151,6 +151,7 @@ Restrictions on entity collections addressed by a navigation property
 
 The `NavigationProperty` has no effect on the evaluation of paths in the other properties.
 For example, in the annotation
+
 ```json
 "HeadersEntitySet": {
   "@Capabilities.NavigationRestrictions": {
@@ -164,6 +165,7 @@ For example, in the annotation
   }
 }
 ```
+
 the model path to the `nonUpdatableProperty` must include the navigation property `items`,
 and the instance path to the `updatabilityProperty` is collection-valued and therefore invalid.
 
