@@ -574,7 +574,6 @@ supported:
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Core.AppliesViaContainer"/>
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
@@ -661,7 +660,6 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
-        <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -754,7 +752,6 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
-        <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
         <Property Name="Deletable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -879,7 +876,6 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
-        <Annotation Term="Core.AppliesViaContainer"/>
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
         <Property Name="Readable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">

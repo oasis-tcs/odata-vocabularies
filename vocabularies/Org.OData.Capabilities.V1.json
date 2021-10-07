@@ -747,7 +747,6 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on insert operations"
         },
         "InsertRestrictionsType": {
@@ -867,8 +866,7 @@
                 "EntitySet",
                 "Singleton"
             ],
-            "@Core.Description": "Restrictions on update operations",
-            "@Core.AppliesViaContainer": true
+            "@Core.Description": "Restrictions on update operations"
         },
         "UpdateRestrictionsType": {
             "$Kind": "ComplexType",
@@ -1001,8 +999,7 @@
                 "EntitySet",
                 "Singleton"
             ],
-            "@Core.Description": "Restrictions on delete operations",
-            "@Core.AppliesViaContainer": true
+            "@Core.Description": "Restrictions on delete operations"
         },
         "DeleteRestrictionsType": {
             "$Kind": "ComplexType",
@@ -1219,8 +1216,7 @@
                 "EntitySet",
                 "Singleton"
             ],
-            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance.",
-            "@Core.AppliesViaContainer": true
+            "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance."
         },
         "ReadRestrictionsBase": {
             "$Kind": "ComplexType",
