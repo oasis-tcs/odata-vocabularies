@@ -573,9 +573,16 @@ supported:
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
+      </Term>
+      <Term Name="NavigationInsertRestrictions" Type="Collection(Capabilities.NavigationInsertRestrictionsType)" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
+        <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection addressed via a navigation property" />
+        <Annotation Term="Core.LongDescription">
+          <String>The value of this annotation is a collection of entries that differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType).</String>
+        </Annotation>
       </Term>
       <ComplexType Name="InsertRestrictionsType">
         <Property Name="Insertable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
@@ -617,6 +624,11 @@ supported:
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
+      <ComplexType Name="NavigationInsertRestrictionsType" BaseType="Capabilities.InsertRestrictionsType">
+        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
+          <Annotation Term="Core.Description" String="Navigation property path addressing the entity collection" />
+        </Property>
+      </ComplexType>
 
       <ComplexType Name="PermissionType">
         <Property Name="SchemeName" Type="Auth.SchemeName" Nullable="false">
@@ -647,7 +659,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
+      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepInsertSupportType">
@@ -659,8 +672,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
@@ -740,7 +753,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Member>
       </EnumType>
 
-      <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet">
+      <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepUpdateSupportType">
@@ -752,8 +766,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
@@ -791,7 +805,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Describes restrictions on operations applied to collection-valued structural properties" />
       </Term>
       <ComplexType Name="CollectionPropertyRestrictionsType">
@@ -877,7 +892,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">

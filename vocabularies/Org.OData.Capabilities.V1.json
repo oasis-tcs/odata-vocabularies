@@ -746,10 +746,22 @@
             "$Type": "Capabilities.InsertRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on insert operations"
+        },
+        "NavigationInsertRestrictions": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Capabilities.NavigationInsertRestrictionsType",
+            "$AppliesTo": [
+                "EntitySet",
+                "Collection"
+            ],
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "Restrictions on insertions into an entity collection addressed via a navigation property",
+            "@Core.LongDescription": "The value of this annotation is a collection of entries that differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType)."
         },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
@@ -815,6 +827,14 @@
                 "@Core.IsLanguageDependent": true
             }
         },
+        "NavigationInsertRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.InsertRestrictionsType",
+            "NavigationProperty": {
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "Navigation property path addressing the entity collection"
+            }
+        },
         "PermissionType": {
             "$Kind": "ComplexType",
             "SchemeName": {
@@ -844,8 +864,10 @@
             "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
         },
         "DeepInsertSupportType": {
@@ -867,9 +889,9 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on update operations"
         },
         "UpdateRestrictionsType": {
@@ -979,8 +1001,10 @@
             "$Type": "Capabilities.DeepUpdateSupportType",
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
         },
         "DeepUpdateSupportType": {
@@ -1002,9 +1026,9 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on delete operations"
         },
         "DeleteRestrictionsType": {
@@ -1067,8 +1091,10 @@
             "$Type": "Capabilities.CollectionPropertyRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Describes restrictions on operations applied to collection-valued structural properties"
         },
         "CollectionPropertyRestrictionsType": {
@@ -1220,8 +1246,10 @@
             "$Type": "Capabilities.ReadRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance."
         },
         "ReadRestrictionsBase": {
