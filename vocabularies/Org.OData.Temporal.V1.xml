@@ -152,7 +152,8 @@
           If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,
           and they are interpreted according to the [`ApplicationTimeSupport/UnitOfTime`](#ApplicationTimeSupportType) of the collection.
           In particular, `ApplicationTimeSupport/UnitOfTime/ClosedClosedPeriods` governs whether a `PeriodEnd` of type `Edm.Date`
-          is the last day in the period or the first day after the period.</String>
+          is the last day in the period or the first day after the period.
+          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of "ad infinitum" is assumed for `PeriodEnd`.</String>
         </Annotation>
         <Property Name="Timeslice" Type="Edm.EntityType" Nullable="false">
           <Annotation Term="Core.Description" String="A time slice with the same entity type as the binding parameter of the action" />
