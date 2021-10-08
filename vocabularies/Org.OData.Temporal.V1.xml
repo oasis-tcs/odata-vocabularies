@@ -133,6 +133,9 @@
         </Property>
         <Property Name="PeriodEnd" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing upper boundary of a period" />
+          <Annotation Term="Core.LongDescription">
+            <String>If an upper boundary property does not specify a default value, a default value of "ad infinitum" is assumed.</String>
+          </Annotation>
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="The set of primitive properties that identify a temporal object" />
@@ -164,7 +167,7 @@
 
       <!-- Operations on Temporal Objects -->
 
-      <Action Name="Update" IsBound="true" EntitySetPath="timeslices">
+      <Action Name="Update" IsBound="true">
         <Annotation Term="Core.Description" String="Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap" />
         <Annotation Term="Core.LongDescription">
           <String>The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
@@ -183,13 +186,12 @@
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
+        <ReturnType Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
-      <Action Name="Upsert" IsBound="true" EntitySetPath="timeslices">
+      <Action Name="Upsert" IsBound="true">
         <Annotation Term="Core.Description" String="Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
@@ -201,13 +203,12 @@
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
+        <ReturnType Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
-      <Action Name="UpdateFrom" IsBound="true" EntitySetPath="timeslices">
+      <Action Name="UpdateFrom" IsBound="true">
         <Annotation Term="Core.Description" String="Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have same the original value for all these properties" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
@@ -220,13 +221,12 @@
             New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.</String>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
+        <ReturnType Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="Modified time slices" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
-      <Action Name="Delete" IsBound="true" EntitySetPath="timeslices">
+      <Action Name="Delete" IsBound="true">
         <Annotation Term="Core.Description" String="Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`" />
         <Annotation Term="Core.LongDescription">
           <String>The deletion behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-delete)
@@ -244,13 +244,12 @@
             An absent object key property matches any key property value.</String>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
+        <ReturnType Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
           <Annotation Term="Core.Description" String="Deleted (sub-periods of) time slices" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
         </ReturnType>
       </Action>
 
-      <Action Name="DeleteFrom" IsBound="true" EntitySetPath="timeslices">
+      <Action Name="DeleteFrom" IsBound="true">
         <Annotation Term="Core.Description" String="Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
@@ -262,9 +261,8 @@
             An absent object key property matches any key property value.</String>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="Deleted time slices" />
-          <Annotation Term="Core.LongDescription" String="Same entity type as binding parameter." />
+        <ReturnType Type="Collection(Temporal.TimesliceWithPeriod)" Nullable="false">
+          <Annotation Term="Core.Description" String="Deleted (sub-periods of) time slices" />
         </ReturnType>
       </Action>
 
