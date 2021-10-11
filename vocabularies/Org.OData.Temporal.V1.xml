@@ -155,15 +155,18 @@
           is the last day in the period or the first day after the period.
           If `PeriodStart` is present and `PeriodEnd` is absent, a default value of "ad infinitum" is assumed for `PeriodEnd`.</String>
         </Annotation>
-        <Property Name="Timeslice" Type="Edm.EntityType" Nullable="false">
-          <Annotation Term="Core.Description" String="A time slice with the same entity type as the binding parameter of the action" />
-        </Property>
         <Property Name="PeriodStart" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lower boundary of the time slice" />
         </Property>
         <Property Name="PeriodEnd" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Upper boundary of the time slice" />
         </Property>
+        <NavigationProperty Name="Timeslice" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.Description" String="A time slice with the same entity type as the binding parameter of the action" />
+          <Annotation Term="Core.LongDescription">
+            <String>The time slice has the same entity set as the binding parameter value.</String>
+          </Annotation>
+        </NavigationProperty>
       </ComplexType>
 
       <!-- Operations on Temporal Objects -->
