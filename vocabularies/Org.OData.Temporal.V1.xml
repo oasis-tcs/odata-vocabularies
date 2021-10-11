@@ -162,6 +162,7 @@
           <Annotation Term="Core.Description" String="Upper boundary of the time slice" />
         </Property>
         <NavigationProperty Name="Timeslice" Type="Edm.EntityType" Nullable="false">
+          <Annotation Term="Core.AutoExpand" />
           <Annotation Term="Core.Description" String="A time slice with the same entity type as the binding parameter of the action" />
           <Annotation Term="Core.LongDescription">
             <String>The time slice has the same entity set as the binding parameter value.</String>
