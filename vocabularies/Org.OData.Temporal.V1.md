@@ -22,7 +22,7 @@ Updates existing time slices with values from delta time slices whose object key
 The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
           `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.
 
-`deltaTimeslices` with non-matching object keys or non-overlapping sub-periods of `deltaTimeslices` are disregarded.
+`deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.
 
 Parameter|Type|Description
 :--------|:---|:----------
