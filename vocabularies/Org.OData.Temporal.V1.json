@@ -137,7 +137,7 @@
                 "$Kind": "Action",
                 "$IsBound": true,
                 "@Core.Description": "Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap",
-                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n\n`deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.",
+                "@Core.LongDescription": "The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)\n          `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.\n\n`deltaTimeslices` with non-matching object keys or non-overlapping sub-periods of `deltaTimeslices` are disregarded.",
                 "$Parameter": [
                     {
                         "$Name": "timeslices",

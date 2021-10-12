@@ -178,7 +178,7 @@
           <String>The update behavior for a given object key is known from the [SQL statement](https://www.ibm.com/docs/en/db2oc?topic=statements-update)
           `UPDATE ... FOR PORTION OF BUSINESS_TIME ... WHERE ...`.
 
-`deltaTimeslices` with non-matching object keys and non-overlapping sub-periods of `deltaTimeslices` are disregarded.</String>
+`deltaTimeslices` with non-matching object keys or non-overlapping sub-periods of `deltaTimeslices` are disregarded.</String>
         </Annotation>
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
