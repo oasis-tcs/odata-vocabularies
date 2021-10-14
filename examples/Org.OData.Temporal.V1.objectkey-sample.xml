@@ -11,12 +11,11 @@
 
       <EntityType Name="CostCenter">
         <Key>
-          <PropertyRef Name="AreaID" />
-          <PropertyRef Name="ID" />
-          <PropertyRef Name="ValidTo" />
+          <PropertyRef Name="tsid" />
         </Key>
+        <Property Name="tsid" Type="Edm.String" Nullable="false" />
         <Property Name="AreaID" Type="Edm.String" Nullable="false" />
-        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="CostCenterID" Type="Edm.String" Nullable="false" />
         <Property Name="ValidTo" Type="Edm.Date" Nullable="false" />
 
         <Property Name="ValidFrom" Type="Edm.Date" Nullable="false" />
@@ -43,7 +42,7 @@
                 <PropertyValue Property="ObjectKey">
                   <Collection>
                     <PropertyPath>AreaID</PropertyPath>
-                    <PropertyPath>ID</PropertyPath>
+                    <PropertyPath>CostCenterID</PropertyPath>
                   </Collection>
                 </PropertyValue>
               </Record>
