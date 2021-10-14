@@ -129,7 +129,7 @@
                 "$Type": "Edm.EntityType",
                 "@Core.AutoExpand": true,
                 "@Core.Description": "A time slice with the same entity type as the binding parameter of the action",
-                "@Core.LongDescription": "The time slice has the same entity set as the binding parameter value."
+                "@Core.LongDescription": "When it appears in the return type of an action in this vocabulary, the time slice has the same entity set as the binding parameter value."
             }
         },
         "Update": [

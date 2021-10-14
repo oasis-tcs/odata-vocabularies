@@ -156,4 +156,4 @@ Property|Type|Description
 :-------|:---|:----------
 [PeriodStart](./Org.OData.Temporal.V1.xml#L158:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")|PrimitiveType?|Lower boundary of the time slice
 [PeriodEnd](./Org.OData.Temporal.V1.xml#L161:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")|PrimitiveType?|Upper boundary of the time slice
-[Timeslice](./Org.OData.Temporal.V1.xml#L164:~:text=<NavigationProperty%20Name="-,Timeslice,-")|EntityType|A time slice with the same entity type as the binding parameter of the action<br>The time slice has the same entity set as the binding parameter value.
+[Timeslice](./Org.OData.Temporal.V1.xml#L164:~:text=<NavigationProperty%20Name="-,Timeslice,-")|EntityType|A time slice with the same entity type as the binding parameter of the action<br>When it appears in the return type of an action in this vocabulary, the time slice has the same entity set as the binding parameter value.
