@@ -137,7 +137,7 @@ The temporal collection MUST NOT contain two entities with the same object key a
 Property|Type|Description
 :-------|:---|:----------
 [PeriodStart](./Org.OData.Temporal.V1.xml#L131:~:text=<ComplexType%20Name="-,TimelineVisible,-")|PropertyPath|Property containing lower boundary of a period
-[PeriodEnd](./Org.OData.Temporal.V1.xml#L134:~:text=<ComplexType%20Name="-,TimelineVisible,-")|PropertyPath|Property containing upper boundary of a period<br>If an upper boundary property does not specify a default value, a default value of "ad infinitum" is assumed.
+[PeriodEnd](./Org.OData.Temporal.V1.xml#L134:~:text=<ComplexType%20Name="-,TimelineVisible,-")|PropertyPath|Property containing upper boundary of a period<br>If an upper boundary property does not specify a default value, a default value of `max` is assumed.
 [ObjectKey](./Org.OData.Temporal.V1.xml#L140:~:text=<ComplexType%20Name="-,TimelineVisible,-")|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 
 ## <a name="TimesliceWithPeriod"></a>[TimesliceWithPeriod](./Org.OData.Temporal.V1.xml#L146:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")
@@ -150,7 +150,7 @@ The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
           and they are interpreted according to the [`ApplicationTimeSupport/UnitOfTime`](#ApplicationTimeSupportType) of the collection.
           In particular, `ApplicationTimeSupport/UnitOfTime/ClosedClosedPeriods` governs whether a `PeriodEnd` of type `Edm.Date`
           is the last day in the period or the first day after the period.
-          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of "ad infinitum" is assumed for `PeriodEnd`.
+          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of `max` is assumed for `PeriodEnd`.
 
 Property|Type|Description
 :-------|:---|:----------

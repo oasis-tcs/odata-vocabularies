@@ -134,7 +134,7 @@
         <Property Name="PeriodEnd" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property containing upper boundary of a period" />
           <Annotation Term="Core.LongDescription">
-            <String>If an upper boundary property does not specify a default value, a default value of "ad infinitum" is assumed.</String>
+            <String>If an upper boundary property does not specify a default value, a default value of `max` is assumed.</String>
           </Annotation>
         </Property>
         <Property Name="ObjectKey" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -153,7 +153,7 @@
           and they are interpreted according to the [`ApplicationTimeSupport/UnitOfTime`](#ApplicationTimeSupportType) of the collection.
           In particular, `ApplicationTimeSupport/UnitOfTime/ClosedClosedPeriods` governs whether a `PeriodEnd` of type `Edm.Date`
           is the last day in the period or the first day after the period.
-          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of "ad infinitum" is assumed for `PeriodEnd`.</String>
+          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of `max` is assumed for `PeriodEnd`.</String>
         </Annotation>
         <Property Name="PeriodStart" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Lower boundary of the time slice" />

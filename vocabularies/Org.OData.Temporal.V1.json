@@ -101,7 +101,7 @@
             "PeriodEnd": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property containing upper boundary of a period",
-                "@Core.LongDescription": "If an upper boundary property does not specify a default value, a default value of \"ad infinitum\" is assumed."
+                "@Core.LongDescription": "If an upper boundary property does not specify a default value, a default value of `max` is assumed."
             },
             "ObjectKey": {
                 "$Collection": true,
@@ -113,7 +113,7 @@
         "TimesliceWithPeriod": {
             "$Kind": "ComplexType",
             "@Core.Description": "Delta time slices with validity period",
-            "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present\n          if the entity type of the `Timeslice` already contains period start and end, that is,\n          if the collection on which the action is invoked has visible timeline.\n          If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          and they are interpreted according to the [`ApplicationTimeSupport/UnitOfTime`](#ApplicationTimeSupportType) of the collection.\n          In particular, `ApplicationTimeSupport/UnitOfTime/ClosedClosedPeriods` governs whether a `PeriodEnd` of type `Edm.Date`\n          is the last day in the period or the first day after the period.\n          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of \"ad infinitum\" is assumed for `PeriodEnd`.",
+            "@Core.LongDescription": "The properties `PeriodStart` and `PeriodEnd` MUST NOT be present\n          if the entity type of the `Timeslice` already contains period start and end, that is,\n          if the collection on which the action is invoked has visible timeline.\n          If present, they MUST have the same type, either `Edm.Date` or `Edm.DateTimeOffset`,\n          and they are interpreted according to the [`ApplicationTimeSupport/UnitOfTime`](#ApplicationTimeSupportType) of the collection.\n          In particular, `ApplicationTimeSupport/UnitOfTime/ClosedClosedPeriods` governs whether a `PeriodEnd` of type `Edm.Date`\n          is the last day in the period or the first day after the period.\n          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of `max` is assumed for `PeriodEnd`.",
             "PeriodStart": {
                 "$Type": "Edm.PrimitiveType",
                 "$Nullable": true,
