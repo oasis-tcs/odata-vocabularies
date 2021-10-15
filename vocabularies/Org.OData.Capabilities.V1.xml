@@ -638,7 +638,7 @@ Clients of such a service SHOULD expect the deprecated annotation properties ins
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
-      <Term Name="NavigationInsertRestrictions" Type="Collection(Capabilities.NavigationInsertRestrictionsType)" Nullable="false" AppliesTo="EntitySet Collection">
+      <Term Name="NavigationInsertRestrictions" Type="Collection(Capabilities.NavigationInsertRestrictionsType)" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on insertions into an entity collection addressed via a navigation property" />
         <Annotation Term="Core.LongDescription">

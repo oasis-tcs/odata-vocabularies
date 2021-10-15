@@ -797,7 +797,6 @@
             "$Collection": true,
             "$Type": "Capabilities.NavigationInsertRestrictionsType",
             "$AppliesTo": [
-                "EntitySet",
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
