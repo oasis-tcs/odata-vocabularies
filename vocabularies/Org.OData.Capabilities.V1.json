@@ -789,7 +789,6 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on insert operations"
         },
         "NavigationInsertRestrictions": {

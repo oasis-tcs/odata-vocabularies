@@ -635,7 +635,6 @@ Clients of such a service SHOULD expect the deprecated annotation properties ins
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <Term Name="NavigationInsertRestrictions" Type="Collection(Capabilities.NavigationInsertRestrictionsType)" Nullable="false" AppliesTo="Collection">
