@@ -249,7 +249,7 @@
             "@Core.Revisions": [
                 {
                     "Kind": "Modified",
-                    "Description": "Some properties of this complex type are deprecated. For compatibility, the right of existing services is hereby acknowledged\nto prefer these properties over their favored replacements and to assume that paths in these properties\nare evaluated starting at the target of the `NavigationProperty`, in breach of [OData-CSDL, section 14.4.1.2].\nClients of such a service SHOULD expect the deprecated annotation properties instead of their favored replacements."
+                    "Description": "Clients of existing services should be prepared that paths in properties of this complex type\nmay be evaluated starting at the target of the `NavigationProperty`, in breach of [OData-CSDL, section 14.4.1.2]."
                 }
             ],
             "NavigationProperty": {
@@ -305,57 +305,27 @@
             "InsertRestrictions": {
                 "$Type": "Capabilities.InsertRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on insert operations",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`InsertRestrictions`](#InsertRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions on insert operations"
             },
             "DeepInsertSupport": {
                 "$Type": "Capabilities.DeepInsertSupportType",
                 "$Nullable": true,
-                "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`DeepInsertSupport`](#DeepInsertSupport)"
-                    }
-                ]
+                "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
             },
             "UpdateRestrictions": {
                 "$Type": "Capabilities.UpdateRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on update operations",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`UpdateRestrictions`](#UpdateRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions on update operations"
             },
             "DeepUpdateSupport": {
                 "$Type": "Capabilities.DeepUpdateSupportType",
                 "$Nullable": true,
-                "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`DeepUpdateSupport`](#DeepUpdateSupport)"
-                    }
-                ]
+                "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
             },
             "DeleteRestrictions": {
                 "$Type": "Capabilities.DeleteRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on delete operations",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`DeleteRestrictions`](#DeleteRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions on delete operations"
             },
             "OptimisticConcurrencyControl": {
                 "$Type": "Edm.Boolean",
@@ -365,13 +335,7 @@
             "ReadRestrictions": {
                 "$Type": "Capabilities.ReadRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions for retrieving entities",
-                "@Core.Revisions": [
-                    {
-                        "Kind": "Deprecated",
-                        "Description": "Deprecated in favor of [`ReadRestrictions`](#ReadRestrictions)"
-                    }
-                ]
+                "@Core.Description": "Restrictions for retrieving entities"
             }
         },
         "NavigationType": {
