@@ -235,17 +235,6 @@ supported:
         </Property>
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
-        <Annotation Term="Core.Revisions">
-          <Collection>
-            <Record>
-              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
-              <PropertyValue Property="Description">
-                <String>Clients of existing services should be prepared that paths in properties of this complex type
-may be evaluated starting at the target of the `NavigationProperty`, in breach of [OData-CSDL, section 14.4.1.2].</String>
-              </PropertyValue>
-            </Record>
-          </Collection>
-        </Annotation>
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
         </Property>

@@ -246,12 +246,6 @@
         },
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
-            "@Core.Revisions": [
-                {
-                    "Kind": "Modified",
-                    "Description": "Clients of existing services should be prepared that paths in properties of this complex type\nmay be evaluated starting at the target of the `NavigationProperty`, in breach of [OData-CSDL, section 14.4.1.2]."
-                }
-            ],
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "$Nullable": true,
