@@ -1,6 +1,6 @@
 # Annotating capabilities
 
-Consider a `Headers` entity set with contained entity sets `Headers(...)/Items` and `Headers(...)/Items(...)/Subitems`. Each entity type has a server-generated `uuid` and a `canUpdate` property. The header has an additional `canUpdateItems` and the item has `canUpdateSubitems` which govern insertability. Headers can always be inserted. The following annotations express insertability and updatability in terms of these properties.
+Consider a `Headers` entity set with contained entity sets `Headers(...)/Items` and `Headers(...)/Items(...)/Subitems`. Each entity type has a server-generated `uuid` and a `canUpdate` property. The header has an additional `canInsertItems` and the item has `canInsertSubitems` which govern insertability. Headers can always be inserted. The following annotations express insertability and updatability in terms of these properties.
 
 For the header level, the entity set is annotated directly.
 
