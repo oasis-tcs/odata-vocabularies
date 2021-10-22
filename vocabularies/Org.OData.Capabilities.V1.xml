@@ -166,7 +166,8 @@ supported:
         <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container" />
       </Term>
 
-      <Term Name="CallbackSupported" Type="Capabilities.CallbackType" Nullable="false" AppliesTo="EntityContainer EntitySet">
+      <Term Name="CallbackSupported" Type="Capabilities.CallbackType" Nullable="false" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports callbacks for the specified protocols" />
       </Term>
       <ComplexType Name="CallbackType">
@@ -207,7 +208,8 @@ supported:
 
       <!--Query Capabilities -->
 
-      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
       <ComplexType Name="CountRestrictionsType">
@@ -300,23 +302,28 @@ supported:
         </Member>
       </EnumType>
 
-      <Term Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
       </Term>
 
-      <Term Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports $top" />
       </Term>
 
-      <Term Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports $skip" />
       </Term>
 
-      <Term Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports $compute" />
       </Term>
 
-      <Term Name="SelectSupport" Type="Capabilities.SelectSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
+      <Term Name="SelectSupport" Type="Capabilities.SelectSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Support for $select and nested query options within $select" />
       </Term>
       <ComplexType Name="SelectSupportType">
@@ -402,12 +409,14 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityContainer EntitySet">
+      <Term Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="List of functions and operators supported in filter expressions" />
         <Annotation Term="Core.LongDescription" String="If not specified, null, or empty, all functions and operators may be attempted." />
       </Term>
 
-      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
       </Term>
       <ComplexType Name="FilterRestrictionsType">
@@ -476,7 +485,8 @@ supported:
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
       </Term>
       <ComplexType Name="SortRestrictionsType">
@@ -499,7 +509,8 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
@@ -526,7 +537,8 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on search expressions" />
       </Term>
       <ComplexType Name="SearchRestrictionsType">

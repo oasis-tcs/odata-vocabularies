@@ -133,8 +133,10 @@
             "$Type": "Capabilities.CallbackType",
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports callbacks for the specified protocols"
         },
         "CallbackType": {
@@ -199,8 +201,10 @@
             "$Type": "Capabilities.CountRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
         },
         "CountRestrictionsType": {
@@ -346,8 +350,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports key values according to OData URL conventions"
         },
         "TopSupported": {
@@ -355,8 +361,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports $top"
         },
         "SkipSupported": {
@@ -364,8 +372,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports $skip"
         },
         "ComputeSupported": {
@@ -373,8 +383,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports $compute"
         },
         "SelectSupport": {
@@ -383,8 +395,10 @@
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Support for $select and nested query options within $select"
         },
         "SelectSupportType": {
@@ -514,8 +528,10 @@
             "$Collection": true,
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "List of functions and operators supported in filter expressions",
             "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
         },
@@ -523,8 +539,10 @@
             "$Kind": "Term",
             "$Type": "Capabilities.FilterRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on filter expressions"
         },
         "FilterRestrictionsType": {
@@ -612,8 +630,10 @@
             "$Kind": "Term",
             "$Type": "Capabilities.SortRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on orderby expressions"
         },
         "SortRestrictionsType": {
@@ -647,8 +667,10 @@
             "$Type": "Capabilities.ExpandRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on expand expressions"
         },
         "ExpandRestrictionsType": {
@@ -687,8 +709,10 @@
             "$Kind": "Term",
             "$Type": "Capabilities.SearchRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on search expressions"
         },
         "SearchRestrictionsType": {
