@@ -13,4 +13,6 @@ This example shows a type definition of a "JSON Stream" property with an attache
 ## [Permissions](Org.OData.Capabilities.V1.permissions-sample.xml) 
 
 Permissions property defined under Read, Insert, Update, Delete in the capabilities vocabulary,  gives the ability to list Auth flows and scopes within those flows required to perform operations on an entity set.
-The example also shows how to specify insert restrictions on related entities using an indicator property from the higher level.
+
+## [Capabilities](Org.OData.Capabilities.V1.capabilities.md)
+The example shows several ways to specify insert and update restrictions on various levels.
