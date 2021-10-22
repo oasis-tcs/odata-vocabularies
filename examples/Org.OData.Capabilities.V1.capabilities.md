@@ -20,7 +20,7 @@ For the header level, the entity set is annotated directly.
 The item level has no named entity set. It can be annotated
 
 <table><tr>
-  <td>using <code>NavigationRestrictions</code>. But the instance path to the <code>canUpdate</code> property is then collection-valued and therefore invalid.</td>
+  <td>using <code>NavigationRestrictions</code> on header level</td>
   <td>using <code>NavigationInsertRestrictions</code> on header level and <code>UpdateRestrictions</code> on item level</td>
 </tr>
 <tr>
@@ -44,7 +44,7 @@ The item level has no named entity set. It can be annotated
 },</pre></td></tr>
 <tr>
   <td>Path evaluation starts at the header</td>
-  <td>Path evaluation starts at the item</td>
+  <td>Path evaluation starts at the item. The instance path to the <code>canUpdate</code> property is collection-valued and therefore invalid.</td>
 </tr>
 <tr><td><pre>      "UpdateRestrictions": {
         "Updatable": {"$Path": "Items/canUpdate"},
@@ -64,7 +64,7 @@ The item level has no named entity set. It can be annotated
 Likewise, the subitem level can be annotated
 
 <table><tr>
-  <td>using <code>NavigationRestrictions</code>. Again, the instance paths are invalid.</td>
+  <td>using <code>NavigationRestrictions</code> on header level. Again, the instance paths are invalid.</td>
   <td>using <code>NavigationInsertRestrictions</code> on item level and <code>UpdateRestrictions</code> on subitem level</td>
 </tr>
 <tr>
