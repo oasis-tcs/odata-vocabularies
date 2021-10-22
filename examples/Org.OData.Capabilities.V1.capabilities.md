@@ -17,11 +17,15 @@ For the header level, the entity set is annotated directly.
 }
 ```
 
-The item level can be annotated
+The item level has no named entity set. It can be annotated
 
 <table><tr>
-  <td>using <code>NavigationRestrictions</code>. But the instance path to the <code>canUpdate</code> property is then invalid.</td>
+  <td>using <code>NavigationRestrictions</code>. But the instance path to the <code>canUpdate</code> property is then collection-valued and therefore invalid.</td>
   <td>using <code>NavigationInsertRestrictions</code> on header level and <code>UpdateRestrictions</code> on item level</td>
+</tr>
+<tr>
+  <td>Path evaluation starts at the header</td>
+  <td>Path evaluation starts at the header</td>
 </tr>
 <tr><td><pre>"self.Container/Headers": {
   "@Capabilities.NavigationRestrictions": {
@@ -30,33 +34,42 @@ The item level can be annotated
       "InsertRestrictions": {
         "Insertable": {"$Path": "canInsertItems"},
         "NonInsertableProperties": ["Items/uuid"]
-      },
-      "UpdateRestrictions": {
-        "Updatable": {"$Path": "Items/canUpdate"},
-        "NonUpdatableProperties": ["Items/uuid"]
-      }
-    }
-  }
-}</pre></td>
+      },</pre></td>
 <td><pre>"self.Container/Headers": {
   "@Capabilities.NavigationInsertRestrictions": [{
     "NavigationProperty": "Items",
     "Insertable": {"$Path": "canInsertItems"},
     "NonInsertableProperties": ["Items/uuid"]
   }]
-},
-"self.Container/Headers/Items": {
+},</pre></td></tr>
+<tr>
+  <td>Path evaluation starts at the header</td>
+  <td>Path evaluation starts at the item</td>
+</tr>
+<tr><td><pre>      "UpdateRestrictions": {
+        "Updatable": {"$Path": "Items/canUpdate"},
+        "NonUpdatableProperties": ["Items/uuid"]
+      }
+    }
+  }
+}</pre></td>
+<td><pre>"self.Container/Headers/Items": {
   "@Capabilities.UpdateRestrictions": {
     "Updatable": {"$Path": "canUpdate"},
     "NonUpdatableProperties": ["uuid"]
   }
-}</pre></td></tr></table>
+}</pre></td></tr>
+</table>
 
 Likewise, the subitem level can be annotated
 
 <table><tr>
   <td>using <code>NavigationRestrictions</code>. Again, the instance paths are invalid.</td>
   <td>using <code>NavigationInsertRestrictions</code> on item level and <code>UpdateRestrictions</code> on subitem level</td>
+</tr>
+<tr>
+  <td>Path evaluation starts at the header</td>
+  <td>Path evaluation starts at the item</td>
 </tr>
 <tr><td><pre>"self.Container/Headers": {
   "@Capabilities.NavigationRestrictions": {
@@ -65,24 +78,29 @@ Likewise, the subitem level can be annotated
       "InsertRestrictions": {
         "Insertable": {"$Path": "Items/canInsertSubitems"},
         "NonInsertableProperties": ["Items/Subitems/uuid"]
-      },
-      "UpdateRestrictions": {
-        "Updatable": {"$Path": "Items/Subitems/canUpdate"},
-        "NonUpdatableProperties": ["Items/Subitems/uuid"]
-      }
-    }]
-  }
-}</pre></td>
+      },</pre></td>
 <td><pre>"self.Container/Headers/Items": {
   "@Capabilities.NavigationInsertRestrictions": [{
     "NavigationProperty": "Subitems",
     "Insertable": {"$Path": "canInsertSubitems"},
     "NonInsertableProperties": ["Subitems/uuid"]
   }]
-},
-"self.Container/Headers/Items/Subitems": {
+},</pre></td></tr>
+<tr>
+  <td>Path evaluation starts at the header</td>
+  <td>Path evaluation starts at the subitem</td>
+</tr>
+<tr><td><pre>      "UpdateRestrictions": {
+        "Updatable": {"$Path": "Items/Subitems/canUpdate"},
+        "NonUpdatableProperties": ["Items/Subitems/uuid"]
+      }
+    }]
+  }
+}</pre></td>
+<td><pre>"self.Container/Headers/Items/Subitems": {
   "@Capabilities.UpdateRestrictions": {
     "Updatable": {"$Path": "canUpdate"},
     "NonUpdatableProperties": ["uuid"]
   }
-}</pre></td></tr></table>
+}</pre></td></tr>
+</table>
