@@ -318,7 +318,7 @@ Property|Type|Description
 [CustomHeaders](./Org.OData.Capabilities.V1.xml#L605:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L608:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [Description](./Org.OData.Capabilities.V1.xml#L611:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L615:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|String?|A lengthy description of the request
+[LongDescription](./Org.OData.Capabilities.V1.xml#L615:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|String?|A long description of the request
 
 ## <a name="PermissionType"></a>[PermissionType](./Org.OData.Capabilities.V1.xml#L621:~:text=<ComplexType%20Name="-,PermissionType,-")
 
@@ -364,7 +364,7 @@ Property|Type|Description
 [CustomHeaders](./Org.OData.Capabilities.V1.xml#L703:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L706:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [Description](./Org.OData.Capabilities.V1.xml#L709:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L713:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|String?|A lengthy description of the request
+[LongDescription](./Org.OData.Capabilities.V1.xml#L713:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|String?|A long description of the request
 
 ## <a name="HttpMethod"></a>[HttpMethod](./Org.OData.Capabilities.V1.xml#L719:~:text=<EnumType%20Name="-,HttpMethod,-")
 
@@ -401,7 +401,7 @@ Property|Type|Description
 [CustomHeaders](./Org.OData.Capabilities.V1.xml#L778:~:text=<ComplexType%20Name="-,DeleteRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L781:~:text=<ComplexType%20Name="-,DeleteRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [Description](./Org.OData.Capabilities.V1.xml#L784:~:text=<ComplexType%20Name="-,DeleteRestrictionsType,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L788:~:text=<ComplexType%20Name="-,DeleteRestrictionsType,-")|String?|A lengthy description of the request
+[LongDescription](./Org.OData.Capabilities.V1.xml#L788:~:text=<ComplexType%20Name="-,DeleteRestrictionsType,-")|String?|A long description of the request
 
 ## <a name="CollectionPropertyRestrictionsType"></a>[CollectionPropertyRestrictionsType](./Org.OData.Capabilities.V1.xml#L797:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")
 
@@ -456,7 +456,7 @@ Property|Type|Description
 [CustomHeaders](./Org.OData.Capabilities.V1.xml#L890:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L893:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [Description](./Org.OData.Capabilities.V1.xml#L896:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L900:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A lengthy description of the request
+[LongDescription](./Org.OData.Capabilities.V1.xml#L900:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A long description of the request
 
 ## <a name="ReadByKeyRestrictionsType"></a>[ReadByKeyRestrictionsType](./Org.OData.Capabilities.V1.xml#L905:~:text=<ComplexType%20Name="-,ReadByKeyRestrictionsType,-"): [ReadRestrictionsBase](#ReadRestrictionsBase)
 Restrictions for retrieving an entity by key
@@ -468,7 +468,7 @@ Property|Type|Description
 [*CustomHeaders*](./Org.OData.Capabilities.V1.xml#L890:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L893:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [*Description*](./Org.OData.Capabilities.V1.xml#L896:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A brief description of the request
-[*LongDescription*](./Org.OData.Capabilities.V1.xml#L900:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A lengthy description of the request
+[*LongDescription*](./Org.OData.Capabilities.V1.xml#L900:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A long description of the request
 
 ## <a name="ReadRestrictionsType"></a>[ReadRestrictionsType](./Org.OData.Capabilities.V1.xml#L908:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-"): [ReadRestrictionsBase](#ReadRestrictionsBase)
 
@@ -480,7 +480,7 @@ Property|Type|Description
 [*CustomHeaders*](./Org.OData.Capabilities.V1.xml#L890:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
 [*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L893:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
 [*Description*](./Org.OData.Capabilities.V1.xml#L896:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A brief description of the request
-[*LongDescription*](./Org.OData.Capabilities.V1.xml#L900:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A lengthy description of the request
+[*LongDescription*](./Org.OData.Capabilities.V1.xml#L900:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A long description of the request
 [ReadByKeyRestrictions](./Org.OData.Capabilities.V1.xml#L909:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-")|[ReadByKeyRestrictionsType?](#ReadByKeyRestrictionsType)|Restrictions for retrieving an entity by key<br>Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies.
 
 ## <a name="CustomParameter"></a>[CustomParameter](./Org.OData.Capabilities.V1.xml#L972:~:text=<ComplexType%20Name="-,CustomParameter,-")
