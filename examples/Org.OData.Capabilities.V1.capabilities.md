@@ -27,7 +27,7 @@ The item level has no named entity set. It can be annotated
 </tr>
 <tr>
   <td>Path evaluation starts at the header</td>
-  <td>Path evaluation starts at the header. The instance path to the <code>canUpdate</code> property is collection-valued and therefore invalid.</td>
+  <td>Path evaluation starts at the header</td>
 </tr>
 <tr><td><pre>"self.Container/Headers": {
   "@Capabilities.NavigationRestrictions": {
@@ -42,8 +42,14 @@ The item level has no named entity set. It can be annotated
     "NavigationProperty": "Items",
     "Insertable": {"$Path": "canInsertItems"},
     "NonInsertableProperties": ["Items/uuid"]
-  }],
-  "@Capabilities.NavigationUpdateRestrictions": [{
+  }],</pre></td></tr>
+<tr>
+  <td>Path evaluation starts at the header</td>
+  <td>Path evaluation starts at the header. The instance path to the <code>canUpdate</code> property is collection-valued and therefore invalid.</td>
+</tr>
+<tr><td><pre>      "UpdateRestrictions": {
+        "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"},</pre></td>
+<td><pre>  "@Capabilities.NavigationUpdateRestrictions": [{
     "NavigationProperty": "Items",
     "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"},
     "Updatable": {"$Path": "Items/canUpdate"},
@@ -54,8 +60,7 @@ The item level has no named entity set. It can be annotated
   <td>Path evaluation starts at the header. The instance path to the <code>canUpdate</code> property is collection-valued and therefore invalid.</td>
   <td>Path evaluation starts at the item. The instance path to the <code>canUpdate</code> property is valid.</td>
 </tr>
-<tr><td><pre>      "UpdateRestrictions": {
-        "Updatable": {"$Path": "Items/canUpdate"},
+<tr><td><pre>        "Updatable": {"$Path": "Items/canUpdate"},
         "NonUpdatableProperties": ["Items/uuid"]
       }
     }
