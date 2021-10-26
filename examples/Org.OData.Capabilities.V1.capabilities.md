@@ -1,6 +1,6 @@
 # Annotating capabilities
 
-Consider a `Headers` entity set with contained entity sets `Headers(...)/Items` and `Headers(...)/Items(...)/Subitems`. Each entity type has a server-generated `uuid` and a `canUpdate` property. The header has an additional `canInsertItems` and the item has `canInsertSubitems` which govern insertability. Headers can always be inserted. The header also has a `canUpdateSubsetOfItems` which governs updatability with `/$filter(...)/$each` (the analogous thing on item level is omitted from this example).
+Consider a `Headers` entity set with contained entity sets `Headers(...)/Items` and `Headers(...)/Items(...)/Subitems`. Each entity type has a server-generated `uuid` and a `canUpdate` property. The header has an additional `canInsertItems` and the item has `canInsertSubitems` which govern insertability. Insertability of headers depends on the permissions contained in a `Permissions` singleton. The header also has a `canUpdateSubsetOfItems` which governs updatability with `/$filter(...)/$each` (the analogous thing on item level is omitted from this example).
 
 The following annotations express insertability and updatability in terms of these properties. Deletability is analogous to updatability but omitted from this example.
 
@@ -9,7 +9,7 @@ For the header level, the entity set is annotated directly.
 ```
 "self.Container/Headers": {
   "@Capabilities.InsertRestrictions": {
-    "Insertable": {"$Path": "/self.Container/PermissionsSingleton/canInsertHeaders"},
+    "Insertable": {"$Path": "/self.Container/Permissions/canInsertHeaders"},
     "NonInsertableProperties": ["uuid"]
   },
   "@Capabilities.UpdateRestrictions": {
