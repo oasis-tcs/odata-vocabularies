@@ -51,7 +51,8 @@ The item level has no named entity set. It can be annotated
         "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"},</pre></td>
 <td><pre>  "@Capabilities.NavigationUpdateRestrictions": [{
     "NavigationProperty": "Items",
-    "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"},
+    "FilterSegmentSupported":
+      {"$Path": "canUpdateSubsetOfItems"},
     "Updatable": {"$Path": "Items/canUpdate"},
     "NonUpdatableProperties": ["Items/uuid"]
   }]
