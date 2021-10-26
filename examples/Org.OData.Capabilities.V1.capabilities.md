@@ -42,8 +42,7 @@ The item level has no named entity set. It can be annotated
     "NavigationProperty": "Items",
     "Insertable": {"$Path": "canInsertItems"},
     "NonInsertableProperties": ["Items/uuid"]
-  }]
-},
+  }],
   "@Capabilities.NavigationUpdateRestrictions": [{
     "NavigationProperty": "Items",
     "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"},
