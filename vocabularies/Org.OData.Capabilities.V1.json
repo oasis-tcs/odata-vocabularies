@@ -915,6 +915,17 @@
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on update operations"
         },
+        "NavigationUpdateRestrictions": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Capabilities.NavigationUpdateRestrictionsType",
+            "$AppliesTo": [
+                "Collection"
+            ],
+            "@Core.AppliesViaContainer": true,
+            "@Core.Description": "Restrictions on update operations on an entity collection addressed via a navigation property",
+            "@Core.LongDescription": "The value of this annotation is a collection of entries that differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType)."
+        },
         "UpdateRestrictionsType": {
             "$Kind": "ComplexType",
             "Updatable": {
@@ -997,6 +1008,14 @@
                 "$Nullable": true,
                 "@Core.Description": "A lengthy description of the request",
                 "@Core.IsLanguageDependent": true
+            }
+        },
+        "NavigationUpdateRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.UpdateRestrictionsType",
+            "NavigationProperty": {
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "Navigation property path addressing the entity collection"
             }
         },
         "HttpMethod": {
