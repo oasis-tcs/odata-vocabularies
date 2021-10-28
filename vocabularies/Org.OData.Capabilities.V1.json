@@ -230,8 +230,10 @@
             "$Type": "Capabilities.NavigationRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on navigating properties according to OData URL conventions",
             "@Core.LongDescription": "Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence."
         },
@@ -773,17 +775,6 @@
             ],
             "@Core.Description": "Restrictions on insert operations"
         },
-        "NavigationInsertRestrictions": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Capabilities.NavigationInsertRestrictionsType",
-            "$AppliesTo": [
-                "Collection"
-            ],
-            "@Core.AppliesViaContainer": true,
-            "@Core.Description": "Restrictions on insertions into an entity collection addressed via a navigation property",
-            "@Core.LongDescription": "The value of this annotation is a collection of entries that differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType)."
-        },
         "InsertRestrictionsType": {
             "$Kind": "ComplexType",
             "Insertable": {
@@ -848,14 +839,6 @@
                 "@Core.IsLanguageDependent": true
             }
         },
-        "NavigationInsertRestrictionsType": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.InsertRestrictionsType",
-            "NavigationProperty": {
-                "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Navigation property path addressing the entity collection"
-            }
-        },
         "PermissionType": {
             "$Kind": "ComplexType",
             "SchemeName": {
@@ -914,17 +897,6 @@
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on update operations"
-        },
-        "NavigationUpdateRestrictions": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Capabilities.NavigationUpdateRestrictionsType",
-            "$AppliesTo": [
-                "Collection"
-            ],
-            "@Core.AppliesViaContainer": true,
-            "@Core.Description": "Restrictions on update operations on an entity collection addressed via a navigation property",
-            "@Core.LongDescription": "The value of this annotation is a collection of entries that differ in their [`NavigationProperty`](#NavigationInsertRestrictionsType)."
         },
         "UpdateRestrictionsType": {
             "$Kind": "ComplexType",
@@ -1008,14 +980,6 @@
                 "$Nullable": true,
                 "@Core.Description": "A lengthy description of the request",
                 "@Core.IsLanguageDependent": true
-            }
-        },
-        "NavigationUpdateRestrictionsType": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Capabilities.UpdateRestrictionsType",
-            "NavigationProperty": {
-                "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Navigation property path addressing the entity collection"
             }
         },
         "HttpMethod": {
