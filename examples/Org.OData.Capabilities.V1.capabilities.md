@@ -23,7 +23,7 @@ The item level has no named entity set. It can be annotated
 
 <table><tr>
   <td>using <code>NavigationRestrictions</code> on header level</td>
-  <td>using <code>NavigationInsertRestrictions</code> and a mixture of <code>NavigationUpdateRestrictions</code> on header level and <code>UpdateRestrictions</code> on item level</td>
+  <td>using <code>NavigationInsertRestrictions</code> on header level and a mixture of <code>NavigationUpdateRestrictions</code> on header level and <code>UpdateRestrictions</code> on item level</td>
 </tr>
 <tr>
   <td>Path evaluation starts at the header</td>
