@@ -22,7 +22,7 @@ For the header level, the entity set is annotated directly.
 The item level has no named entity set. It can be annotated
 
 <table><tr>
-  <td>using <code>NavigationRestrictions</code> on header level, but certain instance paths are invalid</td>
+  <td>using <code>NavigationRestrictions</code> on header level, if updatability is a boolean literal. (The commented-out instance paths are invalid.)</td>
   <td>using <code>NavigationRestrictions</code> on header level and <code>UpdateRestrictions</code> on item level</td>
 </tr>
 <tr>
@@ -45,7 +45,7 @@ The item level has no named entity set. It can be annotated
   }</pre></td>
 <td><em>same as left column</em></td></tr>
 <tr>
-  <td>Path evaluation starts at the header. The instance path to the <code>canUpdate</code> property is collection-valued and therefore invalid.</td>
+  <td>Path evaluation starts at the header. The commented-out instance path to the <code>canUpdate</code> property is collection-valued and therefore invalid.</td>
   <td>Path evaluation starts at the item. The instance path to the <code>canUpdate</code> property is valid.</td>
 </tr>
 <tr><td><pre>"self.Container/Headers": {
@@ -53,7 +53,9 @@ The item level has no named entity set. It can be annotated
     "RestrictedProperties": [{
       "NavigationProperty": "Items",
       "UpdateRestrictions": {
-        "Updatable": {"$Path": "Items/canUpdate"},
+        "Updatable": true,
+     // "Invalid-Updatable":
+     //   {"$Path": "Items/canUpdate"},
         "NonUpdatableProperties": ["Items/uuid"]
       }
     }
@@ -70,7 +72,7 @@ The item level has no named entity set. It can be annotated
 Likewise, the subitem level can be annotated
 
 <table><tr>
-  <td>using <code>NavigationRestrictions</code> on header level. Again, certain instance paths are invalid.</td>
+  <td>using <code>NavigationRestrictions</code> on header level, if boolean values are given as literals. (Again, the commented-out instance paths are invalid.)</td>
   <td>using <code>NavigationRestrictions</code> on item level and <code>UpdateRestrictions</code> on subitem level</td>
 </tr>
 <tr>
@@ -82,7 +84,9 @@ Likewise, the subitem level can be annotated
     "RestrictedProperties": [{
       "NavigationProperty": "Items/Subitems",
       "InsertRestrictions": {
-        "Insertable": {"$Path": "Items/canInsertSubitems"},
+        "Insertable": true,
+     // "Invalid-Insertable":
+     //   {"$Path": "Items/canInsertSubitems"},
         "NonInsertableProperties": ["Items/Subitems/uuid"]
       }
     }]
@@ -106,7 +110,9 @@ Likewise, the subitem level can be annotated
     "RestrictedProperties": [{
       "NavigationProperty": "Items/Subitems",
       "UpdateRestrictions": {
-        "Updatable": {"$Path": "Items/Subitems/canUpdate"},
+        "Updatable": true,
+     // "Invalid-Updatable":
+     //   {"$Path": "Items/Subitems/canUpdate"},
         "NonUpdatableProperties": ["Items/Subitems/uuid"]
       }
     }]
