@@ -37,8 +37,8 @@ The item level has no named entity set. It is annotated using `NavigationRestric
       }
     }]
   },
- },
- "self.Container/Headers/Items": {
+},
+"self.Container/Headers/Items": {
   "@Capabilities.UpdateRestrictions": {
     "Updatable": {"$Path": "canUpdate"},
     "NonUpdatableProperties": ["uuid"]
