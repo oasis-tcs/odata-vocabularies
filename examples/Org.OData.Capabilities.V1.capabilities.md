@@ -19,17 +19,10 @@ For the header level, the entity set is annotated directly.
 }
 ```
 
-The item level has no named entity set. It can be annotated
+The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `UpdateRestrictions` on item level. The `NonUpdatableProperties` in the `UpdateRestrictions` annotations is favored over their commented-out counterpart in `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued.
 
-<table><tr>
-  <td>using <code>NavigationRestrictions</code> on header level, if updatability is a boolean literal. (The commented-out instance paths are invalid.)</td>
-  <td>using <code>NavigationRestrictions</code> on header level and <code>UpdateRestrictions</code> on item level</td>
-</tr>
-<tr>
-  <td>Path evaluation starts at the header</td>
-  <td><em>same as left column</em></td>
-</tr>
-<tr><td><pre>"self.Container/Headers": {
+```
+"self.Container/Headers": {
   "@Capabilities.NavigationRestrictions": {
     "RestrictedProperties": [{
       "NavigationProperty": "Items",
@@ -38,90 +31,51 @@ The item level has no named entity set. It can be annotated
         "NonInsertableProperties": ["Items/uuid"]
       },
       "UpdateRestrictions": {
+     // "Updatable": {"$Path": "Items/canUpdate"},
+     // "NonUpdatableProperties": ["Items/uuid"],
         "FilterSegmentSupported":
           {"$Path": "canUpdateSubsetOfItems"}
       }
     }]
-  }</pre></td>
-<td><em>same as left column</em></td></tr>
-<tr>
-  <td>Path evaluation starts at the header. The commented-out instance path to the <code>canUpdate</code> property is collection-valued and therefore invalid.</td>
-  <td>Path evaluation starts at the item. The instance path to the <code>canUpdate</code> property is valid.</td>
-</tr>
-<tr><td><pre>"self.Container/Headers": {
-  "@Capabilities.NavigationRestrictions": {
-    "RestrictedProperties": [{
-      "NavigationProperty": "Items",
-      "UpdateRestrictions": {
-        "Updatable": true,
-     // "Invalid-Updatable":
-     //   {"$Path": "Items/canUpdate"},
-        "NonUpdatableProperties": ["Items/uuid"]
-      }
-    }
-  }
-}</pre></td>
-<td><pre>"self.Container/Headers/Items": {
+  },
+ },
+ "self.Container/Headers/Items": {
   "@Capabilities.UpdateRestrictions": {
     "Updatable": {"$Path": "canUpdate"},
     "NonUpdatableProperties": ["uuid"]
   }
-}</pre></td></tr>
-</table>
+}
+```
 
-Likewise, the subitem level can be annotated
+If insertability was a boolean literal, the `InsertRestrictions` term on item level would also be favored over the `InsertRestrictions` property in `NavigationRestrictions` on header level.
 
-<table><tr>
-  <td>using <code>NavigationRestrictions</code> on header level, if boolean values are given as literals. (Again, the commented-out instance paths are invalid.)</td>
-  <td>using <code>NavigationRestrictions</code> on item level and <code>UpdateRestrictions</code> on subitem level</td>
-</tr>
-<tr>
-  <td>Path evaluation starts at the header</td>
-  <td>Path evaluation starts at the item</td>
-</tr>
-<tr><td><pre>"self.Container/Headers": {
-  "@Capabilities.NavigationRestrictions": {
-    "RestrictedProperties": [{
-      "NavigationProperty": "Items/Subitems",
-      "InsertRestrictions": {
-        "Insertable": true,
-     // "Invalid-Insertable":
-     //   {"$Path": "Items/canInsertSubitems"},
-        "NonInsertableProperties": ["Items/Subitems/uuid"]
-      }
-    }]
+```
+"self.Container/Headers/Items": {
+  "@Capabilities.InsertRestrictions": {
+    "Insertable": true,
+    "NonInsertableProperties": ["uuid"]
   }
-}</pre></td>
-<td><pre>"self.Container/Headers/Items": {
+}
+```
+
+The subitem level is annotated using `NavigationRestrictions` on item level and `UpdateRestrictions` on subitem level.
+
+```
+"self.Container/Headers/Items": {
   "@Capabilities.NavigationRestrictions": {
     "RestrictedProperties": [{
       "NavigationProperty": "Subitems",
-      "Insertable": {"$Path": "canInsertSubitems"},
-      "NonInsertableProperties": ["Subitems/uuid"]
-    }]
-  }
-}</pre></td></tr>
-<tr>
-  <td>Path evaluation starts at the header</td>
-  <td>Path evaluation starts at the subitem</td>
-</tr>
-<tr><td><pre>"self.Container/Headers": {
-  "@Capabilities.NavigationRestrictions": {
-    "RestrictedProperties": [{
-      "NavigationProperty": "Items/Subitems",
-      "UpdateRestrictions": {
-        "Updatable": true,
-     // "Invalid-Updatable":
-     //   {"$Path": "Items/Subitems/canUpdate"},
-        "NonUpdatableProperties": ["Items/Subitems/uuid"]
+      "InsertRestrictions": {
+        "Insertable": {"$Path": "canInsertSubitems"},
+        "NonInsertableProperties": ["Subitems/uuid"]
       }
     }]
   }
-}</pre></td>
-<td><pre>"self.Container/Headers/Items/Subitems": {
+},
+"self.Container/Headers/Items/Subitems": {
   "@Capabilities.UpdateRestrictions": {
     "Updatable": {"$Path": "canUpdate"},
     "NonUpdatableProperties": ["uuid"]
   }
-}</pre></td></tr>
-</table>
+}
+```

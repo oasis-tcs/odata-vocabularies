@@ -166,8 +166,7 @@ supported:
         <Annotation Term="Core.Description" String="Supports cross joins for the entity sets in this container" />
       </Term>
 
-      <Term Name="CallbackSupported" Type="Capabilities.CallbackType" Nullable="false" AppliesTo="EntityContainer EntitySet Collection">
-        <Annotation Term="Core.AppliesViaContainer" />
+      <Term Name="CallbackSupported" Type="Capabilities.CallbackType" Nullable="false" AppliesTo="EntityContainer EntitySet">
         <Annotation Term="Core.Description" String="Supports callbacks for the specified protocols" />
       </Term>
       <ComplexType Name="CallbackType">
@@ -238,8 +237,20 @@ supported:
         </Property>
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
+        <Annotation Term="Core.LongDescription">
+          <String>Using a property of this complex type in a [`NavigationRestrictions`](#NavigationRestrictions) annotation
+          is deprecated in favor of using an annotation with the eponymous term and a target path ending in the `NavigationProperty`,
+          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation
+          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).</String>
+        </Annotation>
         <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
+          <Annotation Term="Core.LongDescription">
+            <String>The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this
+            navigation property path addresses the resource to which the other properties of this complex type apply.
+            Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths,
+            which must therefore be chosen accordingly.</String>
+          </Annotation>
         </Property>
         <Property Name="Navigability" Type="Capabilities.NavigationType">
           <Annotation Term="Core.Description" String="Supported navigability of this navigation property" />
@@ -586,7 +597,8 @@ supported:
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
@@ -805,8 +817,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false" AppliesTo="EntitySet Singleton Collection">
-        <Annotation Term="Core.AppliesViaContainer" />
+      <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false" AppliesTo="EntitySet Singleton">
         <Annotation Term="Core.Description" String="Describes restrictions on operations applied to collection-valued structural properties" />
       </Term>
       <ComplexType Name="CollectionPropertyRestrictionsType">

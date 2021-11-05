@@ -133,10 +133,8 @@
             "$Type": "Capabilities.CallbackType",
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet",
-                "Collection"
+                "EntitySet"
             ],
-            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports callbacks for the specified protocols"
         },
         "CallbackType": {
@@ -252,10 +250,12 @@
         },
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
+            "@Core.LongDescription": "Using a property of this complex type in a [`NavigationRestrictions`](#NavigationRestrictions) annotation\n          is deprecated in favor of using an annotation with the eponymous term and a target path ending in the `NavigationProperty`,\n          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation\n          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "$Nullable": true,
-                "@Core.Description": "Navigation properties can be navigated"
+                "@Core.Description": "Navigation properties can be navigated",
+                "@Core.LongDescription": "The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this\n            navigation property path addresses the resource to which the other properties of this complex type apply.\n            Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths,\n            which must therefore be chosen accordingly."
             },
             "Navigability": {
                 "$Type": "Capabilities.NavigationType",
@@ -771,8 +771,10 @@
             "$Kind": "Term",
             "$Type": "Capabilities.InsertRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on insert operations"
         },
         "InsertRestrictionsType": {
@@ -1095,10 +1097,8 @@
             "$Type": "Capabilities.CollectionPropertyRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton",
-                "Collection"
+                "Singleton"
             ],
-            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Describes restrictions on operations applied to collection-valued structural properties"
         },
         "CollectionPropertyRestrictionsType": {
