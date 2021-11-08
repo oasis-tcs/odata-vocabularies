@@ -250,7 +250,7 @@
         },
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
-            "@Core.LongDescription": "Using a property _R_ of this complex type in a [`NavigationRestrictions`](#NavigationRestrictions) annotation\n          is deprecated in favor of using an annotation with the term _R_ and a target path ending in the `NavigationProperty`,\n          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation\n          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).",
+            "@Core.LongDescription": "Using a property _R_ of this complex type in a [`NavigationRestrictions`](#NavigationRestrictions) annotation\n          is deprecated in favor of using an annotation with the term _R_ from this vocabulary and a target path ending in the `NavigationProperty`,\n          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation\n          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Navigation properties can be navigated",
