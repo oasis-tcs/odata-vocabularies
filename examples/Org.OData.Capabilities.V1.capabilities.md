@@ -6,7 +6,7 @@ The following annotations express insertability and updatability in terms of the
 
 For the header level, the entity set is annotated directly.
 
-```
+```json
 "self.Container/Headers": {
   "@Capabilities.InsertRestrictions": {
     "Insertable": {"$Path": "/self.Container/Permissions/canInsertHeaders"},
@@ -21,7 +21,7 @@ For the header level, the entity set is annotated directly.
 
 The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `UpdateRestrictions` on item level. The `NonUpdatableProperties` in the `UpdateRestrictions` annotations is favored over their commented-out counterpart in `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued.
 
-```
+```json
 "self.Container/Headers": {
   "@Capabilities.NavigationRestrictions": {
     "RestrictedProperties": [{
@@ -48,7 +48,7 @@ The item level has no named entity set. It is annotated using `NavigationRestric
 
 If insertability was a boolean literal, the `InsertRestrictions` term on item level would also be favored over the `InsertRestrictions` property in `NavigationRestrictions` on header level.
 
-```
+```json
 "self.Container/Headers/Items": {
   "@Capabilities.InsertRestrictions": {
     "Insertable": true,
@@ -59,7 +59,7 @@ If insertability was a boolean literal, the `InsertRestrictions` term on item le
 
 The subitem level is annotated using `NavigationRestrictions` on item level and `UpdateRestrictions` on subitem level.
 
-```
+```json
 "self.Container/Headers/Items": {
   "@Capabilities.NavigationRestrictions": {
     "RestrictedProperties": [{
