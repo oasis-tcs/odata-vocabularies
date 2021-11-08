@@ -214,7 +214,7 @@
       </Action>
 
       <Action Name="UpdateFrom" IsBound="true">
-        <Annotation Term="Core.Description" String="Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have same the original value for all these properties" />
+        <Annotation Term="Core.Description" String="Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have the same original value for all these properties" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>
@@ -255,7 +255,7 @@
       </Action>
 
       <Action Name="DeleteFrom" IsBound="true">
-        <Annotation Term="Core.Description" String="Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries" />
+        <Annotation Term="Core.Description" String="Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have the same original value for all properties expect the period boundaries" />
         <Parameter Name="timeslices" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="Time slices to modify" />
         </Parameter>

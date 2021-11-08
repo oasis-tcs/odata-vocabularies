@@ -44,7 +44,7 @@ Parameter|Type|Description
 
 ### <a name="UpdateFrom"></a>[UpdateFrom](./Org.OData.Temporal.V1.xml#L216:~:text=<Action%20Name="-,UpdateFrom,-")
 
-Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have same the original value for all these properties
+Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have the same original value for all these properties
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -71,7 +71,7 @@ Parameter|Type|Description
 
 ### <a name="DeleteFrom"></a>[DeleteFrom](./Org.OData.Temporal.V1.xml#L257:~:text=<Action%20Name="-,DeleteFrom,-")
 
-Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries
+Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have the same original value for all properties expect the period boundaries
 
 Parameter|Type|Description
 :--------|:---|:----------
