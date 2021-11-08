@@ -19,7 +19,7 @@ For the header level, the entity set is annotated directly.
 }
 ```
 
-The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `UpdateRestrictions` on item level. The `NonUpdatableProperties` in the `UpdateRestrictions` annotations is favored over their commented-out counterpart in `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued.
+The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `UpdateRestrictions` on item level. The `NonUpdatableProperties` in the `UpdateRestrictions` annotations is favored over their deprecated counterpart in `NavigationRestrictions`, and the deprecated `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued.
 
 ```json
 "self.Container/Headers": {
@@ -31,8 +31,8 @@ The item level has no named entity set. It is annotated using `NavigationRestric
         "NonInsertableProperties": ["Items/uuid"]
       },
       "UpdateRestrictions": {
-     // "Updatable": {"$Path": "Items/canUpdate"},
-     // "NonUpdatableProperties": ["Items/uuid"],
+        "DEPRECATED-Updatable": {"$Path": "Items/canUpdate"},
+        "DEPRECATED-NonUpdatableProperties": ["Items/uuid"],
         "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"}
       }
     }]
