@@ -243,7 +243,7 @@ supported:
           unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation
           starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).</String>
         </Annotation>
-        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
+        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
           <Annotation Term="Core.LongDescription">
             <String>The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this
