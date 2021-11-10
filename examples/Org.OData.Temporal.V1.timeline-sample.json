@@ -107,8 +107,8 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
-                        "PeriodStart": "history/From",
-                        "PeriodEnd": "history/To"
+                        "PeriodStart": "From",
+                        "PeriodEnd": "To"
                     },
                     "SupportedActions": [
                         "Temporal.Update",
@@ -124,8 +124,8 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
-                        "PeriodStart": "history/From",
-                        "PeriodEnd": "history/To"
+                        "PeriodStart": "From",
+                        "PeriodEnd": "To"
                     },
                     "SupportedActions": [
                         "Temporal.Update",
