@@ -68,7 +68,7 @@
       </Annotation>
 
 
-      <Term Name="ApplicationTimeSupport" Type="Temporal.ApplicationTimeSupportType" Nullable="false" AppliesTo="Collection EntityType">
+      <Term Name="ApplicationTimeSupport" Type="Temporal.ApplicationTimeSupportType" Nullable="false" AppliesTo="Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
           <String>This collection supports temporal requests</String>
