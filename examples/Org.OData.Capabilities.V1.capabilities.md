@@ -46,7 +46,7 @@ The item level has no named entity set. It is annotated using `NavigationRestric
 }
 ```
 
-If insertability was a boolean literal, the `InsertRestrictions` term on item level would also be favored over the `InsertRestrictions` property in `NavigationRestrictions` on header level.
+If insertability is static, the value is a boolean literal, no path expressions are required. Then the `InsertRestrictions` term on item level would also be favored over the `InsertRestrictions` property in `NavigationRestrictions` on header level.
 
 ```jsonc
 "self.Container/Headers/Items": {

@@ -149,7 +149,7 @@ Property|Type|Description
 
 
 Using a property _R_ of this complex type in a [`NavigationRestrictions`](#NavigationRestrictions) annotation
-          is deprecated in favor of using an annotation with the term _R_ from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,
+          is discouraged in favor of using an annotation with the term _R_ from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,
           unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation
           starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).
 
