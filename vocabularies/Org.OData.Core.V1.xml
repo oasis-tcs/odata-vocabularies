@@ -421,7 +421,7 @@
       </Term>
 
       <ComplexType Name="ContentDispositionType">
-        <Property Name="DispositionType" Type="Edm.String">
+        <Property Name="Type" Type="Edm.String">
           <Annotation Term="Core.Description" String="The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)" />
         </Property>
         <Property Name="Filename" Type="Edm.String">

@@ -511,7 +511,7 @@
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",
-            "DispositionType": {
+            "Type": {
                 "$Nullable": true,
                 "@Core.Description": "The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)"
             },
