@@ -187,33 +187,6 @@
                 }
             }
         ],
-        "UpdateFrom": [
-            {
-                "$Kind": "Action",
-                "$IsBound": true,
-                "@Core.Description": "Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have the same original value for all these properties",
-                "$Parameter": [
-                    {
-                        "$Name": "timeslices",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Time slices to modify"
-                    },
-                    {
-                        "$Name": "deltaTimeslices",
-                        "$Collection": true,
-                        "$Type": "Temporal.TimesliceWithPeriod",
-                        "@Core.Description": "New time slices whose property values are used to update the `timeslices` collection",
-                        "@Core.LongDescription": "The delta time slices need not contain all properties, but at least the lower boundary of the period to change.\n            An absent object key property matches any key property value.\n            New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap."
-                    }
-                ],
-                "$ReturnType": {
-                    "$Collection": true,
-                    "$Type": "Temporal.TimesliceWithPeriod",
-                    "@Core.Description": "Modified time slices"
-                }
-            }
-        ],
         "Delete": [
             {
                 "$Kind": "Action",
@@ -233,33 +206,6 @@
                         "$Type": "Temporal.TimesliceWithPeriod",
                         "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
                         "@Core.LongDescription": "The delta time slices contain only the boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
-                    }
-                ],
-                "$ReturnType": {
-                    "$Collection": true,
-                    "$Type": "Temporal.TimesliceWithPeriod",
-                    "@Core.Description": "Deleted (sub-periods of) time slices"
-                }
-            }
-        ],
-        "DeleteFrom": [
-            {
-                "$Kind": "Action",
-                "$IsBound": true,
-                "@Core.Description": "Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have the same original value for all properties expect the period boundaries",
-                "$Parameter": [
-                    {
-                        "$Name": "timeslices",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "Time slices to modify"
-                    },
-                    {
-                        "$Name": "deltaTimeslices",
-                        "$Collection": true,
-                        "$Type": "Temporal.TimesliceWithPeriod",
-                        "@Core.Description": "Time slices to be deleted from the `timeslices` collection",
-                        "@Core.LongDescription": "The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key.\n            An absent object key property matches any key property value."
                     }
                 ],
                 "$ReturnType": {
