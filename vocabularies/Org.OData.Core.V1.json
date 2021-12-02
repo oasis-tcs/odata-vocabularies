@@ -503,12 +503,12 @@
         "ContentDisposition": {
             "$Kind": "Term",
             "$Type": "Core.ContentDispositionType",
-            "$Nullable": true,
             "$AppliesTo": [
+                "EntityType",
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The content disposition of a binary or stream property or term"
+            "@Core.Description": "The content disposition of a media resource or a binary or stream property or term"
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",
