@@ -503,18 +503,23 @@
         "ContentDisposition": {
             "$Kind": "Term",
             "$Type": "Core.ContentDispositionType",
-            "$Nullable": true,
             "$AppliesTo": [
+                "EntityType",
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The content disposition of a binary or stream property or term"
+            "@Core.Description": "The content disposition of a media resource or a binary or stream property or term"
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",
+            "Type": {
+                "$Nullable": true,
+                "$DefaultValue": "attachment",
+                "@Core.Description": "The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)"
+            },
             "Filename": {
                 "$Nullable": true,
-                "@Core.Description": "The proposed filename for downloading the binary or stream value"
+                "@Core.Description": "The proposed filename for downloading the binary or stream value, see [RFC 6266, Disposition Parameter: 'Filename'](https://datatracker.ietf.org/doc/html/rfc6266#section-4.3)"
             }
         },
         "OptimisticConcurrency": {
