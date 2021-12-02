@@ -80,7 +80,7 @@
         "LongDescription": {
             "$Kind": "Term",
             "$Nullable": true,
-            "@Core.Description": "A lengthy description of a model element",
+            "@Core.Description": "A long description of a model element",
             "@Core.IsLanguageDependent": true
         },
         "Links": {
