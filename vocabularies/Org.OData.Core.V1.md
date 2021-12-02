@@ -12,7 +12,7 @@ Term|Type|Description
 [SchemaVersion](./Org.OData.Core.V1.xml#L73:~:text=<Term%20Name="-,SchemaVersion,-")|String|<a name="SchemaVersion"></a>Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case.
 [Revisions](./Org.OData.Core.V1.xml#L77:~:text=<Term%20Name="-,Revisions,-")|\[[RevisionType](#RevisionType)\]|<a name="Revisions"></a>List of revisions of a model element
 [Description](./Org.OData.Core.V1.xml#L105:~:text=<Term%20Name="-,Description,-")|String?|<a name="Description"></a>A brief description of a model element
-[LongDescription](./Org.OData.Core.V1.xml#L110:~:text=<Term%20Name="-,LongDescription,-")|String?|<a name="LongDescription"></a>A lengthy description of a model element
+[LongDescription](./Org.OData.Core.V1.xml#L110:~:text=<Term%20Name="-,LongDescription,-")|String?|<a name="LongDescription"></a>A long description of a model element
 [Links](./Org.OData.Core.V1.xml#L115:~:text=<Term%20Name="-,Links,-")|\[[Link](#Link)\]|<a name="Links"></a>Link to related information
 [Example](./Org.OData.Core.V1.xml#L129:~:text=<Term%20Name="-,Example,-")|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element ([Example](./Org.OData.Core.V1.xml#L131))
 [Messages](./Org.OData.Core.V1.xml#L198:~:text=<Term%20Name="-,Messages,-")|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
