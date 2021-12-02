@@ -80,7 +80,7 @@
         "LongDescription": {
             "$Kind": "Term",
             "$Nullable": true,
-            "@Core.Description": "A lengthy description of a model element",
+            "@Core.Description": "A long description of a model element",
             "@Core.IsLanguageDependent": true
         },
         "Links": {
@@ -504,10 +504,11 @@
             "$Kind": "Term",
             "$Type": "Core.ContentDispositionType",
             "$AppliesTo": [
+                "EntityType",
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The content disposition of a binary or stream property or term"
+            "@Core.Description": "The content disposition of a media resource or a binary or stream property or term"
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",

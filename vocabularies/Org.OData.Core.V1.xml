@@ -108,7 +108,7 @@
       </Term>
 
       <Term Name="LongDescription" Type="Edm.String">
-        <Annotation Term="Core.Description" String="A lengthy description of a model element" />
+        <Annotation Term="Core.Description" String="A long description of a model element" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
@@ -416,8 +416,8 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="ContentDisposition" Type="Core.ContentDispositionType" Nullable="false" AppliesTo="Property Term">
-        <Annotation Term="Core.Description" String="The content disposition of a binary or stream property or term" />
+      <Term Name="ContentDisposition" Type="Core.ContentDispositionType" Nullable="false" AppliesTo="EntityType Property Term">
+        <Annotation Term="Core.Description" String="The content disposition of a media resource or a binary or stream property or term" />
       </Term>
 
       <ComplexType Name="ContentDispositionType">
