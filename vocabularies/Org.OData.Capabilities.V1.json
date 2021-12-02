@@ -811,7 +811,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
@@ -952,7 +952,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
@@ -1057,7 +1057,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
@@ -1255,7 +1255,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
