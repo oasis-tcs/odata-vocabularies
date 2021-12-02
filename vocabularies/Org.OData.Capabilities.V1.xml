@@ -637,7 +637,7 @@ supported:
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -736,7 +736,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -812,7 +812,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -925,7 +925,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>

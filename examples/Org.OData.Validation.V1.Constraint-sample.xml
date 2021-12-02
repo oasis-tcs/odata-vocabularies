@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="validation.constraint.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <EntityType Name="Order">
+        <Property Name="preferredDate" Type="Edm.Date">
+          <Annotation Term="Validation.Constraint">
+            <Record>
+              <PropertyValue Property="FailureMessage" String="Preferred date must be in the future" />
+              <PropertyValue Property="Constraint">
+                <Gt>
+                  <Path>preferredDate</Path>
+                  <Apply Function="odata.date">
+                    <Apply Function="odata.now"></Apply>
+                  </Apply>
+                </Gt>
+              </PropertyValue>
+            </Record>
+          </Annotation>
+        </Property>
+      </EntityType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
