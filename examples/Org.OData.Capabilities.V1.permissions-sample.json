@@ -19,10 +19,12 @@
                             "Scheme": "DelegatedWork",
                             "Scopes": [
                                 {
-                                    "Scope": "User.ReadWrite.All"
+                                    "Scope": "User.ReadWrite.All",
+                                    "RestrictedProperties": "-mailboxSettings"
                                 },
                                 {
-                                    "Scope": "MailboxSettings.ReadWrite"
+                                    "Scope": "MailboxSettings.ReadWrite",
+                                    "RestrictedProperties": "mailboxSettings"
                                 },
                                 {
                                     "Scope": "Directory.ReadWrite.All"
