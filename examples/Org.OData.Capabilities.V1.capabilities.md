@@ -36,7 +36,7 @@ The item level has no named entity set. It is annotated using `NavigationRestric
         "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"}
       }
     }]
-  },
+  }
 },
 "self.Container/Headers/Items": {
   "@Capabilities.InsertRestrictions": {
