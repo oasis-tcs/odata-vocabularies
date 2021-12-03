@@ -19,7 +19,7 @@ For the header level, the entity set is annotated directly.
 }
 ```
 
-The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `UpdateRestrictions` on item level. The `NonUpdatableProperties` in the `UpdateRestrictions` annotations is favored over their commented-out counterpart in `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued.
+The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `UpdateRestrictions` on the item level. When a property could be expressed either on the deeper item level or on the higher-up header level, the deeper level is generally preferred: The `NonUpdatableProperties` property in the deeper `UpdateRestrictions` is favored over its commented-out namesake in the higher-up `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued. But the higher-up `InsertRestrictions` cannot be avoided, because the instance path to `canInsertItems` must be evaluated on header level.
 
 ```jsonc
 "self.Container/Headers": {
@@ -46,7 +46,7 @@ The item level has no named entity set. It is annotated using `NavigationRestric
 }
 ```
 
-If insertability is static, the value is a boolean literal, no path expressions are required. Then the `InsertRestrictions` term on item level would also be favored over the `InsertRestrictions` property in `NavigationRestrictions` on header level.
+However, if insertability was static, the value would be a boolean literal and no path expressions would be required. In that case the deeper `InsertRestrictions` term would be favored over the higher-up `InsertRestrictions` property in the header-level `NavigationRestrictions`.
 
 ```jsonc
 "self.Container/Headers/Items": {
