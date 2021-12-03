@@ -19,7 +19,7 @@ For the header level, the entity set is annotated directly.
 }
 ```
 
-The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `UpdateRestrictions` on the item level. When a property could be expressed either on the deeper item level or on the higher-up header level, the deeper level is generally preferred: The `NonUpdatableProperties` property in the deeper `UpdateRestrictions` is favored over its commented-out namesake in the higher-up `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued. But the higher-up `InsertRestrictions` cannot be avoided, because the instance path to `canInsertItems` must be evaluated on header level.
+The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `InsertRestrictions` and `UpdateRestrictions` on item level. When a property could be expressed either on the deeper item level or on the higher-up header level, the deeper level is generally preferred: For example, the `NonUpdatableProperties` property in the deeper `UpdateRestrictions` is favored over its commented-out namesake in the higher-up `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued. But the higher-up `InsertRestrictions/Insertable` and `UpdateRestrictions/FilterSegmentSupported` cannot be avoided, because the instance paths to `canInsertItems` and `canUpdateSubsetOfItems` must be evaluated on header level.
 
 ```jsonc
 "self.Container/Headers": {
@@ -27,8 +27,8 @@ The item level has no named entity set. It is annotated using `NavigationRestric
     "RestrictedProperties": [{
       "NavigationProperty": "Items",
       "InsertRestrictions": {
-        "Insertable": {"$Path": "canInsertItems"},
-        "NonInsertableProperties": ["Items/uuid"]
+     // "NonInsertableProperties": ["Items/uuid"],
+        "Insertable": {"$Path": "canInsertItems"}
       },
       "UpdateRestrictions": {
      // "Updatable": {"$Path": "Items/canUpdate"},
@@ -39,6 +39,9 @@ The item level has no named entity set. It is annotated using `NavigationRestric
   },
 },
 "self.Container/Headers/Items": {
+  "@Capabilities.InsertRestrictions": {
+    "NonInsertableProperties": ["uuid"]
+  },
   "@Capabilities.UpdateRestrictions": {
     "Updatable": {"$Path": "canUpdate"},
     "NonUpdatableProperties": ["uuid"]
@@ -46,7 +49,7 @@ The item level has no named entity set. It is annotated using `NavigationRestric
 }
 ```
 
-However, if insertability was static, the value would be a boolean literal and no path expressions would be required. In that case the deeper `InsertRestrictions` term would be favored over the higher-up `InsertRestrictions` property in the header-level `NavigationRestrictions`.
+However, if insertability was static, the value would be a boolean literal and no path expressions would be required. In that case the deeper `InsertRestrictions/Insertable` term would be favored over the higher-up one.
 
 ```jsonc
 "self.Container/Headers/Items": {
@@ -57,7 +60,7 @@ However, if insertability was static, the value would be a boolean literal and n
 }
 ```
 
-The subitem level is annotated using `NavigationRestrictions` on item level and `UpdateRestrictions` on subitem level.
+The subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
 
 ```jsonc
 "self.Container/Headers/Items": {
@@ -65,13 +68,15 @@ The subitem level is annotated using `NavigationRestrictions` on item level and 
     "RestrictedProperties": [{
       "NavigationProperty": "Subitems",
       "InsertRestrictions": {
-        "Insertable": {"$Path": "canInsertSubitems"},
-        "NonInsertableProperties": ["Subitems/uuid"]
+        "Insertable": {"$Path": "canInsertSubitems"}
       }
     }]
   }
 },
 "self.Container/Headers/Items/Subitems": {
+  "@Capabilities.InsertRestrictions": {
+    "NonInsertableProperties": ["uuid"]
+  },
   "@Capabilities.UpdateRestrictions": {
     "Updatable": {"$Path": "canUpdate"},
     "NonUpdatableProperties": ["uuid"]
