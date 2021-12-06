@@ -65,6 +65,11 @@
                 "$Collection": true,
                 "$Type": "OrgModel.Department_history",
                 "$ContainsTarget": true
+            },
+            "Employees": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "OrgModel.Employee"
             }
         },
         "Department_history": {
@@ -96,7 +101,10 @@
             },
             "Departments": {
                 "$Collection": true,
-                "$Type": "OrgModel.Department"
+                "$Type": "OrgModel.Department",
+                "$NavigationPropertyBinding": {
+                    "Employees": "Employees"
+                }
             }
         },
         "$Annotations": {
