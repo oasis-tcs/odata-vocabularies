@@ -148,14 +148,14 @@ Property|Type|Description
 ## <a name="NavigationPropertyRestriction"></a>[NavigationPropertyRestriction](./Org.OData.Capabilities.V1.xml#L239:~:text=<ComplexType%20Name="-,NavigationPropertyRestriction,-")
 
 
-Using a property _R_ of this complex type in a [`NavigationRestrictions`](#NavigationRestrictions) annotation
-          is discouraged in favor of using an annotation with the term _R_ from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,
+Using a property of `NavigationPropertyRestriction` in a [`NavigationRestrictions`](#NavigationRestrictions) annotation
+          is discouraged in favor of using an annotation with the corresponding term from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,
           unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation
           starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).
 
 Property|Type|Description
 :-------|:---|:----------
-[NavigationProperty](./Org.OData.Capabilities.V1.xml#L246:~:text=<ComplexType%20Name="-,NavigationPropertyRestriction,-")|NavigationPropertyPath|Navigation properties can be navigated<br>The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this navigation property path addresses the resource to which the other properties of this complex type apply. Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths, which must therefore be chosen accordingly.
+[NavigationProperty](./Org.OData.Capabilities.V1.xml#L246:~:text=<ComplexType%20Name="-,NavigationPropertyRestriction,-")|NavigationPropertyPath|Navigation properties can be navigated<br>The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this navigation property path addresses the resource to which the other properties of `NavigationPropertyRestriction` apply. Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths, which must therefore be chosen accordingly.
 [Navigability](./Org.OData.Capabilities.V1.xml#L255:~:text=<ComplexType%20Name="-,NavigationPropertyRestriction,-")|[NavigationType?](#NavigationType)|Supported navigability of this navigation property
 [FilterFunctions](./Org.OData.Capabilities.V1.xml#L258:~:text=<ComplexType%20Name="-,NavigationPropertyRestriction,-")|\[String\]|List of functions and operators supported in filter expressions<br>If not specified, null, or empty, all functions and operators may be attempted.
 [FilterRestrictions](./Org.OData.Capabilities.V1.xml#L262:~:text=<ComplexType%20Name="-,NavigationPropertyRestriction,-")|[FilterRestrictionsType?](#FilterRestrictionsType)|Restrictions on filter expressions

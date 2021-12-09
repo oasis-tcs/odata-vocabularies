@@ -27,12 +27,12 @@ The item level has no named entity set. It is annotated using `NavigationRestric
     "RestrictedProperties": [{
       "NavigationProperty": "Items",
       "InsertRestrictions": {
-     // "NonInsertableProperties": ["Items/uuid"],
+        // DISCOURAGED: "NonInsertableProperties": ["Items/uuid"],
         "Insertable": {"$Path": "canInsertItems"}
       },
       "UpdateRestrictions": {
-     // "Updatable": {"$Path": "Items/canUpdate"},
-     // "NonUpdatableProperties": ["Items/uuid"],
+        // INVALID: "Updatable": {"$Path": "Items/canUpdate"},
+        // DISCOURAGED: "NonUpdatableProperties": ["Items/uuid"],
         "FilterSegmentSupported": {"$Path": "canUpdateSubsetOfItems"}
       }
     }]

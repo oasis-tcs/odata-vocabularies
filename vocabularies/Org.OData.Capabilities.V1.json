@@ -250,11 +250,11 @@
         },
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
-            "@Core.LongDescription": "Using a property _R_ of this complex type in a [`NavigationRestrictions`](#NavigationRestrictions) annotation\n          is discouraged in favor of using an annotation with the term _R_ from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,\n          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation\n          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).",
+            "@Core.LongDescription": "Using a property of `NavigationPropertyRestriction` in a [`NavigationRestrictions`](#NavigationRestrictions) annotation\n          is discouraged in favor of using an annotation with the corresponding term from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,\n          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation\n          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Navigation properties can be navigated",
-                "@Core.LongDescription": "The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this\n            navigation property path addresses the resource to which the other properties of this complex type apply.\n            Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths,\n            which must therefore be chosen accordingly."
+                "@Core.LongDescription": "The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this\n            navigation property path addresses the resource to which the other properties of `NavigationPropertyRestriction` apply.\n            Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths,\n            which must therefore be chosen accordingly."
             },
             "Navigability": {
                 "$Type": "Capabilities.NavigationType",
