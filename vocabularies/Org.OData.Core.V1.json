@@ -347,7 +347,7 @@
                 "Term"
             ],
             "@Core.Description": "The target path of an annotation with the tagged term MUST start with an entity container or the annotation MUST be embedded within an entity container, entity set or singleton",
-            "@Core.LongDescription": "Services MAY additionally annotate a container-independent model element (entity type, property, navigation property) if the annotation applies to all uses of that model element."
+            "@Core.LongDescription": "Services MAY additionally annotate a container-independent model element (entity type, property, navigation property) if allowed by the `AppliesTo` property of the term\n          and the annotation applies to all uses of that model element."
         },
         "ResourcePath": {
             "$Kind": "Term",
