@@ -24,13 +24,13 @@
                       Absense of the PropertyValue denotes all properties are accessible using that scope.
                       -->
                         <PropertyValue Property="RestrictedProperties">
-                          <string>-mailboxSettings</string>
+                          <String>-mailboxSettings</String>
                         </PropertyValue>
                       </Record>
                       <Record>
                         <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
                         <PropertyValue Property="RestrictedProperties">
-                          <string>mailboxSettings</string>
+                          <String>mailboxSettings</String>
                         </PropertyValue>
                       </Record>
                       <Record>
