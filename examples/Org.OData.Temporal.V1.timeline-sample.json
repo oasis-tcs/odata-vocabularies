@@ -65,6 +65,11 @@
                 "$Collection": true,
                 "$Type": "OrgModel.Department_history",
                 "$ContainsTarget": true
+            },
+            "Employees": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "OrgModel.Employee"
             }
         },
         "Department_history": {
@@ -96,7 +101,10 @@
             },
             "Departments": {
                 "$Collection": true,
-                "$Type": "OrgModel.Department"
+                "$Type": "OrgModel.Department",
+                "$NavigationPropertyBinding": {
+                    "Employees": "Employees"
+                }
             }
         },
         "$Annotations": {
@@ -107,8 +115,8 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
-                        "PeriodStart": "history/From",
-                        "PeriodEnd": "history/To"
+                        "PeriodStart": "From",
+                        "PeriodEnd": "To"
                     },
                     "SupportedActions": [
                         "Temporal.Update",
@@ -124,8 +132,8 @@
                     },
                     "Timeline": {
                         "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
-                        "PeriodStart": "history/From",
-                        "PeriodEnd": "history/To"
+                        "PeriodStart": "From",
+                        "PeriodEnd": "To"
                     },
                     "SupportedActions": [
                         "Temporal.Update",

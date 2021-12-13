@@ -34,6 +34,7 @@
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
         <NavigationProperty Name="history" Type="Collection(OrgModel.Department_history)" ContainsTarget="true" />
+        <NavigationProperty Name="Employees" Type="Collection(OrgModel.Employee)" />
       </EntityType>
 
       <EntityType Name="Department_history">
@@ -50,7 +51,9 @@
         <EntitySet Name="Employees" EntityType="OrgModel.Employee">
           <NavigationPropertyBinding Path="history/Department" Target="Departments" />
         </EntitySet>
-        <EntitySet Name="Departments" EntityType="OrgModel.Department" />
+        <EntitySet Name="Departments" EntityType="OrgModel.Department">
+          <NavigationPropertyBinding Path="Employees" Target="Employees" />
+        </EntitySet>
       </EntityContainer>
 
       <Annotations Target="OrgModel.Default/Employees/history">
@@ -61,8 +64,8 @@
             </PropertyValue>
             <PropertyValue Property="Timeline">
               <Record Type="Temporal.TimelineVisible">
-                <PropertyValue Property="PeriodStart" PropertyPath="history/From" />
-                <PropertyValue Property="PeriodEnd" PropertyPath="history/To" />
+                <PropertyValue Property="PeriodStart" PropertyPath="From" />
+                <PropertyValue Property="PeriodEnd" PropertyPath="To" />
               </Record>
             </PropertyValue>
             <PropertyValue Property="SupportedActions">
@@ -84,8 +87,8 @@
             </PropertyValue>
             <PropertyValue Property="Timeline">
               <Record Type="Temporal.TimelineVisible">
-                <PropertyValue Property="PeriodStart" PropertyPath="history/From" />
-                <PropertyValue Property="PeriodEnd" PropertyPath="history/To" />
+                <PropertyValue Property="PeriodStart" PropertyPath="From" />
+                <PropertyValue Property="PeriodEnd" PropertyPath="To" />
               </Record>
             </PropertyValue>
             <PropertyValue Property="SupportedActions">

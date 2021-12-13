@@ -1,0 +1,77 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Temporal.V1",
+                    "$Alias": "Temporal"
+                }
+            ]
+        }
+    },
+    "org.example.odata.costcenter": {
+        "$Alias": "this",
+        "CostCenter": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "tsid"
+            ],
+            "tsid": {},
+            "AreaID": {},
+            "CostCenterID": {},
+            "ValidTo": {
+                "$Type": "Edm.Date"
+            },
+            "ValidFrom": {
+                "$Type": "Edm.Date"
+            },
+            "ProfitCenterID": {
+                "$Nullable": true
+            },
+            "DepartmentID": {
+                "$Nullable": true
+            }
+        },
+        "Default": {
+            "$Kind": "EntityContainer",
+            "CostCenters": {
+                "$Collection": true,
+                "$Type": "this.CostCenter"
+            }
+        },
+        "$Annotations": {
+            "this.Default/CostCenters": {
+                "@Temporal.ApplicationTimeSupport": {
+                    "UnitOfTime": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.UnitOfTimeDate",
+                        "ClosedClosedPeriods": true
+                    },
+                    "Timeline": {
+                        "@odata.type": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml#Temporal.TimelineVisible",
+                        "PeriodStart": "ValidFrom",
+                        "PeriodEnd": "ValidTo",
+                        "ObjectKey": [
+                            "AreaID",
+                            "CostCenterID"
+                        ]
+                    },
+                    "SupportedActions": [
+                        "Temporal.Update",
+                        "Temporal.Upsert",
+                        "Temporal.Delete"
+                    ]
+                }
+            }
+        }
+    },
+    "$EntityContainer": "org.example.odata.costcenter.Default"
+}

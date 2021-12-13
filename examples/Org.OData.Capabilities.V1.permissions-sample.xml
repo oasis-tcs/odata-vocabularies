@@ -15,7 +15,7 @@
                   <PropertyValue Property="Scopes">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All" />
                         <!-- 
                       * , [PROPERTY NAME], - list
                       "*" denotes all properties are accessible
@@ -24,20 +24,20 @@
                       Absense of the PropertyValue denotes all properties are accessible using that scope.
                       -->
                         <PropertyValue Property="RestrictedProperties">
-                          <string>-mailboxSettings</string>
+                          <String>-mailboxSettings</String>
                         </PropertyValue>
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite"/>
+                        <PropertyValue Property="Scope" String="MailboxSettings.ReadWrite" />
                         <PropertyValue Property="RestrictedProperties">
-                          <string>mailboxSettings</string>
+                          <String>mailboxSettings</String>
                         </PropertyValue>
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All"/>
+                        <PropertyValue Property="Scope" String="Directory.AccessAsUser.All" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -100,10 +100,10 @@
                   <PropertyValue Property="Scopes">
                     <Collection>
                       <Record>
-                        <PropertyValue Property="Scope" String="User.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="User.ReadWrite.All" />
                       </Record>
                       <Record>
-                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All"/>
+                        <PropertyValue Property="Scope" String="Directory.ReadWrite.All" />
                       </Record>
                     </Collection>
                   </PropertyValue>
@@ -178,52 +178,52 @@
       <!-- annotations on actions/functions -->
       <Annotations Target="microsoft.graph.reminderView(microsoft.graph.user,Edm.String,Edm.String)">
         <Annotation Term="Capabilities.OperationRestrictions">
-            <Record>
-              <PropertyValue Property="QualifiedOperationName" String="reminderView" />
-              <PropertyValue Property="Permissions">
-                <Collection>
-                  <Record>
-                    <PropertyValue Property="Scheme" String="DelegatedWork" />
-                    <PropertyValue Property="Scopes">
-                      <Collection>
-                        <Record>
-                          <PropertyValue Property="Scope" String="Calendars.Read" />
-                        </Record>
-                        <Record>
-                          <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-                        </Record>
-                      </Collection>
-                    </PropertyValue>
-                  </Record>
-                  <Record>
-                    <PropertyValue Property="Scheme" String="DelegatedPersonal" />
-                    <PropertyValue Property="Scopes">
-                      <Collection>
-                        <Record>
-                          <PropertyValue Property="Scope" String="Calendars.Read" />
-                        </Record>
-                        <Record>
-                          <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-                        </Record>
-                      </Collection>
-                    </PropertyValue>
-                  </Record>
-                  <Record>
-                    <PropertyValue Property="Scheme" String="Application" />
-                    <PropertyValue Property="Scopes">
-                      <Collection>
-                        <Record>
-                          <PropertyValue Property="Scope" String="Calendars.Read" />
-                        </Record>
-                        <Record>
-                          <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
-                        </Record>
-                      </Collection>
-                    </PropertyValue>
-                  </Record>
-                </Collection>
-              </PropertyValue>
-            </Record>
+          <Record>
+            <PropertyValue Property="QualifiedOperationName" String="reminderView" />
+            <PropertyValue Property="Permissions">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Scheme" String="DelegatedWork" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Calendars.Read" />
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Scheme" String="DelegatedPersonal" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Calendars.Read" />
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+                <Record>
+                  <PropertyValue Property="Scheme" String="Application" />
+                  <PropertyValue Property="Scopes">
+                    <Collection>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Calendars.Read" />
+                      </Record>
+                      <Record>
+                        <PropertyValue Property="Scope" String="Calendars.ReadWrite" />
+                      </Record>
+                    </Collection>
+                  </PropertyValue>
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
         </Annotation>
       </Annotations>
       <!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes,
