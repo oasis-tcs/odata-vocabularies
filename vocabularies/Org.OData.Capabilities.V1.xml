@@ -207,7 +207,8 @@ supported:
 
       <!--Query Capabilities -->
 
-      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
       <ComplexType Name="CountRestrictionsType">
@@ -222,7 +223,8 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
         <Annotation Term="Core.LongDescription" String="Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence." />
       </Term>
@@ -235,8 +237,20 @@ supported:
         </Property>
       </ComplexType>
       <ComplexType Name="NavigationPropertyRestriction">
-        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath">
+        <Annotation Term="Core.LongDescription">
+          <String>Using a property of `NavigationPropertyRestriction` in a [`NavigationRestrictions`](#NavigationRestrictions) annotation
+          is discouraged in favor of using an annotation with the corresponding term from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,
+          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation
+          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).</String>
+        </Annotation>
+        <Property Name="NavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Navigation properties can be navigated" />
+          <Annotation Term="Core.LongDescription">
+            <String>The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this
+            navigation property path addresses the resource to which the other properties of `NavigationPropertyRestriction` apply.
+            Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths,
+            which must therefore be chosen accordingly.</String>
+          </Annotation>
         </Property>
         <Property Name="Navigability" Type="Capabilities.NavigationType">
           <Annotation Term="Core.Description" String="Supported navigability of this navigation property" />
@@ -300,23 +314,28 @@ supported:
         </Member>
       </EnumType>
 
-      <Term Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="IndexableByKey" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
       </Term>
 
-      <Term Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="TopSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports $top" />
       </Term>
 
-      <Term Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="SkipSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports $skip" />
       </Term>
 
-      <Term Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet">
+      <Term Name="ComputeSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Supports $compute" />
       </Term>
 
-      <Term Name="SelectSupport" Type="Capabilities.SelectSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton">
+      <Term Name="SelectSupport" Type="Capabilities.SelectSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Support for $select and nested query options within $select" />
       </Term>
       <ComplexType Name="SelectSupportType">
@@ -402,12 +421,14 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityContainer EntitySet">
+      <Term Name="FilterFunctions" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="List of functions and operators supported in filter expressions" />
         <Annotation Term="Core.LongDescription" String="If not specified, null, or empty, all functions and operators may be attempted." />
       </Term>
 
-      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="FilterRestrictions" Type="Capabilities.FilterRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on filter expressions" />
       </Term>
       <ComplexType Name="FilterRestrictionsType">
@@ -476,7 +497,8 @@ supported:
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="SortRestrictions" Type="Capabilities.SortRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
       </Term>
       <ComplexType Name="SortRestrictionsType">
@@ -499,7 +521,8 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="ExpandRestrictions" Type="Capabilities.ExpandRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on expand expressions" />
       </Term>
       <ComplexType Name="ExpandRestrictionsType">
@@ -526,7 +549,8 @@ supported:
         </Property>
       </ComplexType>
 
-      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" Nullable="false" AppliesTo="EntitySet">
+      <Term Name="SearchRestrictions" Type="Capabilities.SearchRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on search expressions" />
       </Term>
       <ComplexType Name="SearchRestrictionsType">
@@ -573,8 +597,8 @@ supported:
 
       <!-- Data Modification Capabilities -->
 
-      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on insert operations" />
       </Term>
       <ComplexType Name="InsertRestrictionsType">
@@ -613,7 +637,7 @@ supported:
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -647,7 +671,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet">
+      <Term Name="DeepInsertSupport" Type="Capabilities.DeepInsertSupportType" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepInsertSupportType">
@@ -659,8 +684,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on update operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsType">
@@ -711,7 +736,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -740,7 +765,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Member>
       </EnumType>
 
-      <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet">
+      <Term Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType" Nullable="false" AppliesTo="EntityContainer EntitySet Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
       </Term>
       <ComplexType Name="DeepUpdateSupportType">
@@ -752,8 +778,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton EntityType">
-        <Annotation Term="Core.AppliesToTypeIfDynamic" />
+      <Term Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on delete operations" />
       </Term>
       <ComplexType Name="DeleteRestrictionsType">
@@ -786,7 +812,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>
@@ -877,7 +903,8 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton">
+      <Term Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+        <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions for retrieving a collection of entities, retrieving a singleton instance." />
       </Term>
       <ComplexType Name="ReadRestrictionsBase" Abstract="true">
@@ -898,7 +925,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="A lengthy description of the request" />
+          <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
       </ComplexType>

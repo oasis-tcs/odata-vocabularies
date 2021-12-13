@@ -1,0 +1,49 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        }
+    },
+    "validation.constraint.sample": {
+        "Order": {
+            "$Kind": "EntityType",
+            "preferredDate": {
+                "$Type": "Edm.Date",
+                "$Nullable": true,
+                "@Validation.Constraint": {
+                    "FailureMessage": "Preferred date must be in the future",
+                    "Constraint": {
+                        "$Gt": [
+                            {
+                                "$Path": "preferredDate"
+                            },
+                            {
+                                "$Function": "odata.date",
+                                "$Apply": [
+                                    {
+                                        "$Function": "odata.now",
+                                        "$Apply": []
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                }
+            }
+        }
+    }
+}

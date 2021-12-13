@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Temporal.V1.xml">
+    <edmx:Include Alias="Temporal" Namespace="Org.OData.Temporal.V1" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Alias="this" Namespace="org.example.odata.costcenter">
+
+      <EntityType Name="CostCenter">
+        <Key>
+          <PropertyRef Name="tsid" />
+        </Key>
+        <Property Name="tsid" Type="Edm.String" Nullable="false" />
+        <Property Name="AreaID" Type="Edm.String" Nullable="false" />
+        <Property Name="CostCenterID" Type="Edm.String" Nullable="false" />
+        <Property Name="ValidTo" Type="Edm.Date" Nullable="false" />
+
+        <Property Name="ValidFrom" Type="Edm.Date" Nullable="false" />
+        <Property Name="ProfitCenterID" Type="Edm.String" />
+        <Property Name="DepartmentID" Type="Edm.String" />
+      </EntityType>
+
+      <EntityContainer Name="Default">
+        <EntitySet Name="CostCenters" EntityType="this.CostCenter" />
+      </EntityContainer>
+
+      <Annotations Target="this.Default/CostCenters">
+        <Annotation Term="Temporal.ApplicationTimeSupport">
+          <Record>
+            <PropertyValue Property="UnitOfTime">
+              <Record Type="Temporal.UnitOfTimeDate">
+                <PropertyValue Property="ClosedClosedPeriods" Bool="true" />
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="Timeline">
+              <Record Type="Temporal.TimelineVisible">
+                <PropertyValue Property="PeriodStart" PropertyPath="ValidFrom" />
+                <PropertyValue Property="PeriodEnd" PropertyPath="ValidTo" />
+                <PropertyValue Property="ObjectKey">
+                  <Collection>
+                    <PropertyPath>AreaID</PropertyPath>
+                    <PropertyPath>CostCenterID</PropertyPath>
+                  </Collection>
+                </PropertyValue>
+              </Record>
+            </PropertyValue>
+            <PropertyValue Property="SupportedActions">
+              <Collection>
+                <String>Temporal.Update</String>
+                <String>Temporal.Upsert</String>
+                <String>Temporal.Delete</String>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
