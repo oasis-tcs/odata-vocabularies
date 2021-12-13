@@ -68,7 +68,7 @@
         </Collection>
       </Annotation>
 
-      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection">
+      <Term Name="ApplySupported" Type="Aggregation.ApplySupportedType" Nullable="false" AppliesTo="EntitySet Collection EntityType">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description">
           <String>This entity set or collection supports the `$apply` system query option</String>
@@ -76,7 +76,17 @@
       </Term>
       <Term Name="ApplySupportedDefaults" Type="Aggregation.ApplySupportedBase" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description">
-          <String>Default support of the `$apply` system query option for all collection-valued resources in the container. Annotating term `ApplySupported` for a specific collection-valued resource overrides the default setting</String>
+          <String>Default support of the `$apply` system query option for all collection-valued resources in the container</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>Annotating term [`ApplySupported`](#ApplySupported) for a specific collection-valued resource overrides the default support with the specified properties using PATCH semantics:
+
+- Primitive or collection-valued properties specified in `ApplySupported` replace the corresponding properties specified in `ApplySupportedDefaults`
+
+- Complex-valued properties specified in `ApplySupported` override the corresponding properties specified in `ApplySupportedDefaults` using PATCH semantics recursively
+
+- Properties specified neither in `ApplySupported` nor in `ApplySupportedDefaults` have their default value
+          </String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedBase">
@@ -165,7 +175,7 @@
         <Annotation Term="Core.Description" String="This property can be used in the `aggregate` transformation" />
       </Term>
 
-      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection EntityContainer">
+      <Term Name="CustomAggregate" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Collection EntityContainer EntityType">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Dynamic property that can be used in the `aggregate` transformation" />
         <Annotation Term="Core.LongDescription" String="This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type." />
