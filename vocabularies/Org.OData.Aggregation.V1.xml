@@ -212,7 +212,7 @@
       </ComplexType>
 
       <TypeDefinition Name="HierarchyEntitySet" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="Name of the entity set containing the nodes of the recursive hierarchy" />
+        <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
         <Annotation Term="Core.LongDescription">
           <String>Functions defined in this vocabulary have a parameter of this type. If it is null or absent,
           the entity set of the function's binding parameter is used.</String>
@@ -222,7 +222,9 @@
       <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
         <Annotation Term="Core.LongDescription">
-          <String>Functions defined in this vocabulary have a parameter of this type. It specifies the hierarchy that is evaluated by the function.
+          <String>Functions defined in this vocabulary have a parameter of this type.
+          It identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter
+          that specifies the hierarchy that is evaluated by the function.
           Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.</String>
         </Annotation>
       </TypeDefinition>

@@ -220,14 +220,14 @@
         "HierarchyEntitySet": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
-            "@Core.Description": "Name of the entity set containing the nodes of the recursive hierarchy",
+            "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy",
             "@Core.LongDescription": "Functions defined in this vocabulary have a parameter of this type. If it is null or absent,\n          the entity set of the function's binding parameter is used."
         },
         "HierarchyQualifier": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Functions defined in this vocabulary have a parameter of this type. It specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
+            "@Core.LongDescription": "Functions defined in this vocabulary have a parameter of this type.\n          It identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter\n          that specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
         },
         "isroot": [
             {
