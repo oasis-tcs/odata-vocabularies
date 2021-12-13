@@ -8,4 +8,3 @@ cmake_install.cmake
 install_manifest.txt
 CTestTestfile.cmake
 .editorconfig
-/package-lock.json
