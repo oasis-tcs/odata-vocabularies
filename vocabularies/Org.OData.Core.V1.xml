@@ -108,7 +108,7 @@
       </Term>
 
       <Term Name="LongDescription" Type="Edm.String">
-        <Annotation Term="Core.Description" String="A lengthy description of a model element" />
+        <Annotation Term="Core.Description" String="A long description of a model element" />
         <Annotation Term="Core.IsLanguageDependent" />
       </Term>
 
@@ -318,16 +318,11 @@
         <Annotation Term="Core.Description" String="Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name" />
       </Term>
 
-      <Term Name="AppliesToTypeIfDynamic" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">
-        <Annotation Term="Core.Description" String="An annotation with this term may target a type, but only in order to allow dynamic expressions [[OData-CSDL, section 14.4](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/cos01/odata-csdl-xml-v4.01-cos01.html#sec_DynamicExpression)] that depend on properties of the type" />
-      </Term>
-
       <Term Name="AppliesViaContainer" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">
-        <Annotation Term="Core.Description" String="The target path of an annotation with this term must start with an entity container or the annotation must be embedded within an entity container, entity set or singleton" />
+        <Annotation Term="Core.Description" String="The target path of an annotation with the tagged term MUST start with an entity container or the annotation MUST be embedded within an entity container, entity set or singleton" />
         <Annotation Term="Core.LongDescription">
-          <String>Servers that apply the tagged term based solely on the entity type, structural or navigation property,
-          independently of the container, MAY additionally annotate the EntityType, Property or NavigationProperty model element
-          in order to facilitate the annotation consumption by OData clients.</String>
+          <String>Services MAY additionally annotate a container-independent model element (entity type, property, navigation property) if allowed by the `AppliesTo` property of the term
+          and the annotation applies to all uses of that model element.</String>
         </Annotation>
       </Term>
 
@@ -416,13 +411,16 @@
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="ContentDisposition" Type="Core.ContentDispositionType" AppliesTo="Property Term">
-        <Annotation Term="Core.Description" String="The content disposition of a binary or stream property or term" />
+      <Term Name="ContentDisposition" Type="Core.ContentDispositionType" Nullable="false" AppliesTo="EntityType Property Term">
+        <Annotation Term="Core.Description" String="The content disposition of a media resource or a binary or stream property or term" />
       </Term>
 
       <ComplexType Name="ContentDispositionType">
+        <Property Name="Type" Type="Edm.String" DefaultValue="attachment">
+          <Annotation Term="Core.Description" String="The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)" />
+        </Property>
         <Property Name="Filename" Type="Edm.String">
-          <Annotation Term="Core.Description" String="The proposed filename for downloading the binary or stream value" />
+          <Annotation Term="Core.Description" String="The proposed filename for downloading the binary or stream value, see [RFC 6266, Disposition Parameter: 'Filename'](https://datatracker.ietf.org/doc/html/rfc6266#section-4.3)" />
         </Property>
       </ComplexType>
 
