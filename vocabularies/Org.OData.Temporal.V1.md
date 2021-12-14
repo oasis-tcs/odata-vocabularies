@@ -15,7 +15,7 @@ Term|Type|Description
 
 ## Actions
 
-### <a name="Update"></a>[Update](./Org.OData.Temporal.V1.xml#L167:~:text=<Action%20Name="-,Update,-")
+### <a name="Update"></a>[Update](./Org.OData.Temporal.V1.xml#L175:~:text=<Action%20Name="-,Update,-")
 
 Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap
 
@@ -26,34 +26,23 @@ The update behavior for a given object key is known from the [SQL statement](htt
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](./Org.OData.Temporal.V1.xml#L175:~:text=<Action%20Name="-,Update,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](./Org.OData.Temporal.V1.xml#L178:~:text=<Action%20Name="-,Update,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices whose property values are used to update the `timeslices` collection<br>The delta time slices need not contain all properties, but at least the boundary values of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[&rarr;](./Org.OData.Temporal.V1.xml#L186:~:text=<Action%20Name="-,Update,-")|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
+**[timeslices](./Org.OData.Temporal.V1.xml#L183:~:text=<Action%20Name="-,Update,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](./Org.OData.Temporal.V1.xml#L186:~:text=<Action%20Name="-,Update,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices whose property values are used to update the `timeslices` collection<br>The delta time slices need not contain all properties, but at least the boundary values of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
+[&rarr;](./Org.OData.Temporal.V1.xml#L194:~:text=<Action%20Name="-,Update,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
 
 
-### <a name="Upsert"></a>[Upsert](./Org.OData.Temporal.V1.xml#L192:~:text=<Action%20Name="-,Upsert,-")
+### <a name="Upsert"></a>[Upsert](./Org.OData.Temporal.V1.xml#L199:~:text=<Action%20Name="-,Upsert,-")
 
 Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](./Org.OData.Temporal.V1.xml#L194:~:text=<Action%20Name="-,Upsert,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](./Org.OData.Temporal.V1.xml#L197:~:text=<Action%20Name="-,Upsert,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices to be merged into the `timeslices` collection<br>The delta time slices must contain all properties that are needed for insertion. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[&rarr;](./Org.OData.Temporal.V1.xml#L204:~:text=<Action%20Name="-,Upsert,-")|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
+**[timeslices](./Org.OData.Temporal.V1.xml#L201:~:text=<Action%20Name="-,Upsert,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](./Org.OData.Temporal.V1.xml#L204:~:text=<Action%20Name="-,Upsert,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices to be merged into the `timeslices` collection<br>The delta time slices must contain all properties that are needed for insertion. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
+[&rarr;](./Org.OData.Temporal.V1.xml#L211:~:text=<Action%20Name="-,Upsert,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
 
 
-### <a name="UpdateFrom"></a>[UpdateFrom](./Org.OData.Temporal.V1.xml#L210:~:text=<Action%20Name="-,UpdateFrom,-")
-
-Like [`Update`](#Update), but updates the properties that are present in a given delta time slice only in those contiguous time slices, starting with the earliest, that have same the original value for all these properties
-
-Parameter|Type|Description
-:--------|:---|:----------
-**[timeslices](./Org.OData.Temporal.V1.xml#L212:~:text=<Action%20Name="-,UpdateFrom,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](./Org.OData.Temporal.V1.xml#L215:~:text=<Action%20Name="-,UpdateFrom,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices whose property values are used to update the `timeslices` collection<br>The delta time slices need not contain all properties, but at least the lower boundary of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[&rarr;](./Org.OData.Temporal.V1.xml#L223:~:text=<Action%20Name="-,UpdateFrom,-")|\[EntityType\]|Modified time slices<br>Same entity type as binding parameter.
-
-
-### <a name="Delete"></a>[Delete](./Org.OData.Temporal.V1.xml#L229:~:text=<Action%20Name="-,Delete,-")
+### <a name="Delete"></a>[Delete](./Org.OData.Temporal.V1.xml#L216:~:text=<Action%20Name="-,Delete,-")
 
 Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`
 
@@ -64,20 +53,9 @@ The deletion behavior for a given object key is known from the [SQL statement](h
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](./Org.OData.Temporal.V1.xml#L237:~:text=<Action%20Name="-,Delete,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](./Org.OData.Temporal.V1.xml#L240:~:text=<Action%20Name="-,Delete,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
-[&rarr;](./Org.OData.Temporal.V1.xml#L247:~:text=<Action%20Name="-,Delete,-")|\[EntityType\]|Deleted (sub-periods of) time slices<br>Same entity type as binding parameter.
-
-
-### <a name="DeleteFrom"></a>[DeleteFrom](./Org.OData.Temporal.V1.xml#L253:~:text=<Action%20Name="-,DeleteFrom,-")
-
-Like [`Delete`](#Delete), but deletes or shortens only those contiguous time slices, starting with the earliest, that have same the original value for all properties expect the period boundaries
-
-Parameter|Type|Description
-:--------|:---|:----------
-**[timeslices](./Org.OData.Temporal.V1.xml#L255:~:text=<Action%20Name="-,DeleteFrom,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](./Org.OData.Temporal.V1.xml#L258:~:text=<Action%20Name="-,DeleteFrom,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the lower and optionally upper boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
-[&rarr;](./Org.OData.Temporal.V1.xml#L265:~:text=<Action%20Name="-,DeleteFrom,-")|\[EntityType\]|Deleted time slices<br>Same entity type as binding parameter.
+**[timeslices](./Org.OData.Temporal.V1.xml#L224:~:text=<Action%20Name="-,Delete,-")**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](./Org.OData.Temporal.V1.xml#L227:~:text=<Action%20Name="-,Delete,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
+[&rarr;](./Org.OData.Temporal.V1.xml#L234:~:text=<Action%20Name="-,Delete,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Deleted (sub-periods of) time slices
 
 
 ## <a name="ApplicationTimeSupportType"></a>[ApplicationTimeSupportType](./Org.OData.Temporal.V1.xml#L78:~:text=<ComplexType%20Name="-,ApplicationTimeSupportType,-")
@@ -137,10 +115,10 @@ The temporal collection MUST NOT contain two entities with the same object key a
 Property|Type|Description
 :-------|:---|:----------
 [PeriodStart](./Org.OData.Temporal.V1.xml#L131:~:text=<ComplexType%20Name="-,TimelineVisible,-")|PropertyPath|Property containing lower boundary of a period
-[PeriodEnd](./Org.OData.Temporal.V1.xml#L134:~:text=<ComplexType%20Name="-,TimelineVisible,-")|PropertyPath|Property containing upper boundary of a period
-[ObjectKey](./Org.OData.Temporal.V1.xml#L137:~:text=<ComplexType%20Name="-,TimelineVisible,-")|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
+[PeriodEnd](./Org.OData.Temporal.V1.xml#L134:~:text=<ComplexType%20Name="-,TimelineVisible,-")|PropertyPath|Property containing upper boundary of a period<br>If an upper boundary property does not specify a default value, a default value of `max` is assumed.
+[ObjectKey](./Org.OData.Temporal.V1.xml#L140:~:text=<ComplexType%20Name="-,TimelineVisible,-")|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 
-## <a name="TimesliceWithPeriod"></a>[TimesliceWithPeriod](./Org.OData.Temporal.V1.xml#L143:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")
+## <a name="TimesliceWithPeriod"></a>[TimesliceWithPeriod](./Org.OData.Temporal.V1.xml#L146:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")
 Delta time slices with validity period
 
 The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
@@ -150,9 +128,10 @@ The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
           and they are interpreted according to the [`ApplicationTimeSupport/UnitOfTime`](#ApplicationTimeSupportType) of the collection.
           In particular, `ApplicationTimeSupport/UnitOfTime/ClosedClosedPeriods` governs whether a `PeriodEnd` of type `Edm.Date`
           is the last day in the period or the first day after the period.
+          If `PeriodStart` is present and `PeriodEnd` is absent, a default value of `max` is assumed for `PeriodEnd`.
 
 Property|Type|Description
 :-------|:---|:----------
-[Timeslice](./Org.OData.Temporal.V1.xml#L154:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")|EntityType|A time slice with the same entity type as the binding parameter of the action
-[PeriodStart](./Org.OData.Temporal.V1.xml#L157:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")|PrimitiveType?|Lower boundary of the time slice
-[PeriodEnd](./Org.OData.Temporal.V1.xml#L160:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")|PrimitiveType?|Upper boundary of the time slice
+[PeriodStart](./Org.OData.Temporal.V1.xml#L158:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")|PrimitiveType?|Lower boundary of the time slice
+[PeriodEnd](./Org.OData.Temporal.V1.xml#L161:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")|PrimitiveType?|Upper boundary of the time slice
+[Timeslice](./Org.OData.Temporal.V1.xml#L164:~:text=<NavigationProperty%20Name="-,Timeslice,-")|EntityType|A time slice with the same entity type as the binding parameter of the action<br>When it appears in the return type of an action in this vocabulary, the time slice has the same entity set as the binding parameter value.

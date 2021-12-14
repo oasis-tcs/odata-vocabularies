@@ -199,8 +199,10 @@
             "$Type": "Capabilities.CountRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on /$count path suffix and $count=true system query option"
         },
         "CountRestrictionsType": {
@@ -226,8 +228,10 @@
             "$Type": "Capabilities.NavigationRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on navigating properties according to OData URL conventions",
             "@Core.LongDescription": "Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence."
         },
@@ -246,10 +250,11 @@
         },
         "NavigationPropertyRestriction": {
             "$Kind": "ComplexType",
+            "@Core.LongDescription": "Using a property of `NavigationPropertyRestriction` in a [`NavigationRestrictions`](#NavigationRestrictions) annotation\n          is discouraged in favor of using an annotation with the corresponding term from this vocabulary and a target path starting with a container and ending in the `NavigationProperty`,\n          unless the favored alternative is impossible because a dynamic expression requires an instance path whose evaluation\n          starts at the target of the `NavigationRestrictions` annotation. See [this example](../examples/Org.OData.Capabilities.V1.capabilities.md).",
             "NavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Navigation properties can be navigated"
+                "@Core.Description": "Navigation properties can be navigated",
+                "@Core.LongDescription": "The target path of a [`NavigationRestrictions`](#NavigationRestrictions) annotation followed by this\n            navigation property path addresses the resource to which the other properties of `NavigationPropertyRestriction` apply.\n            Instance paths that occur in dynamic expressions are evaluated starting at the boundary between both paths,\n            which must therefore be chosen accordingly."
             },
             "Navigability": {
                 "$Type": "Capabilities.NavigationType",
@@ -346,8 +351,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports key values according to OData URL conventions"
         },
         "TopSupported": {
@@ -355,8 +362,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports $top"
         },
         "SkipSupported": {
@@ -364,8 +373,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports $skip"
         },
         "ComputeSupported": {
@@ -373,8 +384,10 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Supports $compute"
         },
         "SelectSupport": {
@@ -383,8 +396,10 @@
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Support for $select and nested query options within $select"
         },
         "SelectSupportType": {
@@ -514,8 +529,10 @@
             "$Collection": true,
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "List of functions and operators supported in filter expressions",
             "@Core.LongDescription": "If not specified, null, or empty, all functions and operators may be attempted."
         },
@@ -523,8 +540,10 @@
             "$Kind": "Term",
             "$Type": "Capabilities.FilterRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on filter expressions"
         },
         "FilterRestrictionsType": {
@@ -612,8 +631,10 @@
             "$Kind": "Term",
             "$Type": "Capabilities.SortRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on orderby expressions"
         },
         "SortRestrictionsType": {
@@ -647,8 +668,10 @@
             "$Type": "Capabilities.ExpandRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on expand expressions"
         },
         "ExpandRestrictionsType": {
@@ -687,8 +710,10 @@
             "$Kind": "Term",
             "$Type": "Capabilities.SearchRestrictionsType",
             "$AppliesTo": [
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on search expressions"
         },
         "SearchRestrictionsType": {
@@ -747,9 +772,9 @@
             "$Type": "Capabilities.InsertRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on insert operations"
         },
         "InsertRestrictionsType": {
@@ -812,7 +837,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
@@ -845,8 +870,10 @@
             "$Nullable": true,
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
         },
         "DeepInsertSupportType": {
@@ -868,9 +895,9 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on update operations"
         },
         "UpdateRestrictionsType": {
@@ -953,7 +980,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
@@ -980,8 +1007,10 @@
             "$Type": "Capabilities.DeepUpdateSupportType",
             "$AppliesTo": [
                 "EntityContainer",
-                "EntitySet"
+                "EntitySet",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)"
         },
         "DeepUpdateSupportType": {
@@ -1003,9 +1032,9 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Singleton",
-                "EntityType"
+                "Collection"
             ],
-            "@Core.AppliesToTypeIfDynamic": true,
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions on delete operations"
         },
         "DeleteRestrictionsType": {
@@ -1058,7 +1087,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
@@ -1221,8 +1250,10 @@
             "$Type": "Capabilities.ReadRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton"
+                "Singleton",
+                "Collection"
             ],
+            "@Core.AppliesViaContainer": true,
             "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance."
         },
         "ReadRestrictionsBase": {
@@ -1256,7 +1287,7 @@
             },
             "LongDescription": {
                 "$Nullable": true,
-                "@Core.Description": "A lengthy description of the request",
+                "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
             }
         },
