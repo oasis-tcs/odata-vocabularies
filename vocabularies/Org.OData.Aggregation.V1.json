@@ -40,7 +40,8 @@
             "$Type": "Aggregation.ApplySupportedType",
             "$AppliesTo": [
                 "EntitySet",
-                "Collection"
+                "Collection",
+                "EntityType"
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "This entity set or collection supports the `$apply` system query option"
@@ -157,7 +158,8 @@
             "$AppliesTo": [
                 "EntitySet",
                 "Collection",
-                "EntityContainer"
+                "EntityContainer",
+                "EntityType"
             ],
             "@Core.AppliesViaContainer": true,
             "@Core.Description": "Dynamic property that can be used in the `aggregate` transformation",
