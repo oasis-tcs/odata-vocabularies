@@ -64,3 +64,26 @@ anywhere in this repository.
 If you use [Visual Studio Code](https://code.visualstudio.com/), you can [run this script directly from the explorer](https://code.visualstudio.com/docs/getstarted/tips-and-tricks#_run-npm-scripts-as-tasks-from-the-explorer).
 
 You should also install the recommended extension for [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml). It will validate the XML files against the official [OData CDSL XML schemas](https://github.com/oasis-tcs/odata-csdl-schemas/tree/main/schemas).
+
+## Generation of change logs
+
+A GitHub workflow generates a file `CHANGELOG.md` from the long texts of the merge commits. If such a
+text has the form
+
+```
+CHANGELOG:
+- All terms were deprecated
+- 100 new terms were introduced
+```
+
+with `CHANGELOG:` followed by arbitrary markdown, an entry with that markdown is generated
+under a heading that consists of the date and time followed by the id of the commit.
+
+If there is an additional line
+
+```
+AMENDS: <commit id>
+```
+
+before the `CHANGELOG:`, the generated markdown is used not for the current commit but the one with the given `<commit_id>`.
+This allows corrections to be made in the changelog even though commit texts cannot be changed afterwards.
