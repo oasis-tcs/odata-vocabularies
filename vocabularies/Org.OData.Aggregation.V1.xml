@@ -211,14 +211,6 @@
         </Property>
       </ComplexType>
 
-      <TypeDefinition Name="HierarchyEntitySet" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        <Annotation Term="Core.LongDescription">
-          <String>Functions defined in this vocabulary have a parameter of this type. If it is null or absent,
-          the entity set of the function's binding parameter is used.</String>
-        </Annotation>
-      </TypeDefinition>
-
       <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
         <Annotation Term="Core.LongDescription">
@@ -232,7 +224,6 @@
       <Function Name="isroot" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity the root of the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Aggregation.HierarchyEntitySet" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
@@ -240,7 +231,6 @@
       <Function Name="isdescendant" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Aggregation.HierarchyEntitySet" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Parent node" />
@@ -252,7 +242,6 @@
       <Function Name="isancestor" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Aggregation.HierarchyEntitySet" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Child node" />
@@ -264,7 +253,6 @@
       <Function Name="issibling" IsBound="true">
         <Annotation Term="Core.Description" String="Does the entity have the same parent node in the specified hierarchy as the sibling node?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Aggregation.HierarchyEntitySet" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Sibling node" />
@@ -275,7 +263,6 @@
       <Function Name="isleaf" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity without descendants in the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Aggregation.HierarchyEntitySet" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>

@@ -217,12 +217,6 @@
                 "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
             }
         },
-        "HierarchyEntitySet": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Core.Description": "Name of the entity set holding the nodes of the recursive hierarchy",
-            "@Core.LongDescription": "Functions defined in this vocabulary have a parameter of this type. If it is null or absent,\n          the entity set of the function's binding parameter is used."
-        },
         "HierarchyQualifier": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
@@ -238,11 +232,6 @@
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
-                    },
-                    {
-                        "$Name": "Nodes",
-                        "$Type": "Aggregation.HierarchyEntitySet",
-                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
@@ -263,11 +252,6 @@
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
-                    },
-                    {
-                        "$Name": "Nodes",
-                        "$Type": "Aggregation.HierarchyEntitySet",
-                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
@@ -300,11 +284,6 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Nodes",
-                        "$Type": "Aggregation.HierarchyEntitySet",
-                        "$Nullable": true
-                    },
-                    {
                         "$Name": "Hierarchy",
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
@@ -335,11 +314,6 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Nodes",
-                        "$Type": "Aggregation.HierarchyEntitySet",
-                        "$Nullable": true
-                    },
-                    {
                         "$Name": "Hierarchy",
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
@@ -363,11 +337,6 @@
                     {
                         "$Name": "Entity",
                         "$Type": "Edm.EntityType"
-                    },
-                    {
-                        "$Name": "Nodes",
-                        "$Type": "Aggregation.HierarchyEntitySet",
-                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
