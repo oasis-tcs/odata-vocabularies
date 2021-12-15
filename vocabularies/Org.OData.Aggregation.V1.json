@@ -213,7 +213,6 @@
             "IsLeafProperty": {
                 "$Type": "Edm.PropertyPath",
                 "$Nullable": true,
-                "@Core.RequiresType": "Edm.Boolean",
                 "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
             }
         },

@@ -206,7 +206,6 @@
           <Annotation Term="Core.Description" String="Property holding the number of edges between the node and the root node" />
         </Property>
         <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.RequiresType" String="Edm.Boolean" />
           <Annotation Term="Core.Description" String="Property indicating whether the node is a leaf of the hierarchy" />
         </Property>
       </ComplexType>
