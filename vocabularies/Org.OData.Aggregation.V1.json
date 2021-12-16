@@ -176,6 +176,16 @@
             "@Core.Description": "The annotated property or custom aggregate is only well-defined in the context of these properties",
             "@Core.LongDescription": "The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency."
         },
+        "IsUndefined": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "@Core.Description": "This instance annotation occurs in the output set of a `groupby` transformation where a grouping property is undefined.",
+            "@Core.LongDescription": "This allows the consumer to distinguish between a group where the property is undefined\nfrom a group contributed by `$rollup` that represents the aggregation over that property:\n```\n[{\"Country\": \"US\", \"Total\": 55000},\n {\"Country\": \"US\", \"State@Aggregation.IsUndefined\": true, \"Total\": 100},\n {\"Country\": \"US\", \"State\": \"WA\", \"Total\": 1000}, ...]\n```"
+        },
         "LeveledHierarchy": {
             "$Kind": "Term",
             "$Collection": true,

@@ -187,6 +187,19 @@
         </Annotation>
       </Term>
 
+      <Term Name="IsUndefined" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="This instance annotation occurs in the output set of a `groupby` transformation where a grouping property is undefined." />
+        <Annotation Term="Core.LongDescription">
+          <String>This allows the consumer to distinguish between a group where the property is undefined
+from a group contributed by `$rollup` that represents the aggregation over that property:
+```
+[{"Country": "US", "Total": 55000},
+ {"Country": "US", "State@Aggregation.IsUndefined": true, "Total": 100},
+ {"Country": "US", "State": "WA", "Total": 1000}, ...]
+```</String>
+        </Annotation>
+      </Term>
+
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
