@@ -193,9 +193,9 @@
           <String>This allows the consumer to distinguish a group where the property is undefined
 from a group contributed by `$rollup` that represents the aggregation over that property:
 ```
-[{"Country": "US", "Number": 11},
- {"Country": "US", "State@Aggregation.IsUndefined": true, "Number": 3},
- {"Country": "US", "State": "TX", "Number": 3}, ...]
+[{"Country": "US", "Area": 9629091},
+ {"Country": "US", "State@Aggregation.IsUndefined": true, "Area": 177},
+ {"Country": "US", "State": "TX", "Area": 695620}, ...]
 ```</String>
         </Annotation>
       </Term>

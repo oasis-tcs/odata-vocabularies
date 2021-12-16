@@ -184,7 +184,7 @@
                 "Property"
             ],
             "@Core.Description": "This instance annotation occurs in the output set of a `groupby` transformation where a grouping property is undefined",
-            "@Core.LongDescription": "This allows the consumer to distinguish a group where the property is undefined\nfrom a group contributed by `$rollup` that represents the aggregation over that property:\n```\n[{\"Country\": \"US\", \"Number\": 11},\n {\"Country\": \"US\", \"State@Aggregation.IsUndefined\": true, \"Number\": 3},\n {\"Country\": \"US\", \"State\": \"TX\", \"Number\": 3}, ...]\n```"
+            "@Core.LongDescription": "This allows the consumer to distinguish a group where the property is undefined\nfrom a group contributed by `$rollup` that represents the aggregation over that property:\n```\n[{\"Country\": \"US\", \"Area\": 9629091},\n {\"Country\": \"US\", \"State@Aggregation.IsUndefined\": true, \"Area\": 177},\n {\"Country\": \"US\", \"State\": \"TX\", \"Area\": 695620}, ...]\n```"
         },
         "LeveledHierarchy": {
             "$Kind": "Term",
