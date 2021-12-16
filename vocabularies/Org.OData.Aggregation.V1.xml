@@ -188,7 +188,7 @@
       </Term>
 
       <Term Name="IsUndefined" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
-        <Annotation Term="Core.Description" String="This instance annotation occurs in the output set of a `groupby` transformation where a grouping property is undefined." />
+        <Annotation Term="Core.Description" String="This instance annotation occurs in the output set of a `groupby` transformation where a grouping property is undefined" />
         <Annotation Term="Core.LongDescription">
           <String>This allows the consumer to distinguish between a group where the property is undefined
 from a group contributed by `$rollup` that represents the aggregation over that property:
