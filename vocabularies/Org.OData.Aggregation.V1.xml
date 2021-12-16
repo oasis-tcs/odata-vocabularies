@@ -137,16 +137,17 @@
         </Property>
       </ComplexType>
 
+
       <EnumType Name="RollupType">
-        <Annotation Term="Core.Description" String="The number of `rollup` operators allowed in a `groupby` transformation" />
+        <Annotation Term="Core.Description" String="The number of `rollup` or `rollupall` operators allowed in a `groupby` transformation" />
         <Member Name="None">
-          <Annotation Term="Core.Description" String="No `rollup` support" />
+          <Annotation Term="Core.Description" String="No support for `rollup` or `rollupall` " />
         </Member>
         <Member Name="SingleHierarchy">
-          <Annotation Term="Core.Description" String="Only one `rollup` operator per `groupby`" />
+          <Annotation Term="Core.Description" String="Only one `rollup` or `rollupall` operator per `groupby`" />
         </Member>
         <Member Name="MultipleHierarchies">
-          <Annotation Term="Core.Description" String="Full `rollup` support" />
+          <Annotation Term="Core.Description" String="Full support for `rollup` and `rollupall`" />
         </Member>
       </EnumType>
 
