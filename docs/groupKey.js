@@ -1,5 +1,5 @@
-function groupingObject(groupingProperties, instance) {
-  var groupingObject = {};
+function groupKey(groupingProperties, instance) {
+  var groupKey = {};
   function group(obj, instance, groupingProperty) {
     if (groupingProperty[0] in instance) {
       if (groupingProperty.length === 1 || !instance[groupingProperty[0]])
@@ -14,6 +14,6 @@ function groupingObject(groupingProperties, instance) {
       obj[groupingProperty[0] + "@Aggregation.IsUndefined"] = true;
   }
   for (var groupingProperty of groupingProperties)
-    group(groupingObject, instance, groupingProperty.split("/"));
-  return groupingObject;
+    group(groupKey, instance, groupingProperty.split("/"));
+  return groupKey;
 }
