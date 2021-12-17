@@ -196,7 +196,8 @@ from a group contributed by `rollup` that represents the aggregation over that p
 [{"Country": "US", "Area": 9629091},
  {"Country": "US", "State@Aggregation.IsUndefined": true, "Area": 177},
  {"Country": "US", "State": "TX", "Area": 695620}, ...]
-```</String>
+```
+[This algorithm](../docs/groupingObject.js) computes grouping objects including this annotation.</String>
         </Annotation>
       </Term>
 
