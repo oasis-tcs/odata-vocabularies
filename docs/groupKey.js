@@ -7,7 +7,7 @@ function groupKey(groupingProperties, instance) {
       else {
         obj[groupingProperty[0]] = obj[groupingProperty[0]] || {};
         group(obj[groupingProperty[0]],
-              instance[groupingProperty[0]] || {},
+              instance[groupingProperty[0]],
               groupingProperty.slice(1));
       }
     } else if (groupingProperty[1] === "@odata.id")
@@ -19,3 +19,5 @@ function groupKey(groupingProperties, instance) {
     group(groupKey, instance, groupingProperty.split("/"));
   return groupKey;
 }
+
+module.exports = groupKey;
