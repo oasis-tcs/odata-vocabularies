@@ -219,8 +219,8 @@
 functions defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
-/Aggregation.transplant(EntitySet=@Hierarchy)
-/Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
+ /Aggregation.transplant(EntitySet=@Hierarchy)
+ /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
 &amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
         </Annotation>

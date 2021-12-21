@@ -29,8 +29,8 @@ Can be used to specify a recursive hierarchy from a "directory" of hierarchies, 
 functions defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
-/Aggregation.transplant(EntitySet=@Hierarchy)
-/Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
+ /Aggregation.transplant(EntitySet=@Hierarchy)
+ /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
 &@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```
 
