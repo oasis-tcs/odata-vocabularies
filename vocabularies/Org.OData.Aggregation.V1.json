@@ -216,6 +216,29 @@
                 "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
             }
         },
+        "transplant": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType"
+                    },
+                    {
+                        "$Name": "EntitySet",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.EntityType",
+                    "$Nullable": true
+                }
+            }
+        ],
         "isroot": [
             {
                 "$Kind": "Function",

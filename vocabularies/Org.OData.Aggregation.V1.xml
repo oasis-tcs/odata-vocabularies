@@ -212,6 +212,15 @@
         </Property>
       </ComplexType>
 
+      <Function Name="transplant" IsBound="true">
+        <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="A named or implicit entity set" />
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" />
+      </Function>
+
       <Function Name="isroot" IsBound="true">
         <Annotation Term="Core.Description" String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is the root of the hierarchy in the given entity set of hierarchy nodes" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
