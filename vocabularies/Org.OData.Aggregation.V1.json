@@ -176,7 +176,7 @@
             "@Core.Description": "The annotated property or custom aggregate is only well-defined in the context of these properties",
             "@Core.LongDescription": "The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency."
         },
-        "IsUndefined": {
+        "rolledup": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
             "$DefaultValue": true,
@@ -184,8 +184,8 @@
                 "Property",
                 "NavigationProperty"
             ],
-            "@Core.Description": "This instance annotation occurs in the output set of a `groupby` transformation where a grouping property is undefined",
-            "@Core.LongDescription": "This allows the consumer to distinguish a group where the property is undefined\nfrom a group contributed by `rollup` that represents the aggregation over that property:\n```\n[{\"Country\": \"US\", \"Area\": 9629091},\n {\"Country\": \"US\", \"State@Aggregation.IsUndefined\": true, \"Area\": 177},\n {\"Country\": \"US\", \"State\": \"TX\", \"Area\": 695620}, ...]\n```\nAn algorithm for computing group keys that may include this annotation is shown [here](../docs/groupKey.js)."
+            "@Core.Description": "This instance annotation occurs in the output set of a `groupby` transformation with `rollup` to identify a property that has been aggregated away",
+            "@Core.LongDescription": "Servers SHOULD NOT include this instance annotation in the response unless it requested with `$select`.\n          See [this example](../examples/Org.OData.Aggregation.V1.rollup.md)."
         },
         "LeveledHierarchy": {
             "$Kind": "Term",

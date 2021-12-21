@@ -189,17 +189,11 @@
         </Annotation>
       </Term>
 
-      <Term Name="IsUndefined" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
-        <Annotation Term="Core.Description" String="This instance annotation occurs in the output set of a `groupby` transformation where a grouping property is undefined" />
+      <Term Name="rolledup" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
+        <Annotation Term="Core.Description" String="This instance annotation occurs in the output set of a `groupby` transformation with `rollup` to identify a property that has been aggregated away" />
         <Annotation Term="Core.LongDescription">
-          <String>This allows the consumer to distinguish a group where the property is undefined
-from a group contributed by `rollup` that represents the aggregation over that property:
-```
-[{"Country": "US", "Area": 9629091},
- {"Country": "US", "State@Aggregation.IsUndefined": true, "Area": 177},
- {"Country": "US", "State": "TX", "Area": 695620}, ...]
-```
-An algorithm for computing group keys that may include this annotation is shown [here](../docs/groupKey.js).</String>
+          <String>Servers SHOULD NOT include this instance annotation in the response unless it is requested with `$select`.
+          See [this example](../examples/Org.OData.Aggregation.V1.rollup.md).</String>
         </Annotation>
       </Term>
 
