@@ -14,7 +14,8 @@
   - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
   - Gerald Krause (gerald.krause@sap.com), SAP SE
   - Michael Pizzo (mikep@microsoft.com), Microsoft
-
+  - Heiko Theißen (heiko.theissen@sap.com), SAP SE
+  
   Additional artifacts:
   This vocabulary is one component of a Work Product that also includes the following vocabulary components:
   - OData Core Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml.
@@ -214,12 +215,31 @@
       <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
         <Annotation Term="Core.LongDescription">
-          <String>Functions defined in this vocabulary have a parameter of this type.
-          It identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter
+          <String>In functions defined in this vocabulary, a parameter of this type.
+          identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter
           that specifies the hierarchy that is evaluated by the function.
           Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.</String>
         </Annotation>
       </TypeDefinition>
+
+      <Function Name="transplant" IsBound="true">
+        <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists" />
+        <Annotation Term="Core.LongDescription">
+          <String>Can be used to specify a recursive hierarchy from a "directory" of hierarchies, for use in the hierarchy
+functions defined in this vocabulary, for example:
+```
+GET ~/Sales?$filter=SalesOrganization
+ /Aggregation.transplant(EntitySet=@Hierarchy)
+ /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
+&amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
+```</String>
+        </Annotation>
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="A named or implicit entity set" />
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" />
+      </Function>
 
       <Function Name="isroot" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity the root of the specified hierarchy?" />

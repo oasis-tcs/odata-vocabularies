@@ -220,8 +220,32 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Functions defined in this vocabulary have a parameter of this type.\n          It identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter\n          that specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
+            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type.\n          identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter\n          that specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
         },
+        "transplant": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists",
+                "@Core.LongDescription": "Can be used to specify a recursive hierarchy from a \"directory\" of hierarchies, for use in the hierarchy\nfunctions defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n /Aggregation.transplant(EntitySet=@Hierarchy)\n /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType"
+                    },
+                    {
+                        "$Name": "EntitySet",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.EntityType",
+                    "$Nullable": true
+                }
+            }
+        ],
         "isroot": [
             {
                 "$Kind": "Function",
