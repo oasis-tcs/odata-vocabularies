@@ -212,6 +212,16 @@
         </Property>
       </ComplexType>
 
+      <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
+        <Annotation Term="Core.LongDescription">
+          <String>In functions defined in this vocabulary, a parameter of this type.
+          identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter
+          that specifies the hierarchy that is evaluated by the function.
+          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.</String>
+        </Annotation>
+      </TypeDefinition>
+
       <Function Name="transplant" IsBound="true">
         <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists" />
         <Annotation Term="Core.LongDescription">
@@ -232,73 +242,48 @@ GET ~/Sales?$filter=SalesOrganization
       </Function>
 
       <Function Name="isroot" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is the root of the hierarchy in the given entity set of hierarchy nodes" />
+        <Annotation Term="Core.Description" String="Is the entity the root of the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="isdescendant" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is a descendant of the given parent node in the given entity set of hierarchy nodes with a distance of less than or equal to the optionally specified maximum distance" />
+        <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Parent node value" />
+          <Annotation Term="Core.Description" String="Parent node" />
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation is an ancestor of the given child node in the given entity set of hierarchy nodes with a distance of less than or equal to the optionally specified maximum distance" />
+        <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Child node value" />
+          <Annotation Term="Core.Description" String="Child node" />
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="issibling" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation has the same parent node as the specified node in the given entity set of hierarchy nodes" />
+        <Annotation Term="Core.Description" String="Does the entity have the same parent node in the specified hierarchy as the sibling node?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
-          <Annotation Term="Core.Description" String="Sibling node value" />
+          <Annotation Term="Core.Description" String="Sibling node" />
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="isleaf" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true for a given entity, if and only if the value of the node property of the specified hierarchy annotation has no descendants in the given entity set of hierarchy nodes" />
+        <Annotation Term="Core.Description" String="Is the entity without descendants in the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Nodes" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Name of the entity set holding the nodes of the recursive hierarchy" />
-        </Parameter>
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Qualifier to identify the `RecursiveHierarchy` annotation applied to the type of the entity set referenced in `Nodes`" />
-        </Parameter>
+        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
