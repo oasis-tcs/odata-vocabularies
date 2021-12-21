@@ -221,6 +221,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists",
+                "@Core.LongDescription": "Can be used to specify a recursive hierarchy from a \"directory\" of hierarchies, for use in the hierarchy\nfunctions defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n/Aggregation.transplant(EntitySet=@Hierarchy)\n/Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
