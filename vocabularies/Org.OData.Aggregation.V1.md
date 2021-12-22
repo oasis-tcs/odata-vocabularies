@@ -56,9 +56,9 @@ GET ~/SalesOrganizations?$apply=
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L255)**|\[EntityType\]|**Binding parameter**
+**[Entity](./Org.OData.Aggregation.V1.xml#L255)**|\[EntityType?\]|**Binding parameter**
 [EntitySet](./Org.OData.Aggregation.V1.xml#L256)|\[EntityType\]|A named or implicit entity set
-[&rarr;](./Org.OData.Aggregation.V1.xml#L259)|\[EntityType\]|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L259)|\[EntityType?\]|
 
 
 ### <a name="isroot"></a>[isroot](./Org.OData.Aggregation.V1.xml#L262:~:text=<Function%20Name="-,isroot,-")

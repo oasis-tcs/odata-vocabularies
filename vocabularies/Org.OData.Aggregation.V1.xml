@@ -252,11 +252,11 @@ GET ~/SalesOrganizations?$apply=
 &amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
         </Annotation>
-        <Parameter Name="Entity" Type="Collection(Edm.EntityType)" />
+        <Parameter Name="Entity" Type="Collection(Edm.EntityType)" Nullable="true" />
         <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="A named or implicit entity set" />
         </Parameter>
-        <ReturnType Type="Collection(Edm.EntityType)" />
+        <ReturnType Type="Collection(Edm.EntityType)" Nullable="true" />
       </Function>
 
       <Function Name="isroot" IsBound="true">
