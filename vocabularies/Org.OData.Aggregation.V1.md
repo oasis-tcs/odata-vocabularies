@@ -160,8 +160,8 @@ Property|Type|Description
 Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
 
 In functions defined in this vocabulary, a parameter of this type
-          identifies the [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter
-          that specifies the hierarchy that is evaluated by the function.
+          identifies a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of the function's binding parameter.
+          This annotation, together with the binding parameter's entity set specifies the hierarchy that is evaluated by the function.
           Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.
 
 ## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L294:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
