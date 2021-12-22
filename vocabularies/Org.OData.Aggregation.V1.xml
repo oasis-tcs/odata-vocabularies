@@ -230,9 +230,9 @@ a recursive hierarchy from a "directory" of hierarchies, for use in the hierarch
 functions defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
- /Aggregation.move(EntitySet=@Hierarchy)
+ /Aggregation.move(EntitySet=@PathExpression)
  /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
-&amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
+&amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
@@ -247,9 +247,9 @@ GET ~/Sales?$filter=SalesOrganization
           <String>This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
 ```
 GET ~/SalesOrganizations?$apply=
- Aggregation.move(EntitySet=@Hierarchy)
+ Aggregation.move(EntitySet=@PathExpression)
  /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))
-&amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
+&amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
         </Annotation>
         <Parameter Name="Entity" Type="Collection(Edm.EntityType)" Nullable="true" />

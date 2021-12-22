@@ -30,9 +30,9 @@ a recursive hierarchy from a "directory" of hierarchies, for use in the hierarch
 functions defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
- /Aggregation.move(EntitySet=@Hierarchy)
+ /Aggregation.move(EntitySet=@PathExpression)
  /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
-&@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
+&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```
 
 Parameter|Type|Description
@@ -49,9 +49,9 @@ Like `move(Edm.EntityType)`, but applied to each entity in a collection
 This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
 ```
 GET ~/SalesOrganizations?$apply=
- Aggregation.move(EntitySet=@Hierarchy)
+ Aggregation.move(EntitySet=@PathExpression)
  /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))
-&@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
+&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```
 
 Parameter|Type|Description

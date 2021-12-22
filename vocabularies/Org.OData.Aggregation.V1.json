@@ -227,7 +227,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists",
-                "@Core.LongDescription": "The binding parameter \"moves into\" the specified entity set. This can be used to specify\na recursive hierarchy from a \"directory\" of hierarchies, for use in the hierarchy\nfunctions defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n /Aggregation.move(EntitySet=@Hierarchy)\n /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "@Core.LongDescription": "The binding parameter \"moves into\" the specified entity set. This can be used to specify\na recursive hierarchy from a \"directory\" of hierarchies, for use in the hierarchy\nfunctions defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n /Aggregation.move(EntitySet=@PathExpression)\n /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -250,7 +250,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Like `move(Edm.EntityType)`, but applied to each entity in a collection",
-                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrganizations?$apply=\n Aggregation.move(EntitySet=@Hierarchy)\n /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n&@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrganizations?$apply=\n Aggregation.move(EntitySet=@PathExpression)\n /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
