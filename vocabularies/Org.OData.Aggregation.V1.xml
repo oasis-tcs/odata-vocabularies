@@ -217,7 +217,7 @@
         <Annotation Term="Core.LongDescription">
           <String>In functions defined in this vocabulary, a parameter of this type
           identifies a [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter.
-          This annotation, together with the binding parameter's entity set specifies the hierarchy that is evaluated by the function.
+          Together with the binding parameter's entity set, this annotation specifies the hierarchy that is evaluated by the function.
           Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.</String>
         </Annotation>
       </TypeDefinition>
@@ -240,6 +240,23 @@ GET ~/Sales?$filter=SalesOrganization
           <Annotation Term="Core.Description" String="A named or implicit entity set" />
         </Parameter>
         <ReturnType Type="Edm.EntityType" />
+      </Function>
+      <Function Name="move" IsBound="true">
+        <Annotation Term="Core.Description" String="Like `move(Edm.EntityType)`, but applied to each entity in a collection" />
+        <Annotation Term="Core.LongDescription">
+          <String>This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
+```
+GET ~/SalesOrganizations?$apply=
+ Aggregation.move(EntitySet=@Hierarchy)
+ /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))
+&amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
+```</String>
+        </Annotation>
+        <Parameter Name="Entity" Type="Collection(Edm.EntityType)" />
+        <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)">
+          <Annotation Term="Core.Description" String="A named or implicit entity set" />
+        </Parameter>
+        <ReturnType Type="Collection(Edm.EntityType)" />
       </Function>
 
       <Function Name="isroot" IsBound="true">

@@ -220,7 +220,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\n          identifies a [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter.\n          This annotation, together with the binding parameter's entity set specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
+            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\n          identifies a [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter.\n          Together with the binding parameter's entity set, this annotation specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
         },
         "move": [
             {
@@ -244,6 +244,29 @@
                 "$ReturnType": {
                     "$Type": "Edm.EntityType",
                     "$Nullable": true
+                }
+            },
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Like `move(Edm.EntityType)`, but applied to each entity in a collection",
+                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrganizations?$apply=\n Aggregation.move(EntitySet=@Hierarchy)\n /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n&@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType"
+                    },
+                    {
+                        "$Name": "EntitySet",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.EntityType"
                 }
             }
         ],
