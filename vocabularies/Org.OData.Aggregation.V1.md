@@ -37,7 +37,7 @@ GET ~/Sales?$filter=SalesOrganization
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L238:~:text=<Function%20Name="-,move,-")**|EntityType|**Binding parameter**
+**[Entity](./Org.OData.Aggregation.V1.xml#L238:~:text=<Function%20Name="-,move,-")**|EntityType?|**Binding parameter**
 [EntitySet](./Org.OData.Aggregation.V1.xml#L239:~:text=<Function%20Name="-,move,-")|\[EntityType\]|A named or implicit entity set
 [&rarr;](./Org.OData.Aggregation.V1.xml#L242:~:text=<Function%20Name="-,move,-")|EntityType?|
 

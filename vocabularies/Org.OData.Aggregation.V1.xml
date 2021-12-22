@@ -235,7 +235,7 @@ GET ~/Sales?$filter=SalesOrganization
 &amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
         </Annotation>
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="Entity" Type="Edm.EntityType" />
         <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)">
           <Annotation Term="Core.Description" String="A named or implicit entity set" />
         </Parameter>
