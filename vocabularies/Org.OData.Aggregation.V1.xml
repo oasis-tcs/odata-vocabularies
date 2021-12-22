@@ -235,11 +235,11 @@ GET ~/Sales?$filter=SalesOrganization
 &amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
         </Annotation>
-        <Parameter Name="Entity" Type="Edm.EntityType" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)">
-          <Annotation Term="Core.Description" String="A named or implicit entity set" />
+          <Annotation Term="Core.Description" String="A named or implicit entity set, specified with a path expression" />
         </Parameter>
-        <ReturnType Type="Edm.EntityType" />
+        <ReturnType Type="Edm.EntityType" Nullable="true" />
       </Function>
       <Function Name="move" IsBound="true">
         <Annotation Term="Core.Description" String="Like `move(Edm.EntityType)`, but applied to each entity in a collection" />
@@ -254,7 +254,7 @@ GET ~/SalesOrganizations?$apply=
         </Annotation>
         <Parameter Name="Entity" Type="Collection(Edm.EntityType)" Nullable="true" />
         <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)">
-          <Annotation Term="Core.Description" String="A named or implicit entity set" />
+          <Annotation Term="Core.Description" String="A named or implicit entity set, specified with a path expression" />
         </Parameter>
         <ReturnType Type="Collection(Edm.EntityType)" Nullable="true" />
       </Function>

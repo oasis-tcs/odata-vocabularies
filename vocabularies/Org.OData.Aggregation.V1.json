@@ -238,7 +238,7 @@
                         "$Name": "EntitySet",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A named or implicit entity set"
+                        "@Core.Description": "A named or implicit entity set, specified with a path expression"
                     }
                 ],
                 "$ReturnType": {
@@ -262,7 +262,7 @@
                         "$Name": "EntitySet",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A named or implicit entity set"
+                        "@Core.Description": "A named or implicit entity set, specified with a path expression"
                     }
                 ],
                 "$ReturnType": {
