@@ -222,14 +222,15 @@
         </Annotation>
       </TypeDefinition>
 
-      <Function Name="transplant" IsBound="true">
+      <Function Name="move" IsBound="true">
         <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists" />
         <Annotation Term="Core.LongDescription">
-          <String>Can be used to specify a recursive hierarchy from a "directory" of hierarchies, for use in the hierarchy
+          <String>The binding parameter "moves into" the specified entity set. This can be used to specify
+a recursive hierarchy from a "directory" of hierarchies, for use in the hierarchy
 functions defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
- /Aggregation.transplant(EntitySet=@Hierarchy)
+ /Aggregation.move(EntitySet=@Hierarchy)
  /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
 &amp;@Hierarchy=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
