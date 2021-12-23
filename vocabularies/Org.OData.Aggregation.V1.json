@@ -185,7 +185,7 @@
                 "NavigationProperty"
             ],
             "@Core.Description": "This instance annotation occurs in the output set of a `groupby` transformation with `rollup` to identify a property that has been aggregated away",
-            "@Core.LongDescription": "Servers SHOULD NOT include this instance annotation in the response unless it requested with `$select`.\n          See [this example](../examples/Org.OData.Aggregation.V1.rollup.md)."
+            "@Core.LongDescription": "Servers SHOULD NOT include this instance annotation in the response unless it is requested with `$select`.\n          See [this example](../examples/Org.OData.Aggregation.V1.rollup.md)."
         },
         "LeveledHierarchy": {
             "$Kind": "Term",
