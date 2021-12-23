@@ -220,7 +220,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\n          identifies a [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter.\n          Together with the binding parameter's entity set, this annotation specifies the hierarchy that is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
+            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\n          identifies a [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` in this annotation specifies a hierarchy in the binding parameter's entity set,\n          and this hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`."
         },
         "move": [
             {
@@ -255,8 +255,7 @@
                     {
                         "$Name": "Entity",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
+                        "$Type": "Edm.EntityType"
                     },
                     {
                         "$Name": "EntitySet",
@@ -267,8 +266,7 @@
                 ],
                 "$ReturnType": {
                     "$Collection": true,
-                    "$Type": "Edm.EntityType",
-                    "$Nullable": true
+                    "$Type": "Edm.EntityType"
                 }
             }
         ],
