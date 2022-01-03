@@ -179,7 +179,7 @@ Property|Type|Description
 Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
 
 In functions defined in this vocabulary, a parameter of this type
-          identifies a [`RecursiveHierarchy`] annotation on the entity type of the function's binding parameter.
+          identifies a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.
           The `RecursiveHierarchy/ParentNavigationProperty` in this annotation specifies a hierarchy in the binding parameter's entity set,
           and this hierarchy is evaluated by the function.
           Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`.
