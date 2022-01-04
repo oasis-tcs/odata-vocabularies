@@ -285,7 +285,7 @@ GET ~/SalesOrganizations?$apply=
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Child node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
