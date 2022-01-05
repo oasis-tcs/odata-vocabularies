@@ -23,7 +23,7 @@ Term|Type|Description
 
 ### <a name="move"></a>[move](./Org.OData.Aggregation.V1.xml#L226:~:text=<Function%20Name="-,move,-")
 
-Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists
+Returns an entity in the specified entity set with the same key as the binding parameter, or null if no such entity exists
 
 The binding parameter "moves into" the specified entity set. This can be used to specify
 a recursive hierarchy from a "directory" of hierarchies, for use in the hierarchy

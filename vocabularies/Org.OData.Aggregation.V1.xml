@@ -224,7 +224,7 @@
       </TypeDefinition>
 
       <Function Name="move" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same structure as the binding parameter, or null if no such entity exists" />
+        <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same key as the binding parameter, or null if no such entity exists" />
         <Annotation Term="Core.LongDescription">
           <String>The binding parameter "moves into" the specified entity set. This can be used to specify
 a recursive hierarchy from a "directory" of hierarchies, for use in the hierarchy
