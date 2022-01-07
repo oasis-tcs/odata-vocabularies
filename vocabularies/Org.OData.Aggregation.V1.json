@@ -220,14 +220,14 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\n          identifies a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy in the binding parameter's entity set,\n          and this hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`."
+            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\n          identifies a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.\n          (If the binding parameter is null, the function returns null.)\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy in the binding parameter's entity set,\n          and this hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`."
         },
-        "move": [
+        "clone": [
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns an entity in the specified entity set with the same key as the binding parameter, or null if no such entity exists",
-                "@Core.LongDescription": "The binding parameter \"moves into\" the specified entity set. This can be used to specify\na recursive hierarchy from a \"directory\" of hierarchies, for use in the hierarchy\nfunctions defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n /Aggregation.move(EntitySet=@PathExpression)\n /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "@Core.Description": "Returns an entity in the specified entity set with the same entity type and the same key as the binding parameter, or null if no such entity exists",
+                "@Core.LongDescription": "This can be used to specify a recursive hierarchy from a \"directory\" of hierarchies,\nfor use in the hierarchy functions defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n /Aggregation.clone(EntitySet=@PathExpression)\n /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -249,8 +249,8 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Like `move(Edm.EntityType)`, but applied to each entity in a collection",
-                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrganizations?$apply=\n Aggregation.move(EntitySet=@PathExpression)\n /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "@Core.Description": "Like `clone(Edm.EntityType)`, but applied to each entity in a collection",
+                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrganizations?$apply=\n Aggregation.clone(EntitySet=@PathExpression)\n /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -278,7 +278,8 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
@@ -286,7 +287,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
@@ -298,7 +300,8 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
@@ -316,7 +319,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
@@ -328,7 +332,8 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
@@ -346,7 +351,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
@@ -358,7 +364,8 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
@@ -371,7 +378,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
@@ -383,7 +391,8 @@
                 "$Parameter": [
                     {
                         "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Hierarchy",
@@ -391,7 +400,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],

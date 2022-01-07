@@ -21,35 +21,34 @@ Term|Type|Description
 
 ## Functions
 
-### <a name="move"></a>[move](./Org.OData.Aggregation.V1.xml#L226:~:text=<Function%20Name="-,move,-")
+### <a name="clone"></a>[clone](./Org.OData.Aggregation.V1.xml#L227:~:text=<Function%20Name="-,clone,-")
 
-Returns an entity in the specified entity set with the same key as the binding parameter, or null if no such entity exists
+Returns an entity in the specified entity set with the same entity type and the same key as the binding parameter, or null if no such entity exists
 
-The binding parameter "moves into" the specified entity set. This can be used to specify
-a recursive hierarchy from a "directory" of hierarchies, for use in the hierarchy
-functions defined in this vocabulary, for example:
+This can be used to specify a recursive hierarchy from a "directory" of hierarchies,
+for use in the hierarchy functions defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
- /Aggregation.move(EntitySet=@PathExpression)
+ /Aggregation.clone(EntitySet=@PathExpression)
  /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
 &@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L239:~:text=<Function%20Name="-,move,-")**|EntityType?|**Binding parameter**
-[EntitySet](./Org.OData.Aggregation.V1.xml#L240:~:text=<Function%20Name="-,move,-")|\[EntityType\]|A named or implicit entity set, specified with a path expression
-[&rarr;](./Org.OData.Aggregation.V1.xml#L243:~:text=<Function%20Name="-,move,-")|EntityType?|
+**[Entity](./Org.OData.Aggregation.V1.xml#L239:~:text=<Function%20Name="-,clone,-")**|EntityType?|**Binding parameter**
+[EntitySet](./Org.OData.Aggregation.V1.xml#L240:~:text=<Function%20Name="-,clone,-")|\[EntityType\]|A named or implicit entity set, specified with a path expression
+[&rarr;](./Org.OData.Aggregation.V1.xml#L243:~:text=<Function%20Name="-,clone,-")|EntityType?|
 
 
-### <a name="move"></a>[move](./Org.OData.Aggregation.V1.xml#L245)
+### <a name="clone"></a>[clone](./Org.OData.Aggregation.V1.xml#L245)
 
-Like `move(Edm.EntityType)`, but applied to each entity in a collection
+Like `clone(Edm.EntityType)`, but applied to each entity in a collection
 
 This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
 ```
 GET ~/SalesOrganizations?$apply=
- Aggregation.move(EntitySet=@PathExpression)
+ Aggregation.clone(EntitySet=@PathExpression)
  /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))
 &@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```
@@ -67,9 +66,9 @@ Is the entity the root of the specified hierarchy?
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L265:~:text=<Function%20Name="-,isroot,-")**|EntityType|**Binding parameter**
+**[Entity](./Org.OData.Aggregation.V1.xml#L265:~:text=<Function%20Name="-,isroot,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L266:~:text=<Function%20Name="-,isroot,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L267:~:text=<Function%20Name="-,isroot,-")|Boolean|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L267:~:text=<Function%20Name="-,isroot,-")|Boolean?|
 
 
 ### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L270:~:text=<Function%20Name="-,isdescendant,-")
@@ -78,11 +77,11 @@ Is the entity a descendant in the specified hierarchy of the parent node, option
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L272:~:text=<Function%20Name="-,isdescendant,-")**|EntityType|**Binding parameter**
+**[Entity](./Org.OData.Aggregation.V1.xml#L272:~:text=<Function%20Name="-,isdescendant,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L273:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L274:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType|Parent node
 [MaxDistance](./Org.OData.Aggregation.V1.xml#L277:~:text=<Function%20Name="-,isdescendant,-")|Int16?|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L278:~:text=<Function%20Name="-,isdescendant,-")|Boolean|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L278:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
 
 
 ### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L281:~:text=<Function%20Name="-,isancestor,-")
@@ -91,11 +90,11 @@ Is the entity an ancestor in the specified hierarchy of the child node, optional
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L283:~:text=<Function%20Name="-,isancestor,-")**|EntityType|**Binding parameter**
+**[Entity](./Org.OData.Aggregation.V1.xml#L283:~:text=<Function%20Name="-,isancestor,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L284:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L285:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType|Child node
 [MaxDistance](./Org.OData.Aggregation.V1.xml#L288:~:text=<Function%20Name="-,isancestor,-")|Int16?|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L289:~:text=<Function%20Name="-,isancestor,-")|Boolean|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L289:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
 
 
 ### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L292:~:text=<Function%20Name="-,issibling,-")
@@ -104,10 +103,10 @@ Does the entity have the same parent node in the specified hierarchy as the sibl
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L294:~:text=<Function%20Name="-,issibling,-")**|EntityType|**Binding parameter**
+**[Entity](./Org.OData.Aggregation.V1.xml#L294:~:text=<Function%20Name="-,issibling,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L295:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L296:~:text=<Function%20Name="-,issibling,-")|PrimitiveType|Sibling node
-[&rarr;](./Org.OData.Aggregation.V1.xml#L299:~:text=<Function%20Name="-,issibling,-")|Boolean|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L299:~:text=<Function%20Name="-,issibling,-")|Boolean?|
 
 
 ### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L302:~:text=<Function%20Name="-,isleaf,-")
@@ -116,9 +115,9 @@ Is the entity without descendants in the specified hierarchy?
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,isleaf,-")**|EntityType|**Binding parameter**
+**[Entity](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,isleaf,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L305:~:text=<Function%20Name="-,isleaf,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L306:~:text=<Function%20Name="-,isleaf,-")|Boolean|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L306:~:text=<Function%20Name="-,isleaf,-")|Boolean?|
 
 
 ## <a name="ApplySupportedBase"></a>[ApplySupportedBase](./Org.OData.Aggregation.V1.xml#L93:~:text=<ComplexType%20Name="-,ApplySupportedBase,-")
@@ -180,6 +179,7 @@ Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
 
 In functions defined in this vocabulary, a parameter of this type
           identifies a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.
+          (If the binding parameter is null, the function returns null.)
           The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy in the binding parameter's entity set,
           and this hierarchy is evaluated by the function.
           Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.
