@@ -245,12 +245,14 @@ GET ~/Sales?$filter=SalesOrganization
       <Function Name="clone" IsBound="true">
         <Annotation Term="Core.Description" String="Like `clone(Edm.EntityType)`, but applied to each entity in a collection" />
         <Annotation Term="Core.LongDescription">
-          <String>This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
+          <String>Entities mapped to null are omitted from the result.
+          This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
 ```
-GET ~/SalesOrganizations?$apply=
- Aggregation.clone(EntitySet=@PathExpression)
- /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))
-&amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
+GET ~/SalesOrgHierarchyDirectory('Regional')/Nodes?$apply=
+ descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))
+ /Aggregation.clone(EntitySet=@PathExpression)
+ /ancestors(SalesOrgHierarchy,filter(Name ne null))
+&amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Organizational')/Nodes
 ```</String>
         </Annotation>
         <Parameter Name="Entity" Type="Collection(Edm.EntityType)" Nullable="false" />

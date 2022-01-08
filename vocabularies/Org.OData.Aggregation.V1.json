@@ -250,7 +250,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Like `clone(Edm.EntityType)`, but applied to each entity in a collection",
-                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrganizations?$apply=\n Aggregation.clone(EntitySet=@PathExpression)\n /descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "@Core.LongDescription": "Entities mapped to null are omitted from the result.\n          This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrgHierarchyDirectory('Regional')/Nodes?$apply=\n descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n /Aggregation.clone(EntitySet=@PathExpression)\n /ancestors(SalesOrgHierarchy,filter(Name ne null))\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Organizational')/Nodes\n```",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
