@@ -224,14 +224,14 @@
         </Annotation>
       </TypeDefinition>
 
-      <Function Name="clone" IsBound="true">
+      <Function Name="switch" IsBound="true">
         <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same entity type and the same key as the binding parameter, or null if no such entity exists" />
         <Annotation Term="Core.LongDescription">
-          <String>This can be used to specify a recursive hierarchy from a "directory" of hierarchies,
+          <String>This can be used to switch to a recursive hierarchy from a "directory" of hierarchies,
 for use in the hierarchy functions defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
- /Aggregation.clone(EntitySet=@PathExpression)
+ /Aggregation.switch(EntitySet=@PathExpression)
  /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
 &amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
 ```</String>
@@ -242,16 +242,15 @@ GET ~/Sales?$filter=SalesOrganization
         </Parameter>
         <ReturnType Type="Edm.EntityType" Nullable="true" />
       </Function>
-      <Function Name="clone" IsBound="true">
-        <Annotation Term="Core.Description" String="Like `clone(Edm.EntityType)`, but applied to each entity in a collection" />
+      <Function Name="switch" IsBound="true">
+        <Annotation Term="Core.Description" String="Like `switch(Edm.EntityType)`, but applied to each entity in a collection with nulls omitted from the result" />
         <Annotation Term="Core.LongDescription">
-          <String>Entities mapped to null are omitted from the result.
-          This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
+          <String>This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:
 ```
 GET ~/SalesOrgHierarchyDirectory('Regional')/Nodes?$apply=
  descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))
- /Aggregation.clone(EntitySet=@PathExpression)
- /ancestors(SalesOrgHierarchy,filter(Name ne null))
+ /Aggregation.switch(EntitySet=@PathExpression)
+ /ancestors(SalesOrgHierarchy,filter(true))
 &amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Organizational')/Nodes
 ```</String>
         </Annotation>
