@@ -227,7 +227,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Returns an entity in the specified entity set with the same entity type and the same key as the binding parameter, or null if no such entity exists",
-                "@Core.LongDescription": "This can be used to switch to a recursive hierarchy from a \"directory\" of hierarchies,\nfor use in the hierarchy functions defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n /Aggregation.switch(EntitySet=@PathExpression)\n /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```",
+                "@Core.LongDescription": "This can be used to switch to a recursive hierarchy from a \"directory\" of hierarchies,\nbefore calling a hierarchy function defined in this vocabulary, for example:\n```\nGET ~/Sales?$filter=SalesOrganization\n /Aggregation.switch(EntitySet=@PathExpression)\n /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes\n```\nServers MAY reject all other usages of this function.",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -250,7 +250,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Like `switch(Edm.EntityType)`, but applied to each entity in a collection with nulls omitted from the result",
-                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrgHierarchyDirectory('Regional')/Nodes?$apply=\n descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n /Aggregation.switch(EntitySet=@PathExpression)\n /ancestors(SalesOrgHierarchy,filter(true))\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Organizational')/Nodes\n```",
+                "@Core.LongDescription": "This can be used as a set transformation before a hierarchical transformation in `$apply`, for example:\n```\nGET ~/SalesOrgHierarchyDirectory('Regional')/Nodes?$apply=\n descendants(SalesOrgHierarchy,filter(Name eq 'EMEA'))\n /Aggregation.switch(EntitySet=@PathExpression)\n /ancestors(SalesOrgHierarchy,filter(true))\n&@PathExpression=$root/SalesOrgHierarchyDirectory('Organizational')/Nodes\n```\nServers MAY reject all other usages of this function.",
                 "$Parameter": [
                     {
                         "$Name": "Entity",

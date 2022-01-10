@@ -228,13 +228,14 @@
         <Annotation Term="Core.Description" String="Returns an entity in the specified entity set with the same entity type and the same key as the binding parameter, or null if no such entity exists" />
         <Annotation Term="Core.LongDescription">
           <String>This can be used to switch to a recursive hierarchy from a "directory" of hierarchies,
-for use in the hierarchy functions defined in this vocabulary, for example:
+before calling a hierarchy function defined in this vocabulary, for example:
 ```
 GET ~/Sales?$filter=SalesOrganization
  /Aggregation.switch(EntitySet=@PathExpression)
  /Aggregation.isdescendant(Hierarchy='SalesOrgHierarchy',Node='EMEA')
 &amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Regional')/Nodes
-```</String>
+```
+Servers MAY reject all other usages of this function.</String>
         </Annotation>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)" Nullable="false">
@@ -252,7 +253,8 @@ GET ~/SalesOrgHierarchyDirectory('Regional')/Nodes?$apply=
  /Aggregation.switch(EntitySet=@PathExpression)
  /ancestors(SalesOrgHierarchy,filter(true))
 &amp;@PathExpression=$root/SalesOrgHierarchyDirectory('Organizational')/Nodes
-```</String>
+```
+Servers MAY reject all other usages of this function.</String>
         </Annotation>
         <Parameter Name="Entity" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="EntitySet" Type="Collection(Edm.EntityType)" Nullable="false">
