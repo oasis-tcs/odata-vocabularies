@@ -193,7 +193,7 @@
         <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
 
-      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType ComplexType">
+      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
       </Term>
 

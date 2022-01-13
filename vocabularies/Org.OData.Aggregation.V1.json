@@ -190,8 +190,7 @@
             "$Kind": "Term",
             "$Type": "Aggregation.RecursiveHierarchyType",
             "$AppliesTo": [
-                "EntityType",
-                "ComplexType"
+                "EntityType"
             ],
             "@Core.Description": "Defines a recursive hierarchy."
         },
