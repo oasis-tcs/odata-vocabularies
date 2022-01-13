@@ -47,9 +47,6 @@
       <Annotation Term="Core.Description">
         <String>Terms for describing time-dependent data</String>
       </Annotation>
-      <Annotation Term="Core.LongDescription">
-        <String>*This is a public review draft that may incompatibly change any time.*</String>
-      </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
           <Record>
