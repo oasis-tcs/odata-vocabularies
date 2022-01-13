@@ -9,6 +9,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
             "$Include": [
                 {
@@ -314,7 +322,11 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": 32767
+                        },
+                        "@Validation.Minimum": 1
                     }
                 ],
                 "$ReturnType": {
@@ -346,7 +358,11 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": 32767
+                        },
+                        "@Validation.Minimum": 1
                     }
                 ],
                 "$ReturnType": {
