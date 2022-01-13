@@ -196,7 +196,7 @@
         <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
 
-      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType ComplexType">
+      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
       </Term>
 
@@ -205,14 +205,7 @@
           <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property for navigating to the parent node" />
-        </Property>
-        <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the number of edges between the node and the root node" />
-        </Property>
-        <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.RequiresType" String="Edm.Boolean" />
-          <Annotation Term="Core.Description" String="Property indicating whether the node is a leaf of the hierarchy" />
+          <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable." />
         </Property>
       </ComplexType>
 
