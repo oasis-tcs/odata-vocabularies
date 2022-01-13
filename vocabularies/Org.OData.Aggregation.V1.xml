@@ -44,6 +44,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>  
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
     <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
   </edmx:Reference>
@@ -218,7 +221,14 @@
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" Int="32767"/>
+            </Record>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1"/>
+        </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
@@ -227,7 +237,14 @@
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" Int="32767"/>
+            </Record>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1"/>
+        </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
