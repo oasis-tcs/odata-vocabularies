@@ -295,10 +295,17 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="MaxDistance" Type="Edm.Int16">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767"/>
+              <PropertyValue Property="DefaultValue" Int="32767" />
             </Record>
           </Annotation>
-          <Annotation Term="Validation.Minimum" Int="1"/>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
         </Parameter>
         <Parameter Name="IncludeParent" Type="Edm.Boolean">
           <Annotation Term="Core.Description" String="Whether the entity is considered a descendant of itself" />
@@ -348,10 +355,17 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="MaxDistance" Type="Edm.Int16">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767"/>
+              <PropertyValue Property="DefaultValue" Int="32767" />
             </Record>
           </Annotation>
-          <Annotation Term="Validation.Minimum" Int="1"/>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
         </Parameter>
         <Parameter Name="IncludeChild" Type="Edm.Boolean">
           <Annotation Term="Core.Description" String="Whether the entity is considered an ancestor of itself" />
