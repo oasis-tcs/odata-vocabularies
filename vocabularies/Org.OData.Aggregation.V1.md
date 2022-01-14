@@ -48,7 +48,7 @@ Parameter|Type|Description
 
 ### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L242:~:text=<Function%20Name="-,isancestor,-")
 
-Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, optionally the child node itself
+Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the child node itself
 
 Parameter|Type|Description
 :--------|:---|:----------

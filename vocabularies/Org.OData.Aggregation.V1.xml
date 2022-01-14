@@ -240,7 +240,7 @@
       </Function>
 
       <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, optionally the child node itself" />
+        <Annotation Term="Core.Description" String="Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the child node itself" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
