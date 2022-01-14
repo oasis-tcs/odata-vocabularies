@@ -41,7 +41,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L254)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L255)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L256)|\[EntityType\]|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L257)|[HierarchyNode](#HierarchyNode)|
+[NodeProperty](./Org.OData.Aggregation.V1.xml#L257)|[HierarchyNode](#HierarchyNode)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L258)|Boolean?|
 
 
@@ -68,7 +68,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L288)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L289)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L290)|\[EntityType\]|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L291)|[HierarchyNode](#HierarchyNode)|
+[NodeProperty](./Org.OData.Aggregation.V1.xml#L291)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L292)|PrimitiveType|Node value of parent node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L295)*|Int16?|*Optional parameter*
 *[IncludeParent](./Org.OData.Aggregation.V1.xml#L303)*|Boolean?|*Optional parameter*
@@ -99,7 +99,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L348)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L349)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L350)|\[EntityType\]|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L351)|[HierarchyNode](#HierarchyNode)|
+[NodeProperty](./Org.OData.Aggregation.V1.xml#L351)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L352)|PrimitiveType|Node value of child node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L355)*|Int16?|*Optional parameter*
 *[IncludeChild](./Org.OData.Aggregation.V1.xml#L363)*|Boolean?|*Optional parameter*
@@ -128,7 +128,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L392)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L393)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L394)|\[EntityType\]|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L395)|[HierarchyNode](#HierarchyNode)|
+[NodeProperty](./Org.OData.Aggregation.V1.xml#L395)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L396)|PrimitiveType|Node value of sibling node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L399)|Boolean?|
 
@@ -153,7 +153,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L410)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L411)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L412)|\[EntityType\]|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L413)|[HierarchyNode](#HierarchyNode)|
+[NodeProperty](./Org.OData.Aggregation.V1.xml#L413)|[HierarchyNode](#HierarchyNode)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L414)|Boolean?|
 
 

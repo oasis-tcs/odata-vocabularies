@@ -276,7 +276,7 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "NodePropertyPath",
+                        "$Name": "NodeProperty",
                         "$Type": "Aggregation.HierarchyNode"
                     }
                 ],
@@ -350,7 +350,7 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "NodePropertyPath",
+                        "$Name": "NodeProperty",
                         "$Type": "Aggregation.HierarchyNode"
                     },
                     {
@@ -455,7 +455,7 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "NodePropertyPath",
+                        "$Name": "NodeProperty",
                         "$Type": "Aggregation.HierarchyNode"
                     },
                     {
@@ -542,7 +542,7 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "NodePropertyPath",
+                        "$Name": "NodeProperty",
                         "$Type": "Aggregation.HierarchyNode"
                     },
                     {
@@ -598,7 +598,7 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "NodePropertyPath",
+                        "$Name": "NodeProperty",
                         "$Type": "Aggregation.HierarchyNode"
                     }
                 ],

@@ -254,7 +254,7 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
@@ -288,7 +288,7 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of parent node" />
         </Parameter>
@@ -348,7 +348,7 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of child node" />
         </Parameter>
@@ -392,7 +392,7 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of sibling node" />
         </Parameter>
@@ -410,7 +410,7 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
