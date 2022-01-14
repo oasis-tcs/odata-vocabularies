@@ -46,7 +46,7 @@
   </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
-  </edmx:Reference>  
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
     <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
   </edmx:Reference>
@@ -268,10 +268,17 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="MaxDistance" Type="Edm.Int16">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767"/>
+              <PropertyValue Property="DefaultValue" Int="32767" />
             </Record>
           </Annotation>
-          <Annotation Term="Validation.Minimum" Int="1"/>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
@@ -292,6 +299,13 @@ If the binding parameter is null, the function returns null.</String>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1"/>
         </Parameter>
+        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
@@ -305,10 +319,17 @@ If the binding parameter is null, the function returns null.</String>
         <Parameter Name="MaxDistance" Type="Edm.Int16">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767"/>
+              <PropertyValue Property="DefaultValue" Int="32767" />
             </Record>
           </Annotation>
-          <Annotation Term="Validation.Minimum" Int="1"/>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
@@ -328,6 +349,13 @@ If the binding parameter is null, the function returns null.</String>
             </Record>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1"/>
+        </Parameter>
+        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>

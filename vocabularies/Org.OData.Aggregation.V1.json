@@ -314,6 +314,14 @@
                             "DefaultValue": 32767
                         },
                         "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeParent",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -357,6 +365,14 @@
                             "DefaultValue": 32767
                         },
                         "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeParent",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -393,6 +409,14 @@
                             "DefaultValue": 32767
                         },
                         "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeChild",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -436,6 +460,14 @@
                             "DefaultValue": 32767
                         },
                         "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeChild",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
