@@ -304,7 +304,7 @@
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Parent node"
+                        "@Core.Description": "Node value of parent node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -356,7 +356,7 @@
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Parent node"
+                        "@Core.Description": "Node value of parent node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -409,7 +409,7 @@
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Child node"
+                        "@Core.Description": "Node value of child node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -461,7 +461,7 @@
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Child node"
+                        "@Core.Description": "Node value of child node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -514,7 +514,7 @@
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Sibling node"
+                        "@Core.Description": "Node value of sibling node"
                     }
                 ],
                 "$ReturnType": {
@@ -548,7 +548,7 @@
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Sibling node"
+                        "@Core.Description": "Node value of sibling node"
                     }
                 ],
                 "$ReturnType": {

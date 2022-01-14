@@ -53,7 +53,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L263:~:text=<Function%20Name="-,isdescendant,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L264:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L265:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType|Parent node
+[Node](./Org.OData.Aggregation.V1.xml#L265:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType|Node value of parent node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L268:~:text=<Function%20Name="-,isdescendant,-")*|Int16?|*Optional parameter*
 *[IncludeParent](./Org.OData.Aggregation.V1.xml#L276:~:text=<Function%20Name="-,isdescendant,-")*|Boolean?|*Optional parameter:* Whether the entity is considered a descendant of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L284:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
@@ -69,7 +69,7 @@ Parameter|Type|Description
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L289)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L290)|\[EntityType\]|
 [NodePropertyPath](./Org.OData.Aggregation.V1.xml#L291)|[HierarchyNode](#HierarchyNode)|
-[Node](./Org.OData.Aggregation.V1.xml#L292)|PrimitiveType|Parent node
+[Node](./Org.OData.Aggregation.V1.xml#L292)|PrimitiveType|Node value of parent node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L295)*|Int16?|*Optional parameter*
 *[IncludeParent](./Org.OData.Aggregation.V1.xml#L303)*|Boolean?|*Optional parameter*
 *[IncludeParent](./Org.OData.Aggregation.V1.xml#L310)*|Boolean?|*Optional parameter:* Whether the entity is considered a descendant of itself
@@ -84,7 +84,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L323:~:text=<Function%20Name="-,isancestor,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L324:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L325:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType|Child node
+[Node](./Org.OData.Aggregation.V1.xml#L325:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType|Node value of child node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L328:~:text=<Function%20Name="-,isancestor,-")*|Int16?|*Optional parameter*
 *[IncludeChild](./Org.OData.Aggregation.V1.xml#L336:~:text=<Function%20Name="-,isancestor,-")*|Boolean?|*Optional parameter:* Whether the entity is considered an ancestor of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L344:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
@@ -100,7 +100,7 @@ Parameter|Type|Description
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L349)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L350)|\[EntityType\]|
 [NodePropertyPath](./Org.OData.Aggregation.V1.xml#L351)|[HierarchyNode](#HierarchyNode)|
-[Node](./Org.OData.Aggregation.V1.xml#L352)|PrimitiveType|Child node
+[Node](./Org.OData.Aggregation.V1.xml#L352)|PrimitiveType|Node value of child node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L355)*|Int16?|*Optional parameter*
 *[IncludeChild](./Org.OData.Aggregation.V1.xml#L363)*|Boolean?|*Optional parameter*
 *[IncludeChild](./Org.OData.Aggregation.V1.xml#L370)*|Boolean?|*Optional parameter:* Whether the entity is considered an ancestor of itself
@@ -115,7 +115,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L383:~:text=<Function%20Name="-,issibling,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L384:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L385:~:text=<Function%20Name="-,issibling,-")|PrimitiveType|Sibling node
+[Node](./Org.OData.Aggregation.V1.xml#L385:~:text=<Function%20Name="-,issibling,-")|PrimitiveType|Node value of sibling node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L388:~:text=<Function%20Name="-,issibling,-")|Boolean?|
 
 
@@ -129,7 +129,7 @@ Parameter|Type|Description
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L393)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L394)|\[EntityType\]|
 [NodePropertyPath](./Org.OData.Aggregation.V1.xml#L395)|[HierarchyNode](#HierarchyNode)|
-[Node](./Org.OData.Aggregation.V1.xml#L396)|PrimitiveType|Sibling node
+[Node](./Org.OData.Aggregation.V1.xml#L396)|PrimitiveType|Node value of sibling node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L399)|Boolean?|
 
 
