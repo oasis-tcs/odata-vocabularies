@@ -252,14 +252,14 @@ If the binding parameter is null, the function returns null.</String>
       <Function Name="isroot" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity the root of the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
       <Function Name="isdescendant" IsBound="true">
-        <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
@@ -284,11 +284,11 @@ If the binding parameter is null, the function returns null.</String>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
       <Function Name="isdescendant" IsBound="true">
-        <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Parent node" />
         </Parameter>
@@ -312,7 +312,7 @@ If the binding parameter is null, the function returns null.</String>
       </Function>
 
       <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
@@ -337,11 +337,11 @@ If the binding parameter is null, the function returns null.</String>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
       <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Child node" />
         </Parameter>
@@ -376,9 +376,9 @@ If the binding parameter is null, the function returns null.</String>
       <Function Name="issibling" IsBound="true">
         <Annotation Term="Core.Description" String="Does the entity have the same parent node in the specified hierarchy as the sibling node?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Sibling node" />
         </Parameter>
@@ -394,9 +394,9 @@ If the binding parameter is null, the function returns null.</String>
       <Function Name="isleaf" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity without descendants in the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
-        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 

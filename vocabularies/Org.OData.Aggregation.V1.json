@@ -267,8 +267,8 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Name": "Hierarchy",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -276,8 +276,8 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
+                        "$Name": "NodePropertyPath",
+                        "$Type": "Aggregation.HierarchyNode"
                     }
                 ],
                 "$ReturnType": {
@@ -290,7 +290,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?",
+                "@Core.Description": "Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -333,7 +333,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?",
+                "@Core.Description": "Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -341,8 +341,8 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Name": "Hierarchy",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -350,8 +350,8 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
+                        "$Name": "NodePropertyPath",
+                        "$Type": "Aggregation.HierarchyNode"
                     },
                     {
                         "$Name": "Node",
@@ -387,7 +387,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?",
+                "@Core.Description": "Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -430,7 +430,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?",
+                "@Core.Description": "Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -438,8 +438,8 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Name": "Hierarchy",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -447,8 +447,8 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
+                        "$Name": "NodePropertyPath",
+                        "$Type": "Aggregation.HierarchyNode"
                     },
                     {
                         "$Name": "Node",
@@ -517,8 +517,8 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Name": "Hierarchy",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -526,8 +526,8 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
+                        "$Name": "NodePropertyPath",
+                        "$Type": "Aggregation.HierarchyNode"
                     },
                     {
                         "$Name": "Node",
@@ -573,8 +573,8 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Name": "Hierarchy",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -582,8 +582,8 @@
                         "$Type": "Edm.EntityType"
                     },
                     {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
+                        "$Name": "NodePropertyPath",
+                        "$Type": "Aggregation.HierarchyNode"
                     }
                 ],
                 "$ReturnType": {

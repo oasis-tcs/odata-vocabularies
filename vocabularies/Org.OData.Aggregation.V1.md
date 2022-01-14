@@ -39,15 +39,15 @@ Is the entity the root of the specified hierarchy?
 Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L254)**|EntityType?|**Binding parameter**
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L255)|[HierarchyNode](#HierarchyNode)|
+[Hierarchy](./Org.OData.Aggregation.V1.xml#L255)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L256)|\[EntityType\]|
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L257)|[HierarchyQualifier](#HierarchyQualifier)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L257)|[HierarchyNode](#HierarchyNode)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L258)|Boolean?|
 
 
 ### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L261:~:text=<Function%20Name="-,isdescendant,-")
 
-Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?
+Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -61,14 +61,14 @@ Parameter|Type|Description
 
 ### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L286)
 
-Is the entity a descendant in the specified hierarchy of the parent node, optionally with at most the specified distance?
+Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?
 
 Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L288)**|EntityType?|**Binding parameter**
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L289)|[HierarchyNode](#HierarchyNode)|
+[Hierarchy](./Org.OData.Aggregation.V1.xml#L289)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L290)|\[EntityType\]|
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L291)|[HierarchyQualifier](#HierarchyQualifier)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L291)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L292)|PrimitiveType|Parent node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L295)*|Int16?|*Optional parameter*
 *[IncludeParent](./Org.OData.Aggregation.V1.xml#L303)*|Boolean?|*Optional parameter:* Whether the entity is considered a descendant of itself
@@ -77,7 +77,7 @@ Parameter|Type|Description
 
 ### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L314:~:text=<Function%20Name="-,isancestor,-")
 
-Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?
+Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -91,14 +91,14 @@ Parameter|Type|Description
 
 ### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L339)
 
-Is the entity an ancestor in the specified hierarchy of the child node, optionally with at most the specified distance?
+Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?
 
 Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L341)**|EntityType?|**Binding parameter**
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L342)|[HierarchyNode](#HierarchyNode)|
+[Hierarchy](./Org.OData.Aggregation.V1.xml#L342)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L343)|\[EntityType\]|
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L344)|[HierarchyQualifier](#HierarchyQualifier)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L344)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L345)|PrimitiveType|Child node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L348)*|Int16?|*Optional parameter*
 *[IncludeChild](./Org.OData.Aggregation.V1.xml#L356)*|Boolean?|*Optional parameter:* Whether the entity is considered an ancestor of itself
@@ -124,9 +124,9 @@ Does the entity have the same parent node in the specified hierarchy as the sibl
 Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L378)**|EntityType?|**Binding parameter**
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L379)|[HierarchyNode](#HierarchyNode)|
+[Hierarchy](./Org.OData.Aggregation.V1.xml#L379)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L380)|\[EntityType\]|
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L381)|[HierarchyQualifier](#HierarchyQualifier)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L381)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L382)|PrimitiveType|Sibling node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L385)|Boolean?|
 
@@ -149,9 +149,9 @@ Is the entity without descendants in the specified hierarchy?
 Parameter|Type|Description
 :--------|:---|:----------
 **[Entity](./Org.OData.Aggregation.V1.xml#L396)**|EntityType?|**Binding parameter**
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L397)|[HierarchyNode](#HierarchyNode)|
+[Hierarchy](./Org.OData.Aggregation.V1.xml#L397)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L398)|\[EntityType\]|
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L399)|[HierarchyQualifier](#HierarchyQualifier)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L399)|[HierarchyNode](#HierarchyNode)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L400)|Boolean?|
 
 
