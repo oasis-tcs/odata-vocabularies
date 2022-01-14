@@ -9,6 +9,14 @@
                 }
             ]
         },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
             "$Include": [
                 {
@@ -190,8 +198,7 @@
             "$Kind": "Term",
             "$Type": "Aggregation.RecursiveHierarchyType",
             "$AppliesTo": [
-                "EntityType",
-                "ComplexType"
+                "EntityType"
             ],
             "@Core.Description": "Defines a recursive hierarchy."
         },
@@ -203,18 +210,7 @@
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Property for navigating to the parent node"
-            },
-            "DistanceFromRootProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Property holding the number of edges between the node and the root node"
-            },
-            "IsLeafProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.RequiresType": "Edm.Boolean",
-                "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
+                "@Core.Description": "Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable."
             }
         },
         "isroot": [
@@ -240,7 +236,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance or, if selected, optionally the parent node itself",
+                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the parent node itself",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -256,7 +252,11 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": 32767
+                        },
+                        "@Validation.Minimum": 1
                     },
                     {
                         "$Name": "IncludeParent",
@@ -276,7 +276,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance or, if selected, optionally the child node itself",
+                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, optionally the child node itself",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -292,7 +292,11 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": 32767
+                        },
+                        "@Validation.Minimum": 1
                     },
                     {
                         "$Name": "IncludeChild",

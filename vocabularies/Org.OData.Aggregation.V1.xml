@@ -44,6 +44,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
     <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
   </edmx:Reference>
@@ -193,7 +196,7 @@
         <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
       </Term>
 
-      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType ComplexType">
+      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
       </Term>
 
@@ -202,14 +205,7 @@
           <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property for navigating to the parent node" />
-        </Property>
-        <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the number of edges between the node and the root node" />
-        </Property>
-        <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.RequiresType" String="Edm.Boolean" />
-          <Annotation Term="Core.Description" String="Property indicating whether the node is a leaf of the hierarchy" />
+          <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable." />
         </Property>
       </ComplexType>
 
@@ -221,11 +217,18 @@
       </Function>
 
       <Function Name="isdescendant" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance or, if selected, optionally the parent node itself" />
+        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the parent node itself" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" Int="32767" />
+            </Record>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
         <Parameter Name="IncludeParent" Type="Edm.Boolean">
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -237,11 +240,18 @@
       </Function>
 
       <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance or, if selected, optionally the child node itself" />
+        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, optionally the child node itself" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" />
+        <Parameter Name="MaxDistance" Type="Edm.Int16">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" Int="32767" />
+            </Record>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
         <Parameter Name="IncludeChild" Type="Edm.Boolean">
           <Annotation Term="Core.OptionalParameter">
             <Record>
