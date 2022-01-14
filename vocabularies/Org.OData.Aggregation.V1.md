@@ -211,11 +211,12 @@ Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
 In functions defined in this vocabulary, a parameter of this type
 identifies a `RecursiveHierarchy` annotation on the entity type of
 - the function's binding parameter or
-- of the entity set specified by the `HierarchyNodes` parameter, if this is present.
+- the entity set specified by the `HierarchyNodes` parameter, if this is present.
 
 The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
 binding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.
 Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.
+If the binding parameter is null, the function returns null.
 
 ## <a name="HierarchyNode"></a>[HierarchyNode](./Org.OData.Aggregation.V1.xml#L233:~:text=<TypeDefinition%20Name="-,HierarchyNode,-")
 **Type:** String
