@@ -23,7 +23,7 @@ Term|Type|Description
 
 ### <a name="isroot"></a>[isroot](./Org.OData.Aggregation.V1.xml#L212:~:text=<Function%20Name="-,isroot,-")
 
-Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
+Returns true if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -34,7 +34,7 @@ Parameter|Type|Description
 
 ### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L219:~:text=<Function%20Name="-,isdescendant,-")
 
-Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the parent node itself
+Returns true if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the parent node itself
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -48,7 +48,7 @@ Parameter|Type|Description
 
 ### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L242:~:text=<Function%20Name="-,isancestor,-")
 
-Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, optionally the child node itself
+Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, optionally the child node itself
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -62,7 +62,7 @@ Parameter|Type|Description
 
 ### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L265:~:text=<Function%20Name="-,issibling,-")
 
-Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
+Returns true if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -74,7 +74,7 @@ Parameter|Type|Description
 
 ### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L273:~:text=<Function%20Name="-,isleaf,-")
 
-Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
+Returns true if and only if the value of the node property of the specified hierarchy has no descendants
 
 Parameter|Type|Description
 :--------|:---|:----------
