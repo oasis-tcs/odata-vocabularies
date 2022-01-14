@@ -46,7 +46,7 @@
   </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
-  </edmx:Reference>  
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
     <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
   </edmx:Reference>
@@ -210,46 +210,60 @@
       </ComplexType>
 
       <Function Name="isroot" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy" />
+        <Annotation Term="Core.Description" String="Returns true if and only if the value of the node property of the specified hierarchy is the root of the hierarchy" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="isdescendant" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance" />
+        <Annotation Term="Core.Description" String="Returns true if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the parent node itself" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
         <Parameter Name="MaxDistance" Type="Edm.Int16">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767"/>
+              <PropertyValue Property="DefaultValue" Int="32767" />
             </Record>
           </Annotation>
-          <Annotation Term="Validation.Minimum" Int="1"/>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance" />
+        <Annotation Term="Core.Description" String="Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the child node itself" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
         <Parameter Name="MaxDistance" Type="Edm.Int16">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767"/>
+              <PropertyValue Property="DefaultValue" Int="32767" />
             </Record>
           </Annotation>
-          <Annotation Term="Validation.Minimum" Int="1"/>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
       <Function Name="issibling" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node" />
+        <Annotation Term="Core.Description" String="Returns true if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
@@ -257,7 +271,7 @@
       </Function>
 
       <Function Name="isleaf" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy has no descendants" />
+        <Annotation Term="Core.Description" String="Returns true if and only if the value of the node property of the specified hierarchy has no descendants" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="false" />

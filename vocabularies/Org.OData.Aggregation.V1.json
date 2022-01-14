@@ -217,7 +217,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy",
+                "@Core.Description": "Returns true if and only if the value of the node property of the specified hierarchy is the root of the hierarchy",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -236,7 +236,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance",
+                "@Core.Description": "Returns true if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the parent node itself",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -257,6 +257,14 @@
                             "DefaultValue": 32767
                         },
                         "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeParent",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -268,7 +276,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance",
+                "@Core.Description": "Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the child node itself",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -289,6 +297,14 @@
                             "DefaultValue": 32767
                         },
                         "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeChild",
+                        "$Type": "Edm.Boolean",
+                        "$Nullable": true,
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -300,7 +316,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node",
+                "@Core.Description": "Returns true if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
@@ -323,7 +339,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has no descendants",
+                "@Core.Description": "Returns true if and only if the value of the node property of the specified hierarchy has no descendants",
                 "$Parameter": [
                     {
                         "$Name": "Entity",
