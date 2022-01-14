@@ -223,17 +223,17 @@
                 "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
             }
         },
-        "HierarchyNode": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Core.Description": "Property path identifying the node in a recursive hierarchy",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload with a parameter of this type.\n          This parameter specifies the property of the `Entity` (the function's binding parameter) that identifies the entity\n          as a node in the recursive hierarchy that is evaluated by the function.\n          Which hierarchy this is depends on the other parameters `HierarchyNodes` and [`Hierarchy`](#HierarchyQualifier)."
-        },
         "HierarchyQualifier": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\n          identifies a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.\n          (If the binding parameter is null, the function returns null.)\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy in the binding parameter's entity set,\n          or on the collection specified by the `HierarchyNodes` parameter, if this is present.\n          This hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`."
+            "@Core.LongDescription": "In functions defined in this vocabulary, a parameter of this type\nidentifies a `RecursiveHierarchy` annotation on the entity type of\n- the function's binding parameter or\n- of the entity set specified by the `HierarchyNodes` parameter, if this is present.\n\nThe `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\nbinding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.\nNodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`."
+        },
+        "HierarchyNode": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "Property path identifying the node in a recursive hierarchy",
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload with a parameter of this type.\n          This parameter specifies the property of the `Entity` (the function's binding parameter) whose primitive value identifies the entity\n          as a node in the recursive hierarchy that is evaluated by the function.\n          Which hierarchy this is depends on the other parameters `HierarchyNodes` and [`Hierarchy`](#HierarchyQualifier).\n          The entity given in the binding parameter need not belong to `HierarchyNodes`, only its node value is compared\n          to the node values in the recursive hierarchy.\n          The function overload then disregards a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity if there is one."
         },
         "isroot": [
             {

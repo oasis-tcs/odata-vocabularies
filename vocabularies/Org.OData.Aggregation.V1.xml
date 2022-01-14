@@ -215,26 +215,31 @@
         </Property>
       </ComplexType>
 
-      <TypeDefinition Name="HierarchyNode" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="Property path identifying the node in a recursive hierarchy" />
-        <Annotation Term="Core.LongDescription">
-          <String>Every recursive hierarchy function defined in this vocabulary has an overload with a parameter of this type.
-          This parameter specifies the property of the `Entity` (the function's binding parameter) that identifies the entity
-          as a node in the recursive hierarchy that is evaluated by the function.
-          Which hierarchy this is depends on the other parameters `HierarchyNodes` and [`Hierarchy`](#HierarchyQualifier).</String>
-        </Annotation>
-      </TypeDefinition>
-
       <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
         <Annotation Term="Core.LongDescription">
           <String>In functions defined in this vocabulary, a parameter of this type
-          identifies a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.
-          (If the binding parameter is null, the function returns null.)
-          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy in the binding parameter's entity set,
-          or on the collection specified by the `HierarchyNodes` parameter, if this is present.
-          This hierarchy is evaluated by the function.
-          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.</String>
+identifies a `RecursiveHierarchy` annotation on the entity type of
+- the function's binding parameter or
+- of the entity set specified by the `HierarchyNodes` parameter, if this is present.
+
+The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
+binding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.
+Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.</String>
+If the binding parameter is null, the function returns null.
+        </Annotation>
+      </TypeDefinition>
+
+      <TypeDefinition Name="HierarchyNode" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Property path identifying the node in a recursive hierarchy" />
+        <Annotation Term="Core.LongDescription">
+          <String>Every recursive hierarchy function defined in this vocabulary has an overload with a parameter of this type.
+          This parameter specifies the property of the `Entity` (the function's binding parameter) whose primitive value identifies the entity
+          as a node in the recursive hierarchy that is evaluated by the function.
+          Which hierarchy this is depends on the other parameters `HierarchyNodes` and [`Hierarchy`](#HierarchyQualifier).
+          The entity given in the binding parameter need not belong to `HierarchyNodes`, only its node value is compared
+          to the node values in the recursive hierarchy.
+          The function overload then disregards a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity if there is one.</String>
         </Annotation>
       </TypeDefinition>
 
