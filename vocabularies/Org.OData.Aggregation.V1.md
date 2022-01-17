@@ -41,7 +41,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L255)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L256)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L257)|\[EntityType\]|
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L258)|[HierarchyNode](#HierarchyNode)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L258)|[HierarchyNode](#HierarchyNode)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L259)|Boolean?|
 
 
@@ -68,7 +68,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L289)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L290)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L291)|\[EntityType\]|
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L292)|[HierarchyNode](#HierarchyNode)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L292)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L293)|PrimitiveType|Node value of parent node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L296)*|Int16?|*Optional parameter*
 *[IncludeParent](./Org.OData.Aggregation.V1.xml#L304)*|Boolean?|*Optional parameter:* Whether the entity is considered a descendant of itself
@@ -98,7 +98,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L342)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L343)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L344)|\[EntityType\]|
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L345)|[HierarchyNode](#HierarchyNode)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L345)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L346)|PrimitiveType|Node value of child node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L349)*|Int16?|*Optional parameter*
 *[IncludeChild](./Org.OData.Aggregation.V1.xml#L357)*|Boolean?|*Optional parameter:* Whether the entity is considered an ancestor of itself
@@ -126,7 +126,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L379)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L380)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L381)|\[EntityType\]|
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L382)|[HierarchyNode](#HierarchyNode)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L382)|[HierarchyNode](#HierarchyNode)|
 [Node](./Org.OData.Aggregation.V1.xml#L383)|PrimitiveType|Node value of sibling node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L386)|Boolean?|
 
@@ -151,7 +151,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L397)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L398)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L399)|\[EntityType\]|
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L400)|[HierarchyNode](#HierarchyNode)|
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L400)|[HierarchyNode](#HierarchyNode)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L401)|Boolean?|
 
 
@@ -228,12 +228,12 @@ If the binding parameter is null, the function returns null.
 Property path identifying the node in a recursive hierarchy
 
 Every recursive hierarchy function defined in this vocabulary has
-- an overload with a parameter `NodeProperty` of this type plus a `HierarchyNodes` parameter and
+- an overload with a parameter `NodePropertyPath` of this type plus a `HierarchyNodes` parameter and
 - an overload without these two parameters.
 
 In the overload with these parameters, both the entity given in the function's binding parameter
-and its `HierarchyNodes` parameter must have a structural property
-with the name given in the `NodeProperty` parameter; this is the property containing the entity's node value in the hierarchy.
+and its `HierarchyNodes` parameter must have a structural property with the path given in the `NodePropertyPath` parameter;
+this is the property containing the entity's node value in the hierarchy.
 The entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`.
 
 ## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L407:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")

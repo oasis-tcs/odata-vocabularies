@@ -234,12 +234,12 @@ If the binding parameter is null, the function returns null.</String>
         <Annotation Term="Core.Description" String="Property path identifying the node in a recursive hierarchy" />
         <Annotation Term="Core.LongDescription">
           <String>Every recursive hierarchy function defined in this vocabulary has
-- an overload with a parameter `NodeProperty` of this type plus a `HierarchyNodes` parameter and
+- an overload with a parameter `NodePropertyPath` of this type plus a `HierarchyNodes` parameter and
 - an overload without these two parameters.
 
 In the overload with these parameters, both the entity given in the function's binding parameter
-and its `HierarchyNodes` parameter must have a structural property
-with the name given in the `NodeProperty` parameter; this is the property containing the entity's node value in the hierarchy.
+and its `HierarchyNodes` parameter must have a structural property with the path given in the `NodePropertyPath` parameter;
+this is the property containing the entity's node value in the hierarchy.
 The entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`.</String>
         </Annotation>
       </TypeDefinition>
@@ -255,7 +255,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
@@ -289,7 +289,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of parent node" />
         </Parameter>
@@ -342,7 +342,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of child node" />
         </Parameter>
@@ -379,7 +379,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of sibling node" />
         </Parameter>
@@ -397,7 +397,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false" />
-        <Parameter Name="NodeProperty" Type="Aggregation.HierarchyNode" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
