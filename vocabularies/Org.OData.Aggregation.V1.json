@@ -204,7 +204,7 @@
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
-            "NodeProperty": {
+            "NodePropertyPath": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the hierarchy node value"
             },
@@ -232,7 +232,7 @@
         "HierarchyType": {
             "$Kind": "ComplexType",
             "@Core.Description": "Recursive hierarchy that is evaluated by a hierarchy function",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload B with a parameter of this complex type.\n          `Qualifier` is the qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of `Nodes`.\n          Unlike in overload A, this annotation defines a hierarchy not on the binding parameter's entity set,\n          but on the entity set specified by `Nodes`.\n          Both the entity given in the function's binding parameter and the `Nodes` must have a structural property\n          with the name given in `NodeProperty`; this is the property containing the entity's node value in the hierarchy.\n          The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.",
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload B with a parameter of this complex type.\n          `Qualifier` is the qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of `Nodes`.\n          Unlike in overload A, this annotation defines a hierarchy not on the binding parameter's entity set,\n          but on the entity set specified by `Nodes`.\n          Both the entity given in the function's binding parameter and the `Nodes` must have a structural property\n          with the name given in `NodePropertyPath`; this is the property containing the entity's node value in the hierarchy.\n          The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.",
             "NodeProperty": {},
             "Qualifier": {
                 "$Type": "Aggregation.HierarchyQualifier"

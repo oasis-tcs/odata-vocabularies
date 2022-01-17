@@ -192,7 +192,7 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L204:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Property holding the hierarchy node value
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L204:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Property holding the hierarchy node value
 [ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L207:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node
 [DistanceFromRootProperty](./Org.OData.Aggregation.V1.xml#L210:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property holding the number of edges between the node and the root node
 [IsLeafProperty](./Org.OData.Aggregation.V1.xml#L213:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property indicating whether the node is a leaf of the hierarchy
@@ -217,7 +217,7 @@ Every recursive hierarchy function defined in this vocabulary has an overload B 
           Unlike in overload A, this annotation defines a hierarchy not on the binding parameter's entity set,
           but on the entity set specified by `Nodes`.
           Both the entity given in the function's binding parameter and the `Nodes` must have a structural property
-          with the name given in `NodeProperty`; this is the property containing the entity's node value in the hierarchy.
+          with the name given in `NodePropertyPath`; this is the property containing the entity's node value in the hierarchy.
           The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.
 
 Property|Type|Description

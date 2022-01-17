@@ -201,7 +201,7 @@
       </Term>
 
       <ComplexType Name="RecursiveHierarchyType">
-        <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
+        <Property Name="NodePropertyPath" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
@@ -235,7 +235,7 @@
           Unlike in overload A, this annotation defines a hierarchy not on the binding parameter's entity set,
           but on the entity set specified by `Nodes`.
           Both the entity given in the function's binding parameter and the `Nodes` must have a structural property
-          with the name given in `NodeProperty`; this is the property containing the entity's node value in the hierarchy.
+          with the name given in `NodePropertyPath`; this is the property containing the entity's node value in the hierarchy.
           The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.</String>
         </Annotation>
         <Property Name="NodeProperty" Type="Edm.String" Nullable="false"/>
