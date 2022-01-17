@@ -371,14 +371,6 @@
                         "$Name": "IncludeParent",
                         "$Type": "Edm.Boolean",
                         "$Nullable": true,
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": "false"
-                        }
-                    },
-                    {
-                        "$Name": "IncludeParent",
-                        "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -471,14 +463,6 @@
                             "DefaultValue": 32767
                         },
                         "@Validation.Minimum": 1
-                    },
-                    {
-                        "$Name": "IncludeChild",
-                        "$Type": "Edm.Boolean",
-                        "$Nullable": true,
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": "false"
-                        }
                     },
                     {
                         "$Name": "IncludeChild",
