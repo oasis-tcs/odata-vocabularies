@@ -212,7 +212,7 @@ Property|Type|Description
 
 Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
 
-Every recursive hierarchy function defined in this vocabulary has a parameter of this type.
+Every recursive hierarchy function defined in this vocabulary has a parameter `Hierarchy` of this type.
 This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of
 - the function's binding parameter or
 - the entity set specified by the `HierarchyNodes` parameter, if this is present.
