@@ -202,7 +202,7 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L204:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Property holding the hierarchy node value
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L204:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Property holding the hierarchy node value
 [ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L207:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node
 [DistanceFromRootProperty](./Org.OData.Aggregation.V1.xml#L210:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property holding the number of edges between the node and the root node
 [IsLeafProperty](./Org.OData.Aggregation.V1.xml#L213:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath?|Property indicating whether the node is a leaf of the hierarchy
@@ -219,7 +219,7 @@ This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of
 
 The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
 binding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.
-Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.
+Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodePropertyPath`.
 If the binding parameter is null, the function returns null.
 
 ## <a name="HierarchyNode"></a>[HierarchyNode](./Org.OData.Aggregation.V1.xml#L233:~:text=<TypeDefinition%20Name="-,HierarchyNode,-")

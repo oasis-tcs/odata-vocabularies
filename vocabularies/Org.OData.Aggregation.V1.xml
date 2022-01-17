@@ -201,7 +201,7 @@
       </Term>
 
       <ComplexType Name="RecursiveHierarchyType">
-        <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
+        <Property Name="NodePropertyPath" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
@@ -225,7 +225,7 @@ This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of
 
 The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
 binding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.
-Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.
+Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodePropertyPath`.
 If the binding parameter is null, the function returns null.</String>
         </Annotation>
       </TypeDefinition>
