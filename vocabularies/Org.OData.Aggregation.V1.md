@@ -232,8 +232,8 @@ Every recursive hierarchy function defined in this vocabulary has
 - an overload without these two parameters.
 
 In the overload with these parameters, both the entity given in the function's binding parameter
-and its `HierarchyNodes` parameter must have a structural property with the path given in the `NodePropertyPath` parameter;
-this is the property containing the entity's node value in the hierarchy.
+and its `HierarchyNodes` parameter must have structural properties with the path given in the `NodePropertyPath` parameter
+and with the same type. This is the property containing the entity's node value in the hierarchy.
 The entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`.
 
 ## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L407:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")

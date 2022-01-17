@@ -238,8 +238,8 @@ If the binding parameter is null, the function returns null.</String>
 - an overload without these two parameters.
 
 In the overload with these parameters, both the entity given in the function's binding parameter
-and its `HierarchyNodes` parameter must have a structural property with the path given in the `NodePropertyPath` parameter;
-this is the property containing the entity's node value in the hierarchy.
+and its `HierarchyNodes` parameter must have structural properties with the path given in the `NodePropertyPath` parameter
+and with the same type. This is the property containing the entity's node value in the hierarchy.
 The entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`.</String>
         </Annotation>
       </TypeDefinition>

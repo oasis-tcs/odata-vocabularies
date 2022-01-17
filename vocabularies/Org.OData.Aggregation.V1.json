@@ -233,7 +233,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Property path identifying the node in a recursive hierarchy",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- an overload with a parameter `NodePropertyPath` of this type plus a `HierarchyNodes` parameter and\n- an overload without these two parameters.\n\nIn the overload with these parameters, both the entity given in the function's binding parameter\nand its `HierarchyNodes` parameter must have a structural property with the path given in the `NodePropertyPath` parameter;\nthis is the property containing the entity's node value in the hierarchy.\nThe entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- an overload with a parameter `NodePropertyPath` of this type plus a `HierarchyNodes` parameter and\n- an overload without these two parameters.\n\nIn the overload with these parameters, both the entity given in the function's binding parameter\nand its `HierarchyNodes` parameter must have structural properties with the path given in the `NodePropertyPath` parameter\nand with the same type. This is the property containing the entity's node value in the hierarchy.\nThe entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`."
         },
         "isroot": [
             {
