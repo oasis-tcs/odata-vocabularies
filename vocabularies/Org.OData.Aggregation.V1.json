@@ -204,7 +204,7 @@
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
-            "NodePropertyPath": {
+            "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the hierarchy node value"
             },
@@ -227,20 +227,23 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload A with a parameter of this type.\n          This parameter of this type is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          binding parameter's entity set. This hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.\n          If the binding parameter is null, the function returns null."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload A with a parameter `Hierarchy` of this type.\n          This parameter of this type is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          binding parameter's entity set. This hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.\n          If the binding parameter is null, the function returns null."
         },
         "HierarchyType": {
             "$Kind": "ComplexType",
             "@Core.Description": "Recursive hierarchy that is evaluated by a hierarchy function",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload B with a parameter of this complex type.\n          `Qualifier` is the qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of `Nodes`.\n          Unlike in overload A, this annotation defines a hierarchy not on the binding parameter's entity set,\n          but on the entity set specified by `Nodes`.\n          Both the entity given in the function's binding parameter and the `Nodes` must have structural properties\n          with the name given in `NodePropertyPath` and with the same type. This is the property containing the entity's node value in the hierarchy.\n          The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.",
-            "NodeProperty": {},
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload B with a parameter `Hierarchy` of this complex type.\n          `Qualifier` is the qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of `Nodes`.\n          Unlike in [overload A](#HierarchyQualifier), this annotation defines a hierarchy not on the binding parameter's entity set,\n          but on the entity set specified by `Nodes`.\n          Both the entity given in the function's binding parameter and the `Nodes` must have structural properties\n          with the name given in `NodePropertyPath` and with the same type. This is the property containing the entity's node value in the hierarchy.\n          The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.",
             "Qualifier": {
                 "$Type": "Aggregation.HierarchyQualifier"
+            },
+            "NodePropertyPath": {
+                "@Core.Description": "A property path on the entity type of `Nodes`"
             },
             "Nodes": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "Edm.EntityType"
+                "$Type": "Edm.EntityType",
+                "@Core.Description": "A named or implicit entity set, given through a path expression"
             }
         },
         "isroot": [
