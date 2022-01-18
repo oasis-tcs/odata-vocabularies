@@ -204,7 +204,7 @@
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
-            "NodePropertyPath": {
+            "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "Property holding the hierarchy node value"
             },

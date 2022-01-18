@@ -201,7 +201,7 @@
       </Term>
 
       <ComplexType Name="RecursiveHierarchyType">
-        <Property Name="NodePropertyPath" Type="Edm.PropertyPath" Nullable="false">
+        <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
