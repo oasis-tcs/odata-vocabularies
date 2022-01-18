@@ -273,11 +273,13 @@
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set, given through a path expression"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Type": "Aggregation.HierarchyNode",
+                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
                     }
                 ],
                 "$ReturnType": {
@@ -347,11 +349,13 @@
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set, given through a path expression"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Type": "Aggregation.HierarchyNode",
+                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
                     },
                     {
                         "$Name": "Node",
@@ -444,11 +448,13 @@
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set, given through a path expression"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Type": "Aggregation.HierarchyNode",
+                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
                     },
                     {
                         "$Name": "Node",
@@ -523,11 +529,13 @@
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set, given through a path expression"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Type": "Aggregation.HierarchyNode",
+                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
                     },
                     {
                         "$Name": "Node",
@@ -579,11 +587,13 @@
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A named or implicit entity set, given through a path expression"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode"
+                        "$Type": "Aggregation.HierarchyNode",
+                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
                     }
                 ],
                 "$ReturnType": {
