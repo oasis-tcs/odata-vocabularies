@@ -218,8 +218,8 @@
       <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
         <Annotation Term="Core.LongDescription">
-          <String>Every recursive hierarchy function defined in this vocabulary has an overload A with a parameter `Hierarchy` of this type.
-          This parameter of this type is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.
+          <String>Every recursive hierarchy function defined in this vocabulary has an overload A with a parameter `HierarchyQualifier` of this type.
+          This parameter is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.
           The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
           binding parameter's entity set. This hierarchy is evaluated by the function.
           Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.
@@ -250,7 +250,7 @@
       <Function Name="isroot" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity the root of the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
       <Function Name="isroot" IsBound="true">
@@ -263,11 +263,11 @@
       <Function Name="isdescendant" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of parent node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -275,7 +275,7 @@
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+        <Parameter Name="IncludeParent" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered a descendant of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -292,7 +292,7 @@
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of parent node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -300,7 +300,7 @@
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+        <Parameter Name="IncludeParent" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered a descendant of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -314,11 +314,11 @@
       <Function Name="isancestor" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of child node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -326,7 +326,7 @@
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+        <Parameter Name="IncludeChild" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered an ancestor of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -343,7 +343,7 @@
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of child node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -351,7 +351,7 @@
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+        <Parameter Name="IncludeChild" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered an ancestor of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -365,7 +365,7 @@
       <Function Name="issibling" IsBound="true">
         <Annotation Term="Core.Description" String="Does the entity have the same parent node in the specified hierarchy as the sibling node?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of sibling node" />
         </Parameter>
@@ -384,7 +384,7 @@
       <Function Name="isleaf" IsBound="true">
         <Annotation Term="Core.Description" String="Is the entity without descendants in the specified hierarchy?" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
-        <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
       <Function Name="isleaf" IsBound="true">

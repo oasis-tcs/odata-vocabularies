@@ -227,7 +227,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload A with a parameter `Hierarchy` of this type.\n          This parameter of this type is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          binding parameter's entity set. This hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.\n          If the binding parameter is null, the function returns null."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload A with a parameter `HierarchyQualifier` of this type.\n          This parameter is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the function's binding parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          binding parameter's entity set. This hierarchy is evaluated by the function.\n          Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodeProperty`.\n          If the binding parameter is null, the function returns null."
         },
         "HierarchyType": {
             "$Kind": "ComplexType",
@@ -258,7 +258,7 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "Hierarchy",
+                        "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
                     }
                 ],
@@ -300,7 +300,7 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "Hierarchy",
+                        "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
@@ -311,7 +311,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -320,7 +319,6 @@
                     {
                         "$Name": "IncludeParent",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -354,7 +352,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -363,7 +360,6 @@
                     {
                         "$Name": "IncludeParent",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -388,7 +384,7 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "Hierarchy",
+                        "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
@@ -399,7 +395,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -408,7 +403,6 @@
                     {
                         "$Name": "IncludeChild",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered an ancestor of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -442,7 +436,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -451,7 +444,6 @@
                     {
                         "$Name": "IncludeChild",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered an ancestor of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -476,7 +468,7 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "Hierarchy",
+                        "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
@@ -528,7 +520,7 @@
                         "$Nullable": true
                     },
                     {
-                        "$Name": "Hierarchy",
+                        "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
                     }
                 ],
