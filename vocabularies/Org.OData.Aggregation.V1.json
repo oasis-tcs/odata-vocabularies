@@ -210,17 +210,7 @@
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Property for navigating to the parent node"
-            },
-            "DistanceFromRootProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Property holding the number of edges between the node and the root node"
-            },
-            "IsLeafProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
+                "@Core.Description": "Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable."
             }
         },
         "HierarchyQualifier": {
