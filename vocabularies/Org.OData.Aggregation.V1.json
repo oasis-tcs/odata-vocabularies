@@ -311,7 +311,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -320,7 +319,6 @@
                     {
                         "$Name": "IncludeParent",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -365,7 +363,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -374,7 +371,6 @@
                     {
                         "$Name": "IncludeParent",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -410,7 +406,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -419,7 +414,6 @@
                     {
                         "$Name": "IncludeChild",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered an ancestor of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
@@ -464,7 +458,6 @@
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true,
                         "@Core.OptionalParameter": {
                             "DefaultValue": 32767
                         },
@@ -473,7 +466,6 @@
                     {
                         "$Name": "IncludeChild",
                         "$Type": "Edm.Boolean",
-                        "$Nullable": true,
                         "@Core.Description": "Whether the entity is considered an ancestor of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"

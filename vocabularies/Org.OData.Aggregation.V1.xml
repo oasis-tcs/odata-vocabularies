@@ -270,7 +270,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of parent node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -278,7 +278,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+        <Parameter Name="IncludeParent" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered a descendant of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -301,7 +301,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of parent node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -309,7 +309,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeParent" Type="Edm.Boolean">
+        <Parameter Name="IncludeParent" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered a descendant of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -327,7 +327,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of child node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -335,7 +335,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+        <Parameter Name="IncludeChild" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered an ancestor of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -358,7 +358,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false">
           <Annotation Term="Core.Description" String="Node value of child node" />
         </Parameter>
-        <Parameter Name="MaxDistance" Type="Edm.Int16">
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" Int="32767" />
@@ -366,7 +366,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
-        <Parameter Name="IncludeChild" Type="Edm.Boolean">
+        <Parameter Name="IncludeChild" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the entity is considered an ancestor of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>

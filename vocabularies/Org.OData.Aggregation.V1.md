@@ -54,8 +54,8 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L268:~:text=<Function%20Name="-,isdescendant,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L269:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L270:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType|Node value of parent node
-*[MaxDistance](./Org.OData.Aggregation.V1.xml#L273:~:text=<Function%20Name="-,isdescendant,-")*|Int16?|*Optional parameter*
-*[IncludeParent](./Org.OData.Aggregation.V1.xml#L281:~:text=<Function%20Name="-,isdescendant,-")*|Boolean?|*Optional parameter:* Whether the entity is considered a descendant of itself
+*[MaxDistance](./Org.OData.Aggregation.V1.xml#L273:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
+*[IncludeParent](./Org.OData.Aggregation.V1.xml#L281:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the entity is considered a descendant of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L289:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
 
 
@@ -70,8 +70,8 @@ Parameter|Type|Description
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L295)|\[EntityType\]|A named or implicit entity set, given through a path expression
 [NodePropertyPath](./Org.OData.Aggregation.V1.xml#L298)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of `HierarchyNodes`
 [Node](./Org.OData.Aggregation.V1.xml#L301)|PrimitiveType|Node value of parent node
-*[MaxDistance](./Org.OData.Aggregation.V1.xml#L304)*|Int16?|*Optional parameter*
-*[IncludeParent](./Org.OData.Aggregation.V1.xml#L312)*|Boolean?|*Optional parameter:* Whether the entity is considered a descendant of itself
+*[MaxDistance](./Org.OData.Aggregation.V1.xml#L304)*|Int16|*Optional parameter*
+*[IncludeParent](./Org.OData.Aggregation.V1.xml#L312)*|Boolean|*Optional parameter:* Whether the entity is considered a descendant of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L320)|Boolean?|
 
 
@@ -84,8 +84,8 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L325:~:text=<Function%20Name="-,isancestor,-")**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L326:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L327:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType|Node value of child node
-*[MaxDistance](./Org.OData.Aggregation.V1.xml#L330:~:text=<Function%20Name="-,isancestor,-")*|Int16?|*Optional parameter*
-*[IncludeChild](./Org.OData.Aggregation.V1.xml#L338:~:text=<Function%20Name="-,isancestor,-")*|Boolean?|*Optional parameter:* Whether the entity is considered an ancestor of itself
+*[MaxDistance](./Org.OData.Aggregation.V1.xml#L330:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
+*[IncludeChild](./Org.OData.Aggregation.V1.xml#L338:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the entity is considered an ancestor of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L346:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
 
 
@@ -100,8 +100,8 @@ Parameter|Type|Description
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L352)|\[EntityType\]|A named or implicit entity set, given through a path expression
 [NodePropertyPath](./Org.OData.Aggregation.V1.xml#L355)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of `HierarchyNodes`
 [Node](./Org.OData.Aggregation.V1.xml#L358)|PrimitiveType|Node value of child node
-*[MaxDistance](./Org.OData.Aggregation.V1.xml#L361)*|Int16?|*Optional parameter*
-*[IncludeChild](./Org.OData.Aggregation.V1.xml#L369)*|Boolean?|*Optional parameter:* Whether the entity is considered an ancestor of itself
+*[MaxDistance](./Org.OData.Aggregation.V1.xml#L361)*|Int16|*Optional parameter*
+*[IncludeChild](./Org.OData.Aggregation.V1.xml#L369)*|Boolean|*Optional parameter:* Whether the entity is considered an ancestor of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L377)|Boolean?|
 
 
