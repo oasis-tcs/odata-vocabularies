@@ -269,7 +269,7 @@
                     {
                         "$Name": "NodePropertyPath",
                         "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
+                        "@Core.Description": "A property path on the entity type of the binding parameter"
                     }
                 ],
                 "$ReturnType": {
@@ -343,7 +343,7 @@
                     {
                         "$Name": "NodePropertyPath",
                         "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
+                        "@Core.Description": "A property path on the entity type of the binding parameter"
                     },
                     {
                         "$Name": "Node",
@@ -438,7 +438,7 @@
                     {
                         "$Name": "NodePropertyPath",
                         "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
+                        "@Core.Description": "A property path on the entity type of the binding parameter"
                     },
                     {
                         "$Name": "Node",
@@ -517,7 +517,7 @@
                     {
                         "$Name": "NodePropertyPath",
                         "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
+                        "@Core.Description": "A property path on the entity type of the binding parameter"
                     },
                     {
                         "$Name": "Node",
@@ -575,7 +575,7 @@
                     {
                         "$Name": "NodePropertyPath",
                         "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of `HierarchyNodes`"
+                        "@Core.Description": "A property path on the entity type of the binding parameter"
                     }
                 ],
                 "$ReturnType": {

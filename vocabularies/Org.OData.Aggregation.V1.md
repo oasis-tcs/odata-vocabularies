@@ -41,7 +41,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L249)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L250)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L251)|\[EntityType\]|A named or implicit entity set, given through a path expression
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L254)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of `HierarchyNodes`
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L254)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of the binding parameter
 [&rarr;](./Org.OData.Aggregation.V1.xml#L257)|Boolean?|
 
 
@@ -68,7 +68,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L287)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L288)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L289)|\[EntityType\]|A named or implicit entity set, given through a path expression
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L292)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of `HierarchyNodes`
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L292)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of the binding parameter
 [Node](./Org.OData.Aggregation.V1.xml#L295)|PrimitiveType|Node value of parent node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L298)*|Int16|*Optional parameter*
 *[IncludeParent](./Org.OData.Aggregation.V1.xml#L306)*|Boolean|*Optional parameter:* Whether the entity is considered a descendant of itself
@@ -98,7 +98,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L344)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L345)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L346)|\[EntityType\]|A named or implicit entity set, given through a path expression
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L349)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of `HierarchyNodes`
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L349)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of the binding parameter
 [Node](./Org.OData.Aggregation.V1.xml#L352)|PrimitiveType|Node value of child node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L355)*|Int16|*Optional parameter*
 *[IncludeChild](./Org.OData.Aggregation.V1.xml#L363)*|Boolean|*Optional parameter:* Whether the entity is considered an ancestor of itself
@@ -126,7 +126,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L385)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L386)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L387)|\[EntityType\]|A named or implicit entity set, given through a path expression
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L390)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of `HierarchyNodes`
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L390)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of the binding parameter
 [Node](./Org.OData.Aggregation.V1.xml#L393)|PrimitiveType|Node value of sibling node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L396)|Boolean?|
 
@@ -151,7 +151,7 @@ Parameter|Type|Description
 **[Entity](./Org.OData.Aggregation.V1.xml#L407)**|EntityType?|**Binding parameter**
 [Hierarchy](./Org.OData.Aggregation.V1.xml#L408)|[HierarchyQualifier](#HierarchyQualifier)|
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L409)|\[EntityType\]|A named or implicit entity set, given through a path expression
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L412)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of `HierarchyNodes`
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L412)|[HierarchyNode](#HierarchyNode)|A property path on the entity type of the binding parameter
 [&rarr;](./Org.OData.Aggregation.V1.xml#L415)|Boolean?|
 
 
