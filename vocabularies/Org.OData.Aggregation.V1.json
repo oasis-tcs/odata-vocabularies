@@ -227,7 +227,7 @@
                 "$Type": "Aggregation.HierarchyQualifier"
             },
             "NodePropertyPath": {
-                "@Core.Description": "A property path on the entity type of `Nodes`"
+                "@Core.Description": "A property path on the entity type of the function's binding parameter"
             },
             "Nodes": {
                 "$Kind": "NavigationProperty",

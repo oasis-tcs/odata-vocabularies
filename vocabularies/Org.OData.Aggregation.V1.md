@@ -222,7 +222,7 @@ Every recursive hierarchy function defined in this vocabulary has an overload B 
 Property|Type|Description
 :-------|:---|:----------
 [Qualifier](./Org.OData.Aggregation.V1.xml#L236:~:text=<ComplexType%20Name="-,HierarchyType,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L237:~:text=<ComplexType%20Name="-,HierarchyType,-")|String|A property path on the entity type of `Nodes`
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L237:~:text=<ComplexType%20Name="-,HierarchyType,-")|String|A property path on the entity type of the function's binding parameter
 [Nodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<NavigationProperty%20Name="-,Nodes,-")|\[EntityType\]|A named or implicit entity set, given through a path expression
 
 ## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L395:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")

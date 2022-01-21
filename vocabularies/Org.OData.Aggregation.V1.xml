@@ -235,7 +235,7 @@
         </Annotation>
         <Property Name="Qualifier" Type="Aggregation.HierarchyQualifier" Nullable="false"/>
         <Property Name="NodePropertyPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="A property path on the entity type of `Nodes`" />
+          <Annotation Term="Core.Description" String="A property path on the entity type of the function's binding parameter" />
         </Property>
         <NavigationProperty Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A named or implicit entity set, given through a path expression" />
