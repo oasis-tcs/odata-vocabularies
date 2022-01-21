@@ -217,7 +217,7 @@ This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of
 
 The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
 binding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.
-Nodes in the hierarchy are identified by the primitive value of their `RecursiveHierarchy/NodePropertyPath`.
+Nodes in the hierarchy are identified by the primitive value of the entities' `RecursiveHierarchy/NodeProperty`.
 If the binding parameter is null, the function returns null.
 
 ## <a name="HierarchyNode"></a>[HierarchyNode](./Org.OData.Aggregation.V1.xml#L227:~:text=<TypeDefinition%20Name="-,HierarchyNode,-")
@@ -229,9 +229,9 @@ Every recursive hierarchy function defined in this vocabulary has
 - an overload with a parameter `NodePropertyPath` of this type plus a `HierarchyNodes` parameter and
 - an overload without these two parameters.
 
-In the overload with these parameters, both the entity given in the function's binding parameter
-and its `HierarchyNodes` parameter must have structural properties with the path given in the `NodePropertyPath` parameter
-and with the same type. This is the property containing the entity's node value in the hierarchy.
+In the overload with these parameters, the entity given in the function's binding parameter
+must have a structural property whose name is given in the `NodePropertyPath` parameter
+and with the same type as the `RecursiveHierarchy/NodeProperty`. This is the property containing the entity's node value in the hierarchy.
 The entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`.
 
 ## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L421:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
