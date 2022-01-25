@@ -213,7 +213,7 @@ Recursive hierarchy that is evaluated by a hierarchy function
 Every recursive hierarchy function defined in this vocabulary has an overload B with a parameter `Hierarchy` of this complex type.
           `Qualifier` is the qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of `Nodes`.
           Unlike in [overload A](#HierarchyQualifier), this annotation defines a hierarchy not on the binding parameter's entity set,
-          but on the entity set specified by `Nodes`.
+          but on the collection specified by `Nodes`.
           The entity given in the function's binding parameter must have a structural property
           with the name given in `NodePropertyPath` and with the same type as the `RecursiveHierarchy/NodeProperty`.
           This is the property containing the entity's node value in the hierarchy.
@@ -223,7 +223,7 @@ Property|Type|Description
 :-------|:---|:----------
 [Qualifier](./Org.OData.Aggregation.V1.xml#L236:~:text=<ComplexType%20Name="-,HierarchyType,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [NodePropertyPath](./Org.OData.Aggregation.V1.xml#L237:~:text=<ComplexType%20Name="-,HierarchyType,-")|String|A property path on the entity type of the function's binding parameter
-[Nodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<NavigationProperty%20Name="-,Nodes,-")|\[EntityType\]|A named or implicit entity set, given through a path expression
+[Nodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<NavigationProperty%20Name="-,Nodes,-")|\[EntityType\]|A collection, given through a path expression
 
 ## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L395:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
 

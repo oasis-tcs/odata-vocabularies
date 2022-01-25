@@ -222,7 +222,7 @@
         "HierarchyType": {
             "$Kind": "ComplexType",
             "@Core.Description": "Recursive hierarchy that is evaluated by a hierarchy function",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload B with a parameter `Hierarchy` of this complex type.\n          `Qualifier` is the qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of `Nodes`.\n          Unlike in [overload A](#HierarchyQualifier), this annotation defines a hierarchy not on the binding parameter's entity set,\n          but on the entity set specified by `Nodes`.\n          The entity given in the function's binding parameter must have a structural property\n          with the name given in `NodePropertyPath` and with the same type as the `RecursiveHierarchy/NodeProperty`.\n          This is the property containing the entity's node value in the hierarchy.\n          The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.",
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has an overload B with a parameter `Hierarchy` of this complex type.\n          `Qualifier` is the qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation on the entity type of `Nodes`.\n          Unlike in [overload A](#HierarchyQualifier), this annotation defines a hierarchy not on the binding parameter's entity set,\n          but on the collection specified by `Nodes`.\n          The entity given in the function's binding parameter must have a structural property\n          with the name given in `NodePropertyPath` and with the same type as the `RecursiveHierarchy/NodeProperty`.\n          This is the property containing the entity's node value in the hierarchy.\n          The entity need not belong to `Nodes`, only its node value is compared to the node values in `Nodes`.",
             "Qualifier": {
                 "$Type": "Aggregation.HierarchyQualifier"
             },
@@ -233,7 +233,7 @@
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
                 "$Type": "Edm.EntityType",
-                "@Core.Description": "A named or implicit entity set, given through a path expression"
+                "@Core.Description": "A collection, given through a path expression"
             }
         },
         "isroot": [
