@@ -217,59 +217,27 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has a parameter `Hierarchy` of this type.\nThis is the qualifier of a `RecursiveHierarchy` annotation on the entity type of\n- the function's binding parameter or\n- the collection specified by the `HierarchyNodes` parameter, if this is present.\n\nThe `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\nbinding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.\nNodes in the hierarchy are identified by the primitive value of the entities' `RecursiveHierarchy/NodeProperty`.\nIf the binding parameter is null, the function returns null."
-        },
-        "HierarchyNode": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Core.Description": "Property path identifying the node in a recursive hierarchy",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- an overload with a parameter `NodePropertyPath` of this type plus a `HierarchyNodes` parameter and\n- an overload without these two parameters.\n\nIn the overload with these parameters, the entity given in the function's binding parameter\nmust have a structural property whose name is given in the `NodePropertyPath` parameter\nand with the same type as the `RecursiveHierarchy/NodeProperty`. This is the property containing the entity's node value in the hierarchy.\nThe entity need not belong to `HierarchyNodes`, only its node value is compared to the node values in `HierarchyNodes`."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has a parameter `HierarchyQualifier` of this type.\n          This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of\n          the collection specified by the `HierarchyNodes` parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          `HierarchyNodes`. Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`\n          and the parameter `Input` contains a node value that the function looks up in the hierarchy.\n          If a node value passed to the function is null, the function returns null."
         },
         "isroot": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity the root of the specified hierarchy?",
+                "@Core.Description": "Is the input the root of the specified hierarchy?",
                 "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    }
-                ],
-                "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": true
-                }
-            },
-            {
-                "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity the root of the specified hierarchy?",
-                "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A named or implicit entity set, given through a path expression"
+                        "@Core.Description": "A collection, given through a path expression"
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of the binding parameter"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Input",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true
                     }
                 ],
                 "$ReturnType": {
@@ -281,59 +249,8 @@
         "isdescendant": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?",
+                "@Core.Description": "Is the input a descendant in the specified hierarchy of the parent node with at most the specified distance?",
                 "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Node value of parent node"
-                    },
-                    {
-                        "$Name": "MaxDistance",
-                        "$Type": "Edm.Int16",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": 32767
-                        },
-                        "@Validation.Minimum": 1
-                    },
-                    {
-                        "$Name": "IncludeParent",
-                        "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the entity is considered a descendant of itself",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": "false"
-                        }
-                    }
-                ],
-                "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": true
-                }
-            },
-            {
-                "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity a descendant in the specified hierarchy of the parent node with at most the specified distance?",
-                "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
@@ -341,13 +258,18 @@
                         "@Core.Description": "A collection, given through a path expression"
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of the binding parameter"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Input",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
                         "@Core.Description": "Node value of parent node"
                     },
                     {
@@ -376,59 +298,8 @@
         "isancestor": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?",
+                "@Core.Description": "Is the input an ancestor in the specified hierarchy of the child node with at most the specified distance?",
                 "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Node value of child node"
-                    },
-                    {
-                        "$Name": "MaxDistance",
-                        "$Type": "Edm.Int16",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": 32767
-                        },
-                        "@Validation.Minimum": 1
-                    },
-                    {
-                        "$Name": "IncludeChild",
-                        "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the entity is considered an ancestor of itself",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": "false"
-                        }
-                    }
-                ],
-                "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": true
-                }
-            },
-            {
-                "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity an ancestor in the specified hierarchy of the child node with at most the specified distance?",
-                "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
@@ -436,13 +307,18 @@
                         "@Core.Description": "A collection, given through a path expression"
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of the binding parameter"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Input",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
                         "@Core.Description": "Node value of child node"
                     },
                     {
@@ -471,43 +347,8 @@
         "issibling": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Does the entity have the same parent node in the specified hierarchy as the sibling node?",
+                "@Core.Description": "Does the input have the same parent node in the specified hierarchy as the sibling node?",
                 "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
-                        "@Core.Description": "Node value of sibling node"
-                    }
-                ],
-                "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": true
-                }
-            },
-            {
-                "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Does the entity have the same parent node in the specified hierarchy as the sibling node?",
-                "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
@@ -515,13 +356,18 @@
                         "@Core.Description": "A collection, given through a path expression"
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of the binding parameter"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Input",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true
                     },
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
                         "@Core.Description": "Node value of sibling node"
                     }
                 ],
@@ -534,38 +380,8 @@
         "isleaf": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity without descendants in the specified hierarchy?",
+                "@Core.Description": "Is the input without descendants in the specified hierarchy?",
                 "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    }
-                ],
-                "$ReturnType": {
-                    "$Type": "Edm.Boolean",
-                    "$Nullable": true
-                }
-            },
-            {
-                "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the entity without descendants in the specified hierarchy?",
-                "$Parameter": [
-                    {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
-                    },
-                    {
-                        "$Name": "Hierarchy",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
@@ -573,9 +389,13 @@
                         "@Core.Description": "A collection, given through a path expression"
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "$Type": "Aggregation.HierarchyNode",
-                        "@Core.Description": "A property path on the entity type of the binding parameter"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Input",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true
                     }
                 ],
                 "$ReturnType": {
