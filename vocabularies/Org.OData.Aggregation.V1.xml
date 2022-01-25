@@ -215,7 +215,7 @@
           <String>Every recursive hierarchy function defined in this vocabulary has a parameter `Hierarchy` of this type.
 This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of
 - the function's binding parameter or
-- the entity set specified by the `HierarchyNodes` parameter, if this is present.
+- the collection specified by the `HierarchyNodes` parameter, if this is present.
 
 The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
 binding parameter's entity set or on `HierarchyNodes` if present. This hierarchy is evaluated by the function.
@@ -287,7 +287,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A named or implicit entity set, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false">
           <Annotation Term="Core.Description" String="A property path on the entity type of the binding parameter" />
@@ -344,7 +344,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A named or implicit entity set, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false">
           <Annotation Term="Core.Description" String="A property path on the entity type of the binding parameter" />
@@ -385,7 +385,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A named or implicit entity set, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false">
           <Annotation Term="Core.Description" String="A property path on the entity type of the binding parameter" />
@@ -407,7 +407,7 @@ The entity need not belong to `HierarchyNodes`, only its node value is compared 
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <Parameter Name="Hierarchy" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A named or implicit entity set, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="NodePropertyPath" Type="Aggregation.HierarchyNode" Nullable="false">
           <Annotation Term="Core.Description" String="A property path on the entity type of the binding parameter" />
