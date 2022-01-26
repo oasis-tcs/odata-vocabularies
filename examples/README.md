@@ -22,4 +22,4 @@ Permissions property defined under Read, Insert, Update, Delete in the capabilit
 
 ## [Recursive Hierarchies](Org.OData.Aggregation.V1.RecursiveHierarchy.md)
 
-Example data for the section about recursive hierarchies in the [OData-Aggr] specification.
+Example model for the section about recursive hierarchies in the [OData-Aggr] specification.
