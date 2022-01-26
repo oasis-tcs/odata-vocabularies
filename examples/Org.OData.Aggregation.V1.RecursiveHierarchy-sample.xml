@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="recursivehierarchy.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Time">
+        <Key>
+          <PropertyRef Name="Date" />
+        </Key>
+        <Property Name="Date" Type="Edm.Date" Nullable="false" />
+        <Property Name="Month" Type="Edm.String" Nullable="false" />
+        <Property Name="Quarter" Type="Edm.String" Nullable="false" />
+        <Property Name="Year" Type="Edm.Int16" Nullable="false" />
+      </EntityType>
+      <EntityType Name="Category">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="Products" Type="Collection(self.Product)" />
+      </EntityType>
+      <EntityType Name="SalesOrganizationHistory">
+        <Key>
+          <PropertyRef Name="KeyDate" />
+        </Key>
+        <Property Name="KeyDate" Type="Edm.Date" Nullable="false" />
+        <NavigationProperty Name="Nodes" Type="Collection(self.SalesOrganization)" ContainsTarget="true" />
+      </EntityType>
+      <EntityType Name="SalesOrganization">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="Superordinate" Type="self.SalesOrganization" />
+        <NavigationProperty Name="Sales" Type="Collection(self.Sale)" Partner="SalesOrganization" />
+        <Annotation Term="Aggregation.RecursiveHierarchy" Qualifier="SalesOrgHierarchy">
+          <Record>
+            <PropertyValue Property="NodeProperty" PropertyPath="ID" />
+            <PropertyValue Property="ParentNavigationProperty" NavigationPropertyPath="Superordinate" />
+          </Record>
+        </Annotation>
+      </EntityType>
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+        <NavigationProperty Name="Sales" Type="Collection(self.Sale)" Partner="Customer" />
+      </EntityType>
+      <EntityType Name="Product">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Color" Type="Edm.String" />
+        <Property Name="TaxRate" Type="Edm.Decimal" Scale="2"/>
+        <NavigationProperty Name="Category" Type="self.Category" Nullable="false" Partner="Products" />
+        <NavigationProperty Name="Sales" Type="Collection(self.Sale)" Partner="Product" />
+      </EntityType>
+      <EntityType Name="Sale">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Amount" Type="Edm.Decimal" Scale="2"/>
+        <NavigationProperty Name="SalesOrganization" Type="self.SalesOrganization" Partner="Sales" />
+        <NavigationProperty Name="Product" Type="self.Product" Partner="Sales" />
+        <NavigationProperty Name="Customer" Type="self.Customer" Partner="Sales" />
+        <NavigationProperty Name="Time" Type="self.Time" />
+      </EntityType>
+      <EntityContainer Name="Container">
+        <EntitySet Name="Time" EntityType="self.Time" />
+        <EntitySet Name="Categories" EntityType="self.Category">
+          <NavigationPropertyBinding Path="Products" Target="Products" />
+        </EntitySet>
+        <EntitySet Name="SalesOrganizationHistory" EntityType="self.SalesOrganizationHistory">
+          <NavigationPropertyBinding Path="Nodes/Sales" Target="Sales" />
+        </EntitySet>
+        <EntitySet Name="SalesOrganizations" EntityType="self.SalesOrganization">
+          <NavigationPropertyBinding Path="Sales" Target="Sales" />
+        </EntitySet>
+        <EntitySet Name="Customers" EntityType="self.Customer">
+          <NavigationPropertyBinding Path="Sales" Target="Sales" />
+        </EntitySet>
+        <EntitySet Name="Products" EntityType="self.Product">
+          <NavigationPropertyBinding Path="Category" Target="Categories" />
+          <NavigationPropertyBinding Path="Sales" Target="Sales" />
+        </EntitySet>
+        <EntitySet Name="Sales" EntityType="self.Sale">
+          <NavigationPropertyBinding Path="SalesOrganization" Target="SalesOrganizations" />
+          <NavigationPropertyBinding Path="Customer" Target="Customers" />
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+          <NavigationPropertyBinding Path="Time" Target="Time" />
+        </EntitySet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

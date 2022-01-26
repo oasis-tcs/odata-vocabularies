@@ -147,7 +147,7 @@ Every recursive hierarchy function defined in this vocabulary has a parameter `H
           This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of
           the collection specified by the `HierarchyNodes` parameter.
           The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the
-          `HierarchyNodes`. Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`
+          `HierarchyNodes`. Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`,
           and the parameter `Input` contains a node value that the function looks up in the hierarchy.
           If a node value passed to the function is null, the function returns null.
 

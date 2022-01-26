@@ -1,0 +1,222 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        }
+    },
+    "recursivehierarchy.sample": {
+        "$Alias": "self",
+        "Time": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "Date"
+            ],
+            "Date": {
+                "$Type": "Edm.Date"
+            },
+            "Month": {},
+            "Quarter": {},
+            "Year": {
+                "$Type": "Edm.Int16"
+            }
+        },
+        "Category": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Products": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "self.Product"
+            }
+        },
+        "SalesOrganizationHistory": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "KeyDate"
+            ],
+            "KeyDate": {
+                "$Type": "Edm.Date"
+            },
+            "Nodes": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "self.SalesOrganization",
+                "$ContainsTarget": true
+            }
+        },
+        "SalesOrganization": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Superordinate": {
+                "$Kind": "NavigationProperty",
+                "$Type": "self.SalesOrganization",
+                "$Nullable": true
+            },
+            "Sales": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "self.Sale",
+                "$Partner": "SalesOrganization"
+            },
+            "@Aggregation.RecursiveHierarchy#SalesOrgHierarchy": {
+                "NodeProperty": "ID",
+                "ParentNavigationProperty": "Superordinate"
+            }
+        },
+        "Customer": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Country": {
+                "$Nullable": true
+            },
+            "Sales": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "self.Sale",
+                "$Partner": "Customer"
+            }
+        },
+        "Product": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Color": {
+                "$Nullable": true
+            },
+            "TaxRate": {
+                "$Type": "Edm.Decimal",
+                "$Nullable": true,
+                "$Scale": 2
+            },
+            "Category": {
+                "$Kind": "NavigationProperty",
+                "$Type": "self.Category",
+                "$Partner": "Products"
+            },
+            "Sales": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "self.Sale",
+                "$Partner": "Product"
+            }
+        },
+        "Sale": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Amount": {
+                "$Type": "Edm.Decimal",
+                "$Nullable": true,
+                "$Scale": 2
+            },
+            "SalesOrganization": {
+                "$Kind": "NavigationProperty",
+                "$Type": "self.SalesOrganization",
+                "$Nullable": true,
+                "$Partner": "Sales"
+            },
+            "Product": {
+                "$Kind": "NavigationProperty",
+                "$Type": "self.Product",
+                "$Nullable": true,
+                "$Partner": "Sales"
+            },
+            "Customer": {
+                "$Kind": "NavigationProperty",
+                "$Type": "self.Customer",
+                "$Nullable": true,
+                "$Partner": "Sales"
+            },
+            "Time": {
+                "$Kind": "NavigationProperty",
+                "$Type": "self.Time",
+                "$Nullable": true
+            }
+        },
+        "Container": {
+            "$Kind": "EntityContainer",
+            "Time": {
+                "$Collection": true,
+                "$Type": "self.Time"
+            },
+            "Categories": {
+                "$Collection": true,
+                "$Type": "self.Category",
+                "$NavigationPropertyBinding": {
+                    "Products": "Products"
+                }
+            },
+            "SalesOrganizationHistory": {
+                "$Collection": true,
+                "$Type": "self.SalesOrganizationHistory",
+                "$NavigationPropertyBinding": {
+                    "Nodes/Sales": "Sales"
+                }
+            },
+            "SalesOrganizations": {
+                "$Collection": true,
+                "$Type": "self.SalesOrganization",
+                "$NavigationPropertyBinding": {
+                    "Sales": "Sales"
+                }
+            },
+            "Customers": {
+                "$Collection": true,
+                "$Type": "self.Customer",
+                "$NavigationPropertyBinding": {
+                    "Sales": "Sales"
+                }
+            },
+            "Products": {
+                "$Collection": true,
+                "$Type": "self.Product",
+                "$NavigationPropertyBinding": {
+                    "Category": "Categories",
+                    "Sales": "Sales"
+                }
+            },
+            "Sales": {
+                "$Collection": true,
+                "$Type": "self.Sale",
+                "$NavigationPropertyBinding": {
+                    "SalesOrganization": "SalesOrganizations",
+                    "Customer": "Customers",
+                    "Product": "Products",
+                    "Time": "Time"
+                }
+            }
+        }
+    },
+    "$EntityContainer": "recursivehierarchy.sample.Container"
+}
