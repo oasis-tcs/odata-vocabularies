@@ -10,8 +10,8 @@
             ]
         }
     },
-    "recursivehierarchy.sample": {
-        "$Alias": "self",
+    "org.example.odata.salesservice": {
+        "$Alias": "SalesModel",
         "Time": {
             "$Kind": "EntityType",
             "$Key": [
@@ -24,7 +24,12 @@
             "Quarter": {},
             "Year": {
                 "$Type": "Edm.Int16"
-            }
+            },
+            "@Aggregation.LeveledHierarchy#TimeHierarchy": [
+                "Year",
+                "Quarter",
+                "Month"
+            ]
         },
         "Category": {
             "$Kind": "EntityType",
@@ -38,7 +43,7 @@
             "Products": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "self.Product"
+                "$Type": "SalesModel.Product"
             }
         },
         "SalesOrganizationHistory": {
@@ -52,7 +57,7 @@
             "Nodes": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "self.SalesOrganization",
+                "$Type": "SalesModel.SalesOrganization",
                 "$ContainsTarget": true
             }
         },
@@ -67,13 +72,13 @@
             },
             "Superordinate": {
                 "$Kind": "NavigationProperty",
-                "$Type": "self.SalesOrganization",
+                "$Type": "SalesModel.SalesOrganization",
                 "$Nullable": true
             },
             "Sales": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "self.Sale",
+                "$Type": "SalesModel.Sale",
                 "$Partner": "SalesOrganization"
             },
             "@Aggregation.RecursiveHierarchy#SalesOrgHierarchy": {
@@ -96,7 +101,7 @@
             "Sales": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "self.Sale",
+                "$Type": "SalesModel.Sale",
                 "$Partner": "Customer"
             }
         },
@@ -119,15 +124,19 @@
             },
             "Category": {
                 "$Kind": "NavigationProperty",
-                "$Type": "self.Category",
+                "$Type": "SalesModel.Category",
                 "$Partner": "Products"
             },
             "Sales": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "self.Sale",
+                "$Type": "SalesModel.Sale",
                 "$Partner": "Product"
-            }
+            },
+            "@Aggregation.LeveledHierarchy#ProductHierarchy": [
+                "Category/Name",
+                "Name"
+            ]
         },
         "Sale": {
             "$Kind": "EntityType",
@@ -142,25 +151,25 @@
             },
             "SalesOrganization": {
                 "$Kind": "NavigationProperty",
-                "$Type": "self.SalesOrganization",
+                "$Type": "SalesModel.SalesOrganization",
                 "$Nullable": true,
                 "$Partner": "Sales"
             },
             "Product": {
                 "$Kind": "NavigationProperty",
-                "$Type": "self.Product",
+                "$Type": "SalesModel.Product",
                 "$Nullable": true,
                 "$Partner": "Sales"
             },
             "Customer": {
                 "$Kind": "NavigationProperty",
-                "$Type": "self.Customer",
+                "$Type": "SalesModel.Customer",
                 "$Nullable": true,
                 "$Partner": "Sales"
             },
             "Time": {
                 "$Kind": "NavigationProperty",
-                "$Type": "self.Time",
+                "$Type": "SalesModel.Time",
                 "$Nullable": true
             }
         },
@@ -168,39 +177,39 @@
             "$Kind": "EntityContainer",
             "Time": {
                 "$Collection": true,
-                "$Type": "self.Time"
+                "$Type": "SalesModel.Time"
             },
             "Categories": {
                 "$Collection": true,
-                "$Type": "self.Category",
+                "$Type": "SalesModel.Category",
                 "$NavigationPropertyBinding": {
                     "Products": "Products"
                 }
             },
             "SalesOrganizationHistory": {
                 "$Collection": true,
-                "$Type": "self.SalesOrganizationHistory",
+                "$Type": "SalesModel.SalesOrganizationHistory",
                 "$NavigationPropertyBinding": {
                     "Nodes/Sales": "Sales"
                 }
             },
             "SalesOrganizations": {
                 "$Collection": true,
-                "$Type": "self.SalesOrganization",
+                "$Type": "SalesModel.SalesOrganization",
                 "$NavigationPropertyBinding": {
                     "Sales": "Sales"
                 }
             },
             "Customers": {
                 "$Collection": true,
-                "$Type": "self.Customer",
+                "$Type": "SalesModel.Customer",
                 "$NavigationPropertyBinding": {
                     "Sales": "Sales"
                 }
             },
             "Products": {
                 "$Collection": true,
-                "$Type": "self.Product",
+                "$Type": "SalesModel.Product",
                 "$NavigationPropertyBinding": {
                     "Category": "Categories",
                     "Sales": "Sales"
@@ -208,7 +217,7 @@
             },
             "Sales": {
                 "$Collection": true,
-                "$Type": "self.Sale",
+                "$Type": "SalesModel.Sale",
                 "$NavigationPropertyBinding": {
                     "SalesOrganization": "SalesOrganizations",
                     "Customer": "Customers",
@@ -218,5 +227,5 @@
             }
         }
     },
-    "$EntityContainer": "recursivehierarchy.sample.Container"
+    "$EntityContainer": "org.example.odata.salesservice.Container"
 }

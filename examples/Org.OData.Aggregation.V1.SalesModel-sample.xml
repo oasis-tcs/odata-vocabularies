@@ -4,7 +4,7 @@
     <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema Namespace="recursivehierarchy.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+    <Schema Namespace="org.example.odata.salesservice" Alias="SalesModel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
       <EntityType Name="Time">
         <Key>
           <PropertyRef Name="Date" />
@@ -13,6 +13,13 @@
         <Property Name="Month" Type="Edm.String" Nullable="false" />
         <Property Name="Quarter" Type="Edm.String" Nullable="false" />
         <Property Name="Year" Type="Edm.Int16" Nullable="false" />
+        <Annotation Term="Aggregation.LeveledHierarchy" Qualifier="TimeHierarchy">
+          <Collection>
+            <PropertyPath>Year</PropertyPath>
+            <PropertyPath>Quarter</PropertyPath>
+            <PropertyPath>Month</PropertyPath>
+          </Collection>
+        </Annotation>
       </EntityType>
       <EntityType Name="Category">
         <Key>
@@ -20,14 +27,14 @@
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
         <Property Name="Name" Type="Edm.String" />
-        <NavigationProperty Name="Products" Type="Collection(self.Product)" />
+        <NavigationProperty Name="Products" Type="Collection(SalesModel.Product)" />
       </EntityType>
       <EntityType Name="SalesOrganizationHistory">
         <Key>
           <PropertyRef Name="KeyDate" />
         </Key>
         <Property Name="KeyDate" Type="Edm.Date" Nullable="false" />
-        <NavigationProperty Name="Nodes" Type="Collection(self.SalesOrganization)" ContainsTarget="true" />
+        <NavigationProperty Name="Nodes" Type="Collection(SalesModel.SalesOrganization)" ContainsTarget="true" />
       </EntityType>
       <EntityType Name="SalesOrganization">
         <Key>
@@ -35,8 +42,8 @@
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
         <Property Name="Name" Type="Edm.String" />
-        <NavigationProperty Name="Superordinate" Type="self.SalesOrganization" />
-        <NavigationProperty Name="Sales" Type="Collection(self.Sale)" Partner="SalesOrganization" />
+        <NavigationProperty Name="Superordinate" Type="SalesModel.SalesOrganization" />
+        <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="SalesOrganization" />
         <Annotation Term="Aggregation.RecursiveHierarchy" Qualifier="SalesOrgHierarchy">
           <Record>
             <PropertyValue Property="NodeProperty" PropertyPath="ID" />
@@ -51,7 +58,7 @@
         <Property Name="ID" Type="Edm.String" Nullable="false" />
         <Property Name="Name" Type="Edm.String" />
         <Property Name="Country" Type="Edm.String" />
-        <NavigationProperty Name="Sales" Type="Collection(self.Sale)" Partner="Customer" />
+        <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="Customer" />
       </EntityType>
       <EntityType Name="Product">
         <Key>
@@ -61,8 +68,14 @@
         <Property Name="Name" Type="Edm.String" />
         <Property Name="Color" Type="Edm.String" />
         <Property Name="TaxRate" Type="Edm.Decimal" Scale="2"/>
-        <NavigationProperty Name="Category" Type="self.Category" Nullable="false" Partner="Products" />
-        <NavigationProperty Name="Sales" Type="Collection(self.Sale)" Partner="Product" />
+        <NavigationProperty Name="Category" Type="SalesModel.Category" Nullable="false" Partner="Products" />
+        <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="Product" />
+        <Annotation Term="Aggregation.LeveledHierarchy" Qualifier="ProductHierarchy">
+          <Collection>
+            <PropertyPath>Category/Name</PropertyPath>
+            <PropertyPath>Name</PropertyPath>
+          </Collection>
+        </Annotation>
       </EntityType>
       <EntityType Name="Sale">
         <Key>
@@ -70,30 +83,30 @@
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
         <Property Name="Amount" Type="Edm.Decimal" Scale="2"/>
-        <NavigationProperty Name="SalesOrganization" Type="self.SalesOrganization" Partner="Sales" />
-        <NavigationProperty Name="Product" Type="self.Product" Partner="Sales" />
-        <NavigationProperty Name="Customer" Type="self.Customer" Partner="Sales" />
-        <NavigationProperty Name="Time" Type="self.Time" />
+        <NavigationProperty Name="SalesOrganization" Type="SalesModel.SalesOrganization" Partner="Sales" />
+        <NavigationProperty Name="Product" Type="SalesModel.Product" Partner="Sales" />
+        <NavigationProperty Name="Customer" Type="SalesModel.Customer" Partner="Sales" />
+        <NavigationProperty Name="Time" Type="SalesModel.Time" />
       </EntityType>
       <EntityContainer Name="Container">
-        <EntitySet Name="Time" EntityType="self.Time" />
-        <EntitySet Name="Categories" EntityType="self.Category">
+        <EntitySet Name="Time" EntityType="SalesModel.Time" />
+        <EntitySet Name="Categories" EntityType="SalesModel.Category">
           <NavigationPropertyBinding Path="Products" Target="Products" />
         </EntitySet>
-        <EntitySet Name="SalesOrganizationHistory" EntityType="self.SalesOrganizationHistory">
+        <EntitySet Name="SalesOrganizationHistory" EntityType="SalesModel.SalesOrganizationHistory">
           <NavigationPropertyBinding Path="Nodes/Sales" Target="Sales" />
         </EntitySet>
-        <EntitySet Name="SalesOrganizations" EntityType="self.SalesOrganization">
+        <EntitySet Name="SalesOrganizations" EntityType="SalesModel.SalesOrganization">
           <NavigationPropertyBinding Path="Sales" Target="Sales" />
         </EntitySet>
-        <EntitySet Name="Customers" EntityType="self.Customer">
+        <EntitySet Name="Customers" EntityType="SalesModel.Customer">
           <NavigationPropertyBinding Path="Sales" Target="Sales" />
         </EntitySet>
-        <EntitySet Name="Products" EntityType="self.Product">
+        <EntitySet Name="Products" EntityType="SalesModel.Product">
           <NavigationPropertyBinding Path="Category" Target="Categories" />
           <NavigationPropertyBinding Path="Sales" Target="Sales" />
         </EntitySet>
-        <EntitySet Name="Sales" EntityType="self.Sale">
+        <EntitySet Name="Sales" EntityType="SalesModel.Sale">
           <NavigationPropertyBinding Path="SalesOrganization" Target="SalesOrganizations" />
           <NavigationPropertyBinding Path="Customer" Target="Customers" />
           <NavigationPropertyBinding Path="Product" Target="Products" />

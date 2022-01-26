@@ -20,6 +20,6 @@ This example shows a type definition of a "JSON Stream" property with an attache
 Permissions property defined under Read, Insert, Update, Delete in the capabilities vocabulary,  gives the ability to list Auth flows and scopes within those flows required to perform operations on an entity set.
 
 
-## [Recursive Hierarchies](Org.OData.Aggregation.V1.RecursiveHierarchy.md)
+## [Sales Model](Org.OData.Aggregation.V1.SalesModel.md)
 
-Example model for the section about recursive hierarchies in the [OData-Aggr] specification.
+Example model used in the [OData-Aggr] specification.
