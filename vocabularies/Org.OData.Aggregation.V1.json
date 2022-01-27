@@ -217,12 +217,13 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has a parameter `HierarchyQualifier` of this type.\n          This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of\n          the collection specified by the `HierarchyNodes` parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          `HierarchyNodes`. Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`,\n          and the parameters `Input` and (in some functions) `Node` contain node values that the function looks up in the hierarchy.\n          If a node value passed to the function is null, the function returns null."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- a parameter `HierarchyQualifier` of this type and\n- a parameter `HierarchyNodes` that is a collection of entities.\n\n`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of\nthe collection given by the `HierarchyNodes` parameter. This specifies a hierarchy that is evaluated by the function."
         },
         "isroot": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Is the input the root of the specified hierarchy?",
+                "@Core.Description": "Is the node a root of the specified hierarchy?",
+                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -235,9 +236,10 @@
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
-                        "$Name": "Input",
+                        "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the putative root"
                     }
                 ],
                 "$ReturnType": {
@@ -249,7 +251,8 @@
         "isdescendant": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Is the input a descendant in the specified hierarchy of the parent node with at most the specified distance?",
+                "@Core.Description": "Is the node a descendant in the specified hierarchy of the ancestor node with at most the specified distance?",
+                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -262,15 +265,16 @@
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
-                        "$Name": "Input",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true
-                    },
-                    {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of parent node"
+                        "@Core.Description": "Node value of the putative descendant"
+                    },
+                    {
+                        "$Name": "Ancestor",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the ancestor node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -281,9 +285,9 @@
                         "@Validation.Minimum": 1
                     },
                     {
-                        "$Name": "IncludeParent",
+                        "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the entity is considered a descendant of itself",
+                        "@Core.Description": "Whether the node is considered a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
@@ -298,7 +302,7 @@
         "isancestor": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Is the input an ancestor in the specified hierarchy of the child node with at most the specified distance?",
+                "@Core.Description": "Is the node an ancestor in the specified hierarchy of the descendant node with at most the specified distance?",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -311,15 +315,16 @@
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
-                        "$Name": "Input",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true
-                    },
-                    {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of child node"
+                        "@Core.Description": "Node value of the putative ancestor"
+                    },
+                    {
+                        "$Name": "Descendant",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the descendant node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -330,9 +335,9 @@
                         "@Validation.Minimum": 1
                     },
                     {
-                        "$Name": "IncludeChild",
+                        "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the entity is considered an ancestor of itself",
+                        "@Core.Description": "Whether the input is considered an ancestor of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
@@ -347,7 +352,7 @@
         "issibling": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Does the input have the same parent node in the specified hierarchy as the sibling node?",
+                "@Core.Description": "Is the node a sibling in the specified hierarchy of the other sibling node?",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -360,15 +365,16 @@
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
-                        "$Name": "Input",
-                        "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true
-                    },
-                    {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of sibling node"
+                        "@Core.Description": "Node value of the putative sibiling"
+                    },
+                    {
+                        "$Name": "Sibling",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the other sibling node"
                     }
                 ],
                 "$ReturnType": {
@@ -380,7 +386,7 @@
         "isleaf": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Is the input without descendants in the specified hierarchy?",
+                "@Core.Description": "Is the node a leaf in the specified hierarchy?",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -393,9 +399,10 @@
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
-                        "$Name": "Input",
+                        "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
-                        "$Nullable": true
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the putative leaf"
                     }
                 ],
                 "$ReturnType": {
