@@ -217,7 +217,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has a parameter `HierarchyQualifier` of this type.\n          This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of\n          the collection specified by the `HierarchyNodes` parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          `HierarchyNodes`. Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`,\n          and the parameter `Input` contains a node value that the function looks up in the hierarchy.\n          If a node value passed to the function is null, the function returns null."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has a parameter `HierarchyQualifier` of this type.\n          This is the qualifier of a `RecursiveHierarchy` annotation on the entity type of\n          the collection specified by the `HierarchyNodes` parameter.\n          The `RecursiveHierarchy/ParentNavigationProperty` from this annotation defines a hierarchy on the\n          `HierarchyNodes`. Nodes in the hierarchy are identified by the primitive value of the `RecursiveHierarchy/NodeProperty`,\n          and the parameters `Input` and (in some functions) `Node` contain node values that the function looks up in the hierarchy.\n          If a node value passed to the function is null, the function returns null."
         },
         "isroot": [
             {
