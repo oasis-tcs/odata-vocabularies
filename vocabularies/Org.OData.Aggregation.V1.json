@@ -303,6 +303,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Is the node an ancestor in the specified hierarchy of the descendant node with at most the specified distance?",
+                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -353,6 +354,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Is the node a sibling in the specified hierarchy of the given sibling node?",
+                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -395,6 +397,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Is the node a leaf in the specified hierarchy?",
+                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
