@@ -115,10 +115,10 @@ Parameter|Type|Description
 
 ### <a name="preorder"></a>[preorder](./Org.OData.Aggregation.V1.xml#L381:~:text=<Function%20Name="-,preorder,-")
 
-Returns the rank of a single node among the given nodes in preorder in the specified hierarchy, or null if the single node is not among the given nodes
+Returns the rank of a single node among the given nodes in preorder in the specified hierarchy
 
-This function is only meant to be used in an `orderby` transformation, its return value
-          is opaque and only used for ordering.
+This function is only meant to be used in an `$orderby` clause or `orderby` transformation,
+          its return value is opaque and only used for ordering.
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -131,10 +131,10 @@ Parameter|Type|Description
 
 ### <a name="postorder"></a>[postorder](./Org.OData.Aggregation.V1.xml#L400:~:text=<Function%20Name="-,postorder,-")
 
-Returns the rank of a single node among the given nodes in postorder in the specified hierarchy, or null if the single node is not among the given nodes
+Returns the rank of a single node among the given nodes in postorder in the specified hierarchy
 
-This function is only meant to be used in an `orderby` transformation, its return value
-          is opaque and only used for ordering.
+This function is only meant to be used in an `$orderby` clause or `orderby` transformation,
+          its return value is opaque and only used for ordering.
 
 Parameter|Type|Description
 :--------|:---|:----------
