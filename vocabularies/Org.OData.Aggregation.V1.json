@@ -373,10 +373,10 @@
                         "@Core.Description": "Node value of the putative sibling"
                     },
                     {
-                        "$Name": "Sibling",
+                        "$Name": "Other",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the given sibling node"
+                        "@Core.Description": "Node value of the other given node"
                     }
                 ],
                 "$ReturnType": {

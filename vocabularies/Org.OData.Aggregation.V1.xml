@@ -308,8 +308,8 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the putative sibling" />
         </Parameter>
-        <Parameter Name="Sibling" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the given sibling node" />
+        <Parameter Name="Other" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node value of the other given node" />
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>

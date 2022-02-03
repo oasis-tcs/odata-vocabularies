@@ -80,7 +80,7 @@ Parameter|Type|Description
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,issibling,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L308:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the putative sibling
-[Sibling](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the given sibling node
+[Other](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the other given node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L314:~:text=<Function%20Name="-,issibling,-")|Boolean?|
 
 
