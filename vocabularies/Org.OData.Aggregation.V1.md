@@ -31,7 +31,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L227:~:text=<Function%20Name="-,isroot,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L230:~:text=<Function%20Name="-,isroot,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L231:~:text=<Function%20Name="-,isroot,-")|PrimitiveType?|Node value of the putative root
+[Node](./Org.OData.Aggregation.V1.xml#L231:~:text=<Function%20Name="-,isroot,-")|String?|Node value of the putative root
 [&rarr;](./Org.OData.Aggregation.V1.xml#L234:~:text=<Function%20Name="-,isroot,-")|Boolean?|
 
 
@@ -45,8 +45,8 @@ Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<Function%20Name="-,isdescendant,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L243:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L244:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the putative descendant
-[Ancestor](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the ancestor node
+[Node](./Org.OData.Aggregation.V1.xml#L244:~:text=<Function%20Name="-,isdescendant,-")|String?|Node value of the putative descendant
+[Ancestor](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|String?|Node value of the ancestor node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L250:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L258:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the node is considered a descendant of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L266:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
@@ -76,8 +76,8 @@ Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L300:~:text=<Function%20Name="-,isancestor,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L303:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the putative ancestor
-[Descendant](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the descendant node
+[Node](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,isancestor,-")|String?|Node value of the putative ancestor
+[Descendant](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,isancestor,-")|String?|Node value of the descendant node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L310:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L318:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the node is considered an ancestor of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L326:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
@@ -107,8 +107,8 @@ Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L360:~:text=<Function%20Name="-,issibling,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L363:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L364:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the putative sibling
-[Sibling](./Org.OData.Aggregation.V1.xml#L367:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the given sibling node
+[Node](./Org.OData.Aggregation.V1.xml#L364:~:text=<Function%20Name="-,issibling,-")|String?|Node value of the putative sibling
+[Sibling](./Org.OData.Aggregation.V1.xml#L367:~:text=<Function%20Name="-,issibling,-")|String?|Node value of the given sibling node
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L370:~:text=<Function%20Name="-,issibling,-")*|Boolean|*Optional parameter:* Whether the node is considered a sibling of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L378:~:text=<Function%20Name="-,issibling,-")|Boolean?|
 
@@ -155,7 +155,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L422:~:text=<Function%20Name="-,isleaf,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L425:~:text=<Function%20Name="-,isleaf,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L426:~:text=<Function%20Name="-,isleaf,-")|PrimitiveType?|Node value of the putative leaf
+[Node](./Org.OData.Aggregation.V1.xml#L426:~:text=<Function%20Name="-,isleaf,-")|String?|Node value of the putative leaf
 [&rarr;](./Org.OData.Aggregation.V1.xml#L429:~:text=<Function%20Name="-,isleaf,-")|Boolean?|
 
 

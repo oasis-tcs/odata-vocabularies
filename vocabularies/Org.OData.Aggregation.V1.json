@@ -237,7 +237,6 @@
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative root"
                     }
@@ -266,13 +265,11 @@
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative descendant"
                     },
                     {
                         "$Name": "Ancestor",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the ancestor node"
                     },
@@ -361,13 +358,11 @@
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative ancestor"
                     },
                     {
                         "$Name": "Descendant",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the descendant node"
                     },
@@ -456,13 +451,11 @@
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative sibling"
                     },
                     {
                         "$Name": "Sibling",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the given sibling node"
                     },
@@ -567,7 +560,6 @@
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative leaf"
                     }
