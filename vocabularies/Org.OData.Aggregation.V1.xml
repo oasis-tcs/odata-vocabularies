@@ -202,7 +202,7 @@
 
       <ComplexType Name="RecursiveHierarchyType">
         <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
+          <Annotation Term="Core.Description" String="Property holding the hierarchy node value. It MUST be of type `Edm.String`." />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable." />

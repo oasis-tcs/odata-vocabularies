@@ -206,7 +206,7 @@
             "$Kind": "ComplexType",
             "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property holding the hierarchy node value"
+                "@Core.Description": "Property holding the hierarchy node value. It MUST be of type `Edm.String`."
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
