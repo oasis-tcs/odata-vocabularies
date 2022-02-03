@@ -73,7 +73,7 @@ Parameter|Type|Description
 
 Returns true if the node has the same parent in the specified hierarchy as the other node or both are roots
 
-Returns false if the nodes coincide. If a node value passed to the function is null, the function returns null.
+A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------

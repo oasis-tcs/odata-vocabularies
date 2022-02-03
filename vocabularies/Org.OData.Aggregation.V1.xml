@@ -300,7 +300,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
 
       <Function Name="issibling">
         <Annotation Term="Core.Description" String="Returns true if the node has the same parent in the specified hierarchy as the other node or both are roots" />
-        <Annotation Term="Core.LongDescription" String="Returns false if the nodes coincide. If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node value passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
