@@ -353,8 +353,8 @@
         "issibling": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Is the node a sibling in the specified hierarchy of the given sibling node?",
-                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
+                "@Core.Description": "Is the node a sibling in the specified hierarchy of the other given node?",
+                "@Core.LongDescription": "A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -377,14 +377,6 @@
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the given sibling node"
-                    },
-                    {
-                        "$Name": "IncludeSelf",
-                        "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the node is considered a sibling of itself",
-                        "@Core.OptionalParameter": {
-                            "DefaultValue": "false"
-                        }
                     }
                 ],
                 "$ReturnType": {
