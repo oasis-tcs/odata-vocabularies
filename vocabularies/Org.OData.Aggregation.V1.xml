@@ -299,8 +299,8 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="issibling">
-        <Annotation Term="Core.Description" String="Is the node a sibling in the specified hierarchy of the other given node?" />
-        <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.Description" String="Returns true if the node has the same parent in the specified hierarchy as the other node or both are roots" />
+        <Annotation Term="Core.LongDescription" String="Returns false if the nodes coincide. If a node value passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
@@ -309,7 +309,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="Node value of the putative sibling" />
         </Parameter>
         <Parameter Name="Other" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the other given node" />
+          <Annotation Term="Core.Description" String="Node value of the other node" />
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>

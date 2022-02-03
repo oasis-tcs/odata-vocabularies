@@ -71,16 +71,16 @@ Parameter|Type|Description
 
 ### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L301:~:text=<Function%20Name="-,issibling,-")
 
-Is the node a sibling in the specified hierarchy of the other given node?
+Returns true if the node has the same parent in the specified hierarchy as the other node or both are roots
 
-A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.
+Returns false if the nodes coincide. If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,issibling,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L308:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the putative sibling
-[Other](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the other given node
+[Other](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the other node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L314:~:text=<Function%20Name="-,issibling,-")|Boolean?|
 
 
