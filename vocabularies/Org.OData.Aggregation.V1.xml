@@ -378,28 +378,42 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="preorder" IsBound="true" IsComposable="true">
-        <Annotation Term="Core.Description" String="Sorts the given node values into preorder in the specified hierarchy" />
+      <Function Name="preorder" IsBound="true">
+        <Annotation Term="Core.Description" String="Returns the rank of a single node among the given nodes in preorder in the specified hierarchy, or null if the single node is not among the given nodes" />
+        <Annotation Term="Core.LongDescription">
+          <String>This function is only meant to be used in an `orderby` transformation, its return value
+          is opaque and only used for ordering.</String>
+        </Annotation>
         <Parameter Name="Nodes" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Node values of the given nodes" />
+        </Parameter>
+        <Parameter Name="Node" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Node value of the single node" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <ReturnType Type="Collection(Edm.String)" Nullable="false" />
+        <ReturnType Type="Edm.Int64" Nullable="true" />
       </Function>
 
-      <Function Name="postorder" IsBound="true" IsComposable="true">
-        <Annotation Term="Core.Description" String="Sorts the given node values into postorder in the specified hierarchy" />
+      <Function Name="postorder" IsBound="true">
+        <Annotation Term="Core.Description" String="Returns the rank of a single node among the given nodes in postorder in the specified hierarchy, or null if the single node is not among the given nodes" />
+        <Annotation Term="Core.LongDescription">
+          <String>This function is only meant to be used in an `orderby` transformation, its return value
+          is opaque and only used for ordering.</String>
+        </Annotation>
         <Parameter Name="Nodes" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Node values of the given nodes" />
+        </Parameter>
+        <Parameter Name="Node" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Description" String="Node value of the single node" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <ReturnType Type="Collection(Edm.String)" Nullable="false" />
+        <ReturnType Type="Edm.Int64" Nullable="true" />
       </Function>
 
       <Function Name="isleaf">

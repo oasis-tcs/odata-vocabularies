@@ -485,13 +485,18 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "$IsComposable": true,
-                "@Core.Description": "Sorts the given node values into preorder in the specified hierarchy",
+                "@Core.Description": "Returns the rank of a single node among the given nodes in preorder in the specified hierarchy, or null if the single node is not among the given nodes",
+                "@Core.LongDescription": "This function is only meant to be used in an `orderby` transformation, its return value\n          is opaque and only used for ordering.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
                         "@Core.Description": "Node values of the given nodes"
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the single node"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -505,7 +510,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Collection": true
+                    "$Type": "Edm.Int64",
+                    "$Nullable": true
                 }
             }
         ],
@@ -513,13 +519,18 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "$IsComposable": true,
-                "@Core.Description": "Sorts the given node values into postorder in the specified hierarchy",
+                "@Core.Description": "Returns the rank of a single node among the given nodes in postorder in the specified hierarchy, or null if the single node is not among the given nodes",
+                "@Core.LongDescription": "This function is only meant to be used in an `orderby` transformation, its return value\n          is opaque and only used for ordering.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
                         "@Core.Description": "Node values of the given nodes"
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the single node"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -533,7 +544,8 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Collection": true
+                    "$Type": "Edm.Int64",
+                    "$Nullable": true
                 }
             }
         ],
