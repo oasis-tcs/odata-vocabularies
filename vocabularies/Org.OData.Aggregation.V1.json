@@ -303,6 +303,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
+                "$IsComposable": true,
                 "@Core.Description": "Returns the node values of descendants in the specified hierarchy of the given nodes with at most the specified distance",
                 "$Parameter": [
                     {
@@ -397,6 +398,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
+                "$IsComposable": true,
                 "@Core.Description": "Returns the node values of ancestors in the specified hierarchy of the given nodes with at most the specified distance",
                 "$Parameter": [
                     {
@@ -483,6 +485,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
+                "$IsComposable": true,
                 "@Core.Description": "Sorts the given node values into preorder in the specified hierarchy",
                 "$Parameter": [
                     {
@@ -510,6 +513,7 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
+                "$IsComposable": true,
                 "@Core.Description": "Sorts the given node values into postorder in the specified hierarchy",
                 "$Parameter": [
                     {
