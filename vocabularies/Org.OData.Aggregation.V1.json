@@ -309,6 +309,10 @@
                         "@Core.Description": "The given nodes"
                     },
                     {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
+                    },
+                    {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
@@ -317,10 +321,6 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -406,6 +406,10 @@
                         "@Core.Description": "The given nodes"
                     },
                     {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
+                    },
+                    {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
@@ -414,10 +418,6 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -489,6 +489,10 @@
                         "@Core.Description": "The given nodes"
                     },
                     {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
+                    },
+                    {
                         "$Name": "Node",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the single node"
@@ -502,10 +506,6 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     }
                 ],
                 "$ReturnType": {
@@ -527,6 +527,10 @@
                         "@Core.Description": "The given nodes"
                     },
                     {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
+                    },
+                    {
                         "$Name": "Node",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the single node"
@@ -540,10 +544,6 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     }
                 ],
                 "$ReturnType": {

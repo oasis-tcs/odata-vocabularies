@@ -59,9 +59,9 @@ Returns the node values of descendants in the specified hierarchy of the given n
 Parameter|Type|Description
 :--------|:---|:----------
 **[Nodes](./Org.OData.Aggregation.V1.xml#L271:~:text=<Function%20Name="-,descendants,-")**|\[EntityType\]|**Binding parameter:** The given nodes
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L274:~:text=<Function%20Name="-,descendants,-")|\[EntityType\]|A collection, given through a path expression
-[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L277:~:text=<Function%20Name="-,descendants,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L278:~:text=<Function%20Name="-,descendants,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L274:~:text=<Function%20Name="-,descendants,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L277:~:text=<Function%20Name="-,descendants,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L280:~:text=<Function%20Name="-,descendants,-")|[HierarchyQualifier](#HierarchyQualifier)|
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L281:~:text=<Function%20Name="-,descendants,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L289:~:text=<Function%20Name="-,descendants,-")*|Boolean|*Optional parameter:* Whether to include the given nodes in the descendants
 [&rarr;](./Org.OData.Aggregation.V1.xml#L297:~:text=<Function%20Name="-,descendants,-")|\[String\]|
@@ -91,9 +91,9 @@ Returns the node values of ancestors in the specified hierarchy of the given nod
 Parameter|Type|Description
 :--------|:---|:----------
 **[Nodes](./Org.OData.Aggregation.V1.xml#L334:~:text=<Function%20Name="-,ancestors,-")**|\[EntityType\]|**Binding parameter:** The given nodes
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L337:~:text=<Function%20Name="-,ancestors,-")|\[EntityType\]|A collection, given through a path expression
-[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L340:~:text=<Function%20Name="-,ancestors,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L341:~:text=<Function%20Name="-,ancestors,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L337:~:text=<Function%20Name="-,ancestors,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L340:~:text=<Function%20Name="-,ancestors,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L343:~:text=<Function%20Name="-,ancestors,-")|[HierarchyQualifier](#HierarchyQualifier)|
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L344:~:text=<Function%20Name="-,ancestors,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L352:~:text=<Function%20Name="-,ancestors,-")*|Boolean|*Optional parameter:* Whether to include the given nodes in the ancestors
 [&rarr;](./Org.OData.Aggregation.V1.xml#L360:~:text=<Function%20Name="-,ancestors,-")|\[String\]|
@@ -124,10 +124,10 @@ This function is only meant to be used in an `$orderby` clause or `orderby` tran
 Parameter|Type|Description
 :--------|:---|:----------
 **[Nodes](./Org.OData.Aggregation.V1.xml#L385:~:text=<Function%20Name="-,preorder,-")**|\[EntityType\]|**Binding parameter:** The given nodes
-[Node](./Org.OData.Aggregation.V1.xml#L388:~:text=<Function%20Name="-,preorder,-")|String?|Node value of the single node
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L391:~:text=<Function%20Name="-,preorder,-")|\[EntityType\]|A collection, given through a path expression
-[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L394:~:text=<Function%20Name="-,preorder,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L395:~:text=<Function%20Name="-,preorder,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L388:~:text=<Function%20Name="-,preorder,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[Node](./Org.OData.Aggregation.V1.xml#L391:~:text=<Function%20Name="-,preorder,-")|String?|Node value of the single node
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L394:~:text=<Function%20Name="-,preorder,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L397:~:text=<Function%20Name="-,preorder,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L398:~:text=<Function%20Name="-,preorder,-")|String?|
 
 
@@ -141,10 +141,10 @@ This function is only meant to be used in an `$orderby` clause or `orderby` tran
 Parameter|Type|Description
 :--------|:---|:----------
 **[Nodes](./Org.OData.Aggregation.V1.xml#L407:~:text=<Function%20Name="-,postorder,-")**|\[EntityType\]|**Binding parameter:** The given nodes
-[Node](./Org.OData.Aggregation.V1.xml#L410:~:text=<Function%20Name="-,postorder,-")|String?|Node value of the single node
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L413:~:text=<Function%20Name="-,postorder,-")|\[EntityType\]|A collection, given through a path expression
-[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L416:~:text=<Function%20Name="-,postorder,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L417:~:text=<Function%20Name="-,postorder,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[NodePropertyPath](./Org.OData.Aggregation.V1.xml#L410:~:text=<Function%20Name="-,postorder,-")|String|Property path in the entity type of `Nodes` that addresses the node value
+[Node](./Org.OData.Aggregation.V1.xml#L413:~:text=<Function%20Name="-,postorder,-")|String?|Node value of the single node
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L416:~:text=<Function%20Name="-,postorder,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L419:~:text=<Function%20Name="-,postorder,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [&rarr;](./Org.OData.Aggregation.V1.xml#L420:~:text=<Function%20Name="-,postorder,-")|String?|
 
 
