@@ -386,7 +386,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <ReturnType Type="Edm.Int64" Nullable="true" />
+        <ReturnType Type="Edm.String" Nullable="true" />
       </Function>
 
       <Function Name="postorder" IsBound="true">
@@ -405,7 +405,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <ReturnType Type="Edm.Int64" Nullable="true" />
+        <ReturnType Type="Edm.String" Nullable="true" />
       </Function>
 
       <Function Name="isleaf">

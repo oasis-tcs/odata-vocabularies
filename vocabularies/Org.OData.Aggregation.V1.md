@@ -125,7 +125,7 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L382:~:text=<Function%20Name="-,preorder,-")|String?|Node value of the single node
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L385:~:text=<Function%20Name="-,preorder,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L388:~:text=<Function%20Name="-,preorder,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L389:~:text=<Function%20Name="-,preorder,-")|Int64?|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L389:~:text=<Function%20Name="-,preorder,-")|String?|
 
 
 ### <a name="postorder"></a>[postorder](./Org.OData.Aggregation.V1.xml#L392:~:text=<Function%20Name="-,postorder,-")
@@ -141,7 +141,7 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L401:~:text=<Function%20Name="-,postorder,-")|String?|Node value of the single node
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L404:~:text=<Function%20Name="-,postorder,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L407:~:text=<Function%20Name="-,postorder,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L408:~:text=<Function%20Name="-,postorder,-")|Int64?|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L408:~:text=<Function%20Name="-,postorder,-")|String?|
 
 
 ### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L411:~:text=<Function%20Name="-,isleaf,-")

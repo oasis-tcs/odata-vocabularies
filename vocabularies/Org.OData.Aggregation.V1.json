@@ -496,7 +496,6 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Int64",
                     "$Nullable": true
                 }
             }
@@ -530,7 +529,6 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Int64",
                     "$Nullable": true
                 }
             }
