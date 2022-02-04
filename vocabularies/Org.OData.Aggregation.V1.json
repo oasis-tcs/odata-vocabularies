@@ -300,13 +300,13 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "$IsComposable": true,
                 "@Core.Description": "Returns the node values of descendants in the specified hierarchy of the given nodes with at most the specified distance",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "@Core.Description": "Node values of the given nodes"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "The given nodes"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -317,6 +317,10 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -393,13 +397,13 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "$IsComposable": true,
                 "@Core.Description": "Returns the node values of ancestors in the specified hierarchy of the given nodes with at most the specified distance",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "@Core.Description": "Node values of the given nodes"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "The given nodes"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -410,6 +414,10 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -477,7 +485,8 @@
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "@Core.Description": "Node values of the given nodes"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "The given nodes"
                     },
                     {
                         "$Name": "Node",
@@ -493,6 +502,10 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     }
                 ],
                 "$ReturnType": {
@@ -510,7 +523,8 @@
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "@Core.Description": "Node values of the given nodes"
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "The given nodes"
                     },
                     {
                         "$Name": "Node",
@@ -526,6 +540,10 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     }
                 ],
                 "$ReturnType": {
