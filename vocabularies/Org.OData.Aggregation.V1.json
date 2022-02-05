@@ -206,7 +206,7 @@
             "$Kind": "ComplexType",
             "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property holding the hierarchy node value. It MUST be of type `Edm.String`."
+                "@Core.Description": "Property holding the hierarchy node value"
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
@@ -237,6 +237,7 @@
                     },
                     {
                         "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative root"
                     }
@@ -265,11 +266,13 @@
                     },
                     {
                         "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative descendant"
                     },
                     {
                         "$Name": "Ancestor",
+                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the ancestor node"
                     },
@@ -294,23 +297,21 @@
                     "$Type": "Edm.Boolean",
                     "$Nullable": true
                 }
-            }
-        ],
-        "descendants": [
+            },
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns the node values of descendants in the specified hierarchy of the given nodes with at most the specified distance",
+                "@Core.Description": "Is the node a descendant in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?",
+                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "The given nodes"
+                        "$Type": "Edm.EntityType"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
+                        "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -323,6 +324,12 @@
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the putative descendant"
+                    },
+                    {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
                         "@Core.OptionalParameter": {
@@ -333,14 +340,15 @@
                     {
                         "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether to include the given nodes in the descendants",
+                        "@Core.Description": "Whether the node is considered a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
                     }
                 ],
                 "$ReturnType": {
-                    "$Collection": true
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
@@ -362,11 +370,13 @@
                     },
                     {
                         "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative ancestor"
                     },
                     {
                         "$Name": "Descendant",
+                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the descendant node"
                     },
@@ -391,23 +401,21 @@
                     "$Type": "Edm.Boolean",
                     "$Nullable": true
                 }
-            }
-        ],
-        "ancestors": [
+            },
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns the node values of ancestors in the specified hierarchy of the given nodes with at most the specified distance",
+                "@Core.Description": "Is the node an ancestor in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?",
+                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "The given nodes"
+                        "$Type": "Edm.EntityType"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
+                        "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -420,6 +428,12 @@
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the putative ancestor"
+                    },
+                    {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
                         "@Core.OptionalParameter": {
@@ -430,14 +444,15 @@
                     {
                         "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether to include the given nodes in the ancestors",
+                        "@Core.Description": "Whether the node is considered an ancestor of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
                     }
                 ],
                 "$ReturnType": {
-                    "$Collection": true
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
@@ -459,6 +474,7 @@
                     },
                     {
                         "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative sibling"
                     },
@@ -479,23 +495,17 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns the rank of a single node among the given nodes in preorder in the specified hierarchy",
+                "@Core.Description": "Returns the rank in preorder in the specified hierarchy of a single node among the nodes in the binding parameter",
                 "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\n          its return value is opaque and only used for ordering.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "The given nodes"
+                        "$Type": "Edm.EntityType"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Nullable": true,
-                        "@Core.Description": "Node value of the single node"
+                        "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -506,6 +516,12 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the single node"
                     }
                 ],
                 "$ReturnType": {
@@ -517,23 +533,17 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Returns the rank of a single node among the given nodes in postorder in the specified hierarchy",
+                "@Core.Description": "Returns the rank in postorder in the specified hierarchy of a single node among the nodes in the binding parameter",
                 "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\n          its return value is opaque and only used for ordering.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "The given nodes"
+                        "$Type": "Edm.EntityType"
                     },
                     {
                         "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
-                    },
-                    {
-                        "$Name": "Node",
-                        "$Nullable": true,
-                        "@Core.Description": "Node value of the single node"
+                        "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
                     },
                     {
                         "$Name": "HierarchyNodes",
@@ -544,6 +554,10 @@
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     }
                 ],
                 "$ReturnType": {
@@ -569,6 +583,7 @@
                     },
                     {
                         "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative leaf"
                     }

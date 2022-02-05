@@ -202,7 +202,7 @@
 
       <ComplexType Name="RecursiveHierarchyType">
         <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the hierarchy node value. It MUST be of type `Edm.String`." />
+          <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable." />
@@ -228,7 +228,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.String" Nullable="true">
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the putative root" />
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
@@ -241,10 +241,10 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.String" Nullable="true">
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the putative descendant" />
         </Parameter>
-        <Parameter Name="Ancestor" Type="Edm.String" Nullable="true">
+        <Parameter Name="Ancestor" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the ancestor node" />
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
@@ -266,18 +266,20 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="descendants" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns the node values of descendants in the specified hierarchy of the given nodes with at most the specified distance" />
-        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="The given nodes" />
-        </Parameter>
+      <Function Name="isdescendant" IsBound="true">
+        <Annotation Term="Core.Description" String="Is the node a descendant in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?" />
+        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Property path in the entity type of `Nodes` that addresses the node value" />
+          <Annotation Term="Core.Description" String="Property path in the binding parameter's entity type that addresses the node value" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node value of the putative descendant" />
+        </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -287,14 +289,14 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether to include the given nodes in the descendants" />
+          <Annotation Term="Core.Description" String="Whether the node is considered a descendant of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" String="false" />
             </Record>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.String)" Nullable="false" />
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
       <Function Name="isancestor">
@@ -304,10 +306,10 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.String" Nullable="true">
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the putative ancestor" />
         </Parameter>
-        <Parameter Name="Descendant" Type="Edm.String" Nullable="true">
+        <Parameter Name="Descendant" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the descendant node" />
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
@@ -329,18 +331,20 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="ancestors" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns the node values of ancestors in the specified hierarchy of the given nodes with at most the specified distance" />
-        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="The given nodes" />
-        </Parameter>
+      <Function Name="isancestor" IsBound="true">
+        <Annotation Term="Core.Description" String="Is the node an ancestor in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?" />
+        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Property path in the entity type of `Nodes` that addresses the node value" />
+          <Annotation Term="Core.Description" String="Property path in the binding parameter's entity type that addresses the node value" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node value of the putative ancestor" />
+        </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
@@ -350,14 +354,14 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether to include the given nodes in the ancestors" />
+          <Annotation Term="Core.Description" String="Whether the node is considered an ancestor of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" String="false" />
             </Record>
           </Annotation>
         </Parameter>
-        <ReturnType Type="Collection(Edm.String)" Nullable="false" />
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
       <Function Name="issibling">
@@ -367,7 +371,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.String" Nullable="true">
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the putative sibling" />
         </Parameter>
         <Parameter Name="Other" Type="Edm.PrimitiveType" Nullable="true">
@@ -377,46 +381,42 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="preorder" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns the rank of a single node among the given nodes in preorder in the specified hierarchy" />
+        <Annotation Term="Core.Description" String="Returns the rank in preorder in the specified hierarchy of a single node among the nodes in the binding parameter" />
         <Annotation Term="Core.LongDescription">
           <String>This function is only meant to be used in an `$orderby` clause or `orderby` transformation,
           its return value is opaque and only used for ordering.</String>
         </Annotation>
-        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="The given nodes" />
-        </Parameter>
+        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Property path in the entity type of `Nodes` that addresses the node value" />
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the single node" />
+          <Annotation Term="Core.Description" String="Property path in the binding parameter's entity type that addresses the node value" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node value of the single node" />
+        </Parameter>
         <ReturnType Type="Edm.String" Nullable="true" />
       </Function>
 
       <Function Name="postorder" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns the rank of a single node among the given nodes in postorder in the specified hierarchy" />
+        <Annotation Term="Core.Description" String="Returns the rank in postorder in the specified hierarchy of a single node among the nodes in the binding parameter" />
         <Annotation Term="Core.LongDescription">
           <String>This function is only meant to be used in an `$orderby` clause or `orderby` transformation,
           its return value is opaque and only used for ordering.</String>
         </Annotation>
-        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="The given nodes" />
-        </Parameter>
+        <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description" String="Property path in the entity type of `Nodes` that addresses the node value" />
-        </Parameter>
-        <Parameter Name="Node" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the single node" />
+          <Annotation Term="Core.Description" String="Property path in the binding parameter's entity type that addresses the node value" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Property path in the entity type of `Nodes` that addresses the node value" />
+        </Parameter>
         <ReturnType Type="Edm.String" Nullable="true" />
       </Function>
 
@@ -427,7 +427,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Core.Description" String="A collection, given through a path expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.String" Nullable="true">
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the putative leaf" />
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="true" />
