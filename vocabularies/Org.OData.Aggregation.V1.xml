@@ -268,7 +268,21 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
 
       <Function Name="isdescendant" IsBound="true">
         <Annotation Term="Core.Description" String="Is the node a descendant in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?" />
-        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription">
+          <String>This overload can be used in a `filter` transformation to determine the descendants of a subset of the input set.
+```
+$apply=filter($these/$filter(startswith(Name,'US'))
+  /Aggregation.isdescendant(
+    NodePropertyPath='ID',
+    HierarchyNodes=@hierarchyNodes,
+    HierarchyQualifier='SalesOrgHierarchy',
+    Node=@nodeValue
+    IncludeSelf=true)
+)&amp;@hierarchyNodes=$root/SalesOrganizations
+&amp;@nodeValue=ID
+```
+If a node value passed to the function is null, the function returns null.</String>
+        </Annotation>
         <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property path in the binding parameter's entity type that addresses the node value" />
