@@ -496,7 +496,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Returns the rank in preorder in the specified hierarchy of a single node among the nodes in the binding parameter",
-                "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\n          its return value is opaque and only used for ordering.",
+                "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\nits return value is opaque and only used for ordering.\n```\n$apply=orderby($these\n  /Aggregation.preorder(\n    NodePropertyPath='ID',\n    HierarchyNodes=@hierarchyNodes,\n    HierarchyQualifier='SalesOrgHierarchy',\n    Node=@nodeValue)\n)&@hierarchyNodes=$root/SalesOrganizations\n&@nodeValue=ID\n```",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
