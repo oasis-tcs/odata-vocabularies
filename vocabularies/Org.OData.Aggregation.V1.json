@@ -380,7 +380,7 @@
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the descendant node",
-                        "@Core.LongDescription": "To check the `isancestor` relation to more than one ancestor, use the [bound overload](#isancestor-1)."
+                        "@Core.LongDescription": "To check the `isancestor` relation to more than one descendant, use the [bound overload](#isancestor-1)."
                     },
                     {
                         "$Name": "MaxDistance",
