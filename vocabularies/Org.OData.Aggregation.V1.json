@@ -274,7 +274,8 @@
                         "$Name": "Ancestor",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the ancestor node"
+                        "@Core.Description": "Node value of the ancestor node",
+                        "@Core.LongDescription": "To check the `isdescendant` relation to more than one ancestor, use the [other overload](#isdescendant-1)."
                     },
                     {
                         "$Name": "MaxDistance",
@@ -378,7 +379,8 @@
                         "$Name": "Descendant",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the descendant node"
+                        "@Core.Description": "Node value of the descendant node",
+                        "@Core.LongDescription": "To check the `isancestor` relation to more than one ancestor, use the [other overload](#isancestor-1)."
                     },
                     {
                         "$Name": "MaxDistance",
