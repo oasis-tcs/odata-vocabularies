@@ -46,7 +46,7 @@ Parameter|Type|Description
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<Function%20Name="-,isdescendant,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L243:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L244:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the putative descendant
-[Ancestor](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the ancestor node<br>To check the `isdescendant` relation to more than one ancestor, use the [other overload](#isdescendant-1).
+[Ancestor](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the ancestor node<br>To check the `isdescendant` relation to more than one ancestor, use the [bound overload](#isdescendant-1).
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L253:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L261:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the node is considered a descendant of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L269:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
@@ -93,7 +93,7 @@ Parameter|Type|Description
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L322:~:text=<Function%20Name="-,isancestor,-")|\[EntityType\]|A collection, given through a path expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L325:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L326:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the putative ancestor
-[Descendant](./Org.OData.Aggregation.V1.xml#L329:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the descendant node<br>To check the `isancestor` relation to more than one ancestor, use the [other overload](#isancestor-1).
+[Descendant](./Org.OData.Aggregation.V1.xml#L329:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the descendant node<br>To check the `isancestor` relation to more than one ancestor, use the [bound overload](#isancestor-1).
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L335:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L343:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the node is considered an ancestor of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L351:~:text=<Function%20Name="-,isancestor,-")|Boolean?|

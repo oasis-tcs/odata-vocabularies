@@ -247,7 +247,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Parameter Name="Ancestor" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the ancestor node" />
           <Annotation Term="Core.LongDescription">
-            <String>To check the `isdescendant` relation to more than one ancestor, use the [other overload](#isdescendant-1).</String>
+            <String>To check the `isdescendant` relation to more than one ancestor, use the [bound overload](#isdescendant-1).</String>
           </Annotation>
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
@@ -329,7 +329,7 @@ If a node value passed to the function is null, the function returns null.</Stri
         <Parameter Name="Descendant" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Node value of the descendant node" />
           <Annotation Term="Core.LongDescription">
-            <String>To check the `isancestor` relation to more than one ancestor, use the [other overload](#isancestor-1).</String>
+            <String>To check the `isancestor` relation to more than one ancestor, use the [bound overload](#isancestor-1).</String>
           </Annotation>
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
