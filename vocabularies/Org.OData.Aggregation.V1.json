@@ -303,7 +303,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Is the node a descendant in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?",
-                "@Core.LongDescription": "This overload can be used in a `filter` transformation to determine the descendants of a subset of the input set.\n```\n$apply=filter($these/$filter(startswith(Name,'US'))\n  /Aggregation.isdescendant(\n    NodePropertyPath='ID',\n    HierarchyNodes=@hierarchyNodes,\n    HierarchyQualifier='SalesOrgHierarchy',\n    Node=@nodeValue,\n    IncludeSelf=true)\n)&@hierarchyNodes=$root/SalesOrganizations\n&@nodeValue=ID\n```\nIf a node value passed to the function is null, the function returns null.",
+                "@Core.LongDescription": "This overload can be used in a `filter` transformation to determine the descendants of a subset of the input set.\n```\n$apply=filter($these/$filter(startswith(Name,'US'))\n  /Aggregation.isdescendant(\n    NodePropertyPath='ID',\n    HierarchyNodes=@hierarchyNodes,\n    HierarchyQualifier='SalesOrgHierarchy',\n    Node=@nodeValue,\n    IncludeSelf=true)\n)&@hierarchyNodes=$root/SalesOrganizations\n&@nodeValue=ID\n```\nIf `Node` is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",
@@ -408,7 +408,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "Is the node an ancestor in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?",
-                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
+                "@Core.LongDescription": "If `Node` is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "Nodes",

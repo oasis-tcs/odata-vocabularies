@@ -284,7 +284,7 @@ $apply=filter($these/$filter(startswith(Name,'US'))
 )&amp;@hierarchyNodes=$root/SalesOrganizations
 &amp;@nodeValue=ID
 ```
-If a node value passed to the function is null, the function returns null.</String>
+If `Node` is null, the function returns null.</String>
         </Annotation>
         <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
@@ -353,7 +353,7 @@ If a node value passed to the function is null, the function returns null.</Stri
 
       <Function Name="isancestor" IsBound="true">
         <Annotation Term="Core.Description" String="Is the node an ancestor in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?" />
-        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription" String="If `Node` is null, the function returns null." />
         <Parameter Name="Nodes" Type="Collection(Edm.EntityType)" Nullable="false"/>
         <Parameter Name="NodePropertyPath" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Property path in the binding parameter's entity type that addresses the node value" />

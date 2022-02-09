@@ -68,7 +68,7 @@ $apply=filter($these/$filter(startswith(Name,'US'))
 )&@hierarchyNodes=$root/SalesOrganizations
 &@nodeValue=ID
 ```
-If a node value passed to the function is null, the function returns null.
+If `Node` is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -103,7 +103,7 @@ Parameter|Type|Description
 
 Is the node an ancestor in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?
 
-If a node value passed to the function is null, the function returns null.
+If `Node` is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
