@@ -138,7 +138,7 @@ Returns the rank in preorder in the specified hierarchy of a node
 This function is only meant to be used in an `$orderby` clause or `orderby` transformation,
 its return value is opaque and only used for ordering.
 ```
-$apply=orderby(Aggregation.preorder(
+orderby(Aggregation.preorder(
   HierarchyNodes=$these,
   HierarchyQualifier='SalesOrgHierarchy',
   Node=ID))

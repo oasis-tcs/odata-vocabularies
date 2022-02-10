@@ -501,7 +501,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Returns the rank in preorder in the specified hierarchy of a node",
-                "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\nits return value is opaque and only used for ordering.\n```\n$apply=orderby(Aggregation.preorder(\n  HierarchyNodes=$these,\n  HierarchyQualifier='SalesOrgHierarchy',\n  Node=ID))\n```",
+                "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\nits return value is opaque and only used for ordering.\n```\norderby(Aggregation.preorder(\n  HierarchyNodes=$these,\n  HierarchyQualifier='SalesOrgHierarchy',\n  Node=ID))\n```",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
