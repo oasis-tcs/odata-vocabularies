@@ -59,7 +59,7 @@ Is the node a descendant in the specified hierarchy of one of the given nodes wi
 This overload can be used in a `filter` transformation to determine the descendants of a subset of the input set.
 ```
 GET SalesOrganizations?$apply=filter(Aggregation.isdescendant(
-  HierarchyNodes=$root/SalesOrganizations,
+  HierarchyNodes=$root/SalesOrganizationsHistory(2021-12-31)/Nodes,
   HierarchyQualifier='SalesOrgHierarchy',
   Node=ID,
   Nodes=$these/$filter(startswith(Name,'US'),
