@@ -62,7 +62,7 @@ GET SalesOrganizations?$apply=filter(Aggregation.isdescendant(
   HierarchyNodes=$root/SalesOrganizationsHistory(2021-12-31)/Nodes,
   HierarchyQualifier='SalesOrgHierarchy',
   Node=ID,
-  Nodes=$these/$filter(startswith(Name,'US'),
+  Nodes=$these/$filter(startswith(Name,'US')),
   NodePropertyPath='ID',
   IncludeSelf=true))
 ```
