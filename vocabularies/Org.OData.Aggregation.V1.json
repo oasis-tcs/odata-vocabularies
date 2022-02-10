@@ -229,7 +229,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -258,7 +258,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -275,7 +275,7 @@
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the ancestor node",
-                        "@Core.LongDescription": "To check the `isdescendant` relation to more than one ancestor, use the [bound overload](#isdescendant-1)."
+                        "@Core.LongDescription": "To check the `isdescendant` relation to more than one ancestor, use the [other overload](#isdescendant-1)."
                     },
                     {
                         "$Name": "MaxDistance",
@@ -301,24 +301,14 @@
             },
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the node a descendant in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?",
-                "@Core.LongDescription": "This overload can be used in a `filter` transformation to determine the descendants of a subset of the input set.\n```\n$apply=filter($these/$filter(startswith(Name,'US'))\n  /Aggregation.isdescendant(\n    NodePropertyPath='ID',\n    HierarchyNodes=@hierarchyNodes,\n    HierarchyQualifier='SalesOrgHierarchy',\n    Node=@nodeValue,\n    IncludeSelf=true)\n)&@hierarchyNodes=$root/SalesOrganizations\n&@nodeValue=ID\n```\nIf `Node` is null, the function returns null.",
+                "@Core.Description": "Is the node a descendant in the specified hierarchy of one of the given nodes with at most the specified distance?",
+                "@Core.LongDescription": "This overload can be used in a `filter` transformation to determine the descendants of a subset of the input set.\n```\nGET SalesOrganizations?$apply=filter(Aggregation.isdescendant(\n  HierarchyNodes=$root/SalesOrganizations,\n  HierarchyQualifier='SalesOrgHierarchy',\n  Node=ID,\n  Nodes=$these/$filter(startswith(Name,'US'),\n  NodePropertyPath='ID',\n  IncludeSelf=true))\n```\nIf `Node` is null, the function returns null.",
                 "$Parameter": [
-                    {
-                        "$Name": "Nodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType"
-                    },
-                    {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -329,6 +319,16 @@
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative descendant"
+                    },
+                    {
+                        "$Name": "Nodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "The given nodes"
+                    },
+                    {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -363,7 +363,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -380,7 +380,7 @@
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the descendant node",
-                        "@Core.LongDescription": "To check the `isancestor` relation to more than one descendant, use the [bound overload](#isancestor-1)."
+                        "@Core.LongDescription": "To check the `isancestor` relation to more than one descendant, use the [other overload](#isancestor-1)."
                     },
                     {
                         "$Name": "MaxDistance",
@@ -406,15 +406,9 @@
             },
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Is the node an ancestor in the specified hierarchy of one of the nodes in the binding parameter with at most the specified distance?",
+                "@Core.Description": "Is the node an ancestor in the specified hierarchy of one of the given nodes with at most the specified distance?",
                 "@Core.LongDescription": "If `Node` is null, the function returns null.",
                 "$Parameter": [
-                    {
-                        "$Name": "Nodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType"
-                    },
                     {
                         "$Name": "NodePropertyPath",
                         "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
@@ -423,7 +417,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -434,6 +428,16 @@
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative ancestor"
+                    },
+                    {
+                        "$Name": "Nodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "The given nodes"
+                    },
+                    {
+                        "$Name": "NodePropertyPath",
+                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -468,7 +472,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -496,24 +500,14 @@
         "preorder": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Returns the rank in preorder in the specified hierarchy of a single node among the nodes in the binding parameter",
-                "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\nits return value is opaque and only used for ordering.\n```\n$apply=orderby($these\n  /Aggregation.preorder(\n    NodePropertyPath='ID',\n    HierarchyNodes=@hierarchyNodes,\n    HierarchyQualifier='SalesOrgHierarchy',\n    Node=@nodeValue)\n)&@hierarchyNodes=$root/SalesOrganizations\n&@nodeValue=ID\n```",
+                "@Core.Description": "Returns the rank in preorder in the specified hierarchy of a node",
+                "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\nits return value is opaque and only used for ordering.\n```\n$apply=orderby(Aggregation.preorder(\n  HierarchyNodes=$these,\n  HierarchyQualifier='SalesOrgHierarchy',\n  Node=ID))\n```",
                 "$Parameter": [
-                    {
-                        "$Name": "Nodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType"
-                    },
-                    {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -523,7 +517,7 @@
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the single node"
+                        "@Core.Description": "Node value of the node to be ranked"
                     }
                 ],
                 "$ReturnType": {
@@ -534,32 +528,24 @@
         "postorder": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Returns the rank in postorder in the specified hierarchy of a single node among the nodes in the binding parameter",
+                "@Core.Description": "Returns the rank in postorder in the specified hierarchy of a node",
                 "@Core.LongDescription": "This function is only meant to be used in an `$orderby` clause or `orderby` transformation,\n          its return value is opaque and only used for ordering.",
                 "$Parameter": [
-                    {
-                        "$Name": "Nodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType"
-                    },
-                    {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the binding parameter's entity type that addresses the node value"
-                    },
                     {
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
                         "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
-                        "$Name": "NodePropertyPath",
-                        "@Core.Description": "Property path in the entity type of `Nodes` that addresses the node value"
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node value of the node to be ranked"
                     }
                 ],
                 "$ReturnType": {
@@ -577,7 +563,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a common expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
