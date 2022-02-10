@@ -35,7 +35,7 @@
 - [Aggregation](vocabularies/Org.OData.Aggregation.V1.md)
 - [JSON](vocabularies/Org.OData.JSON.V1.md)
 - [Repeatability](vocabularies/Org.OData.Repeatability.V1.md)
-- [Temporal](vocabularies/Org.OData.Temporal.V1.md) - _This is a public review draft that may incompatibly change any time._
+- [Temporal](vocabularies/Org.OData.Temporal.V1.md)
 
 To learn how to construct an annotation value from a term definition, or vice versa, look here:
 
