@@ -13,7 +13,6 @@
     "Org.OData.Temporal.V1": {
         "$Alias": "Temporal",
         "@Core.Description": "Terms for describing time-dependent data",
-        "@Core.LongDescription": "*This is a public review draft that may incompatibly change any time.*",
         "@Core.Links": [
             {
                 "rel": "alternate",
