@@ -23,7 +23,7 @@ Term|Type|Description
 
 ### <a name="isroot"></a>[isroot](./Org.OData.Aggregation.V1.xml#L224:~:text=<Function%20Name="-,isroot,-")
 
-Is the node a root of the [specified hierarchy](#HierarchyQualifier)?
+Is the node a root of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
 If a node value passed to the function is null, the function returns null.
 
@@ -37,7 +37,7 @@ Parameter|Type|Description
 
 ### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L237:~:text=<Function%20Name="-,isdescendant,-")
 
-Is the node a descendant in the [specified hierarchy](#HierarchyQualifier) of the ancestor node with at most the specified distance?
+Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
 
 If a node value passed to the function is null, the function returns null.
 
@@ -54,7 +54,7 @@ Parameter|Type|Description
 
 ### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L269:~:text=<Function%20Name="-,isancestor,-")
 
-Is the node an ancestor in the [specified hierarchy](#HierarchyQualifier) of the descendant node with at most the specified distance?
+Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
 
 If a node value passed to the function is null, the function returns null.
 
@@ -71,7 +71,7 @@ Parameter|Type|Description
 
 ### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L301:~:text=<Function%20Name="-,issibling,-")
 
-Returns true if the node has the same parent in the [specified hierarchy](#HierarchyQualifier) as the other node or both are roots
+Returns true if the node has the same parent as the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) or both are roots
 
 A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.
 
@@ -86,7 +86,7 @@ Parameter|Type|Description
 
 ### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L317:~:text=<Function%20Name="-,isleaf,-")
 
-Is the node a leaf in the [specified hierarchy](#HierarchyQualifier)?
+Is the node a leaf in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
 If a node value passed to the function is null, the function returns null.
 
