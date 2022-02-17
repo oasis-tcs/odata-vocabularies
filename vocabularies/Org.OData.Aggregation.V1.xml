@@ -225,7 +225,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.Description" String="Is the node a root of the [specified hierarchy](#HierarchyQualifier)?" />
         <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
@@ -238,7 +238,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.Description" String="Is the node a descendant in the [specified hierarchy](#HierarchyQualifier) of the ancestor node with at most the specified distance?" />
         <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
@@ -270,7 +270,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.Description" String="Is the node an ancestor in the [specified hierarchy](#HierarchyQualifier) of the descendant node with at most the specified distance?" />
         <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
@@ -302,7 +302,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.Description" String="Returns true if the node has the same parent in the [specified hierarchy](#HierarchyQualifier) as the other node or both are roots" />
         <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node value passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
@@ -318,7 +318,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.Description" String="Is the node a leaf in the [specified hierarchy](#HierarchyQualifier)?" />
         <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
-          <Annotation Term="Core.Description" String="A collection, given through a path expression" />
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
         </Parameter>
         <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">

@@ -29,7 +29,7 @@ If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L227:~:text=<Function%20Name="-,isroot,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L227:~:text=<Function%20Name="-,isroot,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L230:~:text=<Function%20Name="-,isroot,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L231:~:text=<Function%20Name="-,isroot,-")|PrimitiveType?|Node value of the putative root
 [&rarr;](./Org.OData.Aggregation.V1.xml#L234:~:text=<Function%20Name="-,isroot,-")|Boolean?|
@@ -43,7 +43,7 @@ If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<Function%20Name="-,isdescendant,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<Function%20Name="-,isdescendant,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L243:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L244:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the putative descendant
 [Ancestor](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the ancestor node
@@ -60,7 +60,7 @@ If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L272:~:text=<Function%20Name="-,isancestor,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L272:~:text=<Function%20Name="-,isancestor,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L275:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L276:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the putative ancestor
 [Descendant](./Org.OData.Aggregation.V1.xml#L279:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the descendant node
@@ -77,7 +77,7 @@ A node is not a sibling of itself. If a node value passed to the function is nul
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,issibling,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,issibling,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L308:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the putative sibling
 [Other](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the other node
@@ -92,7 +92,7 @@ If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L320:~:text=<Function%20Name="-,isleaf,-")|\[EntityType\]|A collection, given through a path expression
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L320:~:text=<Function%20Name="-,isleaf,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L323:~:text=<Function%20Name="-,isleaf,-")|[HierarchyQualifier](#HierarchyQualifier)|
 [Node](./Org.OData.Aggregation.V1.xml#L324:~:text=<Function%20Name="-,isleaf,-")|PrimitiveType?|Node value of the putative leaf
 [&rarr;](./Org.OData.Aggregation.V1.xml#L327:~:text=<Function%20Name="-,isleaf,-")|Boolean?|

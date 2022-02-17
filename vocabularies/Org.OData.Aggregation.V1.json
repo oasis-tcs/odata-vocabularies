@@ -229,7 +229,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -258,7 +258,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -309,7 +309,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -360,7 +360,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
@@ -395,7 +395,7 @@
                         "$Name": "HierarchyNodes",
                         "$Collection": true,
                         "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a path expression"
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
                         "$Name": "HierarchyQualifier",
