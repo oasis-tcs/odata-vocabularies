@@ -43,7 +43,8 @@
             "Products": {
                 "$Kind": "NavigationProperty",
                 "$Collection": true,
-                "$Type": "SalesModel.Product"
+                "$Type": "SalesModel.Product",
+                "$Partner": "Category"
             }
         },
         "SalesOrganizationHistory": {

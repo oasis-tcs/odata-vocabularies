@@ -27,7 +27,7 @@
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
         <Property Name="Name" Type="Edm.String" />
-        <NavigationProperty Name="Products" Type="Collection(SalesModel.Product)" />
+        <NavigationProperty Name="Products" Type="Collection(SalesModel.Product)" Partner="Category" />
       </EntityType>
       <EntityType Name="SalesOrganizationHistory">
         <Key>
