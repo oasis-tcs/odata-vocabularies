@@ -29,13 +29,6 @@
         <Property Name="Name" Type="Edm.String" />
         <NavigationProperty Name="Products" Type="Collection(SalesModel.Product)" Partner="Category" />
       </EntityType>
-      <EntityType Name="SalesOrganizationHistory">
-        <Key>
-          <PropertyRef Name="KeyDate" />
-        </Key>
-        <Property Name="KeyDate" Type="Edm.Date" Nullable="false" />
-        <NavigationProperty Name="Nodes" Type="Collection(SalesModel.SalesOrganization)" ContainsTarget="true" />
-      </EntityType>
       <EntityType Name="SalesOrganization">
         <Key>
           <PropertyRef Name="ID" />
@@ -92,9 +85,6 @@
         <EntitySet Name="Time" EntityType="SalesModel.Time" />
         <EntitySet Name="Categories" EntityType="SalesModel.Category">
           <NavigationPropertyBinding Path="Products" Target="Products" />
-        </EntitySet>
-        <EntitySet Name="SalesOrganizationHistory" EntityType="SalesModel.SalesOrganizationHistory">
-          <NavigationPropertyBinding Path="Nodes/Sales" Target="Sales" />
         </EntitySet>
         <EntitySet Name="SalesOrganizations" EntityType="SalesModel.SalesOrganization">
           <NavigationPropertyBinding Path="Sales" Target="Sales" />

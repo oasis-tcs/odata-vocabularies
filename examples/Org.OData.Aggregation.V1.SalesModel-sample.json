@@ -47,21 +47,6 @@
                 "$Partner": "Category"
             }
         },
-        "SalesOrganizationHistory": {
-            "$Kind": "EntityType",
-            "$Key": [
-                "KeyDate"
-            ],
-            "KeyDate": {
-                "$Type": "Edm.Date"
-            },
-            "Nodes": {
-                "$Kind": "NavigationProperty",
-                "$Collection": true,
-                "$Type": "SalesModel.SalesOrganization",
-                "$ContainsTarget": true
-            }
-        },
         "SalesOrganization": {
             "$Kind": "EntityType",
             "$Key": [
@@ -185,13 +170,6 @@
                 "$Type": "SalesModel.Category",
                 "$NavigationPropertyBinding": {
                     "Products": "Products"
-                }
-            },
-            "SalesOrganizationHistory": {
-                "$Collection": true,
-                "$Type": "SalesModel.SalesOrganizationHistory",
-                "$NavigationPropertyBinding": {
-                    "Nodes/Sales": "Sales"
                 }
             },
             "SalesOrganizations": {
