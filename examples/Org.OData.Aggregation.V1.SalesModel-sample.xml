@@ -70,6 +70,12 @@
           </Collection>
         </Annotation>
       </EntityType>
+      <EntityType Name="DigitalProduct" BaseType="SalesModel.Product">
+        <Property Name="Rating" Type="Edm.Byte" />
+      </EntityType>
+      <EntityType Name="PhysicalProduct" BaseType="SalesModel.Product">
+        <Property Name="Rating" Type="Edm.String" />
+      </EntityType>
       <EntityType Name="Sale">
         <Key>
           <PropertyRef Name="ID" />

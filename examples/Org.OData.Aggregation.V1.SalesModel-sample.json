@@ -124,6 +124,21 @@
                 "Name"
             ]
         },
+        "DigitalProduct": {
+            "$Kind": "EntityType",
+            "$BaseType": "SalesModel.Product",
+            "Rating": {
+                "$Type": "Edm.Byte",
+                "$Nullable": true
+            }
+        },
+        "PhysicalProduct": {
+            "$Kind": "EntityType",
+            "$BaseType": "SalesModel.Product",
+            "Rating": {
+                "$Nullable": true
+            }
+        },
         "Sale": {
             "$Kind": "EntityType",
             "$Key": [
