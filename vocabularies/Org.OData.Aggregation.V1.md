@@ -16,71 +16,86 @@ Term|Type|Description
 [ContextDefiningProperties](./Org.OData.Aggregation.V1.xml#L188:~:text=<Term%20Name="-,ContextDefiningProperties,-")|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
 [LeveledHierarchy](./Org.OData.Aggregation.V1.xml#L195:~:text=<Term%20Name="-,LeveledHierarchy,-")|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
 [RecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L199:~:text=<Term%20Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L280:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
+[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L330:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
 
 
 ## Functions
 
-### <a name="isroot"></a>[isroot](./Org.OData.Aggregation.V1.xml#L212:~:text=<Function%20Name="-,isroot,-")
+### <a name="isroot"></a>[isroot](./Org.OData.Aggregation.V1.xml#L224:~:text=<Function%20Name="-,isroot,-")
 
-Returns true if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
+Is the node a root of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
-Parameter|Type|Description
-:--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L214:~:text=<Function%20Name="-,isroot,-")**|EntityType|**Binding parameter**
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L215:~:text=<Function%20Name="-,isroot,-")|String|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L216:~:text=<Function%20Name="-,isroot,-")|Boolean|
-
-
-### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L219:~:text=<Function%20Name="-,isdescendant,-")
-
-Returns true if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the parent node itself
+If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L221:~:text=<Function%20Name="-,isdescendant,-")**|EntityType|**Binding parameter**
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L222:~:text=<Function%20Name="-,isdescendant,-")|String|
-[Node](./Org.OData.Aggregation.V1.xml#L223:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType|
-*[MaxDistance](./Org.OData.Aggregation.V1.xml#L224:~:text=<Function%20Name="-,isdescendant,-")*|Int16?|*Optional parameter*
-*[IncludeParent](./Org.OData.Aggregation.V1.xml#L232:~:text=<Function%20Name="-,isdescendant,-")*|Boolean?|*Optional parameter*
-[&rarr;](./Org.OData.Aggregation.V1.xml#L239:~:text=<Function%20Name="-,isdescendant,-")|Boolean|
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L227:~:text=<Function%20Name="-,isroot,-")|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L230:~:text=<Function%20Name="-,isroot,-")|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](./Org.OData.Aggregation.V1.xml#L231:~:text=<Function%20Name="-,isroot,-")|PrimitiveType?|Node value of the putative root
+[&rarr;](./Org.OData.Aggregation.V1.xml#L234:~:text=<Function%20Name="-,isroot,-")|Boolean?|
 
 
-### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L242:~:text=<Function%20Name="-,isancestor,-")
+### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L237:~:text=<Function%20Name="-,isdescendant,-")
 
-Returns true if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to `MaxDistance` or, if `IncludeParent` is `true`, the child node itself
+Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
 
-Parameter|Type|Description
-:--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L244:~:text=<Function%20Name="-,isancestor,-")**|EntityType|**Binding parameter**
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L245:~:text=<Function%20Name="-,isancestor,-")|String|
-[Node](./Org.OData.Aggregation.V1.xml#L246:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType|
-*[MaxDistance](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isancestor,-")*|Int16?|*Optional parameter*
-*[IncludeChild](./Org.OData.Aggregation.V1.xml#L255:~:text=<Function%20Name="-,isancestor,-")*|Boolean?|*Optional parameter*
-[&rarr;](./Org.OData.Aggregation.V1.xml#L262:~:text=<Function%20Name="-,isancestor,-")|Boolean|
-
-
-### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L265:~:text=<Function%20Name="-,issibling,-")
-
-Returns true if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
+If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L267:~:text=<Function%20Name="-,issibling,-")**|EntityType|**Binding parameter**
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L268:~:text=<Function%20Name="-,issibling,-")|String|
-[Node](./Org.OData.Aggregation.V1.xml#L269:~:text=<Function%20Name="-,issibling,-")|PrimitiveType|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L270:~:text=<Function%20Name="-,issibling,-")|Boolean|
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L240:~:text=<Function%20Name="-,isdescendant,-")|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L243:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](./Org.OData.Aggregation.V1.xml#L244:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the putative descendant
+[Ancestor](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the ancestor node
+*[MaxDistance](./Org.OData.Aggregation.V1.xml#L250:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L258:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the node is considered a descendant of itself
+[&rarr;](./Org.OData.Aggregation.V1.xml#L266:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
 
 
-### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L273:~:text=<Function%20Name="-,isleaf,-")
+### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L269:~:text=<Function%20Name="-,isancestor,-")
 
-Returns true if and only if the value of the node property of the specified hierarchy has no descendants
+Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
+
+If a node value passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Entity](./Org.OData.Aggregation.V1.xml#L275:~:text=<Function%20Name="-,isleaf,-")**|EntityType|**Binding parameter**
-[Hierarchy](./Org.OData.Aggregation.V1.xml#L276:~:text=<Function%20Name="-,isleaf,-")|String|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L277:~:text=<Function%20Name="-,isleaf,-")|Boolean|
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L272:~:text=<Function%20Name="-,isancestor,-")|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L275:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](./Org.OData.Aggregation.V1.xml#L276:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the putative ancestor
+[Descendant](./Org.OData.Aggregation.V1.xml#L279:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the descendant node
+*[MaxDistance](./Org.OData.Aggregation.V1.xml#L282:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L290:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the node is considered an ancestor of itself
+[&rarr;](./Org.OData.Aggregation.V1.xml#L298:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
+
+
+### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L301:~:text=<Function%20Name="-,issibling,-")
+
+Returns true if the node has the same parent as the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) or both are roots
+
+A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.
+
+Parameter|Type|Description
+:--------|:---|:----------
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,issibling,-")|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](./Org.OData.Aggregation.V1.xml#L308:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the putative sibling
+[Other](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the other node
+[&rarr;](./Org.OData.Aggregation.V1.xml#L314:~:text=<Function%20Name="-,issibling,-")|Boolean?|
+
+
+### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L317:~:text=<Function%20Name="-,isleaf,-")
+
+Is the node a leaf in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
+
+If a node value passed to the function is null, the function returns null.
+
+Parameter|Type|Description
+:--------|:---|:----------
+[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L320:~:text=<Function%20Name="-,isleaf,-")|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L323:~:text=<Function%20Name="-,isleaf,-")|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](./Org.OData.Aggregation.V1.xml#L324:~:text=<Function%20Name="-,isleaf,-")|PrimitiveType?|Node value of the putative leaf
+[&rarr;](./Org.OData.Aggregation.V1.xml#L327:~:text=<Function%20Name="-,isleaf,-")|Boolean?|
 
 
 ## <a name="ApplySupportedBase"></a>[ApplySupportedBase](./Org.OData.Aggregation.V1.xml#L96:~:text=<ComplexType%20Name="-,ApplySupportedBase,-")
@@ -133,15 +148,27 @@ Property|Type|Description
 [NodeProperty](./Org.OData.Aggregation.V1.xml#L204:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Property holding the hierarchy node value
 [ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L207:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable.
 
-## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L283:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
+## <a name="HierarchyQualifier"></a>[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L212:~:text=<TypeDefinition%20Name="-,HierarchyQualifier,-")
+**Type:** String
+
+Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
+
+Every recursive hierarchy function defined in this vocabulary has
+- a parameter `HierarchyQualifier` of this type and
+- a parameter `HierarchyNodes` that is a collection of entities.
+
+`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection
+given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.
+
+## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L333:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[RequiredProperties](./Org.OData.Aggregation.V1.xml#L284:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this action or function
+[RequiredProperties](./Org.OData.Aggregation.V1.xml#L334:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this action or function
 
-## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L289:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
+## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L339:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
-## <a name="CustomAggregateType"></a>[CustomAggregateType](./Org.OData.Aggregation.V1.xml#L307:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
+## <a name="CustomAggregateType"></a>[CustomAggregateType](./Org.OData.Aggregation.V1.xml#L357:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
 Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated

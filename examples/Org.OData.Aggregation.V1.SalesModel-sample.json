@@ -1,0 +1,225 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Aggregation.V1",
+                    "$Alias": "Aggregation"
+                }
+            ]
+        }
+    },
+    "org.example.odata.salesservice": {
+        "$Alias": "SalesModel",
+        "Time": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "Date"
+            ],
+            "Date": {
+                "$Type": "Edm.Date"
+            },
+            "Month": {},
+            "Quarter": {},
+            "Year": {
+                "$Type": "Edm.Int16"
+            },
+            "@Aggregation.LeveledHierarchy#TimeHierarchy": [
+                "Year",
+                "Quarter",
+                "Month"
+            ]
+        },
+        "Category": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Products": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "SalesModel.Product",
+                "$Partner": "Category"
+            }
+        },
+        "SalesOrganization": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Superordinate": {
+                "$Kind": "NavigationProperty",
+                "$Type": "SalesModel.SalesOrganization",
+                "$Nullable": true
+            },
+            "Sales": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "SalesModel.Sale",
+                "$Partner": "SalesOrganization"
+            },
+            "@Aggregation.RecursiveHierarchy#SalesOrgHierarchy": {
+                "NodeProperty": "ID",
+                "ParentNavigationProperty": "Superordinate"
+            }
+        },
+        "Customer": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Country": {
+                "$Nullable": true
+            },
+            "Sales": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "SalesModel.Sale",
+                "$Partner": "Customer"
+            }
+        },
+        "Product": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Name": {
+                "$Nullable": true
+            },
+            "Color": {
+                "$Nullable": true
+            },
+            "TaxRate": {
+                "$Type": "Edm.Decimal",
+                "$Nullable": true,
+                "$Scale": 2
+            },
+            "Category": {
+                "$Kind": "NavigationProperty",
+                "$Type": "SalesModel.Category",
+                "$Partner": "Products"
+            },
+            "Sales": {
+                "$Kind": "NavigationProperty",
+                "$Collection": true,
+                "$Type": "SalesModel.Sale",
+                "$Partner": "Product"
+            },
+            "@Aggregation.LeveledHierarchy#ProductHierarchy": [
+                "Category/Name",
+                "Name"
+            ]
+        },
+        "DigitalProduct": {
+            "$Kind": "EntityType",
+            "$BaseType": "SalesModel.Product",
+            "Rating": {
+                "$Type": "Edm.Byte",
+                "$Nullable": true
+            }
+        },
+        "PhysicalProduct": {
+            "$Kind": "EntityType",
+            "$BaseType": "SalesModel.Product",
+            "Rating": {
+                "$Nullable": true
+            }
+        },
+        "Sale": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "ID"
+            ],
+            "ID": {},
+            "Amount": {
+                "$Type": "Edm.Decimal",
+                "$Nullable": true,
+                "$Scale": 2
+            },
+            "SalesOrganization": {
+                "$Kind": "NavigationProperty",
+                "$Type": "SalesModel.SalesOrganization",
+                "$Nullable": true,
+                "$Partner": "Sales"
+            },
+            "Product": {
+                "$Kind": "NavigationProperty",
+                "$Type": "SalesModel.Product",
+                "$Nullable": true,
+                "$Partner": "Sales"
+            },
+            "Customer": {
+                "$Kind": "NavigationProperty",
+                "$Type": "SalesModel.Customer",
+                "$Nullable": true,
+                "$Partner": "Sales"
+            },
+            "Time": {
+                "$Kind": "NavigationProperty",
+                "$Type": "SalesModel.Time",
+                "$Nullable": true
+            }
+        },
+        "Container": {
+            "$Kind": "EntityContainer",
+            "Time": {
+                "$Collection": true,
+                "$Type": "SalesModel.Time"
+            },
+            "Categories": {
+                "$Collection": true,
+                "$Type": "SalesModel.Category",
+                "$NavigationPropertyBinding": {
+                    "Products": "Products"
+                }
+            },
+            "SalesOrganizations": {
+                "$Collection": true,
+                "$Type": "SalesModel.SalesOrganization",
+                "$NavigationPropertyBinding": {
+                    "Sales": "Sales"
+                }
+            },
+            "Customers": {
+                "$Collection": true,
+                "$Type": "SalesModel.Customer",
+                "$NavigationPropertyBinding": {
+                    "Sales": "Sales"
+                }
+            },
+            "Products": {
+                "$Collection": true,
+                "$Type": "SalesModel.Product",
+                "$NavigationPropertyBinding": {
+                    "Category": "Categories",
+                    "Sales": "Sales"
+                }
+            },
+            "Sales": {
+                "$Collection": true,
+                "$Type": "SalesModel.Sale",
+                "$NavigationPropertyBinding": {
+                    "SalesOrganization": "SalesOrganizations",
+                    "Customer": "Customers",
+                    "Product": "Products",
+                    "Time": "Time"
+                }
+            }
+        }
+    },
+    "$EntityContainer": "org.example.odata.salesservice.Container"
+}
