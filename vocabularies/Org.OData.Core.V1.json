@@ -477,7 +477,7 @@
                 "Parameter",
                 "ReturnType"
             ],
-            "@Core.Description": "The media type of the media resources of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term.",
+            "@Core.Description": "The media type of the media stream of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term.",
             "@Core.LongDescription": "The annotation of a TypeDefinition propagates to the model elements having this type",
             "@Core.IsMediaType": true
         },
@@ -500,7 +500,7 @@
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The content disposition of a media resource or a binary or stream property or term"
+            "@Core.Description": "The content disposition of the media stream of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term"
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",
@@ -539,10 +539,11 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
+                "EntityType",
                 "NavigationProperty",
                 "Property"
             ],
-            "@Core.Description": "The service will automatically expand this stream or navigation property even if not requested with $expand"
+            "@Core.Description": "The service will automatically expand this stream property, navigation property, or the media stream of this media entity type even if not requested with $expand"
         },
         "AutoExpandReferences": {
             "$Kind": "Term",
