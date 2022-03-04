@@ -124,7 +124,7 @@
                 "Name"
             ]
         },
-        "DigitalProduct": {
+        "FoodProduct": {
             "$Kind": "EntityType",
             "$BaseType": "SalesModel.Product",
             "Rating": {
@@ -132,7 +132,7 @@
                 "$Nullable": true
             }
         },
-        "PhysicalProduct": {
+        "NonFoodProduct": {
             "$Kind": "EntityType",
             "$BaseType": "SalesModel.Product",
             "Rating": {

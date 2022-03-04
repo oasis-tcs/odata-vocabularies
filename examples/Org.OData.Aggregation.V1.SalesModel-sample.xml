@@ -70,10 +70,10 @@
           </Collection>
         </Annotation>
       </EntityType>
-      <EntityType Name="DigitalProduct" BaseType="SalesModel.Product">
+      <EntityType Name="FoodProduct" BaseType="SalesModel.Product">
         <Property Name="Rating" Type="Edm.Byte" />
       </EntityType>
-      <EntityType Name="PhysicalProduct" BaseType="SalesModel.Product">
+      <EntityType Name="NonFoodProduct" BaseType="SalesModel.Product">
         <Property Name="Rating" Type="Edm.String" />
       </EntityType>
       <EntityType Name="Sale">
