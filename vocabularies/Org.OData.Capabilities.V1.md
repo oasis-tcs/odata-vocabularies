@@ -276,7 +276,7 @@ Property|Type|Description
 [Expandable](./Org.OData.Capabilities.V1.xml#L534:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|Boolean|$expand is supported
 [StreamsExpandable](./Org.OData.Capabilities.V1.xml#L537:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|Boolean|$expand is supported for stream properties and media streams
 [NonExpandableProperties](./Org.OData.Capabilities.V1.xml#L540:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|\[NavigationPropertyPath\]|These properties cannot be used in expand expressions
-[NonExpandableStreamProperties](./Org.OData.Capabilities.V1.xml#L543:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|\[PropertyPath\]|These stream properties cannot be used in expand expressions.
+[NonExpandableStreamProperties](./Org.OData.Capabilities.V1.xml#L543:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|\[PropertyPath\]|These stream properties cannot be used in expand expressions
 [MaxLevels](./Org.OData.Capabilities.V1.xml#L547:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|Int32|The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction.
 
 **Applicable Annotation Terms:**
