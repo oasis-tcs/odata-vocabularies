@@ -462,7 +462,7 @@
                 "Parameter",
                 "ReturnType"
             ],
-            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term.",
+            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term",
             "@Core.LongDescription": "The annotation of a TypeDefinition propagates to the model elements having this type",
             "@Core.IsMediaType": true
         },
@@ -477,7 +477,7 @@
                 "Parameter",
                 "ReturnType"
             ],
-            "@Core.Description": "The media type of the media stream of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term.",
+            "@Core.Description": "The media type of the media stream of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term",
             "@Core.LongDescription": "The annotation of a TypeDefinition propagates to the model elements having this type",
             "@Core.IsMediaType": true
         },
@@ -521,7 +521,7 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Description": "Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag."
+            "@Core.Description": "Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag"
         },
         "AdditionalProperties": {
             "$Kind": "Term",
