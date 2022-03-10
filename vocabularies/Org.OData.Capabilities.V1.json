@@ -687,7 +687,7 @@
             "StreamsExpandable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "$expand is supported for stream properties and media resources"
+                "@Core.Description": "$expand is supported for stream properties and media streams"
             },
             "NonExpandableProperties": {
                 "$Collection": true,
@@ -1392,10 +1392,11 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
+                "EntityType",
                 "Property"
             ],
             "@Core.RequiresType": "Edm.Stream",
-            "@Core.Description": "Stream property supports update of its media edit URL and/or media read URL"
+            "@Core.Description": "Stream property or media stream supports update of its media edit URL and/or media read URL"
         }
     }
 }
