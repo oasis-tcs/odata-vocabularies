@@ -697,8 +697,7 @@
             "NonExpandableStreamProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "These stream properties cannot be used in expand expressions. The special value `null` refers to the media stream of a media entity type.",
+                "@Core.Description": "These stream properties cannot be used in expand expressions.",
                 "@Core.RequiresType": "Edm.Stream"
             },
             "MaxLevels": {
