@@ -219,6 +219,40 @@
                     "Time": "Time"
                 }
             }
+        },
+        "$Annotations": {
+            "SalesModel.Container/Sales": {
+                "@ApplySupported": {
+                    "Rollup": "MultipleHierarchies",
+                    "GroupableProperties": [
+                        "SalesOrganization/ID",
+                        "SalesOrganization/Name",
+                        "Product/ID",
+                        "Product/Name",
+                        "Product/Color",
+                        "Product/Category/ID",
+                        "Product/Category/Name",
+                        "Customer/ID",
+                        "Customer/Name",
+                        "Customer/Country",
+                        "Time/Date",
+                        "Time/Month",
+                        "Time/Quarter",
+                        "Time/Year"
+                    ],
+                    "AggregatableProperties": [
+                        {
+                            "Property": "Amount",
+                            "SupportedAggregationMethods": [
+                                "sum",
+                                "min",
+                                "max"
+                            ],
+                            "RecommendedAggregationMethod": "sum"
+                        }
+                    ]
+                }
+            }
         }
     },
     "$EntityContainer": "org.example.odata.salesservice.Container"

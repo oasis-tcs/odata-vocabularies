@@ -109,6 +109,46 @@
           <NavigationPropertyBinding Path="Time" Target="Time" />
         </EntitySet>
       </EntityContainer>
+      <Annotations Target="SalesModel.Container/Sales">
+        <Annotation Term="ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/MultipleHierarchies" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>SalesOrganization/ID</PropertyPath>
+                <PropertyPath>SalesOrganization/Name</PropertyPath>
+                <PropertyPath>Product/ID</PropertyPath>
+                <PropertyPath>Product/Name</PropertyPath>
+                <PropertyPath>Product/Color</PropertyPath>
+                <PropertyPath>Product/Category/ID</PropertyPath>
+                <PropertyPath>Product/Category/Name</PropertyPath>
+                <PropertyPath>Customer/ID</PropertyPath>
+                <PropertyPath>Customer/Name</PropertyPath>
+                <PropertyPath>Customer/Country</PropertyPath>
+                <PropertyPath>Time/Date</PropertyPath>
+                <PropertyPath>Time/Month</PropertyPath>
+                <PropertyPath>Time/Quarter</PropertyPath>
+                <PropertyPath>Time/Year</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="AggregatableProperties">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Property" PropertyPath="Amount" />
+                  <PropertyValue Property="SupportedAggregationMethods">
+                    <Collection>
+                      <String>sum</String>
+                      <String>min</String>
+                      <String>max</String>
+                    </Collection>
+                  </PropertyValue>
+                  <PropertyValue Property="RecommendedAggregationMethod" String="sum" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
