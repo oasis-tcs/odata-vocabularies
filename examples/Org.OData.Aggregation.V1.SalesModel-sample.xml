@@ -149,6 +149,19 @@
           </Record>
         </Annotation>
       </Annotations>
+      <Annotations Target="SalesModel.Container/Products">
+        <Annotation Term="ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Product/SalesModel.FoodProduct/Rating</PropertyPath>
+                <PropertyPath>Product/SalesModel.NonFoodProduct/Rating</PropertyPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

@@ -252,6 +252,15 @@
                         }
                     ]
                 }
+            },
+            "SalesModel.Container/Products": {
+                "@ApplySupported": {
+                    "Rollup": "None",
+                    "GroupableProperties": [
+                        "Product/SalesModel.FoodProduct/Rating",
+                        "Product/SalesModel.NonFoodProduct/Rating"
+                    ]
+                }
             }
         }
     },
