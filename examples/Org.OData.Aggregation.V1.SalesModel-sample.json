@@ -225,19 +225,17 @@
                 "@ApplySupported": {
                     "Rollup": "MultipleHierarchies",
                     "GroupableProperties": [
-                        "SalesOrganization/ID",
-                        "SalesOrganization/Name",
+                        "Amount",
                         "Product/ID",
                         "Product/Name",
-                        "Product/Color",
                         "Product/Category/ID",
                         "Product/Category/Name",
+                        "Customer",
                         "Customer/ID",
                         "Customer/Name",
                         "Customer/Country",
-                        "Time/Date",
+                        "Time",
                         "Time/Month",
-                        "Time/Quarter",
                         "Time/Year"
                     ],
                     "AggregatableProperties": [
@@ -253,12 +251,22 @@
                     ]
                 }
             },
+            "SalesModel.Container/Customers": {
+                "@ApplySupported": {
+                    "Rollup": "None",
+                    "GroupableProperties": [
+                        "Name",
+                        "Country"
+                    ]
+                }
+            },
             "SalesModel.Container/Products": {
                 "@ApplySupported": {
                     "Rollup": "None",
                     "GroupableProperties": [
-                        "Product/SalesModel.FoodProduct/Rating",
-                        "Product/SalesModel.NonFoodProduct/Rating"
+                        "Name",
+                        "SalesModel.FoodProduct/Rating",
+                        "SalesModel.NonFoodProduct/Rating"
                     ]
                 }
             }

@@ -115,19 +115,17 @@
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/MultipleHierarchies" />
             <PropertyValue Property="GroupableProperties">
               <Collection>
-                <PropertyPath>SalesOrganization/ID</PropertyPath>
-                <PropertyPath>SalesOrganization/Name</PropertyPath>
+                <PropertyPath>Amount</PropertyPath>
                 <PropertyPath>Product/ID</PropertyPath>
                 <PropertyPath>Product/Name</PropertyPath>
-                <PropertyPath>Product/Color</PropertyPath>
                 <PropertyPath>Product/Category/ID</PropertyPath>
                 <PropertyPath>Product/Category/Name</PropertyPath>
+                <NavigationPropertyPath>Customer</NavigationPropertyPath>
                 <PropertyPath>Customer/ID</PropertyPath>
                 <PropertyPath>Customer/Name</PropertyPath>
                 <PropertyPath>Customer/Country</PropertyPath>
-                <PropertyPath>Time/Date</PropertyPath>
+                <NavigationPropertyPath>Time</NavigationPropertyPath>
                 <PropertyPath>Time/Month</PropertyPath>
-                <PropertyPath>Time/Quarter</PropertyPath>
                 <PropertyPath>Time/Year</PropertyPath>
               </Collection>
             </PropertyValue>
@@ -149,14 +147,28 @@
           </Record>
         </Annotation>
       </Annotations>
+      <Annotations Target="SalesModel.Container/Customers">
+        <Annotation Term="ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Name</PropertyPath>
+                <PropertyPath>Country</PropertyPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
       <Annotations Target="SalesModel.Container/Products">
         <Annotation Term="ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
             <PropertyValue Property="GroupableProperties">
               <Collection>
-                <PropertyPath>Product/SalesModel.FoodProduct/Rating</PropertyPath>
-                <PropertyPath>Product/SalesModel.NonFoodProduct/Rating</PropertyPath>
+                <PropertyPath>Name</PropertyPath>
+                <PropertyPath>SalesModel.FoodProduct/Rating</PropertyPath>
+                <PropertyPath>SalesModel.NonFoodProduct/Rating</PropertyPath>
               </Collection>
             </PropertyValue>
           </Record>
