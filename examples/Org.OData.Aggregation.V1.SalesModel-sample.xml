@@ -110,7 +110,7 @@
         </EntitySet>
       </EntityContainer>
       <Annotations Target="SalesModel.Container/Sales">
-        <Annotation Term="ApplySupported">
+        <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/MultipleHierarchies" />
             <PropertyValue Property="GroupableProperties">
@@ -148,7 +148,7 @@
         </Annotation>
       </Annotations>
       <Annotations Target="SalesModel.Container/Customers">
-        <Annotation Term="ApplySupported">
+        <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
             <PropertyValue Property="GroupableProperties">
@@ -161,7 +161,7 @@
         </Annotation>
       </Annotations>
       <Annotations Target="SalesModel.Container/Products">
-        <Annotation Term="ApplySupported">
+        <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
             <PropertyValue Property="GroupableProperties">

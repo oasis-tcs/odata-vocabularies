@@ -222,7 +222,7 @@
         },
         "$Annotations": {
             "SalesModel.Container/Sales": {
-                "@ApplySupported": {
+                "@Aggregation.ApplySupported": {
                     "Rollup": "MultipleHierarchies",
                     "GroupableProperties": [
                         "Amount",
@@ -252,7 +252,7 @@
                 }
             },
             "SalesModel.Container/Customers": {
-                "@ApplySupported": {
+                "@Aggregation.ApplySupported": {
                     "Rollup": "None",
                     "GroupableProperties": [
                         "Name",
@@ -261,7 +261,7 @@
                 }
             },
             "SalesModel.Container/Products": {
-                "@ApplySupported": {
+                "@Aggregation.ApplySupported": {
                     "Rollup": "None",
                     "GroupableProperties": [
                         "Name",
