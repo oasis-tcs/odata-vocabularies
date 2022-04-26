@@ -53,7 +53,7 @@
         <Property Name="Country" Type="Edm.String" />
         <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="Customer" />
       </EntityType>
-      <EntityType Name="Product">
+      <EntityType Name="Product" Abstract="true">
         <Key>
           <PropertyRef Name="ID" />
         </Key>

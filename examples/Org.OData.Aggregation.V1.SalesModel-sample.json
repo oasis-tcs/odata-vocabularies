@@ -93,6 +93,7 @@
         },
         "Product": {
             "$Kind": "EntityType",
+            "$Abstract": true,
             "$Key": [
                 "ID"
             ],
