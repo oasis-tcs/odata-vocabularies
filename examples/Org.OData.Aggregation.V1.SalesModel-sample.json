@@ -93,6 +93,7 @@
         },
         "Product": {
             "$Kind": "EntityType",
+            "$Abstract": true,
             "$Key": [
                 "ID"
             ],
@@ -124,7 +125,7 @@
                 "Name"
             ]
         },
-        "DigitalProduct": {
+        "FoodProduct": {
             "$Kind": "EntityType",
             "$BaseType": "SalesModel.Product",
             "Rating": {
@@ -132,7 +133,7 @@
                 "$Nullable": true
             }
         },
-        "PhysicalProduct": {
+        "NonFoodProduct": {
             "$Kind": "EntityType",
             "$BaseType": "SalesModel.Product",
             "Rating": {
@@ -217,6 +218,57 @@
                     "Customer": "Customers",
                     "Product": "Products",
                     "Time": "Time"
+                }
+            }
+        },
+        "$Annotations": {
+            "SalesModel.Container/Sales": {
+                "@Aggregation.ApplySupported": {
+                    "Rollup": "MultipleHierarchies",
+                    "GroupableProperties": [
+                        "Amount",
+                        "Product/ID",
+                        "Product/Name",
+                        "Product/Category/ID",
+                        "Product/Category/Name",
+                        "Customer",
+                        "Customer/ID",
+                        "Customer/Name",
+                        "Customer/Country",
+                        "Time",
+                        "Time/Month",
+                        "Time/Year"
+                    ],
+                    "AggregatableProperties": [
+                        {
+                            "Property": "Amount",
+                            "SupportedAggregationMethods": [
+                                "sum",
+                                "min",
+                                "max"
+                            ],
+                            "RecommendedAggregationMethod": "sum"
+                        }
+                    ]
+                }
+            },
+            "SalesModel.Container/Customers": {
+                "@Aggregation.ApplySupported": {
+                    "Rollup": "None",
+                    "GroupableProperties": [
+                        "Name",
+                        "Country"
+                    ]
+                }
+            },
+            "SalesModel.Container/Products": {
+                "@Aggregation.ApplySupported": {
+                    "Rollup": "None",
+                    "GroupableProperties": [
+                        "Name",
+                        "SalesModel.FoodProduct/Rating",
+                        "SalesModel.NonFoodProduct/Rating"
+                    ]
                 }
             }
         }

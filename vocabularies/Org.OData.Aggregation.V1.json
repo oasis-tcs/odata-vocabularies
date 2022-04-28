@@ -1,5 +1,5 @@
 {
-    "$Version": "4.0",
+    "$Version": "4.01",
     "$Reference": {
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
@@ -95,7 +95,7 @@
             },
             "GroupableProperties": {
                 "$Collection": true,
-                "$Type": "Edm.PropertyPath",
+                "$Type": "Edm.AnyPropertyPath",
                 "@Core.Description": "A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation"
             },
             "AggregatableProperties": {
@@ -206,7 +206,7 @@
             "$Kind": "ComplexType",
             "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property holding the hierarchy node value"
+                "@Core.Description": "Primitive property holding the hierarchy node value"
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",

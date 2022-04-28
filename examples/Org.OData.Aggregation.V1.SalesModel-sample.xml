@@ -53,7 +53,7 @@
         <Property Name="Country" Type="Edm.String" />
         <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="Customer" />
       </EntityType>
-      <EntityType Name="Product">
+      <EntityType Name="Product" Abstract="true">
         <Key>
           <PropertyRef Name="ID" />
         </Key>
@@ -70,10 +70,10 @@
           </Collection>
         </Annotation>
       </EntityType>
-      <EntityType Name="DigitalProduct" BaseType="SalesModel.Product">
+      <EntityType Name="FoodProduct" BaseType="SalesModel.Product">
         <Property Name="Rating" Type="Edm.Byte" />
       </EntityType>
-      <EntityType Name="PhysicalProduct" BaseType="SalesModel.Product">
+      <EntityType Name="NonFoodProduct" BaseType="SalesModel.Product">
         <Property Name="Rating" Type="Edm.String" />
       </EntityType>
       <EntityType Name="Sale">
@@ -109,6 +109,71 @@
           <NavigationPropertyBinding Path="Time" Target="Time" />
         </EntitySet>
       </EntityContainer>
+      <Annotations Target="SalesModel.Container/Sales">
+        <Annotation Term="Aggregation.ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/MultipleHierarchies" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Amount</PropertyPath>
+                <PropertyPath>Product/ID</PropertyPath>
+                <PropertyPath>Product/Name</PropertyPath>
+                <PropertyPath>Product/Category/ID</PropertyPath>
+                <PropertyPath>Product/Category/Name</PropertyPath>
+                <NavigationPropertyPath>Customer</NavigationPropertyPath>
+                <PropertyPath>Customer/ID</PropertyPath>
+                <PropertyPath>Customer/Name</PropertyPath>
+                <PropertyPath>Customer/Country</PropertyPath>
+                <NavigationPropertyPath>Time</NavigationPropertyPath>
+                <PropertyPath>Time/Month</PropertyPath>
+                <PropertyPath>Time/Year</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="AggregatableProperties">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Property" PropertyPath="Amount" />
+                  <PropertyValue Property="SupportedAggregationMethods">
+                    <Collection>
+                      <String>sum</String>
+                      <String>min</String>
+                      <String>max</String>
+                    </Collection>
+                  </PropertyValue>
+                  <PropertyValue Property="RecommendedAggregationMethod" String="sum" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="SalesModel.Container/Customers">
+        <Annotation Term="Aggregation.ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Name</PropertyPath>
+                <PropertyPath>Country</PropertyPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="SalesModel.Container/Products">
+        <Annotation Term="Aggregation.ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Name</PropertyPath>
+                <PropertyPath>SalesModel.FoodProduct/Rating</PropertyPath>
+                <PropertyPath>SalesModel.NonFoodProduct/Rating</PropertyPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

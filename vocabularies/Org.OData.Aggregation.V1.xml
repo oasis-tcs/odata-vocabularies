@@ -40,7 +40,7 @@
   This vocabulary defines terms to describe which data in a given entity model can be aggregated, and how.
 
 -->
-<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
@@ -116,7 +116,7 @@
           </Annotation>
           <Annotation Term="Core.Description" String="Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation" />
         </Property>
-        <Property Name="GroupableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+        <Property Name="GroupableProperties" Type="Collection(Edm.AnyPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation" />
         </Property>
         <Property Name="AggregatableProperties" Type="Collection(Aggregation.AggregatablePropertyType)" Nullable="false">
@@ -202,7 +202,7 @@
 
       <ComplexType Name="RecursiveHierarchyType">
         <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
+          <Annotation Term="Core.Description" String="Primitive property holding the hierarchy node value" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable." />
