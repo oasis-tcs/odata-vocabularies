@@ -153,8 +153,9 @@ even though they are defined in an `Orders` entity set.</String>
 
           When applied to a collection-valued element, this annotation specifies the types allowed for members
           of the collection without mentioning the `Collection()` wrapper.
-          The QualifiedTypeName may only include the `Collection()` wrapper if the annotation applies to an element
-          with declared type `Edm.Untyped`.</String>
+          The QualifiedTypeName may only include the `Collection()` wrapper
+          if the annotation is applied to an element with declared type `Edm.Untyped`.
+          It then allows a collection of instances of another type as the element's value.</String>
         </Annotation>
       </Term>
 
