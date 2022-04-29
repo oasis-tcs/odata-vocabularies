@@ -140,11 +140,11 @@ even though they are defined in an `Orders` entity set.</String>
         </Property>
       </ComplexType>
 
-      <Term Name="OpenPropertyTypeConstraint" Type="Collection(Core.QualifiedTypeName)" Nullable="false" AppliesTo="ComplexType EntityType">
+      <Term Name="OpenPropertyTypeConstraint" Type="Collection(Validation.QualifiedTypeName)" Nullable="false" AppliesTo="ComplexType EntityType">
         <Annotation Term="Core.Description" String="Dynamic properties added to the annotated open structured type are restricted to the listed types." />
       </Term>
 
-      <Term Name="DerivedTypeConstraint" Type="Collection(Core.QualifiedTypeName)" Nullable="false" AppliesTo="EntitySet Singleton NavigationProperty Property TypeDefinition Parameter ReturnType">
+      <Term Name="DerivedTypeConstraint" Type="Collection(Validation.QualifiedTypeName)" Nullable="false" AppliesTo="EntitySet Singleton NavigationProperty Property TypeDefinition Parameter ReturnType">
         <Annotation Term="Core.Description" String="Values are restricted to types that are both identical to or derived from the declared type and a type listed in this collection." />
         <Annotation Term="Core.LongDescription">
           <String>This allows restricting values to certain sub-trees of an inheritance hierarchy,
@@ -154,10 +154,13 @@ even though they are defined in an `Orders` entity set.</String>
           When applied to a collection-valued element, this annotation specifies the types allowed for members
           of the collection without mentioning the `Collection()` wrapper.
           The QualifiedTypeName may only include the `Collection()` wrapper
-          if the annotation is applied to an element with declared type `Edm.Untyped`.
-          It then allows a collection of instances of another type as the element's value.</String>
+          if the annotation is applied to an element with declared type `Edm.Untyped`.</String>
         </Annotation>
       </Term>
+
+      <TypeDefinition Name="QualifiedTypeName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The qualified name of a type in scope, optionally wrapped in `Collection()` to denote a collection of instances of the type" />
+      </TypeDefinition>
 
       <Term Name="AllowedTerms" Type="Collection(Core.QualifiedTermName)" Nullable="false" AppliesTo="Term Property">
         <Annotation Term="Core.Description" String="Annotate a term of type Edm.AnnotationPath, or a property of type Edm.AnnotationPath that is used within a structured term, to restrict the terms that can be targeted by the path." />
