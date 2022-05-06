@@ -543,7 +543,7 @@ supported:
           <Annotation Term="Core.Description" String="$expand is supported" />
         </Property>
         <Property Name="StreamsExpandable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="$expand is supported for stream properties and media resources" />
+          <Annotation Term="Core.Description" String="$expand is supported for stream properties and media streams" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
           <Annotation Term="Core.Description" String="The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction." />
@@ -1033,9 +1033,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="MediaLocationUpdateSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="MediaLocationUpdateSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Property">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.Description" String="Stream property supports update of its media edit URL and/or media read URL" />
+        <Annotation Term="Core.Description" String="Stream property or media stream supports update of its media edit URL and/or media read URL" />
       </Term>
 
       <Term Name="DefaultCapabilities" Type="Capabilities.DefaultCapabilitiesType" Nullable="false" AppliesTo="EntityContainer">

@@ -85,7 +85,7 @@ Term|Type|Description
 [ReadRestrictions](./Org.OData.Capabilities.V1.xml#L922:~:text=<Term%20Name="-,ReadRestrictions,-")|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance.
 [CustomHeaders](./Org.OData.Capabilities.V1.xml#L958:~:text=<Term%20Name="-,CustomHeaders,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L960))
 [CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L984:~:text=<Term%20Name="-,CustomQueryOptions,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L987))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
-[MediaLocationUpdateSupported](./Org.OData.Capabilities.V1.xml#L1036:~:text=<Term%20Name="-,MediaLocationUpdateSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property supports update of its media edit URL and/or media read URL
+[MediaLocationUpdateSupported](./Org.OData.Capabilities.V1.xml#L1036:~:text=<Term%20Name="-,MediaLocationUpdateSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property or media stream supports update of its media edit URL and/or media read URL
 [DefaultCapabilities](./Org.OData.Capabilities.V1.xml#L1041:~:text=<Term%20Name="-,DefaultCapabilities,-")|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container<br>Annotating a specific capability term, which is included as property in `DefaultCapabilitiesType`, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:<br/>- Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in `DefaultCapabilities`<br/>- Complex-valued properties specified in the specific capability term override the corresponding properties specified in `DefaultCapabilities` using PATCH semantics recursively<br/>- Properties specified neither in the specific term nor in `DefaultCapabilities` have their default value
 
 ## <a name="ConformanceLevelType"></a>[ConformanceLevelType](./Org.OData.Capabilities.V1.xml#L118:~:text=<EnumType%20Name="-,ConformanceLevelType,-")
@@ -328,7 +328,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Expandable](./Org.OData.Capabilities.V1.xml#L542:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Boolean|$expand is supported
-[StreamsExpandable](./Org.OData.Capabilities.V1.xml#L545:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Boolean|$expand is supported for stream properties and media resources
+[StreamsExpandable](./Org.OData.Capabilities.V1.xml#L545:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Boolean|$expand is supported for stream properties and media streams
 [MaxLevels](./Org.OData.Capabilities.V1.xml#L548:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Int32|The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction.
 
 **Applicable Annotation Terms:**
@@ -341,7 +341,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [*Expandable*](./Org.OData.Capabilities.V1.xml#L542:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Boolean|$expand is supported
-[*StreamsExpandable*](./Org.OData.Capabilities.V1.xml#L545:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Boolean|$expand is supported for stream properties and media resources
+[*StreamsExpandable*](./Org.OData.Capabilities.V1.xml#L545:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Boolean|$expand is supported for stream properties and media streams
 [*MaxLevels*](./Org.OData.Capabilities.V1.xml#L548:~:text=<ComplexType%20Name="-,ExpandRestrictionsBase,-")|Int32|The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction.
 [NonExpandableProperties](./Org.OData.Capabilities.V1.xml#L553:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|\[NavigationPropertyPath\]|These properties cannot be used in expand expressions
 [NonExpandableStreamProperties](./Org.OData.Capabilities.V1.xml#L556:~:text=<ComplexType%20Name="-,ExpandRestrictionsType,-")|\[PropertyPath\]|These stream properties cannot be used in expand expressions
