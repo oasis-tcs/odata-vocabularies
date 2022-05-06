@@ -64,9 +64,9 @@
         </Collection>
       </Annotation>
 
-      <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="Parameter Property ReturnType Term TypeDefinition">
+      <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="EntityType Parameter Property ReturnType Term TypeDefinition">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.Description" String="The JSON Schema for JSON values of the annotated property, parameter, return type, term, or type definition" />
+        <Annotation Term="Core.Description" String="The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition" />
         <Annotation Term="Core.LongDescription">
           <String>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
         </Annotation>
