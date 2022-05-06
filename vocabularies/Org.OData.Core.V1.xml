@@ -395,13 +395,13 @@
       </Term>
 
       <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
-        <Annotation Term="Core.Description" String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term." />
+        <Annotation Term="Core.Description" String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
         <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
       <Term Name="MediaType" Type="Edm.String" AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
-        <Annotation Term="Core.Description" String="The media type of the media resources of the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term." />
+        <Annotation Term="Core.Description" String="The media type of the media stream of the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
         <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
@@ -412,7 +412,7 @@
       </Term>
 
       <Term Name="ContentDisposition" Type="Core.ContentDispositionType" Nullable="false" AppliesTo="EntityType Property Term">
-        <Annotation Term="Core.Description" String="The content disposition of a media resource or a binary or stream property or term" />
+        <Annotation Term="Core.Description" String="The content disposition of the media stream of the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
       </Term>
 
       <ComplexType Name="ContentDispositionType">
@@ -425,7 +425,7 @@
       </ComplexType>
 
       <Term Name="OptimisticConcurrency" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntitySet">
-        <Annotation Term="Core.Description" String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag." />
+        <Annotation Term="Core.Description" String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag" />
       </Term>
 
       <Term Name="AdditionalProperties" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType ComplexType">
@@ -433,8 +433,8 @@
         <Annotation Term="Core.LongDescription" String="If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute." />
       </Term>
 
-      <Term Name="AutoExpand" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty Property">
-        <Annotation Term="Core.Description" String="The service will automatically expand this stream or navigation property even if not requested with $expand" />
+      <Term Name="AutoExpand" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType NavigationProperty Property">
+        <Annotation Term="Core.Description" String="The service will automatically expand this stream property, navigation property, or the media stream of this media entity type even if not requested with $expand" />
       </Term>
 
       <Term Name="AutoExpandReferences" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
