@@ -70,7 +70,7 @@ receiving
 
 Term|Type|Description
 :---|:---|:----------
-[Schema](./Org.OData.JSON.V1.xml#L131:~:text=<Term%20Name="-,Schema,-")|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated property, parameter, return type, term, or type definition<br>The schema can be a reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
+[Schema](./Org.OData.JSON.V1.xml#L131:~:text=<Term%20Name="-,Schema,-")|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition<br>The schema can be a reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
 
 
 ## Functions
