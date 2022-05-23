@@ -106,7 +106,7 @@
         <NavigationProperty Name="Customer" Type="SalesModel.Customer" Partner="Sales" />
         <NavigationProperty Name="Time" Type="SalesModel.Time" />
       </EntityType>
-      <EntityContainer Name="SalesModel">
+      <EntityContainer Name="Container">
         <EntitySet Name="Time" EntityType="SalesModel.Time" />
         <EntitySet Name="Categories" EntityType="SalesModel.Category">
           <NavigationPropertyBinding Path="Products" Target="Products" />

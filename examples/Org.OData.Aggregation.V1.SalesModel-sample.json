@@ -203,7 +203,7 @@
                 "$Nullable": true
             }
         },
-        "SalesModel": {
+        "Container": {
             "$Kind": "EntityContainer",
             "Time": {
                 "$Collection": true,
@@ -305,5 +305,5 @@
             }
         }
     },
-    "$EntityContainer": "org.example.odata.salesservice.SalesModel"
+    "$EntityContainer": "org.example.odata.salesservice.Container"
 }
