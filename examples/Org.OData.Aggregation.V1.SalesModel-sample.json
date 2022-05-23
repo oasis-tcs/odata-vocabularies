@@ -203,7 +203,7 @@
                 "$Nullable": true
             }
         },
-        "Container": {
+        "SalesData": {
             "$Kind": "EntityContainer",
             "Time": {
                 "$Collection": true,
@@ -250,7 +250,7 @@
             }
         },
         "$Annotations": {
-            "SalesModel.Container/Sales": {
+            "SalesModel.SalesData/Sales": {
                 "@Aggregation.ApplySupported": {
                     "Rollup": "MultipleHierarchies",
                     "GroupableProperties": [
@@ -284,7 +284,7 @@
                 ],
                 "@Aggregation.CustomAggregate#Forecast": "Edm.Decimal"
             },
-            "SalesModel.Container/Customers": {
+            "SalesModel.SalesData/Customers": {
                 "@Aggregation.ApplySupported": {
                     "Rollup": "None",
                     "GroupableProperties": [
@@ -293,7 +293,7 @@
                     ]
                 }
             },
-            "SalesModel.Container/Products": {
+            "SalesModel.SalesData/Products": {
                 "@Aggregation.ApplySupported": {
                     "Rollup": "None",
                     "GroupableProperties": [
@@ -305,5 +305,5 @@
             }
         }
     },
-    "$EntityContainer": "org.example.odata.salesservice.Container"
+    "$EntityContainer": "org.example.odata.salesservice.SalesData"
 }

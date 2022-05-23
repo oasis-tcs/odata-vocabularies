@@ -106,7 +106,7 @@
         <NavigationProperty Name="Customer" Type="SalesModel.Customer" Partner="Sales" />
         <NavigationProperty Name="Time" Type="SalesModel.Time" />
       </EntityType>
-      <EntityContainer Name="Container">
+      <EntityContainer Name="SalesData">
         <EntitySet Name="Time" EntityType="SalesModel.Time" />
         <EntitySet Name="Categories" EntityType="SalesModel.Category">
           <NavigationPropertyBinding Path="Products" Target="Products" />
@@ -128,7 +128,7 @@
           <NavigationPropertyBinding Path="Time" Target="Time" />
         </EntitySet>
       </EntityContainer>
-      <Annotations Target="SalesModel.Container/Sales">
+      <Annotations Target="SalesModel.SalesData/Sales">
         <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/MultipleHierarchies" />
@@ -173,7 +173,7 @@
           </Annotation>
         </Annotation>
       </Annotations>
-      <Annotations Target="SalesModel.Container/Customers">
+      <Annotations Target="SalesModel.SalesData/Customers">
         <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
@@ -186,7 +186,7 @@
           </Record>
         </Annotation>
       </Annotations>
-      <Annotations Target="SalesModel.Container/Products">
+      <Annotations Target="SalesModel.SalesData/Products">
         <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
