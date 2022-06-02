@@ -1038,10 +1038,10 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </Term>
 
       <ComplexType Name="HttpResponse">
-        <Property Name="StatusCode" Type="Edm.String">
+        <Property Name="StatusCode" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="HTTP response status code, for example 400, 403, 501" />
         </Property>
-        <Property Name="Description" Type="Edm.String">
+        <Property Name="Description" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Human-readable description of the response" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>

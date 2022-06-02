@@ -513,5 +513,5 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[StatusCode](./Org.OData.Capabilities.V1.xml#L1041:~:text=<ComplexType%20Name="-,HttpResponse,-")|String?|HTTP response status code, for example 400, 403, 501
-[Description](./Org.OData.Capabilities.V1.xml#L1044:~:text=<ComplexType%20Name="-,HttpResponse,-")|String?|Human-readable description of the response
+[StatusCode](./Org.OData.Capabilities.V1.xml#L1041:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|HTTP response status code, for example 400, 403, 501
+[Description](./Org.OData.Capabilities.V1.xml#L1044:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|Human-readable description of the response

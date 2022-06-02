@@ -1426,11 +1426,9 @@
         "HttpResponse": {
             "$Kind": "ComplexType",
             "StatusCode": {
-                "$Nullable": true,
                 "@Core.Description": "HTTP response status code, for example 400, 403, 501"
             },
             "Description": {
-                "$Nullable": true,
                 "@Core.Description": "Human-readable description of the response",
                 "@Core.IsLanguageDependent": true
             }
