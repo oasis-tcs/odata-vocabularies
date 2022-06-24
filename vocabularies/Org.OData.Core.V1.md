@@ -214,7 +214,7 @@ Flag Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Type](./Org.OData.Core.V1.xml#L419:~:text=<ComplexType%20Name="-,ContentDispositionType,-")|String?|The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)
+[Type](./Org.OData.Core.V1.xml#L419:~:text=<ComplexType%20Name="-,ContentDispositionType,-")|String|The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)
 [Filename](./Org.OData.Core.V1.xml#L422:~:text=<ComplexType%20Name="-,ContentDispositionType,-")|String?|The proposed filename for downloading the binary or stream value, see [RFC 6266, Disposition Parameter: 'Filename'](https://datatracker.ietf.org/doc/html/rfc6266#section-4.3)
 
 ## <a name="QualifiedTermName"></a>[QualifiedTermName](./Org.OData.Core.V1.xml#L448:~:text=<TypeDefinition%20Name="-,QualifiedTermName,-")

@@ -638,6 +638,9 @@ supported:
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
       <ComplexType Name="InsertRestrictionsType" BaseType="Capabilities.InsertRestrictionsBase">
         <Property Name="NonInsertableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -742,6 +745,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
       <ComplexType Name="UpdateRestrictionsType" BaseType="Capabilities.UpdateRestrictionsBase">
         <Property Name="NonUpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -826,6 +832,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
       <ComplexType Name="DeleteRestrictionsType" BaseType="Capabilities.DeleteRestrictionsBase">
         <Property Name="NonDeletableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
@@ -890,6 +899,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
@@ -943,6 +955,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
         </Property>
       </ComplexType>
       <ComplexType Name="ReadByKeyRestrictionsType" BaseType="Capabilities.ReadRestrictionsBase">
@@ -1102,6 +1117,15 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
+      <ComplexType Name="HttpResponse">
+        <Property Name="StatusCode" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="HTTP response status code, for example 400, 403, 501" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Human-readable description of the response" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>

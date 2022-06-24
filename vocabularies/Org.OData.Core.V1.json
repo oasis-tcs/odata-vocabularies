@@ -505,7 +505,6 @@
         "ContentDispositionType": {
             "$Kind": "ComplexType",
             "Type": {
-                "$Nullable": true,
                 "$DefaultValue": "attachment",
                 "@Core.Description": "The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)"
             },

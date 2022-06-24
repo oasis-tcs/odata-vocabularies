@@ -837,6 +837,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "InsertRestrictionsType": {
@@ -990,6 +995,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "UpdateRestrictionsType": {
@@ -1111,6 +1121,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "DeleteRestrictionsType": {
@@ -1222,6 +1237,11 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "AnnotationValuesInQuerySupported": {
@@ -1320,6 +1340,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "ReadByKeyRestrictionsType": {
@@ -1520,6 +1545,16 @@
                 "$Type": "Capabilities.ReadRestrictionsType",
                 "$Nullable": true,
                 "@Core.Description": "Restrictions for retrieving a collection of entities, retrieving a singleton instance"
+            }
+        },
+        "HttpResponse": {
+            "$Kind": "ComplexType",
+            "StatusCode": {
+                "@Core.Description": "HTTP response status code, for example 400, 403, 501"
+            },
+            "Description": {
+                "@Core.Description": "Human-readable description of the response",
+                "@Core.IsLanguageDependent": true
             }
         }
     }
