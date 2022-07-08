@@ -126,13 +126,13 @@
         },
         "RollupType": {
             "$Kind": "EnumType",
-            "@Core.Description": "The number of `rollup` or `rollupall` or `rollupdescendants` operators allowed in a `groupby` transformation",
+            "@Core.Description": "The number of `rollup` or `rollupall` or `rolluprecursive` operators allowed in a `groupby` transformation",
             "None": 0,
-            "None@Core.Description": "No support for `rollup` or `rollupall` or `rollupdescendants`",
+            "None@Core.Description": "No support for `rollup` or `rollupall` or `rolluprecursive`",
             "SingleHierarchy": 1,
-            "SingleHierarchy@Core.Description": "Only one `rollup` or `rollupall` or `rollupdescendants` operator per `groupby`",
+            "SingleHierarchy@Core.Description": "Only one `rollup` or `rollupall` or `rolluprecursive` operator per `groupby`",
             "MultipleHierarchies": 2,
-            "MultipleHierarchies@Core.Description": "Full support for `rollup` and `rollupall` and `rollupdescendants`"
+            "MultipleHierarchies@Core.Description": "Full support for `rollup` and `rollupall` and `rolluprecursive`"
         },
         "Groupable": {
             "$Kind": "Term",
