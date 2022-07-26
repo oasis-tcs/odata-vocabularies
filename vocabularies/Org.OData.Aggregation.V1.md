@@ -115,13 +115,13 @@ Property|Type|Description
 [RecommendedAggregationMethod](./Org.OData.Aggregation.V1.xml#L133:~:text=<ComplexType%20Name="-,AggregatablePropertyType,-")|String?|Recommended method for aggregating values of the property
 
 ## <a name="RollupType"></a>[RollupType](./Org.OData.Aggregation.V1.xml#L141:~:text=<EnumType%20Name="-,RollupType,-")
-The number of `rollup` or `rollupall` operators allowed in a `groupby` transformation
+The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation
 
 Member|Value|Description
 :-----|----:|:----------
-[None](./Org.OData.Aggregation.V1.xml#L143:~:text=<EnumType%20Name="-,RollupType,-")|0|No support for `rollup` or `rollupall`
-[SingleHierarchy](./Org.OData.Aggregation.V1.xml#L146:~:text=<EnumType%20Name="-,RollupType,-")|1|Only one `rollup` or `rollupall` operator per `groupby`
-[MultipleHierarchies](./Org.OData.Aggregation.V1.xml#L149:~:text=<EnumType%20Name="-,RollupType,-")|2|Full support for `rollup` and `rollupall`
+[None](./Org.OData.Aggregation.V1.xml#L143:~:text=<EnumType%20Name="-,RollupType,-")|0|No support for `rollup` or `rolluprecursive`
+[SingleHierarchy](./Org.OData.Aggregation.V1.xml#L146:~:text=<EnumType%20Name="-,RollupType,-")|1|Only one `rollup` or `rolluprecursive` operator per `groupby`
+[MultipleHierarchies](./Org.OData.Aggregation.V1.xml#L149:~:text=<EnumType%20Name="-,RollupType,-")|2|Full support for `rollup` and `rolluprecursive`
 
 ## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Org.OData.Aggregation.V1.xml#L199:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")
 
