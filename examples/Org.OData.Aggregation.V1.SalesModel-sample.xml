@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="org.example.odata.salesservice" Alias="SalesModel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Time">
+        <Key>
+          <PropertyRef Name="Date" />
+        </Key>
+        <Property Name="Date" Type="Edm.Date" Nullable="false" />
+        <Property Name="Month" Type="Edm.String" Nullable="false" />
+        <Property Name="Quarter" Type="Edm.String" Nullable="false" />
+        <Property Name="Year" Type="Edm.Int16" Nullable="false" />
+        <Annotation Term="Aggregation.LeveledHierarchy" Qualifier="TimeHierarchy">
+          <Collection>
+            <PropertyPath>Year</PropertyPath>
+            <PropertyPath>Quarter</PropertyPath>
+            <PropertyPath>Month</PropertyPath>
+          </Collection>
+        </Annotation>
+      </EntityType>
+      <EntityType Name="Category">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="Products" Type="Collection(SalesModel.Product)" Partner="Category" />
+      </EntityType>
+      <EntityType Name="SalesOrganization">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <NavigationProperty Name="Superordinate" Type="SalesModel.SalesOrganization" />
+        <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="SalesOrganization" />
+        <Annotation Term="Aggregation.RecursiveHierarchy" Qualifier="SalesOrgHierarchy">
+          <Record>
+            <PropertyValue Property="NodeProperty" PropertyPath="ID" />
+            <PropertyValue Property="ParentNavigationProperty" NavigationPropertyPath="Superordinate" />
+          </Record>
+        </Annotation>
+      </EntityType>
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Country" Type="Edm.String" />
+        <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="Customer" />
+      </EntityType>
+      <EntityType Name="Product" Abstract="true">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Name" Type="Edm.String" />
+        <Property Name="Color" Type="Edm.String" />
+        <Property Name="TaxRate" Type="Edm.Decimal" Scale="2"/>
+        <NavigationProperty Name="Category" Type="SalesModel.Category" Nullable="false" Partner="Products" />
+        <NavigationProperty Name="Sales" Type="Collection(SalesModel.Sale)" Partner="Product" />
+        <Annotation Term="Aggregation.LeveledHierarchy" Qualifier="ProductHierarchy">
+          <Collection>
+            <PropertyPath>Category/Name</PropertyPath>
+            <PropertyPath>Name</PropertyPath>
+          </Collection>
+        </Annotation>
+      </EntityType>
+      <EntityType Name="FoodProduct" BaseType="SalesModel.Product">
+        <Property Name="Rating" Type="Edm.Byte" />
+      </EntityType>
+      <EntityType Name="NonFoodProduct" BaseType="SalesModel.Product">
+        <Property Name="Rating" Type="Edm.String" />
+      </EntityType>
+      <EntityType Name="Sale">
+        <Key>
+          <PropertyRef Name="ID" />
+        </Key>
+        <Property Name="ID" Type="Edm.String" Nullable="false" />
+        <Property Name="Amount" Type="Edm.Decimal" Scale="2"/>
+        <NavigationProperty Name="SalesOrganization" Type="SalesModel.SalesOrganization" Partner="Sales" />
+        <NavigationProperty Name="Product" Type="SalesModel.Product" Partner="Sales" />
+        <NavigationProperty Name="Customer" Type="SalesModel.Customer" Partner="Sales" />
+        <NavigationProperty Name="Time" Type="SalesModel.Time" />
+      </EntityType>
+      <EntityContainer Name="Container">
+        <EntitySet Name="Time" EntityType="SalesModel.Time" />
+        <EntitySet Name="Categories" EntityType="SalesModel.Category">
+          <NavigationPropertyBinding Path="Products" Target="Products" />
+        </EntitySet>
+        <EntitySet Name="SalesOrganizations" EntityType="SalesModel.SalesOrganization">
+          <NavigationPropertyBinding Path="Sales" Target="Sales" />
+        </EntitySet>
+        <EntitySet Name="Customers" EntityType="SalesModel.Customer">
+          <NavigationPropertyBinding Path="Sales" Target="Sales" />
+        </EntitySet>
+        <EntitySet Name="Products" EntityType="SalesModel.Product">
+          <NavigationPropertyBinding Path="Category" Target="Categories" />
+          <NavigationPropertyBinding Path="Sales" Target="Sales" />
+        </EntitySet>
+        <EntitySet Name="Sales" EntityType="SalesModel.Sale">
+          <NavigationPropertyBinding Path="SalesOrganization" Target="SalesOrganizations" />
+          <NavigationPropertyBinding Path="Customer" Target="Customers" />
+          <NavigationPropertyBinding Path="Product" Target="Products" />
+          <NavigationPropertyBinding Path="Time" Target="Time" />
+        </EntitySet>
+      </EntityContainer>
+      <Annotations Target="SalesModel.Container/Sales">
+        <Annotation Term="Aggregation.ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/MultipleHierarchies" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Amount</PropertyPath>
+                <PropertyPath>Product/ID</PropertyPath>
+                <PropertyPath>Product/Name</PropertyPath>
+                <PropertyPath>Product/Category/ID</PropertyPath>
+                <PropertyPath>Product/Category/Name</PropertyPath>
+                <NavigationPropertyPath>Customer</NavigationPropertyPath>
+                <PropertyPath>Customer/ID</PropertyPath>
+                <PropertyPath>Customer/Name</PropertyPath>
+                <PropertyPath>Customer/Country</PropertyPath>
+                <NavigationPropertyPath>Time</NavigationPropertyPath>
+                <PropertyPath>Time/Month</PropertyPath>
+                <PropertyPath>Time/Year</PropertyPath>
+              </Collection>
+            </PropertyValue>
+            <PropertyValue Property="AggregatableProperties">
+              <Collection>
+                <Record>
+                  <PropertyValue Property="Property" PropertyPath="Amount" />
+                  <PropertyValue Property="SupportedAggregationMethods">
+                    <Collection>
+                      <String>sum</String>
+                      <String>min</String>
+                      <String>max</String>
+                    </Collection>
+                  </PropertyValue>
+                  <PropertyValue Property="RecommendedAggregationMethod" String="sum" />
+                </Record>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="SalesModel.Container/Customers">
+        <Annotation Term="Aggregation.ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Name</PropertyPath>
+                <PropertyPath>Country</PropertyPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+      <Annotations Target="SalesModel.Container/Products">
+        <Annotation Term="Aggregation.ApplySupported">
+          <Record>
+            <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
+            <PropertyValue Property="GroupableProperties">
+              <Collection>
+                <PropertyPath>Name</PropertyPath>
+                <PropertyPath>SalesModel.FoodProduct/Rating</PropertyPath>
+                <PropertyPath>SalesModel.NonFoodProduct/Rating</PropertyPath>
+              </Collection>
+            </PropertyValue>
+          </Record>
+        </Annotation>
+      </Annotations>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
