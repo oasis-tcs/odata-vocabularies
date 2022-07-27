@@ -687,7 +687,7 @@
             "StreamsExpandable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "$expand is supported for stream properties and media resources"
+                "@Core.Description": "$expand is supported for stream properties and media streams"
             },
             "NonExpandableProperties": {
                 "$Collection": true,
@@ -838,6 +838,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "PermissionType": {
@@ -981,6 +986,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "HttpMethod": {
@@ -1088,6 +1098,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "CollectionPropertyRestrictions": {
@@ -1190,6 +1205,11 @@
                 "$Collection": true,
                 "$Type": "Capabilities.CustomParameter",
                 "@Core.Description": "Supported or required custom query options"
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "AnnotationValuesInQuerySupported": {
@@ -1288,6 +1308,11 @@
                 "$Nullable": true,
                 "@Core.Description": "A long description of the request",
                 "@Core.IsLanguageDependent": true
+            },
+            "ErrorResponses": {
+                "$Collection": true,
+                "$Type": "Capabilities.HttpResponse",
+                "@Core.Description": "Possible error responses returned by the request."
             }
         },
         "ReadByKeyRestrictionsType": {
@@ -1392,10 +1417,21 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
+                "EntityType",
                 "Property"
             ],
             "@Core.RequiresType": "Edm.Stream",
-            "@Core.Description": "Stream property supports update of its media edit URL and/or media read URL"
+            "@Core.Description": "Stream property or media stream supports update of its media edit URL and/or media read URL"
+        },
+        "HttpResponse": {
+            "$Kind": "ComplexType",
+            "StatusCode": {
+                "@Core.Description": "HTTP response status code, for example 400, 403, 501"
+            },
+            "Description": {
+                "@Core.Description": "Human-readable description of the response",
+                "@Core.IsLanguageDependent": true
+            }
         }
     }
 }

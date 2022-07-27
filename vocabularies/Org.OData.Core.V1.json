@@ -462,7 +462,7 @@
                 "Parameter",
                 "ReturnType"
             ],
-            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term.",
+            "@Core.Description": "Lists the MIME types acceptable for the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term",
             "@Core.LongDescription": "The annotation of a TypeDefinition propagates to the model elements having this type",
             "@Core.IsMediaType": true
         },
@@ -477,7 +477,7 @@
                 "Parameter",
                 "ReturnType"
             ],
-            "@Core.Description": "The media type of the media resources of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term.",
+            "@Core.Description": "The media type of the media stream of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term",
             "@Core.LongDescription": "The annotation of a TypeDefinition propagates to the model elements having this type",
             "@Core.IsMediaType": true
         },
@@ -500,12 +500,11 @@
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The content disposition of a media resource or a binary or stream property or term"
+            "@Core.Description": "The content disposition of the media stream of the annotated entity type marked with HasStream=\"true\" or the annotated binary, stream, or string property or term"
         },
         "ContentDispositionType": {
             "$Kind": "ComplexType",
             "Type": {
-                "$Nullable": true,
                 "$DefaultValue": "attachment",
                 "@Core.Description": "The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)"
             },
@@ -521,7 +520,7 @@
             "$AppliesTo": [
                 "EntitySet"
             ],
-            "@Core.Description": "Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag."
+            "@Core.Description": "Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag"
         },
         "AdditionalProperties": {
             "$Kind": "Term",
@@ -539,10 +538,11 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
+                "EntityType",
                 "NavigationProperty",
                 "Property"
             ],
-            "@Core.Description": "The service will automatically expand this stream or navigation property even if not requested with $expand"
+            "@Core.Description": "The service will automatically expand this stream property, navigation property, or the media stream of this media entity type even if not requested with $expand"
         },
         "AutoExpandReferences": {
             "$Kind": "Term",

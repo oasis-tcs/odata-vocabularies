@@ -535,7 +535,7 @@ supported:
           <Annotation Term="Core.Description" String="$expand is supported" />
         </Property>
         <Property Name="StreamsExpandable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="$expand is supported for stream properties and media resources" />
+          <Annotation Term="Core.Description" String="$expand is supported for stream properties and media streams" />
         </Property>
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions" />
@@ -640,6 +640,9 @@ supported:
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
 
       <ComplexType Name="PermissionType">
@@ -739,6 +742,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
 
       <EnumType Name="HttpMethod" IsFlags="true">
@@ -815,6 +821,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
 
       <Term Name="CollectionPropertyRestrictions" Type="Collection(Capabilities.CollectionPropertyRestrictionsType)" Nullable="false" AppliesTo="EntitySet Singleton">
@@ -874,6 +883,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="CustomQueryOptions" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom query options" />
         </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
+        </Property>
       </ComplexType>
       <Term Name="AnnotationValuesInQuerySupported" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Supports annotation values within system query options" />
@@ -927,6 +939,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Property Name="LongDescription" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.Description" String="A long description of the request" />
           <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+        <Property Name="ErrorResponses" Type="Collection(Capabilities.HttpResponse)">
+          <Annotation Term="Core.Description" String="Possible error responses returned by the request." />
         </Property>
       </ComplexType>
       <ComplexType Name="ReadByKeyRestrictionsType" BaseType="Capabilities.ReadRestrictionsBase">
@@ -1017,10 +1032,20 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         </Property>
       </ComplexType>
 
-      <Term Name="MediaLocationUpdateSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+      <Term Name="MediaLocationUpdateSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType Property">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.Description" String="Stream property supports update of its media edit URL and/or media read URL" />
+        <Annotation Term="Core.Description" String="Stream property or media stream supports update of its media edit URL and/or media read URL" />
       </Term>
+
+      <ComplexType Name="HttpResponse">
+        <Property Name="StatusCode" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="HTTP response status code, for example 400, 403, 501" />
+        </Property>
+        <Property Name="Description" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Human-readable description of the response" />
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+      </ComplexType>
 
     </Schema>
   </edmx:DataServices>
