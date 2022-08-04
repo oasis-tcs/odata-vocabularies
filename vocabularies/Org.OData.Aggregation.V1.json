@@ -81,7 +81,7 @@
             "From": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "The service supports the `from` keyword in a `groupby` transformation"
+                "@Core.Description": "The service supports the `from` keyword in an `aggregate` transformation"
             }
         },
         "ApplySupportedType": {

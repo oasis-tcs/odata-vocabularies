@@ -104,7 +104,7 @@
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
         <Property Name="From" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="The service supports the `from` keyword in a `groupby` transformation" />
+          <Annotation Term="Core.Description" String="The service supports the `from` keyword in an `aggregate` transformation" />
         </Property>
       </ComplexType>
       <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
