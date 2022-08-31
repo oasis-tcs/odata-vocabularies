@@ -22,7 +22,7 @@ vocabularies.forEach((v) => {
   const vocab = `Org.OData.${v}.V1`;
   input[`${vocab}.xml`] = csdl.xml2json(
     fs.readFileSync(`vocabularies/${vocab}.xml`),
-    true
+    { lineNumbers: true }
   );
   expected[v] = fs.readFileSync(`vocabularies/${vocab}.md`, "utf8");
 });
@@ -283,7 +283,9 @@ describe("Non-OASIS Vocabularies", function () {
     ];
     const markdown = lib.csdl2markdown(
       filename,
-      csdl.xml2json(fs.readFileSync("test/" + filename, "utf8"), true)
+      csdl.xml2json(fs.readFileSync("test/" + filename, "utf8"), {
+        lineNumbers: true,
+      })
     );
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
