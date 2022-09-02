@@ -25,13 +25,13 @@ Term|Type|Description
 
 Is the node a root of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
-If a node value passed to the function is null, the function returns null.
+If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L230:~:text=<Function%20Name="-,isroot,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L233:~:text=<Function%20Name="-,isroot,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L234:~:text=<Function%20Name="-,isroot,-")|PrimitiveType?|Node value of the putative root
+[Node](./Org.OData.Aggregation.V1.xml#L234:~:text=<Function%20Name="-,isroot,-")|PrimitiveType?|Node identifier of the putative root
 [&rarr;](./Org.OData.Aggregation.V1.xml#L237:~:text=<Function%20Name="-,isroot,-")|Boolean?|
 
 
@@ -39,14 +39,14 @@ Parameter|Type|Description
 
 Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
 
-If a node value passed to the function is null, the function returns null.
+If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L243:~:text=<Function%20Name="-,isdescendant,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L246:~:text=<Function%20Name="-,isdescendant,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the putative descendant
-[Ancestor](./Org.OData.Aggregation.V1.xml#L250:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node value of the ancestor node
+[Node](./Org.OData.Aggregation.V1.xml#L247:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the putative descendant
+[Ancestor](./Org.OData.Aggregation.V1.xml#L250:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the ancestor node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L253:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L261:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the node is considered a descendant of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L269:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
@@ -56,14 +56,14 @@ Parameter|Type|Description
 
 Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
 
-If a node value passed to the function is null, the function returns null.
+If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L275:~:text=<Function%20Name="-,isancestor,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L278:~:text=<Function%20Name="-,isancestor,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L279:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the putative ancestor
-[Descendant](./Org.OData.Aggregation.V1.xml#L282:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node value of the descendant node
+[Node](./Org.OData.Aggregation.V1.xml#L279:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the putative ancestor
+[Descendant](./Org.OData.Aggregation.V1.xml#L282:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the descendant node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L285:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
 *[IncludeSelf](./Org.OData.Aggregation.V1.xml#L293:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the node is considered an ancestor of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L301:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
@@ -73,14 +73,14 @@ Parameter|Type|Description
 
 Returns true if the node has the same parent as the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) or both are roots
 
-A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.
+A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,issibling,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L310:~:text=<Function%20Name="-,issibling,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the putative sibling
-[Other](./Org.OData.Aggregation.V1.xml#L314:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node value of the other node
+[Node](./Org.OData.Aggregation.V1.xml#L311:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node identifier of the putative sibling
+[Other](./Org.OData.Aggregation.V1.xml#L314:~:text=<Function%20Name="-,issibling,-")|PrimitiveType?|Node identifier of the other node
 [&rarr;](./Org.OData.Aggregation.V1.xml#L317:~:text=<Function%20Name="-,issibling,-")|Boolean?|
 
 
@@ -88,13 +88,13 @@ Parameter|Type|Description
 
 Is the node a leaf in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
-If a node value passed to the function is null, the function returns null.
+If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
 [HierarchyNodes](./Org.OData.Aggregation.V1.xml#L323:~:text=<Function%20Name="-,isleaf,-")|\[EntityType\]|A collection, given through a `$root` expression
 [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L326:~:text=<Function%20Name="-,isleaf,-")|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](./Org.OData.Aggregation.V1.xml#L327:~:text=<Function%20Name="-,isleaf,-")|PrimitiveType?|Node value of the putative leaf
+[Node](./Org.OData.Aggregation.V1.xml#L327:~:text=<Function%20Name="-,isleaf,-")|PrimitiveType?|Node identifier of the putative leaf
 [&rarr;](./Org.OData.Aggregation.V1.xml#L330:~:text=<Function%20Name="-,isleaf,-")|Boolean?|
 
 
@@ -147,7 +147,7 @@ Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeProperty](./Org.OData.Aggregation.V1.xml#L207:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Primitive property holding the hierarchy node value
+[NodeProperty](./Org.OData.Aggregation.V1.xml#L207:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Primitive property holding the hierarchy node identifier
 [ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L210:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable.
 
 ## <a name="HierarchyQualifier"></a>[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L215:~:text=<TypeDefinition%20Name="-,HierarchyQualifier,-")

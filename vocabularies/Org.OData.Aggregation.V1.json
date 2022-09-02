@@ -211,7 +211,7 @@
             "$Kind": "ComplexType",
             "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Primitive property holding the hierarchy node value"
+                "@Core.Description": "Primitive property holding the hierarchy node identifier"
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
@@ -228,7 +228,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Is the node a root of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?",
-                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -244,7 +244,7 @@
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the putative root"
+                        "@Core.Description": "Node identifier of the putative root"
                     }
                 ],
                 "$ReturnType": {
@@ -257,7 +257,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?",
-                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -273,13 +273,13 @@
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the putative descendant"
+                        "@Core.Description": "Node identifier of the putative descendant"
                     },
                     {
                         "$Name": "Ancestor",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the ancestor node"
+                        "@Core.Description": "Node identifier of the ancestor node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -308,7 +308,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?",
-                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -324,13 +324,13 @@
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the putative ancestor"
+                        "@Core.Description": "Node identifier of the putative ancestor"
                     },
                     {
                         "$Name": "Descendant",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the descendant node"
+                        "@Core.Description": "Node identifier of the descendant node"
                     },
                     {
                         "$Name": "MaxDistance",
@@ -359,7 +359,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Returns true if the node has the same parent as the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) or both are roots",
-                "@Core.LongDescription": "A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.",
+                "@Core.LongDescription": "A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -375,13 +375,13 @@
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the putative sibling"
+                        "@Core.Description": "Node identifier of the putative sibling"
                     },
                     {
                         "$Name": "Other",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the other node"
+                        "@Core.Description": "Node identifier of the other node"
                     }
                 ],
                 "$ReturnType": {
@@ -394,7 +394,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Is the node a leaf in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?",
-                "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
                         "$Name": "HierarchyNodes",
@@ -410,7 +410,7 @@
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
-                        "@Core.Description": "Node value of the putative leaf"
+                        "@Core.Description": "Node identifier of the putative leaf"
                     }
                 ],
                 "$ReturnType": {
