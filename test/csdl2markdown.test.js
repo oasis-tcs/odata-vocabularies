@@ -234,6 +234,7 @@ describe("Non-OASIS Vocabularies", function () {
           "@Core.Description": "Reference to a description",
           "@Org.OData.Validation.V1.AllowedTerms": [
             "Org.OData.Core.V1.Description",
+            "Vocabulary.WithoutReference",
           ],
         },
       },
@@ -249,7 +250,7 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)',
+      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)<br>- [WithoutReference](#WithoutReference)',
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
@@ -327,6 +328,7 @@ describe("Edge cases", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
     assert.deepStrictEqual(warnings, [
+      "Unknown namespace or alias: other",
       "- Cannot find 'other.notThere'",
       "- Cannot find 'other.notThere'",
     ]);
