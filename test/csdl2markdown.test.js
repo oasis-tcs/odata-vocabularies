@@ -44,6 +44,17 @@ describe("OASIS Vocabularies", function () {
 });
 
 describe("Non-OASIS Vocabularies", function () {
+  let warnings = [];
+  let warn;
+  beforeEach(function () {
+    warn = console.warn;
+    warnings = [];
+    console.warn = (args) => warnings.push(args);
+  });
+  afterEach(function () {
+    console.warn = warn;
+  });
+
   it("Non-OASIS Vocabulary referencing an OASIS Vocabulary", function () {
     const filename = "Other.xml";
     const vocabulary = {
@@ -234,7 +245,7 @@ describe("Non-OASIS Vocabularies", function () {
           "@Core.Description": "Reference to a description",
           "@Org.OData.Validation.V1.AllowedTerms": [
             "Org.OData.Core.V1.Description",
-            "Vocabulary.WithoutReference",
+            "SomeVocabulary.WithoutReference",
           ],
         },
       },
@@ -255,6 +266,9 @@ describe("Non-OASIS Vocabularies", function () {
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
+    assert.deepStrictEqual(warnings, [
+      "Unknown namespace or alias: SomeVocabulary",
+    ]);
   });
 
   it("Text fragments", function () {
