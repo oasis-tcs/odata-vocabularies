@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="revisions.sample" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <Annotation Term="Core.SchemaVersion" String="1.42.2" />
+
+      <EntityType Name="Evolving">
+        <Key>
+          <PropertyRef Name="id" />
+        </Key>
+        <Property Name="id" Type="Edm.String" Nullable="false" />
+        <Property Name="displayName" Type="Edm.String" Nullable="false" />
+        <Property Name="somethingNew" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Version" String="1.42.0" />
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Added" />
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+        <Property Name="someExperiment" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.Revisions">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Version" String="1.14.0" />
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Added" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Version" String="1.14.1" />
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Modified" />
+                <PropertyValue Property="Description" String="We can do better" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Version" String="1.15.0" />
+                <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+                <PropertyValue Property="Description" String="Wasn't such a good idea after all" />
+              </Record>
+            </Collection>
+          </Annotation>
+        </Property>
+      </EntityType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
