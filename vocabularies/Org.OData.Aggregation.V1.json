@@ -217,7 +217,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- a parameter `HierarchyQualifier` of this type and\n- a parameter `HierarchyNodes` that is a collection of entities.\n\n`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection\ngiven by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- a parameter `HierarchyQualifier` of this type and\n- a parameter `HierarchyNodes` that is a collection of entities.\n\n`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection\ngiven by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.\n\nIn the presence of the system query option `$hierarchy=H,Q`, the `HierarchyNodes` defaults to `H` and the\n`HierarchyQualifier` to `Q`."
         },
         "isroot": [
             {
@@ -226,20 +226,26 @@
                 "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "HierarchyNodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a `$root` expression"
-                    },
-                    {
-                        "$Name": "HierarchyQualifier",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative root"
+                    },
+                    {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the collection specified in a `$hierarchy` system query option"
+                        }
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the qualifier specified in a `$hierarchy` system query option"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -254,16 +260,6 @@
                 "@Core.Description": "Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?",
                 "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
-                    {
-                        "$Name": "HierarchyNodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a `$root` expression"
-                    },
-                    {
-                        "$Name": "HierarchyQualifier",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
@@ -291,6 +287,22 @@
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
+                    },
+                    {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the collection specified in a `$hierarchy` system query option"
+                        }
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the qualifier specified in a `$hierarchy` system query option"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -305,16 +317,6 @@
                 "@Core.Description": "Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?",
                 "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
-                    {
-                        "$Name": "HierarchyNodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a `$root` expression"
-                    },
-                    {
-                        "$Name": "HierarchyQualifier",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
                     {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
@@ -342,6 +344,22 @@
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
+                    },
+                    {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the collection specified in a `$hierarchy` system query option"
+                        }
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the qualifier specified in a `$hierarchy` system query option"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -357,16 +375,6 @@
                 "@Core.LongDescription": "A node is not a sibling of itself. If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "HierarchyNodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a `$root` expression"
-                    },
-                    {
-                        "$Name": "HierarchyQualifier",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
@@ -377,6 +385,22 @@
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the other node"
+                    },
+                    {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the collection specified in a `$hierarchy` system query option"
+                        }
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the qualifier specified in a `$hierarchy` system query option"
+                        }
                     }
                 ],
                 "$ReturnType": {
@@ -392,20 +416,26 @@
                 "@Core.LongDescription": "If a node value passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "HierarchyNodes",
-                        "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "@Core.Description": "A collection, given through a `$root` expression"
-                    },
-                    {
-                        "$Name": "HierarchyQualifier",
-                        "$Type": "Aggregation.HierarchyQualifier"
-                    },
-                    {
                         "$Name": "Node",
                         "$Type": "Edm.PrimitiveType",
                         "$Nullable": true,
                         "@Core.Description": "Node value of the putative leaf"
+                    },
+                    {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the collection specified in a `$hierarchy` system query option"
+                        }
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier",
+                        "@Core.OptionalParameter": {
+                            "@Core.Description": "Defaults to the qualifier specified in a `$hierarchy` system query option"
+                        }
                     }
                 ],
                 "$ReturnType": {
