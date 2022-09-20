@@ -103,6 +103,9 @@
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
+        <Property Name="From" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
+          <Annotation Term="Core.Description" String="The service supports the `from` keyword in an `aggregate` transformation" />
+        </Property>
       </ComplexType>
       <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
@@ -202,7 +205,7 @@
 
       <ComplexType Name="RecursiveHierarchyType">
         <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Primitive property holding the hierarchy node value" />
+          <Annotation Term="Core.Description" String="Primitive property holding the hierarchy node identifier" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable." />
@@ -226,9 +229,9 @@ In the presence of the system query option `$hierarchy=H,Q`, the `HierarchyNodes
 
       <Function Name="isroot">
         <Annotation Term="Core.Description" String="Is the node a root of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
-        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the putative root" />
+          <Annotation Term="Core.Description" String="Node identifier of the putative root" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -250,12 +253,12 @@ In the presence of the system query option `$hierarchy=H,Q`, the `HierarchyNodes
 
       <Function Name="isdescendant">
         <Annotation Term="Core.Description" String="Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
-        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the putative descendant" />
+          <Annotation Term="Core.Description" String="Node identifier of the putative descendant" />
         </Parameter>
         <Parameter Name="Ancestor" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the ancestor node" />
+          <Annotation Term="Core.Description" String="Node identifier of the ancestor node" />
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
@@ -293,12 +296,12 @@ In the presence of the system query option `$hierarchy=H,Q`, the `HierarchyNodes
 
       <Function Name="isancestor">
         <Annotation Term="Core.Description" String="Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
-        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the putative ancestor" />
+          <Annotation Term="Core.Description" String="Node identifier of the putative ancestor" />
         </Parameter>
         <Parameter Name="Descendant" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the descendant node" />
+          <Annotation Term="Core.Description" String="Node identifier of the descendant node" />
         </Parameter>
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
@@ -336,12 +339,12 @@ In the presence of the system query option `$hierarchy=H,Q`, the `HierarchyNodes
 
       <Function Name="issibling">
         <Annotation Term="Core.Description" String="Returns true if the node has the same parent as the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) or both are roots" />
-        <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the putative sibling" />
+          <Annotation Term="Core.Description" String="Node identifier of the putative sibling" />
         </Parameter>
         <Parameter Name="Other" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the other node" />
+          <Annotation Term="Core.Description" String="Node identifier of the other node" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -363,9 +366,9 @@ In the presence of the system query option `$hierarchy=H,Q`, the `HierarchyNodes
 
       <Function Name="isleaf">
         <Annotation Term="Core.Description" String="Is the node a leaf in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
-        <Annotation Term="Core.LongDescription" String="If a node value passed to the function is null, the function returns null." />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
-          <Annotation Term="Core.Description" String="Node value of the putative leaf" />
+          <Annotation Term="Core.Description" String="Node identifier of the putative leaf" />
         </Parameter>
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
