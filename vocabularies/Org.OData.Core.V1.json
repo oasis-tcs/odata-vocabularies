@@ -713,6 +713,8 @@
         "PreviousStateType": {
             "$Kind": "EnumType",
             "@Core.Description": "Previous state of a resource whose changes are described by an [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity)",
+            "Absent": 2,
+            "Absent@Core.Description": "The annotated entity describes changes to a resource that did not exist prior to capturing these changes",
             "Existed": 1,
             "Existed@Core.Description": "The annotated entity describes changes to a resource that already existed prior to capturing these changes",
             "Unknown": 0,

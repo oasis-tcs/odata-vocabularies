@@ -288,5 +288,6 @@ Previous state of a resource whose changes are described by an [added/changed en
 
 Member|Value|Description
 :-----|----:|:----------
-[Existed](./Org.OData.Core.V1.xml#L552:~:text=<EnumType%20Name="-,PreviousStateType,-")|1|The annotated entity describes changes to a resource that already existed prior to capturing these changes
-[Unknown](./Org.OData.Core.V1.xml#L555:~:text=<EnumType%20Name="-,PreviousStateType,-")|0|The sender does not know whether the resource already existed prior to capturing these changes
+[Absent](./Org.OData.Core.V1.xml#L552:~:text=<EnumType%20Name="-,PreviousStateType,-")|2|The annotated entity describes changes to a resource that did not exist prior to capturing these changes
+[Existed](./Org.OData.Core.V1.xml#L555:~:text=<EnumType%20Name="-,PreviousStateType,-")|1|The annotated entity describes changes to a resource that already existed prior to capturing these changes
+[Unknown](./Org.OData.Core.V1.xml#L558:~:text=<EnumType%20Name="-,PreviousStateType,-")|0|The sender does not know whether the resource already existed prior to capturing these changes
