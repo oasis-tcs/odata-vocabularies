@@ -540,7 +540,8 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       </ComplexType>
 
       <Term Name="PreviousState" Type="Core.PreviousStateType" Nullable="false">
-        <Annotation Term="Core.Description" String="Previous state of a resource whose changes are described by the [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request ](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE) carrying this instance annotation" />
+        <Annotation Term="Core.Description" String="Previous state of a resource whose changes are described by the [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE) carrying this instance annotation" />
+
         <Annotation Term="Core.LongDescription">
           <String>The presence or absence of this instance annotation does not alter the idempotent nature of a delta or deep-update message, nor does it alter the UPSERT nature of an added/changed or nested entity.
 
@@ -548,7 +549,8 @@ The recipient of a delta message MAY use the instance annotation for optimizatio
         </Annotation>
       </Term>
       <EnumType Name="PreviousStateType">
-        <Annotation Term="Core.Description" String="Previous state of a resource whose changes are described by an [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request ](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE)" />
+        <Annotation Term="Core.Description" String="Previous state of a resource whose changes are described by an [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE)" />
+
         <Member Name="Absent" Value="2">
           <Annotation Term="Core.Description" String="The annotated entity describes changes to a resource that did not exist prior to capturing these changes" />
         </Member>
