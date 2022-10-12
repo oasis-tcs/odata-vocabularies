@@ -146,15 +146,15 @@
 
 
       <EnumType Name="RollupType">
-        <Annotation Term="Core.Description" String="The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation" />
+        <Annotation Term="Core.Description" String="The number of `rollup` or `rolluprecursive` or `traverserecursive` operators allowed in a `groupby` transformation" />
         <Member Name="None">
-          <Annotation Term="Core.Description" String="No support for `rollup` or `rolluprecursive` " />
+          <Annotation Term="Core.Description" String="No support for `rollup` or `rolluprecursive` or `traverserecursive`" />
         </Member>
         <Member Name="SingleHierarchy">
-          <Annotation Term="Core.Description" String="Only one `rollup` or `rolluprecursive` operator per `groupby`" />
+          <Annotation Term="Core.Description" String="Only one `rollup` or `rolluprecursive` or `traverserecursive` operator per `groupby`" />
         </Member>
         <Member Name="MultipleHierarchies">
-          <Annotation Term="Core.Description" String="Full support for `rollup` and `rolluprecursive`" />
+          <Annotation Term="Core.Description" String="Full support for `rollup` and `rolluprecursive` or `traverserecursive`" />
         </Member>
       </EnumType>
 
