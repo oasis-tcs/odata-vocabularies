@@ -419,6 +419,33 @@
                 }
             }
         ],
+        "excludingdescendants": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "During `rolluprecursive` for a hierarchy node, this function marks instances related to the node itself rather than a descendant",
+                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\n          contains `rolluprecursive(...)`. It is evaluated as part of the \"`rolluprecursive` algorithm\" in [OData-Aggr, section 3.4.3].\n          Its behavior is undefined otherwise.<br>\n          `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup\n          that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
+                "$Parameter": [
+                    {
+                        "$Name": "Instance",
+                        "$Type": "Edm.EntityType"
+                    },
+                    {
+                        "$Name": "Position",
+                        "$Type": "Edm.Int16",
+                        "@Core.Description": "Position N within `groupby` of the `rolluprecursive` operator",
+                        "@Core.LongDescription": "Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators\n            has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N\n            relates the instance given in the binding parameter to the node itself rather than a descendant.",
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": 1
+                        },
+                        "@Validation.Minimum": 1
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean"
+                }
+            }
+        ],
         "AvailableOnAggregates": {
             "$Kind": "Term",
             "$Type": "Aggregation.AvailableOnAggregatesType",
