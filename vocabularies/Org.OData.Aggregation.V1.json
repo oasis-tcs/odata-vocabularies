@@ -423,8 +423,8 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "During `rolluprecursive` for a hierarchy node, this function marks instances related to the node itself rather than a descendant",
-                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\n          contains `rolluprecursive(...)`. It is evaluated as part of the \"`rolluprecursive` algorithm\" in [OData-Aggr, section 3.4.3].\n          Its behavior is undefined otherwise.<br>\n          `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup\n          that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
+                "@Core.Description": "During `rolluprecursive` for a hierarchy node `r`, this function marks instances `t` that are related to the node itself rather than a descendant",
+                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\n          contains `rolluprecursive(...)`. It is evaluated as part of the \"`rolluprecursive` algorithm\" in [OData-Aggr, section 3.4.3]\n          and computes the \"portion marker\" function `ϵ(t,r)=(t eq r)`. Its behavior is undefined outside this algorithm.<br>\n          `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup\n          that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
                 "$Parameter": [
                     {
                         "$Name": "Instance",

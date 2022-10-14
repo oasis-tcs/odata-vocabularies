@@ -100,11 +100,11 @@ Parameter|Type|Description
 
 ### <a name="excludingdescendants"></a>[excludingdescendants](./Org.OData.Aggregation.V1.xml#L333:~:text=<Function%20Name="-,excludingdescendants,-")
 
-During `rolluprecursive` for a hierarchy node, this function marks instances related to the node itself rather than a descendant
+During `rolluprecursive` for a hierarchy node `r`, this function marks instances `t` that are related to the node itself rather than a descendant
 
 This function may only occur in the second parameter of a `groupby` transformation whose first parameter
-          contains `rolluprecursive(...)`. It is evaluated as part of the "`rolluprecursive` algorithm" in [OData-Aggr, section 3.4.3].
-          Its behavior is undefined otherwise.<br>
+          contains `rolluprecursive(...)`. It is evaluated as part of the "`rolluprecursive` algorithm" in [OData-Aggr, section 3.4.3]
+          and computes the "portion marker" function `ϵ(t,r)=(t eq r)`. Its behavior is undefined outside this algorithm.<br>
           `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup
           that contains aggregates per hierarchy node while excluding descendants from the aggregation.
 
