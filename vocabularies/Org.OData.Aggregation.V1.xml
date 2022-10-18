@@ -331,11 +331,11 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="excludingdescendants" IsBound="true">
-        <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node `r`, this function marks instances `t` that are related to the node itself rather than a descendant" />
+        <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function marks instances that are related to the node itself rather than a descendant" />
         <Annotation Term="Core.LongDescription">
           <String>This function may only occur in the second parameter of a `groupby` transformation whose first parameter
-          contains `rolluprecursive(...)`. It is evaluated as part of the "`rolluprecursive` algorithm" in [OData-Aggr, section 3.4.3]
-          and computes the "portion marker" function `ϵ(t,r)=(t eq r)`. Its behavior is undefined outside this algorithm.&lt;br&gt;
+          contains `rolluprecursive(...)`. It is evaluated as part of the transformation `F(x)/R(x)` in the "`rolluprecursive` algorithm"
+          [OData-Aggr, section 3.4.3]. Its behavior is undefined outside of this algorithm.&lt;br&gt;
           `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup
           that contains aggregates per hierarchy node while excluding descendants from the aggregation.</String>
         </Annotation>
