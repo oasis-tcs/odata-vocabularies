@@ -433,7 +433,7 @@
                     {
                         "$Name": "Position",
                         "$Type": "Edm.Int16",
-                        "@Core.Description": "Position N within `groupby` of the `rolluprecursive` operator",
+                        "@Core.Description": "Position N among the `rolluprecursive` operators in the first argument of `groupby`",
                         "@Core.LongDescription": "Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators\n            has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N\n            relates the instance given in the binding parameter to the node itself rather than a descendant.",
                         "@Core.OptionalParameter": {
                             "DefaultValue": 1

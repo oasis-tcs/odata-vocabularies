@@ -111,7 +111,7 @@ This function may only occur in the second parameter of a `groupby` transformati
 Parameter|Type|Description
 :--------|:---|:----------
 **[Instance](./Org.OData.Aggregation.V1.xml#L342:~:text=<Function%20Name="-,excludingdescendants,-")**|EntityType|**Binding parameter**
-*[Position](./Org.OData.Aggregation.V1.xml#L343:~:text=<Function%20Name="-,excludingdescendants,-")*|Int16|*Optional parameter:* Position N within `groupby` of the `rolluprecursive` operator<br>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N relates the instance given in the binding parameter to the node itself rather than a descendant.
+*[Position](./Org.OData.Aggregation.V1.xml#L343:~:text=<Function%20Name="-,excludingdescendants,-")*|Int16|*Optional parameter:* Position N among the `rolluprecursive` operators in the first argument of `groupby`<br>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N relates the instance given in the binding parameter to the node itself rather than a descendant.
 [&rarr;](./Org.OData.Aggregation.V1.xml#L357:~:text=<Function%20Name="-,excludingdescendants,-")|Boolean|
 
 

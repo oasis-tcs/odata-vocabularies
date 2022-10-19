@@ -341,7 +341,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         </Annotation>
         <Parameter Name="Instance" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Position" Type="Edm.Int16" Nullable="false">
-          <Annotation Term="Core.Description" String="Position N within `groupby` of the `rolluprecursive` operator" />
+          <Annotation Term="Core.Description" String="Position N among the `rolluprecursive` operators in the first argument of `groupby`" />
           <Annotation Term="Core.LongDescription">
             <String>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators
             has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N
