@@ -104,7 +104,7 @@ During `rolluprecursive` for a hierarchy node, this function marks instances tha
 
 This function may only occur in the second parameter of a `groupby` transformation whose first parameter
           contains `rolluprecursive(...)`. It is evaluated as part of the transformation `F(x)/R(x)` in the "`rolluprecursive` algorithm"
-          [OData-Aggr, section 3.4.3]. Its behavior is undefined outside of this algorithm.<br>
+          [OData-Aggr, section 3.5.3]. Its behavior is undefined outside of this algorithm.<br>
           `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup
           that contains aggregates per hierarchy node while excluding descendants from the aggregation.
 
@@ -174,7 +174,7 @@ Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
 
 Every recursive hierarchy function defined in this vocabulary has
 - a parameter `HierarchyQualifier` of this type and
-- a parameter `HierarchyNodes` that is a collection of entities.
+- a parameter `HierarchyNodes` that is a collection of entities of a common type without multiple occurrences of the same entity.
 
 `HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection
 given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.

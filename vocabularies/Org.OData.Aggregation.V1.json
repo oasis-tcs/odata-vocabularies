@@ -222,7 +222,7 @@
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
-            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- a parameter `HierarchyQualifier` of this type and\n- a parameter `HierarchyNodes` that is a collection of entities.\n\n`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection\ngiven by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function."
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- a parameter `HierarchyQualifier` of this type and\n- a parameter `HierarchyNodes` that is a collection of entities of a common type without multiple occurrences of the same entity.\n\n`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection\ngiven by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function."
         },
         "isroot": [
             {
@@ -424,7 +424,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "During `rolluprecursive` for a hierarchy node, this function marks instances that are related to the node itself rather than a descendant",
-                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\n          contains `rolluprecursive(...)`. It is evaluated as part of the transformation `F(x)/R(x)` in the \"`rolluprecursive` algorithm\"\n          [OData-Aggr, section 3.4.3]. Its behavior is undefined outside of this algorithm.<br>\n          `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup\n          that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
+                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\n          contains `rolluprecursive(...)`. It is evaluated as part of the transformation `F(x)/R(x)` in the \"`rolluprecursive` algorithm\"\n          [OData-Aggr, section 3.5.3]. Its behavior is undefined outside of this algorithm.<br>\n          `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup\n          that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
                 "$Parameter": [
                     {
                         "$Name": "Instance",
