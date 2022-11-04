@@ -446,6 +446,41 @@
                 }
             }
         ],
+        "deentity": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "Converts an instance of an entity type into an instance of a complex type with the same structure and values",
+                "$Parameter": [
+                    {
+                        "$Name": "Entity",
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": true
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.ComplexType",
+                    "$Nullable": true
+                }
+            },
+            {
+                "$Kind": "Function",
+                "@Core.Description": "Converts a collection of instances of an entity type into a collection of instances of a complex type with the same structure and values",
+                "@Core.LongDescription": "Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation\nbecause a navigation property in an aggregate expression addresses distinct entities whereas a structural property\n`compute`d with `deentity` addresses instances with multiple occurrences. Compare\n```\nSales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)\n```\nwith\n```\nSales?$apply=compute(Aggregation.deentity(Entities=Products) as Products1)\n            /aggregate(Products1/$count as NumberOfProductSales)\n```\n",
+                "$Parameter": [
+                    {
+                        "$Name": "Entities",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "$Nullable": true
+                    }
+                ],
+                "$ReturnType": {
+                    "$Collection": true,
+                    "$Type": "Edm.ComplexType",
+                    "$Nullable": true
+                }
+            }
+        ],
         "AvailableOnAggregates": {
             "$Kind": "Term",
             "$Type": "Aggregation.AvailableOnAggregatesType",

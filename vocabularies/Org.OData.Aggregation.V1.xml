@@ -357,6 +357,31 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
+      <Function Name="deentity">
+        <Annotation Term="Core.Description" String="Converts an instance of an entity type into an instance of a complex type with the same structure and values" />
+        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
+        <ReturnType Type="Edm.ComplexType" Nullable="true" />
+      </Function>
+      <Function Name="deentity">
+        <Annotation Term="Core.Description" String="Converts a collection of instances of an entity type into a collection of instances of a complex type with the same structure and values" />
+        <Annotation Term="Core.LongDescription">
+          <String>Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation
+because a navigation property in an aggregate expression addresses distinct entities whereas a structural property
+`compute`d with `deentity` addresses instances with multiple occurrences. Compare
+```
+Sales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)
+```
+with
+```
+Sales?$apply=compute(Aggregation.deentity(Entities=Products) as Products1)
+            /aggregate(Products1/$count as NumberOfProductSales)
+```
+</String>
+        </Annotation>
+        <Parameter Name="Entities" Type="Collection(Edm.EntityType)" Nullable="true" />
+        <ReturnType Type="Collection(Edm.ComplexType)" Nullable="true" />
+      </Function>
+
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="This action or function is available on aggregated entities if the `RequiredProperties` are still defined" />
       </Term>
