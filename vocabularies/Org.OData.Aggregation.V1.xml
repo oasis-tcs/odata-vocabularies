@@ -378,8 +378,8 @@ Sales?$apply=compute(Aggregation.deentity(Entities=Products) as Products1)
 ```
 </String>
         </Annotation>
-        <Parameter Name="Entities" Type="Collection(Edm.EntityType)" Nullable="true" />
-        <ReturnType Type="Collection(Edm.ComplexType)" Nullable="true" />
+        <Parameter Name="Entities" Type="Collection(Edm.EntityType)" Nullable="false" />
+        <ReturnType Type="Collection(Edm.ComplexType)" Nullable="false" />
       </Function>
 
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Action Function">

@@ -470,14 +470,12 @@
                     {
                         "$Name": "Entities",
                         "$Collection": true,
-                        "$Type": "Edm.EntityType",
-                        "$Nullable": true
+                        "$Type": "Edm.EntityType"
                     }
                 ],
                 "$ReturnType": {
                     "$Collection": true,
-                    "$Type": "Edm.ComplexType",
-                    "$Nullable": true
+                    "$Type": "Edm.ComplexType"
                 }
             }
         ],

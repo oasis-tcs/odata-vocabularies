@@ -144,8 +144,8 @@ Sales?$apply=compute(Aggregation.deentity(Entities=Products) as Products1)
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entities](./Org.OData.Aggregation.V1.xml#L381)|\[EntityType?\]|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L382)|\[ComplexType?\]|
+[Entities](./Org.OData.Aggregation.V1.xml#L381)|\[EntityType\]|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L382)|\[ComplexType\]|
 
 
 ## <a name="ApplySupportedBase"></a>[ApplySupportedBase](./Org.OData.Aggregation.V1.xml#L96:~:text=<ComplexType%20Name="-,ApplySupportedBase,-")
