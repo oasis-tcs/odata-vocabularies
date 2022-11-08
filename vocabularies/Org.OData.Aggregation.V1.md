@@ -117,7 +117,7 @@ Parameter|Type|Description
 
 ### <a name="deentity"></a>[deentity](./Org.OData.Aggregation.V1.xml#L360:~:text=<Function%20Name="-,deentity,-")
 
-Converts an instance of an entity type into an instance of a complex type with the same structure and values
+Converts an instance of an entity type into an instance of a complex type with the same top-level structure and values
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -127,7 +127,7 @@ Parameter|Type|Description
 
 ### <a name="deentity"></a>[deentity](./Org.OData.Aggregation.V1.xml#L365)
 
-Converts a collection of instances of an entity type into a collection of instances of a complex type with the same structure and values
+Converts a collection of instances of an entity type into a collection of instances of a complex type with the same top-level structure and values
 
 Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation
 because a navigation property in an aggregate expression addresses distinct entities whereas a structural property
