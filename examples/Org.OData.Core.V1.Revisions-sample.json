@@ -1,0 +1,52 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "revisions.sample": {
+        "@Core.SchemaVersion": "1.42.2",
+        "Evolving": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "id"
+            ],
+            "id": {},
+            "displayName": {},
+            "somethingNew": {
+                "$Nullable": true,
+                "@Core.Revisions": [
+                    {
+                        "Version": "1.42.0",
+                        "Kind": "Added"
+                    }
+                ]
+            },
+            "someExperiment": {
+                "$Nullable": true,
+                "@Core.Revisions": [
+                    {
+                        "Version": "1.14.0",
+                        "Kind": "Added"
+                    },
+                    {
+                        "Version": "1.14.1",
+                        "Kind": "Modified",
+                        "Description": "We can do better"
+                    },
+                    {
+                        "Version": "1.15.0",
+                        "Kind": "Deprecated",
+                        "Description": "Wasn't such a good idea after all"
+                    }
+                ]
+            }
+        }
+    }
+}

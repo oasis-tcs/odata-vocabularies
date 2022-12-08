@@ -44,6 +44,17 @@ describe("OASIS Vocabularies", function () {
 });
 
 describe("Non-OASIS Vocabularies", function () {
+  let warnings = [];
+  let warn;
+  beforeEach(function () {
+    warn = console.warn;
+    warnings = [];
+    console.warn = (args) => warnings.push(args);
+  });
+  afterEach(function () {
+    console.warn = warn;
+  });
+
   it("Non-OASIS Vocabulary referencing an OASIS Vocabulary", function () {
     const filename = "Other.xml";
     const vocabulary = {
@@ -234,6 +245,7 @@ describe("Non-OASIS Vocabularies", function () {
           "@Core.Description": "Reference to a description",
           "@Org.OData.Validation.V1.AllowedTerms": [
             "Org.OData.Core.V1.Description",
+            "SomeVocabulary.WithoutReference",
           ],
         },
       },
@@ -249,11 +261,14 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)',
+      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)<br>- [WithoutReference](#WithoutReference)',
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
+    assert.deepStrictEqual(warnings, [
+      "Unknown namespace or alias: SomeVocabulary",
+    ]);
   });
 
   it("Text fragments", function () {
@@ -327,6 +342,7 @@ describe("Edge cases", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
     assert.deepStrictEqual(warnings, [
+      "Unknown namespace or alias: other",
       "- Cannot find 'other.notThere'",
       "- Cannot find 'other.notThere'",
     ]);
