@@ -18,12 +18,12 @@
   "dependencies": {
     "colors": "^1.4.0",
     "minimist": "^1.2.6",
-    "odata-csdl": "^0.6.0"
+    "odata-csdl": "^0.7.0"
   },
   "devDependencies": {
     "c8": "^7.12.0",
-    "eslint": "^8.23.1",
-    "mocha": "^10.0.0"
+    "eslint": "^8.29.0",
+    "mocha": "^10.1.0"
   },
   "scripts": {
     "build": "node lib/transform.js",
