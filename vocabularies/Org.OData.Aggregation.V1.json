@@ -16,6 +16,14 @@
                     "$Alias": "Capabilities"
                 }
             ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
         }
     },
     "Org.OData.Aggregation.V1": {
@@ -148,29 +156,43 @@
             },
             "SupportedAggregationMethods": {
                 "$Collection": true,
-                "@Core.Description": "Standard and custom aggregation methods that can be applied to the property. If omitted, all aggregation methods can be applied",
-                "@Validation.AllowedValues": [
-                    {
-                        "Value": "sum"
-                    },
-                    {
-                        "Value": "min"
-                    },
-                    {
-                        "Value": "max"
-                    },
-                    {
-                        "Value": "average"
-                    },
-                    {
-                        "Value": "countdistinct"
-                    }
-                ]
+                "$Type": "Aggregation.AggregationMethod",
+                "@Core.Description": "Standard and custom aggregation methods that can be applied to the property. If omitted, all aggregation methods can be applied"
             },
             "RecommendedAggregationMethod": {
+                "$Type": "Aggregation.AggregationMethod",
                 "$Nullable": true,
                 "@Core.Description": "Recommended method for aggregating values of the property"
             }
+        },
+        "AggregationMethod": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "Standard or custom aggregation method",
+            "@Core.LongDescription": "Custom aggregation methods MUST use a namespace-qualified name, that is contain at least one dot. ",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "sum",
+                    "@Core.Description": "Can be applied to numeric values to return the sum of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "min",
+                    "@Core.Description": "Can be applied to values with a totally ordered domain to return the smallest of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "max",
+                    "@Core.Description": "Can be applied to values with a totally ordered domain to return the largest of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "average",
+                    "@Core.Description": "Can be applied to numeric values to return the sum of the non-null values divided by the count of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "countdistinct",
+                    "@Core.Description": "Counts the distinct values, omitting any null values",
+                    "@Core.LongDescription": "For navigation properties, it counts the distinct entities in the union of all entities related to entities in the input set. \n                  For collection-valued primitive properties, it counts the distinct items in the union of all collection values in the input set."
+                }
+            ]
         },
         "RollupType": {
             "$Kind": "EnumType",
