@@ -59,7 +59,51 @@
             "$Kind": "ComplexType",
             "Transformations": {
                 "$Collection": true,
-                "@Core.Description": "Transformations that can be used in `$apply`"
+                "@Core.Description": "Transformations that can be used in `$apply`",
+                "@Validation.AllowedValues": [
+                    {
+                        "Value": "aggregate"
+                    },
+                    {
+                        "Value": "groupby"
+                    },
+                    {
+                        "Value": "concat"
+                    },
+                    {
+                        "Value": "identity"
+                    },
+                    {
+                        "Value": "filter"
+                    },
+                    {
+                        "Value": "expand"
+                    },
+                    {
+                        "Value": "search"
+                    },
+                    {
+                        "Value": "compute"
+                    },
+                    {
+                        "Value": "bottomcount"
+                    },
+                    {
+                        "Value": "bottomsum"
+                    },
+                    {
+                        "Value": "bottompercent"
+                    },
+                    {
+                        "Value": "topcount"
+                    },
+                    {
+                        "Value": "topsum"
+                    },
+                    {
+                        "Value": "toppercent"
+                    }
+                ]
             },
             "CustomAggregationMethods": {
                 "$Collection": true,
@@ -104,7 +148,24 @@
             },
             "SupportedAggregationMethods": {
                 "$Collection": true,
-                "@Core.Description": "Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied"
+                "@Core.Description": "Standard and custom aggregation methods that can be applied to the property. If omitted, all aggregation methods can be applied",
+                "@Validation.AllowedValues": [
+                    {
+                        "Value": "sum"
+                    },
+                    {
+                        "Value": "min"
+                    },
+                    {
+                        "Value": "max"
+                    },
+                    {
+                        "Value": "average"
+                    },
+                    {
+                        "Value": "countdistinct"
+                    }
+                ]
             },
             "RecommendedAggregationMethod": {
                 "$Nullable": true,
