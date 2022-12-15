@@ -103,7 +103,7 @@ Parameter|Type|Description
 During `rolluprecursive` for a hierarchy node, this function marks instances that are related to the node itself rather than a descendant
 
 This function may only occur in the second parameter of a `groupby` transformation whose first parameter
-          contains `rolluprecursive(...)`. It is evaluated as part of the transformation `F(x)/R(x)` in the "`rolluprecursive` algorithm"
+          contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the "`rolluprecursive` algorithm"
           [OData-Aggr, section 3.5.3]. Its behavior is undefined outside of this algorithm.
 
           `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup
