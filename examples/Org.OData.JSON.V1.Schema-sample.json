@@ -1,41 +1,27 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Core.V1",
-                    "$Alias": "Core"
-                }
-            ]
-        },
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.JSON.V1",
-                    "$Alias": "JSON"
-                }
-            ]
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     },
-    "json.schema.sample": {
-        "example": {
-            "$Kind": "ComplexType",
-            "CodeDictionary": {
-                "$Type": "JSON.JSON",
-                "@Core.LongDescription": "Dictionary of three-digit code --> description",
-                "@Core.AutoExpand": true,
-                "@JSON.Schema@Core.MediaType": "application/json",
-                "@JSON.Schema": {
-                    "type": "object",
-                    "additionalProperties": false,
-                    "patternProperties": {
-                        "^[0-9]{3}$": {
-                            "type": "string"
-                        }
-                    }
-                }
-            }
-        }
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.JSON.V1", "$Alias": "JSON" }]
     }
+  },
+  "json.schema.sample": {
+    "example": {
+      "$Kind": "ComplexType",
+      "CodeDictionary": {
+        "$Type": "JSON.JSON",
+        "@Core.LongDescription": "Dictionary of three-digit code --> description",
+        "@Core.AutoExpand": true,
+        "@JSON.Schema@Core.MediaType": "application/json",
+        "@JSON.Schema": {
+          "type": "object",
+          "additionalProperties": false,
+          "patternProperties": { "^[0-9]{3}$": { "type": "string" } }
+        }
+      }
+    }
+  }
 }

@@ -1,261 +1,133 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Capabilities.V1",
-                    "$Alias": "Capabilities"
-                }
-            ]
-        }
-    },
-    "microsoft.graph": {
-        "$Annotations": {
-            "microsoft.graph.GraphService/users": {
-                "@Capabilities.InsertRestrictions": {
-                    "Permissions": [
-                        {
-                            "Scheme": "DelegatedWork",
-                            "Scopes": [
-                                {
-                                    "Scope": "User.ReadWrite.All",
-                                    "RestrictedProperties": "-mailboxSettings"
-                                },
-                                {
-                                    "Scope": "MailboxSettings.ReadWrite",
-                                    "RestrictedProperties": "mailboxSettings"
-                                },
-                                {
-                                    "Scope": "Directory.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "Directory.AccessAsUser.All"
-                                }
-                            ]
-                        },
-                        {
-                            "Scheme": "Application",
-                            "Scopes": [
-                                {
-                                    "Scope": "Directory.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "MailboxSettings.ReadWrite"
-                                },
-                                {
-                                    "Scope": "Directory.AccessAsUser.All"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "@Capabilities.UpdateRestrictions": {
-                    "Permissions": [
-                        {
-                            "Scheme": "DelegatedWork",
-                            "Scopes": [
-                                {
-                                    "Scope": "User.ReadWrite"
-                                },
-                                {
-                                    "Scope": "User.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "Directory.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "Directory.AccessAsUser.All"
-                                }
-                            ]
-                        },
-                        {
-                            "Scheme": "DelegatedPersonal",
-                            "Scopes": [
-                                {
-                                    "Scope": "User.ReadWrite"
-                                }
-                            ]
-                        },
-                        {
-                            "Scheme": "Application",
-                            "Scopes": [
-                                {
-                                    "Scope": "User.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "Directory.ReadWrite.All"
-                                }
-                            ]
-                        }
-                    ]
-                },
-                "@Capabilities.ReadRestrictions": {
-                    "Permission": [
-                        {
-                            "Scheme": "DelegatedWork",
-                            "Scopes": [
-                                {
-                                    "Scope": "User.Read"
-                                },
-                                {
-                                    "Scope": "User.ReadWrite"
-                                },
-                                {
-                                    "Scope": "User.ReadBasic.All"
-                                },
-                                {
-                                    "Scope": "User.Read.All"
-                                },
-                                {
-                                    "Scope": "User.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "Directory.Read.All"
-                                },
-                                {
-                                    "Scope": "Directory.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "Directory.AccessAsUser.All"
-                                }
-                            ]
-                        },
-                        {
-                            "Scheme": "Application",
-                            "Scopes": [
-                                {
-                                    "Scope": "User.Read"
-                                },
-                                {
-                                    "Scope": "User.ReadWrite"
-                                },
-                                {
-                                    "Scope": "User.ReadWrite.All"
-                                },
-                                {
-                                    "Scope": "Directory.Read.All"
-                                },
-                                {
-                                    "Scope": "Directory.ReadWrite.All"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
-            "microsoft.graph.reminderView(microsoft.graph.user,Edm.String,Edm.String)": {
-                "@Capabilities.OperationRestrictions": {
-                    "QualifiedOperationName": "reminderView",
-                    "Permissions": [
-                        {
-                            "Scheme": "DelegatedWork",
-                            "Scopes": [
-                                {
-                                    "Scope": "Calendars.Read"
-                                },
-                                {
-                                    "Scope": "Calendars.ReadWrite"
-                                }
-                            ]
-                        },
-                        {
-                            "Scheme": "DelegatedPersonal",
-                            "Scopes": [
-                                {
-                                    "Scope": "Calendars.Read"
-                                },
-                                {
-                                    "Scope": "Calendars.ReadWrite"
-                                }
-                            ]
-                        },
-                        {
-                            "Scheme": "Application",
-                            "Scopes": [
-                                {
-                                    "Scope": "Calendars.Read"
-                                },
-                                {
-                                    "Scope": "Calendars.ReadWrite"
-                                }
-                            ]
-                        }
-                    ]
-                }
-            },
-            "microsoft.graph.GraphService": {
-                "@Auth.Authorizations": [
-                    {
-                        "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
-                        "Name": "DelegatedWork",
-                        "AuthorizationUrl": "https://graph.microsoft.com",
-                        "RefreshUrl": "https://refreshUrl",
-                        "Scopes": [
-                            {
-                                "Scope": "User.ReadAll",
-                                "Description": "Read all user data",
-                                "Grant": "User"
-                            },
-                            {
-                                "Scope": "User.WriteAll",
-                                "Description": "Write all user data"
-                            },
-                            {
-                                "Scope": "Directory.ReadAll",
-                                "Description": "Write to directory",
-                                "Grant": "Admin"
-                            }
-                        ]
-                    },
-                    {
-                        "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
-                        "Name": "DelegatedPersonal",
-                        "AuthorizationUrl": "https://graph.microsoft.com",
-                        "RefreshUrl": "https://refreshUrl",
-                        "Scopes": [
-                            {
-                                "Scope": "User.ReadAll",
-                                "Description": "Read all user data",
-                                "Grant": "User"
-                            },
-                            {
-                                "Scope": "User.WriteAll",
-                                "Description": "Write all user data",
-                                "Grant": "User"
-                            },
-                            {
-                                "Scope": "Directory.ReadAll",
-                                "Description": "Write to directory",
-                                "Grant": "User"
-                            }
-                        ]
-                    },
-                    {
-                        "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
-                        "Name": "Application",
-                        "AuthorizationUrl": "https://graph.microsoft.com",
-                        "RefreshUrl": "https://refreshUrl",
-                        "Scopes": [
-                            {
-                                "Scope": "User.ReadAll",
-                                "Description": "Read all user data",
-                                "Grant": "Admin"
-                            },
-                            {
-                                "Scope": "User.WriteAll",
-                                "Description": "Write all user data",
-                                "Grant": "Admin"
-                            },
-                            {
-                                "Scope": "Directory.ReadAll",
-                                "Description": "Write to directory",
-                                "Grant": "Admin"
-                            }
-                        ]
-                    }
-                ]
-            }
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Capabilities.V1", "$Alias": "Capabilities" }]
     }
+  },
+  "microsoft.graph": {
+    "$Annotations": {
+      "microsoft.graph.GraphService/users": {
+        "@Capabilities.InsertRestrictions": {
+          "Permissions": [
+            {
+              "Scheme": "DelegatedWork",
+              "Scopes": [
+                { "Scope": "User.ReadWrite.All", "RestrictedProperties": "-mailboxSettings" },
+                { "Scope": "MailboxSettings.ReadWrite", "RestrictedProperties": "mailboxSettings" },
+                { "Scope": "Directory.ReadWrite.All" },
+                { "Scope": "Directory.AccessAsUser.All" }
+              ]
+            },
+            {
+              "Scheme": "Application",
+              "Scopes": [
+                { "Scope": "Directory.ReadWrite.All" },
+                { "Scope": "MailboxSettings.ReadWrite" },
+                { "Scope": "Directory.AccessAsUser.All" }
+              ]
+            }
+          ]
+        },
+        "@Capabilities.UpdateRestrictions": {
+          "Permissions": [
+            {
+              "Scheme": "DelegatedWork",
+              "Scopes": [
+                { "Scope": "User.ReadWrite" },
+                { "Scope": "User.ReadWrite.All" },
+                { "Scope": "Directory.ReadWrite.All" },
+                { "Scope": "Directory.AccessAsUser.All" }
+              ]
+            },
+            { "Scheme": "DelegatedPersonal", "Scopes": [{ "Scope": "User.ReadWrite" }] },
+            {
+              "Scheme": "Application",
+              "Scopes": [{ "Scope": "User.ReadWrite.All" }, { "Scope": "Directory.ReadWrite.All" }]
+            }
+          ]
+        },
+        "@Capabilities.ReadRestrictions": {
+          "Permission": [
+            {
+              "Scheme": "DelegatedWork",
+              "Scopes": [
+                { "Scope": "User.Read" },
+                { "Scope": "User.ReadWrite" },
+                { "Scope": "User.ReadBasic.All" },
+                { "Scope": "User.Read.All" },
+                { "Scope": "User.ReadWrite.All" },
+                { "Scope": "Directory.Read.All" },
+                { "Scope": "Directory.ReadWrite.All" },
+                { "Scope": "Directory.AccessAsUser.All" }
+              ]
+            },
+            {
+              "Scheme": "Application",
+              "Scopes": [
+                { "Scope": "User.Read" },
+                { "Scope": "User.ReadWrite" },
+                { "Scope": "User.ReadWrite.All" },
+                { "Scope": "Directory.Read.All" },
+                { "Scope": "Directory.ReadWrite.All" }
+              ]
+            }
+          ]
+        }
+      },
+      "microsoft.graph.reminderView(microsoft.graph.user,Edm.String,Edm.String)": {
+        "@Capabilities.OperationRestrictions": {
+          "QualifiedOperationName": "reminderView",
+          "Permissions": [
+            {
+              "Scheme": "DelegatedWork",
+              "Scopes": [{ "Scope": "Calendars.Read" }, { "Scope": "Calendars.ReadWrite" }]
+            },
+            {
+              "Scheme": "DelegatedPersonal",
+              "Scopes": [{ "Scope": "Calendars.Read" }, { "Scope": "Calendars.ReadWrite" }]
+            },
+            { "Scheme": "Application", "Scopes": [{ "Scope": "Calendars.Read" }, { "Scope": "Calendars.ReadWrite" }] }
+          ]
+        }
+      },
+      "microsoft.graph.GraphService": {
+        "@Auth.Authorizations": [
+          {
+            "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
+            "Name": "DelegatedWork",
+            "AuthorizationUrl": "https://graph.microsoft.com",
+            "RefreshUrl": "https://refreshUrl",
+            "Scopes": [
+              { "Scope": "User.ReadAll", "Description": "Read all user data", "Grant": "User" },
+              { "Scope": "User.WriteAll", "Description": "Write all user data" },
+              { "Scope": "Directory.ReadAll", "Description": "Write to directory", "Grant": "Admin" }
+            ]
+          },
+          {
+            "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
+            "Name": "DelegatedPersonal",
+            "AuthorizationUrl": "https://graph.microsoft.com",
+            "RefreshUrl": "https://refreshUrl",
+            "Scopes": [
+              { "Scope": "User.ReadAll", "Description": "Read all user data", "Grant": "User" },
+              { "Scope": "User.WriteAll", "Description": "Write all user data", "Grant": "User" },
+              { "Scope": "Directory.ReadAll", "Description": "Write to directory", "Grant": "User" }
+            ]
+          },
+          {
+            "@odata.type": "#Org.OData.Authorization.V1.OAuth2Implicit",
+            "Name": "Application",
+            "AuthorizationUrl": "https://graph.microsoft.com",
+            "RefreshUrl": "https://refreshUrl",
+            "Scopes": [
+              { "Scope": "User.ReadAll", "Description": "Read all user data", "Grant": "Admin" },
+              { "Scope": "User.WriteAll", "Description": "Write all user data", "Grant": "Admin" },
+              { "Scope": "Directory.ReadAll", "Description": "Write to directory", "Grant": "Admin" }
+            ]
+          }
+        ]
+      }
+    }
+  }
 }

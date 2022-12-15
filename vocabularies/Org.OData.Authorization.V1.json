@@ -1,180 +1,134 @@
 {
-    "$Version": "4.0",
-    "$Reference": {
-        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
-            "$Include": [
-                {
-                    "$Namespace": "Org.OData.Core.V1",
-                    "$Alias": "Core"
-                }
-            ]
-        }
-    },
-    "Org.OData.Authorization.V1": {
-        "$Alias": "Auth",
-        "@Core.Description": "The Authorization Vocabulary provides terms for describing authorization requirements of the service",
-        "@Core.Links": [
-            {
-                "rel": "alternate",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml"
-            },
-            {
-                "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json"
-            },
-            {
-                "rel": "describedby",
-                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.md"
-            }
-        ],
-        "SecuritySchemes": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Auth.SecurityScheme",
-            "$AppliesTo": [
-                "EntityContainer"
-            ],
-            "@Core.Description": "At least one of the specified security schemes are required to make a request against the service"
-        },
-        "SecurityScheme": {
-            "$Kind": "ComplexType",
-            "Authorization": {
-                "$Type": "Auth.SchemeName",
-                "@Core.Description": "The name of a required authorization scheme"
-            },
-            "RequiredScopes": {
-                "$Collection": true,
-                "@Core.Description": "The names of scopes required from this authorization scheme"
-            }
-        },
-        "Authorizations": {
-            "$Kind": "Term",
-            "$Collection": true,
-            "$Type": "Auth.Authorization",
-            "$AppliesTo": [
-                "EntityContainer"
-            ],
-            "@Core.Description": "Lists the methods supported by the service to authorize access"
-        },
-        "Authorization": {
-            "$Kind": "ComplexType",
-            "$Abstract": true,
-            "@Core.Description": "Base type for all Authorization types",
-            "Name": {
-                "@Core.Description": "Name that can be used to reference the authorization scheme"
-            },
-            "Description": {
-                "$Nullable": true,
-                "@Core.Description": "Description of the authorization scheme"
-            }
-        },
-        "OpenIDConnect": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Auth.Authorization",
-            "IssuerUrl": {
-                "@Core.Description": "Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.",
-                "@Core.IsURL": true
-            }
-        },
-        "Http": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Auth.Authorization",
-            "Scheme": {
-                "@Core.Description": "HTTP Authorization scheme to be used in the Authorization header, as per RFC7235"
-            },
-            "BearerFormat": {
-                "$Nullable": true,
-                "@Core.Description": "Format of the bearer token"
-            }
-        },
-        "OAuthAuthorization": {
-            "$Kind": "ComplexType",
-            "$Abstract": true,
-            "$BaseType": "Auth.Authorization",
-            "Scopes": {
-                "$Collection": true,
-                "$Type": "Auth.AuthorizationScope",
-                "@Core.Description": "Available scopes"
-            },
-            "RefreshUrl": {
-                "$Nullable": true,
-                "@Core.Description": "Refresh Url",
-                "@Core.IsURL": true
-            }
-        },
-        "OAuth2ClientCredentials": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
-            "TokenUrl": {
-                "@Core.Description": "Token Url",
-                "@Core.IsURL": true
-            }
-        },
-        "OAuth2Implicit": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
-            "AuthorizationUrl": {
-                "@Core.Description": "Authorization URL",
-                "@Core.IsURL": true
-            }
-        },
-        "OAuth2Password": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
-            "TokenUrl": {
-                "@Core.Description": "Token Url",
-                "@Core.IsURL": true
-            }
-        },
-        "OAuth2AuthCode": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
-            "AuthorizationUrl": {
-                "@Core.Description": "Authorization URL",
-                "@Core.IsURL": true
-            },
-            "TokenUrl": {
-                "@Core.Description": "Token Url",
-                "@Core.IsURL": true
-            }
-        },
-        "AuthorizationScope": {
-            "$Kind": "ComplexType",
-            "Scope": {
-                "@Core.Description": "Scope name"
-            },
-            "Grant": {
-                "$Nullable": true,
-                "@Core.Description": "Identity that has access to the scope or can grant access to the scope."
-            },
-            "Description": {
-                "@Core.Description": "Description of the scope"
-            }
-        },
-        "ApiKey": {
-            "$Kind": "ComplexType",
-            "$BaseType": "Auth.Authorization",
-            "KeyName": {
-                "@Core.Description": "The name of the header or query parameter"
-            },
-            "Location": {
-                "$Type": "Auth.KeyLocation",
-                "@Core.Description": "Whether the API Key is passed in the header or as a query option"
-            }
-        },
-        "KeyLocation": {
-            "$Kind": "EnumType",
-            "Header": 0,
-            "Header@Core.Description": "API Key is passed in the header",
-            "QueryOption": 1,
-            "QueryOption@Core.Description": "API Key is passed as a query option",
-            "Cookie": 2,
-            "Cookie@Core.Description": "API Key is passed as a cookie"
-        },
-        "SchemeName": {
-            "$Kind": "TypeDefinition",
-            "$UnderlyingType": "Edm.String",
-            "@Core.Description": "The name of the authorization scheme."
-        }
+  "$Version": "4.0",
+  "$Reference": {
+    "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+      "$Include": [{ "$Namespace": "Org.OData.Core.V1", "$Alias": "Core" }]
     }
+  },
+  "Org.OData.Authorization.V1": {
+    "$Alias": "Auth",
+    "@Core.Description": "The Authorization Vocabulary provides terms for describing authorization requirements of the service",
+    "@Core.Links": [
+      {
+        "rel": "alternate",
+        "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml"
+      },
+      {
+        "rel": "latest-version",
+        "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.json"
+      },
+      {
+        "rel": "describedby",
+        "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.md"
+      }
+    ],
+    "SecuritySchemes": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Auth.SecurityScheme",
+      "$AppliesTo": ["EntityContainer"],
+      "@Core.Description": "At least one of the specified security schemes are required to make a request against the service"
+    },
+    "SecurityScheme": {
+      "$Kind": "ComplexType",
+      "Authorization": {
+        "$Type": "Auth.SchemeName",
+        "@Core.Description": "The name of a required authorization scheme"
+      },
+      "RequiredScopes": {
+        "$Collection": true,
+        "@Core.Description": "The names of scopes required from this authorization scheme"
+      }
+    },
+    "Authorizations": {
+      "$Kind": "Term",
+      "$Collection": true,
+      "$Type": "Auth.Authorization",
+      "$AppliesTo": ["EntityContainer"],
+      "@Core.Description": "Lists the methods supported by the service to authorize access"
+    },
+    "Authorization": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "@Core.Description": "Base type for all Authorization types",
+      "Name": { "@Core.Description": "Name that can be used to reference the authorization scheme" },
+      "Description": { "$Nullable": true, "@Core.Description": "Description of the authorization scheme" }
+    },
+    "OpenIDConnect": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Auth.Authorization",
+      "IssuerUrl": {
+        "@Core.Description": "Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.",
+        "@Core.IsURL": true
+      }
+    },
+    "Http": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Auth.Authorization",
+      "Scheme": {
+        "@Core.Description": "HTTP Authorization scheme to be used in the Authorization header, as per RFC7235"
+      },
+      "BearerFormat": { "$Nullable": true, "@Core.Description": "Format of the bearer token" }
+    },
+    "OAuthAuthorization": {
+      "$Kind": "ComplexType",
+      "$Abstract": true,
+      "$BaseType": "Auth.Authorization",
+      "Scopes": { "$Collection": true, "$Type": "Auth.AuthorizationScope", "@Core.Description": "Available scopes" },
+      "RefreshUrl": { "$Nullable": true, "@Core.Description": "Refresh Url", "@Core.IsURL": true }
+    },
+    "OAuth2ClientCredentials": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Auth.OAuthAuthorization",
+      "TokenUrl": { "@Core.Description": "Token Url", "@Core.IsURL": true }
+    },
+    "OAuth2Implicit": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Auth.OAuthAuthorization",
+      "AuthorizationUrl": { "@Core.Description": "Authorization URL", "@Core.IsURL": true }
+    },
+    "OAuth2Password": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Auth.OAuthAuthorization",
+      "TokenUrl": { "@Core.Description": "Token Url", "@Core.IsURL": true }
+    },
+    "OAuth2AuthCode": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Auth.OAuthAuthorization",
+      "AuthorizationUrl": { "@Core.Description": "Authorization URL", "@Core.IsURL": true },
+      "TokenUrl": { "@Core.Description": "Token Url", "@Core.IsURL": true }
+    },
+    "AuthorizationScope": {
+      "$Kind": "ComplexType",
+      "Scope": { "@Core.Description": "Scope name" },
+      "Grant": {
+        "$Nullable": true,
+        "@Core.Description": "Identity that has access to the scope or can grant access to the scope."
+      },
+      "Description": { "@Core.Description": "Description of the scope" }
+    },
+    "ApiKey": {
+      "$Kind": "ComplexType",
+      "$BaseType": "Auth.Authorization",
+      "KeyName": { "@Core.Description": "The name of the header or query parameter" },
+      "Location": {
+        "$Type": "Auth.KeyLocation",
+        "@Core.Description": "Whether the API Key is passed in the header or as a query option"
+      }
+    },
+    "KeyLocation": {
+      "$Kind": "EnumType",
+      "Header": 0,
+      "Header@Core.Description": "API Key is passed in the header",
+      "QueryOption": 1,
+      "QueryOption@Core.Description": "API Key is passed as a query option",
+      "Cookie": 2,
+      "Cookie@Core.Description": "API Key is passed as a cookie"
+    },
+    "SchemeName": {
+      "$Kind": "TypeDefinition",
+      "$UnderlyingType": "Edm.String",
+      "@Core.Description": "The name of the authorization scheme."
+    }
+  }
 }
