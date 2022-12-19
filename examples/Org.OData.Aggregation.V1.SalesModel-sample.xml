@@ -112,6 +112,7 @@
           <NavigationPropertyBinding Path="Products" Target="Products" />
         </EntitySet>
         <EntitySet Name="SalesOrganizations" EntityType="SalesModel.SalesOrganization">
+          <NavigationPropertyBinding Path="Superordinate" Target="SalesOrganizations" />
           <NavigationPropertyBinding Path="Sales" Target="Sales" />
         </EntitySet>
         <EntitySet Name="Customers" EntityType="SalesModel.Customer">

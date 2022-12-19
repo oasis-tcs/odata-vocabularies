@@ -220,6 +220,7 @@
                 "$Collection": true,
                 "$Type": "SalesModel.SalesOrganization",
                 "$NavigationPropertyBinding": {
+                    "Superordinate": "SalesOrganizations",
                     "Sales": "Sales"
                 }
             },
