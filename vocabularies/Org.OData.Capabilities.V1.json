@@ -940,7 +940,7 @@
             "NonUpdatableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties cannot be specified on update"
+                "@Core.Description": "These structural properties cannot be updated"
             },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
