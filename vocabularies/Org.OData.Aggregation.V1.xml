@@ -52,7 +52,9 @@
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Aggregation.V1" Alias="Aggregation">
       <Annotation Term="Core.Description">
-        <String>Terms to describe which data in a given entity model can be aggregated, and how.</String>
+        <String>
+          Terms to describe which data in a given entity model can be aggregated, and how.
+        </String>
       </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
