@@ -50,6 +50,9 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
     <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Aggregation.V1" Alias="Aggregation">
       <Annotation Term="Core.Description">
@@ -96,6 +99,52 @@
       <ComplexType Name="ApplySupportedBase">
         <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
+          <Annotation Term="Validation.AllowedValues">
+            <Collection>
+              <Record>
+                <PropertyValue Property="Value" String="aggregate" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="groupby" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="concat" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="identity" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="filter" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="expand" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="search" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="compute" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="bottomcount" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="bottomsum" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="bottompercent" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="topcount" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="topsum" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="toppercent" />
+              </Record>
+            </Collection>
+          </Annotation>
         </Property>
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
@@ -129,18 +178,54 @@
             <String>Aggregatable property</String>
           </Annotation>
         </Property>
-        <Property Name="SupportedAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
+        <Property Name="SupportedAggregationMethods" Type="Collection(Aggregation.AggregationMethod)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String>Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied</String>
+            <String>Standard and custom aggregation methods that can be applied to the property. If omitted, all aggregation methods can be applied</String>
           </Annotation>
         </Property>
-        <Property Name="RecommendedAggregationMethod" Type="Edm.String">
+        <Property Name="RecommendedAggregationMethod" Type="Aggregation.AggregationMethod">
           <Annotation Term="Core.Description">
             <String>Recommended method for aggregating values of the property</String>
           </Annotation>
         </Property>
       </ComplexType>
 
+      <TypeDefinition Name="AggregationMethod" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description">
+          <String>Standard or custom aggregation method</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>Custom aggregation methods MUST use a namespace-qualified name, that is contain at least one dot. </String>
+        </Annotation>
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="sum" />
+              <Annotation Term="Core.Description" String="Can be applied to numeric values to return the sum of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="min" />
+              <Annotation Term="Core.Description" String="Can be applied to values with a totally ordered domain to return the smallest of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="max" />
+              <Annotation Term="Core.Description" String="Can be applied to values with a totally ordered domain to return the largest of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="average" />
+              <Annotation Term="Core.Description" String="Can be applied to numeric values to return the sum of the non-null values divided by the count of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="countdistinct" />
+              <Annotation Term="Core.Description" String="Counts the distinct values, omitting any null values" />
+              <Annotation Term="Core.LongDescription">
+                <String>For navigation properties, it counts the distinct entities in the union of all entities related to entities in the input set. 
+                  For collection-valued primitive properties, it counts the distinct items in the union of all collection values in the input set.</String>
+              </Annotation>
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
 
       <EnumType Name="RollupType">
         <Annotation Term="Core.Description" String="The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation" />
