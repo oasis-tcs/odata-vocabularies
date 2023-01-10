@@ -23,7 +23,8 @@ Term|Type|Description
 [MaxItems](./Org.OData.Validation.V1.xml#L176:~:text=<Term%20Name="-,MaxItems,-")|Int64|<a name="MaxItems"></a>The annotated collection must have at most the specified number of items.
 [MinItems](./Org.OData.Validation.V1.xml#L180:~:text=<Term%20Name="-,MinItems,-")|Int64|<a name="MinItems"></a>The annotated collection must have at least the specified number of items.
 
-## <a name="AllowedValue"></a>[AllowedValue](./Org.OData.Validation.V1.xml#L97:~:text=<ComplexType%20Name="-,AllowedValue,-")
+<a name="AllowedValue"></a>
+## [AllowedValue](./Org.OData.Validation.V1.xml#L97:~:text=<ComplexType%20Name="-,AllowedValue,-")
 
 
 Property|Type|Description
@@ -34,7 +35,8 @@ Property|Type|Description
 
 - [SymbolicName](Org.OData.Core.V1.md#SymbolicName)
 
-## <a name="ConstraintType"></a>[ConstraintType](./Org.OData.Validation.V1.xml#L115:~:text=<ComplexType%20Name="-,ConstraintType,-")
+<a name="ConstraintType"></a>
+## [ConstraintType](./Org.OData.Validation.V1.xml#L115:~:text=<ComplexType%20Name="-,ConstraintType,-")
 
 
 Property|Type|Description
@@ -42,7 +44,8 @@ Property|Type|Description
 [FailureMessage](./Org.OData.Validation.V1.xml#L116:~:text=<ComplexType%20Name="-,ConstraintType,-")|String?|Human-readable message that can be shown to end users if the constraint is not fulfilled
 [Condition](./Org.OData.Validation.V1.xml#L120:~:text=<ComplexType%20Name="-,ConstraintType,-")|Boolean|Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled
 
-## <a name="ItemsOfType"></a>[ItemsOfType](./Org.OData.Validation.V1.xml#L133:~:text=<ComplexType%20Name="-,ItemsOfType,-")
+<a name="ItemsOfType"></a>
+## [ItemsOfType](./Org.OData.Validation.V1.xml#L133:~:text=<ComplexType%20Name="-,ItemsOfType,-")
 Entities related via the single- or collection-valued navigation property identified by `path` are also related via the collection-valued navigation property identified by `target`.
 
 Property|Type|Description
@@ -50,7 +53,8 @@ Property|Type|Description
 [path](./Org.OData.Validation.V1.xml#L135:~:text=<ComplexType%20Name="-,ItemsOfType,-")|NavigationPropertyPath|A path to a single- or collection-valued navigation property
 [target](./Org.OData.Validation.V1.xml#L138:~:text=<ComplexType%20Name="-,ItemsOfType,-")|NavigationPropertyPath|A path to a collection-valued navigation property
 
-## <a name="SingleOrCollectionType"></a>[SingleOrCollectionType](./Org.OData.Validation.V1.xml#L162:~:text=<TypeDefinition%20Name="-,SingleOrCollectionType,-")
+<a name="SingleOrCollectionType"></a>
+## [SingleOrCollectionType](./Org.OData.Validation.V1.xml#L162:~:text=<TypeDefinition%20Name="-,SingleOrCollectionType,-")
 **Type:** String
 
 The qualified name of a type in scope, optionally wrapped in `Collection()` to denote a collection of instances of the type
