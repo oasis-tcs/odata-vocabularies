@@ -13,7 +13,8 @@ Term|Type|Description
 
 ## Actions
 
-### <a name="Update"></a>[Update](./Org.OData.Temporal.V1.xml#L172:~:text=<Action%20Name="-,Update,-")
+<a name="Update"></a>
+### [Update](./Org.OData.Temporal.V1.xml#L172:~:text=<Action%20Name="-,Update,-")
 
 Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap
 
@@ -29,7 +30,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Temporal.V1.xml#L191:~:text=<Action%20Name="-,Update,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
 
 
-### <a name="Upsert"></a>[Upsert](./Org.OData.Temporal.V1.xml#L196:~:text=<Action%20Name="-,Upsert,-")
+<a name="Upsert"></a>
+### [Upsert](./Org.OData.Temporal.V1.xml#L196:~:text=<Action%20Name="-,Upsert,-")
 
 Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards
 
@@ -40,7 +42,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Temporal.V1.xml#L208:~:text=<Action%20Name="-,Upsert,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
 
 
-### <a name="Delete"></a>[Delete](./Org.OData.Temporal.V1.xml#L213:~:text=<Action%20Name="-,Delete,-")
+<a name="Delete"></a>
+### [Delete](./Org.OData.Temporal.V1.xml#L213:~:text=<Action%20Name="-,Delete,-")
 
 Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`
 

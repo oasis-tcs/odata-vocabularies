@@ -21,7 +21,8 @@ Term|Type|Description
 
 ## Functions
 
-### <a name="isroot"></a>[isroot](./Org.OData.Aggregation.V1.xml#L300:~:text=<Function%20Name="-,isroot,-")
+<a name="isroot"></a>
+### [isroot](./Org.OData.Aggregation.V1.xml#L300:~:text=<Function%20Name="-,isroot,-")
 
 Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy
 
@@ -32,7 +33,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L304:~:text=<Function%20Name="-,isroot,-")|Boolean|
 
 
-### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,isdescendant,-")
+<a name="isdescendant"></a>
+### [isdescendant](./Org.OData.Aggregation.V1.xml#L307:~:text=<Function%20Name="-,isdescendant,-")
 
 Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance
 
@@ -45,7 +47,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L313:~:text=<Function%20Name="-,isdescendant,-")|Boolean|
 
 
-### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L316:~:text=<Function%20Name="-,isancestor,-")
+<a name="isancestor"></a>
+### [isancestor](./Org.OData.Aggregation.V1.xml#L316:~:text=<Function%20Name="-,isancestor,-")
 
 Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance
 
@@ -58,7 +61,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L322:~:text=<Function%20Name="-,isancestor,-")|Boolean|
 
 
-### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L325:~:text=<Function%20Name="-,issibling,-")
+<a name="issibling"></a>
+### [issibling](./Org.OData.Aggregation.V1.xml#L325:~:text=<Function%20Name="-,issibling,-")
 
 Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node
 
@@ -70,7 +74,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L330:~:text=<Function%20Name="-,issibling,-")|Boolean|
 
 
-### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L333:~:text=<Function%20Name="-,isleaf,-")
+<a name="isleaf"></a>
+### [isleaf](./Org.OData.Aggregation.V1.xml#L333:~:text=<Function%20Name="-,isleaf,-")
 
 Returns true, if and only if the value of the node property of the specified hierarchy has no descendants
 
