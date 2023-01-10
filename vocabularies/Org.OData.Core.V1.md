@@ -49,7 +49,8 @@ Term|Type|Description
 [SymbolicName](./Org.OData.Core.V1.xml#L518:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 [GeometryFeature](./Org.OData.Core.V1.xml#L526:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
-## <a name="RevisionType"></a>[RevisionType](./Org.OData.Core.V1.xml#L80:~:text=<ComplexType%20Name="-,RevisionType,-")
+<a name="RevisionType"></a>
+## [RevisionType](./Org.OData.Core.V1.xml#L80:~:text=<ComplexType%20Name="-,RevisionType,-")
 
 
 Property|Type|Description
@@ -58,7 +59,8 @@ Property|Type|Description
 [Kind](./Org.OData.Core.V1.xml#L84:~:text=<ComplexType%20Name="-,RevisionType,-")|[RevisionKind](#RevisionKind)|The kind of revision
 [Description](./Org.OData.Core.V1.xml#L87:~:text=<ComplexType%20Name="-,RevisionType,-")|String|Text describing the reason for the revision
 
-## <a name="RevisionKind"></a>[RevisionKind](./Org.OData.Core.V1.xml#L91:~:text=<EnumType%20Name="-,RevisionKind,-")
+<a name="RevisionKind"></a>
+## [RevisionKind](./Org.OData.Core.V1.xml#L91:~:text=<EnumType%20Name="-,RevisionKind,-")
 
 
 Member|Value|Description
@@ -67,7 +69,8 @@ Member|Value|Description
 [Modified](./Org.OData.Core.V1.xml#L95:~:text=<EnumType%20Name="-,RevisionKind,-")|1|Model element was modified
 [Deprecated](./Org.OData.Core.V1.xml#L98:~:text=<EnumType%20Name="-,RevisionKind,-")|2|Model element was deprecated
 
-## <a name="Link"></a>[Link](./Org.OData.Core.V1.xml#L118:~:text=<ComplexType%20Name="-,Link,-")
+<a name="Link"></a>
+## [Link](./Org.OData.Core.V1.xml#L118:~:text=<ComplexType%20Name="-,Link,-")
 The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)
 
 Property|Type|Description
@@ -75,7 +78,8 @@ Property|Type|Description
 [rel](./Org.OData.Core.V1.xml#L120:~:text=<ComplexType%20Name="-,Link,-")|String|Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)
 [href](./Org.OData.Core.V1.xml#L123:~:text=<ComplexType%20Name="-,Link,-")|URL|URL of related information
 
-## <a name="ExampleValue"></a>[ExampleValue](./Org.OData.Core.V1.xml#L169:~:text=<ComplexType%20Name="-,ExampleValue,-")
+<a name="ExampleValue"></a>
+## [ExampleValue](./Org.OData.Core.V1.xml#L169:~:text=<ComplexType%20Name="-,ExampleValue,-")
 
 
 **Derived Types:**
@@ -88,7 +92,8 @@ Property|Type|Description
 :-------|:---|:----------
 [Description](./Org.OData.Core.V1.xml#L170:~:text=<ComplexType%20Name="-,ExampleValue,-")|String?|Description of the example value
 
-## <a name="PrimitiveExampleValue"></a>[PrimitiveExampleValue](./Org.OData.Core.V1.xml#L174:~:text=<ComplexType%20Name="-,PrimitiveExampleValue,-"): [ExampleValue](#ExampleValue)
+<a name="PrimitiveExampleValue"></a>
+## [PrimitiveExampleValue](./Org.OData.Core.V1.xml#L174:~:text=<ComplexType%20Name="-,PrimitiveExampleValue,-"): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
@@ -96,7 +101,8 @@ Property|Type|Description
 [*Description*](./Org.OData.Core.V1.xml#L170:~:text=<ComplexType%20Name="-,ExampleValue,-")|String?|Description of the example value
 [Value](./Org.OData.Core.V1.xml#L175:~:text=<ComplexType%20Name="-,PrimitiveExampleValue,-")|PrimitiveType|Example value for the custom parameter
 
-## <a name="ComplexExampleValue"></a>[ComplexExampleValue](./Org.OData.Core.V1.xml#L179:~:text=<ComplexType%20Name="-,ComplexExampleValue,-"): [ExampleValue](#ExampleValue)
+<a name="ComplexExampleValue"></a>
+## [ComplexExampleValue](./Org.OData.Core.V1.xml#L179:~:text=<ComplexType%20Name="-,ComplexExampleValue,-"): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
@@ -104,7 +110,8 @@ Property|Type|Description
 [*Description*](./Org.OData.Core.V1.xml#L170:~:text=<ComplexType%20Name="-,ExampleValue,-")|String?|Description of the example value
 [Value](./Org.OData.Core.V1.xml#L180:~:text=<ComplexType%20Name="-,ComplexExampleValue,-")|ComplexType|Example value for the custom parameter
 
-## <a name="EntityExampleValue"></a>[EntityExampleValue](./Org.OData.Core.V1.xml#L184:~:text=<ComplexType%20Name="-,EntityExampleValue,-"): [ExampleValue](#ExampleValue)
+<a name="EntityExampleValue"></a>
+## [EntityExampleValue](./Org.OData.Core.V1.xml#L184:~:text=<ComplexType%20Name="-,EntityExampleValue,-"): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
@@ -112,7 +119,8 @@ Property|Type|Description
 [*Description*](./Org.OData.Core.V1.xml#L170:~:text=<ComplexType%20Name="-,ExampleValue,-")|String?|Description of the example value
 [Value](./Org.OData.Core.V1.xml#L185:~:text=<NavigationProperty%20Name="-,Value,-")|EntityType|Example value for the custom parameter
 
-## <a name="ExternalExampleValue"></a>[ExternalExampleValue](./Org.OData.Core.V1.xml#L189:~:text=<ComplexType%20Name="-,ExternalExampleValue,-"): [ExampleValue](#ExampleValue)
+<a name="ExternalExampleValue"></a>
+## [ExternalExampleValue](./Org.OData.Core.V1.xml#L189:~:text=<ComplexType%20Name="-,ExternalExampleValue,-"): [ExampleValue](#ExampleValue)
 
 
 Property|Type|Description
@@ -120,7 +128,8 @@ Property|Type|Description
 [*Description*](./Org.OData.Core.V1.xml#L170:~:text=<ComplexType%20Name="-,ExampleValue,-")|String?|Description of the example value
 [ExternalValue](./Org.OData.Core.V1.xml#L190:~:text=<ComplexType%20Name="-,ExternalExampleValue,-")|URL|Url reference to the value in its literal format
 
-## <a name="MessageType"></a>[MessageType](./Org.OData.Core.V1.xml#L201:~:text=<ComplexType%20Name="-,MessageType,-")
+<a name="MessageType"></a>
+## [MessageType](./Org.OData.Core.V1.xml#L201:~:text=<ComplexType%20Name="-,MessageType,-")
 
 
 Property|Type|Description
@@ -131,7 +140,8 @@ Property|Type|Description
 [target](./Org.OData.Core.V1.xml#L212:~:text=<ComplexType%20Name="-,MessageType,-")|String?|A path to the target of the message detail, relative to the annotated instance
 [details](./Org.OData.Core.V1.xml#L215:~:text=<ComplexType%20Name="-,MessageType,-")|\[[MessageType](#MessageType)\]|List of detail messages
 
-## <a name="MessageSeverity"></a>[MessageSeverity](./Org.OData.Core.V1.xml#L219:~:text=<TypeDefinition%20Name="-,MessageSeverity,-")
+<a name="MessageSeverity"></a>
+## [MessageSeverity](./Org.OData.Core.V1.xml#L219:~:text=<TypeDefinition%20Name="-,MessageSeverity,-")
 **Type:** String
 
 
@@ -143,7 +153,8 @@ Allowed Value|Description
 [warning](./Org.OData.Core.V1.xml#L230:~:text=<TypeDefinition%20Name="-,MessageSeverity,-")|Warning - action may be required
 [error](./Org.OData.Core.V1.xml#L234:~:text=<TypeDefinition%20Name="-,MessageSeverity,-")|Error - action is required
 
-## <a name="ExceptionType"></a>[*ExceptionType*](./Org.OData.Core.V1.xml#L245:~:text=<ComplexType%20Name="-,ExceptionType,-")
+<a name="ExceptionType"></a>
+## [*ExceptionType*](./Org.OData.Core.V1.xml#L245:~:text=<ComplexType%20Name="-,ExceptionType,-")
 
 
 **Derived Types:**
@@ -155,7 +166,8 @@ Property|Type|Description
 :-------|:---|:----------
 [info](./Org.OData.Core.V1.xml#L246:~:text=<ComplexType%20Name="-,ExceptionType,-")|[MessageType?](#MessageType)|Information about the exception
 
-## <a name="ValueExceptionType"></a>[ValueExceptionType](./Org.OData.Core.V1.xml#L250:~:text=<ComplexType%20Name="-,ValueExceptionType,-"): [ExceptionType](#ExceptionType)
+<a name="ValueExceptionType"></a>
+## [ValueExceptionType](./Org.OData.Core.V1.xml#L250:~:text=<ComplexType%20Name="-,ValueExceptionType,-"): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
@@ -163,7 +175,8 @@ Property|Type|Description
 [*info*](./Org.OData.Core.V1.xml#L246:~:text=<ComplexType%20Name="-,ExceptionType,-")|[MessageType?](#MessageType)|Information about the exception
 [value](./Org.OData.Core.V1.xml#L251:~:text=<ComplexType%20Name="-,ValueExceptionType,-")|String?|String representation of the exact value
 
-## <a name="ResourceExceptionType"></a>[ResourceExceptionType](./Org.OData.Core.V1.xml#L259:~:text=<ComplexType%20Name="-,ResourceExceptionType,-"): [ExceptionType](#ExceptionType)
+<a name="ResourceExceptionType"></a>
+## [ResourceExceptionType](./Org.OData.Core.V1.xml#L259:~:text=<ComplexType%20Name="-,ResourceExceptionType,-"): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
@@ -171,7 +184,8 @@ Property|Type|Description
 [*info*](./Org.OData.Core.V1.xml#L246:~:text=<ComplexType%20Name="-,ExceptionType,-")|[MessageType?](#MessageType)|Information about the exception
 [retryLink](./Org.OData.Core.V1.xml#L260:~:text=<ComplexType%20Name="-,ResourceExceptionType,-")|URL?|A GET request to this URL retries retrieving the problematic instance
 
-## <a name="DataModificationExceptionType"></a>[DataModificationExceptionType](./Org.OData.Core.V1.xml#L269:~:text=<ComplexType%20Name="-,DataModificationExceptionType,-"): [ExceptionType](#ExceptionType)
+<a name="DataModificationExceptionType"></a>
+## [DataModificationExceptionType](./Org.OData.Core.V1.xml#L269:~:text=<ComplexType%20Name="-,DataModificationExceptionType,-"): [ExceptionType](#ExceptionType)
 
 
 Property|Type|Description
@@ -180,7 +194,8 @@ Property|Type|Description
 [failedOperation](./Org.OData.Core.V1.xml#L270:~:text=<ComplexType%20Name="-,DataModificationExceptionType,-")|[DataModificationOperationKind](#DataModificationOperationKind)|The kind of modification operation that failed
 [responseCode](./Org.OData.Core.V1.xml#L273:~:text=<ComplexType%20Name="-,DataModificationExceptionType,-")|Int16?|Response code of the failed operation, e.g. 424 for a failed dependency
 
-## <a name="DataModificationOperationKind"></a>[DataModificationOperationKind](./Org.OData.Core.V1.xml#L279:~:text=<EnumType%20Name="-,DataModificationOperationKind,-")
+<a name="DataModificationOperationKind"></a>
+## [DataModificationOperationKind](./Org.OData.Core.V1.xml#L279:~:text=<EnumType%20Name="-,DataModificationOperationKind,-")
 
 
 Member|Value|Description
@@ -193,12 +208,14 @@ Member|Value|Description
 [link](./Org.OData.Core.V1.xml#L295:~:text=<EnumType%20Name="-,DataModificationOperationKind,-")|5|Add link between entities
 [unlink](./Org.OData.Core.V1.xml#L298:~:text=<EnumType%20Name="-,DataModificationOperationKind,-")|6|Remove link between entities
 
-## <a name="Tag"></a>[Tag](./Org.OData.Core.V1.xml#L311:~:text=<TypeDefinition%20Name="-,Tag,-")
+<a name="Tag"></a>
+## [Tag](./Org.OData.Core.V1.xml#L311:~:text=<TypeDefinition%20Name="-,Tag,-")
 **Type:** Boolean
 
 This is the type to use for all tagging terms
 
-## <a name="Permission"></a>[Permission](./Org.OData.Core.V1.xml#L349:~:text=<EnumType%20Name="-,Permission,-")
+<a name="Permission"></a>
+## [Permission](./Org.OData.Core.V1.xml#L349:~:text=<EnumType%20Name="-,Permission,-")
 
 
 Flag Member|Value|Description
@@ -209,7 +226,8 @@ Flag Member|Value|Description
 [ReadWrite](./Org.OData.Core.V1.xml#L359:~:text=<EnumType%20Name="-,Permission,-")|3|Read and write permission
 [Invoke](./Org.OData.Core.V1.xml#L362:~:text=<EnumType%20Name="-,Permission,-")|4|Permission to invoke actions
 
-## <a name="ContentDispositionType"></a>[ContentDispositionType](./Org.OData.Core.V1.xml#L418:~:text=<ComplexType%20Name="-,ContentDispositionType,-")
+<a name="ContentDispositionType"></a>
+## [ContentDispositionType](./Org.OData.Core.V1.xml#L418:~:text=<ComplexType%20Name="-,ContentDispositionType,-")
 
 
 Property|Type|Description
@@ -217,29 +235,34 @@ Property|Type|Description
 [Type](./Org.OData.Core.V1.xml#L419:~:text=<ComplexType%20Name="-,ContentDispositionType,-")|String|The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)
 [Filename](./Org.OData.Core.V1.xml#L422:~:text=<ComplexType%20Name="-,ContentDispositionType,-")|String?|The proposed filename for downloading the binary or stream value, see [RFC 6266, Disposition Parameter: 'Filename'](https://datatracker.ietf.org/doc/html/rfc6266#section-4.3)
 
-## <a name="QualifiedTermName"></a>[QualifiedTermName](./Org.OData.Core.V1.xml#L448:~:text=<TypeDefinition%20Name="-,QualifiedTermName,-")
+<a name="QualifiedTermName"></a>
+## [QualifiedTermName](./Org.OData.Core.V1.xml#L448:~:text=<TypeDefinition%20Name="-,QualifiedTermName,-")
 **Type:** String
 
 The qualified name of a term in scope.
 
-## <a name="QualifiedTypeName"></a>[QualifiedTypeName](./Org.OData.Core.V1.xml#L452:~:text=<TypeDefinition%20Name="-,QualifiedTypeName,-")
+<a name="QualifiedTypeName"></a>
+## [QualifiedTypeName](./Org.OData.Core.V1.xml#L452:~:text=<TypeDefinition%20Name="-,QualifiedTypeName,-")
 **Type:** String
 
 The qualified name of a type in scope.
 
-## <a name="QualifiedActionName"></a>[QualifiedActionName](./Org.OData.Core.V1.xml#L456:~:text=<TypeDefinition%20Name="-,QualifiedActionName,-")
+<a name="QualifiedActionName"></a>
+## [QualifiedActionName](./Org.OData.Core.V1.xml#L456:~:text=<TypeDefinition%20Name="-,QualifiedActionName,-")
 **Type:** String
 
 The qualified name of an action in scope.
 
-## <a name="AlternateKey"></a>[AlternateKey](./Org.OData.Core.V1.xml#L471:~:text=<ComplexType%20Name="-,AlternateKey,-")
+<a name="AlternateKey"></a>
+## [AlternateKey](./Org.OData.Core.V1.xml#L471:~:text=<ComplexType%20Name="-,AlternateKey,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
 [Key](./Org.OData.Core.V1.xml#L472:~:text=<ComplexType%20Name="-,AlternateKey,-")|\[[PropertyRef](#PropertyRef)\]|The set of properties that make up this key
 
-## <a name="PropertyRef"></a>[PropertyRef](./Org.OData.Core.V1.xml#L476:~:text=<ComplexType%20Name="-,PropertyRef,-")
+<a name="PropertyRef"></a>
+## [PropertyRef](./Org.OData.Core.V1.xml#L476:~:text=<ComplexType%20Name="-,PropertyRef,-")
 
 
 Property|Type|Description
@@ -247,7 +270,8 @@ Property|Type|Description
 [Name](./Org.OData.Core.V1.xml#L477:~:text=<ComplexType%20Name="-,PropertyRef,-")|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
 [Alias](./Org.OData.Core.V1.xml#L480:~:text=<ComplexType%20Name="-,PropertyRef,-")|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
-## <a name="Dictionary"></a>[Dictionary](./Org.OData.Core.V1.xml#L485:~:text=<ComplexType%20Name="-,Dictionary,-")
+<a name="Dictionary"></a>
+## [Dictionary](./Org.OData.Core.V1.xml#L485:~:text=<ComplexType%20Name="-,Dictionary,-")
 A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`.
 
 
@@ -256,24 +280,28 @@ Property|Type
 Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstraint`, or any type if there is no constraint
 
 
-## <a name="OptionalParameterType"></a>[OptionalParameterType](./Org.OData.Core.V1.xml#L500:~:text=<ComplexType%20Name="-,OptionalParameterType,-")
+<a name="OptionalParameterType"></a>
+## [OptionalParameterType](./Org.OData.Core.V1.xml#L500:~:text=<ComplexType%20Name="-,OptionalParameterType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
 [DefaultValue](./Org.OData.Core.V1.xml#L501:~:text=<ComplexType%20Name="-,OptionalParameterType,-")|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
 
-## <a name="LocalDateTime"></a>[LocalDateTime](./Org.OData.Core.V1.xml#L512:~:text=<TypeDefinition%20Name="-,LocalDateTime,-")
+<a name="LocalDateTime"></a>
+## [LocalDateTime](./Org.OData.Core.V1.xml#L512:~:text=<TypeDefinition%20Name="-,LocalDateTime,-")
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
 
-## <a name="SimpleIdentifier"></a>[SimpleIdentifier](./Org.OData.Core.V1.xml#L521:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-")
+<a name="SimpleIdentifier"></a>
+## [SimpleIdentifier](./Org.OData.Core.V1.xml#L521:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-")
 **Type:** String
 
 A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)
 
-## <a name="GeometryFeatureType"></a>[GeometryFeatureType](./Org.OData.Core.V1.xml#L529:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")
+<a name="GeometryFeatureType"></a>
+## [GeometryFeatureType](./Org.OData.Core.V1.xml#L529:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")
 A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 Property|Type|Description
