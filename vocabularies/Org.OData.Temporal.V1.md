@@ -56,7 +56,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Temporal.V1.xml#L231:~:text=<Action%20Name="-,Delete,-")|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Deleted (sub-periods of) time slices
 
 
-## <a name="ApplicationTimeSupportType"></a>[ApplicationTimeSupportType](./Org.OData.Temporal.V1.xml#L75:~:text=<ComplexType%20Name="-,ApplicationTimeSupportType,-")
+<a name="ApplicationTimeSupportType"></a>
+## [ApplicationTimeSupportType](./Org.OData.Temporal.V1.xml#L75:~:text=<ComplexType%20Name="-,ApplicationTimeSupportType,-")
 
 
 Property|Type|Description
@@ -65,21 +66,24 @@ Property|Type|Description
 [Timeline](./Org.OData.Temporal.V1.xml#L79:~:text=<ComplexType%20Name="-,ApplicationTimeSupportType,-")|[Timeline](#Timeline)|Describes how the history and future of the data are represented
 [SupportedActions](./Org.OData.Temporal.V1.xml#L82:~:text=<ComplexType%20Name="-,ApplicationTimeSupportType,-")|\[[QualifiedActionName](Org.OData.Core.V1.md#QualifiedActionName)\]|List of supported temporal actions
 
-## <a name="UnitOfTime"></a>[*UnitOfTime*](./Org.OData.Temporal.V1.xml#L87:~:text=<ComplexType%20Name="-,UnitOfTime,-")
+<a name="UnitOfTime"></a>
+## [*UnitOfTime*](./Org.OData.Temporal.V1.xml#L87:~:text=<ComplexType%20Name="-,UnitOfTime,-")
 Unit of time and other properties of a time period
 
 **Derived Types:**
 - [UnitOfTimeDateTimeOffset](#UnitOfTimeDateTimeOffset)
 - [UnitOfTimeDate](#UnitOfTimeDate)
 
-## <a name="UnitOfTimeDateTimeOffset"></a>[UnitOfTimeDateTimeOffset](./Org.OData.Temporal.V1.xml#L91:~:text=<ComplexType%20Name="-,UnitOfTimeDateTimeOffset,-"): [UnitOfTime](#UnitOfTime)
+<a name="UnitOfTimeDateTimeOffset"></a>
+## [UnitOfTimeDateTimeOffset](./Org.OData.Temporal.V1.xml#L91:~:text=<ComplexType%20Name="-,UnitOfTimeDateTimeOffset,-"): [UnitOfTime](#UnitOfTime)
 Period start and end are of type Edm.DateTimeOffset
 
 Property|Type|Description
 :-------|:---|:----------
 [Precision](./Org.OData.Temporal.V1.xml#L93:~:text=<ComplexType%20Name="-,UnitOfTimeDateTimeOffset,-")|Byte|Precision of Edm.DateTimeOffset values for period start and end
 
-## <a name="UnitOfTimeDate"></a>[UnitOfTimeDate](./Org.OData.Temporal.V1.xml#L98:~:text=<ComplexType%20Name="-,UnitOfTimeDate,-"): [UnitOfTime](#UnitOfTime)
+<a name="UnitOfTimeDate"></a>
+## [UnitOfTimeDate](./Org.OData.Temporal.V1.xml#L98:~:text=<ComplexType%20Name="-,UnitOfTimeDate,-"): [UnitOfTime](#UnitOfTime)
 Period start and end are of type Edm.Date
 
 The period is a contiguous set of days and does not consider the time of the day.
@@ -88,14 +92,16 @@ Property|Type|Description
 :-------|:---|:----------
 [ClosedClosedPeriods](./Org.OData.Temporal.V1.xml#L101:~:text=<ComplexType%20Name="-,UnitOfTimeDate,-")|Boolean|If `true`, the period end is the last day in the period; if `false`, the period end is the first day after the period
 
-## <a name="Timeline"></a>[*Timeline*](./Org.OData.Temporal.V1.xml#L107:~:text=<ComplexType%20Name="-,Timeline,-")
+<a name="Timeline"></a>
+## [*Timeline*](./Org.OData.Temporal.V1.xml#L107:~:text=<ComplexType%20Name="-,Timeline,-")
 Describes how the history and future of the data are represented
 
 **Derived Types:**
 - [TimelineSnapshot](#TimelineSnapshot)
 - [TimelineVisible](#TimelineVisible)
 
-## <a name="TimelineSnapshot"></a>[TimelineSnapshot](./Org.OData.Temporal.V1.xml#L111:~:text=<ComplexType%20Name="-,TimelineSnapshot,-"): [Timeline](#Timeline)
+<a name="TimelineSnapshot"></a>
+## [TimelineSnapshot](./Org.OData.Temporal.V1.xml#L111:~:text=<ComplexType%20Name="-,TimelineSnapshot,-"): [Timeline](#Timeline)
 Each OData entity maps each point in application time to an instance of the entity type
 
 To address an entity in a resource path or path to related resources, a point in application time must be specified as described in [OData-Temporal, section 4.2.1].
@@ -103,7 +109,8 @@ To address an entity in a resource path or path to related resources, a point in
           When an action defined in this vocabulary is applied to a collection of this entity type,
           the entity key plays the role of object key.
 
-## <a name="TimelineVisible"></a>[TimelineVisible](./Org.OData.Temporal.V1.xml#L121:~:text=<ComplexType%20Name="-,TimelineVisible,-"): [Timeline](#Timeline)
+<a name="TimelineVisible"></a>
+## [TimelineVisible](./Org.OData.Temporal.V1.xml#L121:~:text=<ComplexType%20Name="-,TimelineVisible,-"): [Timeline](#Timeline)
 Each OData entity represents data during a period of application time
 
 The temporal collection MUST NOT contain two entities with the same object key as defined by their `ObjectKey` properties
@@ -116,7 +123,8 @@ Property|Type|Description
 [PeriodEnd](./Org.OData.Temporal.V1.xml#L131:~:text=<ComplexType%20Name="-,TimelineVisible,-")|PropertyPath|Property containing upper boundary of a period<br>If an upper boundary property does not specify a default value, a default value of `max` is assumed.
 [ObjectKey](./Org.OData.Temporal.V1.xml#L137:~:text=<ComplexType%20Name="-,TimelineVisible,-")|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 
-## <a name="TimesliceWithPeriod"></a>[TimesliceWithPeriod](./Org.OData.Temporal.V1.xml#L143:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")
+<a name="TimesliceWithPeriod"></a>
+## [TimesliceWithPeriod](./Org.OData.Temporal.V1.xml#L143:~:text=<ComplexType%20Name="-,TimesliceWithPeriod,-")
 Delta time slices with validity period
 
 The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
