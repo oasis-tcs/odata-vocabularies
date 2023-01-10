@@ -75,7 +75,8 @@ Term|Type|Description
 
 ## Functions
 
-### <a name="query"></a>[query](./Org.OData.JSON.V1.xml#L139:~:text=<Function%20Name="-,query,-")
+<a name="query"></a>
+### [query](./Org.OData.JSON.V1.xml#L139:~:text=<Function%20Name="-,query,-")
 
 Query a stream value of media type `application/json`, returning a stream value of media type `application/json`
 
@@ -93,7 +94,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.JSON.V1.xml#L155:~:text=<Function%20Name="-,query,-")|[JSON?](#JSON)|JSON value resulting from applying `path` to `input`
 
 
-### <a name="value"></a>[value](./Org.OData.JSON.V1.xml#L160:~:text=<Function%20Name="-,value,-")
+<a name="value"></a>
+### [value](./Org.OData.JSON.V1.xml#L160:~:text=<Function%20Name="-,value,-")
 
 Query a stream value of media type `application/json`, returning an OData primitive value
 
@@ -116,12 +118,14 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.JSON.V1.xml#L181:~:text=<Function%20Name="-,value,-")|PrimitiveType?|OData primitive value resulting from applying `path` to `input`
 
 
-## <a name="JSON"></a>[JSON](./Org.OData.JSON.V1.xml#L186:~:text=<TypeDefinition%20Name="-,JSON,-")
+<a name="JSON"></a>
+## [JSON](./Org.OData.JSON.V1.xml#L186:~:text=<TypeDefinition%20Name="-,JSON,-")
 **Type:** Stream
 
 Textual data of media type `application/json`
 
-## <a name="Path"></a>[Path](./Org.OData.JSON.V1.xml#L197:~:text=<TypeDefinition%20Name="-,Path,-")
+<a name="Path"></a>
+## [Path](./Org.OData.JSON.V1.xml#L197:~:text=<TypeDefinition%20Name="-,Path,-")
 **Type:** String
 
 [JSONPath](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01) expression
