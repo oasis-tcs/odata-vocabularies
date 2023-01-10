@@ -14,7 +14,8 @@ Term|Type|Description
 [UNECEUnit](./Org.OData.Measures.V1.xml#L83:~:text=<Term%20Name="-,UNECEUnit,-")|String|<a name="UNECEUnit"></a>The unit of measure for this measured quantity, according to the [UN/CEFACT Recommendation 20](http://tfig.unece.org/contents/recommendation-20.htm)
 [DurationGranularity](./Org.OData.Measures.V1.xml#L87:~:text=<Term%20Name="-,DurationGranularity,-")|[DurationGranularityType](#DurationGranularityType)|<a name="DurationGranularity"></a>The minimum granularity of duration values.<br>Absence of this annotation means a granularity of seconds with sub-seconds according to the Precision facet.
 
-## <a name="DurationGranularityType"></a>[DurationGranularityType](./Org.OData.Measures.V1.xml#L92:~:text=<TypeDefinition%20Name="-,DurationGranularityType,-")
+<a name="DurationGranularityType"></a>
+## [DurationGranularityType](./Org.OData.Measures.V1.xml#L92:~:text=<TypeDefinition%20Name="-,DurationGranularityType,-")
 **Type:** String
 
 
