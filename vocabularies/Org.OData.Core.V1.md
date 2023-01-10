@@ -311,7 +311,8 @@ Property|Type|Description
 [properties](./Org.OData.Core.V1.xml#L534:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|[Dictionary?](#Dictionary)|Properties of the Feature
 [id](./Org.OData.Core.V1.xml#L537:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|String?|Commonly used identifer for a Feature
 
-## <a name="PreviousStateType"></a>[PreviousStateType](./Org.OData.Core.V1.xml#L551:~:text=<EnumType%20Name="-,PreviousStateType,-")
+<a name="PreviousStateType"></a>
+## [PreviousStateType](./Org.OData.Core.V1.xml#L551:~:text=<EnumType%20Name="-,PreviousStateType,-")
 Previous state of a resource whose changes are described by an [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE)
 
 Member|Value|Description
