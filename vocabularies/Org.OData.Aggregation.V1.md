@@ -21,7 +21,8 @@ Term|Type|Description
 
 ## Functions
 
-### <a name="isroot"></a>[isroot](./Org.OData.Aggregation.V1.xml#L309:~:text=<Function%20Name="-,isroot,-")
+<a name="isroot"></a>
+### [isroot](./Org.OData.Aggregation.V1.xml#L309:~:text=<Function%20Name="-,isroot,-")
 
 Is the node a root of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
@@ -35,7 +36,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L319:~:text=<Function%20Name="-,isroot,-")|Boolean?|
 
 
-### <a name="isdescendant"></a>[isdescendant](./Org.OData.Aggregation.V1.xml#L322:~:text=<Function%20Name="-,isdescendant,-")
+<a name="isdescendant"></a>
+### [isdescendant](./Org.OData.Aggregation.V1.xml#L322:~:text=<Function%20Name="-,isdescendant,-")
 
 Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
 
@@ -52,7 +54,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L351:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
 
 
-### <a name="isancestor"></a>[isancestor](./Org.OData.Aggregation.V1.xml#L354:~:text=<Function%20Name="-,isancestor,-")
+<a name="isancestor"></a>
+### [isancestor](./Org.OData.Aggregation.V1.xml#L354:~:text=<Function%20Name="-,isancestor,-")
 
 Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
 
@@ -69,7 +72,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L383:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
 
 
-### <a name="issibling"></a>[issibling](./Org.OData.Aggregation.V1.xml#L386:~:text=<Function%20Name="-,issibling,-")
+<a name="issibling"></a>
+### [issibling](./Org.OData.Aggregation.V1.xml#L386:~:text=<Function%20Name="-,issibling,-")
 
 Returns true if the node has the same parent as the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) or both are roots
 
@@ -84,7 +88,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L399:~:text=<Function%20Name="-,issibling,-")|Boolean?|
 
 
-### <a name="isleaf"></a>[isleaf](./Org.OData.Aggregation.V1.xml#L402:~:text=<Function%20Name="-,isleaf,-")
+<a name="isleaf"></a>
+### [isleaf](./Org.OData.Aggregation.V1.xml#L402:~:text=<Function%20Name="-,isleaf,-")
 
 Is the node a leaf in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
@@ -98,7 +103,8 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L412:~:text=<Function%20Name="-,isleaf,-")|Boolean?|
 
 
-## <a name="ApplySupportedBase"></a>[ApplySupportedBase](./Org.OData.Aggregation.V1.xml#L99:~:text=<ComplexType%20Name="-,ApplySupportedBase,-")
+<a name="ApplySupportedBase"></a>
+## [ApplySupportedBase](./Org.OData.Aggregation.V1.xml#L99:~:text=<ComplexType%20Name="-,ApplySupportedBase,-")
 
 
 **Derived Types:**
@@ -110,7 +116,8 @@ Property|Type|Description
 [CustomAggregationMethods](./Org.OData.Aggregation.V1.xml#L149:~:text=<ComplexType%20Name="-,ApplySupportedBase,-")|\[String\]|Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`
 [Rollup](./Org.OData.Aggregation.V1.xml#L152:~:text=<ComplexType%20Name="-,ApplySupportedBase,-")|[RollupType](#RollupType)|The service supports rollup hierarchies in a `groupby` transformation
 
-## <a name="ApplySupportedType"></a>[ApplySupportedType](./Org.OData.Aggregation.V1.xml#L156:~:text=<ComplexType%20Name="-,ApplySupportedType,-"): [ApplySupportedBase](#ApplySupportedBase)
+<a name="ApplySupportedType"></a>
+## [ApplySupportedType](./Org.OData.Aggregation.V1.xml#L156:~:text=<ComplexType%20Name="-,ApplySupportedType,-"): [ApplySupportedBase](#ApplySupportedBase)
 
 
 Property|Type|Description
@@ -122,7 +129,8 @@ Property|Type|Description
 [GroupableProperties](./Org.OData.Aggregation.V1.xml#L168:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|\[AnyPropertyPath\]|A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation
 [AggregatableProperties](./Org.OData.Aggregation.V1.xml#L171:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|\[[AggregatablePropertyType](#AggregatablePropertyType)\]|A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods
 
-## <a name="AggregatablePropertyType"></a>[AggregatablePropertyType](./Org.OData.Aggregation.V1.xml#L175:~:text=<ComplexType%20Name="-,AggregatablePropertyType,-")
+<a name="AggregatablePropertyType"></a>
+## [AggregatablePropertyType](./Org.OData.Aggregation.V1.xml#L175:~:text=<ComplexType%20Name="-,AggregatablePropertyType,-")
 
 
 Property|Type|Description
@@ -131,7 +139,8 @@ Property|Type|Description
 [SupportedAggregationMethods](./Org.OData.Aggregation.V1.xml#L181:~:text=<ComplexType%20Name="-,AggregatablePropertyType,-")|\[[AggregationMethod](#AggregationMethod)\]|Standard and custom aggregation methods that can be applied to the property. If omitted, all aggregation methods can be applied
 [RecommendedAggregationMethod](./Org.OData.Aggregation.V1.xml#L186:~:text=<ComplexType%20Name="-,AggregatablePropertyType,-")|[AggregationMethod?](#AggregationMethod)|Recommended method for aggregating values of the property
 
-## <a name="AggregationMethod"></a>[AggregationMethod](./Org.OData.Aggregation.V1.xml#L193:~:text=<TypeDefinition%20Name="-,AggregationMethod,-")
+<a name="AggregationMethod"></a>
+## [AggregationMethod](./Org.OData.Aggregation.V1.xml#L193:~:text=<TypeDefinition%20Name="-,AggregationMethod,-")
 **Type:** String
 
 Standard or custom aggregation method
@@ -146,7 +155,8 @@ Allowed Value|Description
 [average](./Org.OData.Aggregation.V1.xml#L214:~:text=<TypeDefinition%20Name="-,AggregationMethod,-")|Can be applied to numeric values to return the sum of the non-null values divided by the count of the non-null values, or null if there are no non-null values or the input set is empty
 [countdistinct](./Org.OData.Aggregation.V1.xml#L218:~:text=<TypeDefinition%20Name="-,AggregationMethod,-")|Counts the distinct values, omitting any null values<br>For navigation properties, it counts the distinct entities in the union of all entities related to entities in the input set. For collection-valued primitive properties, it counts the distinct items in the union of all collection values in the input set.
 
-## <a name="RollupType"></a>[RollupType](./Org.OData.Aggregation.V1.xml#L230:~:text=<EnumType%20Name="-,RollupType,-")
+<a name="RollupType"></a>
+## [RollupType](./Org.OData.Aggregation.V1.xml#L230:~:text=<EnumType%20Name="-,RollupType,-")
 The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation
 
 Member|Value|Description
@@ -155,7 +165,8 @@ Member|Value|Description
 [SingleHierarchy](./Org.OData.Aggregation.V1.xml#L235:~:text=<EnumType%20Name="-,RollupType,-")|1|Only one `rollup` or `rolluprecursive` operator per `groupby`
 [MultipleHierarchies](./Org.OData.Aggregation.V1.xml#L238:~:text=<EnumType%20Name="-,RollupType,-")|2|Full support for `rollup` and `rolluprecursive`
 
-## <a name="RecursiveHierarchyType"></a>[RecursiveHierarchyType](./Org.OData.Aggregation.V1.xml#L288:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")
+<a name="RecursiveHierarchyType"></a>
+## [RecursiveHierarchyType](./Org.OData.Aggregation.V1.xml#L288:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")
 
 
 Property|Type|Description
@@ -163,7 +174,8 @@ Property|Type|Description
 [NodeProperty](./Org.OData.Aggregation.V1.xml#L289:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Primitive property holding the hierarchy node value
 [ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L292:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable.
 
-## <a name="HierarchyQualifier"></a>[HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L297:~:text=<TypeDefinition%20Name="-,HierarchyQualifier,-")
+<a name="HierarchyQualifier"></a>
+## [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L297:~:text=<TypeDefinition%20Name="-,HierarchyQualifier,-")
 **Type:** String
 
 Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
@@ -175,15 +187,18 @@ Every recursive hierarchy function defined in this vocabulary has
 `HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection
 given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.
 
-## <a name="AvailableOnAggregatesType"></a>[AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L418:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
+<a name="AvailableOnAggregatesType"></a>
+## [AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L418:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
 [RequiredProperties](./Org.OData.Aggregation.V1.xml#L419:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this action or function
 
-## <a name="NavigationPropertyAggregationCapabilities"></a>[NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L424:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
+<a name="NavigationPropertyAggregationCapabilities"></a>
+## [NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L424:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
-## <a name="CustomAggregateType"></a>[CustomAggregateType](./Org.OData.Aggregation.V1.xml#L442:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
+<a name="CustomAggregateType"></a>
+## [CustomAggregateType](./Org.OData.Aggregation.V1.xml#L442:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
 Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated
