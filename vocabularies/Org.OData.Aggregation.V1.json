@@ -113,6 +113,11 @@
                     }
                 ]
             },
+            "UnsupportedTransformationSequences": {
+                "$Collection": true,
+                "@Core.Description": "Transformations that are not supported when they follow or are nested in another transformation",
+                "@Core.LongDescription": "`A/B` means that `B` is unsupported when it follows `A`, for example, `concat/aggregate`.\n            `A(B)` means that `B` is unsupported when nested in `A`, for example, `transformnested(concat)`.\n            `A` and `B` must be valid values for the `Transformations` property."
+            },
             "CustomAggregationMethods": {
                 "$Collection": true,
                 "@Core.Description": "Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`"
