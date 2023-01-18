@@ -122,31 +122,31 @@ Parameter|Type|Description
 [&rarr;](./Org.OData.Aggregation.V1.xml#L443:~:text=<Function%20Name="-,excludingdescendants,-")|Boolean|
 
 
-<a name="deentity"></a>
-### [deentity](./Org.OData.Aggregation.V1.xml#L446:~:text=<Function%20Name="-,deentity,-")
+<a name="withduplicates"></a>
+### [withduplicates](./Org.OData.Aggregation.V1.xml#L446:~:text=<Function%20Name="-,withduplicates,-")
 
 Converts an instance of an entity type into an instance of a complex type with the same top-level structure and values
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entity](./Org.OData.Aggregation.V1.xml#L448:~:text=<Function%20Name="-,deentity,-")|EntityType?|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L449:~:text=<Function%20Name="-,deentity,-")|ComplexType?|
+[Entity](./Org.OData.Aggregation.V1.xml#L448:~:text=<Function%20Name="-,withduplicates,-")|EntityType?|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L449:~:text=<Function%20Name="-,withduplicates,-")|ComplexType?|
 
 
-<a name="deentity"></a>
-### [deentity](./Org.OData.Aggregation.V1.xml#L451)
+<a name="withduplicates"></a>
+### [withduplicates](./Org.OData.Aggregation.V1.xml#L451)
 
 Converts a collection of instances of an entity type into a collection of instances of a complex type with the same top-level structure and values
 
 Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation
 because a navigation property in an aggregate expression addresses distinct entities whereas a structural property
-`compute`d with `deentity` addresses instances with multiple occurrences. Compare
+`compute`d with `withduplicates` addresses instances with multiple occurrences. Compare
 ```
 Sales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)
 ```
 with
 ```
-Sales?$apply=compute(Aggregation.deentity(Entities=Products) as Products1)
+Sales?$apply=compute(Aggregation.withduplicates(Entities=Products) as Products1)
             /aggregate(Products1/$count as NumberOfProductSales)
 ```
 

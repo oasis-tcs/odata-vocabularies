@@ -443,23 +443,23 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
 
-      <Function Name="deentity">
+      <Function Name="withduplicates">
         <Annotation Term="Core.Description" String="Converts an instance of an entity type into an instance of a complex type with the same top-level structure and values" />
         <Parameter Name="Entity" Type="Edm.EntityType" Nullable="true" />
         <ReturnType Type="Edm.ComplexType" Nullable="true" />
       </Function>
-      <Function Name="deentity">
+      <Function Name="withduplicates">
         <Annotation Term="Core.Description" String="Converts a collection of instances of an entity type into a collection of instances of a complex type with the same top-level structure and values" />
         <Annotation Term="Core.LongDescription">
           <String>Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation
 because a navigation property in an aggregate expression addresses distinct entities whereas a structural property
-`compute`d with `deentity` addresses instances with multiple occurrences. Compare
+`compute`d with `withduplicates` addresses instances with multiple occurrences. Compare
 ```
 Sales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)
 ```
 with
 ```
-Sales?$apply=compute(Aggregation.deentity(Entities=Products) as Products1)
+Sales?$apply=compute(Aggregation.withduplicates(Entities=Products) as Products1)
             /aggregate(Products1/$count as NumberOfProductSales)
 ```
 </String>
