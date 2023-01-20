@@ -453,7 +453,8 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.LongDescription">
           <String>Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation
 because a navigation property in an aggregate expression addresses distinct entities whereas a structural property
-`compute`d with `withduplicates` addresses instances with multiple occurrences. Compare
+`compute`d with `withduplicates` addresses instances with multiple occurrences. If the `Sales` entity has a
+collection-valued navigation property `Products`, compare
 ```
 Sales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)
 ```

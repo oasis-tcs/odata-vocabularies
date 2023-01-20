@@ -16,7 +16,7 @@ Term|Type|Description
 [ContextDefiningProperties](./Org.OData.Aggregation.V1.xml#L276:~:text=<Term%20Name="-,ContextDefiningProperties,-")|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
 [LeveledHierarchy](./Org.OData.Aggregation.V1.xml#L283:~:text=<Term%20Name="-,LeveledHierarchy,-")|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy
 [RecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L287:~:text=<Term%20Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy.
-[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L471:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
+[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L472:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
 
 
 ## Functions
@@ -140,7 +140,8 @@ Converts a collection of instances of an entity type into a collection of instan
 
 Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation
 because a navigation property in an aggregate expression addresses distinct entities whereas a structural property
-`compute`d with `withduplicates` addresses instances with multiple occurrences. Compare
+`compute`d with `withduplicates` addresses instances with multiple occurrences. If the `Sales` entity has a
+collection-valued navigation property `Products`, compare
 ```
 Sales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)
 ```
@@ -153,8 +154,8 @@ Sales?$apply=compute(Aggregation.withduplicates(Entities=Products) as Products1)
 
 Parameter|Type|Description
 :--------|:---|:----------
-[Entities](./Org.OData.Aggregation.V1.xml#L467)|\[EntityType\]|
-[&rarr;](./Org.OData.Aggregation.V1.xml#L468)|\[ComplexType\]|
+[Entities](./Org.OData.Aggregation.V1.xml#L468)|\[EntityType\]|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L469)|\[ComplexType\]|
 
 
 <a name="ApplySupportedBase"></a>
@@ -244,17 +245,17 @@ Every recursive hierarchy function defined in this vocabulary has
 given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.
 
 <a name="AvailableOnAggregatesType"></a>
-## [AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L474:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
+## [AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L475:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[RequiredProperties](./Org.OData.Aggregation.V1.xml#L475:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this action or function
+[RequiredProperties](./Org.OData.Aggregation.V1.xml#L476:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this action or function
 
 <a name="NavigationPropertyAggregationCapabilities"></a>
-## [NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L480:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
+## [NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L481:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
 <a name="CustomAggregateType"></a>
-## [CustomAggregateType](./Org.OData.Aggregation.V1.xml#L498:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
+## [CustomAggregateType](./Org.OData.Aggregation.V1.xml#L499:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
 Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated

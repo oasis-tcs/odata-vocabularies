@@ -540,7 +540,7 @@
             {
                 "$Kind": "Function",
                 "@Core.Description": "Converts a collection of instances of an entity type into a collection of instances of a complex type with the same top-level structure and values",
-                "@Core.LongDescription": "Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation\nbecause a navigation property in an aggregate expression addresses distinct entities whereas a structural property\n`compute`d with `withduplicates` addresses instances with multiple occurrences. Compare\n```\nSales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)\n```\nwith\n```\nSales?$apply=compute(Aggregation.withduplicates(Entities=Products) as Products1)\n            /aggregate(Products1/$count as NumberOfProductSales)\n```\n",
+                "@Core.LongDescription": "Using this function in a `compute` transformation influences the behavior of a subsequent `aggregate` transformation\nbecause a navigation property in an aggregate expression addresses distinct entities whereas a structural property\n`compute`d with `withduplicates` addresses instances with multiple occurrences. If the `Sales` entity has a\ncollection-valued navigation property `Products`, compare\n```\nSales?$apply=aggregate(Products/$count as NumberOfProductsEverSold)\n```\nwith\n```\nSales?$apply=compute(Aggregation.withduplicates(Entities=Products) as Products1)\n            /aggregate(Products1/$count as NumberOfProductSales)\n```\n",
                 "$Parameter": [
                     {
                         "$Name": "Entities",
