@@ -156,6 +156,12 @@
                 "$Collection": true,
                 "$Type": "Aggregation.AggregatablePropertyType",
                 "@Core.Description": "A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods"
+            },
+            "HierarchyNodes": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Whether the annotated entity collection can occur as first parameter of a hierarchical transformation or as [`HierarchyNodes`](#HierarchyQualifier)",
+                "@Core.LongDescription": "This might be `true` when a collection is addressed by a non-containment navigation property,\n            but `false` when addressed by an entity set."
             }
         },
         "AggregatablePropertyType": {
