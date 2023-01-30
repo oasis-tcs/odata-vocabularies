@@ -183,11 +183,7 @@
           <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods" />
         </Property>
         <Property Name="HierarchyNodes" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
-          <Annotation Term="Core.Description" String="Whether the annotated entity collection can occur as first parameter of a hierarchical transformation or as [`HierarchyNodes`](#HierarchyQualifier)" />
-          <Annotation Term="Core.LongDescription">
-            <String>This might be `true` when a collection is addressed by a non-containment navigation property,
-            but `false` when addressed by an entity set.</String>
-          </Annotation>
+          <Annotation Term="Core.Description" String="Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation to certain collections of a given type" />
         </Property>
       </ComplexType>
       <ComplexType Name="AggregatablePropertyType">

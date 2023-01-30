@@ -160,8 +160,7 @@
             "HierarchyNodes": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Whether the annotated entity collection can occur as first parameter of a hierarchical transformation or as [`HierarchyNodes`](#HierarchyQualifier)",
-                "@Core.LongDescription": "This might be `true` when a collection is addressed by a non-containment navigation property,\n            but `false` when addressed by an entity set."
+                "@Core.Description": "Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation to certain collections of a given type"
             }
         },
         "AggregatablePropertyType": {
