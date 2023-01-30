@@ -214,13 +214,13 @@ Allowed Value|Description
 
 <a name="RollupType"></a>
 ## [RollupType](./Org.OData.Aggregation.V1.xml#L233:~:text=<EnumType%20Name="-,RollupType,-")
-The number of `rollup` or `rolluprecursive` or `traverserecursive` operators allowed in a `groupby` transformation
+The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation
 
 Member|Value|Description
 :-----|----:|:----------
-[None](./Org.OData.Aggregation.V1.xml#L235:~:text=<EnumType%20Name="-,RollupType,-")|0|No support for `rollup` or `rolluprecursive` or `traverserecursive`
-[SingleHierarchy](./Org.OData.Aggregation.V1.xml#L238:~:text=<EnumType%20Name="-,RollupType,-")|1|Only one `rollup` or `rolluprecursive` or `traverserecursive` operator per `groupby`
-[MultipleHierarchies](./Org.OData.Aggregation.V1.xml#L241:~:text=<EnumType%20Name="-,RollupType,-")|2|Full support for `rollup` and `rolluprecursive` or `traverserecursive`
+[None](./Org.OData.Aggregation.V1.xml#L235:~:text=<EnumType%20Name="-,RollupType,-")|0|No support for `rollup` or `rolluprecursive`
+[SingleHierarchy](./Org.OData.Aggregation.V1.xml#L238:~:text=<EnumType%20Name="-,RollupType,-")|1|Only one `rollup` or `rolluprecursive` operator per `groupby`
+[MultipleHierarchies](./Org.OData.Aggregation.V1.xml#L241:~:text=<EnumType%20Name="-,RollupType,-")|2|Full support for `rollup` and `rolluprecursive`
 
 <a name="RecursiveHierarchyType"></a>
 ## [RecursiveHierarchyType](./Org.OData.Aggregation.V1.xml#L291:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")
