@@ -151,7 +151,8 @@
           <Annotation Term="Core.LongDescription">
             <String>`A/B` means that `B` is unsupported when it follows `A`, for example, `concat/aggregate`.
             `A(B)` means that `B` is unsupported when nested in `A`, for example, `transformnested(concat)`.
-            `A` and `B` must be valid values for the `Transformations` property.</String>
+            `A` and `B` must be valid values for the `Transformations` property or qualified names of service-defined
+            functions that serve as transformations.</String>
           </Annotation>
         </Property>
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
