@@ -151,7 +151,7 @@ Property|Type|Description
 [PropertyRestrictions](./Org.OData.Aggregation.V1.xml#L168:~:text=<ComplexType%20Name="-,ApplySupportedType,-") *(Deprecated)*|Boolean|Deprecated since [`Groupable`](#Groupable) and [`Aggregatable`](#Aggregatable) are deprecated
 [GroupableProperties](./Org.OData.Aggregation.V1.xml#L179:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|\[AnyPropertyPath\]|A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation
 [AggregatableProperties](./Org.OData.Aggregation.V1.xml#L182:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|\[[AggregatablePropertyType](#AggregatablePropertyType)\]|A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods
-[HierarchyNodes](./Org.OData.Aggregation.V1.xml#L185:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|Boolean|Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation to certain collections of a given type
+[IsRecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L185:~:text=<ComplexType%20Name="-,ApplySupportedType,-")|Boolean|Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotation to certain collections of a given type
 
 <a name="AggregatablePropertyType"></a>
 ## [AggregatablePropertyType](./Org.OData.Aggregation.V1.xml#L189:~:text=<ComplexType%20Name="-,AggregatablePropertyType,-")
