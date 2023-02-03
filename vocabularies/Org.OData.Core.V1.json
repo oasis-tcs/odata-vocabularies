@@ -662,6 +662,22 @@
             "@Core.Description": "Action or function is available",
             "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement."
         },
+        "RequiresExplicitBinding": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Action,",
+                "Function"
+            ],
+            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term."
+        },
+        "ExplicitOperationBindings": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "@Core.Description": "The qualified names of explicitly bound operations that are supported on the target model element. These bindings are in addition to any bindings to the type of the target model element not annotated with RequiresExplicitBinding."
+        },
         "LocalDateTime": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.String",
