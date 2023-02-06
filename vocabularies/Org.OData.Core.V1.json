@@ -668,7 +668,7 @@
             "$Nullable": true,
             "$DefaultValue": true,
             "$AppliesTo": [
-                "Action,",
+                "Action",
                 "Function"
             ],
             "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term."
@@ -676,7 +676,7 @@
         "ExplicitOperationBindings": {
             "$Kind": "Term",
             "$Collection": true,
-            "@Core.Description": "The qualified names of explicitly bound operations that are supported on the target model element. These bindings are in addition to any bindings to the type of the target model element not annotated with RequiresExplicitBinding."
+            "@Core.Description": "The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations bound to the type of the target model element not annotated with RequiresExplicitBinding."
         },
         "LocalDateTime": {
             "$Kind": "TypeDefinition",

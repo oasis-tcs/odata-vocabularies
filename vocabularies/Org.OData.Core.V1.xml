@@ -509,15 +509,15 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.LongDescription" String="The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement." />
       </Term>
 
-      <Term Name="RequiresExplicitBinding" Type="Core.Tag" DefaultValue="true" AppliesTo="Action, Function">
-		<Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
+      <Term Name="RequiresExplicitBinding" Type="Core.Tag" DefaultValue="true" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
       </Term>
 
       <Term Name="ExplicitOperationBindings" Type="Collection(Edm.String)">
-        <Annotation Term="Core.Description" String="The qualified names of explicitly bound operations that are supported on the target model element. These bindings are in addition to any bindings to the type of the target model element not annotated with RequiresExplicitBinding." />
+        <Annotation Term="Core.Description" String="The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations bound to the type of the target model element not annotated with RequiresExplicitBinding." />
       </Term>
 
-	  <TypeDefinition Name="LocalDateTime" UnderlyingType="Edm.String">
+      <TypeDefinition Name="LocalDateTime" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="A string representing a Local Date-Time value with no offset." />
         <Annotation Term="Validation.Pattern" String="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?$" />
       </TypeDefinition>
@@ -525,6 +525,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       <Term Name="SymbolicName" Type="Core.SimpleIdentifier" Nullable="false">
         <Annotation Term="Core.Description" String="A symbolic name for a model element" />
       </Term>
+
       <TypeDefinition Name="SimpleIdentifier" UnderlyingType="Edm.String" MaxLength="128">
         <Annotation Term="Core.Description" String="A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)" />
         <Annotation Term="Validation.Pattern" String="^[\p{L}\p{Nl}_][\p{L}\p{Nl}\p{Nd}\p{Mn}\p{Mc}\p{Pc}\p{Cf}]{0,}$" />
