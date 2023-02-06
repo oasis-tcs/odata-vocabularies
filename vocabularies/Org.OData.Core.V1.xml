@@ -514,7 +514,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       </Term>
 
       <Term Name="ExplicitOperationBindings" Type="Collection(Edm.String)">
-        <Annotation Term="Core.Description" String="The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element ." />
+        <Annotation Term="Core.Description" String="The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element." />
       </Term>
 
       <TypeDefinition Name="LocalDateTime" UnderlyingType="Edm.String">
