@@ -574,6 +574,11 @@
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of an action in scope."
         },
+        "QualifiedOperationName": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of an action or function in scope. For a Function, the qualified function name may optionally be followed by parentheses containing the comma-separated list of parameter types, in the order of their definition, to identify a single function overload."
+        },
         "Ordered": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -676,6 +681,7 @@
         "ExplicitOperationBindings": {
             "$Kind": "Term",
             "$Collection": true,
+            "$Type": "Core.QualifiedOperationName",
             "@Core.Description": "The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element."
         },
         "LocalDateTime": {

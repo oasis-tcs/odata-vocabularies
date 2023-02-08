@@ -457,6 +457,10 @@
         <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
       </TypeDefinition>
 
+      <TypeDefinition Name="QualifiedOperationName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The qualified name of an action or function in scope. For a Function, the qualified function name may optionally be followed by parentheses containing the comma-separated list of parameter types, in the order of their definition, to identify a single function overload." />
+      </TypeDefinition>
+
       <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType Term">
         <Annotation Term="Core.Description" String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>
@@ -513,7 +517,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
       </Term>
 
-      <Term Name="ExplicitOperationBindings" Type="Collection(Edm.String)">
+      <Term Name="ExplicitOperationBindings" Type="Collection(Core.QualifiedOperationName)">
         <Annotation Term="Core.Description" String="The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element." />
       </Term>
 
