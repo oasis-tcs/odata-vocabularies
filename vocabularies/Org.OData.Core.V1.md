@@ -47,7 +47,7 @@ Term|Type|Description
 [OptionalParameter](./Org.OData.Core.V1.xml#L500:~:text=<Term%20Name="-,OptionalParameter,-")|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
 [OperationAvailable](./Org.OData.Core.V1.xml#L511:~:text=<Term%20Name="-,OperationAvailable,-")|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
 [RequiresExplicitBinding](./Org.OData.Core.V1.xml#L516:~:text=<Term%20Name="-,RequiresExplicitBinding,-")|[Tag?](#Tag)|<a name="RequiresExplicitBinding"></a>This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term.
-[ExplicitOperationBindings](./Org.OData.Core.V1.xml#L520:~:text=<Term%20Name="-,ExplicitOperationBindings,-")|\[[QualifiedOperationName](#QualifiedOperationName)\]|<a name="ExplicitOperationBindings"></a>The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element.
+[ExplicitOperationBindings](./Org.OData.Core.V1.xml#L520:~:text=<Term%20Name="-,ExplicitOperationBindings,-")|\[[QualifiedBoundOperationName](#QualifiedBoundOperationName)\]|<a name="ExplicitOperationBindings"></a>The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element.
 [SymbolicName](./Org.OData.Core.V1.xml#L529:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 [GeometryFeature](./Org.OData.Core.V1.xml#L538:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
@@ -255,11 +255,11 @@ The qualified name of a type in scope.
 
 The qualified name of an action in scope.
 
-<a name="QualifiedOperationName"></a>
-## [QualifiedOperationName](./Org.OData.Core.V1.xml#L460:~:text=<TypeDefinition%20Name="-,QualifiedOperationName,-")
+<a name="QualifiedBoundOperationName"></a>
+## [QualifiedBoundOperationName](./Org.OData.Core.V1.xml#L460:~:text=<TypeDefinition%20Name="-,QualifiedBoundOperationName,-")
 **Type:** String
 
-The qualified name of an action or function in scope. For a Function, the qualified function name may optionally be followed by parentheses containing the comma-separated list of parameter types, in the order of their definition, to identify a single function overload.
+The qualified name of a bound action or function in scope. The qualified function name may include trailing parentheses containing the comma-separated list of parameter types, in the order of their definition, to identify a single function overload.
 
 <a name="AlternateKey"></a>
 ## [AlternateKey](./Org.OData.Core.V1.xml#L475:~:text=<ComplexType%20Name="-,AlternateKey,-")
