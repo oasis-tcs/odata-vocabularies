@@ -6,12 +6,12 @@
     }
   ],
   "xml.catalogs": ["./node_modules/odata-csdl/catalog.xml"],
-  "xml.format.legacy": true,
+  "xml.format.maxLineWidth": 190,
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
