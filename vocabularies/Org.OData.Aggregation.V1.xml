@@ -284,7 +284,7 @@
       </Term>
 
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
+        <Annotation Term="Core.Description" String="Defines a leveled hierarchy." />
       </Term>
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
