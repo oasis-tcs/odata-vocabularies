@@ -277,7 +277,7 @@
                 "EntityType",
                 "ComplexType"
             ],
-            "@Core.Description": "Defines a leveled hierarchy."
+            "@Core.Description": "Defines a leveled hierarchy [OData-Aggr, section 5.5.1]"
         },
         "RecursiveHierarchy": {
             "$Kind": "Term",
@@ -285,7 +285,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Description": "Defines a recursive hierarchy."
+            "@Core.Description": "Defines a recursive hierarchy [OData-Aggr, section 5.5.2]"
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",

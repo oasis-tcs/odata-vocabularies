@@ -284,11 +284,11 @@
       </Term>
 
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Defines a leveled hierarchy." />
+        <Annotation Term="Core.Description" String="Defines a leveled hierarchy [OData-Aggr, section 5.5.1]" />
       </Term>
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
+        <Annotation Term="Core.Description" String="Defines a recursive hierarchy [OData-Aggr, section 5.5.2]" />
       </Term>
 
       <ComplexType Name="RecursiveHierarchyType">
