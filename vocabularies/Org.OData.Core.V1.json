@@ -574,6 +574,12 @@
             "$UnderlyingType": "Edm.String",
             "@Core.Description": "The qualified name of an action in scope."
         },
+        "QualifiedBoundOperationName": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The qualified name of a bound action or function in scope.",
+            "@Core.LongDescription": "Either\n- the qualified name of an action, to indicate the single bound overload with the specified binding parameter type, \n- the qualified name of a function, to indicate all bound overloads with the specified binding parameter type, or \n- the qualified name of a function followed by parentheses containing a comma-separated list of parameter types, in the order of their definition, to identify a single function overload with the first (binding) parameter matching the specified parameter type.\n        "
+        },
         "Ordered": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -661,6 +667,23 @@
             ],
             "@Core.Description": "Action or function is available",
             "@Core.LongDescription": "The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement."
+        },
+        "RequiresExplicitBinding": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$Nullable": true,
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term."
+        },
+        "ExplicitOperationBindings": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$Type": "Core.QualifiedBoundOperationName",
+            "@Core.Description": "The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element."
         },
         "LocalDateTime": {
             "$Kind": "TypeDefinition",

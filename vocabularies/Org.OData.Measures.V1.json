@@ -38,6 +38,7 @@
         "ISOCurrency": {
             "$Kind": "Term",
             "$AppliesTo": [
+                "Parameter",
                 "Property"
             ],
             "@Core.Description": "The currency for this monetary amount as an ISO 4217 currency code"
@@ -46,6 +47,7 @@
             "$Kind": "Term",
             "$Type": "Edm.Byte",
             "$AppliesTo": [
+                "Parameter",
                 "Property"
             ],
             "@Core.Description": "The number of significant decimal places in the scale part (less than or equal to the number declared in the Scale facet)",
@@ -54,6 +56,7 @@
         "Unit": {
             "$Kind": "Term",
             "$AppliesTo": [
+                "Parameter",
                 "Property"
             ],
             "@Core.Description": "The unit of measure for this measured quantity, e.g. cm for centimeters or % for percentages"
@@ -61,6 +64,7 @@
         "UNECEUnit": {
             "$Kind": "Term",
             "$AppliesTo": [
+                "Parameter",
                 "Property"
             ],
             "@Core.Description": "The unit of measure for this measured quantity, according to the [UN/CEFACT Recommendation 20](http://tfig.unece.org/contents/recommendation-20.htm)"
@@ -69,6 +73,7 @@
             "$Kind": "Term",
             "$Type": "Measures.DurationGranularityType",
             "$AppliesTo": [
+                "Parameter",
                 "Property"
             ],
             "@Core.Description": "The minimum granularity of duration values.",
