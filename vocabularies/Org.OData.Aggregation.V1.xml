@@ -117,7 +117,19 @@
                 <PropertyValue Property="Value" String="filter" />
               </Record>
               <Record>
-                <PropertyValue Property="Value" String="expand" />
+                <PropertyValue Property="Value" String="nest" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="addnested" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="transformnested" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="join" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="outerjoin" />
               </Record>
               <Record>
                 <PropertyValue Property="Value" String="search" />
@@ -142,6 +154,21 @@
               </Record>
               <Record>
                 <PropertyValue Property="Value" String="toppercent" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="top" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="skip" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="ancestors" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="descendants" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="traverse" />
               </Record>
             </Collection>
           </Annotation>

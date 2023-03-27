@@ -85,7 +85,19 @@
                         "Value": "filter"
                     },
                     {
-                        "Value": "expand"
+                        "Value": "nest"
+                    },
+                    {
+                        "Value": "addnested"
+                    },
+                    {
+                        "Value": "transformnested"
+                    },
+                    {
+                        "Value": "join"
+                    },
+                    {
+                        "Value": "outerjoin"
                     },
                     {
                         "Value": "search"
@@ -110,6 +122,21 @@
                     },
                     {
                         "Value": "toppercent"
+                    },
+                    {
+                        "Value": "top"
+                    },
+                    {
+                        "Value": "skip"
+                    },
+                    {
+                        "Value": "ancestors"
+                    },
+                    {
+                        "Value": "descendants"
+                    },
+                    {
+                        "Value": "traverse"
                     }
                 ]
             },
