@@ -165,6 +165,9 @@
                 <PropertyValue Property="Value" String="skip" />
               </Record>
               <Record>
+                <PropertyValue Property="Value" String="orderby" />
+              </Record>
+              <Record>
                 <PropertyValue Property="Value" String="ancestors" />
               </Record>
               <Record>

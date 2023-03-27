@@ -133,6 +133,9 @@
                         "Value": "skip"
                     },
                     {
+                        "Value": "orderby"
+                    },
+                    {
                         "Value": "ancestors"
                     },
                     {
