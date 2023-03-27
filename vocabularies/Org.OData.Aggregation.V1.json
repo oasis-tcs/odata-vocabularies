@@ -85,6 +85,9 @@
                         "Value": "filter"
                     },
                     {
+                        "Value": "orderby"
+                    },
+                    {
                         "Value": "nest"
                     },
                     {
