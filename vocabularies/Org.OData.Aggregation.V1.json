@@ -110,6 +110,15 @@
                     },
                     {
                         "Value": "toppercent"
+                    },
+                    {
+                        "Value": "skip"
+                    },
+                    {
+                        "Value": "top"
+                    },
+                    {
+                        "Value": "orderby"
                     }
                 ]
             },
