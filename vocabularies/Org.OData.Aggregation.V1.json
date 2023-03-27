@@ -67,84 +67,8 @@
             "$Kind": "ComplexType",
             "Transformations": {
                 "$Collection": true,
-                "@Core.Description": "Transformations that can be used in `$apply`",
-                "@Validation.AllowedValues": [
-                    {
-                        "Value": "aggregate"
-                    },
-                    {
-                        "Value": "groupby"
-                    },
-                    {
-                        "Value": "concat"
-                    },
-                    {
-                        "Value": "identity"
-                    },
-                    {
-                        "Value": "filter"
-                    },
-                    {
-                        "Value": "orderby"
-                    },
-                    {
-                        "Value": "nest"
-                    },
-                    {
-                        "Value": "addnested"
-                    },
-                    {
-                        "Value": "transformnested"
-                    },
-                    {
-                        "Value": "join"
-                    },
-                    {
-                        "Value": "outerjoin"
-                    },
-                    {
-                        "Value": "search"
-                    },
-                    {
-                        "Value": "compute"
-                    },
-                    {
-                        "Value": "bottomcount"
-                    },
-                    {
-                        "Value": "bottomsum"
-                    },
-                    {
-                        "Value": "bottompercent"
-                    },
-                    {
-                        "Value": "topcount"
-                    },
-                    {
-                        "Value": "topsum"
-                    },
-                    {
-                        "Value": "toppercent"
-                    },
-                    {
-                        "Value": "top"
-                    },
-                    {
-                        "Value": "skip"
-                    },
-                    {
-                        "Value": "orderby"
-                    },
-                    {
-                        "Value": "ancestors"
-                    },
-                    {
-                        "Value": "descendants"
-                    },
-                    {
-                        "Value": "traverse"
-                    }
-                ]
+                "$Type": "Aggregation.Transformation",
+                "@Core.Description": "Transformations that can be used in `$apply`"
             },
             "CustomAggregationMethods": {
                 "$Collection": true,
@@ -207,6 +131,88 @@
                 "$Nullable": true,
                 "@Core.Description": "Recommended method for aggregating values of the property"
             }
+        },
+        "Transformation": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "A transformation that can be used in `$apply`",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "aggregate"
+                },
+                {
+                    "Value": "groupby"
+                },
+                {
+                    "Value": "concat"
+                },
+                {
+                    "Value": "identity"
+                },
+                {
+                    "Value": "filter"
+                },
+                {
+                    "Value": "orderby"
+                },
+                {
+                    "Value": "nest"
+                },
+                {
+                    "Value": "addnested"
+                },
+                {
+                    "Value": "transformnested"
+                },
+                {
+                    "Value": "join"
+                },
+                {
+                    "Value": "outerjoin"
+                },
+                {
+                    "Value": "search"
+                },
+                {
+                    "Value": "compute"
+                },
+                {
+                    "Value": "bottomcount"
+                },
+                {
+                    "Value": "bottomsum"
+                },
+                {
+                    "Value": "bottompercent"
+                },
+                {
+                    "Value": "topcount"
+                },
+                {
+                    "Value": "topsum"
+                },
+                {
+                    "Value": "toppercent"
+                },
+                {
+                    "Value": "top"
+                },
+                {
+                    "Value": "skip"
+                },
+                {
+                    "Value": "orderby"
+                },
+                {
+                    "Value": "ancestors"
+                },
+                {
+                    "Value": "descendants"
+                },
+                {
+                    "Value": "traverse"
+                }
+            ]
         },
         "AggregationMethod": {
             "$Kind": "TypeDefinition",

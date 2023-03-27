@@ -97,87 +97,8 @@
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedBase">
-        <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
+        <Property Name="Transformations" Type="Collection(Aggregation.Transformation)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
-          <Annotation Term="Validation.AllowedValues">
-            <Collection>
-              <Record>
-                <PropertyValue Property="Value" String="aggregate" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="groupby" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="concat" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="identity" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="filter" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="orderby" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="nest" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="addnested" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="transformnested" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="join" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="outerjoin" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="search" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="compute" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="bottomcount" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="bottomsum" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="bottompercent" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="topcount" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="topsum" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="toppercent" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="top" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="skip" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="orderby" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="ancestors" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="descendants" />
-              </Record>
-              <Record>
-                <PropertyValue Property="Value" String="traverse" />
-              </Record>
-            </Collection>
-          </Annotation>
         </Property>
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
@@ -228,6 +149,89 @@
           </Annotation>
         </Property>
       </ComplexType>
+
+      <TypeDefinition Name="Transformation" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="A transformation that can be used in `$apply`" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="aggregate" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="groupby" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="concat" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="identity" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="filter" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="orderby" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="nest" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="addnested" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="transformnested" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="join" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="outerjoin" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="search" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="compute" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="bottomcount" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="bottomsum" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="bottompercent" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="topcount" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="topsum" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="toppercent" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="top" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="skip" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="orderby" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="ancestors" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="descendants" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="traverse" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
 
       <TypeDefinition Name="AggregationMethod" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description">
