@@ -143,6 +143,15 @@
               <Record>
                 <PropertyValue Property="Value" String="toppercent" />
               </Record>
+              <Record>
+                <PropertyValue Property="Value" String="skip" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="top" />
+              </Record>
+              <Record>
+                <PropertyValue Property="Value" String="orderby" />
+              </Record>
             </Collection>
           </Annotation>
         </Property>
