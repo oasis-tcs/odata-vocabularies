@@ -138,79 +138,100 @@
             "@Core.Description": "A transformation that can be used in `$apply`",
             "@Validation.AllowedValues": [
                 {
-                    "Value": "aggregate"
+                    "Value": "aggregate",
+                    "@Core.Description": "OData-Aggr section 3.2.1"
                 },
                 {
-                    "Value": "groupby"
+                    "Value": "groupby",
+                    "@Core.Description": "OData-Aggr section 3.2.3"
                 },
                 {
-                    "Value": "concat"
+                    "Value": "concat",
+                    "@Core.Description": "OData-Aggr section 3.2.2"
                 },
                 {
-                    "Value": "identity"
+                    "Value": "identity",
+                    "@Core.Description": "OData-Aggr section 3.3.3"
                 },
                 {
-                    "Value": "filter"
+                    "Value": "filter",
+                    "@Core.Description": "OData-Aggr section 3.3.2"
                 },
                 {
-                    "Value": "orderby"
+                    "Value": "search",
+                    "@Core.Description": "OData-Aggr section 3.3.5"
                 },
                 {
-                    "Value": "nest"
+                    "Value": "nest",
+                    "@Core.Description": "OData-Aggr section 3.4.3"
                 },
                 {
-                    "Value": "addnested"
+                    "Value": "addnested",
+                    "@Core.Description": "OData-Aggr section 3.4.4.1"
                 },
                 {
-                    "Value": "transformnested"
+                    "Value": "transformnested",
+                    "@Core.Description": "OData-Aggr section 3.4.4.2"
                 },
                 {
-                    "Value": "join"
+                    "Value": "join",
+                    "@Core.Description": "OData-Aggr section 3.4.2"
                 },
                 {
-                    "Value": "outerjoin"
+                    "Value": "outerjoin",
+                    "@Core.Description": "OData-Aggr section 3.4.2"
                 },
                 {
-                    "Value": "search"
+                    "Value": "compute",
+                    "@Core.Description": "OData-Aggr section 3.4.1"
                 },
                 {
-                    "Value": "compute"
+                    "Value": "bottomcount",
+                    "@Core.Description": "OData-Aggr section 3.3.1.1"
                 },
                 {
-                    "Value": "bottomcount"
+                    "Value": "bottomsum",
+                    "@Core.Description": "OData-Aggr section 3.3.1.3"
                 },
                 {
-                    "Value": "bottomsum"
+                    "Value": "bottompercent",
+                    "@Core.Description": "OData-Aggr section 3.3.1.2"
                 },
                 {
-                    "Value": "bottompercent"
+                    "Value": "topcount",
+                    "@Core.Description": "OData-Aggr section 3.3.1.1"
                 },
                 {
-                    "Value": "topcount"
+                    "Value": "topsum",
+                    "@Core.Description": "OData-Aggr section 3.3.1.3"
                 },
                 {
-                    "Value": "topsum"
+                    "Value": "toppercent",
+                    "@Core.Description": "OData-Aggr section 3.3.1.2"
                 },
                 {
-                    "Value": "toppercent"
+                    "Value": "orderby",
+                    "@Core.Description": "OData-Aggr section 3.3.4"
                 },
                 {
-                    "Value": "top"
+                    "Value": "top",
+                    "@Core.Description": "OData-Aggr section 3.3.7"
                 },
                 {
-                    "Value": "skip"
+                    "Value": "skip",
+                    "@Core.Description": "OData-Aggr section 3.3.6"
                 },
                 {
-                    "Value": "orderby"
+                    "Value": "ancestors",
+                    "@Core.Description": "OData-Aggr section 3.5.2.1"
                 },
                 {
-                    "Value": "ancestors"
+                    "Value": "descendants",
+                    "@Core.Description": "OData-Aggr section 3.5.2.2"
                 },
                 {
-                    "Value": "descendants"
-                },
-                {
-                    "Value": "traverse"
+                    "Value": "traverse",
+                    "@Core.Description": "OData-Aggr section 3.5.2.3"
                 }
             ]
         },
