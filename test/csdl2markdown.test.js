@@ -441,6 +441,53 @@ describe("Edge cases", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
+  
+  it("Derived type", function () {
+    const filename = "derivedType.xml";
+    const vocabulary = {
+      $Version: "4.01",
+      "Derived.v1": {
+        BaseType: {
+          $Kind: "ComplexType",
+          Value: {"$Type": "Edm.PrimitiveType"}
+        },
+        DerivedType: {
+          $Kind: "ComplexType",
+          $BaseType: "Derived.v1.BaseType",
+          Value: {"$Type": "Edm.String"}
+        },
+      },
+    };
+    const expectedMarkdown = [
+      "# Derived Vocabulary",
+      "**Namespace: [Derived.v1](derivedType.xml)**",
+      "",
+      "",
+      "",
+      '<a name="BaseType"></a>',
+      "## BaseType",
+      "",
+      "",
+      "**Derived Types:**",
+      "- [DerivedType](#DerivedType)",
+      "",
+      "Property|Type|Description",
+      ":-------|:---|:----------",
+      "Value|PrimitiveType|",
+      "",
+      '<a name="DerivedType"></a>',
+      "## DerivedType: [BaseType](#BaseType)",
+      "",
+      "",
+      "Property|Type|Description",
+      ":-------|:---|:----------",
+      "Value|String|",
+      "",
+    ];
+    const markdown = lib.csdl2markdown(filename, vocabulary);
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
+
 });
 
 function check(actual, expected) {
