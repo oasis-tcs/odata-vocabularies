@@ -18,7 +18,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "minimist": "^1.2.6",
-    "odata-csdl": "^0.7.0"
+    "odata-csdl": "^0.8.1"
   },
   "devDependencies": {
     "c8": "^7.12.0",
