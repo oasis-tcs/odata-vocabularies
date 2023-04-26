@@ -449,7 +449,7 @@ describe("Edge cases", function () {
       "Derived.v1": {
         BaseType: {
           $Kind: "ComplexType",
-          Value: {"$Type": "Edm.PrimitiveType"}
+          Value: {"$Type": "Edm.PrimitiveType", "@Org.OData.Core.V1.Description": "The value"}
         },
         DerivedType: {
           $Kind: "ComplexType",
@@ -473,7 +473,7 @@ describe("Edge cases", function () {
       "",
       "Property|Type|Description",
       ":-------|:---|:----------",
-      "Value|PrimitiveType|",
+      "Value|PrimitiveType|The value",
       "",
       '<a name="DerivedType"></a>',
       "## DerivedType: [BaseType](#BaseType)",
@@ -481,7 +481,7 @@ describe("Edge cases", function () {
       "",
       "Property|Type|Description",
       ":-------|:---|:----------",
-      "Value|String|",
+      "Value|String|The value",
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
