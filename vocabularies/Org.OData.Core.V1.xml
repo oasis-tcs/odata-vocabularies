@@ -561,7 +561,8 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       <Term Name="AnyStructure" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="Instances of a type are annotated with this tag if they have no common structure in a given response payload" />
         <Annotation Term="Core.LongDescription">
-          <String>The context URL of the response then has the select-list `(@Core.AnyStructure)`.</String>
+          <String>The select-list of a context URL MAY be `(@Core.AnyStructure)` if it would otherwise be empty,
+          but this instance annotation SHOULD be omitted from the response value.</String>
         </Annotation>
       </Term>
 
