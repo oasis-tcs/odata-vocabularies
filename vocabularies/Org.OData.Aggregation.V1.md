@@ -16,7 +16,7 @@ Term|Type|Description
 [ContextDefiningProperties](./Org.OData.Aggregation.V1.xml#L333:~:text=<Term%20Name="-,ContextDefiningProperties,-")|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
 [LeveledHierarchy](./Org.OData.Aggregation.V1.xml#L340:~:text=<Term%20Name="-,LeveledHierarchy,-")|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy [OData-Aggr, section 5.5.1]
 [RecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L344:~:text=<Term%20Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy [OData-Aggr, section 5.5.2]
-[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L503:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
+[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L504:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
 
 
 ## Functions
@@ -109,17 +109,18 @@ Parameter|Type|Description
 During `rolluprecursive` for a hierarchy node, this function marks instances that are related to the node itself rather than a descendant
 
 This function may only occur in the second parameter of a `groupby` transformation whose first parameter
-          contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the "`rolluprecursive` algorithm"
-          [OData-Aggr, section 3.5.3]. Its behavior is undefined outside of this algorithm.
-
-          `groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))` constructs a rollup
-          that contains aggregates per hierarchy node while excluding descendants from the aggregation.
+contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the "`rolluprecursive` algorithm"
+[OData-Aggr, section 3.5.3]. Its behavior is undefined outside of this algorithm.
+```
+groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))
+```
+constructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[Instance](./Org.OData.Aggregation.V1.xml#L485:~:text=<Function%20Name="-,excludingdescendants,-")**|EntityType|**Binding parameter**
-*[Position](./Org.OData.Aggregation.V1.xml#L486:~:text=<Function%20Name="-,excludingdescendants,-")*|Int16|*Optional parameter:* Position N among the `rolluprecursive` operators in the first argument of `groupby`<br>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N relates the instance given in the binding parameter to the node itself rather than a descendant.
-[&rarr;](./Org.OData.Aggregation.V1.xml#L500:~:text=<Function%20Name="-,excludingdescendants,-")|Boolean|
+**[Instance](./Org.OData.Aggregation.V1.xml#L486:~:text=<Function%20Name="-,excludingdescendants,-")**|EntityType|**Binding parameter**
+*[Position](./Org.OData.Aggregation.V1.xml#L487:~:text=<Function%20Name="-,excludingdescendants,-")*|Int16|*Optional parameter:* Position N among the `rolluprecursive` operators in the first argument of `groupby`<br>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N relates the instance given in the binding parameter to the node itself rather than a descendant.
+[&rarr;](./Org.OData.Aggregation.V1.xml#L501:~:text=<Function%20Name="-,excludingdescendants,-")|Boolean|
 
 
 <a name="ApplySupportedBase"></a>
@@ -242,17 +243,17 @@ Every recursive hierarchy function defined in this vocabulary has
 given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.
 
 <a name="AvailableOnAggregatesType"></a>
-## [AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L506:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
+## [AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L507:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[RequiredProperties](./Org.OData.Aggregation.V1.xml#L507:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this action or function
+[RequiredProperties](./Org.OData.Aggregation.V1.xml#L508:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this action or function
 
 <a name="NavigationPropertyAggregationCapabilities"></a>
-## [NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L512:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
+## [NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L513:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
 <a name="CustomAggregateType"></a>
-## [CustomAggregateType](./Org.OData.Aggregation.V1.xml#L530:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
+## [CustomAggregateType](./Org.OData.Aggregation.V1.xml#L531:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
 Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated
