@@ -184,11 +184,7 @@
             </Record>
             <Record>
               <PropertyValue Property="Value" String="addnested" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.4.1" />
-            </Record>
-            <Record>
-              <PropertyValue Property="Value" String="transformnested" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.4.2" />
+              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.4" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="join" />

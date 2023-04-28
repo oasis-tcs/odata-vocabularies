@@ -167,11 +167,7 @@
                 },
                 {
                     "Value": "addnested",
-                    "@Core.Description": "OData-Aggr section 3.4.4.1"
-                },
-                {
-                    "Value": "transformnested",
-                    "@Core.Description": "OData-Aggr section 3.4.4.2"
+                    "@Core.Description": "OData-Aggr section 3.4.4"
                 },
                 {
                     "Value": "join",
