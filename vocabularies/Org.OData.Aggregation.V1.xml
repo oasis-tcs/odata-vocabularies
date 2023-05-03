@@ -236,15 +236,15 @@
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ancestors" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.5.2.1" />
+              <Annotation Term="Core.Description" String="OData-Aggr section 6.2.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="descendants" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.5.2.2" />
+              <Annotation Term="Core.Description" String="OData-Aggr section 6.2.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="traverse" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.5.2.3" />
+              <Annotation Term="Core.Description" String="OData-Aggr section 6.2.3" />
             </Record>
           </Collection>
         </Annotation>
@@ -472,14 +472,14 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="excludingdescendants" IsBound="true">
-        <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function marks instances that are related to the node itself rather than a descendant" />
+      <Function Name="rollupnode" IsBound="true">
+        <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function returns the node" />
         <Annotation Term="Core.LongDescription">
           <String>This function may only occur in the second parameter of a `groupby` transformation whose first parameter
-contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the "`rolluprecursive` algorithm"
-[OData-Aggr, section 3.5.3]. Its behavior is undefined outside of this algorithm.
+contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x,r)` in the "`rolluprecursive` algorithm"
+[OData-Aggr, section 6.3]. Its behavior is undefined outside of this algorithm.
 ```
-groupby((rolluprecursive(...)), filter(Aggregation.excludingdescendants())/aggregate(...))
+Sales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))
 ```
 constructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.</String>
         </Annotation>
@@ -488,8 +488,9 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
           <Annotation Term="Core.Description" String="Position N among the `rolluprecursive` operators in the first argument of `groupby`" />
           <Annotation Term="Core.LongDescription">
             <String>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators
-            has M relationships to M nodes in M recursive hierarchies. This function returns true if relationship number N
-            relates the instance given in the binding parameter to the node itself rather than a descendant.</String>
+            has M relationships to M nodes in M recursive hierarchies. This function returns the node x with path r to the root
+            in relationship number N.
+            If several such `groupby` transformations are nested, this function refers to the innermost one.</String>
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record>
