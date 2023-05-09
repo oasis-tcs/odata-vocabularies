@@ -97,6 +97,11 @@
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedBase">
+        <Annotation Term="Core.LongDescription">
+          <String>Services that do not fully implement a certain aggregation-related functionality may document
+          this by annotating the [`ApplySupported`](#ApplySupported) or [`ApplySupportedDefaults`](#ApplySupportedDefaults)
+          annotation with a description.</String>
+        </Annotation>
         <Property Name="Transformations" Type="Collection(Aggregation.Transformation)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
         </Property>
@@ -501,6 +506,10 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
         </Parameter>
         <ReturnType Type="Edm.Boolean" Nullable="false" />
       </Function>
+
+      <Term Name="UpNode" Type="Edm.EntityType" Nullable="true" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Annotates a node in a recursive hierarchy with one parent node during traversal or recursive rollup with multiple parents" />
+      </Term>
 
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="This action or function is available on aggregated entities if the `RequiredProperties` are still defined" />

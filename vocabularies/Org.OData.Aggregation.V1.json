@@ -65,6 +65,7 @@
         },
         "ApplySupportedBase": {
             "$Kind": "ComplexType",
+            "@Core.LongDescription": "Services that do not fully implement a certain aggregation-related functionality may document\n          this by annotating the [`ApplySupported`](#ApplySupported) or [`ApplySupportedDefaults`](#ApplySupportedDefaults)\n          annotation with a description.",
             "Transformations": {
                 "$Collection": true,
                 "$Type": "Aggregation.Transformation",
@@ -582,6 +583,15 @@
                 }
             }
         ],
+        "UpNode": {
+            "$Kind": "Term",
+            "$Type": "Edm.EntityType",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "Annotates a node in a recursive hierarchy with one parent node during traversal or recursive rollup with multiple parents"
+        },
         "AvailableOnAggregates": {
             "$Kind": "Term",
             "$Type": "Aggregation.AvailableOnAggregatesType",
