@@ -109,11 +109,6 @@
                 "$Collection": true,
                 "$Type": "Aggregation.AggregatablePropertyType",
                 "@Core.Description": "A non-empty collection indicates that only the listed properties of the annotated target can be used in the `aggregate` transformation, optionally restricted to the specified aggregation methods"
-            },
-            "IsRecursiveHierarchy": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "Can be set to `false` to restrict the [`RecursiveHierarchy`](#RecursiveHierarchy) annotations (irrespective of their qualifier) to certain collections of a given type"
             }
         },
         "AggregatablePropertyType": {
