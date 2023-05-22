@@ -58,6 +58,9 @@
       <Annotation Term="Core.Description">
         <String>Terms to describe which data in a given entity model can be aggregated, and how.</String>
       </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>Related to the specfication document [OData-Data-Agg-v4.0](../../odata-specs/odata-data-aggregation-ext/odata-data-aggregation-ext.md).</String>
+      </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
           <Record>
@@ -158,95 +161,95 @@
           <Collection>
             <Record>
               <PropertyValue Property="Value" String="aggregate" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.2.1" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.2.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="groupby" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.2.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.2.3" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="concat" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.2.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.2.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="identity" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.3" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="filter" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="search" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.5" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.5" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="nest" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.4.3" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="addnested" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.4" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.4.4" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="join" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.4.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="outerjoin" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.4.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="compute" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.4.1" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.4.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="bottomcount" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.1.1" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.1.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="bottomsum" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.1.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.1.3" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="bottompercent" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.1.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.1.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="topcount" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.1.1" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.1.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="topsum" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.1.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.1.3" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="toppercent" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.1.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.1.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="orderby" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.4" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.4" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="top" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.7" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.7" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="skip" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 3.3.6" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 3.3.6" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ancestors" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 6.2.1" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 6.2.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="descendants" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 6.2.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 6.2.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="traverse" />
-              <Annotation Term="Core.Description" String="OData-Aggr section 6.2.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0 section 6.2.3" />
             </Record>
           </Collection>
         </Annotation>
@@ -340,11 +343,11 @@
       </Term>
 
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Defines a leveled hierarchy [OData-Aggr, section 5.5.1]" />
+        <Annotation Term="Core.Description" String="Defines a leveled hierarchy [OData-Data-Agg-v4.0, section 5.5.1]" />
       </Term>
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy [OData-Aggr, section 5.5.2]" />
+        <Annotation Term="Core.Description" String="Defines a recursive hierarchy [OData-Data-Agg-v4.0, section 5.5.2]" />
       </Term>
 
       <ComplexType Name="RecursiveHierarchyType">
@@ -479,7 +482,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.LongDescription">
           <String>This function may only occur in the second parameter of a `groupby` transformation whose first parameter
 contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x,r)` in the "`rolluprecursive` algorithm"
-[OData-Aggr, section 6.3]. Its behavior is undefined outside of this algorithm.
+[OData-Data-Agg-v4.0, section 6.3]. Its behavior is undefined outside of this algorithm.
 ```
 Sales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))
 ```
