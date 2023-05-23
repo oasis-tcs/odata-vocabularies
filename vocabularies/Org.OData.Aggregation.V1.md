@@ -233,7 +233,7 @@ Member|Value|Description
 Property|Type|Description
 :-------|:---|:----------
 [NodeProperty](./Org.OData.Aggregation.V1.xml#L354:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Primitive property holding the hierarchy node identifier
-[ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L357:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable.
+[ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L357:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued.
 
 <a name="HierarchyQualifier"></a>
 ## [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L362:~:text=<TypeDefinition%20Name="-,HierarchyQualifier,-")

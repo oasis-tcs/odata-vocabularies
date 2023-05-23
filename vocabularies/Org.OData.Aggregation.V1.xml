@@ -355,7 +355,7 @@
           <Annotation Term="Core.Description" String="Primitive property holding the hierarchy node identifier" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be single-valued and nullable." />
+          <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued." />
         </Property>
       </ComplexType>
 
