@@ -53,6 +53,12 @@
           <Record>
             <PropertyValue Property="NodeProperty" PropertyPath="ID" />
             <PropertyValue Property="ParentNavigationProperty" NavigationPropertyPath="Superordinate" />
+            <PropertyValue Property="IsRoot">
+              <Eq>
+                <Path>Superordinate</Path>
+                <Null />
+              </Eq>
+            </PropertyValue>
           </Record>
         </Annotation>
       </EntityType>
