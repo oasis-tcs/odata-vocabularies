@@ -357,6 +357,12 @@
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
           <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued." />
         </Property>
+        <Property Name="IsRoot" Type="Edm.Boolean" Nullable="true">
+          <Annotation Term="Core.Description" String="Whether the node is a root node" />
+          <Annotation Term="Core.LongDescription">
+            <String>If this is null or absent, the node is a root if and only if it has no parent nodes.</String>
+          </Annotation>
+        </Property>
       </ComplexType>
 
       <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">

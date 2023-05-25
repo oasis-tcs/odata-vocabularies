@@ -349,6 +349,12 @@
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued."
+            },
+            "IsRoot": {
+                "$Type": "Edm.Boolean",
+                "$Nullable": true,
+                "@Core.Description": "Whether the node is a root node",
+                "@Core.LongDescription": "If this is null or absent, the node is a root if and only if it has no parent nodes."
             }
         },
         "HierarchyQualifier": {
