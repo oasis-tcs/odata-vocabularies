@@ -431,7 +431,7 @@
                     {
                         "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the node is considered a descendant with distance 0 of itself",
+                        "@Core.Description": "Whether to include the node in the result even if it is not a descendant of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
@@ -482,7 +482,7 @@
                     {
                         "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the node is considered an ancestor with distance 0 of itself",
+                        "@Core.Description": "Whether to include the node in the result even if it is not an ancestor of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
@@ -581,19 +581,19 @@
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.EntityType"
                 }
             }
         ],
         "UpNode": {
             "$Kind": "Term",
-            "$Type": "Edm.EntityType",
+            "$Type": "Edm.PrimitiveType",
             "$Nullable": true,
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Description": "The next node in a path from the annotated node to the root",
-            "@Core.LongDescription": "This instance annotation occurs in the result set after a hierarchical transformation and\n          the annotation value is again annotated with `UpNode` until a root is reached.\n          A use case for this is traversal or recursive rollup with multiple parents, when this annotation takes\n          as value one parent node."
+            "@Core.Description": "The node identifier of the next node in a path from the annotated node to the root",
+            "@Core.LongDescription": "This instance annotation occurs in the result set after a hierarchical transformation and\n          the annotation value is again annotated with `UpNode` until a root is reached.\n          A use case for this is traversal or recursive rollup with multiple parents, when this annotation takes\n          as value one parent node identifier."
         },
         "CycleNode": {
             "$Kind": "Term",

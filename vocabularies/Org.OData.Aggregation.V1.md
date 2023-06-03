@@ -18,7 +18,7 @@ Term|Type|Description
 [ContextDefiningProperties](./Org.OData.Aggregation.V1.xml#L338:~:text=<Term%20Name="-,ContextDefiningProperties,-")|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
 [LeveledHierarchy](./Org.OData.Aggregation.V1.xml#L345:~:text=<Term%20Name="-,LeveledHierarchy,-")|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy [OData-Data-Agg-v4.0, section 5.5.1]
 [RecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L349:~:text=<Term%20Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy [OData-Data-Agg-v4.0, section 5.5.2]
-[UpNode](./Org.OData.Aggregation.V1.xml#L516:~:text=<Term%20Name="-,UpNode,-")|EntityType?|<a name="UpNode"></a>The next node in a path from the annotated node to the root<br>This instance annotation occurs in the result set after a hierarchical transformation and the annotation value is again annotated with `UpNode` until a root is reached. A use case for this is traversal or recursive rollup with multiple parents, when this annotation takes as value one parent node.
+[UpNode](./Org.OData.Aggregation.V1.xml#L516:~:text=<Term%20Name="-,UpNode,-")|PrimitiveType?|<a name="UpNode"></a>The node identifier of the next node in a path from the annotated node to the root<br>This instance annotation occurs in the result set after a hierarchical transformation and the annotation value is again annotated with `UpNode` until a root is reached. A use case for this is traversal or recursive rollup with multiple parents, when this annotation takes as value one parent node identifier.
 [CycleNode](./Org.OData.Aggregation.V1.xml#L525:~:text=<Term%20Name="-,CycleNode,-")|Boolean|<a name="CycleNode"></a>There is a cycle from this node to itself following the [`UpNode`](#UpNode) annotations
 [AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L529:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
 
@@ -54,7 +54,7 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L400:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the putative descendant
 [Ancestor](./Org.OData.Aggregation.V1.xml#L403:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the ancestor node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L406:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
-*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L414:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the node is considered a descendant with distance 0 of itself
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L414:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether to include the node in the result even if it is not a descendant of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L422:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
 
 
@@ -72,7 +72,7 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L432:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the putative ancestor
 [Descendant](./Org.OData.Aggregation.V1.xml#L435:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the descendant node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L438:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
-*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L446:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the node is considered an ancestor with distance 0 of itself
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L446:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether to include the node in the result even if it is not an ancestor of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L454:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
 
 
@@ -124,7 +124,7 @@ Parameter|Type|Description
 :--------|:---|:----------
 **[Instance](./Org.OData.Aggregation.V1.xml#L497:~:text=<Function%20Name="-,rollupnode,-")**|EntityType|**Binding parameter**
 *[Position](./Org.OData.Aggregation.V1.xml#L498:~:text=<Function%20Name="-,rollupnode,-")*|Int16|*Optional parameter:* Position N among the `rolluprecursive` operators in the first argument of `groupby`<br>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators has M relationships to M nodes in M recursive hierarchies. This function returns the node x with path r to the root in relationship number N. If several such `groupby` transformations are nested, this function refers to the innermost one.
-[&rarr;](./Org.OData.Aggregation.V1.xml#L513:~:text=<Function%20Name="-,rollupnode,-")|Boolean|
+[&rarr;](./Org.OData.Aggregation.V1.xml#L513:~:text=<Function%20Name="-,rollupnode,-")|EntityType|
 
 
 <a name="ApplySupportedBase"></a>
