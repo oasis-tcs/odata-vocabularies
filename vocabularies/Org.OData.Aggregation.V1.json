@@ -431,7 +431,7 @@
                     {
                         "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the node is considered a descendant of itself",
+                        "@Core.Description": "Whether the node is considered a descendant with distance 0 of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }
@@ -482,7 +482,7 @@
                     {
                         "$Name": "IncludeSelf",
                         "$Type": "Edm.Boolean",
-                        "@Core.Description": "Whether the node is considered an ancestor of itself",
+                        "@Core.Description": "Whether the node is considered an ancestor with distance 0 of itself",
                         "@Core.OptionalParameter": {
                             "DefaultValue": "false"
                         }

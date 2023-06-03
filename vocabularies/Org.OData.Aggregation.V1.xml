@@ -412,7 +412,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether the node is considered a descendant of itself" />
+          <Annotation Term="Core.Description" String="Whether the node is considered a descendant with distance 0 of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" String="false" />
@@ -444,7 +444,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether the node is considered an ancestor of itself" />
+          <Annotation Term="Core.Description" String="Whether the node is considered an ancestor with distance 0 of itself" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" String="false" />

@@ -54,7 +54,7 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L400:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the putative descendant
 [Ancestor](./Org.OData.Aggregation.V1.xml#L403:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the ancestor node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L406:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
-*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L414:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the node is considered a descendant of itself
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L414:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether the node is considered a descendant with distance 0 of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L422:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
 
 
@@ -72,7 +72,7 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L432:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the putative ancestor
 [Descendant](./Org.OData.Aggregation.V1.xml#L435:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the descendant node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L438:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
-*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L446:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the node is considered an ancestor of itself
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L446:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether the node is considered an ancestor with distance 0 of itself
 [&rarr;](./Org.OData.Aggregation.V1.xml#L454:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
 
 
