@@ -177,29 +177,29 @@ A transformation that can be used in `$apply`
 
 Allowed Value|Description
 :------------|:----------
-[aggregate](./Org.OData.Aggregation.V1.xml#L162:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.2.1
-[groupby](./Org.OData.Aggregation.V1.xml#L166:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.2.3
-[concat](./Org.OData.Aggregation.V1.xml#L170:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.2.2
-[identity](./Org.OData.Aggregation.V1.xml#L174:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.3
-[filter](./Org.OData.Aggregation.V1.xml#L178:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.2
-[search](./Org.OData.Aggregation.V1.xml#L182:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.5
-[nest](./Org.OData.Aggregation.V1.xml#L186:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.4.3
-[addnested](./Org.OData.Aggregation.V1.xml#L190:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.4.4
-[join](./Org.OData.Aggregation.V1.xml#L194:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.4.2
-[outerjoin](./Org.OData.Aggregation.V1.xml#L198:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.4.2
-[compute](./Org.OData.Aggregation.V1.xml#L202:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.4.1
-[bottomcount](./Org.OData.Aggregation.V1.xml#L206:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.1.1
-[bottomsum](./Org.OData.Aggregation.V1.xml#L210:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.1.3
-[bottompercent](./Org.OData.Aggregation.V1.xml#L214:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.1.2
-[topcount](./Org.OData.Aggregation.V1.xml#L218:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.1.1
-[topsum](./Org.OData.Aggregation.V1.xml#L222:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.1.3
-[toppercent](./Org.OData.Aggregation.V1.xml#L226:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.1.2
-[orderby](./Org.OData.Aggregation.V1.xml#L230:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.4
-[top](./Org.OData.Aggregation.V1.xml#L234:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.7
-[skip](./Org.OData.Aggregation.V1.xml#L238:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 3.3.6
-[ancestors](./Org.OData.Aggregation.V1.xml#L242:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 6.2.1
-[descendants](./Org.OData.Aggregation.V1.xml#L246:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 6.2.2
-[traverse](./Org.OData.Aggregation.V1.xml#L250:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0 section 6.2.3
+[aggregate](./Org.OData.Aggregation.V1.xml#L162:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.2.1
+[groupby](./Org.OData.Aggregation.V1.xml#L166:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.2.3
+[concat](./Org.OData.Aggregation.V1.xml#L170:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.2.2
+[identity](./Org.OData.Aggregation.V1.xml#L174:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.3
+[filter](./Org.OData.Aggregation.V1.xml#L178:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.2
+[search](./Org.OData.Aggregation.V1.xml#L182:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.5
+[nest](./Org.OData.Aggregation.V1.xml#L186:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.4.3
+[addnested](./Org.OData.Aggregation.V1.xml#L190:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.4.4
+[join](./Org.OData.Aggregation.V1.xml#L194:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.4.2
+[outerjoin](./Org.OData.Aggregation.V1.xml#L198:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.4.2
+[compute](./Org.OData.Aggregation.V1.xml#L202:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.4.1
+[bottomcount](./Org.OData.Aggregation.V1.xml#L206:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.1.1
+[bottomsum](./Org.OData.Aggregation.V1.xml#L210:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.1.3
+[bottompercent](./Org.OData.Aggregation.V1.xml#L214:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.1.2
+[topcount](./Org.OData.Aggregation.V1.xml#L218:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.1.1
+[topsum](./Org.OData.Aggregation.V1.xml#L222:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.1.3
+[toppercent](./Org.OData.Aggregation.V1.xml#L226:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.1.2
+[orderby](./Org.OData.Aggregation.V1.xml#L230:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.4
+[top](./Org.OData.Aggregation.V1.xml#L234:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.7
+[skip](./Org.OData.Aggregation.V1.xml#L238:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 3.3.6
+[ancestors](./Org.OData.Aggregation.V1.xml#L242:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 6.2.1
+[descendants](./Org.OData.Aggregation.V1.xml#L246:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 6.2.1
+[traverse](./Org.OData.Aggregation.V1.xml#L250:~:text=<TypeDefinition%20Name="-,Transformation,-")|OData-Data-Agg-v4.0, section 6.2.2
 
 <a name="AggregationMethod"></a>
 ## [AggregationMethod](./Org.OData.Aggregation.V1.xml#L258:~:text=<TypeDefinition%20Name="-,AggregationMethod,-")
