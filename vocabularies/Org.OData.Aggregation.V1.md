@@ -3,7 +3,7 @@
 
 Terms to describe which data in a given entity model can be aggregated, and how.
 
-Related to the specfication document [OData-Data-Agg-v4.0](../../odata-specs/odata-data-aggregation-ext/odata-data-aggregation-ext.md).
+Related to the specfication document [OData-Data-Agg-v4.0](http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html).
 
 
 ## Terms
@@ -16,8 +16,8 @@ Term|Type|Description
 [Aggregatable](./Org.OData.Aggregation.V1.xml#L320:~:text=<Term%20Name="-,Aggregatable,-") *(Deprecated)*|[Tag](Org.OData.Core.V1.md#Tag)|<a name="Aggregatable"></a>Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)
 [CustomAggregate](./Org.OData.Aggregation.V1.xml#L332:~:text=<Term%20Name="-,CustomAggregate,-")|String|<a name="CustomAggregate"></a>Dynamic property that can be used in the `aggregate` transformation<br>This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type.
 [ContextDefiningProperties](./Org.OData.Aggregation.V1.xml#L338:~:text=<Term%20Name="-,ContextDefiningProperties,-")|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
-[LeveledHierarchy](./Org.OData.Aggregation.V1.xml#L345:~:text=<Term%20Name="-,LeveledHierarchy,-")|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy [OData-Data-Agg-v4.0, section 5.5.1]
-[RecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L349:~:text=<Term%20Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy [OData-Data-Agg-v4.0, section 5.5.2]
+[LeveledHierarchy](./Org.OData.Aggregation.V1.xml#L345:~:text=<Term%20Name="-,LeveledHierarchy,-")|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)
+[RecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L349:~:text=<Term%20Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)
 [UpNode](./Org.OData.Aggregation.V1.xml#L516:~:text=<Term%20Name="-,UpNode,-")|PrimitiveType?|<a name="UpNode"></a>The node identifier of the next node in a path from the annotated node to the root<br>This instance annotation occurs in the result set after a hierarchical transformation and the annotation value is again annotated with `UpNode` until a root is reached. A use case for this is traversal or recursive rollup with multiple parents, when this annotation takes as value one parent node identifier.
 [CycleNode](./Org.OData.Aggregation.V1.xml#L525:~:text=<Term%20Name="-,CycleNode,-")|Boolean|<a name="CycleNode"></a>There is a cycle from this node to itself following the [`UpNode`](#UpNode) annotations
 [AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L529:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This action or function is available on aggregated entities if the `RequiredProperties` are still defined
@@ -114,7 +114,7 @@ During `rolluprecursive` for a hierarchy node, this function returns the node
 
 This function may only occur in the second parameter of a `groupby` transformation whose first parameter
 contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x,r)` in the "`rolluprecursive` algorithm"
-[OData-Data-Agg-v4.0, section 6.3]. Its behavior is undefined outside of this algorithm.
+(OData-Data-Agg-v4.0, section 6.3). Its behavior is undefined outside of this algorithm.
 ```
 Sales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))
 ```

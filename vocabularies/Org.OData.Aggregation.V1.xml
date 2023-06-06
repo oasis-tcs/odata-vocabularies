@@ -59,7 +59,7 @@
         <String>Terms to describe which data in a given entity model can be aggregated, and how.</String>
       </Annotation>
       <Annotation Term="Core.LongDescription">
-        <String>Related to the specfication document [OData-Data-Agg-v4.0](../../odata-specs/odata-data-aggregation-ext/odata-data-aggregation-ext.md).</String>
+        <String>Related to the specfication document [OData-Data-Agg-v4.0](http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html).</String>
       </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
@@ -343,11 +343,11 @@
       </Term>
 
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Defines a leveled hierarchy [OData-Data-Agg-v4.0, section 5.5.1]" />
+        <Annotation Term="Core.Description" String="Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)" />
       </Term>
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy [OData-Data-Agg-v4.0, section 5.5.2]" />
+        <Annotation Term="Core.Description" String="Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)" />
       </Term>
 
       <ComplexType Name="RecursiveHierarchyType">
@@ -488,7 +488,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Annotation Term="Core.LongDescription">
           <String>This function may only occur in the second parameter of a `groupby` transformation whose first parameter
 contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x,r)` in the "`rolluprecursive` algorithm"
-[OData-Data-Agg-v4.0, section 6.3]. Its behavior is undefined outside of this algorithm.
+(OData-Data-Agg-v4.0, section 6.3). Its behavior is undefined outside of this algorithm.
 ```
 Sales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))
 ```

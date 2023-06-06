@@ -29,7 +29,7 @@
     "Org.OData.Aggregation.V1": {
         "$Alias": "Aggregation",
         "@Core.Description": "Terms to describe which data in a given entity model can be aggregated, and how.",
-        "@Core.LongDescription": "Related to the specfication document [OData-Data-Agg-v4.0](../../odata-specs/odata-data-aggregation-ext/odata-data-aggregation-ext.md).",
+        "@Core.LongDescription": "Related to the specfication document [OData-Data-Agg-v4.0](http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html).",
         "@Core.Links": [
             {
                 "rel": "alternate",
@@ -330,7 +330,7 @@
                 "EntityType",
                 "ComplexType"
             ],
-            "@Core.Description": "Defines a leveled hierarchy [OData-Data-Agg-v4.0, section 5.5.1]"
+            "@Core.Description": "Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)"
         },
         "RecursiveHierarchy": {
             "$Kind": "Term",
@@ -338,7 +338,7 @@
             "$AppliesTo": [
                 "EntityType"
             ],
-            "@Core.Description": "Defines a recursive hierarchy [OData-Data-Agg-v4.0, section 5.5.2]"
+            "@Core.Description": "Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)"
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
@@ -563,7 +563,7 @@
                 "$Kind": "Function",
                 "$IsBound": true,
                 "@Core.Description": "During `rolluprecursive` for a hierarchy node, this function returns the node",
-                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\ncontains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x,r)` in the \"`rolluprecursive` algorithm\"\n[OData-Data-Agg-v4.0, section 6.3]. Its behavior is undefined outside of this algorithm.\n```\nSales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))\n```\nconstructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
+                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\ncontains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x,r)` in the \"`rolluprecursive` algorithm\"\n(OData-Data-Agg-v4.0, section 6.3). Its behavior is undefined outside of this algorithm.\n```\nSales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))\n```\nconstructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
                 "$Parameter": [
                     {
                         "$Name": "Instance",
