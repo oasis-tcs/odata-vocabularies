@@ -608,17 +608,16 @@
             "$Kind": "Term",
             "$Type": "Aggregation.AvailableOnAggregatesType",
             "$AppliesTo": [
-                "Action",
                 "Function"
             ],
-            "@Core.Description": "This action or function is available on aggregated entities if the `RequiredProperties` are still defined"
+            "@Core.Description": "This function is available on aggregated entities if the `RequiredProperties` are still defined"
         },
         "AvailableOnAggregatesType": {
             "$Kind": "ComplexType",
             "RequiredProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties required to apply this action or function"
+                "@Core.Description": "Properties required to apply this function"
             }
         },
         "NavigationPropertyAggregationCapabilities": {
