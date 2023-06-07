@@ -350,7 +350,7 @@
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued."
             },
-            "IsStart": {
+            "IsStartNode": {
                 "$Type": "Edm.Boolean",
                 "$Nullable": true,
                 "@Core.Description": "Whether the entity is a start node",

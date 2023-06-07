@@ -235,7 +235,7 @@ Property|Type|Description
 :-------|:---|:----------
 [NodeProperty](./Org.OData.Aggregation.V1.xml#L354:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|PropertyPath|Primitive property holding the hierarchy node identifier
 [ParentNavigationProperty](./Org.OData.Aggregation.V1.xml#L357:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|NavigationPropertyPath|Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued.
-[IsStart](./Org.OData.Aggregation.V1.xml#L360:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Boolean?|Whether the entity is a start node<br>Every node of a hierarchy must be a start node or a descendant of one. The transformations `traverse` and `groupby` with `rolluprecursive` work recursively down the hierarchy starting with the start nodes.<br> If this is null or absent, an entity is a start node if and only if it has no parent nodes.
+[IsStartNode](./Org.OData.Aggregation.V1.xml#L360:~:text=<ComplexType%20Name="-,RecursiveHierarchyType,-")|Boolean?|Whether the entity is a start node<br>Every node of a hierarchy must be a start node or a descendant of one. The transformations `traverse` and `groupby` with `rolluprecursive` work recursively down the hierarchy starting with the start nodes.<br> If this is null or absent, an entity is a start node if and only if it has no parent nodes.
 
 <a name="HierarchyQualifier"></a>
 ## [HierarchyQualifier](./Org.OData.Aggregation.V1.xml#L371:~:text=<TypeDefinition%20Name="-,HierarchyQualifier,-")
