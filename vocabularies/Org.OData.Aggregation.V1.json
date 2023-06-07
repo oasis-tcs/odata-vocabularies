@@ -350,11 +350,11 @@
                 "$Type": "Edm.NavigationPropertyPath",
                 "@Core.Description": "Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued."
             },
-            "IsRoot": {
+            "IsStart": {
                 "$Type": "Edm.Boolean",
                 "$Nullable": true,
-                "@Core.Description": "Whether the node is a root node",
-                "@Core.LongDescription": "If this is null or absent, the node is a root if and only if it has no parent nodes."
+                "@Core.Description": "Whether the entity is a start node",
+                "@Core.LongDescription": "Every node of a hierarchy must be a start node or a descendant of one. The transformations\n            `traverse` and `groupby` with `rolluprecursive` work recursively down the hierarchy starting with\n            the start nodes.<br>\n            If this is null or absent, an entity is a start node if and only if it has no parent nodes."
             }
         },
         "HierarchyQualifier": {
@@ -497,7 +497,7 @@
         "issibling": [
             {
                 "$Kind": "Function",
-                "@Core.Description": "Returns true if the node has the same parent as the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) or both are roots",
+                "@Core.Description": "Is the node a sibling of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?",
                 "@Core.LongDescription": "A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
