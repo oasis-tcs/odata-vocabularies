@@ -148,7 +148,7 @@
                 },
                 {
                     "Value": "identity",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.3"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.1"
                 },
                 {
                     "Value": "filter",
@@ -156,27 +156,27 @@
                 },
                 {
                     "Value": "search",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.5"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.4"
                 },
                 {
                     "Value": "nest",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.3"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.5.2"
                 },
                 {
                     "Value": "addnested",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.4"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.3"
                 },
                 {
                     "Value": "join",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.2"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.5.1"
                 },
                 {
                     "Value": "outerjoin",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.2"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.5.1"
                 },
                 {
                     "Value": "compute",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.1"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.2"
                 },
                 {
                     "Value": "bottomcount",
@@ -204,15 +204,15 @@
                 },
                 {
                     "Value": "orderby",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.4"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.3"
                 },
                 {
                     "Value": "top",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.7"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.6"
                 },
                 {
                     "Value": "skip",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.6"
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.5"
                 },
                 {
                     "Value": "ancestors",

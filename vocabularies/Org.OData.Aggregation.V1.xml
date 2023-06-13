@@ -173,7 +173,7 @@
             </Record>
             <Record>
               <PropertyValue Property="Value" String="identity" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="filter" />
@@ -181,27 +181,27 @@
             </Record>
             <Record>
               <PropertyValue Property="Value" String="search" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.5" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.4" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="nest" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.3" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="addnested" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.4" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.3" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="join" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="outerjoin" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.2" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.1" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="compute" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.1" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.2" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="bottomcount" />
@@ -229,15 +229,15 @@
             </Record>
             <Record>
               <PropertyValue Property="Value" String="orderby" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.4" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.3" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="top" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.7" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.6" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="skip" />
-              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.6" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.5" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="ancestors" />
