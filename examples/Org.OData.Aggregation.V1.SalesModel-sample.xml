@@ -92,7 +92,7 @@
         <Property Name="Rating" Type="Edm.Byte" />
       </EntityType>
       <EntityType Name="NonFoodProduct" BaseType="SalesModel.Product">
-        <Property Name="Rating" Type="Edm.String" />
+        <Property Name="RatingClass" Type="Edm.String" />
       </EntityType>
       <EntityType Name="Sale">
         <Key>
@@ -201,7 +201,7 @@
               <Collection>
                 <PropertyPath>Name</PropertyPath>
                 <PropertyPath>SalesModel.FoodProduct/Rating</PropertyPath>
-                <PropertyPath>SalesModel.NonFoodProduct/Rating</PropertyPath>
+                <PropertyPath>SalesModel.NonFoodProduct/RatingClass</PropertyPath>
               </Collection>
             </PropertyValue>
           </Record>

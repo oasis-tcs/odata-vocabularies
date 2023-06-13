@@ -165,7 +165,7 @@
         "NonFoodProduct": {
             "$Kind": "EntityType",
             "$BaseType": "SalesModel.Product",
-            "Rating": {
+            "RatingClass": {
                 "$Nullable": true
             }
         },
@@ -308,7 +308,7 @@
                     "GroupableProperties": [
                         "Name",
                         "SalesModel.FoodProduct/Rating",
-                        "SalesModel.NonFoodProduct/Rating"
+                        "SalesModel.NonFoodProduct/RatingClass"
                     ]
                 }
             }
