@@ -352,19 +352,10 @@
 
       <ComplexType Name="RecursiveHierarchyType">
         <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Primitive property holding the hierarchy node identifier" />
+          <Annotation Term="Core.Description" String="Primitive property holding the node identifier" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property for navigating to the parent node. Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued." />
-        </Property>
-        <Property Name="IsStartNode" Type="Edm.Boolean" Nullable="true">
-          <Annotation Term="Core.Description" String="Whether the entity is a start node" />
-          <Annotation Term="Core.LongDescription">
-            <String>Every node of a hierarchy must be a start node or a descendant of one. The transformations
-            `traverse` and `groupby` with `rolluprecursive` work recursively down the hierarchy starting with
-            the start nodes.&lt;br&gt;
-            If this is null or absent, an entity is a start node if and only if it has no parent nodes.</String>
-          </Annotation>
+          <Annotation Term="Core.Description" String="Property for navigating to the parent node(s). Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued." />
         </Property>
       </ComplexType>
 
@@ -486,18 +477,17 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="rollupnode" IsBound="true">
+      <Function Name="rollupnode">
         <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function returns the node" />
         <Annotation Term="Core.LongDescription">
           <String>This function may only occur in the second parameter of a `groupby` transformation whose first parameter
-contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x,r)` in the "`rolluprecursive` algorithm"
+contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the "`rolluprecursive` algorithm"
 (OData-Data-Agg-v4.0, section 6.3). Its behavior is undefined outside of this algorithm.
 ```
 Sales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))
 ```
 constructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.</String>
         </Annotation>
-        <Parameter Name="Instance" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="Position" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.Description" String="Position N among the `rolluprecursive` operators in the first argument of `groupby`" />
           <Annotation Term="Core.LongDescription">
@@ -517,10 +507,10 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
       </Function>
 
       <Term Name="UpPath" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="The string values of the node identifiers in a path from the annotated node to a start node" />
+        <Annotation Term="Core.Description" String="The string values of the node identifiers in a path from the annotated node to a start node in a traversal of a recursive hierarchy" />
         <Annotation Term="Core.LongDescription">
-          <String>This instance annotation occurs in the result set after a hierarchical transformation.
-          A use case for this is traversal or recursive rollup with multiple parents, when this annotation takes
+          <String>This instance annotation occurs in the result set after a `traverse` transformation (OData-Data-Agg-v4.0, section 6.2.2.2).
+          A use case for this is traversal with multiple parents, when this annotation takes
           as value one parent node identifier followed by one grandparent node identifier and so on.</String>
         </Annotation>
       </Term>

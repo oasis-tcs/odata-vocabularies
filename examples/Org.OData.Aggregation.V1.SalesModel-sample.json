@@ -90,15 +90,7 @@
             },
             "@Aggregation.RecursiveHierarchy#SalesOrgHierarchy": {
                 "NodeProperty": "ID",
-                "ParentNavigationProperty": "Superordinate",
-                "IsStartNode": {
-                    "$Eq": [
-                        {
-                            "$Path": "Superordinate"
-                        },
-                        null
-                    ]
-                }
+                "ParentNavigationProperty": "Superordinate"
             }
         },
         "Customer": {
