@@ -372,7 +372,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </TypeDefinition>
 
       <Function Name="isnode">
-        <Annotation Term="Core.Description" String="Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.Description" String="Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -398,7 +398,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="isdescendant">
-        <Annotation Term="Core.Description" String="Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -419,7 +419,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether to include the node in the result even if it is not a descendant of itself" />
+          <Annotation Term="Core.Description" String="Whether to include the node itself in the result" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" String="false" />
@@ -430,7 +430,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="isancestor">
-        <Annotation Term="Core.Description" String="Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -451,7 +451,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
           <Annotation Term="Validation.Minimum" Int="1" />
         </Parameter>
         <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
-          <Annotation Term="Core.Description" String="Whether to include the node in the result even if it is not an ancestor of itself" />
+          <Annotation Term="Core.Description" String="Whether to include the node itself in the result" />
           <Annotation Term="Core.OptionalParameter">
             <Record>
               <PropertyValue Property="DefaultValue" String="false" />
@@ -462,7 +462,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="issibling">
-        <Annotation Term="Core.Description" String="Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.Description" String="Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
         <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -478,7 +478,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="isleaf">
-        <Annotation Term="Core.Description" String="Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.Description" String="Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />

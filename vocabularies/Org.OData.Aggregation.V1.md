@@ -27,7 +27,7 @@ Term|Type|Description
 <a name="isnode"></a>
 ### [isnode](./Org.OData.Aggregation.V1.xml#L374:~:text=<Function%20Name="-,isnode,-")
 
-Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
+Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
 If a node identifier passed to the function is null, the function returns null.
 
@@ -57,7 +57,7 @@ Parameter|Type|Description
 <a name="isdescendant"></a>
 ### [isdescendant](./Org.OData.Aggregation.V1.xml#L400:~:text=<Function%20Name="-,isdescendant,-")
 
-Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
+Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
 If a node identifier passed to the function is null, the function returns null.
 
@@ -68,14 +68,14 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L407:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the putative descendant
 [Ancestor](./Org.OData.Aggregation.V1.xml#L410:~:text=<Function%20Name="-,isdescendant,-")|PrimitiveType?|Node identifier of the ancestor node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L413:~:text=<Function%20Name="-,isdescendant,-")*|Int16|*Optional parameter*
-*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L421:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether to include the node in the result even if it is not a descendant of itself
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L421:~:text=<Function%20Name="-,isdescendant,-")*|Boolean|*Optional parameter:* Whether to include the node itself in the result
 [&rarr;](./Org.OData.Aggregation.V1.xml#L429:~:text=<Function%20Name="-,isdescendant,-")|Boolean?|
 
 
 <a name="isancestor"></a>
 ### [isancestor](./Org.OData.Aggregation.V1.xml#L432:~:text=<Function%20Name="-,isancestor,-")
 
-Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?
+Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
 If a node identifier passed to the function is null, the function returns null.
 
@@ -86,14 +86,14 @@ Parameter|Type|Description
 [Node](./Org.OData.Aggregation.V1.xml#L439:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the putative ancestor
 [Descendant](./Org.OData.Aggregation.V1.xml#L442:~:text=<Function%20Name="-,isancestor,-")|PrimitiveType?|Node identifier of the descendant node
 *[MaxDistance](./Org.OData.Aggregation.V1.xml#L445:~:text=<Function%20Name="-,isancestor,-")*|Int16|*Optional parameter*
-*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L453:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether to include the node in the result even if it is not an ancestor of itself
+*[IncludeSelf](./Org.OData.Aggregation.V1.xml#L453:~:text=<Function%20Name="-,isancestor,-")*|Boolean|*Optional parameter:* Whether to include the node itself in the result
 [&rarr;](./Org.OData.Aggregation.V1.xml#L461:~:text=<Function%20Name="-,isancestor,-")|Boolean?|
 
 
 <a name="issibling"></a>
 ### [issibling](./Org.OData.Aggregation.V1.xml#L464:~:text=<Function%20Name="-,issibling,-")
 
-Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
+Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
 A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null.
 
@@ -109,7 +109,7 @@ Parameter|Type|Description
 <a name="isleaf"></a>
 ### [isleaf](./Org.OData.Aggregation.V1.xml#L480:~:text=<Function%20Name="-,isleaf,-")
 
-Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
+Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
 If a node identifier passed to the function is null, the function returns null.
 
