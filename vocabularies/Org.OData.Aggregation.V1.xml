@@ -371,8 +371,21 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         </Annotation>
       </TypeDefinition>
 
+      <Function Name="isnode">
+        <Annotation Term="Core.Description" String="Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the putative node" />
+        </Parameter>
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
+      </Function>
+
       <Function Name="isroot">
-        <Annotation Term="Core.Description" String="Is the node a root of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.Description" String="Is the entity a root node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -385,7 +398,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="isdescendant">
-        <Annotation Term="Core.Description" String="Is the node a descendant of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -417,7 +430,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="isancestor">
-        <Annotation Term="Core.Description" String="Is the node an ancestor of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
+        <Annotation Term="Core.Description" String="Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance?" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -449,7 +462,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="issibling">
-        <Annotation Term="Core.Description" String="Is the node a sibling of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.Description" String="Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
         <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -465,7 +478,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
       </Function>
 
       <Function Name="isleaf">
-        <Annotation Term="Core.Description" String="Is the node a leaf in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.Description" String="Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
         <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
         <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
           <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
@@ -514,9 +527,11 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
           as value one parent node identifier followed by one grandparent node identifier and so on.</String>
         </Annotation>
       </Term>
+      <!--
       <Term Name="Cycle" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="There is a cycle from this node to itself following the [`UpPath`](#UpPath)" />
       </Term>
+      -->
 
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Function">
         <Annotation Term="Core.Description" String="This function is available on aggregated entities if the `RequiredProperties` are still defined" />
