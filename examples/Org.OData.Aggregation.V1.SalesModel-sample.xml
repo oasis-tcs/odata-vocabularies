@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml">
     <edmx:Include Namespace="Org.OData.Aggregation.V1" Alias="Aggregation" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="org.example.odata.salesservice" Alias="SalesModel" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+      <EntityType Name="Currency">
+        <Key>
+          <PropertyRef Name="Code" />
+        </Key>
+        <Property Name="Code" Type="Edm.String" />
+        <Property Name="Name" Type="Edm.String">
+          <Annotation Term="Core.IsLanguageDependent" />
+        </Property>
+      </EntityType>
       <EntityType Name="Time">
         <Key>
           <PropertyRef Name="Date" />
@@ -74,25 +86,33 @@
         <Property Name="Rating" Type="Edm.Byte" />
       </EntityType>
       <EntityType Name="NonFoodProduct" BaseType="SalesModel.Product">
-        <Property Name="Rating" Type="Edm.String" />
+        <Property Name="RatingClass" Type="Edm.String" />
       </EntityType>
       <EntityType Name="Sale">
         <Key>
           <PropertyRef Name="ID" />
         </Key>
         <Property Name="ID" Type="Edm.String" Nullable="false" />
-        <Property Name="Amount" Type="Edm.Decimal" Scale="2"/>
+        <Property Name="Amount" Type="Edm.Decimal" Scale="2">
+          <Annotation Term="Aggregation.ContextDefiningProperties">
+            <Collection>
+              <PropertyPath>Currency/Code</PropertyPath>
+            </Collection>
+          </Annotation>
+        </Property>
+        <NavigationProperty Name="Currency" Type="SalesModel.Currency" Nullable="false" />
         <NavigationProperty Name="SalesOrganization" Type="SalesModel.SalesOrganization" Partner="Sales" />
         <NavigationProperty Name="Product" Type="SalesModel.Product" Partner="Sales" />
         <NavigationProperty Name="Customer" Type="SalesModel.Customer" Partner="Sales" />
         <NavigationProperty Name="Time" Type="SalesModel.Time" />
       </EntityType>
-      <EntityContainer Name="Container">
+      <EntityContainer Name="SalesData">
         <EntitySet Name="Time" EntityType="SalesModel.Time" />
         <EntitySet Name="Categories" EntityType="SalesModel.Category">
           <NavigationPropertyBinding Path="Products" Target="Products" />
         </EntitySet>
         <EntitySet Name="SalesOrganizations" EntityType="SalesModel.SalesOrganization">
+          <NavigationPropertyBinding Path="Superordinate" Target="SalesOrganizations" />
           <NavigationPropertyBinding Path="Sales" Target="Sales" />
         </EntitySet>
         <EntitySet Name="Customers" EntityType="SalesModel.Customer">
@@ -109,7 +129,7 @@
           <NavigationPropertyBinding Path="Time" Target="Time" />
         </EntitySet>
       </EntityContainer>
-      <Annotations Target="SalesModel.Container/Sales">
+      <Annotations Target="SalesModel.SalesData/Sales">
         <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/MultipleHierarchies" />
@@ -146,8 +166,15 @@
             </PropertyValue>
           </Record>
         </Annotation>
+        <Annotation Term="Aggregation.CustomAggregate" Qualifier="Forecast" String="Edm.Decimal">
+          <Annotation Term="Aggregation.ContextDefiningProperties">
+            <Collection>
+              <PropertyPath>Currency/Code</PropertyPath>
+            </Collection>
+          </Annotation>
+        </Annotation>
       </Annotations>
-      <Annotations Target="SalesModel.Container/Customers">
+      <Annotations Target="SalesModel.SalesData/Customers">
         <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
@@ -160,7 +187,7 @@
           </Record>
         </Annotation>
       </Annotations>
-      <Annotations Target="SalesModel.Container/Products">
+      <Annotations Target="SalesModel.SalesData/Products">
         <Annotation Term="Aggregation.ApplySupported">
           <Record>
             <PropertyValue Property="Rollup" EnumMember="Aggregation.RollupType/None" />
@@ -168,7 +195,7 @@
               <Collection>
                 <PropertyPath>Name</PropertyPath>
                 <PropertyPath>SalesModel.FoodProduct/Rating</PropertyPath>
-                <PropertyPath>SalesModel.NonFoodProduct/Rating</PropertyPath>
+                <PropertyPath>SalesModel.NonFoodProduct/RatingClass</PropertyPath>
               </Collection>
             </PropertyValue>
           </Record>

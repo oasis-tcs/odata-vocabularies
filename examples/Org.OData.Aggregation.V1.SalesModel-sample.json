@@ -1,6 +1,14 @@
 {
     "$Version": "4.0",
     "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json": {
             "$Include": [
                 {
@@ -12,6 +20,19 @@
     },
     "org.example.odata.salesservice": {
         "$Alias": "SalesModel",
+        "Currency": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "Code"
+            ],
+            "Code": {
+                "$Nullable": true
+            },
+            "Name": {
+                "$Nullable": true,
+                "@Core.IsLanguageDependent": true
+            }
+        },
         "Time": {
             "$Kind": "EntityType",
             "$Key": [
@@ -136,7 +157,7 @@
         "NonFoodProduct": {
             "$Kind": "EntityType",
             "$BaseType": "SalesModel.Product",
-            "Rating": {
+            "RatingClass": {
                 "$Nullable": true
             }
         },
@@ -149,7 +170,14 @@
             "Amount": {
                 "$Type": "Edm.Decimal",
                 "$Nullable": true,
-                "$Scale": 2
+                "$Scale": 2,
+                "@Aggregation.ContextDefiningProperties": [
+                    "Currency/Code"
+                ]
+            },
+            "Currency": {
+                "$Kind": "NavigationProperty",
+                "$Type": "SalesModel.Currency"
             },
             "SalesOrganization": {
                 "$Kind": "NavigationProperty",
@@ -175,7 +203,7 @@
                 "$Nullable": true
             }
         },
-        "Container": {
+        "SalesData": {
             "$Kind": "EntityContainer",
             "Time": {
                 "$Collection": true,
@@ -192,6 +220,7 @@
                 "$Collection": true,
                 "$Type": "SalesModel.SalesOrganization",
                 "$NavigationPropertyBinding": {
+                    "Superordinate": "SalesOrganizations",
                     "Sales": "Sales"
                 }
             },
@@ -222,7 +251,7 @@
             }
         },
         "$Annotations": {
-            "SalesModel.Container/Sales": {
+            "SalesModel.SalesData/Sales": {
                 "@Aggregation.ApplySupported": {
                     "Rollup": "MultipleHierarchies",
                     "GroupableProperties": [
@@ -250,9 +279,13 @@
                             "RecommendedAggregationMethod": "sum"
                         }
                     ]
-                }
+                },
+                "@Aggregation.CustomAggregate#Forecast@Aggregation.ContextDefiningProperties": [
+                    "Currency/Code"
+                ],
+                "@Aggregation.CustomAggregate#Forecast": "Edm.Decimal"
             },
-            "SalesModel.Container/Customers": {
+            "SalesModel.SalesData/Customers": {
                 "@Aggregation.ApplySupported": {
                     "Rollup": "None",
                     "GroupableProperties": [
@@ -261,17 +294,17 @@
                     ]
                 }
             },
-            "SalesModel.Container/Products": {
+            "SalesModel.SalesData/Products": {
                 "@Aggregation.ApplySupported": {
                     "Rollup": "None",
                     "GroupableProperties": [
                         "Name",
                         "SalesModel.FoodProduct/Rating",
-                        "SalesModel.NonFoodProduct/Rating"
+                        "SalesModel.NonFoodProduct/RatingClass"
                     ]
                 }
             }
         }
     },
-    "$EntityContainer": "org.example.odata.salesservice.Container"
+    "$EntityContainer": "org.example.odata.salesservice.SalesData"
 }
