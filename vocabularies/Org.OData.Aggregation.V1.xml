@@ -527,11 +527,6 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
           as value one parent node identifier followed by one grandparent node identifier and so on.</String>
         </Annotation>
       </Term>
-      <!--
-      <Term Name="Cycle" Type="Edm.Boolean" Nullable="false" DefaultValue="true" AppliesTo="EntityType">
-        <Annotation Term="Core.Description" String="There is a cycle from this node to itself following the [`UpPath`](#UpPath)" />
-      </Term>
-      -->
 
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Function">
         <Annotation Term="Core.Description" String="This function is available on aggregated entities if the `RequiredProperties` are still defined" />
