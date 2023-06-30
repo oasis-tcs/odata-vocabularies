@@ -19,7 +19,7 @@ Term|Type|Description
 [LeveledHierarchy](./Org.OData.Aggregation.V1.xml#L345:~:text=<Term%20Name="-,LeveledHierarchy,-")|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)
 [RecursiveHierarchy](./Org.OData.Aggregation.V1.xml#L349:~:text=<Term%20Name="-,RecursiveHierarchy,-")|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)
 [UpPath](./Org.OData.Aggregation.V1.xml#L522:~:text=<Term%20Name="-,UpPath,-")|\[String\]|<a name="UpPath"></a>The string values of the node identifiers in a path from the annotated node to a start node in a traversal of a recursive hierarchy<br>This instance annotation occurs in the result set after a `traverse` transformation (OData-Data-Agg-v4.0, section 6.2.2.2). A use case for this is traversal with multiple parents, when this annotation takes as value one parent node identifier followed by one grandparent node identifier and so on.
-[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L536:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This function is available on aggregated entities if the `RequiredProperties` are still defined
+[AvailableOnAggregates](./Org.OData.Aggregation.V1.xml#L531:~:text=<Term%20Name="-,AvailableOnAggregates,-")|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This function is available on aggregated entities if the `RequiredProperties` are still defined
 
 
 ## Functions
@@ -263,17 +263,17 @@ Every recursive hierarchy function defined in this vocabulary has
 given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.
 
 <a name="AvailableOnAggregatesType"></a>
-## [AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L539:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
+## [AvailableOnAggregatesType](./Org.OData.Aggregation.V1.xml#L534:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[RequiredProperties](./Org.OData.Aggregation.V1.xml#L540:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this function
+[RequiredProperties](./Org.OData.Aggregation.V1.xml#L535:~:text=<ComplexType%20Name="-,AvailableOnAggregatesType,-")|\[PropertyPath\]|Properties required to apply this function
 
 <a name="NavigationPropertyAggregationCapabilities"></a>
-## [NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L545:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
+## [NavigationPropertyAggregationCapabilities](./Org.OData.Aggregation.V1.xml#L540:~:text=<ComplexType%20Name="-,NavigationPropertyAggregationCapabilities,-"): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
 <a name="CustomAggregateType"></a>
-## [CustomAggregateType](./Org.OData.Aggregation.V1.xml#L563:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
+## [CustomAggregateType](./Org.OData.Aggregation.V1.xml#L558:~:text=<ComplexType%20Name="-,CustomAggregateType,-") *(Deprecated)*
 Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated
