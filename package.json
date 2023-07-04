@@ -18,11 +18,11 @@
   "dependencies": {
     "colors": "^1.4.0",
     "minimist": "^1.2.6",
-    "odata-csdl": "^0.8.1"
+    "odata-csdl": "^0.8.2"
   },
   "devDependencies": {
-    "c8": "^7.12.0",
-    "eslint": "^8.31.0",
+    "c8": "^8.0.0",
+    "eslint": "^8.44.0",
     "mocha": "^10.1.0"
   },
   "scripts": {
