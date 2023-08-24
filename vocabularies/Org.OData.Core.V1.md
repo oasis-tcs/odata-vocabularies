@@ -48,8 +48,8 @@ Term|Type|Description
 [OperationAvailable](./Org.OData.Core.V1.xml#L518:~:text=<Term%20Name="-,OperationAvailable,-")|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
 [RequiresExplicitBinding](./Org.OData.Core.V1.xml#L523:~:text=<Term%20Name="-,RequiresExplicitBinding,-")|[Tag?](#Tag)|<a name="RequiresExplicitBinding"></a>This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term.
 [ExplicitOperationBindings](./Org.OData.Core.V1.xml#L527:~:text=<Term%20Name="-,ExplicitOperationBindings,-")|\[[QualifiedBoundOperationName](#QualifiedBoundOperationName)\]|<a name="ExplicitOperationBindings"></a>The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element.
-[SymbolicName](./Org.OData.Core.V1.xml#L536:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
-[GeometryFeature](./Org.OData.Core.V1.xml#L545:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
+[SymbolicName](./Org.OData.Core.V1.xml#L552:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
+[GeometryFeature](./Org.OData.Core.V1.xml#L561:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 <a name="RevisionType"></a>
 ## [RevisionType](./Org.OData.Core.V1.xml#L80:~:text=<ComplexType%20Name="-,RevisionType,-")
@@ -308,18 +308,24 @@ Property|Type|Description
 
 A string representing a Local Date-Time value with no offset.
 
+<a name="Number"></a>
+## [Number](./Org.OData.Core.V1.xml#L536:~:text=<TypeDefinition%20Name="-,Number,-")
+**Type:** PrimitiveType
+
+Supertype of all numeric types.
+
 <a name="SimpleIdentifier"></a>
-## [SimpleIdentifier](./Org.OData.Core.V1.xml#L540:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-")
+## [SimpleIdentifier](./Org.OData.Core.V1.xml#L556:~:text=<TypeDefinition%20Name="-,SimpleIdentifier,-")
 **Type:** String
 
 A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)
 
 <a name="GeometryFeatureType"></a>
-## [GeometryFeatureType](./Org.OData.Core.V1.xml#L548:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")
+## [GeometryFeatureType](./Org.OData.Core.V1.xml#L564:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")
 A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 Property|Type|Description
 :-------|:---|:----------
-[geometry](./Org.OData.Core.V1.xml#L550:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|Geometry?|Location of the Feature
-[properties](./Org.OData.Core.V1.xml#L553:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|[Dictionary?](#Dictionary)|Properties of the Feature
-[id](./Org.OData.Core.V1.xml#L556:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|String?|Commonly used identifer for a Feature
+[geometry](./Org.OData.Core.V1.xml#L566:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|Geometry?|Location of the Feature
+[properties](./Org.OData.Core.V1.xml#L569:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|[Dictionary?](#Dictionary)|Properties of the Feature
+[id](./Org.OData.Core.V1.xml#L572:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|String?|Commonly used identifer for a Feature
