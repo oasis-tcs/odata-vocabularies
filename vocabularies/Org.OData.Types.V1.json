@@ -1,0 +1,46 @@
+{
+    "$Version": "4.01",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        }
+    },
+    "Org.OData.Types.V1": {
+        "$Alias": "Types",
+        "@Core.Description": "Reuse Types",
+        "@Core.Links": [
+            {
+                "rel": "alternate",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Types.V1.xml"
+            },
+            {
+                "rel": "latest-version",
+                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Types.V1.json"
+            },
+            {
+                "rel": "describedby",
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Types.V1.md"
+            }
+        ],
+        "Number": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.PrimitiveType",
+            "@Core.Description": "Supertype of all numeric types.",
+            "@Validation.DerivedTypeConstraint": [
+                "Edm.Byte",
+                "Edm.Decimal",
+                "Edm.Double",
+                "Edm.Int16",
+                "Edm.Int32",
+                "Edm.Int64",
+                "Edm.SByte",
+                "Edm.Single"
+            ]
+        }
+    }
+}
