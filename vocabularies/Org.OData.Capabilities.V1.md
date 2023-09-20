@@ -83,9 +83,9 @@ Term|Type|Description
 [AnnotationValuesInQuerySupported](./Org.OData.Capabilities.V1.xml#L890:~:text=<Term%20Name="-,AnnotationValuesInQuerySupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
 [ModificationQueryOptions](./Org.OData.Capabilities.V1.xml#L894:~:text=<Term%20Name="-,ModificationQueryOptions,-")|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
 [ReadRestrictions](./Org.OData.Capabilities.V1.xml#L918:~:text=<Term%20Name="-,ReadRestrictions,-")|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance.
-[CustomHeaders](./Org.OData.Capabilities.V1.xml#L957:~:text=<Term%20Name="-,CustomHeaders,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L959))
-[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L983:~:text=<Term%20Name="-,CustomQueryOptions,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L986))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
-[MediaLocationUpdateSupported](./Org.OData.Capabilities.V1.xml#L1035:~:text=<Term%20Name="-,MediaLocationUpdateSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property or media stream supports update of its media edit URL and/or media read URL
+[CustomHeaders](./Org.OData.Capabilities.V1.xml#L960:~:text=<Term%20Name="-,CustomHeaders,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L962))
+[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L986:~:text=<Term%20Name="-,CustomQueryOptions,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L989))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
+[MediaLocationUpdateSupported](./Org.OData.Capabilities.V1.xml#L1038:~:text=<Term%20Name="-,MediaLocationUpdateSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property or media stream supports update of its media edit URL and/or media read URL
 
 <a name="ConformanceLevelType"></a>
 ## [ConformanceLevelType](./Org.OData.Capabilities.V1.xml#L118:~:text=<EnumType%20Name="-,ConformanceLevelType,-")
@@ -525,27 +525,28 @@ Property|Type|Description
 [*Description*](./Org.OData.Capabilities.V1.xml#L935:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A brief description of the request
 [*LongDescription*](./Org.OData.Capabilities.V1.xml#L939:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A long description of the request
 [*ErrorResponses*](./Org.OData.Capabilities.V1.xml#L943:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[ReadByKeyRestrictions](./Org.OData.Capabilities.V1.xml#L951:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-")|[ReadByKeyRestrictionsType?](#ReadByKeyRestrictionsType)|Restrictions for retrieving an entity by key<br>Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies.
+[TypecastSegmentSupported](./Org.OData.Capabilities.V1.xml#L951:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-")|Boolean|Entities of a specific derived type can be read by specifying a type-cast segment
+[ReadByKeyRestrictions](./Org.OData.Capabilities.V1.xml#L954:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-")|[ReadByKeyRestrictionsType?](#ReadByKeyRestrictionsType)|Restrictions for retrieving an entity by key<br>Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies.
 
 <a name="CustomParameter"></a>
-## [CustomParameter](./Org.OData.Capabilities.V1.xml#L1014:~:text=<ComplexType%20Name="-,CustomParameter,-")
+## [CustomParameter](./Org.OData.Capabilities.V1.xml#L1017:~:text=<ComplexType%20Name="-,CustomParameter,-")
 A custom parameter is either a header or a query option
 
 The type of a custom parameter is always a string. Restrictions on the parameter values can be expressed by annotating the record expression describing the parameter with terms from the Validation vocabulary, e.g. Validation.Pattern or Validation.AllowedValues.
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](./Org.OData.Capabilities.V1.xml#L1017:~:text=<ComplexType%20Name="-,CustomParameter,-")|String|Name of the custom parameter
-[Description](./Org.OData.Capabilities.V1.xml#L1020:~:text=<ComplexType%20Name="-,CustomParameter,-")|String?|Description of the custom parameter
-[DocumentationURL](./Org.OData.Capabilities.V1.xml#L1023:~:text=<ComplexType%20Name="-,CustomParameter,-")|URL?|URL of related documentation
-[Required](./Org.OData.Capabilities.V1.xml#L1027:~:text=<ComplexType%20Name="-,CustomParameter,-")|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](./Org.OData.Capabilities.V1.xml#L1030:~:text=<ComplexType%20Name="-,CustomParameter,-")|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
+[Name](./Org.OData.Capabilities.V1.xml#L1020:~:text=<ComplexType%20Name="-,CustomParameter,-")|String|Name of the custom parameter
+[Description](./Org.OData.Capabilities.V1.xml#L1023:~:text=<ComplexType%20Name="-,CustomParameter,-")|String?|Description of the custom parameter
+[DocumentationURL](./Org.OData.Capabilities.V1.xml#L1026:~:text=<ComplexType%20Name="-,CustomParameter,-")|URL?|URL of related documentation
+[Required](./Org.OData.Capabilities.V1.xml#L1030:~:text=<ComplexType%20Name="-,CustomParameter,-")|Boolean|true: parameter is required, false or not specified: parameter is optional
+[ExampleValues](./Org.OData.Capabilities.V1.xml#L1033:~:text=<ComplexType%20Name="-,CustomParameter,-")|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
 
 <a name="HttpResponse"></a>
-## [HttpResponse](./Org.OData.Capabilities.V1.xml#L1040:~:text=<ComplexType%20Name="-,HttpResponse,-")
+## [HttpResponse](./Org.OData.Capabilities.V1.xml#L1043:~:text=<ComplexType%20Name="-,HttpResponse,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[StatusCode](./Org.OData.Capabilities.V1.xml#L1041:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|HTTP response status code, for example 400, 403, 501
-[Description](./Org.OData.Capabilities.V1.xml#L1044:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|Human-readable description of the response
+[StatusCode](./Org.OData.Capabilities.V1.xml#L1044:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|HTTP response status code, for example 400, 403, 501
+[Description](./Org.OData.Capabilities.V1.xml#L1047:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|Human-readable description of the response
