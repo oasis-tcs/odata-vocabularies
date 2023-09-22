@@ -486,7 +486,7 @@ describe("Edge cases", function () {
       '<a name="Implementation"></a>',
       "### Implementation",
       "",
-      "**implements [Interface](#Interface)**",
+      "**Implements [Interface](#Interface)**",
       "",
       "",
       "Parameter|Type|Description",
