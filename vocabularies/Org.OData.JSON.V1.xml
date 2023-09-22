@@ -205,7 +205,7 @@ Syntax Element | Description | Examples
 `[&lt;selector&gt;]` | [child segment](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#child-segment) selects one child of a node; contains one [name selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#name-selector) (single- or double-quoted string using JSON escaping rules) or [index selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#index-selector) (non-negative decimal integer) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
 `.name` | shorthand for `['name']` | `$.foo`, `$.foo.bar`, `$.bar[42].baz`
 
-Implementations MAY support in addition:
+Implementations MAY in addition support other JSONPath constructs, for example:
 
 Syntax Element | Description | Examples
 ---------------|-------------|--------
