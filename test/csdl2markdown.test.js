@@ -451,14 +451,14 @@ describe("Edge cases", function () {
           {
             $Kind: "Function",
             $ReturnType: {},
-            "@Org.OData.Core.V1.IsInterface": true
+            "@Org.OData.Core.V1.IsInterface#Intf1": true
           },
         ],
         Implementation: [
           {
             $Kind: "Function",
             $ReturnType: {},
-            "@Org.OData.Core.V1.ImplementsInterface": "Intf.v12.Interface"
+            "@Org.OData.Core.V1.ImplementsInterface#Intf1": "Intf.v12.Interface"
           },
         ],
       },

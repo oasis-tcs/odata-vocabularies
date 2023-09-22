@@ -566,8 +566,12 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
           These actions or functions MUST be annotated with [`ImplementsInterface`](#ImplementsInterface).</String>
         </Annotation>
       </Term>
-      <Term Name="ImplementsInterface" Type="Edm.String" Nullable="false" AppliesTo="Action Function">
+      <Term Name="ImplementsInterface" Type="Edm.String" Nullable="false" AppliesTo="Action Function Property Term">
         <Annotation Term="Core.Description" String="The action or function implements the [interface](#IsInterface) action or function whose name is the annotation value" />
+        <Annotation Term="Core.LongDescription">
+          <String>This term can be applied to actions or functions as well as to properties or terms
+          that identify an action or function.</String>
+        </Annotation>
       </Term>
 
     </Schema>
