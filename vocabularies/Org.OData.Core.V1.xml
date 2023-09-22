@@ -558,6 +558,18 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Property>
       </ComplexType>
 
+      <Term Name="IsInterface" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="The tagged action or function cannot be invoked, it serves only as an interface" />
+        <Annotation Term="Core.LongDescription">
+          <String>Services that want to implement the interface define an action or function with the same signature
+          or a specialized signature that replaces abstract types like `Edm.EntityType` with concrete types.
+          These function MUST be annotated with [`ImplementsInterface`](#ImplementsInterface).</String>
+        </Annotation>
+      </Term>
+      <Term Name="ImplementsInterface" Type="Edm.String" Nullable="false" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="The action or function implements the [interface](#IsInterface) action or function whose name is the annotation value" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

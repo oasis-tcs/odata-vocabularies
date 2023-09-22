@@ -726,6 +726,25 @@
                 "$Nullable": true,
                 "@Core.Description": "Commonly used identifer for a Feature"
             }
+        },
+        "IsInterface": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "The tagged action or function cannot be invoked, it serves only as an interface",
+            "@Core.LongDescription": "Services that want to implement the interface define an action or function with the same signature\n          or a specialized signature that replaces abstract types like `Edm.EntityType` with concrete types.\n          These function MUST be annotated with [`ImplementsInterface`](#ImplementsInterface)."
+        },
+        "ImplementsInterface": {
+            "$Kind": "Term",
+            "$AppliesTo": [
+                "Action",
+                "Function"
+            ],
+            "@Core.Description": "The action or function implements the [interface](#IsInterface) action or function whose name is the annotation value"
         }
     }
 }
