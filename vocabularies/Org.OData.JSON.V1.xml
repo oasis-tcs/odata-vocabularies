@@ -140,7 +140,7 @@ receiving
         <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning a stream value of media type `application/json`" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:
-- If `path` only consists of the root selector followed by member and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. 
+- If `path` only consists of the root identifier followed by name and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. 
 - If `path` potentially identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), it returns an array containing the identified nodes, or an empty array if no node is identified. 
 - If `input` is not a valid JSON value, the function returns `null`.
 - If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`. 
@@ -161,7 +161,7 @@ receiving
         <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning an OData primitive value" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a single OData primitive value from the `input` JSON value:
-- If `path` only consists of the root selector followed by member and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
+- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
 - If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.
 - If `input` is not a valid JSON value, the function returns `null`.
 - If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.
@@ -195,35 +195,37 @@ If a single non-null scalar JSON value is identified by `path` within `input`, t
 
 
       <TypeDefinition Name="Path" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="[JSONPath](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01) expression" />
+        <Annotation Term="Core.Description" String="[JSONPath](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-20) expression" />
         <Annotation Term="Core.LongDescription">
           <String>Implementations SHOULD support at least the following subset of JSONPath:
 
-JSONPath | Description | Examples
----------|-------------|--------
-`$` | Root selector | `$`
-`.` | Member selector | `$.foo`, `$.foo.bar`
-`[]` | Index selector with member name (single- or double-quoted string using JSON escaping rules) or zero-based array index (non-negative base-10 integer) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
+Syntax Element | Description | Examples
+---------------|-------------|--------
+`$` | [root identifier](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#root-identifier) | `$`
+`[&lt;selector&gt;]` | [child segment](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#child-segment) selects one child of a node; contains one [name selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#name-selector) (single- or double-quoted string using JSON escaping rules) or [index selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#index-selector) (non-negative decimal integer) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
+`.name` | shorthand for `['name']` | `$.foo`, `$.foo.bar`, `$.bar[42].baz`
 
 Implementations MAY support in addition:
 
-JSONPath | Description | Examples
----------|-------------|--------
-`[]` | Index selector with negative integer array index (counts from the end of the array) | `$.bar[-1]`
-`..` | Descendant selector: searches for the specified member name recursively and returns an array of all values with this member name | `$..foo`
-`*` | Wildcard selector matching all elements in an object or array | `$.foo.*`, `$.bar[*]`, `$..*`
-`[,]` | Union selector for alternate member names or array indices as a set | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
-`[start:end]` | Array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:5]`, same as `$.bar[2,3,4]`
-`[start:]` | Array subset from _start_ to end of array | `$.bar[2:]`
-`[:n]` | The first _n_ array items | `$.bar[:4]`
-`[-n:]` | The last _n_ array items | `$.bar[-3:]`
-`[start:end:step]` | [Array slice selector](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01#section-3.5.6) |
-`[?()]` | Filter selector | `$.bar[?(@.baz==42)]`
-`()` | Static expression | `$.bar[(@.length-1)]`
-`@` | in expressions: the current node being processed
+Syntax Element | Description | Examples
+---------------|-------------|--------
+`[&lt;selector&gt;]` | index selector with negative integer array index (counts from the end of the array) | `$.bar[-1]`
+`[&lt;selectors&gt;]` | non-empty, comma-separated sequence of selectors | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
+`..[&lt;selectors&gt;]` | [descendant segment](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#descendant-segment): selects zero or more descendants of a node; contains one or more selectors, separated by commas | `$.foo..["bar"]`
+`..name` | shorthand for `..['name']` | `$.foo..bar`
+`*` | [wildcard selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#name-selector): selects all children of a node | `$.foo[*]`, `$[*]`
+`.*` | shorthand for `.[*]` | `$.foo.*`, `$.*`
+`..*` | shorthand for `..[*]` | `$.foo..*`, `$..*`
+`[start:end]` | array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:5]`, same as `$.bar[2,3,4]`
+`[start:]` | array subset from _start_ to end of array | `$.bar[2:]`
+`[:n]` | the first _n_ array items | `$.bar[:4]`
+`[-n:]` | the last _n_ array items | `$.bar[-3:]`
+`[start:end:step]` | [array slice selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#slice) |
+`[?&lt;logical-expr&gt;]` | [filter selector](): selects particular children using a logical expression | 
+`@` | [current node identifier](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#filter-selector) (valid only within filter selectors) | `$.bar[?@.baz==42]`
 
 **References for JSONPath**
-- Current IETF draft: https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-01
+- Current IETF draft: https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-20
 - Historic site: https://goessner.net/articles/JsonPath/
 - Node.js implementation: https://www.npmjs.com/package/jsonpath
 - Java implementation: https://github.com/json-path/JsonPath
