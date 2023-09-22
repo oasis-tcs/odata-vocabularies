@@ -736,7 +736,7 @@
                 "Function"
             ],
             "@Core.Description": "The tagged action or function cannot be invoked, it serves only as an interface",
-            "@Core.LongDescription": "Services that want to implement the interface define an action or function with the same signature\n          or a specialized signature that replaces abstract types like `Edm.EntityType` with concrete types.\n          These actions or functions MUST be annotated with [`ImplementsInterface`](#ImplementsInterface)."
+            "@Core.LongDescription": "Services that want to implement the interface define an action or function with the same signature\n          or a specialized signature that replaces abstract types like `Edm.EntityType` with concrete types.\n          These actions or functions MUST be annotated with [`ImplementsInterface`](#ImplementsInterface)\n          and the same qualifier as this annotation."
         },
         "ImplementsInterface": {
             "$Kind": "Term",
