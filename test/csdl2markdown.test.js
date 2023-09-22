@@ -441,6 +441,63 @@ describe("Edge cases", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
+
+  it("Interfaces", function () {
+    const filename = "function.xml";
+    const vocabulary = {
+      $Version: "4.01",
+      "Intf.v12": {
+        Interface: [
+          {
+            $Kind: "Function",
+            $ReturnType: {},
+            "@Org.OData.Core.V1.IsInterface": true
+          },
+        ],
+        Implementation: [
+          {
+            $Kind: "Function",
+            $ReturnType: {},
+            "@Org.OData.Core.V1.ImplementsInterface": "Intf.v12.Interface"
+          },
+        ],
+      },
+    };
+    const expectedMarkdown = [
+      "# Intf Vocabulary",
+      "**Namespace: [Intf.v12](function.xml)**",
+      "",
+      "",
+      "",
+      "",
+      "## Functions",
+      "",
+      '<a name="Interface"></a>',
+      "### Interface",
+      "",
+      "**Interface**",
+      "",
+      "",
+      "Parameter|Type|Description",
+      ":--------|:---|:----------",
+      "&rarr;|String|",
+      "",
+      "",
+      '<a name="Implementation"></a>',
+      "### Implementation",
+      "",
+      "**implements [Interface](#Interface)**",
+      "",
+      "",
+      "Parameter|Type|Description",
+      ":--------|:---|:----------",
+      "&rarr;|String|",
+      "",
+      "",
+    ];
+    const markdown = lib.csdl2markdown(filename, vocabulary);
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
   
   it("Derived type", function () {
     const filename = "derivedType.xml";
