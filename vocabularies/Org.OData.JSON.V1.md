@@ -128,7 +128,7 @@ Textual data of media type `application/json`
 ## [Path](./Org.OData.JSON.V1.xml#L197:~:text=<TypeDefinition%20Name="-,Path,-")
 **Type:** String
 
-[JSONPath](https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-20) expression
+[JSONPath](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html) expression
 
 Implementations SHOULD support at least the following subset of JSONPath:
 
@@ -158,7 +158,7 @@ Syntax Element | Description | Examples
 `@` | [current node identifier](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#filter-selector) (valid only within filter selectors) | `$.bar[?@.baz==42]`
 
 **References for JSONPath**
-- Current IETF draft: https://datatracker.ietf.org/doc/html/draft-ietf-jsonpath-base-20
+- Current IETF draft: https://datatracker.ietf.org/doc/draft-ietf-jsonpath-base/
 - Historic site: https://goessner.net/articles/JsonPath/
 - Node.js implementation: https://www.npmjs.com/package/jsonpath
 - Java implementation: https://github.com/json-path/JsonPath
