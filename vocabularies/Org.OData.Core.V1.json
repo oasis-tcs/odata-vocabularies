@@ -740,11 +740,12 @@
         },
         "ImplementsInterface": {
             "$Kind": "Term",
+            "$Type": "Core.QualifiedName",
             "$AppliesTo": [
                 "Action",
                 "Function"
             ],
-            "@Core.Description": "The action or function implements the [interface](#IsInterface) action or function whose name is the annotation value"
+            "@Core.Description": "The action or function implements the [interface](#IsInterface) action or function whose qualified name is the annotation value"
         }
     }
 }
