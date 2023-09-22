@@ -566,8 +566,8 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
           These function MUST be annotated with [`ImplementsInterface`](#ImplementsInterface).</String>
         </Annotation>
       </Term>
-      <Term Name="ImplementsInterface" Type="Core.QualifiedName" Nullable="false" AppliesTo="Action Function">
-        <Annotation Term="Core.Description" String="The action or function implements the [interface](#IsInterface) action or function whose qualified name is the annotation value" />
+      <Term Name="ImplementsInterface" Type="Edm.String" Nullable="false" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="The action or function implements the [interface](#IsInterface) action or function whose name is the annotation value" />
       </Term>
 
     </Schema>

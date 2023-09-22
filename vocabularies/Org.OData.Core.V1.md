@@ -51,7 +51,7 @@ Term|Type|Description
 [SymbolicName](./Org.OData.Core.V1.xml#L536:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 [GeometryFeature](./Org.OData.Core.V1.xml#L545:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 [IsInterface](./Org.OData.Core.V1.xml#L561:~:text=<Term%20Name="-,IsInterface,-")|[Tag](#Tag)|<a name="IsInterface"></a>The tagged action or function cannot be invoked, it serves only as an interface<br>Services that want to implement the interface define an action or function with the same signature or a specialized signature that replaces abstract types like `Edm.EntityType` with concrete types. These function MUST be annotated with [`ImplementsInterface`](#ImplementsInterface).
-[ImplementsInterface](./Org.OData.Core.V1.xml#L569:~:text=<Term%20Name="-,ImplementsInterface,-")|[QualifiedName](#QualifiedName)|<a name="ImplementsInterface"></a>The action or function implements the [interface](#IsInterface) action or function whose qualified name is the annotation value
+[ImplementsInterface](./Org.OData.Core.V1.xml#L569:~:text=<Term%20Name="-,ImplementsInterface,-")|String|<a name="ImplementsInterface"></a>The action or function implements the [interface](#IsInterface) action or function whose name is the annotation value
 
 <a name="RevisionType"></a>
 ## [RevisionType](./Org.OData.Core.V1.xml#L80:~:text=<ComplexType%20Name="-,RevisionType,-")
