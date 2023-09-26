@@ -563,8 +563,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.LongDescription">
           <String>Services that want to implement the interface define an action or function with the same signature
           or a specialized signature that replaces abstract types like `Edm.EntityType` with concrete types.
-          These actions or functions MUST be annotated with the term [`ImplementsInterface`](#ImplementsInterface)
-          and the same qualifier as this annotation.</String>
+          These actions or functions MUST be annotated with the term [`ImplementsInterface`](#ImplementsInterface).</String>
         </Annotation>
       </Term>
       <Term Name="ImplementsInterface" Type="Edm.String" Nullable="false" AppliesTo="Action Function Property Term">
