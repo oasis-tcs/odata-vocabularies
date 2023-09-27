@@ -561,7 +561,9 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       <Term Name="IsInterface" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="The tagged action or function cannot be invoked, it serves only as an interface" />
         <Annotation Term="Core.LongDescription">
-          <String>Services that want to implement the interface define an action or function with an equivalent signature.
+          <String>Actions or functions with this tag MUST NOT have more than one overload.
+          
+          Services that want to implement the interface define an action or function with an equivalent signature.
           These actions or functions MUST be annotated with the term [`ImplementsInterface`](#ImplementsInterface).
           
           Equivalence of signatures means that clients which understand the CSDL definition of the tagged action or function
@@ -570,7 +572,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Annotation>
       </Term>
       <Term Name="ImplementsInterface" Type="Edm.String" Nullable="false" AppliesTo="Action Function Property Term">
-        <Annotation Term="Core.Description" String="The action or function implements the [interface](#IsInterface) action or function whose qualified name is the annotation value" />
+        <Annotation Term="Core.Description" String="The action or function overload implements the [interface](#IsInterface) action or function whose qualified name is the annotation value" />
         <Annotation Term="Core.LongDescription">
           <String>This term can be applied to actions or functions as well as to properties or terms
           that identify an action or function.</String>

@@ -736,7 +736,7 @@
                 "Function"
             ],
             "@Core.Description": "The tagged action or function cannot be invoked, it serves only as an interface",
-            "@Core.LongDescription": "Services that want to implement the interface define an action or function with an equivalent signature.\n          These actions or functions MUST be annotated with the term [`ImplementsInterface`](#ImplementsInterface).\n          \n          Equivalence of signatures means that clients which understand the CSDL definition of the tagged action or function\n          must be able to make correct requests to any of its implementations based solely on the CSDL definition of that implementation.\n          (See [this example](../examples/Org.OData.Core.V1.IsInterface-equivalence.md).)"
+            "@Core.LongDescription": "Actions or functions with this tag MUST NOT have more than one overload.\n          \n          Services that want to implement the interface define an action or function with an equivalent signature.\n          These actions or functions MUST be annotated with the term [`ImplementsInterface`](#ImplementsInterface).\n          \n          Equivalence of signatures means that clients which understand the CSDL definition of the tagged action or function\n          must be able to make correct requests to any of its implementations based solely on the CSDL definition of that implementation.\n          (See [this example](../examples/Org.OData.Core.V1.IsInterface-equivalence.md).)"
         },
         "ImplementsInterface": {
             "$Kind": "Term",
@@ -746,7 +746,7 @@
                 "Property",
                 "Term"
             ],
-            "@Core.Description": "The action or function implements the [interface](#IsInterface) action or function whose qualified name is the annotation value",
+            "@Core.Description": "The action or function overload implements the [interface](#IsInterface) action or function whose qualified name is the annotation value",
             "@Core.LongDescription": "This term can be applied to actions or functions as well as to properties or terms\n          that identify an action or function."
         }
     }
