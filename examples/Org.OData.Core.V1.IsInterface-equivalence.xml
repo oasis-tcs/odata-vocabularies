@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="4.0" xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+    <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml">
+    <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
+  </edmx:Reference>
+  <edmx:DataServices>
+    <Schema Namespace="interface.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
+
+      <Annotation Term="Core.LongDescription">
+        <String>The [implementation](#ReturnsWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:
+- Changed name of the binding parameter
+- Parameter type specialized from `Edm.EntityType` to a concrete entity type
+- Optional parameter is omitted from the implementation
+- Changed type name of the return type
+- Changed name of the return type property that contains the weight, because this appears in a special `Weight` annotation
+- Changed name of the return type property that contains the unit, because this appears in the `Measures.Unit` annotation.</String>
+      </Annotation>
+
+      <Term Name="Weight" Type="Edm.Decimal" Nullable="false" AppliesTo="ComplexType EntityType">
+        <Annotation Term="Core.Description" String="Weight of the instance" />
+      </Term>
+
+      <Function Name="SalesDocumentWeight" IsBound="true">
+        <Annotation Term="Core.IsInterface" />
+        <Parameter Name="SalesDocument" Type="Edm.EntityType" Nullable="false" />
+        <Parameter Name="IncludePackaging" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.OptionalParameter">
+            <Record/>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="self.SalesOrderWeightType" Nullable="false">
+          <Annotation Term="self.Weight" Path="$ReturnType/Weight" />
+        </ReturnType>
+      </Function>
+      <ComplexType Name="SalesOrderWeightType">
+        <Property Name="Weight" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Measures.Unit" Path="WeightUnit" />
+        </Property>
+        <Property Name="WeightUnit" Type="Edm.String" Nullable="false" />
+      </ComplexType>
+
+      <Function Name="ReturnsWeight" IsBound="true">
+        <Annotation Term="Core.ImplementsInterface" String="self.SalesDocumentWeight" />
+        <Parameter Name="ReturnOrder" Type="self.ReturnsType" Nullable="false" />
+        <ReturnType Type="self.QuantityUnitType" Nullable="false">
+          <Annotation Term="self.Weight" Path="$ReturnType/Quantity" />
+        </ReturnType>
+      </Function>
+      <ComplexType Name="QuantityUnitType">
+        <Property Name="Quantity" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Measures.Unit" Path="Unit" />
+        </Property>
+        <Property Name="Unit" Type="Edm.String" Nullable="false" />
+      </ComplexType>
+
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>
