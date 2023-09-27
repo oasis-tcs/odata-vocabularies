@@ -558,20 +558,19 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Property>
       </ComplexType>
 
-      <Term Name="IsInterface" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function">
-        <Annotation Term="Core.Description" String="The tagged action or function cannot be invoked, it serves only as an interface" />
+      <Term Name="IsSignature" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="The tagged action or function cannot be invoked, it only defines a signature" />
         <Annotation Term="Core.LongDescription">
           <String>Actions or functions with this tag MUST NOT have more than one overload.
           
-          Services that want to implement the interface define an action or function with an equivalent signature.
-          These actions or functions MUST be annotated with the term [`ImplementsInterface`](#ImplementsInterface).
-          
+          Services that want to implement the signature define an action or function with an equivalent signature
+          and annotate it with the term [`ImplementsSignature`](#ImplementsSignature).
           Equivalence of signatures means that clients which understand the CSDL definition of the tagged action or function
           must be able to make correct requests to any of its implementations based solely on the CSDL definition of that implementation.</String>
         </Annotation>
       </Term>
-      <Term Name="ImplementsInterface" Type="Edm.String" Nullable="false" AppliesTo="Action Function Property Term">
-        <Annotation Term="Core.Description" String="The action or function overload implements the [interface](#IsInterface) action or function whose qualified name is the annotation value" />
+      <Term Name="ImplementsSignature" Type="Edm.String" Nullable="false" AppliesTo="Action Function Property Term">
+        <Annotation Term="Core.Description" String="The action or function overload implements the action or function [signature](#IsSignature) whose qualified name is the annotation value" />
         <Annotation Term="Core.LongDescription">
           <String>This term can be applied to actions or functions as well as to properties or terms
           that identify an action or function.</String>
