@@ -6,25 +6,29 @@
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml">
     <edmx:Include Namespace="Org.OData.Measures.V1" Alias="Measures" />
   </edmx:Reference>
+  <edmx:Reference Uri="/SalesDocument.svc/$metadata">
+    <edmx:Include Namespace="SalesDocument" Alias="service" />
+  </edmx:Reference>
   <edmx:DataServices>
     <Schema Namespace="interface.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
       <Annotation Term="Core.LongDescription">
         <String>The [implementation](#ReturnsWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:
 - Changed name of the binding parameter
-- Parameter type specialized from `Edm.EntityType` to a concrete entity type
-- Optional parameter is omitted from the implementation
+- Specialized parameter type from `Edm.EntityType` to a concrete entity type
+- Omitted optional parameter from the implementation
 - Changed type name of the return type
-- Changed name of the return type property that contains the weight, because this appears in a special `Weight` annotation
+- Changed name of the return type property that contains the weight, because this appears in the [`Weight`](#Weight) annotation
 - Changed name of the return type property that contains the unit, because this appears in the `Measures.Unit` annotation.</String>
       </Annotation>
 
       <Term Name="Weight" Type="Edm.Decimal" Nullable="false" AppliesTo="ComplexType EntityType">
-        <Annotation Term="Core.Description" String="Weight of the instance" />
+        <Annotation Term="Core.Description" String="Numeric value of the weight of the instance" />
       </Term>
 
       <Function Name="SalesDocumentWeight" IsBound="true">
         <Annotation Term="Core.IsInterface" />
+        <Annotation Term="Core.Description" String="Determines the total weight of the goods in a sales document" />
         <Parameter Name="SalesDocument" Type="Edm.EntityType" Nullable="false" />
         <Parameter Name="IncludePackaging" Type="Edm.Boolean" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
@@ -42,9 +46,9 @@
         <Property Name="WeightUnit" Type="Edm.String" Nullable="false" />
       </ComplexType>
 
-      <Function Name="ReturnsWeight" IsBound="true">
+      <Function Name="ReturnsOrderWeight" IsBound="true">
         <Annotation Term="Core.ImplementsInterface" String="self.SalesDocumentWeight" />
-        <Parameter Name="ReturnOrder" Type="self.ReturnsType" Nullable="false" />
+        <Parameter Name="ReturnsOrder" Type="service.ReturnsOrderType" Nullable="false" />
         <ReturnType Type="self.QuantityUnitType" Nullable="false">
           <Annotation Term="self.Weight" Path="$ReturnType/Quantity" />
         </ReturnType>

@@ -1,14 +1,13 @@
-# interface Vocabulary
 **Namespace: [interface.sample](Org.OData.Core.V1.IsInterface-equivalence.xml)**
 
 
 
 The [implementation](#ReturnsWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:
 - Changed name of the binding parameter
-- Parameter type specialized from `Edm.EntityType` to a concrete entity type
-- Optional parameter is omitted from the implementation
+- Specialized parameter type from `Edm.EntityType` to a concrete entity type
+- Omitted optional parameter from the implementation
 - Changed type name of the return type
-- Changed name of the return type property that contains the weight, because this appears in a special `Weight` annotation
+- Changed name of the return type property that contains the weight, because this appears in the [`Weight`](#Weight) annotation
 - Changed name of the return type property that contains the unit, because this appears in the `Measures.Unit` annotation.
 
 
@@ -16,7 +15,7 @@ The [implementation](#ReturnsWeight)'s signature differs from the [interface](#S
 
 Term|Type|Description
 :---|:---|:----------
-Weight|Decimal|<a name="Weight"></a>Weight of the instance
+Weight|Decimal|<a name="Weight"></a>Numeric value of the weight of the instance
 
 
 ## Functions
@@ -24,8 +23,8 @@ Weight|Decimal|<a name="Weight"></a>Weight of the instance
 <a name="SalesDocumentWeight"></a>
 ### SalesDocumentWeight
 
-**Interface**
-
+**Interface:**
+Determines the total weight of the goods in a sales document
 
 Parameter|Type|Description
 :--------|:---|:----------
@@ -34,15 +33,15 @@ Parameter|Type|Description
 &rarr;|[SalesOrderWeightType](#SalesOrderWeightType)|
 
 
-<a name="ReturnsWeight"></a>
-### ReturnsWeight
+<a name="ReturnsOrderWeight"></a>
+### ReturnsOrderWeight
 
 **Implements [SalesDocumentWeight](#SalesDocumentWeight)**
 
 
 Parameter|Type|Description
 :--------|:---|:----------
-**ReturnOrder**|[ReturnsType](#ReturnsType)|**Binding parameter**
+**ReturnsOrder**|[ReturnsOrderType](#ReturnsOrderType)|**Binding parameter**
 &rarr;|[QuantityUnitType](#QuantityUnitType)|
 
 
