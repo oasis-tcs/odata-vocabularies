@@ -19,7 +19,7 @@
 - Omitted optional parameter from the implementation
 - Changed type name of the return type
 - Changed name of the return type property that contains the weight, because this appears in the [`Weight`](#Weight) annotation
-- Changed name of the return type property that contains the unit, because this appears in the `Measures.Unit` annotation.</String>
+- Changed name of the return type property that contains the unit, because this appears in the `Measures.Unit` annotation</String>
       </Annotation>
 
       <Term Name="Weight" Type="Edm.Decimal" Nullable="false" AppliesTo="ComplexType EntityType">
