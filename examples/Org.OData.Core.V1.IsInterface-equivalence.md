@@ -2,7 +2,7 @@
 
 
 
-The [implementation](#ReturnsWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:
+The [implementation](#ReturnsOrderWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:
 - Changed name of the binding parameter
 - Specialized parameter type from `Edm.EntityType` to a concrete entity type
 - Omitted optional parameter from the implementation

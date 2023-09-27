@@ -13,7 +13,7 @@
     <Schema Namespace="interface.sample" Alias="self" xmlns="http://docs.oasis-open.org/odata/ns/edm">
 
       <Annotation Term="Core.LongDescription">
-        <String>The [implementation](#ReturnsWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:
+        <String>The [implementation](#ReturnsOrderWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:
 - Changed name of the binding parameter
 - Specialized parameter type from `Edm.EntityType` to a concrete entity type
 - Omitted optional parameter from the implementation
