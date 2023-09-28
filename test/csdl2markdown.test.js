@@ -442,40 +442,40 @@ describe("Edge cases", function () {
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
 
-  it("Interfaces", function () {
+  it("Signatures", function () {
     const filename = "function.xml";
     const vocabulary = {
       $Version: "4.01",
-      "Intf.v12": {
-        Interface: [
+      "Sign.v12": {
+        Signature: [
           {
             $Kind: "Function",
             $ReturnType: {},
-            "@Org.OData.Core.V1.IsInterface#Intf1": true
+            "@Org.OData.Core.V1.IsSignature#Intf1": true
           },
         ],
         Implementation: [
           {
             $Kind: "Function",
             $ReturnType: {},
-            "@Org.OData.Core.V1.ImplementsInterface#Intf1": "Intf.v12.Interface"
+            "@Org.OData.Core.V1.ImplementsSignature#Intf1": "Sign.v12.Signature"
           },
         ],
       },
     };
     const expectedMarkdown = [
-      "# Intf Vocabulary",
-      "**Namespace: [Intf.v12](function.xml)**",
+      "# Sign Vocabulary",
+      "**Namespace: [Sign.v12](function.xml)**",
       "",
       "",
       "",
       "",
       "## Functions",
       "",
-      '<a name="Interface"></a>',
-      "### Interface",
+      '<a name="Signature"></a>',
+      "### Signature",
       "",
-      "**Interface**",
+      "**Signature only**",
       "",
       "",
       "Parameter|Type|Description",
@@ -486,7 +486,7 @@ describe("Edge cases", function () {
       '<a name="Implementation"></a>',
       "### Implementation",
       "",
-      "**Implements [Interface](#Interface)**",
+      "**Implements [Signature](#Signature)**",
       "",
       "",
       "Parameter|Type|Description",
