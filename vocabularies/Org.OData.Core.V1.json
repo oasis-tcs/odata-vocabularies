@@ -736,7 +736,7 @@
                 "Function"
             ],
             "@Core.Description": "The tagged action or function cannot be invoked, it only defines a signature",
-            "@Core.LongDescription": "Actions or functions with this tag MUST NOT have more than one overload.\n          \n          Services that want to implement the signature define an action or function with an equivalent signature\n          and annotate it with the term [`ImplementsSignature`](#ImplementsSignature).\n          Equivalence of signatures means that clients which understand the CSDL definition of the tagged action or function\n          must be able to make correct requests to any of its implementations based solely on the CSDL definition of that implementation."
+            "@Core.LongDescription": "Actions or functions with this tag MUST NOT have more than one overload.\n          \n          Services that want to implement the signature define an action or function with an equivalent signature\n          and annotate it with the term [`ImplementsSignature`](#ImplementsSignature).\n          Equivalence of signatures means that clients which understand the CSDL definition of the tagged action or function\n          must be able to make correct requests to any of its implementations based solely on the CSDL definition of that implementation.\n          (See [this example](../examples/Org.OData.Core.V1.IsInterface-equivalence.md).)"
         },
         "ImplementsSignature": {
             "$Kind": "Term",

@@ -1,0 +1,106 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Core.V1",
+                    "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Measures.V1",
+                    "$Alias": "Measures"
+                }
+            ]
+        },
+        "/SalesDocument.svc/$metadata": {
+            "$Include": [
+                {
+                    "$Namespace": "SalesDocument",
+                    "$Alias": "service"
+                }
+            ]
+        }
+    },
+    "interface.sample": {
+        "$Alias": "self",
+        "@Core.LongDescription": "The [implementation](#ReturnsOrderWeight)'s signature differs from the [interface](#SalesDocumentWeight)'s signature in the following allowed ways:\n- Changed name of the binding parameter\n- Specialized parameter type from `Edm.EntityType` to a concrete entity type\n- Changed type name of the return type\n- Changed name of the return type property that contains the weight, because this appears in the [`Weight`](#Weight) annotation\n- Changed name of the return type property that contains the unit, because this appears in the `Measures.Unit` annotation\n- Removed nullability of the return type property that contains the unit\n",
+        "Weight": {
+            "$Kind": "Term",
+            "$Type": "Edm.Decimal",
+            "$AppliesTo": [
+                "ComplexType",
+                "EntityType"
+            ],
+            "$Scale": 0,
+            "@Core.Description": "Numeric value of the weight of the instance"
+        },
+        "SalesDocumentWeight": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.IsInterface": true,
+                "@Core.Description": "Determines the total weight of the goods in a sales document",
+                "$Parameter": [
+                    {
+                        "$Name": "SalesDocument",
+                        "$Type": "Edm.EntityType"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "self.SalesOrderWeightType",
+                    "@self.Weight@Measures.Unit": {
+                        "$Path": "$ReturnType/WeightUnit"
+                    },
+                    "@self.Weight": {
+                        "$Path": "$ReturnType/Weight"
+                    }
+                }
+            }
+        ],
+        "SalesOrderWeightType": {
+            "$Kind": "ComplexType",
+            "Weight": {
+                "$Type": "Edm.Decimal",
+                "$Scale": 0
+            },
+            "WeightUnit": {
+                "$Nullable": true
+            }
+        },
+        "ReturnsOrderWeight": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.ImplementsInterface": "self.SalesDocumentWeight",
+                "$Parameter": [
+                    {
+                        "$Name": "ReturnsOrder",
+                        "$Type": "service.ReturnsOrderType"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "self.QuantityUnitType",
+                    "@self.Weight@Measures.Unit": {
+                        "$Path": "$ReturnType/Unit"
+                    },
+                    "@self.Weight": {
+                        "$Path": "$ReturnType/Quantity"
+                    }
+                }
+            }
+        ],
+        "QuantityUnitType": {
+            "$Kind": "ComplexType",
+            "Quantity": {
+                "$Type": "Edm.Decimal",
+                "$Scale": 0
+            },
+            "Unit": {}
+        }
+    }
+}
