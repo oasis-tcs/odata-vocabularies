@@ -6,7 +6,7 @@ The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDoc
 - Specialized binding parameter type from `Edm.EntityType` to a concrete entity type
 - Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)
 - Removed nullability of binding parameter and return type
-
+- Additional return type property (could be ignored by the client)
 
 
 ## Functions
@@ -55,3 +55,4 @@ Property|Type|Description
 :-------|:---|:----------
 [*Quantity*](./Org.OData.Core.V1.IsInterface-equivalence.xml#L30:~:text=<ComplexType%20Name="-,QuantityUnitType,-")|Decimal|
 [Unit](./Org.OData.Core.V1.IsInterface-equivalence.xml#L42:~:text=<ComplexType%20Name="-,ReturnsOrderWeightType,-")|String|
+[PackageWeight](./Org.OData.Core.V1.IsInterface-equivalence.xml#L43:~:text=<ComplexType%20Name="-,ReturnsOrderWeightType,-")|Decimal|

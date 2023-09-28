@@ -17,7 +17,7 @@
 - Specialized binding parameter type from `Edm.EntityType` to a concrete entity type
 - Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)
 - Removed nullability of binding parameter and return type
-</String>
+- Additional return type property (could be ignored by the client)</String>
       </Annotation>
 
       <Function Name="SalesDocumentWeight" IsBound="true">
@@ -40,6 +40,9 @@
       </Function>
       <ComplexType Name="ReturnsOrderWeightType" BaseType="self.QuantityUnitType">
         <Property Name="Unit" Type="Edm.String" Nullable="false" />
+        <Property Name="PackageWeight" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Measures.Unit" Path="Unit" />
+        </Property>
       </ComplexType>
 
     </Schema>
