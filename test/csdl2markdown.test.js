@@ -473,7 +473,7 @@ describe("Edge cases", function () {
       "## Functions",
       "",
       '<a name="Signature"></a>',
-      "### Signature",
+      "### *Signature*",
       "",
       "**Signature only**",
       "",
