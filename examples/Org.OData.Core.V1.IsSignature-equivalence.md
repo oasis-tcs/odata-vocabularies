@@ -5,7 +5,7 @@
 The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:
 - Specialized occurrences of type `Edm.EntityType` to a concrete entity type
 - Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)
-- Removed nullability of binding parameter and return type
+- Removed nullability of return type property `Unit`
 - Additional return type property (could be ignored by the client)
 
 
@@ -19,8 +19,8 @@ Determines the total weight of the goods in a sales document
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[SalesDocument](./Org.OData.Core.V1.IsSignature-equivalence.xml#L26:~:text=<Function%20Name="-,SalesDocumentWeight,-")**|EntityType?|**Binding parameter**
-[&rarr;](./Org.OData.Core.V1.IsSignature-equivalence.xml#L27:~:text=<Function%20Name="-,SalesDocumentWeight,-")|[QuantityUnitType?](#QuantityUnitType)|
+**[SalesDocument](./Org.OData.Core.V1.IsSignature-equivalence.xml#L26:~:text=<Function%20Name="-,SalesDocumentWeight,-")**|EntityType|**Binding parameter**
+[&rarr;](./Org.OData.Core.V1.IsSignature-equivalence.xml#L27:~:text=<Function%20Name="-,SalesDocumentWeight,-")|[QuantityUnitType](#QuantityUnitType)|
 
 
 <a name="ReturnsOrderWeight"></a>

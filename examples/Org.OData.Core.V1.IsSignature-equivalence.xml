@@ -16,15 +16,15 @@
         <String>The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:
 - Specialized occurrences of type `Edm.EntityType` to a concrete entity type
 - Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)
-- Removed nullability of binding parameter and return type
+- Removed nullability of return type property `Unit`
 - Additional return type property (could be ignored by the client)</String>
       </Annotation>
 
       <Function Name="SalesDocumentWeight" IsBound="true">
         <Annotation Term="Core.IsSignature" />
         <Annotation Term="Core.Description" String="Determines the total weight of the goods in a sales document" />
-        <Parameter Name="SalesDocument" Type="Edm.EntityType" Nullable="true" />
-        <ReturnType Type="self.QuantityUnitType" Nullable="true" />
+        <Parameter Name="SalesDocument" Type="Edm.EntityType" Nullable="false" />
+        <ReturnType Type="self.QuantityUnitType" Nullable="false" />
       </Function>
       <ComplexType Name="QuantityUnitType">
         <Property Name="Quantity" Type="Edm.Decimal" Nullable="false">
