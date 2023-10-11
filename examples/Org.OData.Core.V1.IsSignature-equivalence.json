@@ -26,9 +26,9 @@
             ]
         }
     },
-    "interface.sample": {
+    "signature.sample": {
         "$Alias": "self",
-        "@Core.LongDescription": "The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:\n- Specialized binding parameter type from `Edm.EntityType` to a concrete entity type\n- Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)\n- Removed nullability of binding parameter and return type\n- Additional return type property (could be ignored by the client)",
+        "@Core.LongDescription": "The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:\n- Specialized occurrences of type `Edm.EntityType` to a concrete entity type\n- Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)\n- Removed nullability of binding parameter and return type\n- Additional return type property (could be ignored by the client)",
         "SalesDocumentWeight": [
             {
                 "$Kind": "Function",
