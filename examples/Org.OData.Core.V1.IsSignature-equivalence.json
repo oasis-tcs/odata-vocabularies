@@ -28,7 +28,7 @@
     },
     "signature.sample": {
         "$Alias": "self",
-        "@Core.LongDescription": "The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:\n- Specialized occurrences of type `Edm.EntityType` to a concrete entity type\n- Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)\n- Removed nullability of return type property `Unit`\n- Additional return type property (could be ignored by the client)",
+        "@Core.LongDescription": "The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:\n- Specialized occurrences of type `Edm.EntityType` to a concrete entity type\n- Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)\n  - Removed nullability of return type property `Unit`\n  - Additional return type property `PackagingWeight` (could be ignored by the client)",
         "SalesDocumentWeight": [
             {
                 "$Kind": "Function",
@@ -79,7 +79,7 @@
             "$Kind": "ComplexType",
             "$BaseType": "self.QuantityUnitType",
             "Unit": {},
-            "PackageWeight": {
+            "PackagingWeight": {
                 "$Type": "Edm.Decimal",
                 "$Scale": 0,
                 "@Measures.Unit": {
