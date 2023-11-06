@@ -447,7 +447,7 @@
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
                         "@Core.OptionalParameter": {
-                            "DefaultValue": 32767
+                            "DefaultValue": "32767"
                         },
                         "@Validation.Minimum": 1
                     },
@@ -498,7 +498,7 @@
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
                         "@Core.OptionalParameter": {
-                            "DefaultValue": 32767
+                            "DefaultValue": "32767"
                         },
                         "@Validation.Minimum": 1
                     },
@@ -593,7 +593,7 @@
                         "@Core.Description": "Position N among the `rolluprecursive` operators in the first argument of `groupby`",
                         "@Core.LongDescription": "Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators\n            has M relationships to M nodes in M recursive hierarchies. This function returns the node x with path r to the root\n            in relationship number N.\n            If several such `groupby` transformations are nested, this function refers to the innermost one.",
                         "@Core.OptionalParameter": {
-                            "DefaultValue": 1
+                            "DefaultValue": "1"
                         },
                         "@Validation.Minimum": 1
                     }
