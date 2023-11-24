@@ -748,6 +748,17 @@
             ],
             "@Core.Description": "The action or function overload implements the action or function [signature](#IsSignature) whose qualified name is the annotation value",
             "@Core.LongDescription": "This term can be applied to actions or functions as well as to properties or terms\n          that identify an action or function."
+        },
+        "AnyStructure": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityType",
+                "ComplexType"
+            ],
+            "@Core.Description": "Instances of a type are annotated with this tag if they have no common structure in a given response payload",
+            "@Core.LongDescription": "The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty,\n          but this instance annotation SHOULD be omitted from the response value."
         }
     }
 }
