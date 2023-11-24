@@ -3,7 +3,7 @@
 
 
 The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:
-- Specialized occurrences of type `Edm.EntityType` to a concrete entity type
+- Specialized binding parameter type from `Edm.EntityType` to a concrete entity type
 - Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)
   - Removed nullability of return type property `Unit`
   - Additional return type property `PackagingWeight` (could be ignored by the client)
