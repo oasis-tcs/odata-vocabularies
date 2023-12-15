@@ -562,8 +562,8 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.Description" String="The tagged action or function cannot be invoked, it only defines a signature" />
         <Annotation Term="Core.LongDescription">
           <String>Actions or functions with this tag MUST NOT have more than one overload.
-          Services that want to implement the signature define an action or function with an equivalent signature
-          and annotate it with the term [`ImplementsSignature`](#ImplementsSignature).
+          Services that want to implement the signature define one or more action or function overloads with an equivalent signature
+          and annotate them with the term [`ImplementsSignature`](#ImplementsSignature).
           Equivalence of signatures means that clients which understand the CSDL definition of the tagged action or function
           must be able to make correct requests to any of its implementations based solely on the CSDL definition of that implementation.
           (See [this example](../examples/Org.OData.Core.V1.IsSignature-vocabsample.md).)</String>
