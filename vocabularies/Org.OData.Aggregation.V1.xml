@@ -414,7 +414,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767" />
+              <PropertyValue Property="DefaultValue" String="32767" />
             </Record>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
@@ -446,7 +446,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="32767" />
+              <PropertyValue Property="DefaultValue" String="32767" />
             </Record>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
@@ -512,7 +512,7 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
           </Annotation>
           <Annotation Term="Core.OptionalParameter">
             <Record>
-              <PropertyValue Property="DefaultValue" Int="1" />
+              <PropertyValue Property="DefaultValue" String="1" />
             </Record>
           </Annotation>
           <Annotation Term="Validation.Minimum" Int="1" />
