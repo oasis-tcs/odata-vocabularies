@@ -14,23 +14,35 @@
 
       <Annotation Term="Core.LongDescription">
         <String>The [implementation](#ReturnsOrderWeight) differs from the [signature](#SalesDocumentWeight) in the following allowed ways:
-- Specialized binding parameter type from `Edm.EntityType` to a concrete entity type
-- Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)
-  - Removed nullability of return type property `Unit`
-  - Additional return type property `PackagingWeight` (could be ignored by the client)</String>
+- Specialized binding parameter type from `Edm.EntityType` to a concrete entity type  
+  When displaying a sales order entity of the binding parameter type, the client can invoke the function
+  and offer a tooltip containing weight information about the sales document.
+  (Specialization would also be allowed for types of non-binding parameters.)
+- Specialized return type from [`self.QuantityUnitType`](#QuantityUnitType) to [`self.ReturnsOrderWeightType`](#ReturnsOrderWeightType)  
+  The client could display the additional return type property `PackagingWeight`
+  according to the [instruction](#SalesDocumentWeightType) about additional weight properties,
+  or could ignore it.</String>
       </Annotation>
 
       <Function Name="SalesDocumentWeight" IsBound="true">
         <Annotation Term="Core.IsSignature" />
-        <Annotation Term="Core.Description" String="Determines the total weight of the goods in a sales document" />
+        <Annotation Term="Core.Description" String="Determines weight information about a sales document" />
         <Parameter Name="SalesDocument" Type="Edm.EntityType" Nullable="false" />
-        <ReturnType Type="self.QuantityUnitType" Nullable="false" />
+        <ReturnType Type="self.SalesDocumentWeightType" Nullable="false" />
       </Function>
-      <ComplexType Name="QuantityUnitType">
-        <Property Name="Quantity" Type="Edm.Decimal" Nullable="false">
+      <ComplexType Name="SalesDocumentWeightType">
+        <Annotation Term="Core.Description" String="Weight of a sales order" />
+        <Annotation Term="Core.LongDescription">
+          <String>Subtypes of this type may contain additional weight properties that use the same `Unit`
+          and can be displayed next to the `GoodsWeight`.</String>
+        </Annotation>
+        <Property Name="GoodsWeight" Type="Edm.Decimal" Nullable="false">
+          <Annotation Term="Core.Description" String="Weight of the goods being sold" />
           <Annotation Term="Measures.Unit" Path="Unit" />
         </Property>
-        <Property Name="Unit" Type="Edm.String" Nullable="true" />
+        <Property Name="Unit" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Unit of all weights" />
+        </Property>
       </ComplexType>
 
       <Function Name="ReturnsOrderWeight" IsBound="true">
@@ -38,10 +50,10 @@
         <Parameter Name="SalesDocument" Type="service.ReturnsOrderType" Nullable="false" />
         <ReturnType Type="self.ReturnsOrderWeightType" Nullable="false" />
       </Function>
-      <ComplexType Name="ReturnsOrderWeightType" BaseType="self.QuantityUnitType">
-        <Property Name="Unit" Type="Edm.String" Nullable="false" />
+      <ComplexType Name="ReturnsOrderWeightType" BaseType="self.SalesDocumentWeightType">
         <Property Name="PackagingWeight" Type="Edm.Decimal" Nullable="false">
           <Annotation Term="Measures.Unit" Path="Unit" />
+          <Annotation Term="Core.Description" String="Weight of the packaging" />
         </Property>
       </ComplexType>
 
