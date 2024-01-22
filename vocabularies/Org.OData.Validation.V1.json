@@ -110,6 +110,7 @@
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty",
+                "Parameter",
                 "EntityType",
                 "ComplexType"
             ],
