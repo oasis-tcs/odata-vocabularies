@@ -6,7 +6,7 @@
   "bugs": "https://github.com/oasis-tcs/odata-vocabularies/issues",
   "repository": {
     "type": "git",
-    "url": "https://github.com/oasis-tcs/odata-vocabularies.git"
+    "url": "git+https://github.com/oasis-tcs/odata-vocabularies.git"
   },
   "files": [
     "lib/*"
