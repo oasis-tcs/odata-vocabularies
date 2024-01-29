@@ -11,9 +11,9 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "[xml]": {
-    "editor.defaultFormatter": "redhat.vscode-xml",
+    "editor.defaultFormatter": "redhat.vscode-xml"
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "cSpell.words": ["depr", "emph", "qname", "rarr", "vola"]
+  "cSpell.words": ["CSDL", "OData", "depr", "emph", "qname", "rarr", "vola"]
 }
