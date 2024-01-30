@@ -11,7 +11,7 @@
         }
     },
     "Org.OData.Authorization.V1": {
-        "$Alias": "Auth",
+        "$Alias": "Authorization",
         "@Core.Description": "The Authorization Vocabulary provides terms for describing authorization requirements of the service",
         "@Core.Links": [
             {
@@ -30,7 +30,7 @@
         "SecuritySchemes": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Auth.SecurityScheme",
+            "$Type": "Authorization.SecurityScheme",
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -39,7 +39,7 @@
         "SecurityScheme": {
             "$Kind": "ComplexType",
             "Authorization": {
-                "$Type": "Auth.SchemeName",
+                "$Type": "Authorization.SchemeName",
                 "@Core.Description": "The name of a required authorization scheme"
             },
             "RequiredScopes": {
@@ -50,7 +50,7 @@
         "Authorizations": {
             "$Kind": "Term",
             "$Collection": true,
-            "$Type": "Auth.Authorization",
+            "$Type": "Authorization.Authorization",
             "$AppliesTo": [
                 "EntityContainer"
             ],
@@ -70,7 +70,7 @@
         },
         "OpenIDConnect": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.Authorization",
+            "$BaseType": "Authorization.Authorization",
             "IssuerUrl": {
                 "@Core.Description": "Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url.",
                 "@Core.IsURL": true
@@ -78,7 +78,7 @@
         },
         "Http": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.Authorization",
+            "$BaseType": "Authorization.Authorization",
             "Scheme": {
                 "@Core.Description": "HTTP Authorization scheme to be used in the Authorization header, as per RFC7235"
             },
@@ -90,10 +90,10 @@
         "OAuthAuthorization": {
             "$Kind": "ComplexType",
             "$Abstract": true,
-            "$BaseType": "Auth.Authorization",
+            "$BaseType": "Authorization.Authorization",
             "Scopes": {
                 "$Collection": true,
-                "$Type": "Auth.AuthorizationScope",
+                "$Type": "Authorization.AuthorizationScope",
                 "@Core.Description": "Available scopes"
             },
             "RefreshUrl": {
@@ -104,7 +104,7 @@
         },
         "OAuth2ClientCredentials": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
+            "$BaseType": "Authorization.OAuthAuthorization",
             "TokenUrl": {
                 "@Core.Description": "Token Url",
                 "@Core.IsURL": true
@@ -112,7 +112,7 @@
         },
         "OAuth2Implicit": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
+            "$BaseType": "Authorization.OAuthAuthorization",
             "AuthorizationUrl": {
                 "@Core.Description": "Authorization URL",
                 "@Core.IsURL": true
@@ -120,7 +120,7 @@
         },
         "OAuth2Password": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
+            "$BaseType": "Authorization.OAuthAuthorization",
             "TokenUrl": {
                 "@Core.Description": "Token Url",
                 "@Core.IsURL": true
@@ -128,7 +128,7 @@
         },
         "OAuth2AuthCode": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.OAuthAuthorization",
+            "$BaseType": "Authorization.OAuthAuthorization",
             "AuthorizationUrl": {
                 "@Core.Description": "Authorization URL",
                 "@Core.IsURL": true
@@ -153,12 +153,12 @@
         },
         "ApiKey": {
             "$Kind": "ComplexType",
-            "$BaseType": "Auth.Authorization",
+            "$BaseType": "Authorization.Authorization",
             "KeyName": {
                 "@Core.Description": "The name of the header or query parameter"
             },
             "Location": {
-                "$Type": "Auth.KeyLocation",
+                "$Type": "Authorization.KeyLocation",
                 "@Core.Description": "Whether the API Key is passed in the header or as a query option"
             }
         },

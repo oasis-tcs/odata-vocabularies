@@ -4,22 +4,18 @@
 
 The example shows several ways to specify insert and update restrictions on various levels.
 
-
 ## [Filter Restrictions](Org.OData.Capabilities.V1.FilterRestrictions-sample.xml)
 
-This example shows a filter restriction to "multiple values", i.e. to `eq`  or `in` expressions.
-
+This example shows a filter restriction to "multiple values", i.e. to `eq` or `in` expressions.
 
 ## [JSON Schema](Org.OData.JSON.V1.Schema-sample.xml)
 
 This example shows a type definition of a "JSON Stream" property with an attached JSON Schema to describe/restrict the possible JSON values.
 
+## [Permissions](Org.OData.Capabilities.V1.permissions-sample.xml)
 
-## [Permissions](Org.OData.Capabilities.V1.permissions-sample.xml) 
-
-Permissions property defined under Read, Insert, Update, Delete in the capabilities vocabulary,  gives the ability to list Auth flows and scopes within those flows required to perform operations on an entity set.
-
+Permissions property defined under Read, Insert, Update, Delete in the capabilities vocabulary, gives the ability to list authorization flows and scopes within those flows required to perform operations on an entity set.
 
 ## [Sales Model](Org.OData.Aggregation.V1.SalesModel.md)
 
-Example model used in the [OData-Aggr] specification.
+Example model used in the [OData Extension for Data Aggregation](https://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html) specification.

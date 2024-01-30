@@ -43,7 +43,7 @@
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Authorization.V1" Alias="Auth">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Authorization.V1" Alias="Authorization">
       <Annotation Term="Core.Description" String="The Authorization Vocabulary provides terms for describing authorization requirements of the service" />
       <Annotation Term="Core.Links">
         <Collection>
@@ -62,12 +62,12 @@
         </Collection>
       </Annotation>
 
-      <Term Name="SecuritySchemes" Type="Collection(Auth.SecurityScheme)" Nullable="false" AppliesTo="EntityContainer">
+      <Term Name="SecuritySchemes" Type="Collection(Authorization.SecurityScheme)" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="At least one of the specified security schemes are required to make a request against the service" />
       </Term>
 
       <ComplexType Name="SecurityScheme">
-        <Property Name="Authorization" Type="Auth.SchemeName" Nullable="false">
+        <Property Name="Authorization" Type="Authorization.SchemeName" Nullable="false">
           <Annotation Term="Core.Description" String="The name of a required authorization scheme" />
         </Property>
         <Property Name="RequiredScopes" Type="Collection(Edm.String)" Nullable="false">
@@ -75,7 +75,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="Authorizations" Type="Collection(Auth.Authorization)" Nullable="false" AppliesTo="EntityContainer">
+      <Term Name="Authorizations" Type="Collection(Authorization.Authorization)" Nullable="false" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Lists the methods supported by the service to authorize access" />
       </Term>
 
@@ -89,14 +89,14 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="OpenIDConnect" BaseType="Auth.Authorization">
+      <ComplexType Name="OpenIDConnect" BaseType="Authorization.Authorization">
         <Property Name="IssuerUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Issuer location for the OpenID Provider. Configuration information can be obtained by appending `/.well-known/openid-configuration` to this Url." />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
-      <ComplexType Name="Http" BaseType="Auth.Authorization">
+      <ComplexType Name="Http" BaseType="Authorization.Authorization">
         <Property Name="Scheme" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="HTTP Authorization scheme to be used in the Authorization header, as per RFC7235" />
         </Property>
@@ -105,8 +105,8 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="OAuthAuthorization" BaseType="Auth.Authorization" Abstract="true">
-        <Property Name="Scopes" Type="Collection(Auth.AuthorizationScope)" Nullable="false">
+      <ComplexType Name="OAuthAuthorization" BaseType="Authorization.Authorization" Abstract="true">
+        <Property Name="Scopes" Type="Collection(Authorization.AuthorizationScope)" Nullable="false">
           <Annotation Term="Core.Description" String="Available scopes" />
         </Property>
         <Property Name="RefreshUrl" Type="Edm.String" Nullable="true">
@@ -115,28 +115,28 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="OAuth2ClientCredentials" BaseType="Auth.OAuthAuthorization">
+      <ComplexType Name="OAuth2ClientCredentials" BaseType="Authorization.OAuthAuthorization">
         <Property Name="TokenUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Token Url" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
-      <ComplexType Name="OAuth2Implicit" BaseType="Auth.OAuthAuthorization">
+      <ComplexType Name="OAuth2Implicit" BaseType="Authorization.OAuthAuthorization">
         <Property Name="AuthorizationUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Authorization URL" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
-      <ComplexType Name="OAuth2Password" BaseType="Auth.OAuthAuthorization">
+      <ComplexType Name="OAuth2Password" BaseType="Authorization.OAuthAuthorization">
         <Property Name="TokenUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Token Url" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
-      <ComplexType Name="OAuth2AuthCode" BaseType="Auth.OAuthAuthorization">
+      <ComplexType Name="OAuth2AuthCode" BaseType="Authorization.OAuthAuthorization">
         <Property Name="AuthorizationUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Authorization URL" />
           <Annotation Term="Core.IsURL" />
@@ -160,11 +160,11 @@
         </Property>
       </ComplexType>
 
-      <ComplexType Name="ApiKey" BaseType="Auth.Authorization">
+      <ComplexType Name="ApiKey" BaseType="Authorization.Authorization">
         <Property Name="KeyName" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="The name of the header or query parameter" />
         </Property>
-        <Property Name="Location" Type="Auth.KeyLocation" Nullable="false">
+        <Property Name="Location" Type="Authorization.KeyLocation" Nullable="false">
           <Annotation Term="Core.Description" String="Whether the API Key is passed in the header or as a query option" />
         </Property>
       </ComplexType>
