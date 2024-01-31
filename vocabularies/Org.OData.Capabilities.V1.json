@@ -5,7 +5,7 @@
             "$Include": [
                 {
                     "$Namespace": "Org.OData.Authorization.V1",
-                    "$Alias": "Auth"
+                    "$Alias": "Authorization"
                 }
             ]
         },
@@ -848,7 +848,7 @@
         "PermissionType": {
             "$Kind": "ComplexType",
             "SchemeName": {
-                "$Type": "Auth.SchemeName",
+                "$Type": "Authorization.SchemeName",
                 "@Core.Description": "Authorization flow scheme name"
             },
             "Scopes": {
