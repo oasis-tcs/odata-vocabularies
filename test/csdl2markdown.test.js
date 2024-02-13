@@ -44,6 +44,17 @@ describe("OASIS Vocabularies", function () {
 });
 
 describe("Non-OASIS Vocabularies", function () {
+  let warnings = [];
+  let warn;
+  beforeEach(function () {
+    warn = console.warn;
+    warnings = [];
+    console.warn = (args) => warnings.push(args);
+  });
+  afterEach(function () {
+    console.warn = warn;
+  });
+
   it("Non-OASIS Vocabulary referencing an OASIS Vocabulary", function () {
     const filename = "Other.xml";
     const vocabulary = {
@@ -196,14 +207,16 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Volatile terms",
       "",
-      '## <a name="New"></a>New',
+      '<a name="New"></a>',
+      "## New",
       "",
       "",
       "Property|Type|Description",
       ":-------|:---|:----------",
       "bar|String|",
       "",
-      '## <a name="Old"></a>Old *(Deprecated)*',
+      '<a name="Old"></a>',
+      "## Old *(Deprecated)*",
       "Use type `New` instead",
       "",
     ];
@@ -234,6 +247,7 @@ describe("Non-OASIS Vocabularies", function () {
           "@Core.Description": "Reference to a description",
           "@Org.OData.Validation.V1.AllowedTerms": [
             "Org.OData.Core.V1.Description",
+            "SomeVocabulary.WithoutReference",
           ],
         },
       },
@@ -249,11 +263,14 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)',
+      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)<br>- [WithoutReference](#WithoutReference)',
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
+    assert.deepStrictEqual(warnings, [
+      "Unknown namespace or alias: SomeVocabulary",
+    ]);
   });
 
   it("Text fragments", function () {
@@ -267,7 +284,8 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "## Functions",
       "",
-      '### <a name="condense"></a>[condense](./overload.tst.xml#L11:~:text=<Function%20Name="-,condense,-")',
+      '<a name="condense"></a>',
+      '### [condense](./overload.tst.xml#L11:~:text=<Function%20Name="-,condense,-")',
       "",
       "Overload 1",
       "",
@@ -277,7 +295,8 @@ describe("Non-OASIS Vocabularies", function () {
       '[&rarr;](./overload.tst.xml#L14:~:text=<Function%20Name="-,condense,-")|\\[EntityType\\]|',
       "",
       "",
-      '### <a name="condense"></a>[condense](./overload.tst.xml#L16) *(Deprecated)*',
+      '<a name="condense"></a>',
+      "### [condense](./overload.tst.xml#L16) *(Deprecated)*",
       "Deprecated in favor of overload 1",
       "",
     ];
@@ -320,13 +339,15 @@ describe("Edge cases", function () {
       "",
       "",
       "",
-      '## <a name="Derived"></a>Derived: [notThere](#notThere)',
+      '<a name="Derived"></a>',
+      "## Derived: [notThere](#notThere)",
       "",
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
     assert.deepStrictEqual(warnings, [
+      "Unknown namespace or alias: other",
       "- Cannot find 'other.notThere'",
       "- Cannot find 'other.notThere'",
     ]);
@@ -383,7 +404,8 @@ describe("Edge cases", function () {
       "",
       "## Functions",
       "",
-      '### <a name="NoParams"></a>NoParams',
+      '<a name="NoParams"></a>',
+      "### NoParams",
       "",
       "",
       "",
@@ -392,7 +414,8 @@ describe("Edge cases", function () {
       "&rarr;|String|",
       "",
       "",
-      '### <a name="DeprecatedParam"></a>DeprecatedParam',
+      '<a name="DeprecatedParam"></a>',
+      "### DeprecatedParam",
       "",
       "",
       "",
@@ -402,7 +425,8 @@ describe("Edge cases", function () {
       "&rarr;|String|",
       "",
       "",
-      '### <a name="OptionalParam"></a>OptionalParam',
+      '<a name="OptionalParam"></a>',
+      "### OptionalParam",
       "",
       "",
       "",
@@ -417,6 +441,55 @@ describe("Edge cases", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
+  
+  it("Derived type", function () {
+    const filename = "derivedType.xml";
+    const vocabulary = {
+      $Version: "4.01",
+      "Derived.v1": {
+        BaseType: {
+          $Kind: "ComplexType",
+          Value: {"$Type": "Edm.PrimitiveType", "@Org.OData.Core.V1.Description": "The value"}
+        },
+        DerivedType: {
+          $Kind: "ComplexType",
+          $BaseType: "Derived.v1.BaseType",
+          Value: {"$Type": "Edm.String"},
+          SelfExplanatory: {"$Type": "Edm.String"}
+        },
+      },
+    };
+    const expectedMarkdown = [
+      "# Derived Vocabulary",
+      "**Namespace: [Derived.v1](derivedType.xml)**",
+      "",
+      "",
+      "",
+      '<a name="BaseType"></a>',
+      "## BaseType",
+      "",
+      "",
+      "**Derived Types:**",
+      "- [DerivedType](#DerivedType)",
+      "",
+      "Property|Type|Description",
+      ":-------|:---|:----------",
+      "Value|PrimitiveType|The value",
+      "",
+      '<a name="DerivedType"></a>',
+      "## DerivedType: [BaseType](#BaseType)",
+      "",
+      "",
+      "Property|Type|Description",
+      ":-------|:---|:----------",
+      "Value|String|The value",
+      "SelfExplanatory|String|",
+      "",
+    ];
+    const markdown = lib.csdl2markdown(filename, vocabulary);
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
+
 });
 
 function check(actual, expected) {

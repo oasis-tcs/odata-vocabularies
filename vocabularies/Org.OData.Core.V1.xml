@@ -457,6 +457,17 @@
         <Annotation Term="Core.Description" String="The qualified name of an action in scope." />
       </TypeDefinition>
 
+      <TypeDefinition Name="QualifiedBoundOperationName" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="The qualified name of a bound action or function in scope." />
+        <Annotation Term="Core.LongDescription">
+          <String>Either
+- the qualified name of an action, to indicate the single bound overload with the specified binding parameter type, 
+- the qualified name of a function, to indicate all bound overloads with the specified binding parameter type, or 
+- the qualified name of a function followed by parentheses containing a comma-separated list of parameter types, in the order of their definition, to identify a single function overload with the first (binding) parameter matching the specified parameter type.
+        </String>
+        </Annotation>
+      </TypeDefinition>
+
       <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType Term">
         <Annotation Term="Core.Description" String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>
@@ -509,15 +520,23 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.LongDescription" String="The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement." />
       </Term>
 
+      <Term Name="RequiresExplicitBinding" Type="Core.Tag" DefaultValue="true" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
+      </Term>
+
+      <Term Name="ExplicitOperationBindings" Type="Collection(Core.QualifiedBoundOperationName)">
+        <Annotation Term="Core.Description" String="The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element." />
+      </Term>
+
       <TypeDefinition Name="LocalDateTime" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="A string representing a Local Date-Time value with no offset." />
         <Annotation Term="Validation.Pattern" String="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?$" />
       </TypeDefinition>
 
-
       <Term Name="SymbolicName" Type="Core.SimpleIdentifier" Nullable="false">
         <Annotation Term="Core.Description" String="A symbolic name for a model element" />
       </Term>
+
       <TypeDefinition Name="SimpleIdentifier" UnderlyingType="Edm.String" MaxLength="128">
         <Annotation Term="Core.Description" String="A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)" />
         <Annotation Term="Validation.Pattern" String="^[\p{L}\p{Nl}_][\p{L}\p{Nl}\p{Nd}\p{Mn}\p{Mc}\p{Pc}\p{Cf}]{0,}$" />
@@ -538,6 +557,14 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
           <Annotation Term="Core.Description" String="Commonly used identifer for a Feature" />
         </Property>
       </ComplexType>
+
+      <Term Name="AnyStructure" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType ComplexType">
+        <Annotation Term="Core.Description" String="Instances of a type are annotated with this tag if they have no common structure in a given response payload" />
+        <Annotation Term="Core.LongDescription">
+          <String>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty,
+          but this instance annotation SHOULD be omitted from the response value.</String>
+        </Annotation>
+      </Term>
 
     </Schema>
   </edmx:DataServices>

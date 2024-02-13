@@ -7,13 +7,15 @@
 
   Chairs:
   - Ralf Handl (ralf.handl@sap.com), SAP SE
-  - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+  - Michael Pizzo (mikep@microsoft.com), Microsoft
 
   Editors:
   - Ralf Handl (ralf.handl@sap.com), SAP SE
-  - Ram Jeyaraman (Ram.Jeyaraman@microsoft.com), Microsoft
+  - Hubert Heijkers (hubert.heijkers@nl.ibm.com), IBM
   - Gerald Krause (gerald.krause@sap.com), SAP SE
   - Michael Pizzo (mikep@microsoft.com), Microsoft
+  - Heiko Theißen (heiko.theissen@sap.com), SAP SE
+  - Martin Zurmuehl (martin.zurmuehl@sap.com), SAP SE
 
   Additional artifacts:
   This vocabulary is one component of a Work Product that also includes the following vocabulary components:
@@ -39,17 +41,26 @@
   This vocabulary defines terms to describe which data in a given entity model can be aggregated, and how.
 
 -->
-<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.01">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Namespace="Org.OData.Core.V1" Alias="Core" />
   </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
+  </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml">
     <edmx:Include Namespace="Org.OData.Capabilities.V1" Alias="Capabilities" />
+  </edmx:Reference>
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+    <edmx:Include Namespace="Org.OData.Validation.V1" Alias="Validation" />
   </edmx:Reference>
   <edmx:DataServices>
     <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Aggregation.V1" Alias="Aggregation">
       <Annotation Term="Core.Description">
         <String>Terms to describe which data in a given entity model can be aggregated, and how.</String>
+      </Annotation>
+      <Annotation Term="Core.LongDescription">
+        <String>Related to the specfication document [OData-Data-Agg-v4.0](http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html).</String>
       </Annotation>
       <Annotation Term="Core.Links">
         <Collection>
@@ -90,7 +101,12 @@
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedBase">
-        <Property Name="Transformations" Type="Collection(Edm.String)" Nullable="false">
+        <Annotation Term="Core.LongDescription">
+          <String>Services that do not fully implement a certain aggregation-related functionality may document
+          this by annotating the [`ApplySupported`](#ApplySupported) or [`ApplySupportedDefaults`](#ApplySupportedDefaults)
+          annotation with a description.</String>
+        </Annotation>
+        <Property Name="Transformations" Type="Collection(Aggregation.Transformation)" Nullable="false">
           <Annotation Term="Core.Description" String="Transformations that can be used in `$apply`" />
         </Property>
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
@@ -98,6 +114,9 @@
         </Property>
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
+        </Property>
+        <Property Name="From" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
+          <Annotation Term="Core.Description" String="The service supports the `from` keyword in an `aggregate` transformation" />
         </Property>
       </ComplexType>
       <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
@@ -112,7 +131,7 @@
           </Annotation>
           <Annotation Term="Core.Description" String="Only properties marked as `Groupable` can be used in the `groupby` transformation, and only those marked as `Aggregatable` can be used in the  `aggregate` transformation" />
         </Property>
-        <Property Name="GroupableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+        <Property Name="GroupableProperties" Type="Collection(Edm.AnyPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation" />
         </Property>
         <Property Name="AggregatableProperties" Type="Collection(Aggregation.AggregatablePropertyType)" Nullable="false">
@@ -125,29 +144,165 @@
             <String>Aggregatable property</String>
           </Annotation>
         </Property>
-        <Property Name="SupportedAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
+        <Property Name="SupportedAggregationMethods" Type="Collection(Aggregation.AggregationMethod)" Nullable="false">
           <Annotation Term="Core.Description">
-            <String>Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied</String>
+            <String>Standard and custom aggregation methods that can be applied to the property. If omitted, all aggregation methods can be applied</String>
           </Annotation>
         </Property>
-        <Property Name="RecommendedAggregationMethod" Type="Edm.String">
+        <Property Name="RecommendedAggregationMethod" Type="Aggregation.AggregationMethod">
           <Annotation Term="Core.Description">
             <String>Recommended method for aggregating values of the property</String>
           </Annotation>
         </Property>
       </ComplexType>
 
+      <TypeDefinition Name="Transformation" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="A transformation that can be used in `$apply`" />
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="aggregate" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.2.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="groupby" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.2.3" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="concat" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.2.2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="identity" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="filter" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="search" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.4" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="nest" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="addnested" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.3" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="join" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="outerjoin" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="compute" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="bottomcount" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.1.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="bottomsum" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.1.3" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="bottompercent" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.1.2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="topcount" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.1.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="topsum" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.1.3" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="toppercent" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.1.2" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="orderby" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.3" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="top" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.6" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="skip" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.5" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="ancestors" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 6.2.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="descendants" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 6.2.1" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="traverse" />
+              <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 6.2.2" />
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
+
+      <TypeDefinition Name="AggregationMethod" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description">
+          <String>Standard or custom aggregation method</String>
+        </Annotation>
+        <Annotation Term="Core.LongDescription">
+          <String>Custom aggregation methods MUST use a namespace-qualified name, that is contain at least one dot. </String>
+        </Annotation>
+        <Annotation Term="Validation.AllowedValues">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Value" String="sum" />
+              <Annotation Term="Core.Description" String="Can be applied to numeric values to return the sum of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="min" />
+              <Annotation Term="Core.Description" String="Can be applied to values with a totally ordered domain to return the smallest of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="max" />
+              <Annotation Term="Core.Description" String="Can be applied to values with a totally ordered domain to return the largest of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="average" />
+              <Annotation Term="Core.Description" String="Can be applied to numeric values to return the sum of the non-null values divided by the count of the non-null values, or null if there are no non-null values or the input set is empty" />
+            </Record>
+            <Record>
+              <PropertyValue Property="Value" String="countdistinct" />
+              <Annotation Term="Core.Description" String="Counts the distinct values, omitting any null values" />
+              <Annotation Term="Core.LongDescription">
+                <String>For navigation properties, it counts the distinct entities in the union of all entities related to entities in the input set. 
+                  For collection-valued primitive properties, it counts the distinct items in the union of all collection values in the input set.</String>
+              </Annotation>
+            </Record>
+          </Collection>
+        </Annotation>
+      </TypeDefinition>
 
       <EnumType Name="RollupType">
-        <Annotation Term="Core.Description" String="The number of `rollup` or `rollupall` operators allowed in a `groupby` transformation" />
+        <Annotation Term="Core.Description" String="The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation" />
         <Member Name="None">
-          <Annotation Term="Core.Description" String="No support for `rollup` or `rollupall` " />
+          <Annotation Term="Core.Description" String="No support for `rollup` or `rolluprecursive`" />
         </Member>
         <Member Name="SingleHierarchy">
-          <Annotation Term="Core.Description" String="Only one `rollup` or `rollupall` operator per `groupby`" />
+          <Annotation Term="Core.Description" String="Only one `rollup` or `rolluprecursive` operator per `groupby`" />
         </Member>
         <Member Name="MultipleHierarchies">
-          <Annotation Term="Core.Description" String="Full support for `rollup` and `rollupall`" />
+          <Annotation Term="Core.Description" String="Full support for `rollup` and `rolluprecursive`" />
         </Member>
       </EnumType>
 
@@ -189,75 +344,197 @@
       </Term>
 
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy" />
+        <Annotation Term="Core.Description" String="Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)" />
       </Term>
 
-      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Defines a recursive hierarchy." />
+      <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)" />
       </Term>
 
       <ComplexType Name="RecursiveHierarchyType">
         <Property Name="NodeProperty" Type="Edm.PropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property holding the hierarchy node value" />
+          <Annotation Term="Core.Description" String="Primitive property holding the node identifier" />
         </Property>
         <Property Name="ParentNavigationProperty" Type="Edm.NavigationPropertyPath" Nullable="false">
-          <Annotation Term="Core.Description" String="Property for navigating to the parent node" />
-        </Property>
-        <Property Name="DistanceFromRootProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.Description" String="Property holding the number of edges between the node and the root node" />
-        </Property>
-        <Property Name="IsLeafProperty" Type="Edm.PropertyPath" Nullable="true">
-          <Annotation Term="Core.RequiresType" String="Edm.Boolean" />
-          <Annotation Term="Core.Description" String="Property indicating whether the node is a leaf of the hierarchy" />
+          <Annotation Term="Core.Description" String="Property for navigating to the parent node(s). Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued." />
         </Property>
       </ComplexType>
 
-      <Function Name="isroot" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy" />
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
-        <ReturnType Type="Edm.Boolean" Nullable="false" />
+      <TypeDefinition Name="HierarchyQualifier" UnderlyingType="Edm.String">
+        <Annotation Term="Core.Description" String="Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation" />
+        <Annotation Term="Core.LongDescription">
+          <String>Every recursive hierarchy function defined in this vocabulary has
+- a parameter `HierarchyQualifier` of this type and
+- a parameter `HierarchyNodes` that is a collection of entities of a common type without multiple occurrences of the same entity.
+
+`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection
+given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.</String>
+        </Annotation>
+      </TypeDefinition>
+
+      <Function Name="isnode">
+        <Annotation Term="Core.Description" String="Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the putative node" />
+        </Parameter>
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="isdescendant" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance" />
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="true" />
-        <ReturnType Type="Edm.Boolean" Nullable="false" />
+      <Function Name="isroot">
+        <Annotation Term="Core.Description" String="Is the entity a root node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?" />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the putative root" />
+        </Parameter>
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="isancestor" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance" />
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <Parameter Name="MaxDistance" Type="Edm.Int16" />
-        <ReturnType Type="Edm.Boolean" Nullable="false" />
+      <Function Name="isdescendant">
+        <Annotation Term="Core.Description" String="Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the putative descendant" />
+        </Parameter>
+        <Parameter Name="Ancestor" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the ancestor node" />
+        </Parameter>
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="32767" />
+            </Record>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether to include the node itself in the result" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="issibling" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node" />
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
-        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="false" />
-        <ReturnType Type="Edm.Boolean" Nullable="false" />
+      <Function Name="isancestor">
+        <Annotation Term="Core.Description" String="Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the putative ancestor" />
+        </Parameter>
+        <Parameter Name="Descendant" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the descendant node" />
+        </Parameter>
+        <Parameter Name="MaxDistance" Type="Edm.Int16" Nullable="false">
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="32767" />
+            </Record>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <Parameter Name="IncludeSelf" Type="Edm.Boolean" Nullable="false">
+          <Annotation Term="Core.Description" String="Whether to include the node itself in the result" />
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="false" />
+            </Record>
+          </Annotation>
+        </Parameter>
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Function Name="isleaf" IsBound="true">
-        <Annotation Term="Core.Description" String="Returns true, if and only if the value of the node property of the specified hierarchy has no descendants" />
-        <Parameter Name="Entity" Type="Edm.EntityType" Nullable="false" />
-        <Parameter Name="Hierarchy" Type="Edm.String" Nullable="false" />
-        <ReturnType Type="Edm.Boolean" Nullable="false" />
+      <Function Name="issibling">
+        <Annotation Term="Core.Description" String="Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
+        <Annotation Term="Core.LongDescription" String="A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null." />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the putative sibling" />
+        </Parameter>
+        <Parameter Name="Other" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the other node" />
+        </Parameter>
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Action Function">
-        <Annotation Term="Core.Description" String="This action or function is available on aggregated entities if the `RequiredProperties` are still defined" />
+      <Function Name="isleaf">
+        <Annotation Term="Core.Description" String="Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)" />
+        <Annotation Term="Core.LongDescription" String="If a node identifier passed to the function is null, the function returns null." />
+        <Parameter Name="HierarchyNodes" Type="Collection(Edm.EntityType)" Nullable="false">
+          <Annotation Term="Core.Description" String="A collection, given through a `$root` expression" />
+        </Parameter>
+        <Parameter Name="HierarchyQualifier" Type="Aggregation.HierarchyQualifier" Nullable="false" />
+        <Parameter Name="Node" Type="Edm.PrimitiveType" Nullable="true">
+          <Annotation Term="Core.Description" String="Node identifier of the putative leaf" />
+        </Parameter>
+        <ReturnType Type="Edm.Boolean" Nullable="true" />
+      </Function>
+
+      <Function Name="rollupnode">
+        <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function returns the node" />
+        <Annotation Term="Core.LongDescription">
+          <String>This function may only occur in the second parameter of a `groupby` transformation whose first parameter
+contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the "`rolluprecursive` algorithm"
+(OData-Data-Agg-v4.0, section 6.3). Its behavior is undefined outside of this algorithm.
+```
+Sales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))
+```
+constructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.</String>
+        </Annotation>
+        <Parameter Name="Position" Type="Edm.Int16" Nullable="false">
+          <Annotation Term="Core.Description" String="Position N among the `rolluprecursive` operators in the first argument of `groupby`" />
+          <Annotation Term="Core.LongDescription">
+            <String>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators
+            has M relationships to M nodes in M recursive hierarchies. This function returns the node x with path r to the root
+            in relationship number N.
+            If several such `groupby` transformations are nested, this function refers to the innermost one.</String>
+          </Annotation>
+          <Annotation Term="Core.OptionalParameter">
+            <Record>
+              <PropertyValue Property="DefaultValue" String="1" />
+            </Record>
+          </Annotation>
+          <Annotation Term="Validation.Minimum" Int="1" />
+        </Parameter>
+        <ReturnType Type="Edm.EntityType" Nullable="false" />
+      </Function>
+
+      <Term Name="UpPath" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType">
+        <Annotation Term="Core.Description" String="The string values of the node identifiers in a path from the annotated node to a start node in a traversal of a recursive hierarchy" />
+        <Annotation Term="Core.LongDescription">
+          <String>This instance annotation occurs in the result set after a `traverse` transformation (OData-Data-Agg-v4.0, section 6.2.2.2).
+          A use case for this is traversal with multiple parents, when this annotation takes
+          as value one parent node identifier followed by one grandparent node identifier and so on.</String>
+        </Annotation>
+      </Term>
+
+      <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Function">
+        <Annotation Term="Core.Description" String="This function is available on aggregated entities if the `RequiredProperties` are still defined" />
       </Term>
       <ComplexType Name="AvailableOnAggregatesType">
         <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="Properties required to apply this action or function" />
+          <Annotation Term="Core.Description" String="Properties required to apply this function" />
         </Property>
       </ComplexType>
 

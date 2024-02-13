@@ -1,11 +1,19 @@
 {
-    "$Version": "4.0",
+    "$Version": "4.01",
     "$Reference": {
         "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json": {
             "$Include": [
                 {
                     "$Namespace": "Org.OData.Core.V1",
                     "$Alias": "Core"
+                }
+            ]
+        },
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
                 }
             ]
         },
@@ -21,6 +29,7 @@
     "Org.OData.Aggregation.V1": {
         "$Alias": "Aggregation",
         "@Core.Description": "Terms to describe which data in a given entity model can be aggregated, and how.",
+        "@Core.LongDescription": "Related to the specfication document [OData-Data-Agg-v4.0](http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html).",
         "@Core.Links": [
             {
                 "rel": "alternate",
@@ -57,8 +66,10 @@
         },
         "ApplySupportedBase": {
             "$Kind": "ComplexType",
+            "@Core.LongDescription": "Services that do not fully implement a certain aggregation-related functionality may document\n          this by annotating the [`ApplySupported`](#ApplySupported) or [`ApplySupportedDefaults`](#ApplySupportedDefaults)\n          annotation with a description.",
             "Transformations": {
                 "$Collection": true,
+                "$Type": "Aggregation.Transformation",
                 "@Core.Description": "Transformations that can be used in `$apply`"
             },
             "CustomAggregationMethods": {
@@ -69,6 +80,11 @@
                 "$Type": "Aggregation.RollupType",
                 "$DefaultValue": "MultipleHierarchies",
                 "@Core.Description": "The service supports rollup hierarchies in a `groupby` transformation"
+            },
+            "From": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "The service supports the `from` keyword in an `aggregate` transformation"
             }
         },
         "ApplySupportedType": {
@@ -87,7 +103,7 @@
             },
             "GroupableProperties": {
                 "$Collection": true,
-                "$Type": "Edm.PropertyPath",
+                "$Type": "Edm.AnyPropertyPath",
                 "@Core.Description": "A non-empty collection indicates that only the listed properties of the annotated target are supported by the `groupby` transformation"
             },
             "AggregatableProperties": {
@@ -104,22 +120,152 @@
             },
             "SupportedAggregationMethods": {
                 "$Collection": true,
-                "@Core.Description": "Standard and custom aggregation methods than can be applied to the property. If omitted, all aggregation methods can be applied"
+                "$Type": "Aggregation.AggregationMethod",
+                "@Core.Description": "Standard and custom aggregation methods that can be applied to the property. If omitted, all aggregation methods can be applied"
             },
             "RecommendedAggregationMethod": {
+                "$Type": "Aggregation.AggregationMethod",
                 "$Nullable": true,
                 "@Core.Description": "Recommended method for aggregating values of the property"
             }
         },
+        "Transformation": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "A transformation that can be used in `$apply`",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "aggregate",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.2.1"
+                },
+                {
+                    "Value": "groupby",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.2.3"
+                },
+                {
+                    "Value": "concat",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.2.2"
+                },
+                {
+                    "Value": "identity",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.1"
+                },
+                {
+                    "Value": "filter",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.2"
+                },
+                {
+                    "Value": "search",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.4"
+                },
+                {
+                    "Value": "nest",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.5.2"
+                },
+                {
+                    "Value": "addnested",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.3"
+                },
+                {
+                    "Value": "join",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.5.1"
+                },
+                {
+                    "Value": "outerjoin",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.5.1"
+                },
+                {
+                    "Value": "compute",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.2"
+                },
+                {
+                    "Value": "bottomcount",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.1.1"
+                },
+                {
+                    "Value": "bottomsum",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.1.3"
+                },
+                {
+                    "Value": "bottompercent",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.1.2"
+                },
+                {
+                    "Value": "topcount",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.1.1"
+                },
+                {
+                    "Value": "topsum",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.1.3"
+                },
+                {
+                    "Value": "toppercent",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.1.2"
+                },
+                {
+                    "Value": "orderby",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.3"
+                },
+                {
+                    "Value": "top",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.6"
+                },
+                {
+                    "Value": "skip",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.5"
+                },
+                {
+                    "Value": "ancestors",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 6.2.1"
+                },
+                {
+                    "Value": "descendants",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 6.2.1"
+                },
+                {
+                    "Value": "traverse",
+                    "@Core.Description": "OData-Data-Agg-v4.0, section 6.2.2"
+                }
+            ]
+        },
+        "AggregationMethod": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "Standard or custom aggregation method",
+            "@Core.LongDescription": "Custom aggregation methods MUST use a namespace-qualified name, that is contain at least one dot. ",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "sum",
+                    "@Core.Description": "Can be applied to numeric values to return the sum of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "min",
+                    "@Core.Description": "Can be applied to values with a totally ordered domain to return the smallest of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "max",
+                    "@Core.Description": "Can be applied to values with a totally ordered domain to return the largest of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "average",
+                    "@Core.Description": "Can be applied to numeric values to return the sum of the non-null values divided by the count of the non-null values, or null if there are no non-null values or the input set is empty"
+                },
+                {
+                    "Value": "countdistinct",
+                    "@Core.Description": "Counts the distinct values, omitting any null values",
+                    "@Core.LongDescription": "For navigation properties, it counts the distinct entities in the union of all entities related to entities in the input set. \n                  For collection-valued primitive properties, it counts the distinct items in the union of all collection values in the input set."
+                }
+            ]
+        },
         "RollupType": {
             "$Kind": "EnumType",
-            "@Core.Description": "The number of `rollup` or `rollupall` operators allowed in a `groupby` transformation",
+            "@Core.Description": "The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation",
             "None": 0,
-            "None@Core.Description": "No support for `rollup` or `rollupall` ",
+            "None@Core.Description": "No support for `rollup` or `rolluprecursive`",
             "SingleHierarchy": 1,
-            "SingleHierarchy@Core.Description": "Only one `rollup` or `rollupall` operator per `groupby`",
+            "SingleHierarchy@Core.Description": "Only one `rollup` or `rolluprecursive` operator per `groupby`",
             "MultipleHierarchies": 2,
-            "MultipleHierarchies@Core.Description": "Full support for `rollup` and `rollupall`"
+            "MultipleHierarchies@Core.Description": "Full support for `rollup` and `rolluprecursive`"
         },
         "Groupable": {
             "$Kind": "Term",
@@ -184,171 +330,302 @@
                 "EntityType",
                 "ComplexType"
             ],
-            "@Core.Description": "Defines a leveled hierarchy by defining an ordered list of properties in the hierarchy"
+            "@Core.Description": "Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)"
         },
         "RecursiveHierarchy": {
             "$Kind": "Term",
             "$Type": "Aggregation.RecursiveHierarchyType",
             "$AppliesTo": [
-                "EntityType",
-                "ComplexType"
+                "EntityType"
             ],
-            "@Core.Description": "Defines a recursive hierarchy."
+            "@Core.Description": "Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)"
         },
         "RecursiveHierarchyType": {
             "$Kind": "ComplexType",
             "NodeProperty": {
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Property holding the hierarchy node value"
+                "@Core.Description": "Primitive property holding the node identifier"
             },
             "ParentNavigationProperty": {
                 "$Type": "Edm.NavigationPropertyPath",
-                "@Core.Description": "Property for navigating to the parent node"
-            },
-            "DistanceFromRootProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.Description": "Property holding the number of edges between the node and the root node"
-            },
-            "IsLeafProperty": {
-                "$Type": "Edm.PropertyPath",
-                "$Nullable": true,
-                "@Core.RequiresType": "Edm.Boolean",
-                "@Core.Description": "Property indicating whether the node is a leaf of the hierarchy"
+                "@Core.Description": "Property for navigating to the parent node(s). Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued."
             }
         },
-        "isroot": [
+        "HierarchyQualifier": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation",
+            "@Core.LongDescription": "Every recursive hierarchy function defined in this vocabulary has\n- a parameter `HierarchyQualifier` of this type and\n- a parameter `HierarchyNodes` that is a collection of entities of a common type without multiple occurrences of the same entity.\n\n`HierarchyQualifier` is the qualifier of a `RecursiveHierarchy` annotation on the entity type of the collection\ngiven by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function."
+        },
+        "isnode": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is the root of the hierarchy",
+                "@Core.Description": "Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the putative node"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
+                }
+            }
+        ],
+        "isroot": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "Is the entity a root node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
+                "$Parameter": [
+                    {
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression"
+                    },
+                    {
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the putative root"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
         "isdescendant": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is a descendant of the given parent node with a distance of less than or equal to the optionally specified maximum distance",
+                "@Core.Description": "Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType"
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the putative descendant"
+                    },
+                    {
+                        "$Name": "Ancestor",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the ancestor node"
                     },
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "32767"
+                        },
+                        "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeSelf",
+                        "$Type": "Edm.Boolean",
+                        "@Core.Description": "Whether to include the node itself in the result",
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
         "isancestor": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy is an ancestor of the given child node with a distance of less than or equal to the optionally specified maximum distance",
+                "@Core.Description": "Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType"
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the putative ancestor"
+                    },
+                    {
+                        "$Name": "Descendant",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the descendant node"
                     },
                     {
                         "$Name": "MaxDistance",
                         "$Type": "Edm.Int16",
-                        "$Nullable": true
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "32767"
+                        },
+                        "@Validation.Minimum": 1
+                    },
+                    {
+                        "$Name": "IncludeSelf",
+                        "$Type": "Edm.Boolean",
+                        "@Core.Description": "Whether to include the node itself in the result",
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "false"
+                        }
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
         "issibling": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has the same parent node as the specified node",
+                "@Core.Description": "Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)",
+                "@Core.LongDescription": "A node is not a sibling of itself. If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
                     },
                     {
                         "$Name": "Node",
-                        "$Type": "Edm.PrimitiveType"
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the putative sibling"
+                    },
+                    {
+                        "$Name": "Other",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the other node"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
         "isleaf": [
             {
                 "$Kind": "Function",
-                "$IsBound": true,
-                "@Core.Description": "Returns true, if and only if the value of the node property of the specified hierarchy has no descendants",
+                "@Core.Description": "Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)",
+                "@Core.LongDescription": "If a node identifier passed to the function is null, the function returns null.",
                 "$Parameter": [
                     {
-                        "$Name": "Entity",
-                        "$Type": "Edm.EntityType"
+                        "$Name": "HierarchyNodes",
+                        "$Collection": true,
+                        "$Type": "Edm.EntityType",
+                        "@Core.Description": "A collection, given through a `$root` expression"
                     },
                     {
-                        "$Name": "Hierarchy"
+                        "$Name": "HierarchyQualifier",
+                        "$Type": "Aggregation.HierarchyQualifier"
+                    },
+                    {
+                        "$Name": "Node",
+                        "$Type": "Edm.PrimitiveType",
+                        "$Nullable": true,
+                        "@Core.Description": "Node identifier of the putative leaf"
                     }
                 ],
                 "$ReturnType": {
-                    "$Type": "Edm.Boolean"
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true
                 }
             }
         ],
+        "rollupnode": [
+            {
+                "$Kind": "Function",
+                "@Core.Description": "During `rolluprecursive` for a hierarchy node, this function returns the node",
+                "@Core.LongDescription": "This function may only occur in the second parameter of a `groupby` transformation whose first parameter\ncontains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the \"`rolluprecursive` algorithm\"\n(OData-Data-Agg-v4.0, section 6.3). Its behavior is undefined outside of this algorithm.\n```\nSales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))\n```\nconstructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.",
+                "$Parameter": [
+                    {
+                        "$Name": "Position",
+                        "$Type": "Edm.Int16",
+                        "@Core.Description": "Position N among the `rolluprecursive` operators in the first argument of `groupby`",
+                        "@Core.LongDescription": "Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators\n            has M relationships to M nodes in M recursive hierarchies. This function returns the node x with path r to the root\n            in relationship number N.\n            If several such `groupby` transformations are nested, this function refers to the innermost one.",
+                        "@Core.OptionalParameter": {
+                            "DefaultValue": "1"
+                        },
+                        "@Validation.Minimum": 1
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.EntityType"
+                }
+            }
+        ],
+        "UpPath": {
+            "$Kind": "Term",
+            "$Collection": true,
+            "$AppliesTo": [
+                "EntityType"
+            ],
+            "@Core.Description": "The string values of the node identifiers in a path from the annotated node to a start node in a traversal of a recursive hierarchy",
+            "@Core.LongDescription": "This instance annotation occurs in the result set after a `traverse` transformation (OData-Data-Agg-v4.0, section 6.2.2.2).\n          A use case for this is traversal with multiple parents, when this annotation takes\n          as value one parent node identifier followed by one grandparent node identifier and so on."
+        },
         "AvailableOnAggregates": {
             "$Kind": "Term",
             "$Type": "Aggregation.AvailableOnAggregatesType",
             "$AppliesTo": [
-                "Action",
                 "Function"
             ],
-            "@Core.Description": "This action or function is available on aggregated entities if the `RequiredProperties` are still defined"
+            "@Core.Description": "This function is available on aggregated entities if the `RequiredProperties` are still defined"
         },
         "AvailableOnAggregatesType": {
             "$Kind": "ComplexType",
             "RequiredProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "Properties required to apply this action or function"
+                "@Core.Description": "Properties required to apply this function"
             }
         },
         "NavigationPropertyAggregationCapabilities": {

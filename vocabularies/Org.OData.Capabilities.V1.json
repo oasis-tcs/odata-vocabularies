@@ -5,7 +5,7 @@
             "$Include": [
                 {
                     "$Namespace": "Org.OData.Authorization.V1",
-                    "$Alias": "Auth"
+                    "$Alias": "Authorization"
                 }
             ]
         },
@@ -872,7 +872,7 @@
         "PermissionType": {
             "$Kind": "ComplexType",
             "SchemeName": {
-                "$Type": "Auth.SchemeName",
+                "$Type": "Authorization.SchemeName",
                 "@Core.Description": "Authorization flow scheme name"
             },
             "Scopes": {
@@ -959,6 +959,21 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
                 "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
+            },
+            "NonUpdatableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties cannot be updated"
+            },
+            "NonUpdatableNavigationProperties": {
+                "$Collection": true,
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "These navigation properties do not allow rebinding"
+            },
+            "RequiredProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These structural properties must be specified on update"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
@@ -1089,12 +1104,12 @@
             "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+                "@Core.Description": "Members of collections can be deleted via a DELETE request with a `/$filter(...)/$each` segment"
             },
             "TypecastSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
+                "@Core.Description": "Members of collections can be deleted via a DELETE request with a type-cast segment and a `/$each` segment"
             },
             "Permissions": {
                 "$Collection": true,
@@ -1355,6 +1370,11 @@
         "ReadRestrictionsType": {
             "$Kind": "ComplexType",
             "$BaseType": "Capabilities.ReadRestrictionsBase",
+            "TypecastSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities of a specific derived type can be read by specifying a type-cast segment"
+            },
             "ReadByKeyRestrictions": {
                 "$Type": "Capabilities.ReadByKeyRestrictionsType",
                 "$Nullable": true,
