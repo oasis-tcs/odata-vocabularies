@@ -17,7 +17,6 @@
   "main": "lib/csdl2markdown.js",
   "dependencies": {
     "colors": "^1.4.0",
-    "minimist": "^1.2.6",
     "odata-csdl": "^0.9.4"
   },
   "devDependencies": {

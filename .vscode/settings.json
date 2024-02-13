@@ -15,5 +15,14 @@
   },
   "files.insertFinalNewline": true,
   "files.trimFinalNewlines": true,
-  "cSpell.words": ["CSDL", "OData", "depr", "emph", "qname", "rarr", "vola"]
+  "cSpell.words": [
+    "CSDL",
+    "depr",
+    "emph",
+    "OData",
+    "positionals",
+    "qname",
+    "rarr",
+    "vola"
+  ]
 }
