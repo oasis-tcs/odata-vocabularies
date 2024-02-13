@@ -226,7 +226,7 @@
           </Record>
         </Annotation>
       </Annotations>
-      <!-- Annotating container with Auth Schemes that contain all the scopes applicable per that security scheme. Graph has 3 security schemes,
+      <!-- Annotating container with authorization schemes that contain all the scopes applicable per that security scheme. Microsoft Graph has three security schemes,
         DelegatedWork, DelegatedPersonal, Application -->
       <Annotations Target="microsoft.graph.GraphService">
         <Annotation Term="Auth.Authorizations">

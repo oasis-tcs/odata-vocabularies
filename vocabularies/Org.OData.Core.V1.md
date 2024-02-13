@@ -50,6 +50,7 @@ Term|Type|Description
 [ExplicitOperationBindings](./Org.OData.Core.V1.xml#L527:~:text=<Term%20Name="-,ExplicitOperationBindings,-")|\[[QualifiedBoundOperationName](#QualifiedBoundOperationName)\]|<a name="ExplicitOperationBindings"></a>The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element.
 [SymbolicName](./Org.OData.Core.V1.xml#L552:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 [GeometryFeature](./Org.OData.Core.V1.xml#L561:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
+[AnyStructure](./Org.OData.Core.V1.xml#L577:~:text=<Term%20Name="-,AnyStructure,-")|[Tag](#Tag)|<a name="AnyStructure"></a>Instances of a type are annotated with this tag if they have no common structure in a given response payload<br>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty, but this instance annotation SHOULD be omitted from the response value.
 
 <a name="RevisionType"></a>
 ## [RevisionType](./Org.OData.Core.V1.xml#L80:~:text=<ComplexType%20Name="-,RevisionType,-")

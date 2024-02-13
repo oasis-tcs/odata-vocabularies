@@ -109,7 +109,7 @@
         <Annotation Term="Core.Description" String="The value of the annotated property, parameter, or term must be an integer multiple of this positive value. For temporal types, the value is measured in seconds." />
       </Term>
 
-      <Term Name="Constraint" Type="Validation.ConstraintType" Nullable="false" AppliesTo="Property EntityType ComplexType">
+      <Term Name="Constraint" Type="Validation.ConstraintType" Nullable="false" AppliesTo="Property NavigationProperty Parameter EntityType ComplexType">
         <Annotation Term="Core.Description" String="Condition that the annotation target has to fulfill" />
       </Term>
       <ComplexType Name="ConstraintType">

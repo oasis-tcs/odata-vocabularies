@@ -40,7 +40,7 @@
 -->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml">
-    <edmx:Include Alias="Auth" Namespace="Org.OData.Authorization.V1" />
+    <edmx:Include Alias="Authorization" Namespace="Org.OData.Authorization.V1" />
   </edmx:Reference>
   <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
@@ -646,7 +646,7 @@ supported:
       </ComplexType>
 
       <ComplexType Name="PermissionType">
-        <Property Name="SchemeName" Type="Auth.SchemeName" Nullable="false">
+        <Property Name="SchemeName" Type="Authorization.SchemeName" Nullable="false">
           <Annotation Term="Core.Description" String="Authorization flow scheme name" />
         </Property>
         <Property Name="Scopes" Type="Collection(Capabilities.ScopeType)" Nullable="false">
@@ -948,6 +948,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
       </ComplexType>
       <ComplexType Name="ReadRestrictionsType" BaseType="Capabilities.ReadRestrictionsBase">
+        <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="Entities of a specific derived type can be read by specifying a type-cast segment" />
+        </Property>
         <Property Name="ReadByKeyRestrictions" Type="Capabilities.ReadByKeyRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions for retrieving an entity by key" />
           <Annotation Term="Core.LongDescription" String="Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies." />
