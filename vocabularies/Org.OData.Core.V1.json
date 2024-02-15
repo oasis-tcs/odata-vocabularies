@@ -745,7 +745,7 @@
             "$AppliesTo": [
                 "Action"
             ],
-            "@Core.Description": "The annotated action creates new entities"
+            "@Core.Description": "On success the annotated action creates a new entity"
         }
     }
 }

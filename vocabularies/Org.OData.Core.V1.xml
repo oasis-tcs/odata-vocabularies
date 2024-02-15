@@ -567,7 +567,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       </Term>
 
       <Term Name="Constructor" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
-        <Annotation Term="Core.Description" String="The annotated action creates new entities" />
+        <Annotation Term="Core.Description" String="On success the annotated action creates a new entity" />
       </Term>
 
     </Schema>
