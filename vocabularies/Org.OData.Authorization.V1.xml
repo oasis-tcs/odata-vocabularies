@@ -123,6 +123,7 @@
       </ComplexType>
 
       <ComplexType Name="OAuth2Implicit" BaseType="Authorization.OAuthAuthorization">
+        <Annotation Term="Core.Description" String="Security note: OAuth2 implicit grant is considered to be not secure and should not be used by clients, see [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics.html#name-implicit-grant)." />
         <Property Name="AuthorizationUrl" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Authorization URL" />
           <Annotation Term="Core.IsURL" />
