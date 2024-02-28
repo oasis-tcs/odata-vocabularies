@@ -737,6 +737,15 @@
             ],
             "@Core.Description": "Instances of a type are annotated with this tag if they have no common structure in a given response payload",
             "@Core.LongDescription": "The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty,\n          but this instance annotation SHOULD be omitted from the response value."
+        },
+        "Constructor": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Action"
+            ],
+            "@Core.Description": "On success the annotated action creates a new entity"
         }
     }
 }
