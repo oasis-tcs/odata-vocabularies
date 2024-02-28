@@ -113,6 +113,7 @@
         "OAuth2Implicit": {
             "$Kind": "ComplexType",
             "$BaseType": "Authorization.OAuthAuthorization",
+            "@Core.Description": "Security note: OAuth2 implicit grant is considered to be not secure and should not be used by clients, see [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics.html#name-implicit-grant).",
             "AuthorizationUrl": {
                 "@Core.Description": "Authorization URL",
                 "@Core.IsURL": true
