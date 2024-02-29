@@ -91,7 +91,7 @@ Property|Type|Description
 
 <a name="OAuth2Implicit"></a>
 ## [OAuth2Implicit](./Org.OData.Authorization.V1.xml#L125:~:text=<ComplexType%20Name="-,OAuth2Implicit,-"): [OAuthAuthorization](#OAuthAuthorization)
-
+Security note: OAuth2 implicit grant is considered to be not secure and should not be used by clients, see [OAuth 2.0 Security Best Current Practice](https://datatracker.ietf.org/doc/html/draft-ietf-oauth-security-topics.html#name-implicit-grant).
 
 Property|Type|Description
 :-------|:---|:----------
@@ -99,10 +99,10 @@ Property|Type|Description
 [*Description*](./Org.OData.Authorization.V1.xml#L87:~:text=<ComplexType%20Name="-,Authorization,-")|String?|Description of the authorization scheme
 [*Scopes*](./Org.OData.Authorization.V1.xml#L109:~:text=<ComplexType%20Name="-,OAuthAuthorization,-")|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
 [*RefreshUrl*](./Org.OData.Authorization.V1.xml#L112:~:text=<ComplexType%20Name="-,OAuthAuthorization,-")|URL?|Refresh Url
-[AuthorizationUrl](./Org.OData.Authorization.V1.xml#L126:~:text=<ComplexType%20Name="-,OAuth2Implicit,-")|URL|Authorization URL
+[AuthorizationUrl](./Org.OData.Authorization.V1.xml#L127:~:text=<ComplexType%20Name="-,OAuth2Implicit,-")|URL|Authorization URL
 
 <a name="OAuth2Password"></a>
-## [OAuth2Password](./Org.OData.Authorization.V1.xml#L132:~:text=<ComplexType%20Name="-,OAuth2Password,-"): [OAuthAuthorization](#OAuthAuthorization)
+## [OAuth2Password](./Org.OData.Authorization.V1.xml#L133:~:text=<ComplexType%20Name="-,OAuth2Password,-"): [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
@@ -111,10 +111,10 @@ Property|Type|Description
 [*Description*](./Org.OData.Authorization.V1.xml#L87:~:text=<ComplexType%20Name="-,Authorization,-")|String?|Description of the authorization scheme
 [*Scopes*](./Org.OData.Authorization.V1.xml#L109:~:text=<ComplexType%20Name="-,OAuthAuthorization,-")|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
 [*RefreshUrl*](./Org.OData.Authorization.V1.xml#L112:~:text=<ComplexType%20Name="-,OAuthAuthorization,-")|URL?|Refresh Url
-[TokenUrl](./Org.OData.Authorization.V1.xml#L133:~:text=<ComplexType%20Name="-,OAuth2Password,-")|URL|Token Url
+[TokenUrl](./Org.OData.Authorization.V1.xml#L134:~:text=<ComplexType%20Name="-,OAuth2Password,-")|URL|Token Url
 
 <a name="OAuth2AuthCode"></a>
-## [OAuth2AuthCode](./Org.OData.Authorization.V1.xml#L139:~:text=<ComplexType%20Name="-,OAuth2AuthCode,-"): [OAuthAuthorization](#OAuthAuthorization)
+## [OAuth2AuthCode](./Org.OData.Authorization.V1.xml#L140:~:text=<ComplexType%20Name="-,OAuth2AuthCode,-"): [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
@@ -123,42 +123,42 @@ Property|Type|Description
 [*Description*](./Org.OData.Authorization.V1.xml#L87:~:text=<ComplexType%20Name="-,Authorization,-")|String?|Description of the authorization scheme
 [*Scopes*](./Org.OData.Authorization.V1.xml#L109:~:text=<ComplexType%20Name="-,OAuthAuthorization,-")|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
 [*RefreshUrl*](./Org.OData.Authorization.V1.xml#L112:~:text=<ComplexType%20Name="-,OAuthAuthorization,-")|URL?|Refresh Url
-[AuthorizationUrl](./Org.OData.Authorization.V1.xml#L140:~:text=<ComplexType%20Name="-,OAuth2AuthCode,-")|URL|Authorization URL
-[TokenUrl](./Org.OData.Authorization.V1.xml#L144:~:text=<ComplexType%20Name="-,OAuth2AuthCode,-")|URL|Token Url
+[AuthorizationUrl](./Org.OData.Authorization.V1.xml#L141:~:text=<ComplexType%20Name="-,OAuth2AuthCode,-")|URL|Authorization URL
+[TokenUrl](./Org.OData.Authorization.V1.xml#L145:~:text=<ComplexType%20Name="-,OAuth2AuthCode,-")|URL|Token Url
 
 <a name="AuthorizationScope"></a>
-## [AuthorizationScope](./Org.OData.Authorization.V1.xml#L150:~:text=<ComplexType%20Name="-,AuthorizationScope,-")
+## [AuthorizationScope](./Org.OData.Authorization.V1.xml#L151:~:text=<ComplexType%20Name="-,AuthorizationScope,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Scope](./Org.OData.Authorization.V1.xml#L151:~:text=<ComplexType%20Name="-,AuthorizationScope,-")|String|Scope name
-[Grant](./Org.OData.Authorization.V1.xml#L154:~:text=<ComplexType%20Name="-,AuthorizationScope,-")|String?|Identity that has access to the scope or can grant access to the scope.
-[Description](./Org.OData.Authorization.V1.xml#L158:~:text=<ComplexType%20Name="-,AuthorizationScope,-")|String|Description of the scope
+[Scope](./Org.OData.Authorization.V1.xml#L152:~:text=<ComplexType%20Name="-,AuthorizationScope,-")|String|Scope name
+[Grant](./Org.OData.Authorization.V1.xml#L155:~:text=<ComplexType%20Name="-,AuthorizationScope,-")|String?|Identity that has access to the scope or can grant access to the scope.
+[Description](./Org.OData.Authorization.V1.xml#L159:~:text=<ComplexType%20Name="-,AuthorizationScope,-")|String|Description of the scope
 
 <a name="ApiKey"></a>
-## [ApiKey](./Org.OData.Authorization.V1.xml#L163:~:text=<ComplexType%20Name="-,ApiKey,-"): [Authorization](#Authorization)
+## [ApiKey](./Org.OData.Authorization.V1.xml#L164:~:text=<ComplexType%20Name="-,ApiKey,-"): [Authorization](#Authorization)
 
 
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](./Org.OData.Authorization.V1.xml#L84:~:text=<ComplexType%20Name="-,Authorization,-")|String|Name that can be used to reference the authorization scheme
 [*Description*](./Org.OData.Authorization.V1.xml#L87:~:text=<ComplexType%20Name="-,Authorization,-")|String?|Description of the authorization scheme
-[KeyName](./Org.OData.Authorization.V1.xml#L164:~:text=<ComplexType%20Name="-,ApiKey,-")|String|The name of the header or query parameter
-[Location](./Org.OData.Authorization.V1.xml#L167:~:text=<ComplexType%20Name="-,ApiKey,-")|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
+[KeyName](./Org.OData.Authorization.V1.xml#L165:~:text=<ComplexType%20Name="-,ApiKey,-")|String|The name of the header or query parameter
+[Location](./Org.OData.Authorization.V1.xml#L168:~:text=<ComplexType%20Name="-,ApiKey,-")|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
 
 <a name="KeyLocation"></a>
-## [KeyLocation](./Org.OData.Authorization.V1.xml#L172:~:text=<EnumType%20Name="-,KeyLocation,-")
+## [KeyLocation](./Org.OData.Authorization.V1.xml#L173:~:text=<EnumType%20Name="-,KeyLocation,-")
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Header](./Org.OData.Authorization.V1.xml#L173:~:text=<EnumType%20Name="-,KeyLocation,-")|0|API Key is passed in the header
-[QueryOption](./Org.OData.Authorization.V1.xml#L176:~:text=<EnumType%20Name="-,KeyLocation,-")|1|API Key is passed as a query option
-[Cookie](./Org.OData.Authorization.V1.xml#L179:~:text=<EnumType%20Name="-,KeyLocation,-")|2|API Key is passed as a cookie
+[Header](./Org.OData.Authorization.V1.xml#L174:~:text=<EnumType%20Name="-,KeyLocation,-")|0|API Key is passed in the header
+[QueryOption](./Org.OData.Authorization.V1.xml#L177:~:text=<EnumType%20Name="-,KeyLocation,-")|1|API Key is passed as a query option
+[Cookie](./Org.OData.Authorization.V1.xml#L180:~:text=<EnumType%20Name="-,KeyLocation,-")|2|API Key is passed as a cookie
 
 <a name="SchemeName"></a>
-## [SchemeName](./Org.OData.Authorization.V1.xml#L184:~:text=<TypeDefinition%20Name="-,SchemeName,-")
+## [SchemeName](./Org.OData.Authorization.V1.xml#L185:~:text=<TypeDefinition%20Name="-,SchemeName,-")
 **Type:** String
 
 The name of the authorization scheme.
