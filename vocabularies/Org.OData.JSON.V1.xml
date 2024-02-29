@@ -195,14 +195,14 @@ If a single non-null scalar JSON value is identified by `path` within `input`, t
 
 
       <TypeDefinition Name="Path" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="[JSONPath](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html) expression" />
+        <Annotation Term="Core.Description" String="[JSONPath](https://datatracker.ietf.org/doc/html/rfc9535) expression" />
         <Annotation Term="Core.LongDescription">
           <String>Implementations SHOULD support at least the following subset of JSONPath:
 
 Syntax Element | Description | Examples
 ---------------|-------------|--------
-`$` | [root identifier](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#root-identifier) | `$`
-`[&lt;selector&gt;]` | [child segment](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#child-segment) selects one child of a node; contains one [name selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#name-selector) (single- or double-quoted string using JSON escaping rules) or [index selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#index-selector) (non-negative decimal integer) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
+`$` | [root identifier](https://datatracker.ietf.org/doc/html/rfc9535#root-identifier) | `$`
+`[&lt;selector&gt;]` | [child segment](https://datatracker.ietf.org/doc/html/rfc9535#child-segment) selects one child of a node; contains one [name selector](https://datatracker.ietf.org/doc/html/rfc9535#name-selector) (single- or double-quoted string using JSON escaping rules) or [index selector](https://datatracker.ietf.org/doc/html/rfc9535#index-selector) (non-negative decimal integer) | `$['foo']`, `$.foo["bar"]`, `$.bar[0]`, `$.bar[42]`
 `.name` | shorthand for `['name']` | `$.foo`, `$.foo.bar`, `$.bar[42].baz`
 
 Implementations MAY in addition support other JSONPath constructs, for example:
@@ -211,18 +211,18 @@ Syntax Element | Description | Examples
 ---------------|-------------|--------
 `[&lt;selector&gt;]` | index selector with negative integer array index (counts from the end of the array) | `$.bar[-1]`
 `[&lt;selectors&gt;]` | non-empty, comma-separated sequence of selectors | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
-`..[&lt;selectors&gt;]` | [descendant segment](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#descendant-segment): selects zero or more descendants of a node; contains one or more selectors, separated by commas | `$.foo..["bar"]`
+`..[&lt;selectors&gt;]` | [descendant segment](https://datatracker.ietf.org/doc/html/rfc9535#descendant-segment): selects zero or more descendants of a node; contains one or more selectors, separated by commas | `$.foo..["bar"]`
 `..name` | shorthand for `..['name']` | `$.foo..bar`
-`*` | [wildcard selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#name-selector): selects all children of a node | `$.foo[*]`, `$[*]`
-`.*` | shorthand for `[*]` | `$.foo.*`, `$.*`
+`*` | [wildcard selector](https://datatracker.ietf.org/doc/html/rfc9535#name-selector): selects all children of a node | `$.foo[*]`, `$[*]`
+`.*` | shorthand for `.[*]` | `$.foo.*`, `$.*`
 `..*` | shorthand for `..[*]` | `$.foo..*`, `$..*`
 `[start:end]` | array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:5]`, same as `$.bar[2,3,4]`
 `[start:]` | array subset from _start_ to end of array | `$.bar[2:]`
 `[:n]` | the first _n_ array items | `$.bar[:4]`
 `[-n:]` | the last _n_ array items | `$.bar[-3:]`
-`[start:end:step]` | [array slice selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#slice) |
-`[?&lt;logical-expr&gt;]` | [filter selector](): selects particular children using a logical expression | 
-`@` | [current node identifier](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#filter-selector) (valid only within filter selectors) | `$.bar[?@.baz==42]`
+`[start:end:step]` | [array slice selector](https://datatracker.ietf.org/doc/html/rfc9535#slice) |
+`[?&lt;logical-expr&gt;]` | [filter selector](https://datatracker.ietf.org/doc/html/rfc9535#filter-selector): selects particular children using a logical expression | 
+`@` | [current node identifier](https://datatracker.ietf.org/doc/html/rfc9535#filter-selector) (valid only within filter selectors) | `$.bar[?@.baz==42]`
 
 **References for JSONPath**
 - RFC 9535: https://datatracker.ietf.org/doc/html/rfc9535
