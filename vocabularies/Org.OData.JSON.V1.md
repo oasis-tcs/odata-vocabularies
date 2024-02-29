@@ -144,10 +144,10 @@ Syntax Element | Description | Examples
 ---------------|-------------|--------
 `[<selector>]` | index selector with negative integer array index (counts from the end of the array) | `$.bar[-1]`
 `[<selectors>]` | non-empty, comma-separated sequence of selectors | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`
-`..[<selectors>]` | [descendant segment](https://datatracker.ietf.org/doc/html/rfc9535#descendant-segment): selects zero or more descendants of a node; contains one or more selectors, separated by commas | `$.foo..["bar"]`
+`..[<selectors>]` | [descendant segment](https://datatracker.ietf.org/doc/html/rfc9535#descendant-segment): selects zero or more descendants of a node | `$.foo..["bar"]`
 `..name` | shorthand for `..['name']` | `$.foo..bar`
 `*` | [wildcard selector](https://datatracker.ietf.org/doc/html/rfc9535#name-selector): selects all children of a node | `$.foo[*]`, `$[*]`
-`.*` | shorthand for `.[*]` | `$.foo.*`, `$.*`
+`.*` | shorthand for `[*]` | `$.foo.*`, `$.*`
 `..*` | shorthand for `..[*]` | `$.foo..*`, `$..*`
 `[start:end]` | array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:5]`, same as `$.bar[2,3,4]`
 `[start:]` | array subset from _start_ to end of array | `$.bar[2:]`
