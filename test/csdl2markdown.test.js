@@ -454,7 +454,8 @@ describe("Edge cases", function () {
         DerivedType: {
           $Kind: "ComplexType",
           $BaseType: "Derived.v1.BaseType",
-          Value: {"$Type": "Edm.String"}
+          Value: {"$Type": "Edm.String"},
+          SelfExplanatory: {"$Type": "Edm.String"}
         },
       },
     };
@@ -482,6 +483,7 @@ describe("Edge cases", function () {
       "Property|Type|Description",
       ":-------|:---|:----------",
       "Value|String|The value",
+      "SelfExplanatory|String|",
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);

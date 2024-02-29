@@ -5,7 +5,7 @@
             "$Include": [
                 {
                     "$Namespace": "Org.OData.Authorization.V1",
-                    "$Alias": "Auth"
+                    "$Alias": "Authorization"
                 }
             ]
         },
@@ -848,7 +848,7 @@
         "PermissionType": {
             "$Kind": "ComplexType",
             "SchemeName": {
-                "$Type": "Auth.SchemeName",
+                "$Type": "Authorization.SchemeName",
                 "@Core.Description": "Authorization flow scheme name"
             },
             "Scopes": {
@@ -1323,6 +1323,11 @@
         "ReadRestrictionsType": {
             "$Kind": "ComplexType",
             "$BaseType": "Capabilities.ReadRestrictionsBase",
+            "TypecastSegmentSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": true,
+                "@Core.Description": "Entities of a specific derived type can be read by specifying a type-cast segment"
+            },
             "ReadByKeyRestrictions": {
                 "$Type": "Capabilities.ReadByKeyRestrictionsType",
                 "$Nullable": true,
