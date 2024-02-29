@@ -147,7 +147,7 @@ Syntax Element | Description | Examples
 `..[<selectors>]` | [descendant segment](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#descendant-segment): selects zero or more descendants of a node; contains one or more selectors, separated by commas | `$.foo..["bar"]`
 `..name` | shorthand for `..['name']` | `$.foo..bar`
 `*` | [wildcard selector](https://www.ietf.org/archive/id/draft-ietf-jsonpath-base-20.html#name-selector): selects all children of a node | `$.foo[*]`, `$[*]`
-`.*` | shorthand for `.[*]` | `$.foo.*`, `$.*`
+`.*` | shorthand for `[*]` | `$.foo.*`, `$.*`
 `..*` | shorthand for `..[*]` | `$.foo..*`, `$..*`
 `[start:end]` | array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:5]`, same as `$.bar[2,3,4]`
 `[start:]` | array subset from _start_ to end of array | `$.bar[2:]`
