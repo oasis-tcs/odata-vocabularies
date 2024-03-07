@@ -1,18 +1,18 @@
 # JSON Vocabulary
 **Namespace: [Org.OData.JSON.V1](Org.OData.JSON.V1.xml)**
 
-Terms, types, and functions for JSON streams
+Terms, types, and functions for JSON data
 
 OData [stream properties](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_ManagingStreamProperties) allow embedding data of arbitrary media types,
 and the OData JSON format allows [direct embedding of JSON data](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_StreamProperty) in request and response payloads.
-          
-This vocabulary defines a convenience [type for JSON streams](#JSON) streams as well as a term for referencing a [JSON Schema](#Schema) describing the structure of the JSON stream. 
 
-In addition it defines two functions for [querying](#query) JSON streams and using a [primitive value](#value) extracted from a JSON stream in common expressions, for example in `$filter`, `$orderby`, or `$compute`.
+This vocabulary defines a convenience [type for JSON data](#JSON) as well as a term for referencing a [JSON Schema](#Schema) describing the structure of the JSON data.
+
+In addition it defines two functions for [querying](#query) JSON data and using a [primitive value](#value) extracted from JSON data in common expressions, for example in `$filter`, `$orderby`, or `$compute`.
 
 **Example**
 
-The `Employees` entity set has a JSON stream property `resume`:
+The `Employees` entity set has a JSON data property `resume`:
 ```json
 "container": {
   "$Kind": "EntityContainer",
@@ -39,7 +39,7 @@ One of its entities has a `resume` value of
 }
 ```
 
-This allows to filter and sort by values in that resume, and extract parts of the resume as a dynamic JSON stream property
+This allows to filter and sort by values in that resume, and extract parts of the resume as a dynamic JSON data property
 ```http
 GET http://www.example.com/mycompany/Employees
       ?$filter=resume/JSON.value('$.lastname') eq 'Doe'
