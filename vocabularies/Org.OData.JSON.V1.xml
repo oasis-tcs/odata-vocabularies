@@ -197,7 +197,7 @@ If a single non-null scalar JSON value is identified by `path` within `input`, t
       <TypeDefinition Name="Path" UnderlyingType="Edm.String">
         <Annotation Term="Core.Description" String="[JSONPath](https://datatracker.ietf.org/doc/html/rfc9535) expression" />
         <Annotation Term="Core.LongDescription">
-          <String>Implementations SHOULD support at least the following subset of JSONPath:
+          <String>Implementations MUST support at least the following subset of JSONPath:
 
 Syntax Element | Description | Examples
 ---------------|-------------|--------

@@ -130,7 +130,7 @@ Textual data of media type `application/json`
 
 [JSONPath](https://datatracker.ietf.org/doc/html/rfc9535) expression
 
-Implementations SHOULD support at least the following subset of JSONPath:
+Implementations MUST support at least the following subset of JSONPath:
 
 Syntax Element | Description | Examples
 ---------------|-------------|--------
