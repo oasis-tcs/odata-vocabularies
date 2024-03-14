@@ -191,8 +191,6 @@ receiving
 - If `input` is not a valid JSON value, the function returns `null`.
 - If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.
 
-If null is identified by `path` within `input`, the function returns null.
-
 If a single non-null scalar JSON value is identified by `path` within `input`, the function returns that value as an OData primitive value of type
 - `Edm.String` if the value is a JSON string
 - `Edm.Boolean` if the value is `true` or `false`
