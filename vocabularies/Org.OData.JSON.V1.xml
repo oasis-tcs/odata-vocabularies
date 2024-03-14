@@ -14,36 +14,52 @@
   - Michael Pizzo (mikep@microsoft.com), Microsoft
 
   Additional artifacts:
-  This vocabulary is one component of a Work Product that also includes the following vocabulary components:
-  - OData Core Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml.
-  - OData Measures Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml.
-  - OData Capabilities Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml.
-  - OData Validation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml.
-  - OData Aggregation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml.
-  - OData Authorization Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml.
-  - OData JSON Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON .V1.xml.
+  This vocabulary is one component of a Work Product that also includes the following vocabulary
+components:
+  - OData Core Vocabulary. Latest version:
+https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml.
+  - OData Measures Vocabulary. Latest version:
+https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml.
+  - OData Capabilities Vocabulary. Latest version:
+https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml.
+  - OData Validation Vocabulary. Latest version:
+https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml.
+  - OData Aggregation Vocabulary. Latest version:
+https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml.
+  - OData Authorization Vocabulary. Latest version:
+https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml.
+  - OData JSON Vocabulary. Latest version:
+https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON .V1.xml.
 
   Related work:
   This vocabulary replaces or supersedes:
   - OData Version 4.0 Vocabulary components: OData JSON Vocabulary.
   This vocabulary is related to:
-  - OData Version 4.01 Part 1: Protocol. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
-  - OData Version 4.01 Part 2: URL Conventions. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
-  - OData Common Schema Definition Language (CSDL) JSON Representation Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html.
-  - OData Common Schema Definition Language (CSDL) XML Representation Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html.
-  - OData JSON Format Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html.
-  - OData Extension for Data Aggregation Version 4.0. Latest version: http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
+  - OData Version 4.01 Part 1: Protocol. Latest version:
+http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
+  - OData Version 4.01 Part 2: URL Conventions. Latest version:
+http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
+  - OData Common Schema Definition Language (CSDL) JSON Representation Version 4.01. Latest version:
+http://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html.
+  - OData Common Schema Definition Language (CSDL) XML Representation Version 4.01. Latest version:
+http://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html.
+  - OData JSON Format Version 4.01. Latest version:
+http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html.
+  - OData Extension for Data Aggregation Version 4.0. Latest version:
+http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
 
   Abstract:
   This document defines terms, types, and functions for JSON data.
 
 -->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
-  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
+  <edmx:Reference
+    Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml">
     <edmx:Include Alias="Core" Namespace="Org.OData.Core.V1" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.JSON.V1" Alias="JSON">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.JSON.V1"
+      Alias="JSON">
       <Annotation Term="Core.Description">
         <String>Terms, types, and functions for JSON data</String>
       </Annotation>
@@ -87,9 +103,9 @@ One of its entities has a `resume` value of
 This allows to filter and sort by values in that resume, and extract parts of the resume as a dynamic JSON data property
 ```http
 GET http://www.example.com/mycompany/Employees
-      ?$filter=resume/JSON.value('$.lastname') eq 'Doe'
-      &amp;$orderby=resume/JSON.value('$.experience')
-      &amp;$compute=resume/JSON.query('$.address') as address
+      ?$filter=resume/JSON.value(path='$.lastname') eq 'Doe'
+      &amp;$orderby=resume/JSON.value(path='$.experience')
+      &amp;$compute=resume/JSON.query(path='$.address') as address
       &amp;$expand=address
 ```
 receiving
@@ -115,29 +131,35 @@ receiving
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml" />
+            <PropertyValue Property="href"
+              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json" />
+            <PropertyValue Property="href"
+              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.JSON.V1.md" />
+            <PropertyValue Property="href"
+              String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.JSON.V1.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="EntityType Parameter Property ReturnType Term TypeDefinition">
+      <Term Name="Schema" Type="JSON.JSON" Nullable="false"
+        AppliesTo="EntityType Parameter Property ReturnType Term TypeDefinition">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.Description" String="The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition" />
+        <Annotation Term="Core.Description"
+          String="The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition" />
         <Annotation Term="Core.LongDescription">
           <String>The schema can be a reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
         </Annotation>
       </Term>
 
       <Function Name="query" IsBound="true" IsComposable="true">
-        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning a stream value of media type `application/json`" />
+        <Annotation Term="Core.Description"
+          String="Query a stream value of media type `application/json`, returning a stream value of media type `application/json`" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:
 - If `path` only consists of the root identifier followed by name and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. 
@@ -150,15 +172,18 @@ receiving
           <Annotation Term="Core.Description" String="JSON input" />
         </Parameter>
         <Parameter Name="path" Type="JSON.Path">
-          <Annotation Term="Core.Description" String="JSONPath expression to be applied to value of `expr`" />
+          <Annotation Term="Core.Description"
+            String="JSONPath expression to be applied to value of `expr`" />
         </Parameter>
         <ReturnType Type="JSON.JSON">
-          <Annotation Term="Core.Description" String="JSON value resulting from applying `path` to `input`" />
+          <Annotation Term="Core.Description"
+            String="JSON value resulting from applying `path` to `input`" />
         </ReturnType>
       </Function>
 
       <Function Name="value" IsBound="true">
-        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning an OData primitive value" />
+        <Annotation Term="Core.Description"
+          String="Query a stream value of media type `application/json`, returning an OData primitive value" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a single OData primitive value from the `input` JSON value:
 - If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
@@ -176,10 +201,12 @@ If a single non-null scalar JSON value is identified by `path` within `input`, t
           <Annotation Term="Core.Description" String="JSON input" />
         </Parameter>
         <Parameter Name="path" Type="JSON.Path">
-          <Annotation Term="Core.Description" String="JSONPath expression to be applied to value of `expr`" />
+          <Annotation Term="Core.Description"
+            String="JSONPath expression to be applied to value of `expr`" />
         </Parameter>
         <ReturnType Type="Edm.PrimitiveType">
-          <Annotation Term="Core.Description" String="OData primitive value resulting from applying `path` to `input`" />
+          <Annotation Term="Core.Description"
+            String="OData primitive value resulting from applying `path` to `input`" />
         </ReturnType>
       </Function>
 
@@ -195,7 +222,8 @@ If a single non-null scalar JSON value is identified by `path` within `input`, t
 
 
       <TypeDefinition Name="Path" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description" String="[JSONPath](https://datatracker.ietf.org/doc/html/rfc9535) expression" />
+        <Annotation Term="Core.Description"
+          String="[JSONPath](https://datatracker.ietf.org/doc/html/rfc9535) expression" />
         <Annotation Term="Core.LongDescription">
           <String>Implementations MUST support at least the following subset of JSONPath:
 
