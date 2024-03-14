@@ -100,32 +100,33 @@ Parameter|Type|Description
 Query a stream value of media type `application/json`, returning an OData primitive value
 
 Extracts a single OData primitive value from the `input` JSON value:
-- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value cast to an OData primitive value (see below).
+- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to an OData primitive value (see below).
 - If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.
 - If `input` is not a valid JSON value, the function returns `null`.
 - If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.
 
-If a single non-null scalar JSON value is identified by `path` within `input`, the function returns that value as an OData primitive value of type
-- `Edm.String` if the value is a JSON string
-- `Edm.Boolean` if the value is `true` or `false`
-- `Edm.Decimal` with unspecified precision and floating scale if the value is a JSON number
+If a single scalar JSON value is identified by `path` within `input`, the function returns that value as an OData primitive value:
+- `null` is returned as `null`
+- `true` or `false` are returned as the corresponding `Edm.Boolean` values 
+- numbers are returned as `Edm.Decimal` values with unspecified precision and floating scale
+- strings are returned as `Edm.String` values
           
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[input](./Org.OData.JSON.V1.xml#L200:~:text=<Function%20Name="-,value,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
-[path](./Org.OData.JSON.V1.xml#L203:~:text=<Function%20Name="-,value,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
-[&rarr;](./Org.OData.JSON.V1.xml#L207:~:text=<Function%20Name="-,value,-")|PrimitiveType?|OData primitive value resulting from applying `path` to `input`
+**[input](./Org.OData.JSON.V1.xml#L201:~:text=<Function%20Name="-,value,-")**|[JSON?](#JSON)|**Binding parameter:** JSON input
+[path](./Org.OData.JSON.V1.xml#L204:~:text=<Function%20Name="-,value,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
+[&rarr;](./Org.OData.JSON.V1.xml#L208:~:text=<Function%20Name="-,value,-")|PrimitiveType?|OData primitive value resulting from applying `path` to `input`
 
 
 <a name="JSON"></a>
-## [JSON](./Org.OData.JSON.V1.xml#L213:~:text=<TypeDefinition%20Name="-,JSON,-")
+## [JSON](./Org.OData.JSON.V1.xml#L214:~:text=<TypeDefinition%20Name="-,JSON,-")
 **Type:** Stream
 
 Textual data of media type `application/json`
 
 <a name="Path"></a>
-## [Path](./Org.OData.JSON.V1.xml#L224:~:text=<TypeDefinition%20Name="-,Path,-")
+## [Path](./Org.OData.JSON.V1.xml#L225:~:text=<TypeDefinition%20Name="-,Path,-")
 **Type:** String
 
 [JSONPath](https://datatracker.ietf.org/doc/html/rfc9535) expression
