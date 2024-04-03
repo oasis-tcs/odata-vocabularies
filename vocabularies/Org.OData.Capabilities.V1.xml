@@ -209,13 +209,13 @@ supported:
 
       <!--Query Capabilities -->
 
-      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
+      <Term Name="CountRestrictions" Type="Capabilities.CountRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on /$count path suffix and $count=true system query option" />
       </Term>
       <ComplexType Name="CountRestrictionsBase">
         <Property Name="Countable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Entities can be counted (only valid if targeting an entity set)" />
+          <Annotation Term="Core.Description" String="Entities can be counted (only valid if targeting a collection)" />
         </Property>
       </ComplexType>
       <ComplexType Name="CountRestrictionsType" BaseType="Capabilities.CountRestrictionsBase">

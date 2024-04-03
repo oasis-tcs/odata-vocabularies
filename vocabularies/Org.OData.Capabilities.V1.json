@@ -203,7 +203,6 @@
             "$Type": "Capabilities.CountRestrictionsType",
             "$AppliesTo": [
                 "EntitySet",
-                "Singleton",
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
@@ -214,7 +213,7 @@
             "Countable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be counted (only valid if targeting an entity set)"
+                "@Core.Description": "Entities can be counted (only valid if targeting a collection)"
             }
         },
         "CountRestrictionsType": {

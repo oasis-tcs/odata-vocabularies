@@ -154,7 +154,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Countable](./Org.OData.Capabilities.V1.xml#L217:~:text=<ComplexType%20Name="-,CountRestrictionsBase,-")|Boolean|Entities can be counted (only valid if targeting an entity set)
+[Countable](./Org.OData.Capabilities.V1.xml#L217:~:text=<ComplexType%20Name="-,CountRestrictionsBase,-")|Boolean|Entities can be counted (only valid if targeting a collection)
 
 <a name="CountRestrictionsType"></a>
 ## [CountRestrictionsType](./Org.OData.Capabilities.V1.xml#L221:~:text=<ComplexType%20Name="-,CountRestrictionsType,-"): [CountRestrictionsBase](#CountRestrictionsBase)
@@ -162,7 +162,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[*Countable*](./Org.OData.Capabilities.V1.xml#L217:~:text=<ComplexType%20Name="-,CountRestrictionsBase,-")|Boolean|Entities can be counted (only valid if targeting an entity set)
+[*Countable*](./Org.OData.Capabilities.V1.xml#L217:~:text=<ComplexType%20Name="-,CountRestrictionsBase,-")|Boolean|Entities can be counted (only valid if targeting a collection)
 [NonCountableProperties](./Org.OData.Capabilities.V1.xml#L222:~:text=<ComplexType%20Name="-,CountRestrictionsType,-")|\[PropertyPath\]|Members of these collection properties cannot be counted
 [NonCountableNavigationProperties](./Org.OData.Capabilities.V1.xml#L225:~:text=<ComplexType%20Name="-,CountRestrictionsType,-")|\[NavigationPropertyPath\]|Members of these navigation properties cannot be counted
 
