@@ -75,8 +75,8 @@
             {
                 "$Kind": "Function",
                 "$IsBound": true,
-                "@Core.Description": "Query a stream value of media type `application/json`, returning an OData primitive value",
-                "@Core.LongDescription": "Extracts a single OData primitive value from the `input` JSON value:\n- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to an OData primitive value (see below).\n- If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.\n- If `input` is not a valid JSON value, the function returns `null`.\n- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.\n\nIf a single scalar JSON value is identified by `path` within `input`, the function returns that value as an OData primitive value:\n- `null` is returned as `null`\n- `true` or `false` are returned as the corresponding `Edm.Boolean` values \n- numbers are returned as `Edm.Decimal` values with unspecified precision and floating scale\n- strings are returned as `Edm.String` values\n          ",
+                "@Core.Description": "Query a stream value of media type `application/json`, returning a string",
+                "@Core.LongDescription": "Extracts a single OData primitive value from the `input` JSON value and casts it to a string:\n- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to an OData primitive value (see below).\n- If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.\n- If `input` is not a valid JSON value, the function returns `null`.\n- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.",
                 "$Parameter": [
                     {
                         "$Name": "input",
@@ -94,7 +94,62 @@
                 "$ReturnType": {
                     "$Type": "Edm.PrimitiveType",
                     "$Nullable": true,
-                    "@Core.Description": "OData primitive value resulting from applying `path` to `input`"
+                    "@Core.Description": "String value resulting from applying `path` to `input`"
+                }
+            }
+        ],
+        "valueNumber": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Query a stream value of media type `application/json`, returning a number",
+                "@Core.LongDescription": "Like [`value`](#value), but casts the extracted value to an `Edm.Decimal` with unspecified precision and floating scale.\n          Returns null if that cast fails.",
+                "$Parameter": [
+                    {
+                        "$Name": "input",
+                        "$Type": "JSON.JSON",
+                        "$Nullable": true,
+                        "@Core.Description": "JSON input"
+                    },
+                    {
+                        "$Name": "path",
+                        "$Type": "JSON.Path",
+                        "$Nullable": true,
+                        "@Core.Description": "JSONPath expression to be applied to value of `expr`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Decimal",
+                    "$Nullable": true,
+                    "$Scale": "floating",
+                    "@Core.Description": "Numeric value resulting from applying `path` to `input`"
+                }
+            }
+        ],
+        "valueBoolean": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Query a stream value of media type `application/json`, returning a Boolean",
+                "@Core.LongDescription": "Like [`value`](#value), but casts the extracted value to an `Edm.Boolean`.\n          Returns null if that cast fails.",
+                "$Parameter": [
+                    {
+                        "$Name": "input",
+                        "$Type": "JSON.JSON",
+                        "$Nullable": true,
+                        "@Core.Description": "JSON input"
+                    },
+                    {
+                        "$Name": "path",
+                        "$Type": "JSON.Path",
+                        "$Nullable": true,
+                        "@Core.Description": "JSONPath expression to be applied to value of `expr`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true,
+                    "@Core.Description": "Boolean value resulting from applying `path` to `input`"
                 }
             }
         ],

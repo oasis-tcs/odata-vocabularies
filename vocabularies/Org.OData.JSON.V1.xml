@@ -183,20 +183,13 @@ receiving
 
       <Function Name="value" IsBound="true">
         <Annotation Term="Core.Description"
-          String="Query a stream value of media type `application/json`, returning an OData primitive value" />
+          String="Query a stream value of media type `application/json`, returning a string" />
         <Annotation Term="Core.LongDescription">
-          <String>Extracts a single OData primitive value from the `input` JSON value:
+          <String>Extracts a single OData primitive value from the `input` JSON value and casts it to a string:
 - If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to an OData primitive value (see below).
 - If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.
 - If `input` is not a valid JSON value, the function returns `null`.
-- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.
-
-If a single scalar JSON value is identified by `path` within `input`, the function returns that value as an OData primitive value:
-- `null` is returned as `null`
-- `true` or `false` are returned as the corresponding `Edm.Boolean` values 
-- numbers are returned as `Edm.Decimal` values with unspecified precision and floating scale
-- strings are returned as `Edm.String` values
-          </String>
+- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.</String>
         </Annotation>
         <Parameter Name="input" Type="JSON.JSON">
           <Annotation Term="Core.Description" String="JSON input" />
@@ -207,7 +200,39 @@ If a single scalar JSON value is identified by `path` within `input`, the functi
         </Parameter>
         <ReturnType Type="Edm.PrimitiveType">
           <Annotation Term="Core.Description"
-            String="OData primitive value resulting from applying `path` to `input`" />
+            String="String value resulting from applying `path` to `input`" />
+        </ReturnType>
+      </Function>
+      <Function Name="valueNumber" IsBound="true">
+        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning a number" />
+        <Annotation Term="Core.LongDescription">
+          <String>Like [`value`](#value), but casts the extracted value to an `Edm.Decimal` with unspecified precision and floating scale.
+          Returns null if that cast fails.</String>
+        </Annotation>
+        <Parameter Name="input" Type="JSON.JSON">
+          <Annotation Term="Core.Description" String="JSON input" />
+        </Parameter>
+        <Parameter Name="path" Type="JSON.Path">
+          <Annotation Term="Core.Description" String="JSONPath expression to be applied to value of `expr`" />
+        </Parameter>
+        <ReturnType Type="Edm.Decimal" Scale="floating">
+          <Annotation Term="Core.Description" String="Numeric value resulting from applying `path` to `input`" />
+        </ReturnType>
+      </Function>
+      <Function Name="valueBoolean" IsBound="true">
+        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning a Boolean" />
+        <Annotation Term="Core.LongDescription">
+          <String>Like [`value`](#value), but casts the extracted value to an `Edm.Boolean`.
+          Returns null if that cast fails.</String>
+        </Annotation>
+        <Parameter Name="input" Type="JSON.JSON">
+          <Annotation Term="Core.Description" String="JSON input" />
+        </Parameter>
+        <Parameter Name="path" Type="JSON.Path">
+          <Annotation Term="Core.Description" String="JSONPath expression to be applied to value of `expr`" />
+        </Parameter>
+        <ReturnType Type="Edm.Boolean">
+          <Annotation Term="Core.Description" String="Boolean value resulting from applying `path` to `input`" />
         </ReturnType>
       </Function>
 
