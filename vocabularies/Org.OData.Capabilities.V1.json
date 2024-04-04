@@ -724,12 +724,17 @@
             "Searchable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "$search is supported"
+                "@Core.Description": "$search is supported with the standard syntax [OData-URL, section 5.1.8.1]"
             },
             "UnsupportedExpressions": {
                 "$Type": "Capabilities.SearchExpressions",
                 "$DefaultValue": "none",
                 "@Core.Description": "Expressions not supported in $search"
+            },
+            "AlternativeSearchSyntax": {
+                "$Nullable": true,
+                "@Core.IsURL": true,
+                "@Core.Description": "URI of the alternative $search syntax supported by the service"
             }
         },
         "SearchExpressions": {
