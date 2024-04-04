@@ -104,7 +104,7 @@ This allows to filter and sort by values in that resume, and extract parts of th
 ```http
 GET http://www.example.com/mycompany/Employees
       ?$filter=resume/JSON.value(path='$.lastname') eq 'Doe'
-      &amp;$orderby=resume/JSON.value(path='$.experience')
+      &amp;$orderby=resume/JSON.valueNumber(path='$.experience')
       &amp;$compute=resume/JSON.query(path='$.address') as address
       &amp;$expand=address
 ```

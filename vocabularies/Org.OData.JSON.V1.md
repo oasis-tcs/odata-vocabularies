@@ -43,7 +43,7 @@ This allows to filter and sort by values in that resume, and extract parts of th
 ```http
 GET http://www.example.com/mycompany/Employees
       ?$filter=resume/JSON.value(path='$.lastname') eq 'Doe'
-      &$orderby=resume/JSON.value(path='$.experience')
+      &$orderby=resume/JSON.valueNumber(path='$.experience')
       &$compute=resume/JSON.query(path='$.address') as address
       &$expand=address
 ```
