@@ -186,7 +186,7 @@ receiving
           String="Query a stream value of media type `application/json`, returning a string" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a single OData primitive value from the `input` JSON value and casts it to a string:
-- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to an OData primitive value (see below).
+- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to a string.
 - If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.
 - If `input` is not a valid JSON value, the function returns `null`.
 - If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.</String>
@@ -198,7 +198,7 @@ receiving
           <Annotation Term="Core.Description"
             String="JSONPath expression to be applied to value of `expr`" />
         </Parameter>
-        <ReturnType Type="Edm.PrimitiveType">
+        <ReturnType Type="Edm.String">
           <Annotation Term="Core.Description"
             String="String value resulting from applying `path` to `input`" />
         </ReturnType>
