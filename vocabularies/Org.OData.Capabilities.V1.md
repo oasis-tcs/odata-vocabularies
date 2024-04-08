@@ -220,7 +220,7 @@ Property|Type|Description
 [ReferencesAcrossChangeSetsSupported](./Org.OData.Capabilities.V1.xml#L397:~:text=<ComplexType%20Name="-,BatchSupportType,-")|Boolean|Service supports Content-ID referencing across change sets
 [EtagReferencesSupported](./Org.OData.Capabilities.V1.xml#L400:~:text=<ComplexType%20Name="-,BatchSupportType,-")|Boolean|Service supports referencing Etags from previous requests
 [RequestDependencyConditionsSupported](./Org.OData.Capabilities.V1.xml#L403:~:text=<ComplexType%20Name="-,BatchSupportType,-")|Boolean|Service supports the `if` member in JSON batch requests
-[SupportedFormats](./Org.OData.Capabilities.V1.xml#L406:~:text=<ComplexType%20Name="-,BatchSupportType,-")|\[MediaType\]|Media types of supported formats for $batch
+[SupportedFormats](./Org.OData.Capabilities.V1.xml#L406:~:text=<ComplexType%20Name="-,BatchSupportType,-")|\[MediaType\]|Media types of supported formats for $batch<br>*Allowed values:*<br>- [multipart/mixed](./Org.OData.Capabilities.V1.xml#L411:~:text=<undefined%20Name="-,SupportedFormats,-"): Multipart Batch Format, see http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_MultipartBatchFormat<br>- [application/json](./Org.OData.Capabilities.V1.xml#L415:~:text=<undefined%20Name="-,SupportedFormats,-"): JSON Batch Format, see http://docs.oasis-open.org/odata/odata-json-format/v4.01/cs01/odata-json-format-v4.01-cs01.html#sec_BatchRequestsandResponses
 
 **Applicable Annotation Terms:**
 
