@@ -1,6 +1,5 @@
 coverage
 node_modules
-_site
 CMakeCache.txt
 CMakeFiles
 CMakeScripts
