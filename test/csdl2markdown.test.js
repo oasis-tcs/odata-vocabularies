@@ -499,7 +499,16 @@ describe("Edge cases", function () {
       "@Org.OData.Core.V1.Description": "The status",
       "@Org.OData.Validation.V1.AllowedValues": [
         { Value: "Open", "@Org.OData.Core.V1.Description": "open" },
-        { Value: "Closed", "@Org.OData.Core.V1.Description": "closed" },
+        {
+          Value: "Closed",
+          "@Org.OData.Core.V1.Description": "closed",
+          "@Org.OData.Core.V1.Revisions": [
+            {
+              Kind: "Deprecated",
+              Description: "Nothing is ever closed",
+            },
+          ],
+        },
       ],
     };
     const vocabulary = {
@@ -534,7 +543,7 @@ describe("Edge cases", function () {
       "Allowed Value|Description",
       ":------------|:----------",
       "Open|open",
-      "Closed|closed",
+      "Closed *(Deprecated)*|Nothing is ever closed",
       "",
       '<a name="TermType"></a>',
       "## TermType",
@@ -542,7 +551,7 @@ describe("Edge cases", function () {
       "",
       "Property|Type|Description",
       ":-------|:---|:----------",
-      "Status|String|The status<br>*Allowed values:*<br>- Open: open<br>- Closed: closed",
+      "Status|String|The status<br>*Allowed values:*<br>- Open: open<br>- Closed *(Deprecated)*: Nothing is ever closed",
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
