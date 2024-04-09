@@ -551,7 +551,7 @@ describe("Edge cases", function () {
       "",
       "Property|Type|Description",
       ":-------|:---|:----------",
-      "Status|String|The status<br>*Allowed values:*<br>- Open: open<br>- Closed *(Deprecated)*: Nothing is ever closed",
+      "Status|String|The status<br>Allowed values:<br>- Open: open<br>- Closed *(Deprecated)*: Nothing is ever closed",
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
