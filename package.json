@@ -21,7 +21,8 @@
   },
   "dependencies": {
     "colors": "^1.4.0",
-    "odata-csdl": "^0.9.5"
+    "odata-csdl": "^0.9.5",
+    "pandoc-filter": "^2.2.0"
   },
   "devDependencies": {
     "c8": "^9.1.0",
