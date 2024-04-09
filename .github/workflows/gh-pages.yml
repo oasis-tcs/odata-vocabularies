@@ -35,7 +35,9 @@ jobs:
         with:
           pandoc-version: 3.1.12.2
       - name: Build with pandoc
-        run: npm run pages
+        run: |
+          npm ci
+          npm run pages
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
 
