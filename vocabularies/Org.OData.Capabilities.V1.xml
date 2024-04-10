@@ -571,7 +571,7 @@ supported:
           <Annotation Term="Core.Description" String="Single search term" />
         </Member>
         <Member Name="AND" Value="1">
-          <Annotation Term="Core.Description" String="Multiple search terms separated by `AND`" />
+          <Annotation Term="Core.Description" String="Multiple search terms, optionally separated by `AND`" />
         </Member>
         <Member Name="OR" Value="2">
           <Annotation Term="Core.Description" String="Multiple search terms separated by `OR`" />
