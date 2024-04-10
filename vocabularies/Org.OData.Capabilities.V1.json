@@ -738,7 +738,7 @@
             "none": 0,
             "none@Core.Description": "Single search term",
             "AND": 1,
-            "AND@Core.Description": "Multiple search terms separated by `AND`",
+            "AND@Core.Description": "Multiple search terms, optionally separated by `AND`",
             "OR": 2,
             "OR@Core.Description": "Multiple search terms separated by `OR`",
             "NOT": 4,
