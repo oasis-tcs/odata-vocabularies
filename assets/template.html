@@ -37,6 +37,7 @@ $endif$
 $for(include-before)$
 $include-before$
 $endfor$
+<div class="container-lg px-3 my-5 markdown-body">
 $if(title)$
 <header id="title-block-header">
 <h1 class="title">$title$</h1>
@@ -65,7 +66,6 @@ $endif$
 $table-of-contents$
 </nav>
 $endif$
-<div class="container-lg px-3 my-5 markdown-body">
 $body$
 </div>
 $for(include-after)$
