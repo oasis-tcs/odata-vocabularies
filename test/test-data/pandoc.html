@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>-</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="container-lg px-3 my-5 markdown-body">
+<table>
+<thead>
+<tr class="header">
+<th>Property</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Status</td>
+<td><dl><dt><a href="other.html#Open">Open</a><dd>Not yet finished<dt>Closed<dd>No longer open</dl></td>
+</tr>
+</tbody>
+</table>
+</div>
+<script type="module">
+	document.addEventListener("DOMContentLoaded", function() {
+		document.querySelectorAll(".mermaid").forEach(function(pre) {
+			pre.style.width = pre.getClientRects()[0].width + "px";
+		});
+	});
+	import mermaid from "https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs";
+	mermaid.initialize({"startOnLoad":false});
+	mermaid.run({nodes: document.querySelectorAll(".mermaid code")});
+</script>
+</body>
+</html>
