@@ -24,8 +24,9 @@ describe("OASIS voc build", function () {
           }),
       },
       {
-        "-c": "style.css", 
+        "-c": "style.css",
         "-F": `${__dirname}/../lib/md2html.js`,
+        "-M": "title=Test",
         "--template": "${__dirname}/../assets/template",
       },
     );
