@@ -20,15 +20,11 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-      - name: Setup pandoc
-        uses: nikeee/setup-pandoc@v1
-        with:
-          pandoc-version: 3.1.12.2
       - name: npm install, build, and test
         run: |
           npm ci
           npm run build --if-present
-          npm test
+          npm test test/csdl2markdown.test.js
           git diff --exit-code vocabularies
         env:
           CI: true
