@@ -263,7 +263,7 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)<br>- [WithoutReference](#WithoutReference)',
+      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<ul><li>[Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)</li><li>[WithoutReference](#WithoutReference)</li></ul>',
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
@@ -551,7 +551,7 @@ describe("Edge cases", function () {
       "",
       "Property|Type|Description",
       ":-------|:---|:----------",
-      "Status|String|The status<br>Allowed values:<br>- Open: open<br>- Closed *(Deprecated)*: Nothing is ever closed",
+      "Status|String|The status<dl>Allowed values:<dt>Open<dd>open<dt>Closed *(Deprecated)*<dd>Nothing is ever closed</dl>",
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
