@@ -414,11 +414,11 @@ supported:
             <Collection>
               <Record>
                 <PropertyValue Property="Value" String="multipart/mixed" />
-                <Annotation Term="Core.Description" String="Multipart Batch Format, see http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_MultipartBatchFormat" />
+                <Annotation Term="Core.Description" String="[Multipart Batch Format](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_MultipartBatchFormat)" />
               </Record>
               <Record>
                 <PropertyValue Property="Value" String="application/json" />
-                <Annotation Term="Core.Description" String="JSON Batch Format, see http://docs.oasis-open.org/odata/odata-json-format/v4.01/cs01/odata-json-format-v4.01-cs01.html#sec_BatchRequestsandResponses" />
+                <Annotation Term="Core.Description" String="[JSON Batch Format](http://docs.oasis-open.org/odata/odata-json-format/v4.01/cs01/odata-json-format-v4.01-cs01.html#sec_BatchRequestsandResponses)" />
               </Record>
             </Collection>
           </Annotation>
@@ -581,7 +581,7 @@ supported:
           <Annotation Term="Core.Description" String="Single search term" />
         </Member>
         <Member Name="AND" Value="1">
-          <Annotation Term="Core.Description" String="Multiple search terms separated by `AND`" />
+          <Annotation Term="Core.Description" String="Multiple search terms, optionally separated by `AND`" />
         </Member>
         <Member Name="OR" Value="2">
           <Annotation Term="Core.Description" String="Multiple search terms separated by `OR`" />

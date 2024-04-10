@@ -243,7 +243,7 @@ Property|Type|Description
 [ReferencesAcrossChangeSetsSupported](./Org.OData.Capabilities.V1.xml#L401:~:text=<ComplexType%20Name="-,BatchSupportType,-")|Boolean|Service supports Content-ID referencing across change sets
 [EtagReferencesSupported](./Org.OData.Capabilities.V1.xml#L404:~:text=<ComplexType%20Name="-,BatchSupportType,-")|Boolean|Service supports referencing Etags from previous requests
 [RequestDependencyConditionsSupported](./Org.OData.Capabilities.V1.xml#L407:~:text=<ComplexType%20Name="-,BatchSupportType,-")|Boolean|Service supports the `if` member in JSON batch requests
-[SupportedFormats](./Org.OData.Capabilities.V1.xml#L410:~:text=<ComplexType%20Name="-,BatchSupportType,-")|\[MediaType\]|Media types of supported formats for $batch
+[SupportedFormats](./Org.OData.Capabilities.V1.xml#L410:~:text=<ComplexType%20Name="-,BatchSupportType,-")|\[MediaType\]|Media types of supported formats for $batch<dl>Allowed values:<dt>[multipart/mixed](./Org.OData.Capabilities.V1.xml#L415)<dd>[Multipart Batch Format](http://docs.oasis-open.org/odata/odata/v4.01/cs01/part1-protocol/odata-v4.01-cs01-part1-protocol.html#sec_MultipartBatchFormat)<dt>[application/json](./Org.OData.Capabilities.V1.xml#L419)<dd>[JSON Batch Format](http://docs.oasis-open.org/odata/odata-json-format/v4.01/cs01/odata-json-format-v4.01-cs01.html#sec_BatchRequestsandResponses)</dl>
 
 **Applicable Annotation Terms:**
 
@@ -391,7 +391,7 @@ Property|Type|Description
 Flag Member|Value|Description
 :-----|----:|:----------
 [none](./Org.OData.Capabilities.V1.xml#L580:~:text=<EnumType%20Name="-,SearchExpressions,-")|0|Single search term
-[AND](./Org.OData.Capabilities.V1.xml#L583:~:text=<EnumType%20Name="-,SearchExpressions,-")|1|Multiple search terms separated by `AND`
+[AND](./Org.OData.Capabilities.V1.xml#L583:~:text=<EnumType%20Name="-,SearchExpressions,-")|1|Multiple search terms, optionally separated by `AND`
 [OR](./Org.OData.Capabilities.V1.xml#L586:~:text=<EnumType%20Name="-,SearchExpressions,-")|2|Multiple search terms separated by `OR`
 [NOT](./Org.OData.Capabilities.V1.xml#L589:~:text=<EnumType%20Name="-,SearchExpressions,-")|4|Search terms preceded by `NOT`
 [phrase](./Org.OData.Capabilities.V1.xml#L592:~:text=<EnumType%20Name="-,SearchExpressions,-")|8|Search phrases enclosed in double quotes
