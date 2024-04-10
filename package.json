@@ -17,7 +17,8 @@
   "exports": {
     ".": "./lib/csdl2markdown.js",
     "./pandoc": "./lib/pandoc.js",
-    "./pages": "./lib/pages.js"
+    "./pages": "./lib/pages.js",
+    "./template": "./assets/template.html"
   },
   "dependencies": {
     "colors": "^1.4.0",
