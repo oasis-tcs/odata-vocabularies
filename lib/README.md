@@ -65,6 +65,26 @@ If you use [Visual Studio Code](https://code.visualstudio.com/), you can [run th
 
 You should also install the recommended extension for [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml). It will validate the XML files against the official [OData CDSL XML schemas](https://github.com/oasis-tcs/odata-csdl-schemas/tree/main/schemas).
 
+Block-level content (like bulleted lists) in descriptions of a term or a property of a complex type
+cannot be written in Markdown, because it appears in a table cell.
+You can still type it in Markdown with the following helper program:
+```sh
+npm run intable
+
+> odata-vocabularies@0.5.2 intable
+> node lib/intable.js
+
+Start typing your content here
+- in Markdown
+- press Ctrl-Z followed by return to end your input
+^Z
+&lt;p&gt;Start typing your content here&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;in Markdown&lt;/li&gt;
+&lt;li&gt;press Ctrl-Z followed by return to end your input&lt;/li&gt;
+&lt;/ul&gt;
+```
+
 `npm run pages` builds pages that can be deployed to github.io. To test these pages locally,
 run `npm run serve-pages`.
 
@@ -73,6 +93,7 @@ by including the following in their `package.json`:
 ```
 "scripts": {
   "pages": "node -e \"require('odata-vocabularies/pages')\" \"<package name>\"",
-  "serve-pages": "node -e \"require('odata-vocabularies/serve-pages')\""
+  "serve-pages": "node -e \"require('odata-vocabularies/serve-pages')\"",
+  "intable": "node -e \"require('odata-vocabularies/intable')\""
 }
 ```

@@ -20,10 +20,12 @@
     "./pandoc": "./lib/pandoc.js",
     "./pages": "./lib/pages.js",
     "./serve-pages": "./lib/serve-pages.js",
+    "./intable": "./lib/intable.js",
     "./template": "./assets/template.html"
   },
   "dependencies": {
     "colors": "^1.4.0",
+    "escape-html": "^1.0.3",
     "odata-csdl": "^0.9.5",
     "pandoc-filter": "^2.2.0"
   },
@@ -37,6 +39,7 @@
     "build": "node lib/transform.js",
     "pages": "node lib/pages.js \"OASIS OData TC\"",
     "serve-pages": "node lib/serve-pages.js",
+    "intable": "node lib/intable.js",
     "test": "c8 -r html -r text mocha",
     "watch": "mocha --watch"
   },
