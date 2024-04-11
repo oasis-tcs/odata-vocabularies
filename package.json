@@ -9,7 +9,8 @@
     "url": "git+https://github.com/oasis-tcs/odata-vocabularies.git"
   },
   "files": [
-    "lib/*"
+    "lib/*",
+    "assets/*"
   ],
   "bin": {
     "odata-vocab2md": "lib/cli.js"
@@ -32,7 +33,7 @@
   },
   "scripts": {
     "build": "node lib/transform.js",
-    "pages": "node lib/pages.js",
+    "pages": "node lib/pages.js \"OASIS OData TC\"",
     "test": "c8 -r html -r text mocha",
     "watch": "mocha --watch"
   },
