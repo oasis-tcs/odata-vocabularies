@@ -33,7 +33,7 @@
   },
   "scripts": {
     "build": "node lib/transform.js",
-    "pages": "node lib/pages.js",
+    "pages": "node lib/pages.js \"OASIS OData TC\"",
     "test": "c8 -r html -r text mocha",
     "watch": "mocha --watch"
   },
