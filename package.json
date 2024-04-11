@@ -20,7 +20,6 @@
     "./pandoc": "./lib/pandoc.js",
     "./pages": "./lib/pages.js",
     "./serve-pages": "./lib/serve-pages.js",
-    "./intable": "./lib/intable.js",
     "./template": "./assets/template.html"
   },
   "dependencies": {
