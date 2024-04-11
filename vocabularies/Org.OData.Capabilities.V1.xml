@@ -1060,13 +1060,9 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
         <Annotation Term="Core.Description" String="Default capability settings for all collection-valued resources in the container" />
         <Annotation Term="Core.LongDescription">
           <String>Annotating a specific capability term, which is included as property in `DefaultCapabilitiesType`, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:
-
 - Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in `DefaultCapabilities`
-
 - Complex-valued properties specified in the specific capability term override the corresponding properties specified in `DefaultCapabilities` using PATCH semantics recursively
-
-- Properties specified neither in the specific term nor in `DefaultCapabilities` have their default value
-          </String>
+- Properties specified neither in the specific term nor in `DefaultCapabilities` have their default value</String>
         </Annotation>
       </Term>
       <ComplexType Name="DefaultCapabilitiesType">

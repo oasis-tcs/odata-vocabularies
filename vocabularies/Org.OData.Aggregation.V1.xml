@@ -91,13 +91,9 @@
         </Annotation>
         <Annotation Term="Core.LongDescription">
           <String>Annotating term [`ApplySupported`](#ApplySupported) for a specific collection-valued resource overrides the default support with the specified properties using PATCH semantics:
-
 - Primitive or collection-valued properties specified in `ApplySupported` replace the corresponding properties specified in `ApplySupportedDefaults`
-
 - Complex-valued properties specified in `ApplySupported` override the corresponding properties specified in `ApplySupportedDefaults` using PATCH semantics recursively
-
-- Properties specified neither in `ApplySupported` nor in `ApplySupportedDefaults` have their default value
-          </String>
+- Properties specified neither in `ApplySupported` nor in `ApplySupportedDefaults` have their default value</String>
         </Annotation>
       </Term>
       <ComplexType Name="ApplySupportedBase">
