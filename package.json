@@ -9,23 +9,34 @@
     "url": "git+https://github.com/oasis-tcs/odata-vocabularies.git"
   },
   "files": [
-    "lib/*"
+    "lib/*",
+    "assets/*"
   ],
   "bin": {
     "odata-vocab2md": "lib/cli.js"
   },
-  "main": "lib/csdl2markdown.js",
+  "exports": {
+    ".": "./lib/csdl2markdown.js",
+    "./pandoc": "./lib/pandoc.js",
+    "./pages": "./lib/pages.js",
+    "./serve-pages": "./lib/serve-pages.js",
+    "./template": "./assets/template.html"
+  },
   "dependencies": {
     "colors": "^1.4.0",
-    "odata-csdl": "^0.9.5"
+    "odata-csdl": "^0.9.5",
+    "pandoc-filter": "^2.2.0"
   },
   "devDependencies": {
     "c8": "^9.1.0",
     "eslint": "^8.56.0",
+    "express": "^4.19.2",
     "mocha": "^10.1.0"
   },
   "scripts": {
     "build": "node lib/transform.js",
+    "pages": "node lib/pages.js \"OASIS OData TC\"",
+    "serve-pages": "node lib/serve-pages.js",
     "test": "c8 -r html -r text mocha",
     "watch": "mocha --watch"
   },
