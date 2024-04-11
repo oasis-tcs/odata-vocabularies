@@ -67,3 +67,12 @@ You should also install the recommended extension for [XML Language Support by R
 
 `npm run pages` builds pages that can be deployed to github.io. To test these pages locally,
 run `npm run serve-pages`.
+
+Node.js packages with a dependency on `odata-vocabularies` can inherit the page building functionality
+by including the following in their `package.json`:
+```
+"scripts": {
+  "pages": "node -e \"require('odata-vocabularies/pages')\" \"<package name>\"",
+  "serve-pages": "node -e \"require('odata-vocabularies/serve-pages')\""
+}
+```
