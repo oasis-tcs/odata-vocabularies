@@ -65,8 +65,9 @@ If you use [Visual Studio Code](https://code.visualstudio.com/), you can [run th
 
 You should also install the recommended extension for [XML Language Support by Red Hat](https://marketplace.visualstudio.com/items?itemName=redhat.vscode-xml). It will validate the XML files against the official [OData CDSL XML schemas](https://github.com/oasis-tcs/odata-csdl-schemas/tree/main/schemas).
 
-`npm run pages` builds pages that can be deployed to github.io. To test these pages locally,
-run `npm run serve-pages`.
+`npm run pages` builds pages that can be deployed to github.io. It needs a local installation of
+[Pandoc](https://pandoc.org/), version 3.1.12.2 or higher.
+To test the built pages locally, run `npm run serve-pages`.
 
 Node.js packages with a dependency on `odata-vocabularies` can inherit the page building functionality
 by including the following in their `package.json`:
