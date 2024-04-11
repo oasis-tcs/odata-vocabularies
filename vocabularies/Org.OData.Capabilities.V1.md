@@ -86,7 +86,7 @@ Term|Type|Description
 [CustomHeaders](./Org.OData.Capabilities.V1.xml#L976:~:text=<Term%20Name="-,CustomHeaders,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L978))
 [CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L1002:~:text=<Term%20Name="-,CustomQueryOptions,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L1005))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
 [MediaLocationUpdateSupported](./Org.OData.Capabilities.V1.xml#L1054:~:text=<Term%20Name="-,MediaLocationUpdateSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property or media stream supports update of its media edit URL and/or media read URL
-[DefaultCapabilities](./Org.OData.Capabilities.V1.xml#L1059:~:text=<Term%20Name="-,DefaultCapabilities,-")|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container<br>Annotating a specific capability term, which is included as property in `DefaultCapabilitiesType`, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:<br/>- Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in `DefaultCapabilities`<br/>- Complex-valued properties specified in the specific capability term override the corresponding properties specified in `DefaultCapabilities` using PATCH semantics recursively<br/>- Properties specified neither in the specific term nor in `DefaultCapabilities` have their default value
+[DefaultCapabilities](./Org.OData.Capabilities.V1.xml#L1059:~:text=<Term%20Name="-,DefaultCapabilities,-")|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container<br>Annotating a specific capability term, which is included as property in `DefaultCapabilitiesType`, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics: <ul><li>Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in `DefaultCapabilities`</li> <li>Complex-valued properties specified in the specific capability term override the corresponding properties specified in `DefaultCapabilities` using PATCH semantics recursively</li> <li>Properties specified neither in the specific term nor in `DefaultCapabilities` have their default value</li></ul>
 
 <a name="ConformanceLevelType"></a>
 ## [ConformanceLevelType](./Org.OData.Capabilities.V1.xml#L118:~:text=<EnumType%20Name="-,ConformanceLevelType,-")
@@ -678,33 +678,33 @@ Property|Type|Description
 [ExampleValues](./Org.OData.Capabilities.V1.xml#L1049:~:text=<ComplexType%20Name="-,CustomParameter,-")|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
 
 <a name="DefaultCapabilitiesType"></a>
-## [DefaultCapabilitiesType](./Org.OData.Capabilities.V1.xml#L1072:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")
+## [DefaultCapabilitiesType](./Org.OData.Capabilities.V1.xml#L1068:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[ChangeTracking](./Org.OData.Capabilities.V1.xml#L1073:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
-[CountRestrictions](./Org.OData.Capabilities.V1.xml#L1076:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
-[IndexableByKey](./Org.OData.Capabilities.V1.xml#L1079:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
-[TopSupported](./Org.OData.Capabilities.V1.xml#L1082:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
-[SkipSupported](./Org.OData.Capabilities.V1.xml#L1085:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
-[ComputeSupported](./Org.OData.Capabilities.V1.xml#L1088:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
-[SelectSupport](./Org.OData.Capabilities.V1.xml#L1091:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
-[FilterRestrictions](./Org.OData.Capabilities.V1.xml#L1094:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
-[SortRestrictions](./Org.OData.Capabilities.V1.xml#L1097:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
-[ExpandRestrictions](./Org.OData.Capabilities.V1.xml#L1100:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
-[SearchRestrictions](./Org.OData.Capabilities.V1.xml#L1103:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
-[InsertRestrictions](./Org.OData.Capabilities.V1.xml#L1106:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
-[UpdateRestrictions](./Org.OData.Capabilities.V1.xml#L1109:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
-[DeleteRestrictions](./Org.OData.Capabilities.V1.xml#L1112:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
-[OperationRestrictions](./Org.OData.Capabilities.V1.xml#L1115:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
-[ReadRestrictions](./Org.OData.Capabilities.V1.xml#L1118:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance
+[ChangeTracking](./Org.OData.Capabilities.V1.xml#L1069:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
+[CountRestrictions](./Org.OData.Capabilities.V1.xml#L1072:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
+[IndexableByKey](./Org.OData.Capabilities.V1.xml#L1075:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
+[TopSupported](./Org.OData.Capabilities.V1.xml#L1078:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
+[SkipSupported](./Org.OData.Capabilities.V1.xml#L1081:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
+[ComputeSupported](./Org.OData.Capabilities.V1.xml#L1084:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
+[SelectSupport](./Org.OData.Capabilities.V1.xml#L1087:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
+[FilterRestrictions](./Org.OData.Capabilities.V1.xml#L1090:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
+[SortRestrictions](./Org.OData.Capabilities.V1.xml#L1093:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
+[ExpandRestrictions](./Org.OData.Capabilities.V1.xml#L1096:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
+[SearchRestrictions](./Org.OData.Capabilities.V1.xml#L1099:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
+[InsertRestrictions](./Org.OData.Capabilities.V1.xml#L1102:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
+[UpdateRestrictions](./Org.OData.Capabilities.V1.xml#L1105:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
+[DeleteRestrictions](./Org.OData.Capabilities.V1.xml#L1108:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
+[OperationRestrictions](./Org.OData.Capabilities.V1.xml#L1111:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
+[ReadRestrictions](./Org.OData.Capabilities.V1.xml#L1114:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance
 
 <a name="HttpResponse"></a>
-## [HttpResponse](./Org.OData.Capabilities.V1.xml#L1123:~:text=<ComplexType%20Name="-,HttpResponse,-")
+## [HttpResponse](./Org.OData.Capabilities.V1.xml#L1119:~:text=<ComplexType%20Name="-,HttpResponse,-")
 
 
 Property|Type|Description
 :-------|:---|:----------
-[StatusCode](./Org.OData.Capabilities.V1.xml#L1124:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|HTTP response status code, for example 400, 403, 501
-[Description](./Org.OData.Capabilities.V1.xml#L1127:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|Human-readable description of the response
+[StatusCode](./Org.OData.Capabilities.V1.xml#L1120:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|HTTP response status code, for example 400, 403, 501
+[Description](./Org.OData.Capabilities.V1.xml#L1123:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|Human-readable description of the response
