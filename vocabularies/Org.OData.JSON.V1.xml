@@ -115,35 +115,29 @@ receiving
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.JSON.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href"
-              String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.JSON.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.JSON.V1.md" />
           </Record>
         </Collection>
       </Annotation>
 
-      <Term Name="Schema" Type="JSON.JSON" Nullable="false"
-        AppliesTo="EntityType Parameter Property ReturnType Term TypeDefinition">
+      <Term Name="Schema" Type="JSON.JSON" Nullable="false" AppliesTo="EntityType Parameter Property ReturnType Term TypeDefinition">
         <Annotation Term="Core.RequiresType" String="Edm.Stream" />
-        <Annotation Term="Core.Description"
-          String="The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition" />
+        <Annotation Term="Core.Description" String="The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition" />
         <Annotation Term="Core.LongDescription">
           <String>The schema can be a reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`</String>
         </Annotation>
       </Term>
 
       <Function Name="query" IsBound="true" IsComposable="true">
-        <Annotation Term="Core.Description"
-          String="Query a stream value of media type `application/json`, returning a stream value of media type `application/json`" />
+        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning a stream value of media type `application/json`" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:
 - If `path` only consists of the root identifier followed by name and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. 
@@ -166,8 +160,7 @@ receiving
       </Function>
 
       <Function Name="value" IsBound="true">
-        <Annotation Term="Core.Description"
-          String="Query a stream value of media type `application/json`, returning a string" />
+        <Annotation Term="Core.Description" String="Query a stream value of media type `application/json`, returning a string" />
         <Annotation Term="Core.LongDescription">
           <String>Extracts a single OData primitive value from the `input` JSON value and casts it to a string:
 - If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to a string.
