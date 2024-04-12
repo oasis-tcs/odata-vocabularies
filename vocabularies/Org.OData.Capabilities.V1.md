@@ -377,7 +377,7 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[Searchable](./Org.OData.Capabilities.V1.xml#L572:~:text=<ComplexType%20Name="-,SearchRestrictionsType,-")|Boolean|$search is supported with the standard syntax [OData-URL, section 5.1.8.1]
+[Searchable](./Org.OData.Capabilities.V1.xml#L572:~:text=<ComplexType%20Name="-,SearchRestrictionsType,-")|Boolean|$search is supported with the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)
 [UnsupportedExpressions](./Org.OData.Capabilities.V1.xml#L575:~:text=<ComplexType%20Name="-,SearchRestrictionsType,-")|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
 [AlternativeSearchSyntax](./Org.OData.Capabilities.V1.xml#L578:~:text=<ComplexType%20Name="-,SearchRestrictionsType,-")|URL?|URI of the alternative $search syntax supported by the service
 

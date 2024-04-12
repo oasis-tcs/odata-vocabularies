@@ -743,7 +743,7 @@
             "Searchable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "$search is supported with the standard syntax [OData-URL, section 5.1.8.1]"
+                "@Core.Description": "$search is supported with the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)"
             },
             "UnsupportedExpressions": {
                 "$Type": "Capabilities.SearchExpressions",
