@@ -577,7 +577,7 @@ supported:
         </Property>
         <Property Name="AlternativeSearchSyntax" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URI of the alternative $search syntax supported by the service" />
+          <Annotation Term="Core.Description" String="URL of the alternative $search syntax supported by the service" />
         </Property>
       </ComplexType>
       <EnumType Name="SearchExpressions" IsFlags="true">

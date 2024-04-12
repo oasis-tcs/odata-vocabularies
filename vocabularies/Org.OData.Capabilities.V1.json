@@ -753,7 +753,7 @@
             "AlternativeSearchSyntax": {
                 "$Nullable": true,
                 "@Core.IsURL": true,
-                "@Core.Description": "URI of the alternative $search syntax supported by the service"
+                "@Core.Description": "URL of the alternative $search syntax supported by the service"
             }
         },
         "SearchExpressions": {
