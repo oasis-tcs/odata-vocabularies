@@ -391,7 +391,7 @@ Property|Type|Description
 
 Flag Member|Value|Description
 :-----|----:|:----------
-[none](./Org.OData.Capabilities.V1.xml#L584:~:text=<EnumType%20Name="-,SearchExpressions,-")|0|Single search term
+[none](./Org.OData.Capabilities.V1.xml#L584:~:text=<EnumType%20Name="-,SearchExpressions,-")|0|No unsupported expressions
 [AND](./Org.OData.Capabilities.V1.xml#L587:~:text=<EnumType%20Name="-,SearchExpressions,-")|1|Multiple search terms, optionally separated by `AND`
 [OR](./Org.OData.Capabilities.V1.xml#L590:~:text=<EnumType%20Name="-,SearchExpressions,-")|2|Multiple search terms separated by `OR`
 [NOT](./Org.OData.Capabilities.V1.xml#L593:~:text=<EnumType%20Name="-,SearchExpressions,-")|4|Search terms preceded by `NOT`

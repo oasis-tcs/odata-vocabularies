@@ -760,7 +760,7 @@
             "$Kind": "EnumType",
             "$IsFlags": true,
             "none": 0,
-            "none@Core.Description": "Single search term",
+            "none@Core.Description": "No unsupported expressions",
             "AND": 1,
             "AND@Core.Description": "Multiple search terms, optionally separated by `AND`",
             "OR": 2,
