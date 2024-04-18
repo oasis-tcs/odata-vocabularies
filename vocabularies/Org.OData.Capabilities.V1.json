@@ -750,10 +750,10 @@
                 "$DefaultValue": "none",
                 "@Core.Description": "Expressions not supported in $search"
             },
-            "AlternativeSearchSyntax": {
+            "SearchSyntax": {
                 "$Nullable": true,
                 "@Core.IsURL": true,
-                "@Core.Description": "URL of the alternative $search syntax supported by the service"
+                "@Core.Description": "URL of the $search syntax supported by the service if this deviates from the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)"
             }
         },
         "SearchExpressions": {
