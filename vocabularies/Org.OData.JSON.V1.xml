@@ -57,19 +57,7 @@ In addition it defines two functions for [querying](#query) JSON data and using 
 
 **Example**
 
-The `Employees` entity set has a JSON data property `resume`:
-```json
-"container": {
-  "$Kind": "EntityContainer",
-  "Employees": { "$Collection": true, "$Type": "this.Employee" }
-},
-"Employee": {
-  "$Kind": "EntityType",
-  "$Key": ["empid"],
-  "empid": { "$Type": "Edm.Int32" },
-  "resume": { "$Type": "JSON.JSON", "$Nullable": true }
-}
-```
+The `Employees` entity set has a JSON data property `resume` (see [CSDL JSON](../examples/Org.OData.JSON.V1.Schema-sample.json) or [CSDL XML](../examples/Org.OData.JSON.V1.Schema-sample.xml)).
 
 One of its entities has a `resume` value of
 ```json
