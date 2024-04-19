@@ -4,6 +4,8 @@ Consider a `Headers` entity set with contained entity sets `Headers(...)/Items` 
 
 The following annotations express insertability and updatability in terms of these properties. Deletability is analogous to updatability but omitted from this example.
 
+## Header Level
+
 For the header level, the entity set is annotated directly.
 
 ```jsonc
@@ -18,6 +20,8 @@ For the header level, the entity set is annotated directly.
   }
 }
 ```
+
+## Item Level
 
 The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `InsertRestrictions` and `UpdateRestrictions` on item level. When a property could be expressed either on the deeper item level or on the higher-up header level, the deeper level is generally preferred: For example, the `NonUpdatableProperties` property in the deeper `UpdateRestrictions` is favored over its commented-out namesake in the higher-up `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued. But the higher-up `InsertRestrictions/Insertable` and `UpdateRestrictions/FilterSegmentSupported` cannot be avoided, because the instance paths to `canInsertItems` and `canUpdateSubsetOfItems` must be evaluated on header level.
 
@@ -59,6 +63,19 @@ However, if insertability was static, the value would be a boolean literal and n
   }
 }
 ```
+
+Non-insertable and non-updatable properties on item and subitem level can alternatively be annotated on the header if annotating on the deeper level is not possible due to tool restrictions:
+
+```jsonc
+"self.Container/Headers": {
+  "@Capabilities.InsertRestrictions": {
+    "NonInsertableProperties": ["uuid", "Items/uuid"],
+    "NonUpdatableProperties": ["uuid", "Items/uuid"]
+  }
+}
+```
+
+## Subitem Level
 
 The subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
 
