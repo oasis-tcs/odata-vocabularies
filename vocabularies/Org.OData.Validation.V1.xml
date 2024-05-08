@@ -65,7 +65,10 @@
       </Annotation>
 
       <Term Name="Pattern" Type="Edm.String" Nullable="false" AppliesTo="Property Parameter Term">
-        <Annotation Term="Core.Description" String="The pattern that a string property, parameter, or term must match. This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect." />
+        <Annotation Term="Core.Description" String="The pattern that a string property, parameter, or term must match in its entirety" />
+        <Annotation Term="Core.LongDescription">
+          <String>This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect.</String>
+        </Annotation>
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 

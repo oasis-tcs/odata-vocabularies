@@ -34,7 +34,8 @@
                 "Parameter",
                 "Term"
             ],
-            "@Core.Description": "The pattern that a string property, parameter, or term must match. This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect.",
+            "@Core.Description": "The pattern that a string property, parameter, or term must match in its entirety",
+            "@Core.LongDescription": "This SHOULD be a valid regular expression, according to the ECMA 262 regular expression dialect.",
             "@Core.RequiresType": "Edm.String"
         },
         "Minimum": {
