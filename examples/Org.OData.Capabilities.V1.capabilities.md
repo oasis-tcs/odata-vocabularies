@@ -64,7 +64,7 @@ However, if insertability was static, the value would be a boolean literal and n
 }
 ```
 
-Non-insertable and non-updatable properties on item and subitem level can alternatively be annotated on the header if annotating on the deeper level is not possible, for example due to tool restrictions:
+Alternatively, non-insertable and non-updatable properties on item and subitem level can be annotated on the header if annotating on the deeper level is not possible, for example due to tool restrictions:
 
 ```jsonc
 "self.Container/Headers": {
