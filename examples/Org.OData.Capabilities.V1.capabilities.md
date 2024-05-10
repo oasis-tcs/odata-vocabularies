@@ -23,7 +23,7 @@ For the header level, the entity set is annotated directly.
 
 ## Item Level
 
-The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `InsertRestrictions` and `UpdateRestrictions` on item level. When a property could be expressed either on the deeper item level or on the higher-up header level, the deeper level is generally preferred: For example, the `NonUpdatableProperties` property in the deeper `UpdateRestrictions` is favored over its commented-out namesake in the higher-up `NavigationRestrictions`, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued. But the higher-up `InsertRestrictions/Insertable` and `UpdateRestrictions/FilterSegmentSupported` cannot be avoided, because the instance paths to `canInsertItems` and `canUpdateSubsetOfItems` must be evaluated on header level.
+The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `InsertRestrictions` and `UpdateRestrictions` on item level. When a property could be expressed either on the deeper item level or on the higher-up header level, the deeper level is generally preferred: For example, annotating the `Headers/Items` target with `UpdateRestrictions/NonUpdatableProperties` is favored over the commented-out annotation `NavigationRestrictions/UpdateRestrictions/NonUpdatableProperties` on the `Headers` target, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued. But annotating `NavigationRestrictions/InsertRestrictions/Insertable` and `NavigationRestrictions/UpdateRestrictions/FilterSegmentSupported` on the `Headers` target cannot be avoided, because the instance paths to `canInsertItems` and `canUpdateSubsetOfItems` must be evaluated on header level.
 
 ```jsonc
 "self.Container/Headers": {
@@ -53,7 +53,7 @@ The item level has no named entity set. It is annotated using `NavigationRestric
 }
 ```
 
-However, if insertability was static, the value would be a boolean literal and no path expressions would be required. In that case the deeper `InsertRestrictions/Insertable` term would be favored over the higher-up one.
+However, if insertability was static, the value would be a boolean literal and no path expressions would be required. In that case directly annotating the `Headers/Items` target with `InsertRestrictions/Insertable` would be favored over annotating the `Headers` target with `NavigationRestrictions/InsertRestrictions/Insertable`.
 
 ```jsonc
 "self.Container/Headers/Items": {
@@ -64,20 +64,20 @@ However, if insertability was static, the value would be a boolean literal and n
 }
 ```
 
-Alternatively, non-insertable and non-updatable properties on item and subitem level can be annotated on the header if annotating on the deeper level is not possible, for example due to tool restrictions:
+If tool restrictions prevented annotation targets with navigation properties in them, like the `Headers/Items` target, then non-insertable and non-updatable properties on item and subitem level would be annotated on the `Headers` target:
 
 ```jsonc
 "self.Container/Headers": {
   "@Capabilities.InsertRestrictions": {
-    "NonInsertableProperties": ["uuid", "Items/uuid"],
-    "NonUpdatableProperties": ["uuid", "Items/uuid"]
+    "NonInsertableProperties": ["uuid", "Items/uuid", "Items/Subitems/uuid"],
+    "NonUpdatableProperties": ["uuid", "Items/uuid", "Items/Subitems/uuid"]
   }
 }
 ```
 
 ## Subitem Level
 
-The subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
+If there are no such tool restrictions, the subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
 
 ```jsonc
 "self.Container/Headers/Items": {
