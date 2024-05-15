@@ -77,7 +77,7 @@ If limitations such as tool restrictions prevented annotation targets with navig
 
 ## Subitem Level
 
-If there are no such tool limitations, the subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
+If there are no such limitations, the subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
 
 ```jsonc
 "self.Container/Headers/Items": {
