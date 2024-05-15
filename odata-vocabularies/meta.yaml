@@ -1,0 +1,14 @@
+pagetitle: OData Vocabularies Version 4.0
+subtitle: Committee Specification Draft 02 / Public Review Draft 02
+filename: odata-vocabularies-v4.0-csprd02
+stage: csprd02
+previousStage: csprd01
+pubdate: 28 February 2024
+pubdateISO: '2024-02-28'
+copyright: © OASIS Open 2024
+description: >
+  This prose specification describes a set of OData vocabularies maintained
+  by the OASIS OData Technical Committee.
+  These vocabulary components are continuously evolved.
+  The latest work-in-progress revisions are available at the odata-vocabularies
+  OASIS TC GitHub repository: https://github.com/oasis-tcs/odata-vocabularies.

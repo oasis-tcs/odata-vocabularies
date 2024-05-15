@@ -1,0 +1,232 @@
+a:target {
+	background-color: yellow;
+}
+
+a[href^="#_"],
+a[href^="#OData"]:not(a[href^="#OData4"]),
+a[href^="#rfc"],
+a[href^="#XML-"] {
+	font-weight: bold;
+}
+
+a[href^="#_"]::before,
+a[href^="#OData"]:not(a[href^="#OData4"])::before,
+a[href^="#rfc"]::before,
+a[href^="#XML-"]::before {
+	content: "[";
+	font-weight: bold;
+}
+
+a[href^="#_"]::after,
+a[href^="#OData"]:not(a[href^="#OData4"])::after,
+a[href^="#rfc"]::after,
+a[href^="#XML-"]::after {
+	content: "]";
+	font-weight: bold;
+}
+
+.toc li {
+	list-style-type: none;
+}
+
+.example,
+.example table {
+	font-size: smaller;
+}
+
+.example p,
+.example li {
+	font-style: italic;
+}
+
+.rep {
+	border-left: solid windowtext 1pt;
+	padding-left: 8pt;
+}
+
+table {
+	width: auto;
+}
+
+.example table,
+.example th,
+.example td {
+	padding: 2pt 6pt;
+	white-space: nowrap;
+}
+
+.example td em {
+	font-weight: bold;
+	color: blue;
+}
+
+.example td[rowspan] {
+	text-align: right;
+	vertical-align: middle;
+	border-style: dotted;
+}
+
+.example th[colspan] {
+	text-align: center;
+}
+
+.example-data {
+	position: relative;
+}
+
+.example-data div {
+	position: absolute;
+}
+
+.example-data p {
+	font-style: unset !important;
+}
+
+.example-data svg {
+	position: absolute;
+	left: 0;
+	right: 0;
+	top: 0;
+	bottom: 0;
+}
+
+.cross tbody tr:first-of-type,
+.cross tbody tr:nth-of-type(2),
+.cross td:first-of-type,
+.cross td:nth-of-type(2) {
+	font-weight: bold;
+	color: white;
+	background-color: #446CAA
+}
+
+.cross tbody tr:first-of-type td:first-of-type,
+.cross tbody tr:nth-of-type(2) td:first-of-type,
+.cross tbody tr:first-of-type td:nth-of-type(2),
+.cross tbody tr:nth-of-type(2) td:nth-of-type(2) {
+	border: none;
+	background-color: white;
+}
+
+.example-data th:first-of-type:not(:last-of-type),
+.legend tbody tr:first-of-type {
+	background-color: green;
+}
+
+.nav-2 th:nth-of-type(2),
+.nav-3 th:nth-of-type(3),
+.nav-4 th:nth-of-type(4),
+.nav-5 th:nth-of-type(5),
+.nav-6 th:nth-of-type(6),
+.legend tbody tr:last-of-type {
+	background-color: rgb(255, 128, 0);
+}
+
+.key-1 th:first-of-type {
+	background-color: olive;
+}
+
+.obj-1 th:first-of-type,
+.obj-2 th:nth-of-type(2),
+.obj-3 th:nth-of-type(3) {
+	background-color: green;
+}
+
+.temp-2 th:nth-of-type(2),
+.temp-4 th:nth-of-type(4) {
+	background-color: mediumseagreen;
+}
+
+.legend td {
+	font-weight: bold;
+	color: white;
+}
+
+.example-data svg>path {
+	fill: none;
+	stroke: black;
+	stroke-width: 2;
+}
+
+p code,
+li code,
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code,
+td>code {
+	font-family: MJXZERO, MJXTEX-T;
+	font-size: 1em;
+	line-height: 0;
+}
+
+.example p code,
+.example li code {
+	font-style: initial;
+}
+
+.example pre,
+.rep {
+	margin-left: 40px;
+}
+
+.indent {
+	margin-left: 40px;
+}
+
+td pre {
+	padding: 0;
+	margin: 0;
+}
+
+h1 code,
+h2 code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+	font-size: unset;
+}
+
+mjx-container {
+	font-size: unset !important;
+}
+
+mjx-container[display=true] {
+	text-align: left !important;
+	margin-left: 40px !important;
+}
+
+/* The following rule enables typewriter single quotes in maths, like $\hbox{\tt{'$Q$'}}$ */
+mjx-c.mjx-c2019::before {
+	content: "\27" !important;
+	padding-right: 0.525em !important;
+	font-family: MJXZERO, MJXTEX-T;
+}
+
+code .er {
+	color: unset !important;
+	font-weight: unset !important;
+}
+
+hr:first-of-type {
+	page-break-before: avoid;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	page-break-after: avoid;
+}
+
+td {
+	page-break-inside: avoid;
+}
+
+h2[id="22-example-data"] {
+	page-break-before: always;
+}

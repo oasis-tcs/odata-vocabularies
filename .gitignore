@@ -8,3 +8,7 @@ cmake_install.cmake
 install_manifest.txt
 CTestTestfile.cmake
 .editorconfig
+.DS_Store
+/zip/*
+!/zip/*.docx
+!/zip/*.zip

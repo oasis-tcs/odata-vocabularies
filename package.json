@@ -25,6 +25,7 @@
   "dependencies": {
     "colors": "^1.4.0",
     "odata-csdl": "^0.9.5",
+    "odata-specs": "github:oasis-tcs/odata-specs",
     "pandoc-filter": "^2.2.0"
   },
   "devDependencies": {
@@ -38,7 +39,10 @@
     "pages": "node lib/pages.js \"OASIS OData TC\"",
     "serve-pages": "node lib/serve-pages.js",
     "test": "c8 -r html -r text mocha",
-    "watch": "mocha --watch"
+    "watch": "mocha --watch",
+    "build-spec": "node -e \"require('odata-specs/build')\"",
+    "build-pdf": "node -e \"require('odata-specs/build-pdf')\"",
+    "build-zip": "node -e \"require('odata-specs/zip')\""
   },
   "author": "",
   "license": "SEE LICENSE IN LICENSE.md"
