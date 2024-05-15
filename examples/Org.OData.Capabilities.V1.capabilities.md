@@ -4,8 +4,6 @@ Consider a `Headers` entity set with contained entity sets `Headers(...)/Items` 
 
 The following annotations express insertability and updatability in terms of these properties. Deletability is analogous to updatability but omitted from this example.
 
-## Header Level
-
 For the header level, the entity set is annotated directly.
 
 ```jsonc
@@ -20,8 +18,6 @@ For the header level, the entity set is annotated directly.
   }
 }
 ```
-
-## Item Level
 
 The item level has no named entity set. It is annotated using `NavigationRestrictions` on header level and `InsertRestrictions` and `UpdateRestrictions` on item level. When a property could be expressed either on the deeper item level or on the higher-up header level, the deeper level is generally preferred: For example, annotating the `Headers/Items` target with `UpdateRestrictions/NonUpdatableProperties` is favored over the commented-out annotation `NavigationRestrictions/UpdateRestrictions/NonUpdatableProperties` on the `Headers` target, and the commented-out `Updatable` is even invalid, because the instance path to `canUpdate` is collection-valued. But annotating `NavigationRestrictions/InsertRestrictions/Insertable` and `NavigationRestrictions/UpdateRestrictions/FilterSegmentSupported` on the `Headers` target cannot be avoided, because the instance paths to `canInsertItems` and `canUpdateSubsetOfItems` must be evaluated on header level.
 
@@ -64,7 +60,7 @@ However, if insertability was static, the value would be a boolean literal and n
 }
 ```
 
-If limitations such as tool restrictions prevented annotation targets with navigation properties in them, like the `Headers/Items` target, then non-insertable and non-updatable properties on item and subitem level would be annotated on the `Headers` target:
+If limitations, such as tool restrictions, prevent annotation targets with navigation properties in them, like the `Headers/Items` target, then non-insertable and non-updatable properties on item and subitem level would be annotated on the `Headers` target:
 
 ```jsonc
 "self.Container/Headers": {
@@ -74,8 +70,6 @@ If limitations such as tool restrictions prevented annotation targets with navig
   }
 }
 ```
-
-## Subitem Level
 
 If there are no such limitations, the subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
 
