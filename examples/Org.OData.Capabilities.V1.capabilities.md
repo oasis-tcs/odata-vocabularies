@@ -64,7 +64,7 @@ However, if insertability was static, the value would be a boolean literal and n
 }
 ```
 
-If tool restrictions prevented annotation targets with navigation properties in them, like the `Headers/Items` target, then non-insertable and non-updatable properties on item and subitem level would be annotated on the `Headers` target:
+If limitations such as tool restrictions prevented annotation targets with navigation properties in them, like the `Headers/Items` target, then non-insertable and non-updatable properties on item and subitem level would be annotated on the `Headers` target:
 
 ```jsonc
 "self.Container/Headers": {
@@ -77,7 +77,7 @@ If tool restrictions prevented annotation targets with navigation properties in 
 
 ## Subitem Level
 
-If there are no such tool restrictions, the subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
+If there are no such tool limitations, the subitem level is annotated using `NavigationRestrictions` on item level and `InsertRestrictions` and `UpdateRestrictions` on subitem level.
 
 ```jsonc
 "self.Container/Headers/Items": {
