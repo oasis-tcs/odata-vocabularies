@@ -41,7 +41,7 @@
     "test": "c8 -r html -r text mocha",
     "watch": "mocha --watch",
     "build-spec": "node -e \"require('odata-specs/build')\" - \"-F=lib/vocab2html.js\"",
-    "build-pdf": "node -e \"require('odata-specs/build-pdf')\"",
+    "build-pdf": "node -e \"require('odata-specs/pdf')\"",
     "build-zip": "node -e \"require('odata-specs/zip')\""
   },
   "author": "",
