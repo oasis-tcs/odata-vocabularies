@@ -12,19 +12,19 @@
 $\hbox{}$
 
 #### This stage:
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/$$$stage$$$/$$$filename$$$.md (Authoritative) \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/$$$stage$$$/$$$filename$$$.html \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/$$$stage$$$/$$$filename$$$.pdf
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/$$$stage$$$/$$$filename$$$.md (Authoritative) \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/$$$stage$$$/$$$filename$$$.html \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/$$$stage$$$/$$$filename$$$.pdf
 
 #### Previous stage:
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/$$$previousStage$$$/odata-vocabularies-v4.0-$$$previousStage$$$.md (Authoritative) \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/$$$previousStage$$$/odata-vocabularies-v4.0-$$$previousStage$$$.html \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/$$$previousStage$$$/odata-vocabularies-v4.0-$$$previousStage$$$.pdf
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/$$$previousStage$$$/odata-vocabularies-v4.0-$$$previousStage$$$.docx (Authoritative) \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/$$$previousStage$$$/odata-vocabularies-v4.0-$$$previousStage$$$.html \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/$$$previousStage$$$/odata-vocabularies-v4.0-$$$previousStage$$$.pdf
 
 #### Latest stage:
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-vocabularies-v4.0.md (Authoritative) \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-vocabularies-v4.0.html \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-vocabularies-v4.0.pdf
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/odata-vocabularies-v4.0.docx (Authoritative) \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/odata-vocabularies-v4.0.html \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/odata-vocabularies-v4.0.pdf
 
 #### Technical Committee:
 [OASIS Open Data Protocol (OData) TC](https://www.oasis-open.org/committees/odata/)

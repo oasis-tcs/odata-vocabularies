@@ -12,19 +12,19 @@
 $\hbox{}$
 
 #### This stage:
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/csprd02/odata-vocabularies-v4.0-csprd02.md (Authoritative) \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/csprd02/odata-vocabularies-v4.0-csprd02.html \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/csprd02/odata-vocabularies-v4.0-csprd02.pdf
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/csprd02/odata-vocabularies-v4.0-csprd02.md (Authoritative) \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/csprd02/odata-vocabularies-v4.0-csprd02.html \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/csprd02/odata-vocabularies-v4.0-csprd02.pdf
 
 #### Previous stage:
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/csprd01/odata-vocabularies-v4.0-csprd01.md (Authoritative) \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/csprd01/odata-vocabularies-v4.0-csprd01.html \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/csprd01/odata-vocabularies-v4.0-csprd01.pdf
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/csprd01/odata-vocabularies-v4.0-csprd01.docx (Authoritative) \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/csprd01/odata-vocabularies-v4.0-csprd01.html \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/csprd01/odata-vocabularies-v4.0-csprd01.pdf
 
 #### Latest stage:
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-vocabularies-v4.0.md (Authoritative) \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-vocabularies-v4.0.html \
-https://docs.oasis-open.org/odata/odata-json-format/v4.0/odata-vocabularies-v4.0.pdf
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/odata-vocabularies-v4.0.docx (Authoritative) \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/odata-vocabularies-v4.0.html \
+https://docs.oasis-open.org/odata/odata-vocabularies/v4.0/odata-vocabularies-v4.0.pdf
 
 #### Technical Committee:
 [OASIS Open Data Protocol (OData) TC](https://www.oasis-open.org/committees/odata/)
