@@ -573,7 +573,11 @@ supported:
           <Annotation Term="Core.Description" String="$search is supported" />
         </Property>
         <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" Nullable="false" DefaultValue="none">
-          <Annotation Term="Core.Description" String="Expressions not supported in $search" />
+          <Annotation Term="Core.Description" String="Expressions not supported in $search as specified by the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)" />
+          <Annotation Term="Core.LongDescription">
+            <String>An unsupported expression may be treated as a term to be matched even if the
+            standard syntax treats it as a keyword.</String>
+          </Annotation>
         </Property>
         <Property Name="SearchSyntax" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />

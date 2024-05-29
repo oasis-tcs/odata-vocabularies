@@ -748,7 +748,8 @@
             "UnsupportedExpressions": {
                 "$Type": "Capabilities.SearchExpressions",
                 "$DefaultValue": "none",
-                "@Core.Description": "Expressions not supported in $search"
+                "@Core.Description": "Expressions not supported in $search as specified by the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)",
+                "@Core.LongDescription": "An unsupported expression may be treated as a term to be matched even if the\n            standard syntax treats it as a keyword."
             },
             "SearchSyntax": {
                 "$Nullable": true,
