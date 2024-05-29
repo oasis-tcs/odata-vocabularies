@@ -570,14 +570,14 @@ supported:
           </Collection>
         </Annotation>
         <Property Name="Searchable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="$search is supported with the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)" />
+          <Annotation Term="Core.Description" String="$search is supported" />
         </Property>
         <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" Nullable="false" DefaultValue="none">
           <Annotation Term="Core.Description" String="Expressions not supported in $search" />
         </Property>
         <Property Name="SearchSyntax" Type="Edm.String" Nullable="true">
           <Annotation Term="Core.IsURL" />
-          <Annotation Term="Core.Description" String="URL of the $search syntax supported by the service if this deviates from the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)" />
+          <Annotation Term="Core.Description" String="URL of the $search syntax supported by the service (null means the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions))" />
         </Property>
       </ComplexType>
       <EnumType Name="SearchExpressions" IsFlags="true">

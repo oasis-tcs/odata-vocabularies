@@ -743,7 +743,7 @@
             "Searchable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "$search is supported with the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)"
+                "@Core.Description": "$search is supported"
             },
             "UnsupportedExpressions": {
                 "$Type": "Capabilities.SearchExpressions",
@@ -753,7 +753,7 @@
             "SearchSyntax": {
                 "$Nullable": true,
                 "@Core.IsURL": true,
-                "@Core.Description": "URL of the $search syntax supported by the service if this deviates from the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)"
+                "@Core.Description": "URL of the $search syntax supported by the service (null means the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions))"
             }
         },
         "SearchExpressions": {
