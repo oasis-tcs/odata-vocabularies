@@ -592,6 +592,10 @@ The recipient of a delta message MAY use the instance annotation for optimizatio
         </Annotation>
       </Term>
 
+      <Term Name="Constructor" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
+        <Annotation Term="Core.Description" String="On success the annotated action creates a new entity" />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
