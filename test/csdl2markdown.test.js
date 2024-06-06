@@ -22,7 +22,7 @@ vocabularies.forEach((v) => {
   const vocab = `Org.OData.${v}.V1`;
   input[`${vocab}.xml`] = csdl.xml2json(
     fs.readFileSync(`vocabularies/${vocab}.xml`),
-    { lineNumbers: true }
+    { lineNumbers: true },
   );
   expected[v] = fs.readFileSync(`vocabularies/${vocab}.md`, "utf8");
 });
@@ -263,7 +263,7 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<br>- [Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)<br>- [WithoutReference](#WithoutReference)',
+      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<ul><li>[Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)</li><li>[WithoutReference](#WithoutReference)</li></ul>',
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
@@ -304,7 +304,7 @@ describe("Non-OASIS Vocabularies", function () {
       filename,
       csdl.xml2json(fs.readFileSync("test/" + filename, "utf8"), {
         lineNumbers: true,
-      })
+      }),
     );
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
@@ -441,7 +441,7 @@ describe("Edge cases", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
-  
+
   it("Derived type", function () {
     const filename = "derivedType.xml";
     const vocabulary = {
@@ -449,12 +449,16 @@ describe("Edge cases", function () {
       "Derived.v1": {
         BaseType: {
           $Kind: "ComplexType",
-          Value: {"$Type": "Edm.PrimitiveType", "@Org.OData.Core.V1.Description": "The value"}
+          Value: {
+            $Type: "Edm.PrimitiveType",
+            "@Org.OData.Core.V1.Description": "The value",
+          },
         },
         DerivedType: {
           $Kind: "ComplexType",
           $BaseType: "Derived.v1.BaseType",
-          Value: {"$Type": "Edm.String"}
+          Value: { $Type: "Edm.String" },
+          SelfExplanatory: { $Type: "Edm.String" },
         },
       },
     };
@@ -482,12 +486,77 @@ describe("Edge cases", function () {
       "Property|Type|Description",
       ":-------|:---|:----------",
       "Value|String|The value",
+      "SelfExplanatory|String|",
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
 
+  it("Allowed values", function () {
+    const filename = "allowedValues.xml";
+    const status = {
+      "@Org.OData.Core.V1.Description": "The status",
+      "@Org.OData.Validation.V1.AllowedValues": [
+        { Value: "Open", "@Org.OData.Core.V1.Description": "open" },
+        {
+          Value: "Closed",
+          "@Org.OData.Core.V1.Description": "closed",
+          "@Org.OData.Core.V1.Revisions": [
+            {
+              Kind: "Deprecated",
+              Description: "Nothing is ever closed",
+            },
+          ],
+        },
+      ],
+    };
+    const vocabulary = {
+      $Version: "4.01",
+      "Allowed.v1": {
+        Status: {
+          $Kind: "TypeDefinition",
+          $UnderlyingType: "Edm.String",
+          ...status,
+        },
+        TermType: {
+          $Kind: "ComplexType",
+          Status: {
+            $Type: "Edm.String",
+            ...status,
+          },
+        },
+      },
+    };
+    const expectedMarkdown = [
+      "# Allowed Vocabulary",
+      "**Namespace: [Allowed.v1](allowedValues.xml)**",
+      "",
+      "",
+      "",
+      '<a name="Status"></a>',
+      "## Status",
+      "**Type:** String",
+      "",
+      "The status",
+      "",
+      "Allowed Value|Description",
+      ":------------|:----------",
+      "Open|open",
+      "Closed *(Deprecated)*|Nothing is ever closed",
+      "",
+      '<a name="TermType"></a>',
+      "## TermType",
+      "",
+      "",
+      "Property|Type|Description",
+      ":-------|:---|:----------",
+      "Status|String|The status<dl>Allowed values:<dt>Open<dd>open<dt>Closed *(Deprecated)*<dd>Nothing is ever closed</dl>",
+      "",
+    ];
+    const markdown = lib.csdl2markdown(filename, vocabulary);
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
 });
 
 function check(actual, expected) {

@@ -109,6 +109,8 @@
             "$Type": "Validation.ConstraintType",
             "$AppliesTo": [
                 "Property",
+                "NavigationProperty",
+                "Parameter",
                 "EntityType",
                 "ComplexType"
             ],
