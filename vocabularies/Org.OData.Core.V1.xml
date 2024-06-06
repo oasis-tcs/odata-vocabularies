@@ -15,50 +15,35 @@
   - Michael Pizzo (mikep@microsoft.com), Microsoft
 
   Additional artifacts:
-  This vocabulary is one component of a Work Product that also includes the following vocabulary
-components:
-  - OData Core Vocabulary. Latest version:
-https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml.
-  - OData Measures Vocabulary. Latest version:
-https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml.
-  - OData Capabilities Vocabulary. Latest version:
-https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml.
-  - OData Validation Vocabulary. Latest version:
-https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml.
-  - OData Aggregation Vocabulary. Latest version:
-https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml.
-  - OData Authorization Vocabulary. Latest version:
-https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml.
+  This vocabulary is one component of a Work Product that also includes the following vocabulary components:
+  - OData Core Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml.
+  - OData Measures Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Measures.V1.xml.
+  - OData Capabilities Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Capabilities.V1.xml.
+  - OData Validation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml.
+  - OData Aggregation Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml.
+  - OData Authorization Vocabulary. Latest version: https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Authorization.V1.xml.
 
   Related work:
   This vocabulary replaces or supersedes:
   - OData Version 4.0 Vocabulary components: OData Core Vocabulary.
   This vocabulary is related to:
-  - OData Version 4.01 Part 1: Protocol. Latest version:
-http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
-  - OData Version 4.01 Part 2: URL Conventions. Latest version:
-http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
-  - OData Common Schema Definition Language (CSDL) JSON Representation Version 4.01. Latest version:
-http://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html.
-  - OData Common Schema Definition Language (CSDL) XML Representation Version 4.01. Latest version:
-http://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html.
-  - OData JSON Format Version 4.01. Latest version:
-http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html.
-  - OData Extension for Data Aggregation Version 4.0. Latest version:
-http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
+  - OData Version 4.01 Part 1: Protocol. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
+  - OData Version 4.01 Part 2: URL Conventions. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
+  - OData Common Schema Definition Language (CSDL) JSON Representation Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-csdl-json/v4.01/odata-csdl-json-v4.01.html.
+  - OData Common Schema Definition Language (CSDL) XML Representation Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html.
+  - OData JSON Format Version 4.01. Latest version: http://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html.
+  - OData Extension for Data Aggregation Version 4.0. Latest version: http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggregation-ext-v4.0.html.
 
   Abstract:
   This vocabulary contains Core terms needed to write vocabularies.
 
 -->
 <edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
-  <edmx:Reference
-    Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
+  <edmx:Reference Uri="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.xml">
     <edmx:Include Alias="Validation" Namespace="Org.OData.Validation.V1" />
   </edmx:Reference>
   <edmx:DataServices>
-    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Core.V1"
-      Alias="Core">
+    <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="Org.OData.Core.V1" Alias="Core">
       <Annotation Term="Core.Description">
         <String>Core terms needed to write vocabularies</String>
       </Annotation>
@@ -66,18 +51,15 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href"
-              String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json" />
+            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href"
-              String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -85,13 +67,11 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       <!-- Versioning -->
 
       <Term Name="ODataVersions" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description"
-          String="A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed." />
+        <Annotation Term="Core.Description" String="A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed." />
       </Term>
 
       <Term Name="SchemaVersion" Type="Edm.String" Nullable="false" AppliesTo="Schema Reference">
-        <Annotation Term="Core.Description"
-          String="Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case." />
+        <Annotation Term="Core.Description" String="Service-defined value representing the version of the schema. Services MAY use semantic versioning, but clients MUST NOT assume this is the case." />
       </Term>
 
       <Term Name="Revisions" Type="Collection(Core.RevisionType)" Nullable="false">
@@ -99,8 +79,7 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       </Term>
       <ComplexType Name="RevisionType">
         <Property Name="Version" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="The schema version with which this revision was first published" />
+          <Annotation Term="Core.Description" String="The schema version with which this revision was first published" />
         </Property>
         <Property Name="Kind" Type="Core.RevisionKind" Nullable="false">
           <Annotation Term="Core.Description" String="The kind of revision" />
@@ -137,11 +116,9 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
         <Annotation Term="Core.Description" String="Link to related information" />
       </Term>
       <ComplexType Name="Link">
-        <Annotation Term="Core.Description"
-          String="The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)" />
+        <Annotation Term="Core.Description" String="The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)" />
         <Property Name="rel" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)" />
+          <Annotation Term="Core.Description" String="Link relation type, see [IANA Link Relations](http://www.iana.org/assignments/link-relations/link-relations.xhtml)" />
         </Property>
         <Property Name="href" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.IsURL" />
@@ -149,14 +126,11 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
         </Property>
       </ComplexType>
 
-      <Term Name="Example" Type="Core.ExampleValue" Nullable="false"
-        AppliesTo="EntityType ComplexType TypeDefinition Term Property NavigationProperty Parameter ReturnType">
-        <Annotation Term="Core.Description"
-          String="Example for an instance of the annotated model element" />
+      <Term Name="Example" Type="Core.ExampleValue" Nullable="false" AppliesTo="EntityType ComplexType TypeDefinition Term Property NavigationProperty Parameter ReturnType">
+        <Annotation Term="Core.Description" String="Example for an instance of the annotated model element" />
         <Annotation Term="Core.Example">
           <Record>
-            <PropertyValue Property="Description"
-              String="The value of Core.Example is a record/object containing the example value and/or annotation examples." />
+            <PropertyValue Property="Description" String="The value of Core.Example is a record/object containing the example value and/or annotation examples." />
             <Annotation Term="Core.Example" Qualifier="primitive">
               <Record Type="Core.PrimitiveExampleValue">
                 <PropertyValue Property="Description" String="Primitive example value" />
@@ -186,8 +160,7 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
             <Annotation Term="Core.Example" Qualifier="external">
               <Record Type="Core.ExternalExampleValue">
                 <PropertyValue Property="Description" String="External example" />
-                <PropertyValue Property="ExternalValue"
-                  String="https://services.odata.org/TripPinRESTierService/(S(5fjoyrzpnvzrrvmxzzq25i4q))/Me" />
+                <PropertyValue Property="ExternalValue" String="https://services.odata.org/TripPinRESTierService/(S(5fjoyrzpnvzrrvmxzzq25i4q))/Me" />
               </Record>
             </Annotation>
           </Record>
@@ -215,8 +188,7 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       </ComplexType>
       <ComplexType Name="ExternalExampleValue" BaseType="Core.ExampleValue">
         <Property Name="ExternalValue" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Url reference to the value in its literal format" />
+          <Annotation Term="Core.Description" String="Url reference to the value in its literal format" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
@@ -224,25 +196,21 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       <!-- Error, warning, and info messages in a (mostly) successful response -->
 
       <Term Name="Messages" Type="Collection(Core.MessageType)" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="Instance annotation for warning and info messages" />
+        <Annotation Term="Core.Description" String="Instance annotation for warning and info messages" />
       </Term>
       <ComplexType Name="MessageType">
         <Property Name="code" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Machine-readable, language-independent message code" />
+          <Annotation Term="Core.Description" String="Machine-readable, language-independent message code" />
         </Property>
         <Property Name="message" Type="Edm.String" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="Human-readable, language-dependent message text" />
+          <Annotation Term="Core.Description" String="Human-readable, language-dependent message text" />
           <Annotation Term="Core.IsLanguageDependent" />
         </Property>
         <Property Name="severity" Type="Core.MessageSeverity" Nullable="false">
           <Annotation Term="Core.Description" String="Severity of the message" />
         </Property>
         <Property Name="target" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="A path to the target of the message detail, relative to the annotated instance" />
+          <Annotation Term="Core.Description" String="A path to the target of the message detail, relative to the annotated instance" />
         </Property>
         <Property Name="details" Type="Collection(Core.MessageType)" Nullable="false">
           <Annotation Term="Core.Description" String="List of detail messages" />
@@ -257,8 +225,7 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
             </Record>
             <Record>
               <PropertyValue Property="Value" String="info" />
-              <Annotation Term="Core.Description"
-                String="Additional information - no action required" />
+              <Annotation Term="Core.Description" String="Additional information - no action required" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="warning" />
@@ -287,30 +254,24 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       </ComplexType>
 
       <Term Name="ResourceException" Type="Core.ResourceExceptionType" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="The annotated instance within a success payload is problematic" />
+        <Annotation Term="Core.Description" String="The annotated instance within a success payload is problematic" />
       </Term>
       <ComplexType Name="ResourceExceptionType" BaseType="Core.ExceptionType">
         <Property Name="retryLink" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="A GET request to this URL retries retrieving the problematic instance" />
+          <Annotation Term="Core.Description" String="A GET request to this URL retries retrieving the problematic instance" />
           <Annotation Term="Core.IsURL" />
         </Property>
       </ComplexType>
 
-      <Term Name="DataModificationException" Type="Core.DataModificationExceptionType"
-        Nullable="false">
-        <Annotation Term="Core.Description"
-          String="A modification operation failed on the annotated instance or collection within a success payload" />
+      <Term Name="DataModificationException" Type="Core.DataModificationExceptionType" Nullable="false">
+        <Annotation Term="Core.Description" String="A modification operation failed on the annotated instance or collection within a success payload" />
       </Term>
       <ComplexType Name="DataModificationExceptionType" BaseType="Core.ExceptionType">
         <Property Name="failedOperation" Type="Core.DataModificationOperationKind" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="The kind of modification operation that failed" />
+          <Annotation Term="Core.Description" String="The kind of modification operation that failed" />
         </Property>
         <Property Name="responseCode" Type="Edm.Int16" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Response code of the failed operation, e.g. 424 for a failed dependency" />
+          <Annotation Term="Core.Description" String="Response code of the failed operation, e.g. 424 for a failed dependency" />
           <Annotation Term="Validation.Minimum" Decimal="100" />
           <Annotation Term="Validation.Maximum" Decimal="599" />
         </Property>
@@ -323,8 +284,7 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
           <Annotation Term="Core.Description" String="Update existing instance" />
         </Member>
         <Member Name="upsert">
-          <Annotation Term="Core.Description"
-            String="Insert new instance or update it if it already exists" />
+          <Annotation Term="Core.Description" String="Insert new instance or update it if it already exists" />
         </Member>
         <Member Name="delete">
           <Annotation Term="Core.Description" String="Delete existing instance" />
@@ -343,10 +303,8 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
 
       <!-- Localization -->
 
-      <Term Name="IsLanguageDependent" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Term Property">
-        <Annotation Term="Core.Description"
-          String="Properties and terms annotated with this term are language-dependent" />
+      <Term Name="IsLanguageDependent" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Term Property">
+        <Annotation Term="Core.Description" String="Properties and terms annotated with this term are language-dependent" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
@@ -357,45 +315,35 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       <!-- Term Restrictions -->
 
       <Term Name="RequiresType" Type="Edm.String" Nullable="false" AppliesTo="Term">
-        <Annotation Term="Core.Description"
-          String="Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name" />
+        <Annotation Term="Core.Description" String="Terms annotated with this term can only be applied to elements that have a type that is identical to or derived from the given type name" />
       </Term>
 
-      <Term Name="AppliesViaContainer" Type="Core.Tag" DefaultValue="true" Nullable="false"
-        AppliesTo="Term">
-        <Annotation Term="Core.Description"
-          String="The target path of an annotation with the tagged term MUST start with an entity container or the annotation MUST be embedded within an entity container, entity set or singleton" />
+      <Term Name="AppliesViaContainer" Type="Core.Tag" DefaultValue="true" Nullable="false" AppliesTo="Term">
+        <Annotation Term="Core.Description" String="The target path of an annotation with the tagged term MUST start with an entity container or the annotation MUST be embedded within an entity container, entity set or singleton" />
         <Annotation Term="Core.LongDescription">
           <String>Services MAY additionally annotate a container-independent model element (entity type, property, navigation property) if allowed by the `AppliesTo` property of the term
           and the annotation applies to all uses of that model element.</String>
         </Annotation>
       </Term>
 
-      <!--Resource
-      Paths -->
+      <!--Resource Paths -->
 
-      <Term Name="ResourcePath" Type="Edm.String" Nullable="false"
-        AppliesTo="EntitySet Singleton ActionImport FunctionImport">
-        <Annotation Term="Core.Description"
-          String="Resource path for entity container child, can be relative to xml:base and the request URL" />
+      <Term Name="ResourcePath" Type="Edm.String" Nullable="false" AppliesTo="EntitySet Singleton ActionImport FunctionImport">
+        <Annotation Term="Core.Description" String="Resource path for entity container child, can be relative to xml:base and the request URL" />
         <Annotation Term="Core.IsURL" />
       </Term>
 
-      <Term Name="DereferenceableIDs" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description"
-          String="Entity-ids are URLs that locate the identified entity" />
+      <Term Name="DereferenceableIDs" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Entity-ids are URLs that locate the identified entity" />
       </Term>
 
-      <Term Name="ConventionalIDs" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityContainer">
+      <Term Name="ConventionalIDs" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
         <Annotation Term="Core.Description" String="Entity-ids follow OData URL conventions" />
       </Term>
 
       <!-- Permissions -->
 
-      <Term Name="Permissions" Type="Core.Permission" Nullable="false"
-        AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function">
+      <Term Name="Permissions" Type="Core.Permission" Nullable="false" AppliesTo="Property ComplexType TypeDefinition EntityType EntitySet NavigationProperty Action Function">
         <Annotation Term="Core.Description" String="Permissions for accessing a resource" />
       </Term>
       <EnumType Name="Permission" IsFlags="true">
@@ -419,116 +367,82 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       <!-- Batch Content ID -->
 
       <Term Name="ContentID" Nullable="false" Type="Edm.String">
-        <Annotation Term="Core.Description"
-          String="A unique identifier for nested entities within a request." />
+        <Annotation Term="Core.Description" String="A unique identifier for nested entities within a request." />
       </Term>
 
       <!-- Metadata Extensions -->
 
-      <Term Name="DefaultNamespace" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Schema Include">
-        <Annotation Term="Core.Description"
-          String="Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification." />
-        <Annotation Term="Core.LongDescription"
-          String="Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type." />
+      <Term Name="DefaultNamespace" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Schema Include">
+        <Annotation Term="Core.Description" String="Functions, actions and types in this namespace can be referenced in URLs with or without namespace- or alias- qualification." />
+        <Annotation Term="Core.LongDescription" String="Data Modelers should ensure uniqueness of schema children across all default namespaces, and should avoid naming bound functions, actions, or derived types with the same name as a structural or navigational property of the type." />
       </Term>
 
-      <Term Name="Immutable" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A value for this non-key property can be provided by the client on insert and remains unchanged on update" />
+      <Term Name="Immutable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="A value for this non-key property can be provided by the client on insert and remains unchanged on update" />
       </Term>
 
-      <Term Name="Computed" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A value for this property is generated on both insert and update" />
+      <Term Name="Computed" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="A value for this property is generated on both insert and update" />
       </Term>
 
-      <Term Name="ComputedDefaultValue" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property">
-        <Annotation Term="Core.Description"
-          String="A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated" />
+      <Term Name="ComputedDefaultValue" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
+        <Annotation Term="Core.Description" String="A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated" />
       </Term>
 
-      <Term Name="IsURL" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property Term">
-        <Annotation Term="Core.Description"
-          String="Properties and terms annotated with this term MUST contain a valid URL" />
+      <Term Name="IsURL" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
+        <Annotation Term="Core.Description" String="Properties and terms annotated with this term MUST contain a valid URL" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false"
-        AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
-        <Annotation Term="Core.Description"
-          String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
-        <Annotation Term="Core.LongDescription"
-          String="The annotation of a TypeDefinition propagates to the model elements having this type" />
+      <Term Name="AcceptableMediaTypes" Type="Collection(Edm.String)" Nullable="false" AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
+        <Annotation Term="Core.Description" String="Lists the MIME types acceptable for the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
+        <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
-      <Term Name="MediaType" Type="Edm.String"
-        AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
-        <Annotation Term="Core.Description"
-          String="The media type of the media stream of the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
-        <Annotation Term="Core.LongDescription"
-          String="The annotation of a TypeDefinition propagates to the model elements having this type" />
+      <Term Name="MediaType" Type="Edm.String" AppliesTo="EntityType Property Term TypeDefinition Parameter ReturnType">
+        <Annotation Term="Core.Description" String="The media type of the media stream of the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
+        <Annotation Term="Core.LongDescription" String="The annotation of a TypeDefinition propagates to the model elements having this type" />
         <Annotation Term="Core.IsMediaType" />
       </Term>
 
-      <Term Name="IsMediaType" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property Term">
-        <Annotation Term="Core.Description"
-          String="Properties and terms annotated with this term MUST contain a valid MIME type" />
+      <Term Name="IsMediaType" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property Term">
+        <Annotation Term="Core.Description" String="Properties and terms annotated with this term MUST contain a valid MIME type" />
         <Annotation Term="Core.RequiresType" String="Edm.String" />
       </Term>
 
-      <Term Name="ContentDisposition" Type="Core.ContentDispositionType" Nullable="false"
-        AppliesTo="EntityType Property Term">
-        <Annotation Term="Core.Description"
-          String="The content disposition of the media stream of the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
+      <Term Name="ContentDisposition" Type="Core.ContentDispositionType" Nullable="false" AppliesTo="EntityType Property Term">
+        <Annotation Term="Core.Description" String="The content disposition of the media stream of the annotated entity type marked with HasStream=&quot;true&quot; or the annotated binary, stream, or string property or term" />
       </Term>
 
       <ComplexType Name="ContentDispositionType">
         <Property Name="Type" Type="Edm.String" Nullable="false" DefaultValue="attachment">
-          <Annotation Term="Core.Description"
-            String="The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)" />
+          <Annotation Term="Core.Description" String="The disposition type of the binary or stream value, see [RFC 6266, Disposition Type](https://datatracker.ietf.org/doc/html/rfc6266#section-4.2)" />
         </Property>
         <Property Name="Filename" Type="Edm.String">
-          <Annotation Term="Core.Description"
-            String="The proposed filename for downloading the binary or stream value, see [RFC 6266, Disposition Parameter: 'Filename'](https://datatracker.ietf.org/doc/html/rfc6266#section-4.3)" />
+          <Annotation Term="Core.Description" String="The proposed filename for downloading the binary or stream value, see [RFC 6266, Disposition Parameter: 'Filename'](https://datatracker.ietf.org/doc/html/rfc6266#section-4.3)" />
         </Property>
       </ComplexType>
 
-      <Term Name="OptimisticConcurrency" Type="Collection(Edm.PropertyPath)" Nullable="false"
-        AppliesTo="EntitySet">
-        <Annotation Term="Core.Description"
-          String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag" />
+      <Term Name="OptimisticConcurrency" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntitySet">
+        <Annotation Term="Core.Description" String="Data modification requires the use of ETags. A non-empty collection contains the set of properties that are used to compute the ETag. An empty collection means that the service won't tell how it computes the ETag" />
       </Term>
 
-      <Term Name="AdditionalProperties" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description"
-          String="Instances of this type may contain properties in addition to those declared in $metadata" />
-        <Annotation Term="Core.LongDescription"
-          String="If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute." />
+      <Term Name="AdditionalProperties" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType ComplexType">
+        <Annotation Term="Core.Description" String="Instances of this type may contain properties in addition to those declared in $metadata" />
+        <Annotation Term="Core.LongDescription" String="If specified as false clients can assume that instances will not contain dynamic properties, irrespective of the value of the OpenType attribute." />
       </Term>
 
-      <Term Name="AutoExpand" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityType NavigationProperty Property">
-        <Annotation Term="Core.Description"
-          String="The service will automatically expand this stream property, navigation property, or the media stream of this media entity type even if not requested with $expand" />
+      <Term Name="AutoExpand" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType NavigationProperty Property">
+        <Annotation Term="Core.Description" String="The service will automatically expand this stream property, navigation property, or the media stream of this media entity type even if not requested with $expand" />
       </Term>
 
-      <Term Name="AutoExpandReferences" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="NavigationProperty">
-        <Annotation Term="Core.Description"
-          String="The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref" />
+      <Term Name="AutoExpandReferences" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="NavigationProperty">
+        <Annotation Term="Core.Description" String="The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref" />
       </Term>
 
       <Term Name="MayImplement" Type="Collection(Core.QualifiedTypeName)" Nullable="false">
-        <Annotation Term="Core.Description"
-          String="A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment." />
+        <Annotation Term="Core.Description" String="A collection of qualified type names outside of the type hierarchy that instances of this type might be addressable as by using a type-cast segment." />
       </Term>
 
       <TypeDefinition Name="QualifiedTermName" UnderlyingType="Edm.String">
@@ -544,8 +458,7 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       </TypeDefinition>
 
       <TypeDefinition Name="QualifiedBoundOperationName" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description"
-          String="The qualified name of a bound action or function in scope." />
+        <Annotation Term="Core.Description" String="The qualified name of a bound action or function in scope." />
         <Annotation Term="Core.LongDescription">
           <String>Either
 - the qualified name of an action, to indicate the single bound overload with the specified binding parameter type, 
@@ -555,19 +468,15 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
         </Annotation>
       </TypeDefinition>
 
-      <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property NavigationProperty EntitySet ReturnType Term">
-        <Annotation Term="Core.Description"
-          String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
+      <Term Name="Ordered" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet ReturnType Term">
+        <Annotation Term="Core.Description" String="Collection has a stable order. Ordered collections of primitive or complex types can be indexed by ordinal." />
       </Term>
 
-      <Term Name="PositionalInsert" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Property NavigationProperty EntitySet">
+      <Term Name="PositionalInsert" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty EntitySet">
         <Annotation Term="Core.Description" String="Items can be inserted at a given ordinal index." />
       </Term>
 
-      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty"
-        Type="Collection(Core.AlternateKey)" Nullable="false">
+      <Term Name="AlternateKeys" AppliesTo="EntityType EntitySet NavigationProperty" Type="Collection(Core.AlternateKey)" Nullable="false">
         <Annotation Term="Core.Description" String="Communicates available alternate keys" />
       </Term>
       <ComplexType Name="AlternateKey">
@@ -577,18 +486,15 @@ http://docs.oasis-open.org/odata/odata-data-aggregation-ext/v4.0/odata-data-aggr
       </ComplexType>
       <ComplexType Name="PropertyRef">
         <Property Type="Edm.PropertyPath" Name="Name" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes." />
+          <Annotation Term="Core.Description" String="A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes." />
         </Property>
         <Property Type="Edm.String" Name="Alias" Nullable="false">
-          <Annotation Term="Core.Description"
-            String="A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs" />
+          <Annotation Term="Core.Description" String="A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs" />
         </Property>
       </ComplexType>
 
       <ComplexType Name="Dictionary" OpenType="true">
-        <Annotation Term="Core.Description"
-          String="A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`." />
+        <Annotation Term="Core.Description" String="A dictionary of name-value pairs. Names must be valid property names, values may be restricted to a list of types via an annotation with term `Validation.OpenPropertyTypeConstraint`." />
         <Annotation Term="Core.LongDescription">
           <String>
 Property|Type
@@ -598,45 +504,33 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Annotation>
       </ComplexType>
 
-      <Term Name="OptionalParameter" Type="Core.OptionalParameterType" Nullable="false"
-        AppliesTo="Parameter">
-        <Annotation Term="Core.Description"
-          String="Supplying a value for the action or function parameter is optional." />
-        <Annotation Term="Core.LongDescription"
-          String="All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional." />
+      <Term Name="OptionalParameter" Type="Core.OptionalParameterType" Nullable="false" AppliesTo="Parameter">
+        <Annotation Term="Core.Description" String="Supplying a value for the action or function parameter is optional." />
+        <Annotation Term="Core.LongDescription" String="All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional." />
       </Term>
       <ComplexType Name="OptionalParameterType">
         <Property Name="DefaultValue" Type="Edm.String" Nullable="true">
-          <Annotation Term="Core.Description"
-            String="Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs." />
-          <Annotation Term="Core.LongDescription"
-            String="If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date." />
+          <Annotation Term="Core.Description" String="Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs." />
+          <Annotation Term="Core.LongDescription" String="If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date." />
         </Property>
       </ComplexType>
 
-      <Term Name="OperationAvailable" Type="Edm.Boolean" Nullable="true" DefaultValue="true"
-        AppliesTo="Action Function">
+      <Term Name="OperationAvailable" Type="Edm.Boolean" Nullable="true" DefaultValue="true" AppliesTo="Action Function">
         <Annotation Term="Core.Description" String="Action or function is available" />
-        <Annotation Term="Core.LongDescription"
-          String="The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement." />
+        <Annotation Term="Core.LongDescription" String="The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement." />
       </Term>
 
-      <Term Name="RequiresExplicitBinding" Type="Core.Tag" DefaultValue="true"
-        AppliesTo="Action Function">
-        <Annotation Term="Core.Description"
-          String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
+      <Term Name="RequiresExplicitBinding" Type="Core.Tag" DefaultValue="true" AppliesTo="Action Function">
+        <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
       </Term>
 
       <Term Name="ExplicitOperationBindings" Type="Collection(Core.QualifiedBoundOperationName)">
-        <Annotation Term="Core.Description"
-          String="The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element." />
+        <Annotation Term="Core.Description" String="The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element." />
       </Term>
 
       <TypeDefinition Name="LocalDateTime" UnderlyingType="Edm.String">
-        <Annotation Term="Core.Description"
-          String="A string representing a Local Date-Time value with no offset." />
-        <Annotation Term="Validation.Pattern"
-          String="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?$" />
+        <Annotation Term="Core.Description" String="A string representing a Local Date-Time value with no offset." />
+        <Annotation Term="Validation.Pattern" String="^[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])T([01][0-9]|2[0-3]):[0-5][0-9](:[0-5][0-9](\\.[0-9]+)?)?$" />
       </TypeDefinition>
 
       <Term Name="SymbolicName" Type="Core.SimpleIdentifier" Nullable="false">
@@ -644,19 +538,15 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       </Term>
 
       <TypeDefinition Name="SimpleIdentifier" UnderlyingType="Edm.String" MaxLength="128">
-        <Annotation Term="Core.Description"
-          String="A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)" />
-        <Annotation Term="Validation.Pattern"
-          String="^[\p{L}\p{Nl}_][\p{L}\p{Nl}\p{Nd}\p{Mn}\p{Mc}\p{Pc}\p{Cf}]{0,}$" />
+        <Annotation Term="Core.Description" String="A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)" />
+        <Annotation Term="Validation.Pattern" String="^[\p{L}\p{Nl}_][\p{L}\p{Nl}\p{Nd}\p{Mn}\p{Mc}\p{Pc}\p{Cf}]{0,}$" />
       </TypeDefinition>
 
       <Term Name="GeometryFeature" Type="Core.GeometryFeatureType">
-        <Annotation Term="Core.Description"
-          String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
+        <Annotation Term="Core.Description" String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
       </Term>
       <ComplexType Name="GeometryFeatureType">
-        <Annotation Term="Core.Description"
-          String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
+        <Annotation Term="Core.Description" String="A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing" />
         <Property Name="geometry" Type="Edm.Geometry" Nullable="true">
           <Annotation Term="Core.Description" String="Location of the Feature" />
         </Property>
@@ -671,7 +561,6 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       <Term Name="PreviousState" Type="Core.PreviousStateType" Nullable="false">
         <Annotation Term="Core.Description"
           String="Previous state of a resource whose changes are described by the [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE) carrying this instance annotation" />
-
         <Annotation Term="Core.LongDescription">
           <String>The presence or absence of this instance annotation does not alter the idempotent nature of a delta or deep-update message, nor does it alter the UPSERT nature of an added/changed or nested entity.
 
@@ -681,7 +570,6 @@ The recipient of a delta message MAY use the instance annotation for optimizatio
       <EnumType Name="PreviousStateType">
         <Annotation Term="Core.Description"
           String="Previous state of a resource whose changes are described by an [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE)" />
-
         <Member Name="Absent" Value="2">
           <Annotation Term="Core.Description"
             String="The annotated entity describes changes to a resource that did not exist prior to capturing these changes" />
@@ -696,20 +584,12 @@ The recipient of a delta message MAY use the instance annotation for optimizatio
         </Member>
       </EnumType>
 
-      <Term Name="AnyStructure" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="EntityType ComplexType">
-        <Annotation Term="Core.Description"
-          String="Instances of a type are annotated with this tag if they have no common structure in a given response payload" />
+      <Term Name="AnyStructure" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityType ComplexType">
+        <Annotation Term="Core.Description" String="Instances of a type are annotated with this tag if they have no common structure in a given response payload" />
         <Annotation Term="Core.LongDescription">
           <String>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty,
           but this instance annotation SHOULD be omitted from the response value.</String>
         </Annotation>
-      </Term>
-
-      <Term Name="Constructor" Type="Core.Tag" Nullable="false" DefaultValue="true"
-        AppliesTo="Action">
-        <Annotation Term="Core.Description"
-          String="On success the annotated action creates a new entity" />
       </Term>
 
     </Schema>
