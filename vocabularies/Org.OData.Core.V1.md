@@ -50,8 +50,9 @@ Term|Type|Description
 [ExplicitOperationBindings](./Org.OData.Core.V1.xml#L527:~:text=<Term%20Name="-,ExplicitOperationBindings,-")|\[[QualifiedBoundOperationName](#QualifiedBoundOperationName)\]|<a name="ExplicitOperationBindings"></a>The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element.
 [SymbolicName](./Org.OData.Core.V1.xml#L536:~:text=<Term%20Name="-,SymbolicName,-")|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 [GeometryFeature](./Org.OData.Core.V1.xml#L545:~:text=<Term%20Name="-,GeometryFeature,-")|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
-[AnyStructure](./Org.OData.Core.V1.xml#L561:~:text=<Term%20Name="-,AnyStructure,-")|[Tag](#Tag)|<a name="AnyStructure"></a>Instances of a type are annotated with this tag if they have no common structure in a given response payload<br>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty, but this instance annotation SHOULD be omitted from the response value.
-[Constructor](./Org.OData.Core.V1.xml#L569:~:text=<Term%20Name="-,Constructor,-")|[Tag](#Tag)|<a name="Constructor"></a>On success the annotated action creates a new entity
+[PreviousState](./Org.OData.Core.V1.xml#L561:~:text=<Term%20Name="-,PreviousState,-")|[PreviousStateType](#PreviousStateType)|<a name="PreviousState"></a>Previous state of a resource whose changes are described by the [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE) carrying this instance annotation<br>The presence or absence of this instance annotation does not alter the idempotent nature of a delta or deep-update message, nor does it alter the UPSERT nature of an added/changed or nested entity.<br/>The recipient of a delta message MAY use the instance annotation for optimization only; ultimately any received added/changed entity MUST be processed as an UPSERT.
+[AnyStructure](./Org.OData.Core.V1.xml#L587:~:text=<Term%20Name="-,AnyStructure,-")|[Tag](#Tag)|<a name="AnyStructure"></a>Instances of a type are annotated with this tag if they have no common structure in a given response payload<br>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty, but this instance annotation SHOULD be omitted from the response value.
+[Constructor](./Org.OData.Core.V1.xml#L595:~:text=<Term%20Name="-,Constructor,-")|[Tag](#Tag)|<a name="Constructor"></a>On success the annotated action creates a new entity
 
 <a name="RevisionType"></a>
 ## [RevisionType](./Org.OData.Core.V1.xml#L80:~:text=<ComplexType%20Name="-,RevisionType,-")
@@ -325,3 +326,13 @@ Property|Type|Description
 [geometry](./Org.OData.Core.V1.xml#L550:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|Geometry?|Location of the Feature
 [properties](./Org.OData.Core.V1.xml#L553:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|[Dictionary?](#Dictionary)|Properties of the Feature
 [id](./Org.OData.Core.V1.xml#L556:~:text=<ComplexType%20Name="-,GeometryFeatureType,-")|String?|Commonly used identifer for a Feature
+
+<a name="PreviousStateType"></a>
+## [PreviousStateType](./Org.OData.Core.V1.xml#L570:~:text=<EnumType%20Name="-,PreviousStateType,-")
+Previous state of a resource whose changes are described by an [added/changed entity in a delta message](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_AddedChangedEntity) or a [nested entity in a deep-update request](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_UpdateRelatedEntitiesWhenUpdatinganE)
+
+Member|Value|Description
+:-----|----:|:----------
+[Absent](./Org.OData.Core.V1.xml#L573:~:text=<EnumType%20Name="-,PreviousStateType,-")|2|The annotated entity describes changes to a resource that did not exist prior to capturing these changes
+[Existed](./Org.OData.Core.V1.xml#L577:~:text=<EnumType%20Name="-,PreviousStateType,-")|1|The annotated entity describes changes to a resource that already existed prior to capturing these changes
+[Unknown](./Org.OData.Core.V1.xml#L581:~:text=<EnumType%20Name="-,PreviousStateType,-")|0|The sender does not know whether the resource already existed prior to capturing these changes
