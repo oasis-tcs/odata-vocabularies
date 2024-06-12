@@ -20,6 +20,8 @@ To install globally type
 npm install -g
 ```
 
+Also install the latest version of pandoc from https://github.com/jgm/pandoc/releases.
+
 ## Usage
 
 Assuming you installed the script globally, and your vocabulary file is `MyVocabulary.xml`, then
