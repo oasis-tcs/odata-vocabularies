@@ -47,48 +47,6 @@ supported:
 
 Term|Type|Description
 :---|:---|:----------
-<<<<<<< HEAD
-[ConformanceLevel](./Org.OData.Capabilities.V1.xml#L115:~:text=<Term%20Name="-,ConformanceLevel,-")|[ConformanceLevelType](#ConformanceLevelType)|<a name="ConformanceLevel"></a>The conformance level achieved by this service
-[SupportedFormats](./Org.OData.Capabilities.V1.xml#L132:~:text=<Term%20Name="-,SupportedFormats,-")|\[MediaType\]|<a name="SupportedFormats"></a>Media types of supported formats, including format parameters
-[SupportedMetadataFormats](./Org.OData.Capabilities.V1.xml#L137:~:text=<Term%20Name="-,SupportedMetadataFormats,-")|\[MediaType\]|<a name="SupportedMetadataFormats"></a>Media types of supported formats for $metadata, including format parameters
-[AcceptableEncodings](./Org.OData.Capabilities.V1.xml#L142:~:text=<Term%20Name="-,AcceptableEncodings,-")|\[String\]|<a name="AcceptableEncodings"></a>List of acceptable compression methods for ($batch) requests, e.g. gzip
-[AsynchronousRequestsSupported](./Org.OData.Capabilities.V1.xml#L148:~:text=<Term%20Name="-,AsynchronousRequestsSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AsynchronousRequestsSupported"></a>Service supports the asynchronous request preference
-[BatchContinueOnErrorSupported](./Org.OData.Capabilities.V1.xml#L152:~:text=<Term%20Name="-,BatchContinueOnErrorSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchContinueOnErrorSupported"></a>Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term.
-[IsolationSupported](./Org.OData.Capabilities.V1.xml#L156:~:text=<Term%20Name="-,IsolationSupported,-")|[IsolationLevel](#IsolationLevel)|<a name="IsolationSupported"></a>Supported odata.isolation levels
-[CrossJoinSupported](./Org.OData.Capabilities.V1.xml#L165:~:text=<Term%20Name="-,CrossJoinSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="CrossJoinSupported"></a>Supports cross joins for the entity sets in this container
-[CallbackSupported](./Org.OData.Capabilities.V1.xml#L169:~:text=<Term%20Name="-,CallbackSupported,-")|[CallbackType](#CallbackType)|<a name="CallbackSupported"></a>Supports callbacks for the specified protocols
-[ChangeTracking](./Org.OData.Capabilities.V1.xml#L191:~:text=<Term%20Name="-,ChangeTracking,-")|[ChangeTrackingType](#ChangeTrackingType)|<a name="ChangeTracking"></a>Change tracking capabilities of this service or entity set
-[CountRestrictions](./Org.OData.Capabilities.V1.xml#L212:~:text=<Term%20Name="-,CountRestrictions,-")|[CountRestrictionsType](#CountRestrictionsType)|<a name="CountRestrictions"></a>Restrictions on /$count path suffix and $count=true system query option
-[NavigationRestrictions](./Org.OData.Capabilities.V1.xml#L230:~:text=<Term%20Name="-,NavigationRestrictions,-")|[NavigationRestrictionsType](#NavigationRestrictionsType)|<a name="NavigationRestrictions"></a>Restrictions on navigating properties according to OData URL conventions<br>Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence.
-[IndexableByKey](./Org.OData.Capabilities.V1.xml#L321:~:text=<Term%20Name="-,IndexableByKey,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="IndexableByKey"></a>Supports key values according to OData URL conventions
-[TopSupported](./Org.OData.Capabilities.V1.xml#L326:~:text=<Term%20Name="-,TopSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="TopSupported"></a>Supports $top
-[SkipSupported](./Org.OData.Capabilities.V1.xml#L331:~:text=<Term%20Name="-,SkipSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="SkipSupported"></a>Supports $skip
-[ComputeSupported](./Org.OData.Capabilities.V1.xml#L336:~:text=<Term%20Name="-,ComputeSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="ComputeSupported"></a>Supports $compute
-[SelectSupport](./Org.OData.Capabilities.V1.xml#L341:~:text=<Term%20Name="-,SelectSupport,-")|[SelectSupportType](#SelectSupportType)|<a name="SelectSupport"></a>Support for $select and nested query options within $select
-[BatchSupported](./Org.OData.Capabilities.V1.xml#L378:~:text=<Term%20Name="-,BatchSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="BatchSupported"></a>Supports $batch requests. Services that apply the BatchSupported term should also apply the more comprehensive BatchSupport term.
-[BatchSupport](./Org.OData.Capabilities.V1.xml#L382:~:text=<Term%20Name="-,BatchSupport,-")|[BatchSupportType](#BatchSupportType)|<a name="BatchSupport"></a>Batch Support for the service
-[FilterFunctions](./Org.OData.Capabilities.V1.xml#L428:~:text=<Term%20Name="-,FilterFunctions,-")|\[String\]|<a name="FilterFunctions"></a>List of functions and operators supported in filter expressions<br>If not specified, null, or empty, all functions and operators may be attempted.
-[FilterRestrictions](./Org.OData.Capabilities.V1.xml#L434:~:text=<Term%20Name="-,FilterRestrictions,-")|[FilterRestrictionsType](#FilterRestrictionsType)|<a name="FilterRestrictions"></a>Restrictions on filter expressions
-[SortRestrictions](./Org.OData.Capabilities.V1.xml#L506:~:text=<Term%20Name="-,SortRestrictions,-")|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on orderby expressions
-[ExpandRestrictions](./Org.OData.Capabilities.V1.xml#L532:~:text=<Term%20Name="-,ExpandRestrictions,-")|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on expand expressions
-[SearchRestrictions](./Org.OData.Capabilities.V1.xml#L562:~:text=<Term%20Name="-,SearchRestrictions,-")|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on search expressions
-[KeyAsSegmentSupported](./Org.OData.Capabilities.V1.xml#L608:~:text=<Term%20Name="-,KeyAsSegmentSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="KeyAsSegmentSupported"></a>Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection
-[QuerySegmentSupported](./Org.OData.Capabilities.V1.xml#L612:~:text=<Term%20Name="-,QuerySegmentSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="QuerySegmentSupported"></a>Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)
-[InsertRestrictions](./Org.OData.Capabilities.V1.xml#L618:~:text=<Term%20Name="-,InsertRestrictions,-")|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
-[DeepInsertSupport](./Org.OData.Capabilities.V1.xml#L697:~:text=<Term%20Name="-,DeepInsertSupport,-")|[DeepInsertSupportType?](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
-[UpdateRestrictions](./Org.OData.Capabilities.V1.xml#L710:~:text=<Term%20Name="-,UpdateRestrictions,-")|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
-[DeepUpdateSupport](./Org.OData.Capabilities.V1.xml#L796:~:text=<Term%20Name="-,DeepUpdateSupport,-")|[DeepUpdateSupportType](#DeepUpdateSupportType)|<a name="DeepUpdateSupport"></a>Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
-[DeleteRestrictions](./Org.OData.Capabilities.V1.xml#L809:~:text=<Term%20Name="-,DeleteRestrictions,-")|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
-[CollectionPropertyRestrictions](./Org.OData.Capabilities.V1.xml#L853:~:text=<Term%20Name="-,CollectionPropertyRestrictions,-")|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
-[OperationRestrictions](./Org.OData.Capabilities.V1.xml#L894:~:text=<Term%20Name="-,OperationRestrictions,-")|[OperationRestrictionsType](#OperationRestrictionsType)|<a name="OperationRestrictions"></a>Restrictions for function or action operation
-[AnnotationValuesInQuerySupported](./Org.OData.Capabilities.V1.xml#L914:~:text=<Term%20Name="-,AnnotationValuesInQuerySupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
-[ModificationQueryOptions](./Org.OData.Capabilities.V1.xml#L918:~:text=<Term%20Name="-,ModificationQueryOptions,-")|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
-[ReadRestrictions](./Org.OData.Capabilities.V1.xml#L942:~:text=<Term%20Name="-,ReadRestrictions,-")|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance.
-[CustomHeaders](./Org.OData.Capabilities.V1.xml#L984:~:text=<Term%20Name="-,CustomHeaders,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L986))
-[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L1010:~:text=<Term%20Name="-,CustomQueryOptions,-")|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](./Org.OData.Capabilities.V1.xml#L1013))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
-[MediaLocationUpdateSupported](./Org.OData.Capabilities.V1.xml#L1062:~:text=<Term%20Name="-,MediaLocationUpdateSupported,-")|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property or media stream supports update of its media edit URL and/or media read URL
-[DefaultCapabilities](./Org.OData.Capabilities.V1.xml#L1067:~:text=<Term%20Name="-,DefaultCapabilities,-")|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container<br><p>Annotating a specific capability term, which is included as property in <code>DefaultCapabilitiesType</code>, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:</p> <ul> <li>Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in <code>DefaultCapabilities</code></li> <li>Complex-valued properties specified in the specific capability term override the corresponding properties specified in <code>DefaultCapabilities</code> using PATCH semantics recursively</li> <li>Properties specified neither in the specific term nor in <code>DefaultCapabilities</code> have their default value</li> </ul> 
-=======
 [ConformanceLevel](Org.OData.Capabilities.V1.xml#L115)|[ConformanceLevelType](#ConformanceLevelType)|<a name="ConformanceLevel"></a>The conformance level achieved by this service
 [SupportedFormats](Org.OData.Capabilities.V1.xml#L132)|\[MediaType\]|<a name="SupportedFormats"></a>Media types of supported formats, including format parameters
 [SupportedMetadataFormats](Org.OData.Capabilities.V1.xml#L137)|\[MediaType\]|<a name="SupportedMetadataFormats"></a>Media types of supported formats for $metadata, including format parameters
@@ -113,23 +71,22 @@ Term|Type|Description
 [SortRestrictions](Org.OData.Capabilities.V1.xml#L506)|[SortRestrictionsType](#SortRestrictionsType)|<a name="SortRestrictions"></a>Restrictions on orderby expressions
 [ExpandRestrictions](Org.OData.Capabilities.V1.xml#L532)|[ExpandRestrictionsType](#ExpandRestrictionsType)|<a name="ExpandRestrictions"></a>Restrictions on expand expressions
 [SearchRestrictions](Org.OData.Capabilities.V1.xml#L562)|[SearchRestrictionsType](#SearchRestrictionsType)|<a name="SearchRestrictions"></a>Restrictions on search expressions
-[KeyAsSegmentSupported](Org.OData.Capabilities.V1.xml#L600)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="KeyAsSegmentSupported"></a>Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection
-[QuerySegmentSupported](Org.OData.Capabilities.V1.xml#L604)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="QuerySegmentSupported"></a>Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)
-[InsertRestrictions](Org.OData.Capabilities.V1.xml#L610)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
-[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L689)|[DeepInsertSupportType?](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
-[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L702)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
-[DeepUpdateSupport](Org.OData.Capabilities.V1.xml#L788)|[DeepUpdateSupportType](#DeepUpdateSupportType)|<a name="DeepUpdateSupport"></a>Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
-[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L801)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
-[CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L845)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
-[OperationRestrictions](Org.OData.Capabilities.V1.xml#L886)|[OperationRestrictionsType](#OperationRestrictionsType)|<a name="OperationRestrictions"></a>Restrictions for function or action operation
-[AnnotationValuesInQuerySupported](Org.OData.Capabilities.V1.xml#L906)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
-[ModificationQueryOptions](Org.OData.Capabilities.V1.xml#L910)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
-[ReadRestrictions](Org.OData.Capabilities.V1.xml#L934)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance.
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L976)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L978))
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L1002)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L1005))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
-[MediaLocationUpdateSupported](Org.OData.Capabilities.V1.xml#L1054)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property or media stream supports update of its media edit URL and/or media read URL
-[DefaultCapabilities](Org.OData.Capabilities.V1.xml#L1059)|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container<br><p>Annotating a specific capability term, which is included as property in <code>DefaultCapabilitiesType</code>, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:</p> <ul> <li>Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in <code>DefaultCapabilities</code></li> <li>Complex-valued properties specified in the specific capability term override the corresponding properties specified in <code>DefaultCapabilities</code> using PATCH semantics recursively</li> <li>Properties specified neither in the specific term nor in <code>DefaultCapabilities</code> have their default value</li> </ul> 
->>>>>>> refs/remotes/origin/main
+[KeyAsSegmentSupported](Org.OData.Capabilities.V1.xml#L608)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="KeyAsSegmentSupported"></a>Supports [key-as-segment convention](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_KeyasSegmentConvention) for addressing entities within a collection
+[QuerySegmentSupported](Org.OData.Capabilities.V1.xml#L612)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="QuerySegmentSupported"></a>Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L618)|[InsertRestrictionsType](#InsertRestrictionsType)|<a name="InsertRestrictions"></a>Restrictions on insert operations
+[DeepInsertSupport](Org.OData.Capabilities.V1.xml#L697)|[DeepInsertSupportType?](#DeepInsertSupportType)|<a name="DeepInsertSupport"></a>Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L710)|[UpdateRestrictionsType](#UpdateRestrictionsType)|<a name="UpdateRestrictions"></a>Restrictions on update operations
+[DeepUpdateSupport](Org.OData.Capabilities.V1.xml#L796)|[DeepUpdateSupportType](#DeepUpdateSupportType)|<a name="DeepUpdateSupport"></a>Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L809)|[DeleteRestrictionsType](#DeleteRestrictionsType)|<a name="DeleteRestrictions"></a>Restrictions on delete operations
+[CollectionPropertyRestrictions](Org.OData.Capabilities.V1.xml#L853)|\[[CollectionPropertyRestrictionsType](#CollectionPropertyRestrictionsType)\]|<a name="CollectionPropertyRestrictions"></a>Describes restrictions on operations applied to collection-valued structural properties
+[OperationRestrictions](Org.OData.Capabilities.V1.xml#L894)|[OperationRestrictionsType](#OperationRestrictionsType)|<a name="OperationRestrictions"></a>Restrictions for function or action operation
+[AnnotationValuesInQuerySupported](Org.OData.Capabilities.V1.xml#L914)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="AnnotationValuesInQuerySupported"></a>Supports annotation values within system query options
+[ModificationQueryOptions](Org.OData.Capabilities.V1.xml#L918)|[ModificationQueryOptionsType](#ModificationQueryOptionsType)|<a name="ModificationQueryOptions"></a>Support for query options with modification requests (insert, update, action invocation)
+[ReadRestrictions](Org.OData.Capabilities.V1.xml#L942)|[ReadRestrictionsType](#ReadRestrictionsType)|<a name="ReadRestrictions"></a>Restrictions for retrieving a collection of entities, retrieving a singleton instance.
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L984)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomHeaders"></a>Custom headers that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L986))
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L1010)|\[[CustomParameter](#CustomParameter)\]|<a name="CustomQueryOptions"></a>Custom query options that are supported/required for the annotated resource ([Example](Org.OData.Capabilities.V1.xml#L1013))<br>If the entity container is annotated, the query option is supported/required by all resources in that container.
+[MediaLocationUpdateSupported](Org.OData.Capabilities.V1.xml#L1062)|[Tag](Org.OData.Core.V1.md#Tag)|<a name="MediaLocationUpdateSupported"></a>Stream property or media stream supports update of its media edit URL and/or media read URL
+[DefaultCapabilities](Org.OData.Capabilities.V1.xml#L1067)|[DefaultCapabilitiesType](#DefaultCapabilitiesType)|<a name="DefaultCapabilities"></a>Default capability settings for all collection-valued resources in the container<br><p>Annotating a specific capability term, which is included as property in <code>DefaultCapabilitiesType</code>, for a specific collection-valued resource overrides the default capability with the specified properties using PATCH semantics:</p> <ul> <li>Primitive or collection-valued properties specified in the specific capability term replace the corresponding properties specified in <code>DefaultCapabilities</code></li> <li>Complex-valued properties specified in the specific capability term override the corresponding properties specified in <code>DefaultCapabilities</code> using PATCH semantics recursively</li> <li>Properties specified neither in the specific term nor in <code>DefaultCapabilities</code> have their default value</li> </ul> 
 
 <a name="ConformanceLevelType"></a>
 ## [ConformanceLevelType](Org.OData.Capabilities.V1.xml#L118)
@@ -420,51 +377,29 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Searchable](./Org.OData.Capabilities.V1.xml#L572:~:text=<ComplexType%20Name="-,SearchRestrictionsType,-")|Boolean|$search is supported
-[UnsupportedExpressions](./Org.OData.Capabilities.V1.xml#L575:~:text=<ComplexType%20Name="-,SearchRestrictionsType,-")|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search as specified by the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)<br>An unsupported expression may be treated as a term to be matched even if the standard syntax treats it as a keyword.
-[SearchSyntax](./Org.OData.Capabilities.V1.xml#L582:~:text=<ComplexType%20Name="-,SearchRestrictionsType,-")|URL?|URL of the $search syntax supported by the service (null means the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions))
-=======
 [Searchable](Org.OData.Capabilities.V1.xml#L572)|Boolean|$search is supported
-[UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L575)|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search
->>>>>>> refs/remotes/origin/main
+[UnsupportedExpressions](Org.OData.Capabilities.V1.xml#L575)|[SearchExpressions](#SearchExpressions)|Expressions not supported in $search as specified by the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)<br>An unsupported expression may be treated as a term to be matched even if the standard syntax treats it as a keyword.
+[SearchSyntax](Org.OData.Capabilities.V1.xml#L582)|URL?|URL of the $search syntax supported by the service (null means the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions))
 
 **Applicable Annotation Terms:**
 
 - [Description](Org.OData.Core.V1.md#Description)
 
 <a name="SearchExpressions"></a>
-<<<<<<< HEAD
-## [SearchExpressions](./Org.OData.Capabilities.V1.xml#L587:~:text=<EnumType%20Name="-,SearchExpressions,-")
-=======
-## [SearchExpressions](Org.OData.Capabilities.V1.xml#L579)
->>>>>>> refs/remotes/origin/main
+## [SearchExpressions](Org.OData.Capabilities.V1.xml#L587)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-<<<<<<< HEAD
-[none](./Org.OData.Capabilities.V1.xml#L588:~:text=<EnumType%20Name="-,SearchExpressions,-")|0|No unsupported expressions
-[AND](./Org.OData.Capabilities.V1.xml#L591:~:text=<EnumType%20Name="-,SearchExpressions,-")|1|Multiple search terms, optionally separated by `AND`
-[OR](./Org.OData.Capabilities.V1.xml#L594:~:text=<EnumType%20Name="-,SearchExpressions,-")|2|Multiple search terms separated by `OR`
-[NOT](./Org.OData.Capabilities.V1.xml#L597:~:text=<EnumType%20Name="-,SearchExpressions,-")|4|Search terms preceded by `NOT`
-[phrase](./Org.OData.Capabilities.V1.xml#L600:~:text=<EnumType%20Name="-,SearchExpressions,-")|8|Search phrases enclosed in double quotes
-[group](./Org.OData.Capabilities.V1.xml#L603:~:text=<EnumType%20Name="-,SearchExpressions,-")|16|Precedence grouping of search expressions with parentheses
-=======
-[none](Org.OData.Capabilities.V1.xml#L580)|0|Single search term
-[AND](Org.OData.Capabilities.V1.xml#L583)|1|Multiple search terms, optionally separated by `AND`
-[OR](Org.OData.Capabilities.V1.xml#L586)|2|Multiple search terms separated by `OR`
-[NOT](Org.OData.Capabilities.V1.xml#L589)|4|Search terms preceded by `NOT`
-[phrase](Org.OData.Capabilities.V1.xml#L592)|8|Search phrases enclosed in double quotes
-[group](Org.OData.Capabilities.V1.xml#L595)|16|Precedence grouping of search expressions with parentheses
->>>>>>> refs/remotes/origin/main
+[none](Org.OData.Capabilities.V1.xml#L588)|0|No unsupported expressions
+[AND](Org.OData.Capabilities.V1.xml#L591)|1|Multiple search terms, optionally separated by `AND`
+[OR](Org.OData.Capabilities.V1.xml#L594)|2|Multiple search terms separated by `OR`
+[NOT](Org.OData.Capabilities.V1.xml#L597)|4|Search terms preceded by `NOT`
+[phrase](Org.OData.Capabilities.V1.xml#L600)|8|Search phrases enclosed in double quotes
+[group](Org.OData.Capabilities.V1.xml#L603)|16|Precedence grouping of search expressions with parentheses
 
 <a name="InsertRestrictionsBase"></a>
-<<<<<<< HEAD
-## [InsertRestrictionsBase](./Org.OData.Capabilities.V1.xml#L622:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")
-=======
-## [InsertRestrictionsBase](Org.OData.Capabilities.V1.xml#L614)
->>>>>>> refs/remotes/origin/main
+## [InsertRestrictionsBase](Org.OData.Capabilities.V1.xml#L622)
 
 
 **Derived Types:**
@@ -472,128 +407,65 @@ Flag Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Insertable](./Org.OData.Capabilities.V1.xml#L623:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|Boolean|Entities can be inserted
-[MaxLevels](./Org.OData.Capabilities.V1.xml#L626:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
-[TypecastSegmentSupported](./Org.OData.Capabilities.V1.xml#L629:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
-[QueryOptions](./Org.OData.Capabilities.V1.xml#L632:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with insert requests
-[CustomHeaders](./Org.OData.Capabilities.V1.xml#L635:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L638:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](./Org.OData.Capabilities.V1.xml#L641:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L645:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|String?|A long description of the request
-[ErrorResponses](./Org.OData.Capabilities.V1.xml#L649:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-=======
-[Insertable](Org.OData.Capabilities.V1.xml#L615)|Boolean|Entities can be inserted
-[MaxLevels](Org.OData.Capabilities.V1.xml#L618)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
-[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L621)|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
-[QueryOptions](Org.OData.Capabilities.V1.xml#L624)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with insert requests
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L627)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L630)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](Org.OData.Capabilities.V1.xml#L633)|String?|A brief description of the request
-[LongDescription](Org.OData.Capabilities.V1.xml#L637)|String?|A long description of the request
-[ErrorResponses](Org.OData.Capabilities.V1.xml#L641)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
->>>>>>> refs/remotes/origin/main
+[Insertable](Org.OData.Capabilities.V1.xml#L623)|Boolean|Entities can be inserted
+[MaxLevels](Org.OData.Capabilities.V1.xml#L626)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
+[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L629)|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
+[QueryOptions](Org.OData.Capabilities.V1.xml#L632)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with insert requests
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L635)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L638)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[Description](Org.OData.Capabilities.V1.xml#L641)|String?|A brief description of the request
+[LongDescription](Org.OData.Capabilities.V1.xml#L645)|String?|A long description of the request
+[ErrorResponses](Org.OData.Capabilities.V1.xml#L649)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
 
 <a name="InsertRestrictionsType"></a>
-<<<<<<< HEAD
-## [InsertRestrictionsType](./Org.OData.Capabilities.V1.xml#L653:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-"): [InsertRestrictionsBase](#InsertRestrictionsBase)
-=======
-## [InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L645): [InsertRestrictionsBase](#InsertRestrictionsBase)
->>>>>>> refs/remotes/origin/main
+## [InsertRestrictionsType](Org.OData.Capabilities.V1.xml#L653): [InsertRestrictionsBase](#InsertRestrictionsBase)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[*Insertable*](./Org.OData.Capabilities.V1.xml#L623:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|Boolean|Entities can be inserted
-[*MaxLevels*](./Org.OData.Capabilities.V1.xml#L626:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
-[*TypecastSegmentSupported*](./Org.OData.Capabilities.V1.xml#L629:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
-[*QueryOptions*](./Org.OData.Capabilities.V1.xml#L632:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with insert requests
-[*CustomHeaders*](./Org.OData.Capabilities.V1.xml#L635:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L638:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](./Org.OData.Capabilities.V1.xml#L641:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|String?|A brief description of the request
-[*LongDescription*](./Org.OData.Capabilities.V1.xml#L645:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|String?|A long description of the request
-[*ErrorResponses*](./Org.OData.Capabilities.V1.xml#L649:~:text=<ComplexType%20Name="-,InsertRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[NonInsertableProperties](./Org.OData.Capabilities.V1.xml#L654:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[PropertyPath\]|These structural properties cannot be specified on insert
-[NonInsertableNavigationProperties](./Org.OData.Capabilities.V1.xml#L657:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
-[RequiredProperties](./Org.OData.Capabilities.V1.xml#L660:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[PropertyPath\]|These structural properties must be specified on insert
-[Permissions](./Org.OData.Capabilities.V1.xml#L663:~:text=<ComplexType%20Name="-,InsertRestrictionsType,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the insert.
-=======
-[*Insertable*](Org.OData.Capabilities.V1.xml#L615)|Boolean|Entities can be inserted
-[*MaxLevels*](Org.OData.Capabilities.V1.xml#L618)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
-[*TypecastSegmentSupported*](Org.OData.Capabilities.V1.xml#L621)|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
-[*QueryOptions*](Org.OData.Capabilities.V1.xml#L624)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with insert requests
-[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L627)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L630)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](Org.OData.Capabilities.V1.xml#L633)|String?|A brief description of the request
-[*LongDescription*](Org.OData.Capabilities.V1.xml#L637)|String?|A long description of the request
-[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L641)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[NonInsertableProperties](Org.OData.Capabilities.V1.xml#L646)|\[PropertyPath\]|These structural properties cannot be specified on insert
-[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L649)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
-[RequiredProperties](Org.OData.Capabilities.V1.xml#L652)|\[PropertyPath\]|These structural properties must be specified on insert
-[Permissions](Org.OData.Capabilities.V1.xml#L655)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the insert.
->>>>>>> refs/remotes/origin/main
+[*Insertable*](Org.OData.Capabilities.V1.xml#L623)|Boolean|Entities can be inserted
+[*MaxLevels*](Org.OData.Capabilities.V1.xml#L626)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to insert into. A value of -1 indicates there is no restriction.
+[*TypecastSegmentSupported*](Org.OData.Capabilities.V1.xml#L629)|Boolean|Entities of a specific derived type can be created by specifying a type-cast segment
+[*QueryOptions*](Org.OData.Capabilities.V1.xml#L632)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with insert requests
+[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L635)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L638)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[*Description*](Org.OData.Capabilities.V1.xml#L641)|String?|A brief description of the request
+[*LongDescription*](Org.OData.Capabilities.V1.xml#L645)|String?|A long description of the request
+[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L649)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
+[NonInsertableProperties](Org.OData.Capabilities.V1.xml#L654)|\[PropertyPath\]|These structural properties cannot be specified on insert
+[NonInsertableNavigationProperties](Org.OData.Capabilities.V1.xml#L657)|\[NavigationPropertyPath\]|These navigation properties do not allow deep inserts
+[RequiredProperties](Org.OData.Capabilities.V1.xml#L660)|\[PropertyPath\]|These structural properties must be specified on insert
+[Permissions](Org.OData.Capabilities.V1.xml#L663)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the insert.
 
 <a name="PermissionType"></a>
-<<<<<<< HEAD
-## [PermissionType](./Org.OData.Capabilities.V1.xml#L668:~:text=<ComplexType%20Name="-,PermissionType,-")
-=======
-## [PermissionType](Org.OData.Capabilities.V1.xml#L660)
->>>>>>> refs/remotes/origin/main
+## [PermissionType](Org.OData.Capabilities.V1.xml#L668)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[SchemeName](./Org.OData.Capabilities.V1.xml#L669:~:text=<ComplexType%20Name="-,PermissionType,-")|[SchemeName](Org.OData.Authorization.V1.md#SchemeName)|Authorization flow scheme name
-[Scopes](./Org.OData.Capabilities.V1.xml#L672:~:text=<ComplexType%20Name="-,PermissionType,-")|\[[ScopeType](#ScopeType)\]|List of scopes that can provide access to the resource
-=======
-[SchemeName](Org.OData.Capabilities.V1.xml#L661)|[SchemeName](Org.OData.Authorization.V1.md#SchemeName)|Authorization flow scheme name
-[Scopes](Org.OData.Capabilities.V1.xml#L664)|\[[ScopeType](#ScopeType)\]|List of scopes that can provide access to the resource
->>>>>>> refs/remotes/origin/main
+[SchemeName](Org.OData.Capabilities.V1.xml#L669)|[SchemeName](Org.OData.Authorization.V1.md#SchemeName)|Authorization flow scheme name
+[Scopes](Org.OData.Capabilities.V1.xml#L672)|\[[ScopeType](#ScopeType)\]|List of scopes that can provide access to the resource
 
 <a name="ScopeType"></a>
-<<<<<<< HEAD
-## [ScopeType](./Org.OData.Capabilities.V1.xml#L677:~:text=<ComplexType%20Name="-,ScopeType,-")
-=======
-## [ScopeType](Org.OData.Capabilities.V1.xml#L669)
->>>>>>> refs/remotes/origin/main
+## [ScopeType](Org.OData.Capabilities.V1.xml#L677)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Scope](./Org.OData.Capabilities.V1.xml#L678:~:text=<ComplexType%20Name="-,ScopeType,-")|String|Name of the scope.
-[RestrictedProperties](./Org.OData.Capabilities.V1.xml#L681:~:text=<ComplexType%20Name="-,ScopeType,-")|String?|Comma-separated string value of all properties that will be included or excluded when using the scope.<br>Possible string value identifiers when specifying properties are `*`, _PropertyName_, `-`_PropertyName_.<br/>`*` denotes all properties are accessible.<br/>`-`_PropertyName_ excludes that specific property.<br/>_PropertyName_ explicitly provides access to the specific property.<br/>The absence of `RestrictedProperties` denotes all properties are accessible using that scope.
-=======
-[Scope](Org.OData.Capabilities.V1.xml#L670)|String|Name of the scope.
-[RestrictedProperties](Org.OData.Capabilities.V1.xml#L673)|String?|Comma-separated string value of all properties that will be included or excluded when using the scope.<br>Possible string value identifiers when specifying properties are `*`, _PropertyName_, `-`_PropertyName_.<br/>`*` denotes all properties are accessible.<br/>`-`_PropertyName_ excludes that specific property.<br/>_PropertyName_ explicitly provides access to the specific property.<br/>The absence of `RestrictedProperties` denotes all properties are accessible using that scope.
->>>>>>> refs/remotes/origin/main
+[Scope](Org.OData.Capabilities.V1.xml#L678)|String|Name of the scope.
+[RestrictedProperties](Org.OData.Capabilities.V1.xml#L681)|String?|Comma-separated string value of all properties that will be included or excluded when using the scope.<br>Possible string value identifiers when specifying properties are `*`, _PropertyName_, `-`_PropertyName_.<br/>`*` denotes all properties are accessible.<br/>`-`_PropertyName_ excludes that specific property.<br/>_PropertyName_ explicitly provides access to the specific property.<br/>The absence of `RestrictedProperties` denotes all properties are accessible using that scope.
 
 <a name="DeepInsertSupportType"></a>
-<<<<<<< HEAD
-## [DeepInsertSupportType](./Org.OData.Capabilities.V1.xml#L701:~:text=<ComplexType%20Name="-,DeepInsertSupportType,-")
-=======
-## [DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L693)
->>>>>>> refs/remotes/origin/main
+## [DeepInsertSupportType](Org.OData.Capabilities.V1.xml#L701)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Supported](./Org.OData.Capabilities.V1.xml#L702:~:text=<ComplexType%20Name="-,DeepInsertSupportType,-")|Boolean|Annotation target supports deep inserts
-[ContentIDSupported](./Org.OData.Capabilities.V1.xml#L705:~:text=<ComplexType%20Name="-,DeepInsertSupportType,-")|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
-=======
-[Supported](Org.OData.Capabilities.V1.xml#L694)|Boolean|Annotation target supports deep inserts
-[ContentIDSupported](Org.OData.Capabilities.V1.xml#L697)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
->>>>>>> refs/remotes/origin/main
+[Supported](Org.OData.Capabilities.V1.xml#L702)|Boolean|Annotation target supports deep inserts
+[ContentIDSupported](Org.OData.Capabilities.V1.xml#L705)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
 
 <a name="UpdateRestrictionsBase"></a>
-<<<<<<< HEAD
-## [UpdateRestrictionsBase](./Org.OData.Capabilities.V1.xml#L714:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")
-=======
-## [UpdateRestrictionsBase](Org.OData.Capabilities.V1.xml#L706)
->>>>>>> refs/remotes/origin/main
+## [UpdateRestrictionsBase](Org.OData.Capabilities.V1.xml#L714)
 
 
 **Derived Types:**
@@ -601,138 +473,70 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Updatable](./Org.OData.Capabilities.V1.xml#L715:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Entities can be updated
-[Upsertable](./Org.OData.Capabilities.V1.xml#L718:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Entities can be upserted
-[DeltaUpdateSupported](./Org.OData.Capabilities.V1.xml#L721:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Entities can be inserted, updated, and deleted via a PATCH request with a delta payload
-[UpdateMethod](./Org.OData.Capabilities.V1.xml#L724:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|[HttpMethod?](#HttpMethod)|Supported HTTP Methods (PUT or PATCH) for updating an entity. If null, PATCH SHOULD be supported and PUT MAY be supported.
-[FilterSegmentSupported](./Org.OData.Capabilities.V1.xml#L727:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
-[TypecastSegmentSupported](./Org.OData.Capabilities.V1.xml#L730:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
-[MaxLevels](./Org.OData.Capabilities.V1.xml#L733:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
-[Permissions](./Org.OData.Capabilities.V1.xml#L736:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
-[QueryOptions](./Org.OData.Capabilities.V1.xml#L739:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with update requests
-[CustomHeaders](./Org.OData.Capabilities.V1.xml#L742:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L745:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](./Org.OData.Capabilities.V1.xml#L748:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L752:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|String?|A long description of the request
-[ErrorResponses](./Org.OData.Capabilities.V1.xml#L756:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-=======
-[Updatable](Org.OData.Capabilities.V1.xml#L707)|Boolean|Entities can be updated
-[Upsertable](Org.OData.Capabilities.V1.xml#L710)|Boolean|Entities can be upserted
-[DeltaUpdateSupported](Org.OData.Capabilities.V1.xml#L713)|Boolean|Entities can be inserted, updated, and deleted via a PATCH request with a delta payload
-[UpdateMethod](Org.OData.Capabilities.V1.xml#L716)|[HttpMethod?](#HttpMethod)|Supported HTTP Methods (PUT or PATCH) for updating an entity. If null, PATCH SHOULD be supported and PUT MAY be supported.
-[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L719)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
-[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L722)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
-[MaxLevels](Org.OData.Capabilities.V1.xml#L725)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
-[Permissions](Org.OData.Capabilities.V1.xml#L728)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
-[QueryOptions](Org.OData.Capabilities.V1.xml#L731)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with update requests
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L734)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L737)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](Org.OData.Capabilities.V1.xml#L740)|String?|A brief description of the request
-[LongDescription](Org.OData.Capabilities.V1.xml#L744)|String?|A long description of the request
-[ErrorResponses](Org.OData.Capabilities.V1.xml#L748)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
->>>>>>> refs/remotes/origin/main
+[Updatable](Org.OData.Capabilities.V1.xml#L715)|Boolean|Entities can be updated
+[Upsertable](Org.OData.Capabilities.V1.xml#L718)|Boolean|Entities can be upserted
+[DeltaUpdateSupported](Org.OData.Capabilities.V1.xml#L721)|Boolean|Entities can be inserted, updated, and deleted via a PATCH request with a delta payload
+[UpdateMethod](Org.OData.Capabilities.V1.xml#L724)|[HttpMethod?](#HttpMethod)|Supported HTTP Methods (PUT or PATCH) for updating an entity. If null, PATCH SHOULD be supported and PUT MAY be supported.
+[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L727)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
+[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L730)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
+[MaxLevels](Org.OData.Capabilities.V1.xml#L733)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
+[Permissions](Org.OData.Capabilities.V1.xml#L736)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
+[QueryOptions](Org.OData.Capabilities.V1.xml#L739)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with update requests
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L742)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L745)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[Description](Org.OData.Capabilities.V1.xml#L748)|String?|A brief description of the request
+[LongDescription](Org.OData.Capabilities.V1.xml#L752)|String?|A long description of the request
+[ErrorResponses](Org.OData.Capabilities.V1.xml#L756)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
 
 <a name="UpdateRestrictionsType"></a>
-<<<<<<< HEAD
-## [UpdateRestrictionsType](./Org.OData.Capabilities.V1.xml#L760:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-"): [UpdateRestrictionsBase](#UpdateRestrictionsBase)
-=======
-## [UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L752): [UpdateRestrictionsBase](#UpdateRestrictionsBase)
->>>>>>> refs/remotes/origin/main
+## [UpdateRestrictionsType](Org.OData.Capabilities.V1.xml#L760): [UpdateRestrictionsBase](#UpdateRestrictionsBase)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[*Updatable*](./Org.OData.Capabilities.V1.xml#L715:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Entities can be updated
-[*Upsertable*](./Org.OData.Capabilities.V1.xml#L718:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Entities can be upserted
-[*DeltaUpdateSupported*](./Org.OData.Capabilities.V1.xml#L721:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Entities can be inserted, updated, and deleted via a PATCH request with a delta payload
-[*UpdateMethod*](./Org.OData.Capabilities.V1.xml#L724:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|[HttpMethod?](#HttpMethod)|Supported HTTP Methods (PUT or PATCH) for updating an entity. If null, PATCH SHOULD be supported and PUT MAY be supported.
-[*FilterSegmentSupported*](./Org.OData.Capabilities.V1.xml#L727:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
-[*TypecastSegmentSupported*](./Org.OData.Capabilities.V1.xml#L730:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
-[*MaxLevels*](./Org.OData.Capabilities.V1.xml#L733:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
-[*Permissions*](./Org.OData.Capabilities.V1.xml#L736:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
-[*QueryOptions*](./Org.OData.Capabilities.V1.xml#L739:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with update requests
-[*CustomHeaders*](./Org.OData.Capabilities.V1.xml#L742:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L745:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](./Org.OData.Capabilities.V1.xml#L748:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|String?|A brief description of the request
-[*LongDescription*](./Org.OData.Capabilities.V1.xml#L752:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|String?|A long description of the request
-[*ErrorResponses*](./Org.OData.Capabilities.V1.xml#L756:~:text=<ComplexType%20Name="-,UpdateRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[NonUpdatableProperties](./Org.OData.Capabilities.V1.xml#L761:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|\[PropertyPath\]|These structural properties cannot be specified on update
-[NonUpdatableNavigationProperties](./Org.OData.Capabilities.V1.xml#L764:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
-[RequiredProperties](./Org.OData.Capabilities.V1.xml#L767:~:text=<ComplexType%20Name="-,UpdateRestrictionsType,-")|\[PropertyPath\]|These structural properties must be specified on update
-=======
-[*Updatable*](Org.OData.Capabilities.V1.xml#L707)|Boolean|Entities can be updated
-[*Upsertable*](Org.OData.Capabilities.V1.xml#L710)|Boolean|Entities can be upserted
-[*DeltaUpdateSupported*](Org.OData.Capabilities.V1.xml#L713)|Boolean|Entities can be inserted, updated, and deleted via a PATCH request with a delta payload
-[*UpdateMethod*](Org.OData.Capabilities.V1.xml#L716)|[HttpMethod?](#HttpMethod)|Supported HTTP Methods (PUT or PATCH) for updating an entity. If null, PATCH SHOULD be supported and PUT MAY be supported.
-[*FilterSegmentSupported*](Org.OData.Capabilities.V1.xml#L719)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
-[*TypecastSegmentSupported*](Org.OData.Capabilities.V1.xml#L722)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
-[*MaxLevels*](Org.OData.Capabilities.V1.xml#L725)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
-[*Permissions*](Org.OData.Capabilities.V1.xml#L728)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
-[*QueryOptions*](Org.OData.Capabilities.V1.xml#L731)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with update requests
-[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L734)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L737)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](Org.OData.Capabilities.V1.xml#L740)|String?|A brief description of the request
-[*LongDescription*](Org.OData.Capabilities.V1.xml#L744)|String?|A long description of the request
-[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L748)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[NonUpdatableProperties](Org.OData.Capabilities.V1.xml#L753)|\[PropertyPath\]|These structural properties cannot be specified on update
-[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L756)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
-[RequiredProperties](Org.OData.Capabilities.V1.xml#L759)|\[PropertyPath\]|These structural properties must be specified on update
->>>>>>> refs/remotes/origin/main
+[*Updatable*](Org.OData.Capabilities.V1.xml#L715)|Boolean|Entities can be updated
+[*Upsertable*](Org.OData.Capabilities.V1.xml#L718)|Boolean|Entities can be upserted
+[*DeltaUpdateSupported*](Org.OData.Capabilities.V1.xml#L721)|Boolean|Entities can be inserted, updated, and deleted via a PATCH request with a delta payload
+[*UpdateMethod*](Org.OData.Capabilities.V1.xml#L724)|[HttpMethod?](#HttpMethod)|Supported HTTP Methods (PUT or PATCH) for updating an entity. If null, PATCH SHOULD be supported and PUT MAY be supported.
+[*FilterSegmentSupported*](Org.OData.Capabilities.V1.xml#L727)|Boolean|Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment
+[*TypecastSegmentSupported*](Org.OData.Capabilities.V1.xml#L730)|Boolean|Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment
+[*MaxLevels*](Org.OData.Capabilities.V1.xml#L733)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction.
+[*Permissions*](Org.OData.Capabilities.V1.xml#L736)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the update.
+[*QueryOptions*](Org.OData.Capabilities.V1.xml#L739)|[ModificationQueryOptionsType?](#ModificationQueryOptionsType)|Support for query options with update requests
+[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L742)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L745)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[*Description*](Org.OData.Capabilities.V1.xml#L748)|String?|A brief description of the request
+[*LongDescription*](Org.OData.Capabilities.V1.xml#L752)|String?|A long description of the request
+[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L756)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
+[NonUpdatableProperties](Org.OData.Capabilities.V1.xml#L761)|\[PropertyPath\]|These structural properties cannot be specified on update
+[NonUpdatableNavigationProperties](Org.OData.Capabilities.V1.xml#L764)|\[NavigationPropertyPath\]|These navigation properties do not allow rebinding
+[RequiredProperties](Org.OData.Capabilities.V1.xml#L767)|\[PropertyPath\]|These structural properties must be specified on update
 
 <a name="HttpMethod"></a>
-<<<<<<< HEAD
-## [HttpMethod](./Org.OData.Capabilities.V1.xml#L772:~:text=<EnumType%20Name="-,HttpMethod,-")
-=======
-## [HttpMethod](Org.OData.Capabilities.V1.xml#L764)
->>>>>>> refs/remotes/origin/main
+## [HttpMethod](Org.OData.Capabilities.V1.xml#L772)
 
 
 Flag Member|Value|Description
 :-----|----:|:----------
-<<<<<<< HEAD
-[GET](./Org.OData.Capabilities.V1.xml#L773:~:text=<EnumType%20Name="-,HttpMethod,-")|1|The HTTP GET Method
-[PATCH](./Org.OData.Capabilities.V1.xml#L776:~:text=<EnumType%20Name="-,HttpMethod,-")|2|The HTTP PATCH Method
-[PUT](./Org.OData.Capabilities.V1.xml#L779:~:text=<EnumType%20Name="-,HttpMethod,-")|4|The HTTP PUT Method
-[POST](./Org.OData.Capabilities.V1.xml#L782:~:text=<EnumType%20Name="-,HttpMethod,-")|8|The HTTP POST Method
-[DELETE](./Org.OData.Capabilities.V1.xml#L785:~:text=<EnumType%20Name="-,HttpMethod,-")|16|The HTTP DELETE Method
-[OPTIONS](./Org.OData.Capabilities.V1.xml#L788:~:text=<EnumType%20Name="-,HttpMethod,-")|32|The HTTP OPTIONS Method
-[HEAD](./Org.OData.Capabilities.V1.xml#L791:~:text=<EnumType%20Name="-,HttpMethod,-")|64|The HTTP HEAD Method
-=======
-[GET](Org.OData.Capabilities.V1.xml#L765)|1|The HTTP GET Method
-[PATCH](Org.OData.Capabilities.V1.xml#L768)|2|The HTTP PATCH Method
-[PUT](Org.OData.Capabilities.V1.xml#L771)|4|The HTTP PUT Method
-[POST](Org.OData.Capabilities.V1.xml#L774)|8|The HTTP POST Method
-[DELETE](Org.OData.Capabilities.V1.xml#L777)|16|The HTTP DELETE Method
-[OPTIONS](Org.OData.Capabilities.V1.xml#L780)|32|The HTTP OPTIONS Method
-[HEAD](Org.OData.Capabilities.V1.xml#L783)|64|The HTTP HEAD Method
->>>>>>> refs/remotes/origin/main
+[GET](Org.OData.Capabilities.V1.xml#L773)|1|The HTTP GET Method
+[PATCH](Org.OData.Capabilities.V1.xml#L776)|2|The HTTP PATCH Method
+[PUT](Org.OData.Capabilities.V1.xml#L779)|4|The HTTP PUT Method
+[POST](Org.OData.Capabilities.V1.xml#L782)|8|The HTTP POST Method
+[DELETE](Org.OData.Capabilities.V1.xml#L785)|16|The HTTP DELETE Method
+[OPTIONS](Org.OData.Capabilities.V1.xml#L788)|32|The HTTP OPTIONS Method
+[HEAD](Org.OData.Capabilities.V1.xml#L791)|64|The HTTP HEAD Method
 
 <a name="DeepUpdateSupportType"></a>
-<<<<<<< HEAD
-## [DeepUpdateSupportType](./Org.OData.Capabilities.V1.xml#L800:~:text=<ComplexType%20Name="-,DeepUpdateSupportType,-")
-=======
-## [DeepUpdateSupportType](Org.OData.Capabilities.V1.xml#L792)
->>>>>>> refs/remotes/origin/main
+## [DeepUpdateSupportType](Org.OData.Capabilities.V1.xml#L800)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Supported](./Org.OData.Capabilities.V1.xml#L801:~:text=<ComplexType%20Name="-,DeepUpdateSupportType,-")|Boolean|Annotation target supports deep updates
-[ContentIDSupported](./Org.OData.Capabilities.V1.xml#L804:~:text=<ComplexType%20Name="-,DeepUpdateSupportType,-")|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
-=======
-[Supported](Org.OData.Capabilities.V1.xml#L793)|Boolean|Annotation target supports deep updates
-[ContentIDSupported](Org.OData.Capabilities.V1.xml#L796)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
->>>>>>> refs/remotes/origin/main
+[Supported](Org.OData.Capabilities.V1.xml#L801)|Boolean|Annotation target supports deep updates
+[ContentIDSupported](Org.OData.Capabilities.V1.xml#L804)|Boolean|Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation.
 
 <a name="DeleteRestrictionsBase"></a>
-<<<<<<< HEAD
-## [DeleteRestrictionsBase](./Org.OData.Capabilities.V1.xml#L813:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")
-=======
-## [DeleteRestrictionsBase](Org.OData.Capabilities.V1.xml#L805)
->>>>>>> refs/remotes/origin/main
+## [DeleteRestrictionsBase](Org.OData.Capabilities.V1.xml#L813)
 
 
 **Derived Types:**
@@ -740,158 +544,80 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Deletable](./Org.OData.Capabilities.V1.xml#L814:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Boolean|Entities can be deleted
-[MaxLevels](./Org.OData.Capabilities.V1.xml#L817:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
-[FilterSegmentSupported](./Org.OData.Capabilities.V1.xml#L820:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Boolean|Members of collections can be deleted via a DELETE request with a `/$filter(...)/$each` segment
-[TypecastSegmentSupported](./Org.OData.Capabilities.V1.xml#L823:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Boolean|Members of collections can be deleted via a DELETE request with a type-cast segment and a `/$each` segment
-[Permissions](./Org.OData.Capabilities.V1.xml#L826:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the delete.
-[CustomHeaders](./Org.OData.Capabilities.V1.xml#L829:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L832:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](./Org.OData.Capabilities.V1.xml#L835:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L839:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|String?|A long description of the request
-[ErrorResponses](./Org.OData.Capabilities.V1.xml#L843:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-=======
-[Deletable](Org.OData.Capabilities.V1.xml#L806)|Boolean|Entities can be deleted
-[MaxLevels](Org.OData.Capabilities.V1.xml#L809)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
-[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L812)|Boolean|Members of collections can be deleted via a DELETE request with a `/$filter(...)/$each` segment
-[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L815)|Boolean|Members of collections can be deleted via a DELETE request with a type-cast segment and a `/$each` segment
-[Permissions](Org.OData.Capabilities.V1.xml#L818)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the delete.
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L821)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L824)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](Org.OData.Capabilities.V1.xml#L827)|String?|A brief description of the request
-[LongDescription](Org.OData.Capabilities.V1.xml#L831)|String?|A long description of the request
-[ErrorResponses](Org.OData.Capabilities.V1.xml#L835)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
->>>>>>> refs/remotes/origin/main
+[Deletable](Org.OData.Capabilities.V1.xml#L814)|Boolean|Entities can be deleted
+[MaxLevels](Org.OData.Capabilities.V1.xml#L817)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
+[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L820)|Boolean|Members of collections can be deleted via a DELETE request with a `/$filter(...)/$each` segment
+[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L823)|Boolean|Members of collections can be deleted via a DELETE request with a type-cast segment and a `/$each` segment
+[Permissions](Org.OData.Capabilities.V1.xml#L826)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the delete.
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L829)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L832)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[Description](Org.OData.Capabilities.V1.xml#L835)|String?|A brief description of the request
+[LongDescription](Org.OData.Capabilities.V1.xml#L839)|String?|A long description of the request
+[ErrorResponses](Org.OData.Capabilities.V1.xml#L843)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
 
 <a name="DeleteRestrictionsType"></a>
-<<<<<<< HEAD
-## [DeleteRestrictionsType](./Org.OData.Capabilities.V1.xml#L847:~:text=<ComplexType%20Name="-,DeleteRestrictionsType,-"): [DeleteRestrictionsBase](#DeleteRestrictionsBase)
-=======
-## [DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L839): [DeleteRestrictionsBase](#DeleteRestrictionsBase)
->>>>>>> refs/remotes/origin/main
+## [DeleteRestrictionsType](Org.OData.Capabilities.V1.xml#L847): [DeleteRestrictionsBase](#DeleteRestrictionsBase)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[*Deletable*](./Org.OData.Capabilities.V1.xml#L814:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Boolean|Entities can be deleted
-[*MaxLevels*](./Org.OData.Capabilities.V1.xml#L817:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
-[*FilterSegmentSupported*](./Org.OData.Capabilities.V1.xml#L820:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Boolean|Members of collections can be deleted via a DELETE request with a `/$filter(...)/$each` segment
-[*TypecastSegmentSupported*](./Org.OData.Capabilities.V1.xml#L823:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|Boolean|Members of collections can be deleted via a DELETE request with a type-cast segment and a `/$each` segment
-[*Permissions*](./Org.OData.Capabilities.V1.xml#L826:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the delete.
-[*CustomHeaders*](./Org.OData.Capabilities.V1.xml#L829:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L832:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](./Org.OData.Capabilities.V1.xml#L835:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|String?|A brief description of the request
-[*LongDescription*](./Org.OData.Capabilities.V1.xml#L839:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|String?|A long description of the request
-[*ErrorResponses*](./Org.OData.Capabilities.V1.xml#L843:~:text=<ComplexType%20Name="-,DeleteRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[NonDeletableNavigationProperties](./Org.OData.Capabilities.V1.xml#L848:~:text=<ComplexType%20Name="-,DeleteRestrictionsType,-")|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
-=======
-[*Deletable*](Org.OData.Capabilities.V1.xml#L806)|Boolean|Entities can be deleted
-[*MaxLevels*](Org.OData.Capabilities.V1.xml#L809)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
-[*FilterSegmentSupported*](Org.OData.Capabilities.V1.xml#L812)|Boolean|Members of collections can be deleted via a DELETE request with a `/$filter(...)/$each` segment
-[*TypecastSegmentSupported*](Org.OData.Capabilities.V1.xml#L815)|Boolean|Members of collections can be deleted via a DELETE request with a type-cast segment and a `/$each` segment
-[*Permissions*](Org.OData.Capabilities.V1.xml#L818)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the delete.
-[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L821)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L824)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](Org.OData.Capabilities.V1.xml#L827)|String?|A brief description of the request
-[*LongDescription*](Org.OData.Capabilities.V1.xml#L831)|String?|A long description of the request
-[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L835)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L840)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
->>>>>>> refs/remotes/origin/main
+[*Deletable*](Org.OData.Capabilities.V1.xml#L814)|Boolean|Entities can be deleted
+[*MaxLevels*](Org.OData.Capabilities.V1.xml#L817)|Int32|The maximum number of navigation properties that can be traversed when addressing the collection to delete from or the entity to delete. A value of -1 indicates there is no restriction.
+[*FilterSegmentSupported*](Org.OData.Capabilities.V1.xml#L820)|Boolean|Members of collections can be deleted via a DELETE request with a `/$filter(...)/$each` segment
+[*TypecastSegmentSupported*](Org.OData.Capabilities.V1.xml#L823)|Boolean|Members of collections can be deleted via a DELETE request with a type-cast segment and a `/$each` segment
+[*Permissions*](Org.OData.Capabilities.V1.xml#L826)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to perform the delete.
+[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L829)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L832)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[*Description*](Org.OData.Capabilities.V1.xml#L835)|String?|A brief description of the request
+[*LongDescription*](Org.OData.Capabilities.V1.xml#L839)|String?|A long description of the request
+[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L843)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
+[NonDeletableNavigationProperties](Org.OData.Capabilities.V1.xml#L848)|\[NavigationPropertyPath\]|These navigation properties do not allow DeleteLink requests
 
 <a name="CollectionPropertyRestrictionsType"></a>
-<<<<<<< HEAD
-## [CollectionPropertyRestrictionsType](./Org.OData.Capabilities.V1.xml#L856:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")
-=======
-## [CollectionPropertyRestrictionsType](Org.OData.Capabilities.V1.xml#L848)
->>>>>>> refs/remotes/origin/main
+## [CollectionPropertyRestrictionsType](Org.OData.Capabilities.V1.xml#L856)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[CollectionProperty](./Org.OData.Capabilities.V1.xml#L857:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|PropertyPath?|Restricted Collection-valued property
-[FilterFunctions](./Org.OData.Capabilities.V1.xml#L860:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|\[String\]|List of functions and operators supported in filter expressions<br>If not specified, null, or empty, all functions and operators may be attempted.
-[FilterRestrictions](./Org.OData.Capabilities.V1.xml#L864:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|[FilterRestrictionsType?](#FilterRestrictionsType)|Restrictions on filter expressions
-[SearchRestrictions](./Org.OData.Capabilities.V1.xml#L867:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
-[SortRestrictions](./Org.OData.Capabilities.V1.xml#L870:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|[SortRestrictionsType?](#SortRestrictionsType)|Restrictions on orderby expressions
-[TopSupported](./Org.OData.Capabilities.V1.xml#L873:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|Boolean|Supports $top
-[SkipSupported](./Org.OData.Capabilities.V1.xml#L876:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|Boolean|Supports $skip
-[SelectSupport](./Org.OData.Capabilities.V1.xml#L879:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|[SelectSupportType?](#SelectSupportType)|Support for $select
-[Insertable](./Org.OData.Capabilities.V1.xml#L882:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|Boolean|Members can be inserted into this collection<br>If additionally annotated with [Core.PositionalInsert](Org.OData.Core.V1.md#PositionalInsert), members can be inserted at a specific position
-[Updatable](./Org.OData.Capabilities.V1.xml#L886:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|Boolean|Members of this ordered collection can be updated by ordinal
-[Deletable](./Org.OData.Capabilities.V1.xml#L889:~:text=<ComplexType%20Name="-,CollectionPropertyRestrictionsType,-")|Boolean|Members of this ordered collection can be deleted by ordinal
-=======
-[CollectionProperty](Org.OData.Capabilities.V1.xml#L849)|PropertyPath?|Restricted Collection-valued property
-[FilterFunctions](Org.OData.Capabilities.V1.xml#L852)|\[String\]|List of functions and operators supported in filter expressions<br>If not specified, null, or empty, all functions and operators may be attempted.
-[FilterRestrictions](Org.OData.Capabilities.V1.xml#L856)|[FilterRestrictionsType?](#FilterRestrictionsType)|Restrictions on filter expressions
-[SearchRestrictions](Org.OData.Capabilities.V1.xml#L859)|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L862)|[SortRestrictionsType?](#SortRestrictionsType)|Restrictions on orderby expressions
-[TopSupported](Org.OData.Capabilities.V1.xml#L865)|Boolean|Supports $top
-[SkipSupported](Org.OData.Capabilities.V1.xml#L868)|Boolean|Supports $skip
-[SelectSupport](Org.OData.Capabilities.V1.xml#L871)|[SelectSupportType?](#SelectSupportType)|Support for $select
-[Insertable](Org.OData.Capabilities.V1.xml#L874)|Boolean|Members can be inserted into this collection<br>If additionally annotated with [Core.PositionalInsert](Org.OData.Core.V1.md#PositionalInsert), members can be inserted at a specific position
-[Updatable](Org.OData.Capabilities.V1.xml#L878)|Boolean|Members of this ordered collection can be updated by ordinal
-[Deletable](Org.OData.Capabilities.V1.xml#L881)|Boolean|Members of this ordered collection can be deleted by ordinal
->>>>>>> refs/remotes/origin/main
+[CollectionProperty](Org.OData.Capabilities.V1.xml#L857)|PropertyPath?|Restricted Collection-valued property
+[FilterFunctions](Org.OData.Capabilities.V1.xml#L860)|\[String\]|List of functions and operators supported in filter expressions<br>If not specified, null, or empty, all functions and operators may be attempted.
+[FilterRestrictions](Org.OData.Capabilities.V1.xml#L864)|[FilterRestrictionsType?](#FilterRestrictionsType)|Restrictions on filter expressions
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L867)|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L870)|[SortRestrictionsType?](#SortRestrictionsType)|Restrictions on orderby expressions
+[TopSupported](Org.OData.Capabilities.V1.xml#L873)|Boolean|Supports $top
+[SkipSupported](Org.OData.Capabilities.V1.xml#L876)|Boolean|Supports $skip
+[SelectSupport](Org.OData.Capabilities.V1.xml#L879)|[SelectSupportType?](#SelectSupportType)|Support for $select
+[Insertable](Org.OData.Capabilities.V1.xml#L882)|Boolean|Members can be inserted into this collection<br>If additionally annotated with [Core.PositionalInsert](Org.OData.Core.V1.md#PositionalInsert), members can be inserted at a specific position
+[Updatable](Org.OData.Capabilities.V1.xml#L886)|Boolean|Members of this ordered collection can be updated by ordinal
+[Deletable](Org.OData.Capabilities.V1.xml#L889)|Boolean|Members of this ordered collection can be deleted by ordinal
 
 <a name="OperationRestrictionsType"></a>
-<<<<<<< HEAD
-## [OperationRestrictionsType](./Org.OData.Capabilities.V1.xml#L897:~:text=<ComplexType%20Name="-,OperationRestrictionsType,-")
-=======
-## [OperationRestrictionsType](Org.OData.Capabilities.V1.xml#L889)
->>>>>>> refs/remotes/origin/main
+## [OperationRestrictionsType](Org.OData.Capabilities.V1.xml#L897)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[FilterSegmentSupported](./Org.OData.Capabilities.V1.xml#L898:~:text=<ComplexType%20Name="-,OperationRestrictionsType,-")|Boolean|Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment
-[Permissions](./Org.OData.Capabilities.V1.xml#L901:~:text=<ComplexType%20Name="-,OperationRestrictionsType,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to invoke an action or function
-[CustomHeaders](./Org.OData.Capabilities.V1.xml#L904:~:text=<ComplexType%20Name="-,OperationRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L907:~:text=<ComplexType%20Name="-,OperationRestrictionsType,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[ErrorResponses](./Org.OData.Capabilities.V1.xml#L910:~:text=<ComplexType%20Name="-,OperationRestrictionsType,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-=======
-[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L890)|Boolean|Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment
-[Permissions](Org.OData.Capabilities.V1.xml#L893)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to invoke an action or function
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L896)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L899)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[ErrorResponses](Org.OData.Capabilities.V1.xml#L902)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
->>>>>>> refs/remotes/origin/main
+[FilterSegmentSupported](Org.OData.Capabilities.V1.xml#L898)|Boolean|Bound action or function can be invoked on a collection-valued binding parameter path with a `/$filter(...)` segment
+[Permissions](Org.OData.Capabilities.V1.xml#L901)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to invoke an action or function
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L904)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L907)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[ErrorResponses](Org.OData.Capabilities.V1.xml#L910)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
 
 <a name="ModificationQueryOptionsType"></a>
-<<<<<<< HEAD
-## [ModificationQueryOptionsType](./Org.OData.Capabilities.V1.xml#L921:~:text=<ComplexType%20Name="-,ModificationQueryOptionsType,-")
-=======
-## [ModificationQueryOptionsType](Org.OData.Capabilities.V1.xml#L913)
->>>>>>> refs/remotes/origin/main
+## [ModificationQueryOptionsType](Org.OData.Capabilities.V1.xml#L921)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[ExpandSupported](./Org.OData.Capabilities.V1.xml#L922:~:text=<ComplexType%20Name="-,ModificationQueryOptionsType,-")|Boolean|Supports $expand with modification requests
-[SelectSupported](./Org.OData.Capabilities.V1.xml#L925:~:text=<ComplexType%20Name="-,ModificationQueryOptionsType,-")|Boolean|Supports $select with modification requests
-[ComputeSupported](./Org.OData.Capabilities.V1.xml#L928:~:text=<ComplexType%20Name="-,ModificationQueryOptionsType,-")|Boolean|Supports $compute with modification requests
-[FilterSupported](./Org.OData.Capabilities.V1.xml#L931:~:text=<ComplexType%20Name="-,ModificationQueryOptionsType,-")|Boolean|Supports $filter with modification requests
-[SearchSupported](./Org.OData.Capabilities.V1.xml#L934:~:text=<ComplexType%20Name="-,ModificationQueryOptionsType,-")|Boolean|Supports $search with modification requests
-[SortSupported](./Org.OData.Capabilities.V1.xml#L937:~:text=<ComplexType%20Name="-,ModificationQueryOptionsType,-")|Boolean|Supports $orderby with modification requests
-=======
-[ExpandSupported](Org.OData.Capabilities.V1.xml#L914)|Boolean|Supports $expand with modification requests
-[SelectSupported](Org.OData.Capabilities.V1.xml#L917)|Boolean|Supports $select with modification requests
-[ComputeSupported](Org.OData.Capabilities.V1.xml#L920)|Boolean|Supports $compute with modification requests
-[FilterSupported](Org.OData.Capabilities.V1.xml#L923)|Boolean|Supports $filter with modification requests
-[SearchSupported](Org.OData.Capabilities.V1.xml#L926)|Boolean|Supports $search with modification requests
-[SortSupported](Org.OData.Capabilities.V1.xml#L929)|Boolean|Supports $orderby with modification requests
->>>>>>> refs/remotes/origin/main
+[ExpandSupported](Org.OData.Capabilities.V1.xml#L922)|Boolean|Supports $expand with modification requests
+[SelectSupported](Org.OData.Capabilities.V1.xml#L925)|Boolean|Supports $select with modification requests
+[ComputeSupported](Org.OData.Capabilities.V1.xml#L928)|Boolean|Supports $compute with modification requests
+[FilterSupported](Org.OData.Capabilities.V1.xml#L931)|Boolean|Supports $filter with modification requests
+[SearchSupported](Org.OData.Capabilities.V1.xml#L934)|Boolean|Supports $search with modification requests
+[SortSupported](Org.OData.Capabilities.V1.xml#L937)|Boolean|Supports $orderby with modification requests
 
 <a name="ReadRestrictionsBase"></a>
-<<<<<<< HEAD
-## [*ReadRestrictionsBase*](./Org.OData.Capabilities.V1.xml#L946:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")
-=======
-## [*ReadRestrictionsBase*](Org.OData.Capabilities.V1.xml#L938)
->>>>>>> refs/remotes/origin/main
+## [*ReadRestrictionsBase*](Org.OData.Capabilities.V1.xml#L946)
 
 
 **Derived Types:**
@@ -900,170 +626,86 @@ Property|Type|Description
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Readable](./Org.OData.Capabilities.V1.xml#L947:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|Boolean|Entities can be retrieved
-[Permissions](./Org.OData.Capabilities.V1.xml#L950:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
-[CustomHeaders](./Org.OData.Capabilities.V1.xml#L953:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](./Org.OData.Capabilities.V1.xml#L956:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](./Org.OData.Capabilities.V1.xml#L959:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A brief description of the request
-[LongDescription](./Org.OData.Capabilities.V1.xml#L963:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A long description of the request
-[ErrorResponses](./Org.OData.Capabilities.V1.xml#L967:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-=======
-[Readable](Org.OData.Capabilities.V1.xml#L939)|Boolean|Entities can be retrieved
-[Permissions](Org.OData.Capabilities.V1.xml#L942)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
-[CustomHeaders](Org.OData.Capabilities.V1.xml#L945)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L948)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[Description](Org.OData.Capabilities.V1.xml#L951)|String?|A brief description of the request
-[LongDescription](Org.OData.Capabilities.V1.xml#L955)|String?|A long description of the request
-[ErrorResponses](Org.OData.Capabilities.V1.xml#L959)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
->>>>>>> refs/remotes/origin/main
+[Readable](Org.OData.Capabilities.V1.xml#L947)|Boolean|Entities can be retrieved
+[Permissions](Org.OData.Capabilities.V1.xml#L950)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
+[CustomHeaders](Org.OData.Capabilities.V1.xml#L953)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[CustomQueryOptions](Org.OData.Capabilities.V1.xml#L956)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[Description](Org.OData.Capabilities.V1.xml#L959)|String?|A brief description of the request
+[LongDescription](Org.OData.Capabilities.V1.xml#L963)|String?|A long description of the request
+[ErrorResponses](Org.OData.Capabilities.V1.xml#L967)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
 
 <a name="ReadByKeyRestrictionsType"></a>
-<<<<<<< HEAD
-## [ReadByKeyRestrictionsType](./Org.OData.Capabilities.V1.xml#L971:~:text=<ComplexType%20Name="-,ReadByKeyRestrictionsType,-"): [ReadRestrictionsBase](#ReadRestrictionsBase)
-=======
-## [ReadByKeyRestrictionsType](Org.OData.Capabilities.V1.xml#L963): [ReadRestrictionsBase](#ReadRestrictionsBase)
->>>>>>> refs/remotes/origin/main
+## [ReadByKeyRestrictionsType](Org.OData.Capabilities.V1.xml#L971): [ReadRestrictionsBase](#ReadRestrictionsBase)
 Restrictions for retrieving an entity by key
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[*Readable*](./Org.OData.Capabilities.V1.xml#L947:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|Boolean|Entities can be retrieved
-[*Permissions*](./Org.OData.Capabilities.V1.xml#L950:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
-[*CustomHeaders*](./Org.OData.Capabilities.V1.xml#L953:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L956:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](./Org.OData.Capabilities.V1.xml#L959:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A brief description of the request
-[*LongDescription*](./Org.OData.Capabilities.V1.xml#L963:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A long description of the request
-[*ErrorResponses*](./Org.OData.Capabilities.V1.xml#L967:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-=======
-[*Readable*](Org.OData.Capabilities.V1.xml#L939)|Boolean|Entities can be retrieved
-[*Permissions*](Org.OData.Capabilities.V1.xml#L942)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
-[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L945)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L948)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](Org.OData.Capabilities.V1.xml#L951)|String?|A brief description of the request
-[*LongDescription*](Org.OData.Capabilities.V1.xml#L955)|String?|A long description of the request
-[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L959)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
->>>>>>> refs/remotes/origin/main
+[*Readable*](Org.OData.Capabilities.V1.xml#L947)|Boolean|Entities can be retrieved
+[*Permissions*](Org.OData.Capabilities.V1.xml#L950)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
+[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L953)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L956)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[*Description*](Org.OData.Capabilities.V1.xml#L959)|String?|A brief description of the request
+[*LongDescription*](Org.OData.Capabilities.V1.xml#L963)|String?|A long description of the request
+[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L967)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
 
 <a name="ReadRestrictionsType"></a>
-<<<<<<< HEAD
-## [ReadRestrictionsType](./Org.OData.Capabilities.V1.xml#L974:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-"): [ReadRestrictionsBase](#ReadRestrictionsBase)
-=======
-## [ReadRestrictionsType](Org.OData.Capabilities.V1.xml#L966): [ReadRestrictionsBase](#ReadRestrictionsBase)
->>>>>>> refs/remotes/origin/main
+## [ReadRestrictionsType](Org.OData.Capabilities.V1.xml#L974): [ReadRestrictionsBase](#ReadRestrictionsBase)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[*Readable*](./Org.OData.Capabilities.V1.xml#L947:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|Boolean|Entities can be retrieved
-[*Permissions*](./Org.OData.Capabilities.V1.xml#L950:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
-[*CustomHeaders*](./Org.OData.Capabilities.V1.xml#L953:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](./Org.OData.Capabilities.V1.xml#L956:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](./Org.OData.Capabilities.V1.xml#L959:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A brief description of the request
-[*LongDescription*](./Org.OData.Capabilities.V1.xml#L963:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|String?|A long description of the request
-[*ErrorResponses*](./Org.OData.Capabilities.V1.xml#L967:~:text=<ComplexType%20Name="-,ReadRestrictionsBase,-")|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[TypecastSegmentSupported](./Org.OData.Capabilities.V1.xml#L975:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-")|Boolean|Entities of a specific derived type can be read by specifying a type-cast segment
-[ReadByKeyRestrictions](./Org.OData.Capabilities.V1.xml#L978:~:text=<ComplexType%20Name="-,ReadRestrictionsType,-")|[ReadByKeyRestrictionsType?](#ReadByKeyRestrictionsType)|Restrictions for retrieving an entity by key<br>Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies.
-=======
-[*Readable*](Org.OData.Capabilities.V1.xml#L939)|Boolean|Entities can be retrieved
-[*Permissions*](Org.OData.Capabilities.V1.xml#L942)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
-[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L945)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
-[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L948)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
-[*Description*](Org.OData.Capabilities.V1.xml#L951)|String?|A brief description of the request
-[*LongDescription*](Org.OData.Capabilities.V1.xml#L955)|String?|A long description of the request
-[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L959)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
-[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L967)|Boolean|Entities of a specific derived type can be read by specifying a type-cast segment
-[ReadByKeyRestrictions](Org.OData.Capabilities.V1.xml#L970)|[ReadByKeyRestrictionsType?](#ReadByKeyRestrictionsType)|Restrictions for retrieving an entity by key<br>Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies.
->>>>>>> refs/remotes/origin/main
+[*Readable*](Org.OData.Capabilities.V1.xml#L947)|Boolean|Entities can be retrieved
+[*Permissions*](Org.OData.Capabilities.V1.xml#L950)|\[[PermissionType?](#PermissionType)\]|Required permissions. One of the specified sets of scopes is required to read.
+[*CustomHeaders*](Org.OData.Capabilities.V1.xml#L953)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom headers
+[*CustomQueryOptions*](Org.OData.Capabilities.V1.xml#L956)|\[[CustomParameter](#CustomParameter)\]|Supported or required custom query options
+[*Description*](Org.OData.Capabilities.V1.xml#L959)|String?|A brief description of the request
+[*LongDescription*](Org.OData.Capabilities.V1.xml#L963)|String?|A long description of the request
+[*ErrorResponses*](Org.OData.Capabilities.V1.xml#L967)|\[[HttpResponse](#HttpResponse)\]|Possible error responses returned by the request.
+[TypecastSegmentSupported](Org.OData.Capabilities.V1.xml#L975)|Boolean|Entities of a specific derived type can be read by specifying a type-cast segment
+[ReadByKeyRestrictions](Org.OData.Capabilities.V1.xml#L978)|[ReadByKeyRestrictionsType?](#ReadByKeyRestrictionsType)|Restrictions for retrieving an entity by key<br>Only valid when applied to a collection. If a property of `ReadByKeyRestrictions` is not specified, the corresponding property value of `ReadRestrictions` applies.
 
 <a name="CustomParameter"></a>
-<<<<<<< HEAD
-## [CustomParameter](./Org.OData.Capabilities.V1.xml#L1041:~:text=<ComplexType%20Name="-,CustomParameter,-")
-=======
-## [CustomParameter](Org.OData.Capabilities.V1.xml#L1033)
->>>>>>> refs/remotes/origin/main
+## [CustomParameter](Org.OData.Capabilities.V1.xml#L1041)
 A custom parameter is either a header or a query option
 
 The type of a custom parameter is always a string. Restrictions on the parameter values can be expressed by annotating the record expression describing the parameter with terms from the Validation vocabulary, e.g. Validation.Pattern or Validation.AllowedValues.
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[Name](./Org.OData.Capabilities.V1.xml#L1044:~:text=<ComplexType%20Name="-,CustomParameter,-")|String|Name of the custom parameter
-[Description](./Org.OData.Capabilities.V1.xml#L1047:~:text=<ComplexType%20Name="-,CustomParameter,-")|String?|Description of the custom parameter
-[DocumentationURL](./Org.OData.Capabilities.V1.xml#L1050:~:text=<ComplexType%20Name="-,CustomParameter,-")|URL?|URL of related documentation
-[Required](./Org.OData.Capabilities.V1.xml#L1054:~:text=<ComplexType%20Name="-,CustomParameter,-")|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](./Org.OData.Capabilities.V1.xml#L1057:~:text=<ComplexType%20Name="-,CustomParameter,-")|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
-=======
-[Name](Org.OData.Capabilities.V1.xml#L1036)|String|Name of the custom parameter
-[Description](Org.OData.Capabilities.V1.xml#L1039)|String?|Description of the custom parameter
-[DocumentationURL](Org.OData.Capabilities.V1.xml#L1042)|URL?|URL of related documentation
-[Required](Org.OData.Capabilities.V1.xml#L1046)|Boolean|true: parameter is required, false or not specified: parameter is optional
-[ExampleValues](Org.OData.Capabilities.V1.xml#L1049)|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
->>>>>>> refs/remotes/origin/main
+[Name](Org.OData.Capabilities.V1.xml#L1044)|String|Name of the custom parameter
+[Description](Org.OData.Capabilities.V1.xml#L1047)|String?|Description of the custom parameter
+[DocumentationURL](Org.OData.Capabilities.V1.xml#L1050)|URL?|URL of related documentation
+[Required](Org.OData.Capabilities.V1.xml#L1054)|Boolean|true: parameter is required, false or not specified: parameter is optional
+[ExampleValues](Org.OData.Capabilities.V1.xml#L1057)|\[[PrimitiveExampleValue](Org.OData.Core.V1.md#PrimitiveExampleValue)\]|Example values for the custom parameter
 
 <a name="DefaultCapabilitiesType"></a>
-<<<<<<< HEAD
-## [DefaultCapabilitiesType](./Org.OData.Capabilities.V1.xml#L1076:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")
-=======
-## [DefaultCapabilitiesType](Org.OData.Capabilities.V1.xml#L1068)
->>>>>>> refs/remotes/origin/main
+## [DefaultCapabilitiesType](Org.OData.Capabilities.V1.xml#L1076)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[ChangeTracking](./Org.OData.Capabilities.V1.xml#L1077:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
-[CountRestrictions](./Org.OData.Capabilities.V1.xml#L1080:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
-[IndexableByKey](./Org.OData.Capabilities.V1.xml#L1083:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
-[TopSupported](./Org.OData.Capabilities.V1.xml#L1086:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
-[SkipSupported](./Org.OData.Capabilities.V1.xml#L1089:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
-[ComputeSupported](./Org.OData.Capabilities.V1.xml#L1092:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
-[SelectSupport](./Org.OData.Capabilities.V1.xml#L1095:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
-[FilterRestrictions](./Org.OData.Capabilities.V1.xml#L1098:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
-[SortRestrictions](./Org.OData.Capabilities.V1.xml#L1101:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
-[ExpandRestrictions](./Org.OData.Capabilities.V1.xml#L1104:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
-[SearchRestrictions](./Org.OData.Capabilities.V1.xml#L1107:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
-[InsertRestrictions](./Org.OData.Capabilities.V1.xml#L1110:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
-[UpdateRestrictions](./Org.OData.Capabilities.V1.xml#L1113:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
-[DeleteRestrictions](./Org.OData.Capabilities.V1.xml#L1116:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
-[OperationRestrictions](./Org.OData.Capabilities.V1.xml#L1119:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
-[ReadRestrictions](./Org.OData.Capabilities.V1.xml#L1122:~:text=<ComplexType%20Name="-,DefaultCapabilitiesType,-")|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance
-=======
-[ChangeTracking](Org.OData.Capabilities.V1.xml#L1069)|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
-[CountRestrictions](Org.OData.Capabilities.V1.xml#L1072)|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
-[IndexableByKey](Org.OData.Capabilities.V1.xml#L1075)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
-[TopSupported](Org.OData.Capabilities.V1.xml#L1078)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
-[SkipSupported](Org.OData.Capabilities.V1.xml#L1081)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
-[ComputeSupported](Org.OData.Capabilities.V1.xml#L1084)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
-[SelectSupport](Org.OData.Capabilities.V1.xml#L1087)|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
-[FilterRestrictions](Org.OData.Capabilities.V1.xml#L1090)|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
-[SortRestrictions](Org.OData.Capabilities.V1.xml#L1093)|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
-[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L1096)|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
-[SearchRestrictions](Org.OData.Capabilities.V1.xml#L1099)|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
-[InsertRestrictions](Org.OData.Capabilities.V1.xml#L1102)|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
-[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L1105)|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
-[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L1108)|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
-[OperationRestrictions](Org.OData.Capabilities.V1.xml#L1111)|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
-[ReadRestrictions](Org.OData.Capabilities.V1.xml#L1114)|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance
->>>>>>> refs/remotes/origin/main
+[ChangeTracking](Org.OData.Capabilities.V1.xml#L1077)|[ChangeTrackingBase?](#ChangeTrackingBase)|Change tracking capabilities
+[CountRestrictions](Org.OData.Capabilities.V1.xml#L1080)|[CountRestrictionsBase?](#CountRestrictionsBase)|Restrictions on /$count path suffix and $count=true system query option
+[IndexableByKey](Org.OData.Capabilities.V1.xml#L1083)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports key values according to OData URL conventions
+[TopSupported](Org.OData.Capabilities.V1.xml#L1086)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $top
+[SkipSupported](Org.OData.Capabilities.V1.xml#L1089)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $skip
+[ComputeSupported](Org.OData.Capabilities.V1.xml#L1092)|[Tag?](Org.OData.Core.V1.md#Tag)|Supports $compute
+[SelectSupport](Org.OData.Capabilities.V1.xml#L1095)|[SelectSupportType?](#SelectSupportType)|Support for $select and nested query options within $select
+[FilterRestrictions](Org.OData.Capabilities.V1.xml#L1098)|[FilterRestrictionsBase?](#FilterRestrictionsBase)|Restrictions on filter expressions
+[SortRestrictions](Org.OData.Capabilities.V1.xml#L1101)|[SortRestrictionsBase?](#SortRestrictionsBase)|Restrictions on orderby expressions
+[ExpandRestrictions](Org.OData.Capabilities.V1.xml#L1104)|[ExpandRestrictionsBase?](#ExpandRestrictionsBase)|Restrictions on expand expressions
+[SearchRestrictions](Org.OData.Capabilities.V1.xml#L1107)|[SearchRestrictionsType?](#SearchRestrictionsType)|Restrictions on search expressions
+[InsertRestrictions](Org.OData.Capabilities.V1.xml#L1110)|[InsertRestrictionsBase?](#InsertRestrictionsBase)|Restrictions on insert operations
+[UpdateRestrictions](Org.OData.Capabilities.V1.xml#L1113)|[UpdateRestrictionsBase?](#UpdateRestrictionsBase)|Restrictions on update operations
+[DeleteRestrictions](Org.OData.Capabilities.V1.xml#L1116)|[DeleteRestrictionsBase?](#DeleteRestrictionsBase)|Restrictions on delete operations
+[OperationRestrictions](Org.OData.Capabilities.V1.xml#L1119)|[OperationRestrictionsType?](#OperationRestrictionsType)|Restrictions for function or action operations
+[ReadRestrictions](Org.OData.Capabilities.V1.xml#L1122)|[ReadRestrictionsType?](#ReadRestrictionsType)|Restrictions for retrieving a collection of entities, retrieving a singleton instance
 
 <a name="HttpResponse"></a>
-<<<<<<< HEAD
-## [HttpResponse](./Org.OData.Capabilities.V1.xml#L1127:~:text=<ComplexType%20Name="-,HttpResponse,-")
-=======
-## [HttpResponse](Org.OData.Capabilities.V1.xml#L1119)
->>>>>>> refs/remotes/origin/main
+## [HttpResponse](Org.OData.Capabilities.V1.xml#L1127)
 
 
 Property|Type|Description
 :-------|:---|:----------
-<<<<<<< HEAD
-[StatusCode](./Org.OData.Capabilities.V1.xml#L1128:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|HTTP response status code, for example 400, 403, 501
-[Description](./Org.OData.Capabilities.V1.xml#L1131:~:text=<ComplexType%20Name="-,HttpResponse,-")|String|Human-readable description of the response
-=======
-[StatusCode](Org.OData.Capabilities.V1.xml#L1120)|String|HTTP response status code, for example 400, 403, 501
-[Description](Org.OData.Capabilities.V1.xml#L1123)|String|Human-readable description of the response
->>>>>>> refs/remotes/origin/main
+[StatusCode](Org.OData.Capabilities.V1.xml#L1128)|String|HTTP response status code, for example 400, 403, 501
+[Description](Org.OData.Capabilities.V1.xml#L1131)|String|Human-readable description of the response
