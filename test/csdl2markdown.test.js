@@ -30,14 +30,23 @@ vocabularies.forEach((v) => {
 describe("OASIS Vocabularies", function () {
   it("Validation without potentially referenced vocabularies", function () {
     const filename = "Org.OData.Validation.V1.xml";
-    const markdown = lib.csdl2markdown(filename, input[filename]);
+    const markdown = lib.csdl2markdown(
+      "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/" +
+        filename,
+      input[filename],
+    );
     check(markdown, expected.Validation);
   });
 
   vocabularies.forEach((v) => {
     it(v, function () {
       const filename = `Org.OData.${v}.V1.xml`;
-      const markdown = lib.csdl2markdown(filename, input[filename], input);
+      const markdown = lib.csdl2markdown(
+        "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/" +
+          filename,
+        input[filename],
+        input,
+      );
       check(markdown, expected[v]);
     });
   });
@@ -285,18 +294,18 @@ describe("Non-OASIS Vocabularies", function () {
       "## Functions",
       "",
       '<a name="condense"></a>',
-      '### [condense](./overload.tst.xml#L11:~:text=<Function%20Name="-,condense,-")',
+      "### [condense](overload.tst.xml#L11)",
       "",
       "Overload 1",
       "",
       "Parameter|Type|Description",
       ":--------|:---|:----------",
-      '**[InputSet](./overload.tst.xml#L13:~:text=<Function%20Name="-,condense,-")**|\\[EntityType\\]|**Binding parameter**',
-      '[&rarr;](./overload.tst.xml#L14:~:text=<Function%20Name="-,condense,-")|\\[EntityType\\]|',
+      "**[InputSet](overload.tst.xml#L13)**|\\[EntityType\\]|**Binding parameter**",
+      "[&rarr;](overload.tst.xml#L14)|\\[EntityType\\]|",
       "",
       "",
       '<a name="condense"></a>',
-      "### [condense](./overload.tst.xml#L16) *(Deprecated)*",
+      "### [condense](overload.tst.xml#L16) *(Deprecated)*",
       "Deprecated in favor of overload 1",
       "",
     ];
