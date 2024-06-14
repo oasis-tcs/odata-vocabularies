@@ -58,6 +58,7 @@ receiving
 
 Term|Type|Description
 :---|:---|:----------
+<<<<<<< HEAD
 [Schema](./Org.OData.JSON.V1.xml#L119:~:text=<Term%20Name="-,Schema,-")|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition<br>The schema can be a reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
 
 
@@ -129,9 +130,16 @@ Parameter|Type|Description
 [path](./Org.OData.JSON.V1.xml#L196:~:text=<Function%20Name="-,valueBoolean,-")|[Path?](#Path)|JSONPath expression to be applied to value of `expr`
 [&rarr;](./Org.OData.JSON.V1.xml#L199:~:text=<Function%20Name="-,valueBoolean,-")|Boolean?|Boolean value resulting from applying `path` to `input`
 
+=======
+[Schema](Org.OData.JSON.V1.xml#L67)|[JSON](#JSON)|<a name="Schema"></a>The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition<br>The schema can be a schema reference, i.e. `{"$ref":"url/of/schemafile#/path/to/schema/within/schemafile"}`
+>>>>>>> refs/remotes/origin/main
 
 <a name="JSON"></a>
+<<<<<<< HEAD
 ## [JSON](./Org.OData.JSON.V1.xml#L204:~:text=<TypeDefinition%20Name="-,JSON,-")
+=======
+## [JSON](Org.OData.JSON.V1.xml#L75)
+>>>>>>> refs/remotes/origin/main
 **Type:** Stream
 
 Textual data of media type `application/json`
