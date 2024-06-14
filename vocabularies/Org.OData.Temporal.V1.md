@@ -1,5 +1,5 @@
 # Temporal Vocabulary
-**Namespace: [Org.OData.Temporal.V1](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml)**
+**Namespace: [Org.OData.Temporal.V1](Org.OData.Temporal.V1.xml)**
 
 Terms for describing time-dependent data
 
@@ -8,13 +8,13 @@ Terms for describing time-dependent data
 
 Term|Type|Description
 :---|:---|:----------
-[ApplicationTimeSupport](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L68)|[ApplicationTimeSupportType](#ApplicationTimeSupportType)|<a name="ApplicationTimeSupport"></a>This collection supports temporal requests
+[ApplicationTimeSupport](Org.OData.Temporal.V1.xml#L68)|[ApplicationTimeSupportType](#ApplicationTimeSupportType)|<a name="ApplicationTimeSupport"></a>This collection supports temporal requests
 
 
 ## Actions
 
 <a name="Update"></a>
-### [Update](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L172)
+### [Update](Org.OData.Temporal.V1.xml#L172)
 
 Updates existing time slices with values from delta time slices whose object keys match and whose periods overlap
 
@@ -25,25 +25,25 @@ The update behavior for a given object key is known from the [SQL statement](htt
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L180)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L183)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices whose property values are used to update the `timeslices` collection<br>The delta time slices need not contain all properties, but at least the boundary values of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[&rarr;](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L191)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
+**[timeslices](Org.OData.Temporal.V1.xml#L180)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L183)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices whose property values are used to update the `timeslices` collection<br>The delta time slices need not contain all properties, but at least the boundary values of the period to change. An absent object key property matches any key property value. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
+[&rarr;](Org.OData.Temporal.V1.xml#L191)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
 
 
 <a name="Upsert"></a>
-### [Upsert](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L196)
+### [Upsert](Org.OData.Temporal.V1.xml#L196)
 
 Like [`Update`](#Update), but additionally inserts those (sub-periods of) `deltaTimeslices` that `Update` disregards
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L198)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L201)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices to be merged into the `timeslices` collection<br>The delta time slices must contain all properties that are needed for insertion. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
-[&rarr;](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L208)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
+**[timeslices](Org.OData.Temporal.V1.xml#L198)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L201)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|New time slices to be merged into the `timeslices` collection<br>The delta time slices must contain all properties that are needed for insertion. New time slices are processed in the order of the collection, which especially matters if some of the specified change periods overlap.
+[&rarr;](Org.OData.Temporal.V1.xml#L208)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Modified time slices
 
 
 <a name="Delete"></a>
-### [Delete](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L213)
+### [Delete](Org.OData.Temporal.V1.xml#L213)
 
 Deletes (sub-periods of) existing time slices whose object keys match and whose periods overlap `deltaTimeslices`
 
@@ -54,23 +54,23 @@ The deletion behavior for a given object key is known from the [SQL statement](h
 
 Parameter|Type|Description
 :--------|:---|:----------
-**[timeslices](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L221)**|\[EntityType\]|**Binding parameter:** Time slices to modify
-[deltaTimeslices](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L224)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
-[&rarr;](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L231)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Deleted (sub-periods of) time slices
+**[timeslices](Org.OData.Temporal.V1.xml#L221)**|\[EntityType\]|**Binding parameter:** Time slices to modify
+[deltaTimeslices](Org.OData.Temporal.V1.xml#L224)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Time slices to be deleted from the `timeslices` collection<br>The delta time slices contain only the boundary values of the period to delete and (parts of) the object key. An absent object key property matches any key property value.
+[&rarr;](Org.OData.Temporal.V1.xml#L231)|\[[TimesliceWithPeriod](#TimesliceWithPeriod)\]|Deleted (sub-periods of) time slices
 
 
 <a name="ApplicationTimeSupportType"></a>
-## [ApplicationTimeSupportType](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L75)
+## [ApplicationTimeSupportType](Org.OData.Temporal.V1.xml#L75)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[UnitOfTime](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L76)|[UnitOfTime](#UnitOfTime)|Unit of time and other properties of a time period
-[Timeline](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L79)|[Timeline](#Timeline)|Describes how the history and future of the data are represented
-[SupportedActions](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L82)|\[[QualifiedActionName](Org.OData.Core.V1.md#QualifiedActionName)\]|List of supported temporal actions
+[UnitOfTime](Org.OData.Temporal.V1.xml#L76)|[UnitOfTime](#UnitOfTime)|Unit of time and other properties of a time period
+[Timeline](Org.OData.Temporal.V1.xml#L79)|[Timeline](#Timeline)|Describes how the history and future of the data are represented
+[SupportedActions](Org.OData.Temporal.V1.xml#L82)|\[[QualifiedActionName](Org.OData.Core.V1.md#QualifiedActionName)\]|List of supported temporal actions
 
 <a name="UnitOfTime"></a>
-## [*UnitOfTime*](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L87)
+## [*UnitOfTime*](Org.OData.Temporal.V1.xml#L87)
 Unit of time and other properties of a time period
 
 **Derived Types:**
@@ -96,7 +96,7 @@ Property|Type|Description
 [ClosedClosedPeriods](Org.OData.Temporal.V1.xml#L101)|Boolean|If `true`, the period end is the last day in the period; if `false`, the period end is the first day after the period
 
 <a name="Timeline"></a>
-## [*Timeline*](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L107)
+## [*Timeline*](Org.OData.Temporal.V1.xml#L107)
 Describes how the history and future of the data are represented
 
 **Derived Types:**
@@ -127,7 +127,7 @@ Property|Type|Description
 [ObjectKey](Org.OData.Temporal.V1.xml#L137)|\[PropertyPath\]|The set of primitive properties that identify a temporal object<br>A temporal object is a set of facts whose changes over application time are tracked by the service. The entities in the annotated collection belong to potentially multiple temporal objects, and each temporal object is uniquely identified by the values of the specified object key properties. Object key properties follow the same rules as entity key properties. If no object key is specified, only a single temporal object belongs to the annotated collection.
 
 <a name="TimesliceWithPeriod"></a>
-## [TimesliceWithPeriod](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L143)
+## [TimesliceWithPeriod](Org.OData.Temporal.V1.xml#L143)
 Delta time slices with validity period
 
 The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
@@ -141,6 +141,6 @@ The properties `PeriodStart` and `PeriodEnd` MUST NOT be present
 
 Property|Type|Description
 :-------|:---|:----------
-[PeriodStart](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L155)|PrimitiveType?|Lower boundary of the time slice
-[PeriodEnd](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L158)|PrimitiveType?|Upper boundary of the time slice
-[Timeslice](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Temporal.V1.xml#L161)|EntityType|A time slice with the same entity type as the binding parameter of the action<br>When it appears in the return type of an action in this vocabulary, the time slice has the same entity set as the binding parameter value.
+[PeriodStart](Org.OData.Temporal.V1.xml#L155)|PrimitiveType?|Lower boundary of the time slice
+[PeriodEnd](Org.OData.Temporal.V1.xml#L158)|PrimitiveType?|Upper boundary of the time slice
+[Timeslice](Org.OData.Temporal.V1.xml#L161)|EntityType|A time slice with the same entity type as the binding parameter of the action<br>When it appears in the return type of an action in this vocabulary, the time slice has the same entity set as the binding parameter value.

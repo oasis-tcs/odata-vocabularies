@@ -1,5 +1,5 @@
 # Authorization Vocabulary
-**Namespace: [Org.OData.Authorization.V1](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml)**
+**Namespace: [Org.OData.Authorization.V1](Org.OData.Authorization.V1.xml)**
 
 The Authorization Vocabulary provides terms for describing authorization requirements of the service
 
@@ -8,20 +8,20 @@ The Authorization Vocabulary provides terms for describing authorization require
 
 Term|Type|Description
 :---|:---|:----------
-[SecuritySchemes](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L65)|\[[SecurityScheme](#SecurityScheme)\]|<a name="SecuritySchemes"></a>At least one of the specified security schemes are required to make a request against the service
-[Authorizations](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L78)|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods supported by the service to authorize access
+[SecuritySchemes](Org.OData.Authorization.V1.xml#L65)|\[[SecurityScheme](#SecurityScheme)\]|<a name="SecuritySchemes"></a>At least one of the specified security schemes are required to make a request against the service
+[Authorizations](Org.OData.Authorization.V1.xml#L78)|\[[Authorization](#Authorization)\]|<a name="Authorizations"></a>Lists the methods supported by the service to authorize access
 
 <a name="SecurityScheme"></a>
-## [SecurityScheme](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L69)
+## [SecurityScheme](Org.OData.Authorization.V1.xml#L69)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Authorization](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L70)|[SchemeName](#SchemeName)|The name of a required authorization scheme
-[RequiredScopes](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L73)|\[String\]|The names of scopes required from this authorization scheme
+[Authorization](Org.OData.Authorization.V1.xml#L70)|[SchemeName](#SchemeName)|The name of a required authorization scheme
+[RequiredScopes](Org.OData.Authorization.V1.xml#L73)|\[String\]|The names of scopes required from this authorization scheme
 
 <a name="Authorization"></a>
-## [*Authorization*](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L82)
+## [*Authorization*](Org.OData.Authorization.V1.xml#L82)
 Base type for all Authorization types
 
 **Derived Types:**
@@ -36,8 +36,8 @@ Base type for all Authorization types
 
 Property|Type|Description
 :-------|:---|:----------
-[Name](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L84)|String|Name that can be used to reference the authorization scheme
-[Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L87)|String?|Description of the authorization scheme
+[Name](Org.OData.Authorization.V1.xml#L84)|String|Name that can be used to reference the authorization scheme
+[Description](Org.OData.Authorization.V1.xml#L87)|String?|Description of the authorization scheme
 
 <a name="OpenIDConnect"></a>
 ## [OpenIDConnect](Org.OData.Authorization.V1.xml#L92): [Authorization](#Authorization)
@@ -127,14 +127,14 @@ Property|Type|Description
 [TokenUrl](Org.OData.Authorization.V1.xml#L145)|URL|Token Url
 
 <a name="AuthorizationScope"></a>
-## [AuthorizationScope](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L151)
+## [AuthorizationScope](Org.OData.Authorization.V1.xml#L151)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[Scope](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L152)|String|Scope name
-[Grant](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L155)|String?|Identity that has access to the scope or can grant access to the scope.
-[Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L159)|String|Description of the scope
+[Scope](Org.OData.Authorization.V1.xml#L152)|String|Scope name
+[Grant](Org.OData.Authorization.V1.xml#L155)|String?|Identity that has access to the scope or can grant access to the scope.
+[Description](Org.OData.Authorization.V1.xml#L159)|String|Description of the scope
 
 <a name="ApiKey"></a>
 ## [ApiKey](Org.OData.Authorization.V1.xml#L164): [Authorization](#Authorization)
@@ -148,17 +148,17 @@ Property|Type|Description
 [Location](Org.OData.Authorization.V1.xml#L168)|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
 
 <a name="KeyLocation"></a>
-## [KeyLocation](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L173)
+## [KeyLocation](Org.OData.Authorization.V1.xml#L173)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Header](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L174)|0|API Key is passed in the header
-[QueryOption](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L177)|1|API Key is passed as a query option
-[Cookie](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L180)|2|API Key is passed as a cookie
+[Header](Org.OData.Authorization.V1.xml#L174)|0|API Key is passed in the header
+[QueryOption](Org.OData.Authorization.V1.xml#L177)|1|API Key is passed as a query option
+[Cookie](Org.OData.Authorization.V1.xml#L180)|2|API Key is passed as a cookie
 
 <a name="SchemeName"></a>
-## [SchemeName](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Authorization.V1.xml#L185)
+## [SchemeName](Org.OData.Authorization.V1.xml#L185)
 **Type:** String
 
 The name of the authorization scheme.

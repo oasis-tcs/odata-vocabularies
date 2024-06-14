@@ -30,23 +30,14 @@ vocabularies.forEach((v) => {
 describe("OASIS Vocabularies", function () {
   it("Validation without potentially referenced vocabularies", function () {
     const filename = "Org.OData.Validation.V1.xml";
-    const markdown = lib.csdl2markdown(
-      "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/" +
-        filename,
-      input[filename],
-    );
+    const markdown = lib.csdl2markdown(filename, input[filename]);
     check(markdown, expected.Validation);
   });
 
   vocabularies.forEach((v) => {
     it(v, function () {
       const filename = `Org.OData.${v}.V1.xml`;
-      const markdown = lib.csdl2markdown(
-        "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/" +
-          filename,
-        input[filename],
-        input,
-      );
+      const markdown = lib.csdl2markdown(filename, input[filename], input);
       check(markdown, expected[v]);
     });
   });
