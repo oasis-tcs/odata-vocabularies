@@ -284,7 +284,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Name](Org.OData.Core.V1.xml#L488)|PropertyPath|A path expression resolving to a primitive property of the entity type itself or to a primitive property of a complex or navigation property (recursively) of the entity type. The names of the properties in the path are joined together by forward slashes.
-[Alias](Org.OData.Core.V1.xml#L491)|String|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
+[Alias](Org.OData.Core.V1.xml#L491)|String?|A SimpleIdentifier that MUST be unique within the set of aliases, structural and navigation properties of the containing entity type that MUST be used in the key predicate of URLs
 
 <a name="Dictionary"></a>
 ## [Dictionary](Org.OData.Core.V1.xml#L496)
