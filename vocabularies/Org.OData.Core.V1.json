@@ -431,6 +431,17 @@
             ],
             "@Core.Description": "A value for this property is generated on both insert and update"
         },
+        "PostCondition": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Property"
+            ],
+            "$BaseTerm": "Core.Computed",
+            "@Core.Description": "If a value for this generated property is provided on insert or update, the request fails if the provided value does not match the generated value",
+            "@Core.LongDescription": "Providing a value effectively imposes a post-condition on the request."
+        },
         "ComputedDefaultValue": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
