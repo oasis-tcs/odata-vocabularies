@@ -1,0 +1,47 @@
+{
+    "$Version": "4.0",
+    "$Reference": {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Validation.V1.json": {
+            "$Include": [
+                {
+                    "$Namespace": "Org.OData.Validation.V1",
+                    "$Alias": "Validation"
+                }
+            ]
+        }
+    },
+    "postcondition.sample": {
+        "WorkerTimeSheet": {
+            "$Kind": "EntityType",
+            "ClockInDateTime": {
+                "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
+                "$Precision": 0
+            },
+            "ClockOutDateTime": {
+                "$Type": "Edm.DateTimeOffset",
+                "$Nullable": true,
+                "$Precision": 0
+            }
+        },
+        "$Annotations": {
+            "postcondition.sample.WorkerTimeSheet": {
+                "@Validation.PostCondition#overtime": {
+                    "$Gt": [
+                        {
+                            "$Sub": [
+                                {
+                                    "$Path": "ClockOutDateTime"
+                                },
+                                {
+                                    "$Path": "ClockInDateTime"
+                                }
+                            ]
+                        },
+                        "PT8H"
+                    ]
+                }
+            }
+        }
+    }
+}
