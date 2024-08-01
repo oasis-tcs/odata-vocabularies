@@ -385,6 +385,13 @@
         <Annotation Term="Core.Description" String="A value for this property is generated on both insert and update" />
       </Term>
 
+      <Term Name="PostCondition" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property" BaseTerm="Core.Computed">
+        <Annotation Term="Core.Description" String="If a value for this generated property is provided on insert or update, the request fails if the provided value does not match the generated value" />
+        <Annotation Term="Core.LongDescription">
+          <String>Providing a value effectively imposes a post-condition on the request.</String>
+        </Annotation>
+      </Term>
+
       <Term Name="ComputedDefaultValue" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property">
         <Annotation Term="Core.Description" String="A value for this property can be provided by the client on insert and update. If no value is provided on insert, a non-static default value is generated" />
       </Term>
