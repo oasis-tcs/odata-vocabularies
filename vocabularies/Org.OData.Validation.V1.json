@@ -131,6 +131,7 @@
         "PostCondition": {
             "$Kind": "Term",
             "$Type": "Edm.PrimitiveType",
+            "$Nullable": true,
             "$AppliesTo": [
                 "Property",
                 "NavigationProperty",

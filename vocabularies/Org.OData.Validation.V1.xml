@@ -122,7 +122,7 @@
         </Property>
       </ComplexType>
 
-      <Term Name="PostCondition" Type="Edm.PrimitiveType" Nullable="false" AppliesTo="Property NavigationProperty Parameter EntityType ComplexType">
+      <Term Name="PostCondition" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property NavigationProperty Parameter EntityType ComplexType">
         <Annotation Term="Core.Description" String="Condition that clients can demand for the after-image of a data modification request" />
         <Annotation Term="Core.LongDescription">
           <String>The value is given as a dynamic expression in the service metadata.
