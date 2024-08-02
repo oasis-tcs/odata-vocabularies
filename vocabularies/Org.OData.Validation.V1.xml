@@ -122,6 +122,20 @@
         </Property>
       </ComplexType>
 
+      <Term Name="PostCondition" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property NavigationProperty Parameter EntityType ComplexType">
+        <Annotation Term="Core.Description" String="Condition that clients can impose on the after-image of a data modification request" />
+        <Annotation Term="Core.LongDescription">
+          <String>The value is given as a dynamic expression in the service metadata.
+If the payload of a data modification request provides an instance annotation
+with this term and the same target and qualifier, the request MUST fail if the provided value
+does not match the dynamically expressed value in the modified data.
+
+See [this example](../examples/Org.OData.Validation.V1.PostCondition-sample.xml).
+To avoid posting overtime, clients include
+`{"@Validation.PostCondition#overtime": false}` in their insert requests.</String>
+        </Annotation>
+      </Term>
+
       <Term Name="ItemsOf" Type="Collection(Validation.ItemsOfType)" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="A list of constraints describing that entities related via one navigation property MUST also be related via another, collection-valued navigation property. The same `path` value MUST NOT occur more than once." />
         <Annotation Term="Core.LongDescription">
