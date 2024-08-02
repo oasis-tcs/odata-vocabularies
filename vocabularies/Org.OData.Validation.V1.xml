@@ -123,15 +123,16 @@
       </ComplexType>
 
       <Term Name="PostCondition" Type="Edm.PrimitiveType" Nullable="true" AppliesTo="Property NavigationProperty Parameter EntityType ComplexType">
-        <Annotation Term="Core.Description" String="Condition that clients can demand for the after-image of a data modification request" />
+        <Annotation Term="Core.Description" String="Condition that clients can impose on the after-image of a data modification request" />
         <Annotation Term="Core.LongDescription">
           <String>The value is given as a dynamic expression in the service metadata.
-          If the payload of a data modification request provides an instance annotation
-          with this term and the same target and qualifier, the request MUST fail if the provided value
-          does not match the dynamically expressed value in the modified data.&lt;br&gt;
-          See [this example](../examples/Org.OData.Validation.V1.PostCondition-sample.xml).
-          To avoid posting overtime, clients include
-          `{"@Validation.PostCondition#overtime": false}` in their insert requests.</String>
+If the payload of a data modification request provides an instance annotation
+with this term and the same target and qualifier, the request MUST fail if the provided value
+does not match the dynamically expressed value in the modified data.
+
+See [this example](../examples/Org.OData.Validation.V1.PostCondition-sample.xml).
+To avoid posting overtime, clients include
+`{"@Validation.PostCondition#overtime": false}` in their insert requests.</String>
         </Annotation>
       </Term>
 

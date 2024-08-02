@@ -139,8 +139,8 @@
                 "EntityType",
                 "ComplexType"
             ],
-            "@Core.Description": "Condition that clients can demand for the after-image of a data modification request",
-            "@Core.LongDescription": "The value is given as a dynamic expression in the service metadata.\n          If the payload of a data modification request provides an instance annotation\n          with this term and the same target and qualifier, the request MUST fail if the provided value\n          does not match the dynamically expressed value in the modified data.<br>\n          See [this example](../examples/Org.OData.Validation.V1.PostCondition-sample.xml).\n          To avoid posting overtime, clients include\n          `{\"@Validation.PostCondition#overtime\": false}` in their insert requests."
+            "@Core.Description": "Condition that clients can impose on the after-image of a data modification request",
+            "@Core.LongDescription": "The value is given as a dynamic expression in the service metadata.\nIf the payload of a data modification request provides an instance annotation\nwith this term and the same target and qualifier, the request MUST fail if the provided value\ndoes not match the dynamically expressed value in the modified data.\n\nSee [this example](../examples/Org.OData.Validation.V1.PostCondition-sample.xml).\nTo avoid posting overtime, clients include\n`{\"@Validation.PostCondition#overtime\": false}` in their insert requests."
         },
         "ItemsOf": {
             "$Kind": "Term",
