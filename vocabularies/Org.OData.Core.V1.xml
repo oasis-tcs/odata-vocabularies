@@ -509,7 +509,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.LongDescription" String="All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional." />
       </Term>
       <ComplexType Name="OptionalParameterType">
-        <Property Name="DefaultValue" Type="Edm.String" Nullable="true">
+        <Property Name="DefaultValue" Type="Edm.PrimitiveType" Nullable="true">
           <Annotation Term="Core.Description" String="Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs." />
           <Annotation Term="Core.LongDescription" String="If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date." />
         </Property>
