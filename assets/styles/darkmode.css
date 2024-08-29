@@ -6,7 +6,7 @@
   }
 
   html.darkmode {
-    background-color: white;
+    background-color: #f2eee8;
     filter: invert(100%);
   }
 }
