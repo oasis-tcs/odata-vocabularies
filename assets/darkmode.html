@@ -22,7 +22,7 @@
       }
     }
 
-    const darkmode_query = matchMedia("(screen AND prefers-color-scheme: dark)");
+    const darkmode_query = matchMedia("(prefers-color-scheme: dark)");
     darkmode_query.addEventListener("change", darkmode_auto);
     const darkmode_switch = document.getElementById("darkmode");
     darkmode_switch.value =
