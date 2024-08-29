@@ -1,10 +1,18 @@
-#darkmode {
-  position: fixed;
-  top: 0;
-  right: 0;
+@media screen {
+  #darkmode {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  html.darkmode {
+    background-color: white;
+    filter: invert(100%);
+  }
 }
 
-html.darkmode {
-  background-color: white;
-  filter: invert(100%);
+@media print {
+  #darkmode {
+    display: none;
+  }
 }
