@@ -1,0 +1,33 @@
+<script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    function darkmode_auto() {
+      if (darkmode_switch.value === "auto") {
+        if (darkmode_query.matches) document.documentElement.classList.add("darkmode");
+        else document.documentElement.classList.remove("darkmode");
+      }
+    }
+
+    function darkmode_manual() {
+      localStorage.setItem("odata-vocabularies/darkmode", darkmode_switch.value);
+      switch (darkmode_switch.value) {
+        case "off":
+          document.documentElement.classList.remove("darkmode");
+          break;
+        case "on":
+          document.documentElement.classList.add("darkmode");
+          break;
+        case "auto":
+          darkmode_auto();
+          break;
+      }
+    }
+
+    const darkmode_query = matchMedia("(prefers-color-scheme: dark)");
+    darkmode_query.addEventListener("change", darkmode_auto);
+    const darkmode_switch = document.getElementById("darkmode");
+    darkmode_switch.value =
+      localStorage.getItem("odata-vocabularies/darkmode") || "off";
+    darkmode_switch.addEventListener("change", darkmode_manual);
+    darkmode_manual();
+  });
+</script>

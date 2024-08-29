@@ -1,0 +1,10 @@
+#darkmode {
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+
+html.darkmode {
+  background-color: white;
+  filter: invert(100%);
+}
