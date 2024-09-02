@@ -791,14 +791,21 @@
             ],
             "@Core.Description": "Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)"
         },
-        "PayloadExpressionSupported": {
+        "PayloadExpressionSupport": {
             "$Kind": "Term",
-            "$Type": "Core.Tag",
-            "$DefaultValue": true,
+            "$Type": "Capabilities.PayloadExpressionSupportType",
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Core.Description": "Supports `@expression` parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17]"
+            "@Core.Description": "Whether `@expression` parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17] are supported"
+        },
+        "PayloadExpressionSupportType": {
+            "$Kind": "ComplexType",
+            "CommonExpressionsSupported": {
+                "$Type": "Core.Tag",
+                "$DefaultValue": true,
+                "@Core.Description": "`@expression` can contain common expressions [OData-URL, section 5.1.1]"
+            }
         },
         "InsertRestrictions": {
             "$Kind": "Term",

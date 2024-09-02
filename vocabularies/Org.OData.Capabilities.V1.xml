@@ -613,9 +613,14 @@ supported:
         <Annotation Term="Core.Description" String="Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)" />
       </Term>
 
-      <Term Name="PayloadExpressionSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Supports `@expression` parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17]" />
+      <Term Name="PayloadExpressionSupport" Type="Capabilities.PayloadExpressionSupportType" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Whether `@expression` parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17] are supported" />
       </Term>
+      <ComplexType Name="PayloadExpressionSupportType">
+        <Property Name="CommonExpressionsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+          <Annotation Term="Core.Description" String="`@expression` can contain common expressions [OData-URL, section 5.1.1]" />
+        </Property>
+      </ComplexType>
 
       <!-- Data Modification Capabilities -->
 
