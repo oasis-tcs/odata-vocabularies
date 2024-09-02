@@ -617,7 +617,7 @@ supported:
         <Annotation Term="Core.Description" String="Whether `@expression` parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17] are supported" />
       </Term>
       <ComplexType Name="PayloadExpressionSupportType">
-        <Property Name="CommonExpressionsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true">
+        <Property Name="CommonExpressionsSupported" Type="Core.Tag" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="`@expression` can contain common expressions [OData-URL, section 5.1.1]" />
         </Property>
       </ComplexType>

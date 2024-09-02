@@ -803,7 +803,7 @@
             "$Kind": "ComplexType",
             "CommonExpressionsSupported": {
                 "$Type": "Core.Tag",
-                "$DefaultValue": true,
+                "$DefaultValue": false,
                 "@Core.Description": "`@expression` can contain common expressions [OData-URL, section 5.1.1]"
             }
         },
