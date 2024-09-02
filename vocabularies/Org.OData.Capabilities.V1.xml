@@ -613,6 +613,10 @@ supported:
         <Annotation Term="Core.Description" String="Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)" />
       </Term>
 
+      <Term Name="PayloadExpressionSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Supports `@expression` parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17]" />
+      </Term>
+
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">
