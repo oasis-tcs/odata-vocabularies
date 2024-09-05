@@ -405,7 +405,7 @@ Flag Member|Value|Description
 
 Property|Type|Description
 :-------|:---|:----------
-[URLExpressionsSupported](Org.OData.Capabilities.V1.xml#L626)|Boolean|Common expressions defined in [OData-URL, section 5.1.1] are supported in payloads
+[URLExpressionsSupported](Org.OData.Capabilities.V1.xml#L626)|Boolean|Common expressions defined in [OData-URL](https://oasis-tcs.github.io/odata-specs/odata-url-conventions/odata-url-conventions.html#CommonExpressionSyntax) are supported in payloads
 
 <a name="InsertRestrictionsBase"></a>
 ## [InsertRestrictionsBase](Org.OData.Capabilities.V1.xml#L642)

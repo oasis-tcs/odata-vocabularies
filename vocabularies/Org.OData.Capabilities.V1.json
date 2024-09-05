@@ -805,7 +805,7 @@
             "URLExpressionsSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Common expressions defined in [OData-URL, section 5.1.1] are supported in payloads"
+                "@Core.Description": "Common expressions defined in [OData-URL](https://oasis-tcs.github.io/odata-specs/odata-url-conventions/odata-url-conventions.html#CommonExpressionSyntax) are supported in payloads"
             }
         },
         "InsertRestrictions": {

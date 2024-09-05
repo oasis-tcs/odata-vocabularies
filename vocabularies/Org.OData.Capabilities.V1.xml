@@ -624,11 +624,11 @@ supported:
       </Term>
       <ComplexType Name="PayloadExpressionSupportType">
         <Property Name="URLExpressionsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Common expressions defined in [OData-URL, section 5.1.1] are supported in payloads" />
+          <Annotation Term="Core.Description" String="Common expressions defined in [OData-URL](https://oasis-tcs.github.io/odata-specs/odata-url-conventions/odata-url-conventions.html#CommonExpressionSyntax) are supported in payloads" />
         </Property>
         <!--
         <Property Name="CSDLExpressionsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Dynamic expressions defined in [OData-CSDL, section 14.4] are supported in payloads" />
+          <Annotation Term="Core.Description" String="Dynamic expressions defined in [OData-CSDL](https://oasis-tcs.github.io/odata-specs/odata-csdl-json/odata-csdl-json.html#DynamicExpression) are supported in payloads" />
         </Property>
         -->
       </ComplexType>
