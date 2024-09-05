@@ -797,14 +797,15 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Core.Description": "Whether `@expression` parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17] are supported"
+            "@Core.Description": "Whether expressions for parameters in action payloads [OData-JSON, section 18] and `/$query` payloads [OData-URL, section 4.17] are supported",
+            "@Core.LongDescription": "Expressions can occur in payload properties that represent\n- action parameters if the property name has the suffix `@expression` [OData-JSON, section 18] or\n- function parameters if the property name has the suffix `@expression` in `/\\$query` payloads [OData-URL, section 4.17]\n- system query options (without suffix) in `/\\$query` payloads [OData-URL, section 4.17]."
         },
         "PayloadExpressionSupportType": {
             "$Kind": "ComplexType",
             "URLExpressionsSupported": {
-                "$Type": "Core.Tag",
+                "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "`@expression` can contain common expressions defined in [OData-URL, section 5.1.1]"
+                "@Core.Description": "Common expressions defined in [OData-URL, section 5.1.1] are supported in payloads"
             }
         },
         "InsertRestrictions": {
