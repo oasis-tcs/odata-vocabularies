@@ -51,6 +51,7 @@ Term|Type|Description
 [SymbolicName](Org.OData.Core.V1.xml#L536)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
 [GeometryFeature](Org.OData.Core.V1.xml#L545)|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 [AnyStructure](Org.OData.Core.V1.xml#L561)|[Tag](#Tag)|<a name="AnyStructure"></a>Instances of a type are annotated with this tag if they have no common structure in a given response payload<br>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty, but this instance annotation SHOULD be omitted from the response value.
+[IsDelta](Org.OData.Core.V1.xml#L569)|[Tag](#Tag)|<a name="IsDelta"></a>The annotated Action or Function Parameter or Return Type is represented as a Delta payload<br>The parameter or result is represented as a delta payload, which may contain deleted entities and changes to related entities according to the format-specific delta representation.
 
 <a name="RevisionType"></a>
 ## [RevisionType](Org.OData.Core.V1.xml#L80)
