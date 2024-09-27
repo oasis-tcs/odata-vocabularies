@@ -748,7 +748,7 @@
                 "Parameter"
             ],
             "@Core.Description": "The annotated Action or Function Parameter or Return Type is represented as a Delta payload",
-            "@Core.LongDescription": "The parameter or result is represented as a delta payload, which may contain deleted entities and changes to related entities according to the format-specific delta representation."
+            "@Core.LongDescription": "The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related \n          entities and relationships, according to the format-specific delta representation."
         }
     }
 }
