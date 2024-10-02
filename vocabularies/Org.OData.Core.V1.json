@@ -738,6 +738,17 @@
             ],
             "@Core.Description": "Instances of a type are annotated with this tag if they have no common structure in a given response payload",
             "@Core.LongDescription": "The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty,\n          but this instance annotation SHOULD be omitted from the response value."
+        },
+        "IsDelta": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "ReturnType",
+                "Parameter"
+            ],
+            "@Core.Description": "The annotated Action or Function Parameter or Return Type is represented as a Delta payload",
+            "@Core.LongDescription": "The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related \n          entities and relationships, according to the format-specific delta representation."
         }
     }
 }
