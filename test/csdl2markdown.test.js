@@ -557,6 +557,69 @@ describe("Edge cases", function () {
     const markdown = lib.csdl2markdown(filename, vocabulary);
     assert.deepStrictEqual(markdown, expectedMarkdown);
   });
+
+  it("Allowed derived types", function () {
+    const filename = "allowedDerivedTypes.xml";
+    const type = {
+      "@Org.OData.Core.V1.Description": "Tag or duration",
+      "@Org.OData.Validation.V1.DerivedTypeConstraint": [
+        "Org.OData.Core.V1.Tag",
+        "Edm.Duration",
+      ],
+    };
+    const mdtype =
+      "PrimitiveType (Allowed derived types: [Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag), Duration)";
+    const vocabulary = {
+      $Version: "4.01",
+      $Reference: {
+        "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Core.V1.json":
+          {
+            $Include: [
+              {
+                $Namespace: "Org.OData.Core.V1",
+              },
+            ],
+          },
+      },
+      "Allowed.v1": {
+        Duration: {
+          $Kind: "TypeDefinition",
+          $UnderlyingType: "Edm.PrimitiveType",
+          ...type,
+        },
+        Event: {
+          $Kind: "ComplexType",
+          Duration: {
+            $Type: "Edm.PrimitiveType",
+            ...type,
+          },
+        },
+      },
+    };
+    const expectedMarkdown = [
+      "# Allowed Vocabulary",
+      "**Namespace: [Allowed.v1](allowedDerivedTypes.xml)**",
+      "",
+      "",
+      "",
+      '<a name="Duration"></a>',
+      "## Duration",
+      "**Type:** " + mdtype,
+      "",
+      "Tag or duration",
+      "",
+      '<a name="Event"></a>',
+      "## Event",
+      "",
+      "",
+      "Property|Type|Description",
+      ":-------|:---|:----------",
+      "Duration|" + mdtype + "|Tag or duration",
+      "",
+    ];
+    const markdown = lib.csdl2markdown(filename, vocabulary);
+    assert.deepStrictEqual(markdown, expectedMarkdown);
+  });
 });
 
 function check(actual, expected) {
