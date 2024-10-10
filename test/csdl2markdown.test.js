@@ -568,7 +568,7 @@ describe("Edge cases", function () {
       ],
     };
     const mdtype =
-      "PrimitiveType (Allowed derived types: [Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag), Duration)";
+      "PrimitiveType<br>Allowed derived types:<ul><li>[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)</li><li>Duration</li></ul>";
     const vocabulary = {
       $Version: "4.01",
       $Reference: {
