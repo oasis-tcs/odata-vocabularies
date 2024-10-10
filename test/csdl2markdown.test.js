@@ -263,7 +263,7 @@ describe("Non-OASIS Vocabularies", function () {
       "",
       "Term|Type|Description",
       ":---|:---|:----------",
-      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed terms:<ul><li>[Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)</li><li>[WithoutReference](#WithoutReference)</li></ul>',
+      'Reference|AnnotationPath|<a name="Reference"></a>Reference to a description<br>Allowed Terms:<ul><li>[Description](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Description)</li><li>[WithoutReference](#WithoutReference)</li></ul>',
       "",
     ];
     const markdown = lib.csdl2markdown(filename, vocabulary);
@@ -568,7 +568,7 @@ describe("Edge cases", function () {
       ],
     };
     const mdtype =
-      "PrimitiveType<br>Allowed derived types:<ul><li>[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)</li><li>Duration</li></ul>";
+      "PrimitiveType<br>Allowed Derived Types:<ul><li>[Tag](https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Core.V1.md#Tag)</li><li>Duration</li></ul>";
     const vocabulary = {
       $Version: "4.01",
       $Reference: {
