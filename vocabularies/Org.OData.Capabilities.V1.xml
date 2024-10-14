@@ -613,6 +613,26 @@ supported:
         <Annotation Term="Core.Description" String="Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)" />
       </Term>
 
+      <Term Name="PayloadExpressionSupport" Type="Capabilities.PayloadExpressionSupportType" Nullable="false" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Whether expressions for parameters in action payloads [OData-JSON, section 18] and `$query` payloads [OData-URL, section 4.17] are supported" />
+        <Annotation Term="Core.LongDescription">
+          <String>Expressions can occur in payload properties that represent
+- action parameters if the property name has the suffix `@expression` or
+- function parameters if the property name has the suffix `@expression` in `\$query` payloads
+- system query options (without suffix) in `\$query` payloads.</String>
+        </Annotation>
+      </Term>
+      <ComplexType Name="PayloadExpressionSupportType">
+        <Property Name="URLExpressionsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Common expressions defined in [OData-URL](https://oasis-tcs.github.io/odata-specs/odata-url-conventions/odata-url-conventions.html#CommonExpressionSyntax) are supported in payloads" />
+        </Property>
+        <!--
+        <Property Name="CSDLExpressionsSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Dynamic expressions defined in [OData-CSDL](https://oasis-tcs.github.io/odata-specs/odata-csdl-json/odata-csdl-json.html#DynamicExpression) are supported in payloads" />
+        </Property>
+        -->
+      </ComplexType>
+
       <!-- Data Modification Capabilities -->
 
       <Term Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType" Nullable="false" AppliesTo="EntitySet Collection">

@@ -791,6 +791,23 @@
             ],
             "@Core.Description": "Supports [passing query options in the request body](http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html#sec_PassingQueryOptionsintheRequestBody)"
         },
+        "PayloadExpressionSupport": {
+            "$Kind": "Term",
+            "$Type": "Capabilities.PayloadExpressionSupportType",
+            "$AppliesTo": [
+                "EntityContainer"
+            ],
+            "@Core.Description": "Whether expressions for parameters in action payloads [OData-JSON, section 18] and `$query` payloads [OData-URL, section 4.17] are supported",
+            "@Core.LongDescription": "Expressions can occur in payload properties that represent\n- action parameters if the property name has the suffix `@expression` or\n- function parameters if the property name has the suffix `@expression` in `\\$query` payloads\n- system query options (without suffix) in `\\$query` payloads."
+        },
+        "PayloadExpressionSupportType": {
+            "$Kind": "ComplexType",
+            "URLExpressionsSupported": {
+                "$Type": "Edm.Boolean",
+                "$DefaultValue": false,
+                "@Core.Description": "Common expressions defined in [OData-URL](https://oasis-tcs.github.io/odata-specs/odata-url-conventions/odata-url-conventions.html#CommonExpressionSyntax) are supported in payloads"
+            }
+        },
         "InsertRestrictions": {
             "$Kind": "Term",
             "$Type": "Capabilities.InsertRestrictionsType",
