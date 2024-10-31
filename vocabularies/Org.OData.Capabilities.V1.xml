@@ -496,12 +496,11 @@ supported:
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiValueOrSearchExpression" />
-              <Annotation Term="Core.Description" String="String property can be used like in `MultiValue` and like in `SearchExpression`" />
+              <Annotation Term="Core.Description" String="String property can be used like in `MultiValue` and like in `SearchExpression`, combined with `or`" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiRangeOrSearchExpression" />
-              <Annotation Term="Core.Description" String="Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns" />
-              <Annotation Term="Core.LongDescription" String="The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See MultiRange for a definition of an interval expression. See SearchExpression for the allowed string comparison functions." />
+              <Annotation Term="Core.Description" String="String property can be used like in `MultiRange` and like in `SearchExpression`, combined with `or`" />
             </Record>
           </Collection>
         </Annotation>
