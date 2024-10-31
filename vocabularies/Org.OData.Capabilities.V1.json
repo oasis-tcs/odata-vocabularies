@@ -632,6 +632,10 @@
                     "@Core.Description": "String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses"
                 },
                 {
+                    "Value": "MultiValueOrSearchExpression",
+                    "@Core.Description": "String property can be used like in `MultiValue` and like in `SearchExpression`"
+                },
+                {
                     "Value": "MultiRangeOrSearchExpression",
                     "@Core.Description": "Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns",
                     "@Core.LongDescription": "The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See MultiRange for a definition of an interval expression. See SearchExpression for the allowed string comparison functions."
