@@ -483,12 +483,17 @@ supported:
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SingleRange" />
-              <Annotation Term="Core.Description" String="Property can be used in at most one `ge` and/or one `le` clause, separated by `and`" />
+              <Annotation Term="Core.Description" String="Property can be compared to a single closed, half-open, or open interval" />
+              <Annotation Term="Core.LongDescription" String="The filter expression for this property consists of a single interval expression, which is either a single comparison of the property and a literal value with `eq`, `le`, `lt`, `ge`, or `gt`, or a pair of boundaries combined by `and`. The lower boundary is either `ge` or `gt`, the upper boundary either `le` or `lt`." />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiRange" />
               <Annotation Term="Core.Description" String="Property can be compared to a union of one or more closed, half-open, or open intervals" />
-              <Annotation Term="Core.LongDescription" String="The filter expression for this property consists of one or more interval expressions combined by `or`. A single interval expression is either a single comparison of the property and a literal value with `eq`, `le`, `lt`, `ge`, or `gt`, or pair of boundaries combined by `and` and enclosed in parentheses. The lower boundary is either `ge` or `gt`, the upper boundary either `le` or `lt`." />
+              <Annotation Term="Core.LongDescription">
+                <String>The filter expression for this property consists of one or more interval expressions, combined by `or`. See SingleRange for the definition of an interval expression.
+
+                Alternatively the filter expression can consist of one or more `ne` expressions combined by `and`, which is roughly equivalent to the union of the complementing open intervals. Roughly equivalent because `null` is allowed as a right-side operand of an `ne` expression.</String>
+              </Annotation>
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SearchExpression" />
@@ -500,7 +505,8 @@ supported:
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiRangeOrSearchExpression" />
-              <Annotation Term="Core.Description" String="String property can be used like in `MultiRange` and like in `SearchExpression`, combined with `or`" />
+              <Annotation Term="Core.Description" String="Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns" />
+              <Annotation Term="Core.LongDescription" String="The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See SingleRange for the definition of an interval expression. See SearchExpression for the allowed string comparison functions." />
             </Record>
           </Collection>
         </Annotation>

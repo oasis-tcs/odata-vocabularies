@@ -570,6 +570,14 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         <Annotation Term="Core.Description" String="On success the annotated action creates a new entity" />
       </Term>
 
+      <Term Name="IsDelta" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="ReturnType Parameter">
+        <Annotation Term="Core.Description" String="The annotated Action or Function Parameter or Return Type is represented as a Delta payload" />
+        <Annotation Term="Core.LongDescription">
+          <String>The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related 
+          entities and relationships, according to the format-specific delta representation.</String>
+        </Annotation>
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>

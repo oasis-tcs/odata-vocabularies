@@ -747,6 +747,17 @@
                 "Action"
             ],
             "@Core.Description": "On success the annotated action creates a new entity"
+        },
+        "IsDelta": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "ReturnType",
+                "Parameter"
+            ],
+            "@Core.Description": "The annotated Action or Function Parameter or Return Type is represented as a Delta payload",
+            "@Core.LongDescription": "The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related \n          entities and relationships, according to the format-specific delta representation."
         }
     }
 }

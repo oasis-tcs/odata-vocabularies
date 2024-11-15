@@ -1,0 +1,18 @@
+@media screen {
+  #darkmode {
+    position: fixed;
+    top: 0;
+    right: 0;
+  }
+
+  html.darkmode {
+    background-color: #f2eee8;
+    filter: invert(100%);
+  }
+}
+
+@media print {
+  #darkmode {
+    display: none;
+  }
+}
