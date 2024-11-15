@@ -566,6 +566,10 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Annotation>
       </Term>
 
+      <Term Name="Constructor" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
+        <Annotation Term="Core.Description" String="On success the annotated action creates a new entity" />
+      </Term>
+
       <Term Name="IsDelta" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="ReturnType Parameter">
         <Annotation Term="Core.Description" String="The annotated Action or Function Parameter or Return Type is represented as a Delta payload" />
         <Annotation Term="Core.LongDescription">
