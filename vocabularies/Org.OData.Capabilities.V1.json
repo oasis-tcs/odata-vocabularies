@@ -92,9 +92,29 @@
             "$Type": "Core.Tag",
             "$DefaultValue": true,
             "$AppliesTo": [
-                "EntityContainer"
+                "EntityContainer",
+                "EntitySet",
+                "Action",
+                "ActionImport",
+                "Function",
+                "FunctionImport"
             ],
-            "@Core.Description": "Service supports the asynchronous request preference"
+            "@Core.Description": "Requests in scope require the asynchronous request preference"
+        },
+        "AsynchronousRequestsRequired": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "EntityContainer",
+                "EntitySet",
+                "Action",
+                "ActionImport",
+                "Function",
+                "FunctionImport"
+            ],
+            "$BaseTerm": "Capabilities.AsynchronousRequestsSupported",
+            "@Core.Description": "Requests in scope require the asynchronous request preference"
         },
         "BatchContinueOnErrorSupported": {
             "$Kind": "Term",
