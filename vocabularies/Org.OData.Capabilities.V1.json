@@ -94,12 +94,13 @@
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet",
+                "Singleton",
                 "Action",
                 "ActionImport",
                 "Function",
                 "FunctionImport"
             ],
-            "@Core.Description": "Requests in scope require the asynchronous request preference"
+            "@Core.Description": "Supports the `respond-async` preference"
         },
         "AsynchronousRequestsRequired": {
             "$Kind": "Term",
@@ -108,13 +109,14 @@
             "$AppliesTo": [
                 "EntityContainer",
                 "EntitySet",
+                "Singleton",
                 "Action",
                 "ActionImport",
                 "Function",
                 "FunctionImport"
             ],
             "$BaseTerm": "Capabilities.AsynchronousRequestsSupported",
-            "@Core.Description": "Requests in scope require the asynchronous request preference"
+            "@Core.Description": "Requires the `respond-async` preference"
         },
         "BatchContinueOnErrorSupported": {
             "$Kind": "Term",
