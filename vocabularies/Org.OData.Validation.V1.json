@@ -123,6 +123,11 @@
                 "@Core.IsLanguageDependent": true,
                 "@Core.Description": "Human-readable message that can be shown to end users if the constraint is not fulfilled"
             },
+            "MessageSeverity": {
+                "$Type": "Core.MessageSeverity",
+                "$Nullable": true,
+                "@Core.Description": "Severity of a non-fulfilment of the constraint"
+            },
             "Condition": {
                 "$Type": "Edm.Boolean",
                 "@Core.Description": "Value MUST be a dynamic expression that evaluates to true if and only if the constraint is fulfilled"
