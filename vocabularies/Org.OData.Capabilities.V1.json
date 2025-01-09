@@ -290,12 +290,12 @@
             },
             "TopSupported": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
+                "$Nullable": true,
                 "@Core.Description": "Supports $top"
             },
             "SkipSupported": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
+                "$Nullable": true,
                 "@Core.Description": "Supports $skip"
             },
             "SelectSupport": {
@@ -305,7 +305,7 @@
             },
             "IndexableByKey": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
+                "$Nullable": true,
                 "@Core.Description": "Supports key values according to OData URL conventions"
             },
             "InsertRestrictions": {
@@ -335,7 +335,7 @@
             },
             "OptimisticConcurrencyControl": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": false,
+                "$Nullable": true,
                 "@Core.Description": "Data modification (including insert) along this navigation property requires the use of ETags"
             },
             "ReadRestrictions": {
