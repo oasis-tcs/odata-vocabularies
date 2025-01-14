@@ -145,12 +145,12 @@ supported:
 
       <!-- Supported Preferences -->
 
-      <Term Name="AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer EntitySet Singleton Action ActionImport Function FunctionImport">
-        <Annotation Term="Core.Description" String="Supports the `respond-async` preference" />
+      <Term Name="AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Service supports the asynchronous request preference" />
       </Term>
 
-      <Term Name="AsynchronousRequestsRequired" BaseTerm="Capabilities.AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer EntitySet Singleton Action ActionImport Function FunctionImport">
-        <Annotation Term="Core.Description" String="Requires the `respond-async` preference" />
+      <Term Name="AsynchronousRequestsRequired" BaseTerm="Capabilities.AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
+        <Annotation Term="Core.Description" String="Service requires the asynchronous request preference" />
       </Term>
 
       <Term Name="BatchContinueOnErrorSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
