@@ -272,16 +272,16 @@ supported:
         <Property Name="SortRestrictions" Type="Capabilities.SortRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on orderby expressions" />
         </Property>
-        <Property Name="TopSupported" Type="Edm.Boolean">
+        <Property Name="TopSupported" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Supports $top" />
         </Property>
-        <Property Name="SkipSupported" Type="Edm.Boolean">
+        <Property Name="SkipSupported" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Supports $skip" />
         </Property>
         <Property Name="SelectSupport" Type="Capabilities.SelectSupportType">
           <Annotation Term="Core.Description" String="Support for $select" />
         </Property>
-        <Property Name="IndexableByKey" Type="Edm.Boolean">
+        <Property Name="IndexableByKey" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Supports key values according to OData URL conventions" />
         </Property>
         <Property Name="InsertRestrictions" Type="Capabilities.InsertRestrictionsType">
@@ -299,7 +299,7 @@ supported:
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsType">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />
         </Property>
-        <Property Name="OptimisticConcurrencyControl" Type="Edm.Boolean">
+        <Property Name="OptimisticConcurrencyControl" Type="Edm.Boolean" Nullable="true">
           <Annotation Term="Core.Description" String="Data modification (including insert) along this navigation property requires the use of ETags" />
         </Property>
         <Property Name="ReadRestrictions" Type="Capabilities.ReadRestrictionsType">
