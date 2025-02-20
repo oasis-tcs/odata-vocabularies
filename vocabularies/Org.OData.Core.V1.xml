@@ -513,9 +513,9 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
           <Annotation Term="Core.Description" String="Default value for an optional parameter of primitive type, using the same rules as the `cast` function in URLs" />
           <Annotation Term="Core.LongDescription" String="If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date." />
         </Property>
-        <Property Name="NonPrimitiveDefaultValue" Type="Edm.Untyped" Nullable="true">
-          <Annotation Term="Core.Description" String="Default value for an optional parameter of non-primitive type" />
-          <Annotation Term="Core.LongDescription" String="If no explicit NonPrimitiveDefaultValue is specified, the service is free on how to interpret omitting the parameter from the request." />
+        <Property Name="DefaultsToEmptyCollection" Type="Core.Tag" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Whether an optional collection-valued parameter defaults to an empty collection" />
+          <Annotation Term="Core.LongDescription" String="If this is false, the service is free on how to interpret omitting the parameter from the request." />
         </Property>
       </ComplexType>
 

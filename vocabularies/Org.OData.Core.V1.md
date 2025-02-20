@@ -304,7 +304,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
 Property|Type|Description
 :-------|:---|:----------
 [DefaultValue](Org.OData.Core.V1.xml#L512)|String?|Default value for an optional parameter of primitive type, using the same rules as the `cast` function in URLs<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
-[NonPrimitiveDefaultValue](Org.OData.Core.V1.xml#L516)|Untyped?|Default value for an optional parameter of non-primitive type<br>If no explicit NonPrimitiveDefaultValue is specified, the service is free on how to interpret omitting the parameter from the request.
+[DefaultsToEmptyCollection](Org.OData.Core.V1.xml#L516)|[Tag](#Tag)|Whether an optional collection-valued parameter defaults to an empty collection<br>If this is false, the service is free on how to interpret omitting the parameter from the request.
 
 <a name="LocalDateTime"></a>
 ## [LocalDateTime](Org.OData.Core.V1.xml#L535)
