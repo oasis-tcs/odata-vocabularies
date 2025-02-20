@@ -45,14 +45,14 @@ Term|Type|Description
 [PositionalInsert](Org.OData.Core.V1.xml#L475)|[Tag](#Tag)|<a name="PositionalInsert"></a>Items can be inserted at a given ordinal index.
 [AlternateKeys](Org.OData.Core.V1.xml#L479)|\[[AlternateKey](#AlternateKey)\]|<a name="AlternateKeys"></a>Communicates available alternate keys
 [OptionalParameter](Org.OData.Core.V1.xml#L507)|[OptionalParameterType](#OptionalParameterType)|<a name="OptionalParameter"></a>Supplying a value for the action or function parameter is optional.<br>All parameters marked as optional must come after any parameters not marked as optional. The binding parameter must not be marked as optional.
-[OperationAvailable](Org.OData.Core.V1.xml#L518)|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
-[RequiresExplicitBinding](Org.OData.Core.V1.xml#L523)|[Tag?](#Tag)|<a name="RequiresExplicitBinding"></a>This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term.
-[ExplicitOperationBindings](Org.OData.Core.V1.xml#L527)|\[[QualifiedBoundOperationName](#QualifiedBoundOperationName)\]|<a name="ExplicitOperationBindings"></a>The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element.
-[SymbolicName](Org.OData.Core.V1.xml#L536)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
-[GeometryFeature](Org.OData.Core.V1.xml#L545)|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
-[AnyStructure](Org.OData.Core.V1.xml#L561)|[Tag](#Tag)|<a name="AnyStructure"></a>Instances of a type are annotated with this tag if they have no common structure in a given response payload<br>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty, but this instance annotation SHOULD be omitted from the response value.
-[Constructor](Org.OData.Core.V1.xml#L569)|[Tag](#Tag)|<a name="Constructor"></a>On success the annotated action creates a new entity
-[IsDelta](Org.OData.Core.V1.xml#L573)|[Tag](#Tag)|<a name="IsDelta"></a>The annotated Action or Function Parameter or Return Type is represented as a Delta payload<br>The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related entities and relationships, according to the format-specific delta representation.
+[OperationAvailable](Org.OData.Core.V1.xml#L522)|Boolean?|<a name="OperationAvailable"></a>Action or function is available<br>The annotation value will usually be an expression, e.g. using properties of the binding parameter type for instance-dependent availability, or using properties of a singleton for global availability. The static value `null` means that availability cannot be determined upfront and is instead expressed as an operation advertisement.
+[RequiresExplicitBinding](Org.OData.Core.V1.xml#L527)|[Tag?](#Tag)|<a name="RequiresExplicitBinding"></a>This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term.
+[ExplicitOperationBindings](Org.OData.Core.V1.xml#L531)|\[[QualifiedBoundOperationName](#QualifiedBoundOperationName)\]|<a name="ExplicitOperationBindings"></a>The qualified names of explicitly bound operations that are supported on the target model element. These operations are in addition to any operations not annotated with RequiresExplicitBinding that are bound to the type of the target model element.
+[SymbolicName](Org.OData.Core.V1.xml#L540)|[SimpleIdentifier](#SimpleIdentifier)|<a name="SymbolicName"></a>A symbolic name for a model element
+[GeometryFeature](Org.OData.Core.V1.xml#L549)|[GeometryFeatureType?](#GeometryFeatureType)|<a name="GeometryFeature"></a>A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
+[AnyStructure](Org.OData.Core.V1.xml#L565)|[Tag](#Tag)|<a name="AnyStructure"></a>Instances of a type are annotated with this tag if they have no common structure in a given response payload<br>The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty, but this instance annotation SHOULD be omitted from the response value.
+[Constructor](Org.OData.Core.V1.xml#L573)|[Tag](#Tag)|<a name="Constructor"></a>On success the annotated action creates a new entity
+[IsDelta](Org.OData.Core.V1.xml#L577)|[Tag](#Tag)|<a name="IsDelta"></a>The annotated Action or Function Parameter or Return Type is represented as a Delta payload<br>The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related entities and relationships, according to the format-specific delta representation.
 
 <a name="RevisionType"></a>
 ## [RevisionType](Org.OData.Core.V1.xml#L80)
@@ -303,26 +303,27 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
 
 Property|Type|Description
 :-------|:---|:----------
-[DefaultValue](Org.OData.Core.V1.xml#L512)|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs.<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
+[DefaultValue](Org.OData.Core.V1.xml#L512)|String?|Default value for an optional parameter of primitive or enumeration type, using the same rules as the `cast` function in URLs<br>If no explicit DefaultValue is specified, the service is free on how to interpret omitting the parameter from the request. For example, a service might interpret an omitted optional parameter `KeyDate` as having the current date.
+[NonPrimitiveDefaultValue](Org.OData.Core.V1.xml#L516)|Untyped?|Default value for an optional parameter of non-primitive non-enumeration type<br>If no explicit NonPrimitiveDefaultValue is specified, the service is free on how to interpret omitting the parameter from the request.
 
 <a name="LocalDateTime"></a>
-## [LocalDateTime](Org.OData.Core.V1.xml#L531)
+## [LocalDateTime](Org.OData.Core.V1.xml#L535)
 **Type:** String
 
 A string representing a Local Date-Time value with no offset.
 
 <a name="SimpleIdentifier"></a>
-## [SimpleIdentifier](Org.OData.Core.V1.xml#L540)
+## [SimpleIdentifier](Org.OData.Core.V1.xml#L544)
 **Type:** String
 
 A [simple identifier](https://docs.oasis-open.org/odata/odata-csdl-xml/v4.01/odata-csdl-xml-v4.01.html#sec_SimpleIdentifier)
 
 <a name="GeometryFeatureType"></a>
-## [GeometryFeatureType](Org.OData.Core.V1.xml#L548)
+## [GeometryFeatureType](Org.OData.Core.V1.xml#L552)
 A [Feature Object](https://datatracker.ietf.org/doc/html/rfc7946#section-3.2) represents a spatially bounded thing
 
 Property|Type|Description
 :-------|:---|:----------
-[geometry](Org.OData.Core.V1.xml#L550)|Geometry?|Location of the Feature
-[properties](Org.OData.Core.V1.xml#L553)|[Dictionary?](#Dictionary)|Properties of the Feature
-[id](Org.OData.Core.V1.xml#L556)|String?|Commonly used identifer for a Feature
+[geometry](Org.OData.Core.V1.xml#L554)|Geometry?|Location of the Feature
+[properties](Org.OData.Core.V1.xml#L557)|[Dictionary?](#Dictionary)|Properties of the Feature
+[id](Org.OData.Core.V1.xml#L560)|String?|Commonly used identifer for a Feature
