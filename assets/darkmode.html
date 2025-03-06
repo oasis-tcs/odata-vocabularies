@@ -24,7 +24,7 @@
 
     const darkmode_query = matchMedia("(prefers-color-scheme: dark)");
     darkmode_query.addEventListener("change", darkmode_auto);
-    const darkmode_switch = document.getElementById("darkmode");
+    const darkmode_switch = document.querySelector("#darkmode select");
     darkmode_switch.value =
       localStorage.getItem("odata-vocabularies/darkmode") || "off";
     darkmode_switch.addEventListener("change", darkmode_manual);
