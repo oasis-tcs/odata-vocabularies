@@ -560,7 +560,6 @@ supported:
         </Property>
         <Property Name="NonExpandableStreamProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These stream properties cannot be used in expand expressions" />
-          <Annotation Term="Core.RequiresType" String="Edm.Stream" />
         </Property>
       </ComplexType>
 

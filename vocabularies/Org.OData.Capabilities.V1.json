@@ -722,8 +722,7 @@
             "NonExpandableStreamProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These stream properties cannot be used in expand expressions",
-                "@Core.RequiresType": "Edm.Stream"
+                "@Core.Description": "These stream properties cannot be used in expand expressions"
             }
         },
         "SearchRestrictions": {
