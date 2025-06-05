@@ -291,7 +291,7 @@ supported:
           <Annotation Term="Core.Description" String="Deep Insert Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
         </Property>
         <Property Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType">
-          <Annotation Term="Core.Description" String="Restrictions on update operations" />
+          <Annotation Term="Core.Description" String="Restrictions on upsert operations" />
         </Property>
         <Property Name="DeepUpdateSupport" Type="Capabilities.DeepUpdateSupportType">
           <Annotation Term="Core.Description" String="Deep Update Support of the annotated resource (the whole service, an entity set, or a collection-valued resource)" />
@@ -718,35 +718,35 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
 
       <Term Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.AppliesViaContainer" />
-        <Annotation Term="Core.Description" String="Restrictions on update operations" />
+        <Annotation Term="Core.Description" String="Restrictions on upsert operations" />
       </Term>
       <ComplexType Name="UpdateRestrictionsBase">
         <Property Name="Updatable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Entities can be updated" />
-        </Property>
-        <Property Name="Upsertable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Entities can be upserted" />
         </Property>
+        <Property Name="Upsertable" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
+          <Annotation Term="Core.Description" String="Entities can be inserted during an upsert" />
+        </Property>
         <Property Name="DeltaUpdateSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Entities can be inserted, updated, and deleted via a PATCH request with a delta payload" />
+          <Annotation Term="Core.Description" String="Entities can be inserted, upserted, and deleted via a PATCH request with a delta payload" />
         </Property>
         <Property Name="UpdateMethod" Type="Capabilities.HttpMethod" Nullable="true">
           <Annotation Term="Core.Description" String="Supported HTTP Methods (PUT or PATCH) for updating an entity.  If null, PATCH SHOULD be supported and PUT MAY be supported." />
         </Property>
         <Property Name="FilterSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment" />
+          <Annotation Term="Core.Description" String="Members of collections can be upserted via a PATCH request with a `/$filter(...)/$each` segment" />
         </Property>
         <Property Name="TypecastSegmentSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment" />
+          <Annotation Term="Core.Description" String="Members of collections can be upserted via a PATCH request with a type-cast segment and a `/$each` segment" />
         </Property>
         <Property Name="MaxLevels" Type="Edm.Int32" Nullable="false" DefaultValue="-1">
-          <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction." />
+          <Annotation Term="Core.Description" String="The maximum number of navigation properties that can be traversed when addressing the collection or entity to upsert. A value of -1 indicates there is no restriction." />
         </Property>
         <Property Name="Permissions" Type="Collection(Capabilities.PermissionType)" Nullable="true">
-          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the update." />
+          <Annotation Term="Core.Description" String="Required permissions. One of the specified sets of scopes is required to perform the upsert." />
         </Property>
         <Property Name="QueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="true">
-          <Annotation Term="Core.Description" String="Support for query options with update requests" />
+          <Annotation Term="Core.Description" String="Support for query options with upsert requests" />
         </Property>
         <Property Name="CustomHeaders" Type="Collection(Capabilities.CustomParameter)" Nullable="false">
           <Annotation Term="Core.Description" String="Supported or required custom headers" />
@@ -768,13 +768,13 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </ComplexType>
       <ComplexType Name="UpdateRestrictionsType" BaseType="Capabilities.UpdateRestrictionsBase">
         <Property Name="NonUpdatableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These structural properties cannot be specified on update" />
+          <Annotation Term="Core.Description" String="These structural properties cannot be specified on upsert" />
         </Property>
         <Property Name="NonUpdatableNavigationProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These navigation properties do not allow rebinding" />
         </Property>
         <Property Name="RequiredProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
-          <Annotation Term="Core.Description" String="These structural properties must be specified on update" />
+          <Annotation Term="Core.Description" String="These structural properties must be specified on upsert" />
         </Property>
       </ComplexType>
 
@@ -808,7 +808,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </Term>
       <ComplexType Name="DeepUpdateSupportType">
         <Property Name="Supported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
-          <Annotation Term="Core.Description" String="Annotation target supports deep updates" />
+          <Annotation Term="Core.Description" String="Annotation target supports deep upserts" />
         </Property>
         <Property Name="ContentIDSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Annotation target supports accepting and returning nested entities annotated with the `Core.ContentID` instance annotation." />
@@ -925,7 +925,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
       </Term>
 
       <Term Name="ModificationQueryOptions" Type="Capabilities.ModificationQueryOptionsType" Nullable="false" AppliesTo="EntityContainer Action ActionImport">
-        <Annotation Term="Core.Description" String="Support for query options with modification requests (insert, update, action invocation)" />
+        <Annotation Term="Core.Description" String="Support for query options with modification requests (insert, upsert, action invocation)" />
       </Term>
       <ComplexType Name="ModificationQueryOptionsType">
         <Property Name="ExpandSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
@@ -1120,7 +1120,7 @@ The absence of `RestrictedProperties` denotes all properties are accessible usin
           <Annotation Term="Core.Description" String="Restrictions on insert operations" />
         </Property>
         <Property Name="UpdateRestrictions" Type="Capabilities.UpdateRestrictionsBase">
-          <Annotation Term="Core.Description" String="Restrictions on update operations" />
+          <Annotation Term="Core.Description" String="Restrictions on upsert operations" />
         </Property>
         <Property Name="DeleteRestrictions" Type="Capabilities.DeleteRestrictionsBase">
           <Annotation Term="Core.Description" String="Restrictions on delete operations" />

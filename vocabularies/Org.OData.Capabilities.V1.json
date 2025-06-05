@@ -321,7 +321,7 @@
             "UpdateRestrictions": {
                 "$Type": "Capabilities.UpdateRestrictionsType",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on update operations"
+                "@Core.Description": "Restrictions on upsert operations"
             },
             "DeepUpdateSupport": {
                 "$Type": "Capabilities.DeepUpdateSupportType",
@@ -936,24 +936,24 @@
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
-            "@Core.Description": "Restrictions on update operations"
+            "@Core.Description": "Restrictions on upsert operations"
         },
         "UpdateRestrictionsBase": {
             "$Kind": "ComplexType",
             "Updatable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Entities can be updated"
+                "@Core.Description": "Entities can be upserted"
             },
             "Upsertable": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Entities can be upserted"
+                "@Core.Description": "Entities can be inserted during an upsert"
             },
             "DeltaUpdateSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Entities can be inserted, updated, and deleted via a PATCH request with a delta payload"
+                "@Core.Description": "Entities can be inserted, upserted, and deleted via a PATCH request with a delta payload"
             },
             "UpdateMethod": {
                 "$Type": "Capabilities.HttpMethod",
@@ -963,28 +963,28 @@
             "FilterSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Members of collections can be updated via a PATCH request with a `/$filter(...)/$each` segment"
+                "@Core.Description": "Members of collections can be upserted via a PATCH request with a `/$filter(...)/$each` segment"
             },
             "TypecastSegmentSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Members of collections can be updated via a PATCH request with a type-cast segment and a `/$each` segment"
+                "@Core.Description": "Members of collections can be upserted via a PATCH request with a type-cast segment and a `/$each` segment"
             },
             "MaxLevels": {
                 "$Type": "Edm.Int32",
                 "$DefaultValue": -1,
-                "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to update. A value of -1 indicates there is no restriction."
+                "@Core.Description": "The maximum number of navigation properties that can be traversed when addressing the collection or entity to upsert. A value of -1 indicates there is no restriction."
             },
             "Permissions": {
                 "$Collection": true,
                 "$Type": "Capabilities.PermissionType",
                 "$Nullable": true,
-                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the update."
+                "@Core.Description": "Required permissions. One of the specified sets of scopes is required to perform the upsert."
             },
             "QueryOptions": {
                 "$Type": "Capabilities.ModificationQueryOptionsType",
                 "$Nullable": true,
-                "@Core.Description": "Support for query options with update requests"
+                "@Core.Description": "Support for query options with upsert requests"
             },
             "CustomHeaders": {
                 "$Collection": true,
@@ -1018,7 +1018,7 @@
             "NonUpdatableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties cannot be specified on update"
+                "@Core.Description": "These structural properties cannot be specified on upsert"
             },
             "NonUpdatableNavigationProperties": {
                 "$Collection": true,
@@ -1028,7 +1028,7 @@
             "RequiredProperties": {
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
-                "@Core.Description": "These structural properties must be specified on update"
+                "@Core.Description": "These structural properties must be specified on upsert"
             }
         },
         "HttpMethod": {
@@ -1065,7 +1065,7 @@
             "Supported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": true,
-                "@Core.Description": "Annotation target supports deep updates"
+                "@Core.Description": "Annotation target supports deep upserts"
             },
             "ContentIDSupported": {
                 "$Type": "Edm.Boolean",
@@ -1271,7 +1271,7 @@
                 "Action",
                 "ActionImport"
             ],
-            "@Core.Description": "Support for query options with modification requests (insert, update, action invocation)"
+            "@Core.Description": "Support for query options with modification requests (insert, upsert, action invocation)"
         },
         "ModificationQueryOptionsType": {
             "$Kind": "ComplexType",
@@ -1544,7 +1544,7 @@
             "UpdateRestrictions": {
                 "$Type": "Capabilities.UpdateRestrictionsBase",
                 "$Nullable": true,
-                "@Core.Description": "Restrictions on update operations"
+                "@Core.Description": "Restrictions on upsert operations"
             },
             "DeleteRestrictions": {
                 "$Type": "Capabilities.DeleteRestrictionsBase",
