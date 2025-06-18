@@ -744,7 +744,7 @@
             "$Type": "Edm.EntityType",
             "$Nullable": true,
             "@Core.Description": "Entity-valued term that is never applied",
-            "@Core.LongDescription": "Can be used in `$expand=@Core.DoNotExpand` to prevent automatic expansion of navigation properties.\n          OData 4.02 or greater services SHOULD not return null for this annotation in the response."
+            "@Core.LongDescription": "Can be used in `$expand=@Core.DoNotExpand` to prevent automatic expansion of navigation properties.\n          OData 4.02 or greater services SHOULD NOT return null for this annotation in the response."
         },
         "Constructor": {
             "$Kind": "Term",
