@@ -566,6 +566,14 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Annotation>
       </Term>
 
+      <Term Name="DoNotExpand" Type="Edm.EntityType">
+        <Annotation Term="Core.Description" String="Entity-valued term that is never applied" />
+        <Annotation Term="Core.LongDescription">
+          <String>Can be used in `$expand=@Core.DoNotExpand` to prevent automatic expansion of navigation properties.
+          OData 4.02 or greater services SHOULD NOT return null for this annotation in the response.</String>
+        </Annotation>
+      </Term>
+
       <Term Name="Constructor" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
         <Annotation Term="Core.Description" String="On success the annotated action creates a new entity" />
       </Term>
