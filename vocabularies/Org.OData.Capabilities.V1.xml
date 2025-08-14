@@ -107,6 +107,14 @@ supported:
 - Insertability
 - Updatability
 - Deletability
+
+Capabilities annotations whose external target path is a canonical collection (in the
+sense of [OData-Protocol, section 10](https://oasis-tcs.github.io/odata-specs/odata-protocol/odata-protocol.html#ContextURL))
+apply to every entity in that collection, even if it is addressed via a non-canonical path.
+(Likewise for canonical singletons.)
+For example, restrictions specified on an entity set are valid whether the request is
+directly to the entity set or through a navigation property bound to that entity set.
+Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence.
         </String>
       </Annotation>
 
@@ -230,7 +238,6 @@ supported:
       <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
-        <Annotation Term="Core.LongDescription" String="Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence." />
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
         <Property Name="Navigability" Type="Capabilities.NavigationType">
