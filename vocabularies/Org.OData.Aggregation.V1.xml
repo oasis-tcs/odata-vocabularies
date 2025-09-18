@@ -339,9 +339,11 @@
         </Annotation>
       </Term>
 
+      <!-- 🚧
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)" />
       </Term>
+      -->
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)" />
@@ -487,6 +489,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
+      <!-- 🚧
       <Function Name="rollupnode">
         <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function returns the node" />
         <Annotation Term="Core.LongDescription">
@@ -524,6 +527,7 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
           as value one parent node identifier followed by one grandparent node identifier and so on.</String>
         </Annotation>
       </Term>
+      -->
 
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Function">
         <Annotation Term="Core.Description" String="This function is available on aggregated entities if the `RequiredProperties` are still defined" />

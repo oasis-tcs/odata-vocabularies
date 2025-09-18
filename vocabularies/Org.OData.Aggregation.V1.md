@@ -16,16 +16,14 @@ Term|Type|Description
 [Aggregatable](Org.OData.Aggregation.V1.xml#L317) *(Deprecated)*|[Tag](Org.OData.Core.V1.md#Tag)|<a name="Aggregatable"></a>Deprecated in favor of [`ApplySupported/AggregatableProperties`](#ApplySupported)
 [CustomAggregate](Org.OData.Aggregation.V1.xml#L329)|String|<a name="CustomAggregate"></a>Dynamic property that can be used in the `aggregate` transformation<br>This term MUST be applied with a Qualifier, the Qualifier value is the name of the dynamic property. The value of the annotation MUST be the qualified name of a primitive type. The aggregated value will be of that type.
 [ContextDefiningProperties](Org.OData.Aggregation.V1.xml#L335)|\[PropertyPath\]|<a name="ContextDefiningProperties"></a>The annotated property or custom aggregate is only well-defined in the context of these properties<br>The context-defining properties need either be part of the result entities, or be restricted to a single value by a pre-filter operation. Examples are postal codes within a country, or monetary amounts whose context is the unit of currency.
-[LeveledHierarchy](Org.OData.Aggregation.V1.xml#L342)|\[PropertyPath\]|<a name="LeveledHierarchy"></a>Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)
-[RecursiveHierarchy](Org.OData.Aggregation.V1.xml#L346)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)
-[UpPath](Org.OData.Aggregation.V1.xml#L519)|\[String\]|<a name="UpPath"></a>The string values of the node identifiers in a path from the annotated node to a start node in a traversal of a recursive hierarchy<br>This instance annotation occurs in the result set after a `traverse` transformation (OData-Data-Agg-v4.0, section 6.2.2.2). A use case for this is traversal with multiple parents, when this annotation takes as value one parent node identifier followed by one grandparent node identifier and so on.
-[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L528)|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This function is available on aggregated entities if the `RequiredProperties` are still defined
+[RecursiveHierarchy](Org.OData.Aggregation.V1.xml#L348)|[RecursiveHierarchyType](#RecursiveHierarchyType)|<a name="RecursiveHierarchy"></a>Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)
+[AvailableOnAggregates](Org.OData.Aggregation.V1.xml#L532)|[AvailableOnAggregatesType](#AvailableOnAggregatesType)|<a name="AvailableOnAggregates"></a>This function is available on aggregated entities if the `RequiredProperties` are still defined
 
 
 ## Functions
 
 <a name="isnode"></a>
-### [isnode](Org.OData.Aggregation.V1.xml#L371)
+### [isnode](Org.OData.Aggregation.V1.xml#L373)
 
 Is the entity a node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
@@ -33,14 +31,14 @@ If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](Org.OData.Aggregation.V1.xml#L374)|\[EntityType\]|A collection, given through a `$root` expression
-[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L377)|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](Org.OData.Aggregation.V1.xml#L378)|PrimitiveType?|Node identifier of the putative node
-[&rarr;](Org.OData.Aggregation.V1.xml#L381)|Boolean?|
+[HierarchyNodes](Org.OData.Aggregation.V1.xml#L376)|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L379)|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](Org.OData.Aggregation.V1.xml#L380)|PrimitiveType?|Node identifier of the putative node
+[&rarr;](Org.OData.Aggregation.V1.xml#L383)|Boolean?|
 
 
 <a name="isroot"></a>
-### [isroot](Org.OData.Aggregation.V1.xml#L384)
+### [isroot](Org.OData.Aggregation.V1.xml#L386)
 
 Is the entity a root node of the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)?
 
@@ -48,14 +46,14 @@ If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](Org.OData.Aggregation.V1.xml#L387)|\[EntityType\]|A collection, given through a `$root` expression
-[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L390)|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](Org.OData.Aggregation.V1.xml#L391)|PrimitiveType?|Node identifier of the putative root
-[&rarr;](Org.OData.Aggregation.V1.xml#L394)|Boolean?|
+[HierarchyNodes](Org.OData.Aggregation.V1.xml#L389)|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L392)|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](Org.OData.Aggregation.V1.xml#L393)|PrimitiveType?|Node identifier of the putative root
+[&rarr;](Org.OData.Aggregation.V1.xml#L396)|Boolean?|
 
 
 <a name="isdescendant"></a>
-### [isdescendant](Org.OData.Aggregation.V1.xml#L397)
+### [isdescendant](Org.OData.Aggregation.V1.xml#L399)
 
 Is the entity a descendant node of the ancestor node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
@@ -63,17 +61,17 @@ If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](Org.OData.Aggregation.V1.xml#L400)|\[EntityType\]|A collection, given through a `$root` expression
-[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L403)|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](Org.OData.Aggregation.V1.xml#L404)|PrimitiveType?|Node identifier of the putative descendant
-[Ancestor](Org.OData.Aggregation.V1.xml#L407)|PrimitiveType?|Node identifier of the ancestor node
-*[MaxDistance](Org.OData.Aggregation.V1.xml#L410)*|Int16|*Optional parameter*
-*[IncludeSelf](Org.OData.Aggregation.V1.xml#L418)*|Boolean|*Optional parameter:* Whether to include the node itself in the result
-[&rarr;](Org.OData.Aggregation.V1.xml#L426)|Boolean?|
+[HierarchyNodes](Org.OData.Aggregation.V1.xml#L402)|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L405)|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](Org.OData.Aggregation.V1.xml#L406)|PrimitiveType?|Node identifier of the putative descendant
+[Ancestor](Org.OData.Aggregation.V1.xml#L409)|PrimitiveType?|Node identifier of the ancestor node
+*[MaxDistance](Org.OData.Aggregation.V1.xml#L412)*|Int16|*Optional parameter*
+*[IncludeSelf](Org.OData.Aggregation.V1.xml#L420)*|Boolean|*Optional parameter:* Whether to include the node itself in the result
+[&rarr;](Org.OData.Aggregation.V1.xml#L428)|Boolean?|
 
 
 <a name="isancestor"></a>
-### [isancestor](Org.OData.Aggregation.V1.xml#L429)
+### [isancestor](Org.OData.Aggregation.V1.xml#L431)
 
 Is the entity an ancestor node of the descendant node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`) with at most the specified distance? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
@@ -81,17 +79,17 @@ If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](Org.OData.Aggregation.V1.xml#L432)|\[EntityType\]|A collection, given through a `$root` expression
-[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L435)|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](Org.OData.Aggregation.V1.xml#L436)|PrimitiveType?|Node identifier of the putative ancestor
-[Descendant](Org.OData.Aggregation.V1.xml#L439)|PrimitiveType?|Node identifier of the descendant node
-*[MaxDistance](Org.OData.Aggregation.V1.xml#L442)*|Int16|*Optional parameter*
-*[IncludeSelf](Org.OData.Aggregation.V1.xml#L450)*|Boolean|*Optional parameter:* Whether to include the node itself in the result
-[&rarr;](Org.OData.Aggregation.V1.xml#L458)|Boolean?|
+[HierarchyNodes](Org.OData.Aggregation.V1.xml#L434)|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L437)|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](Org.OData.Aggregation.V1.xml#L438)|PrimitiveType?|Node identifier of the putative ancestor
+[Descendant](Org.OData.Aggregation.V1.xml#L441)|PrimitiveType?|Node identifier of the descendant node
+*[MaxDistance](Org.OData.Aggregation.V1.xml#L444)*|Int16|*Optional parameter*
+*[IncludeSelf](Org.OData.Aggregation.V1.xml#L452)*|Boolean|*Optional parameter:* Whether to include the node itself in the result
+[&rarr;](Org.OData.Aggregation.V1.xml#L460)|Boolean?|
 
 
 <a name="issibling"></a>
-### [issibling](Org.OData.Aggregation.V1.xml#L461)
+### [issibling](Org.OData.Aggregation.V1.xml#L463)
 
 Is the entity a sibling node of the other node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
@@ -99,15 +97,15 @@ A node is not a sibling of itself. If a node identifier passed to the function i
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](Org.OData.Aggregation.V1.xml#L464)|\[EntityType\]|A collection, given through a `$root` expression
-[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L467)|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](Org.OData.Aggregation.V1.xml#L468)|PrimitiveType?|Node identifier of the putative sibling
-[Other](Org.OData.Aggregation.V1.xml#L471)|PrimitiveType?|Node identifier of the other node
-[&rarr;](Org.OData.Aggregation.V1.xml#L474)|Boolean?|
+[HierarchyNodes](Org.OData.Aggregation.V1.xml#L466)|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L469)|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](Org.OData.Aggregation.V1.xml#L470)|PrimitiveType?|Node identifier of the putative sibling
+[Other](Org.OData.Aggregation.V1.xml#L473)|PrimitiveType?|Node identifier of the other node
+[&rarr;](Org.OData.Aggregation.V1.xml#L476)|Boolean?|
 
 
 <a name="isleaf"></a>
-### [isleaf](Org.OData.Aggregation.V1.xml#L477)
+### [isleaf](Org.OData.Aggregation.V1.xml#L479)
 
 Is the entity a leaf node in the hierarchy specified by the [parameter pair](#HierarchyQualifier) (`HierarchyNodes`, `HierarchyQualifier`)? (See OData-Data-Agg-v4.0, section 5.5.2.1)
 
@@ -115,29 +113,10 @@ If a node identifier passed to the function is null, the function returns null.
 
 Parameter|Type|Description
 :--------|:---|:----------
-[HierarchyNodes](Org.OData.Aggregation.V1.xml#L480)|\[EntityType\]|A collection, given through a `$root` expression
-[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L483)|[HierarchyQualifier](#HierarchyQualifier)|
-[Node](Org.OData.Aggregation.V1.xml#L484)|PrimitiveType?|Node identifier of the putative leaf
-[&rarr;](Org.OData.Aggregation.V1.xml#L487)|Boolean?|
-
-
-<a name="rollupnode"></a>
-### [rollupnode](Org.OData.Aggregation.V1.xml#L490)
-
-During `rolluprecursive` for a hierarchy node, this function returns the node
-
-This function may only occur in the second parameter of a `groupby` transformation whose first parameter
-contains `rolluprecursive(...)`. It is evaluated as part of the transformation `R(x)` in the "`rolluprecursive` algorithm"
-(OData-Data-Agg-v4.0, section 6.3). Its behavior is undefined outside of this algorithm.
-```
-Sales?$apply=groupby((rolluprecursive(...)), filter(SalesOrganization eq Aggregation.rollupnode())/aggregate(...))
-```
-constructs a rollup that contains aggregates per hierarchy node while excluding descendants from the aggregation.
-
-Parameter|Type|Description
-:--------|:---|:----------
-*[Position](Org.OData.Aggregation.V1.xml#L501)*|Int16|*Optional parameter:* Position N among the `rolluprecursive` operators in the first argument of `groupby`<br>Every instance in the output set of a `groupby` transformation with M `rolluprecursive` operators has M relationships to M nodes in M recursive hierarchies. This function returns the node x with path r to the root in relationship number N. If several such `groupby` transformations are nested, this function refers to the innermost one.
-[&rarr;](Org.OData.Aggregation.V1.xml#L516)|EntityType|
+[HierarchyNodes](Org.OData.Aggregation.V1.xml#L482)|\[EntityType\]|A collection, given through a `$root` expression
+[HierarchyQualifier](Org.OData.Aggregation.V1.xml#L485)|[HierarchyQualifier](#HierarchyQualifier)|
+[Node](Org.OData.Aggregation.V1.xml#L486)|PrimitiveType?|Node identifier of the putative leaf
+[&rarr;](Org.OData.Aggregation.V1.xml#L489)|Boolean?|
 
 
 <a name="ApplySupportedBase"></a>
@@ -241,16 +220,16 @@ Member|Value|Description
 [MultipleHierarchies](Org.OData.Aggregation.V1.xml#L300)|2|Full support for `rollup` and `rolluprecursive`
 
 <a name="RecursiveHierarchyType"></a>
-## [RecursiveHierarchyType](Org.OData.Aggregation.V1.xml#L350)
+## [RecursiveHierarchyType](Org.OData.Aggregation.V1.xml#L352)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[NodeProperty](Org.OData.Aggregation.V1.xml#L351)|PropertyPath|Primitive property holding the node identifier
-[ParentNavigationProperty](Org.OData.Aggregation.V1.xml#L354)|NavigationPropertyPath|Property for navigating to the parent node(s). Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued.
+[NodeProperty](Org.OData.Aggregation.V1.xml#L353)|PropertyPath|Primitive property holding the node identifier
+[ParentNavigationProperty](Org.OData.Aggregation.V1.xml#L356)|NavigationPropertyPath|Property for navigating to the parent node(s). Its type MUST be the entity type annotated with this term, and it MUST be collection-valued or nullable single-valued.
 
 <a name="HierarchyQualifier"></a>
-## [HierarchyQualifier](Org.OData.Aggregation.V1.xml#L359)
+## [HierarchyQualifier](Org.OData.Aggregation.V1.xml#L361)
 **Type:** String
 
 Qualifier of a [`RecursiveHierarchy`](#RecursiveHierarchy) annotation
@@ -263,17 +242,17 @@ Every recursive hierarchy function defined in this vocabulary has
 given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy that is evaluated by the function.
 
 <a name="AvailableOnAggregatesType"></a>
-## [AvailableOnAggregatesType](Org.OData.Aggregation.V1.xml#L531)
+## [AvailableOnAggregatesType](Org.OData.Aggregation.V1.xml#L535)
 
 
 Property|Type|Description
 :-------|:---|:----------
-[RequiredProperties](Org.OData.Aggregation.V1.xml#L532)|\[PropertyPath\]|Properties required to apply this function
+[RequiredProperties](Org.OData.Aggregation.V1.xml#L536)|\[PropertyPath\]|Properties required to apply this function
 
 <a name="NavigationPropertyAggregationCapabilities"></a>
-## [NavigationPropertyAggregationCapabilities](Org.OData.Aggregation.V1.xml#L537): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
+## [NavigationPropertyAggregationCapabilities](Org.OData.Aggregation.V1.xml#L541): [NavigationPropertyRestriction](Org.OData.Capabilities.V1.md#NavigationPropertyRestriction) *(Deprecated)*
 [`Capabilities.NavigationRestrictions`](Org.OData.Capabilities.V1.md#NavigationRestrictions) that make use of the additional properties in this subtype are deprecated in favor of [`ApplySupported`](#ApplySupported) and [`CustomAggregate`](#CustomAggregate)
 
 <a name="CustomAggregateType"></a>
-## [CustomAggregateType](Org.OData.Aggregation.V1.xml#L555) *(Deprecated)*
+## [CustomAggregateType](Org.OData.Aggregation.V1.xml#L559) *(Deprecated)*
 Deprecated since [`NavigationPropertyAggregationCapabilities`](#NavigationPropertyAggregationCapabilities) is also deprecated
