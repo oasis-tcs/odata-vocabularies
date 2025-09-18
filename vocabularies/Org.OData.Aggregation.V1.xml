@@ -66,15 +66,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -108,12 +108,14 @@
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
         </Property>
+        <!-- 🚧
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
         <Property Name="From" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
           <Annotation Term="Core.Description" String="The service supports the `from` keyword in an `aggregate` transformation" />
         </Property>
+        -->
       </ComplexType>
       <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
@@ -180,6 +182,7 @@
               <PropertyValue Property="Value" String="search" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.4" />
             </Record>
+            <!-- 🚧
             <Record>
               <PropertyValue Property="Value" String="nest" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.2" />
@@ -188,6 +191,7 @@
               <PropertyValue Property="Value" String="addnested" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.3" />
             </Record>
+            -->
             <Record>
               <PropertyValue Property="Value" String="join" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.1" />
@@ -289,6 +293,7 @@
         </Annotation>
       </TypeDefinition>
 
+      <!-- 🚧
       <EnumType Name="RollupType">
         <Annotation Term="Core.Description" String="The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation" />
         <Member Name="None">
@@ -301,6 +306,7 @@
           <Annotation Term="Core.Description" String="Full support for `rollup` and `rolluprecursive`" />
         </Member>
       </EnumType>
+      -->
 
       <Term Name="Groupable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
         <Annotation Term="Core.Revisions">

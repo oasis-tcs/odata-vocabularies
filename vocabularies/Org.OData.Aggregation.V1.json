@@ -33,15 +33,15 @@
         "@Core.Links": [
             {
                 "rel": "alternate",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml"
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.xml"
             },
             {
                 "rel": "latest-version",
-                "href": "https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json"
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.json"
             },
             {
                 "rel": "describedby",
-                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md"
+                "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.md"
             }
         ],
         "ApplySupported": {
@@ -75,16 +75,6 @@
             "CustomAggregationMethods": {
                 "$Collection": true,
                 "@Core.Description": "Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`"
-            },
-            "Rollup": {
-                "$Type": "Aggregation.RollupType",
-                "$DefaultValue": "MultipleHierarchies",
-                "@Core.Description": "The service supports rollup hierarchies in a `groupby` transformation"
-            },
-            "From": {
-                "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
-                "@Core.Description": "The service supports the `from` keyword in an `aggregate` transformation"
             }
         },
         "ApplySupportedType": {
@@ -157,14 +147,6 @@
                 {
                     "Value": "search",
                     "@Core.Description": "OData-Data-Agg-v4.0, section 3.3.4"
-                },
-                {
-                    "Value": "nest",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.5.2"
-                },
-                {
-                    "Value": "addnested",
-                    "@Core.Description": "OData-Data-Agg-v4.0, section 3.4.3"
                 },
                 {
                     "Value": "join",
@@ -256,16 +238,6 @@
                     "@Core.LongDescription": "For navigation properties, it counts the distinct entities in the union of all entities related to entities in the input set. \n                  For collection-valued primitive properties, it counts the distinct items in the union of all collection values in the input set."
                 }
             ]
-        },
-        "RollupType": {
-            "$Kind": "EnumType",
-            "@Core.Description": "The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation",
-            "None": 0,
-            "None@Core.Description": "No support for `rollup` or `rolluprecursive`",
-            "SingleHierarchy": 1,
-            "SingleHierarchy@Core.Description": "Only one `rollup` or `rolluprecursive` operator per `groupby`",
-            "MultipleHierarchies": 2,
-            "MultipleHierarchies@Core.Description": "Full support for `rollup` and `rolluprecursive`"
         },
         "Groupable": {
             "$Kind": "Term",
