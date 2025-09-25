@@ -114,7 +114,14 @@ apply to every entity in that collection, even if it is addressed via a non-cano
 (Likewise for canonical singletons.)
 For example, restrictions specified on an entity set are valid whether the request is
 directly to the entity set or through a navigation property bound to that entity set.
-Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence.
+Services can specify a different set of restrictions specific to a path given through the
+following mechanisms:
+- an external annotation target of the form `ns.container/EntitySet/NavProp1/.../NavPropN`
+- a navigation property path in `Capabilities.NavigationRestrictions/RestrictedProperties/NavigationProperty`
+- a combination of both.
+
+In these cases the more specific restrictions take precedence. It is an error to specify
+conflicting restrictions of the same capability through different mechanisms.
         </String>
       </Annotation>
 
