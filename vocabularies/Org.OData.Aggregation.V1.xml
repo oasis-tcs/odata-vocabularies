@@ -29,6 +29,7 @@
   Related work:
   This vocabulary replaces or supersedes:
   - OData Extension for Data Aggregation Version 4.0 Aggregation Vocabulary.
+
   This vocabulary is related to:
   - OData Version 4.01 Part 1: Protocol. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
   - OData Version 4.01 Part 2: URL Conventions. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
@@ -108,7 +109,7 @@
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
         </Property>
-        <!-- 🚧
+        <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
@@ -182,7 +183,7 @@
               <PropertyValue Property="Value" String="search" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.4" />
             </Record>
-            <!-- 🚧
+            <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
             <Record>
               <PropertyValue Property="Value" String="nest" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.2" />
@@ -293,7 +294,7 @@
         </Annotation>
       </TypeDefinition>
 
-      <!-- 🚧
+      <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
       <EnumType Name="RollupType">
         <Annotation Term="Core.Description" String="The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation" />
         <Member Name="None">
@@ -345,7 +346,7 @@
         </Annotation>
       </Term>
 
-      <!-- 🚧
+      <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)" />
       </Term>
@@ -495,7 +496,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
-      <!-- 🚧
+      <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
       <Function Name="rollupnode">
         <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function returns the node" />
         <Annotation Term="Core.LongDescription">
