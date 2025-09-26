@@ -29,6 +29,7 @@
   Related work:
   This vocabulary replaces or supersedes:
   - OData Extension for Data Aggregation Version 4.0 Aggregation Vocabulary.
+
   This vocabulary is related to:
   - OData Version 4.01 Part 1: Protocol. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html.
   - OData Version 4.01 Part 2: URL Conventions. Latest version: http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html.
@@ -66,15 +67,15 @@
         <Collection>
           <Record>
             <PropertyValue Property="rel" String="latest-version" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.xml" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.xml" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="alternate" />
-            <PropertyValue Property="href" String="https://oasis-tcs.github.io/odata-vocabularies/vocabularies/Org.OData.Aggregation.V1.json" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.json" />
           </Record>
           <Record>
             <PropertyValue Property="rel" String="describedby" />
-            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Aggregation.V1.md" />
+            <PropertyValue Property="href" String="https://github.com/oasis-tcs/odata-vocabularies/blob/OData-Data-Agg-v4.0/oasis-standard/vocabularies/Org.OData.Aggregation.V1.md" />
           </Record>
         </Collection>
       </Annotation>
@@ -108,12 +109,14 @@
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
         </Property>
+        <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
         <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
         <Property Name="From" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
           <Annotation Term="Core.Description" String="The service supports the `from` keyword in an `aggregate` transformation" />
         </Property>
+        -->
       </ComplexType>
       <ComplexType Name="ApplySupportedType" BaseType="Aggregation.ApplySupportedBase">
         <Property Name="PropertyRestrictions" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
@@ -180,6 +183,7 @@
               <PropertyValue Property="Value" String="search" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.3.4" />
             </Record>
+            <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
             <Record>
               <PropertyValue Property="Value" String="nest" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.2" />
@@ -188,6 +192,7 @@
               <PropertyValue Property="Value" String="addnested" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.4.3" />
             </Record>
+            -->
             <Record>
               <PropertyValue Property="Value" String="join" />
               <Annotation Term="Core.Description" String="OData-Data-Agg-v4.0, section 3.5.1" />
@@ -289,6 +294,7 @@
         </Annotation>
       </TypeDefinition>
 
+      <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
       <EnumType Name="RollupType">
         <Annotation Term="Core.Description" String="The number of `rollup` or `rolluprecursive` operators allowed in a `groupby` transformation" />
         <Member Name="None">
@@ -301,6 +307,7 @@
           <Annotation Term="Core.Description" String="Full support for `rollup` and `rolluprecursive`" />
         </Member>
       </EnumType>
+      -->
 
       <Term Name="Groupable" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Property NavigationProperty">
         <Annotation Term="Core.Revisions">
@@ -339,9 +346,11 @@
         </Annotation>
       </Term>
 
+      <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
       <Term Name="LeveledHierarchy" Type="Collection(Edm.PropertyPath)" Nullable="false" AppliesTo="EntityType ComplexType">
         <Annotation Term="Core.Description" String="Defines a leveled hierarchy (OData-Data-Agg-v4.0, section 5.5.1)" />
       </Term>
+      -->
 
       <Term Name="RecursiveHierarchy" Type="Aggregation.RecursiveHierarchyType" Nullable="false" AppliesTo="EntityType">
         <Annotation Term="Core.Description" String="Defines a recursive hierarchy (OData-Data-Agg-v4.0, section 5.5.2)" />
@@ -487,6 +496,7 @@ given by the `HierarchyNodes` parameter. This specifies a recursive hierarchy th
         <ReturnType Type="Edm.Boolean" Nullable="true" />
       </Function>
 
+      <!-- Not supported in this version of the specification. See OData Extension for Data Aggregation Version 4.0, section 1.2.3.
       <Function Name="rollupnode">
         <Annotation Term="Core.Description" String="During `rolluprecursive` for a hierarchy node, this function returns the node" />
         <Annotation Term="Core.LongDescription">
@@ -524,6 +534,7 @@ constructs a rollup that contains aggregates per hierarchy node while excluding 
           as value one parent node identifier followed by one grandparent node identifier and so on.</String>
         </Annotation>
       </Term>
+      -->
 
       <Term Name="AvailableOnAggregates" Type="Aggregation.AvailableOnAggregatesType" Nullable="false" AppliesTo="Function">
         <Annotation Term="Core.Description" String="This function is available on aggregated entities if the `RequiredProperties` are still defined" />
