@@ -504,7 +504,7 @@ Services can specify a different set of restrictions specific to a path, in whic
             </Record>
             <Record>
               <PropertyValue Property="Value" String="SearchExpression" />
-              <Annotation Term="Core.Description" String="String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses" />
+              <Annotation Term="Core.Description" String="String property can be used as first operand in one or more `startswith`, `endswith`, and `contains` clauses, combined by `or`" />
             </Record>
             <Record>
               <PropertyValue Property="Value" String="MultiValueOrSearchExpression" />

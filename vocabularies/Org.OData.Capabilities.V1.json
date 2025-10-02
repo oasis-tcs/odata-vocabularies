@@ -629,7 +629,7 @@
                 },
                 {
                     "Value": "SearchExpression",
-                    "@Core.Description": "String property can be used as first operand in `startswith`, `endswith`, and `contains` clauses"
+                    "@Core.Description": "String property can be used as first operand in one or more `startswith`, `endswith`, and `contains` clauses, combined by `or`"
                 },
                 {
                     "Value": "MultiValueOrSearchExpression",
