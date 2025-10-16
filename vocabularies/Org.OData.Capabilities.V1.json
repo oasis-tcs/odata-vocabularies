@@ -103,7 +103,13 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Core.Description": "Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term."
+            "@Core.Description": "Service supports $batch requests and the `continue-on-error` preference",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of the [`ContinueOnErrorSupported`](#BatchSupportType) property from the [`BatchSupport`](#BatchSupport) term"
+                }
+            ]
         },
         "IsolationSupported": {
             "$Kind": "Term",
@@ -493,7 +499,8 @@
             "ContinueOnErrorSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports the continue on error preference"
+                "@Core.Description": "Service supports the `continue-on-error` preference",
+                "@Core.LongDescription": "When this preference is specified, the service applies it by processing all requests according to their dependencies,\n            regardless of the format for the $batch request."
             },
             "ReferencesInRequestBodiesSupported": {
                 "$Type": "Edm.Boolean",
