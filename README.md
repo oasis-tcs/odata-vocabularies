@@ -42,6 +42,8 @@ To learn how to construct an annotation value from a term definition, or vice ve
 - [Annotation Cheat-Sheet for CSDL JSON](docs/annotation-cheat-sheet-json.md)
 - [Annotation Cheat-Sheet for CSDL XML](docs/annotation-cheat-sheet.md)
 
+Some of the annotations could already be expressed in OData V2 services, albeit in a different syntax. See [here](https://sap.github.io/odata-vocabularies/docs/v2-annotations.html).
+
 <div>
 <h3>Contact</h3>
 <p>Please send questions or comments about <a href="https://www.oasis-open.org/resources/tcadmin/github-repositories-for-oasis-tc-members-chartered-work">OASIS TC GitHub repositories</a> to <a href="mailto:chet.ensign@oasis-open.org">Chet Ensign</a>.  For questions about content in this repository, please contact the TC Chair or Co-Chairs as listed on the the OData TC's <a href="https://www.oasis-open.org/committees/odata/">home page</a>.</p>
