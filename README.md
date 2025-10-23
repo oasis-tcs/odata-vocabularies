@@ -42,7 +42,7 @@ To learn how to construct an annotation value from a term definition, or vice ve
 - [Annotation Cheat-Sheet for CSDL JSON](docs/annotation-cheat-sheet-json.md)
 - [Annotation Cheat-Sheet for CSDL XML](docs/annotation-cheat-sheet.md)
 
-Some of the annotations could already be expressed in OData V2 services, albeit in a different syntax. See [here](https://sap.github.io/odata-vocabularies/docs/v2-annotations.html).
+An example of how some of the annotations can already be expressed in OData V2 services, is given by the alternative syntax described [here](https://sap.github.io/odata-vocabularies/docs/v2-annotations.html).
 
 <div>
 <h3>Contact</h3>
