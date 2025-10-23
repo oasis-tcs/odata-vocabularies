@@ -109,22 +109,24 @@ supported:
 - Deletability
 
 Capabilities annotations can be given through three mechanisms:
-1. embedded within a model element `edm:EntitySet` or `edm:Singleton`
-2. with an external annotation target T starting with a container and targeting a collection
-3. a `Capabilities.NavigationRestrictions` annotation with a `RestrictedProperties/NavigationProperty`;
-   let T then be the concatenation of
-   - the annotation target in the case of external targeting, otherwise the path from the container to the entity set or singleton in which the annotation is embedded
-   - and the navigation property path in `RestrictedProperties/NavigationProperty`.
+- embedded within a model element `edm:EntitySet` or `edm:Singleton`;
+  let T then be the path from the container to that model element
+- with an external annotation target T starting with a container and targeting a collection
+- a `Capabilities.NavigationRestrictions` annotation with a `RestrictedProperties/NavigationProperty`;
+  let T then be the concatenation of
+  - the annotation target in the case of external targeting, otherwise the path from the container to the entity set or singleton in which the annotation is embedded
+  - and the navigation property path in `RestrictedProperties/NavigationProperty`.
 
-It is an error to specify conflicting restrictions of the same capability through mechanisms 2 and 3 with the same T.
+It is an error to specify conflicting restrictions of the same capability with the same T.
+A resource path _matches_ T if it contains the same non-container, non-key segments in the same order as T.
 
-Capabilities annotations given through mechanism 1 or where T contains no non-containment navigation property
-target a canonical collection or singleton (in the sense of [OData-Protocol, section 10](https://oasis-tcs.github.io/odata-specs/odata-protocol/odata-protocol.html#ContextURL));
-they apply to every entity in that collection, even if it is addressed via a non-canonical path.
+If T contains no non-containment navigation property, the capabilities annotation is called _canonical_;
+it then applies to every entity that can be addressed by a resource path matching T,
+even when it is addressed via a different, non-canonical, path.
 
-Capabilities annotations given through mechanism 2 or 3 where T contains at least one non-containment navigation property
-are specific to resource paths matching T; their restrictions take precedence over restrictions on
-the canonical collection or singleton.
+Non-canonical capabilities annotations (where T contains at least one non-containment navigation property)
+are specific to resource paths matching T; their restrictions take precedence over restrictions
+from canonical capabilities annotations.
         </String>
       </Annotation>
 
