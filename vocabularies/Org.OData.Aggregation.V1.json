@@ -78,12 +78,12 @@
             },
             "Rollup": {
                 "$Type": "Aggregation.RollupType",
-                "$DefaultValue": "MultipleHierarchies",
+                "$DefaultValue": "None",
                 "@Core.Description": "The service supports rollup hierarchies in a `groupby` transformation"
             },
             "From": {
                 "$Type": "Edm.Boolean",
-                "$DefaultValue": true,
+                "$DefaultValue": false,
                 "@Core.Description": "The service supports the `from` keyword in an `aggregate` transformation"
             }
         },
