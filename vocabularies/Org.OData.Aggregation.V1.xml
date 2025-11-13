@@ -108,10 +108,10 @@
         <Property Name="CustomAggregationMethods" Type="Collection(Edm.String)" Nullable="false">
           <Annotation Term="Core.Description" String="Qualified names of custom aggregation methods that can be used in `aggregate(...with...)`" />
         </Property>
-        <Property Name="Rollup" Nullable="false" DefaultValue="MultipleHierarchies" Type="Aggregation.RollupType">
+        <Property Name="Rollup" Nullable="false" DefaultValue="None" Type="Aggregation.RollupType">
           <Annotation Term="Core.Description" String="The service supports rollup hierarchies in a `groupby` transformation" />
         </Property>
-        <Property Name="From" Nullable="false" DefaultValue="true" Type="Edm.Boolean">
+        <Property Name="From" Nullable="false" DefaultValue="false" Type="Edm.Boolean">
           <Annotation Term="Core.Description" String="The service supports the `from` keyword in an `aggregate` transformation" />
         </Property>
       </ComplexType>
