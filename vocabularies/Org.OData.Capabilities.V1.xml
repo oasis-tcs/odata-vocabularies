@@ -403,8 +403,8 @@ supported:
         <Property Name="ContinueOnErrorSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports the `continue-on-error` preference" />
           <Annotation Term="Core.LongDescription">
-            <String>When this preference is specified, the service applies it by processing all requests according to their dependencies,
-            regardless of the format for the $batch request.</String>
+            <String>When the client specifies the `continue-on-error` preference, the service applies it
+            by processing all requests according to their dependencies, regardless of the format for the $batch request.</String>
           </Annotation>
         </Property>
         <Property Name="ReferencesInRequestBodiesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">

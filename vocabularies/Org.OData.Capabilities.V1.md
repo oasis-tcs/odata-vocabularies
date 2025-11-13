@@ -238,7 +238,7 @@ Property|Type|Description
 Property|Type|Description
 :-------|:---|:----------
 [Supported](Org.OData.Capabilities.V1.xml#L400)|Boolean|Service supports requests to $batch
-[ContinueOnErrorSupported](Org.OData.Capabilities.V1.xml#L403)|Boolean|Service supports the `continue-on-error` preference<br>When this preference is specified, the service applies it by processing all requests according to their dependencies, regardless of the format for the $batch request.
+[ContinueOnErrorSupported](Org.OData.Capabilities.V1.xml#L403)|Boolean|Service supports the `continue-on-error` preference<br>When the client specifies the `continue-on-error` preference, the service applies it by processing all requests according to their dependencies, regardless of the format for the $batch request.
 [ReferencesInRequestBodiesSupported](Org.OData.Capabilities.V1.xml#L410)|Boolean|Service supports Content-ID referencing in request bodies
 [ReferencesAcrossChangeSetsSupported](Org.OData.Capabilities.V1.xml#L413)|Boolean|Service supports Content-ID referencing across change sets
 [EtagReferencesSupported](Org.OData.Capabilities.V1.xml#L416)|Boolean|Service supports referencing Etags from previous requests

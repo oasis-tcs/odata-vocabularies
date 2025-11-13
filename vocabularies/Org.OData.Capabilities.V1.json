@@ -500,7 +500,7 @@
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
                 "@Core.Description": "Service supports the `continue-on-error` preference",
-                "@Core.LongDescription": "When this preference is specified, the service applies it by processing all requests according to their dependencies,\n            regardless of the format for the $batch request."
+                "@Core.LongDescription": "When the client specifies the `continue-on-error` preference, the service applies it\n            by processing all requests according to their dependencies, regardless of the format for the $batch request."
             },
             "ReferencesInRequestBodiesSupported": {
                 "$Type": "Edm.Boolean",
