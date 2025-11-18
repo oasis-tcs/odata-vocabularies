@@ -121,14 +121,14 @@ It is an error to specify conflicting restrictions of the same capability with t
 A resource path _matches_ T if it contains the same non-container, non-key segments in the same order as T.
 
 If T contains no non-containment navigation property, then resource paths matching T are
-canonical in the sense of [OData-URL, sections 4.3.1 and 4.3.2]. Such a capabilities annotation
-applies to every entity that can be addressed by a canonical resource path matching T,
+canonical in the sense of [OData-URL, sections 4.3.1 and 4.3.2]. A capabilities annotation
+with such a T applies to every entity that can be addressed by a canonical resource path matching T,
 even when it is addressed via another, non-canonical, resource path.
 
-If T contains at least one non-containment navigation property, then resource paths matching T are
-non-canonical. Such capabilities annotations are specific to these resource paths,
-and their restrictions take precedence over any restrictions from capabilities annotations
-where T matches the canonical resource path.
+If T contains at least one non-containment navigation property, the capabilities annotation
+is specific to resource paths matching T, such resource paths are non-canonical.
+Restrictions in such capabilities annotations take precedence over any restrictions
+from capabilities annotations where T matches the canonical resource path.
         </String>
       </Annotation>
 
