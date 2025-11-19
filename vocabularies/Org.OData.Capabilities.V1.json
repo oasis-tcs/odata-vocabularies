@@ -43,7 +43,7 @@
                 "href": "https://github.com/oasis-tcs/odata-vocabularies/blob/main/vocabularies/Org.OData.Capabilities.V1.md"
             }
         ],
-        "@Core.LongDescription": "\nThere are some capabilities which are strongly recommended for services to support even\nthough they are optional. Support for $top and $skip is a good example as\nsupporting these query options helps with performance of a service and are essential. Such\ncapabilities are assumed to be default capabilities of an OData service even in\nthe case that a capabilities annotation doesn’t exist. Capabilities annotations are\nmainly expected to be used to explicitly specify that a service doesn’t support such\ncapabilities. Capabilities annotations can as well be used to declaratively\nspecify the support of such capabilities.\n\nOn the other hand, there are some capabilities that a service may choose to support or\nnot support and in varying degrees. $filter and $orderby are such good examples.\nThis vocabulary aims to define terms to specify support or no support for such\ncapabilities.\n\nA service is assumed to support by default the following capabilities even though an\nannotation doesn’t exist:\n- Countability ($count)\n- Client pageability ($top, $skip)\n- Expandability ($expand)\n- Indexability by key\n- Batch support ($batch)\n- Navigability of navigation properties\n\nA service is expected to support the following capabilities. If not supported, the\nservice is expected to call out the restrictions using annotations:\n- Filterability ($filter)\n- Sortability ($orderby)\n- Queryability of top level entity sets\n- Query functions\n\nA client cannot assume that a service supports certain capabilities. A client can try, but\nit needs to be prepared to handle an error in case the following capabilities are not\nsupported:\n- Insertability\n- Updatability\n- Deletability\n        ",
+        "@Core.LongDescription": "\nThere are some capabilities which are strongly recommended for services to support even\nthough they are optional. Support for $top and $skip is a good example as\nsupporting these query options helps with performance of a service and are essential. Such\ncapabilities are assumed to be default capabilities of an OData service even in\nthe case that a capabilities annotation doesn’t exist. Capabilities annotations are\nmainly expected to be used to explicitly specify that a service doesn’t support such\ncapabilities. Capabilities annotations can as well be used to declaratively\nspecify the support of such capabilities.\n\nOn the other hand, there are some capabilities that a service may choose to support or\nnot support and in varying degrees. $filter and $orderby are such good examples.\nThis vocabulary aims to define terms to specify support or no support for such\ncapabilities.\n\nA service is assumed to support by default the following capabilities even though an\nannotation doesn’t exist:\n- Countability ($count)\n- Client pageability ($top, $skip)\n- Expandability ($expand)\n- Indexability by key\n- Batch support ($batch)\n- Navigability of navigation properties\n\nA service is expected to support the following capabilities. If not supported, the\nservice is expected to call out the restrictions using annotations:\n- Filterability ($filter)\n- Sortability ($orderby)\n- Queryability of top level entity sets\n- Query functions\n\nA client cannot assume that a service supports certain capabilities. A client can try, but\nit needs to be prepared to handle an error in case the following capabilities are not\nsupported:\n- Insertability\n- Updatability\n- Deletability\n\nCapabilities annotations can be given through three mechanisms:\n- embedded within a model element `edm:EntitySet` or `edm:Singleton`;\n  let T then be the path from the container to that model element\n- with an external annotation target T starting with a container and targeting a collection\n- a `Capabilities.NavigationRestrictions` annotation with a `RestrictedProperties/NavigationProperty`;\n  let T then be the concatenation of\n  - the annotation target in the case of external targeting, otherwise the path from the container to the entity set or singleton in which the annotation is embedded\n  - and the navigation property path in `RestrictedProperties/NavigationProperty`.\n\nIt is an error to specify conflicting restrictions of the same capability with the same T.\nA resource path _matches_ T if it contains the same non-container, non-key segments in the same order as T.\n\nIf T contains no non-containment navigation property, then resource paths matching T are\ncanonical in the sense of [OData-URL, sections 4.3.1 and 4.3.2]. A capabilities annotation\nwith such a T applies to every entity that can be addressed by a canonical resource path matching T,\neven when it is addressed via another, non-canonical, resource path.\n\nIf T contains at least one non-containment navigation property, the capabilities annotation\nis specific to resource paths matching T, such resource paths are non-canonical.\nRestrictions in such capabilities annotations take precedence over any restrictions\nfrom capabilities annotations where T matches the canonical resource path.\n        ",
         "ConformanceLevel": {
             "$Kind": "Term",
             "$Type": "Capabilities.ConformanceLevelType",
@@ -239,8 +239,7 @@
                 "Collection"
             ],
             "@Core.AppliesViaContainer": true,
-            "@Core.Description": "Restrictions on navigating properties according to OData URL conventions",
-            "@Core.LongDescription": "Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence."
+            "@Core.Description": "Restrictions on navigating properties according to OData URL conventions"
         },
         "NavigationRestrictionsType": {
             "$Kind": "ComplexType",
@@ -633,6 +632,10 @@
                     "@Core.Description": "String property can be used as first operand in one or more `startswith`, `endswith`, and `contains` clauses, combined by `or`"
                 },
                 {
+                    "Value": "MultiValueOrSearchExpression",
+                    "@Core.Description": "String property can be used like in `MultiValue` and like in `SearchExpression`, combined with `or`"
+                },
+                {
                     "Value": "MultiRangeOrSearchExpression",
                     "@Core.Description": "Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns",
                     "@Core.LongDescription": "The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See SingleRange for the definition of an interval expression. See SearchExpression for the allowed string comparison functions."
@@ -748,14 +751,20 @@
             "UnsupportedExpressions": {
                 "$Type": "Capabilities.SearchExpressions",
                 "$DefaultValue": "none",
-                "@Core.Description": "Expressions not supported in $search"
+                "@Core.Description": "Expressions not supported in $search as specified by the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)",
+                "@Core.LongDescription": "An unsupported expression may be treated as a term to be matched even if the\n            standard syntax treats it as a keyword."
+            },
+            "SearchSyntax": {
+                "$Nullable": true,
+                "@Core.IsURL": true,
+                "@Core.Description": "URL of the $search syntax supported by the service (null means the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions))"
             }
         },
         "SearchExpressions": {
             "$Kind": "EnumType",
             "$IsFlags": true,
             "none": 0,
-            "none@Core.Description": "Single search term",
+            "none@Core.Description": "No unsupported expressions",
             "AND": 1,
             "AND@Core.Description": "Multiple search terms, optionally separated by `AND`",
             "OR": 2,

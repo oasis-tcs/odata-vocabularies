@@ -107,6 +107,28 @@ supported:
 - Insertability
 - Updatability
 - Deletability
+
+Capabilities annotations can be given through three mechanisms:
+- embedded within a model element `edm:EntitySet` or `edm:Singleton`;
+  let T then be the path from the container to that model element
+- with an external annotation target T starting with a container and targeting a collection
+- a `Capabilities.NavigationRestrictions` annotation with a `RestrictedProperties/NavigationProperty`;
+  let T then be the concatenation of
+  - the annotation target in the case of external targeting, otherwise the path from the container to the entity set or singleton in which the annotation is embedded
+  - and the navigation property path in `RestrictedProperties/NavigationProperty`.
+
+It is an error to specify conflicting restrictions of the same capability with the same T.
+A resource path _matches_ T if it contains the same non-container, non-key segments in the same order as T.
+
+If T contains no non-containment navigation property, then resource paths matching T are
+canonical in the sense of [OData-URL, sections 4.3.1 and 4.3.2]. A capabilities annotation
+with such a T applies to every entity that can be addressed by a canonical resource path matching T,
+even when it is addressed via another, non-canonical, resource path.
+
+If T contains at least one non-containment navigation property, the capabilities annotation
+is specific to resource paths matching T, such resource paths are non-canonical.
+Restrictions in such capabilities annotations take precedence over any restrictions
+from capabilities annotations where T matches the canonical resource path.
         </String>
       </Annotation>
 
@@ -230,7 +252,6 @@ supported:
       <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.AppliesViaContainer" />
         <Annotation Term="Core.Description" String="Restrictions on navigating properties according to OData URL conventions" />
-        <Annotation Term="Core.LongDescription" String="Restrictions specified on an entity set are valid whether the request is directly to the entity set or through a navigation property bound to that entity set. Services can specify a different set of restrictions specific to a path, in which case the more specific restrictions take precedence." />
       </Term>
       <ComplexType Name="NavigationRestrictionsType">
         <Property Name="Navigability" Type="Capabilities.NavigationType">
@@ -500,6 +521,10 @@ supported:
               <Annotation Term="Core.Description" String="String property can be used as first operand in one or more `startswith`, `endswith`, and `contains` clauses, combined by `or`" />
             </Record>
             <Record>
+              <PropertyValue Property="Value" String="MultiValueOrSearchExpression" />
+              <Annotation Term="Core.Description" String="String property can be used like in `MultiValue` and like in `SearchExpression`, combined with `or`" />
+            </Record>
+            <Record>
               <PropertyValue Property="Value" String="MultiRangeOrSearchExpression" />
               <Annotation Term="Core.Description" String="Property can be compared to a union of zero or more closed, half-open, or open intervals plus zero or more simple string patterns" />
               <Annotation Term="Core.LongDescription" String="The filter expression for this property consists of one or more interval expressions or string comparison functions combined by `or`. See SingleRange for the definition of an interval expression. See SearchExpression for the allowed string comparison functions." />
@@ -577,12 +602,20 @@ supported:
           <Annotation Term="Core.Description" String="$search is supported" />
         </Property>
         <Property Name="UnsupportedExpressions" Type="Capabilities.SearchExpressions" Nullable="false" DefaultValue="none">
-          <Annotation Term="Core.Description" String="Expressions not supported in $search" />
+          <Annotation Term="Core.Description" String="Expressions not supported in $search as specified by the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions)" />
+          <Annotation Term="Core.LongDescription">
+            <String>An unsupported expression may be treated as a term to be matched even if the
+            standard syntax treats it as a keyword.</String>
+          </Annotation>
+        </Property>
+        <Property Name="SearchSyntax" Type="Edm.String" Nullable="true">
+          <Annotation Term="Core.IsURL" />
+          <Annotation Term="Core.Description" String="URL of the $search syntax supported by the service (null means the standard syntax [OData-URL, section 5.1.8.1](https://docs.oasis-open.org/odata/odata/v4.02/odata-v4.02-part2-url-conventions.html#SearchExpressions))" />
         </Property>
       </ComplexType>
       <EnumType Name="SearchExpressions" IsFlags="true">
         <Member Name="none" Value="0">
-          <Annotation Term="Core.Description" String="Single search term" />
+          <Annotation Term="Core.Description" String="No unsupported expressions" />
         </Member>
         <Member Name="AND" Value="1">
           <Annotation Term="Core.Description" String="Multiple search terms, optionally separated by `AND`" />
