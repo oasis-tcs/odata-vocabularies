@@ -150,7 +150,15 @@ supported:
       </Term>
 
       <Term Name="BatchContinueOnErrorSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term." />
+        <Annotation Term="Core.Description" String="Service supports $batch requests and the `continue-on-error` preference" />
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of the [`ContinueOnErrorSupported`](#BatchSupportType) property from the [`BatchSupport`](#BatchSupport) term" />
+            </Record>
+          </Collection>
+        </Annotation>
       </Term>
 
       <Term Name="IsolationSupported" Type="Capabilities.IsolationLevel" Nullable="false" AppliesTo="EntityContainer">
@@ -393,7 +401,11 @@ supported:
           <Annotation Term="Core.Description" String="Service supports requests to $batch" />
         </Property>
         <Property Name="ContinueOnErrorSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Service supports the continue on error preference" />
+          <Annotation Term="Core.Description" String="Service supports the `continue-on-error` preference" />
+          <Annotation Term="Core.LongDescription">
+            <String>When the client specifies the `continue-on-error` preference, the service applies it
+            by processing all requests according to their dependencies, regardless of the format for the $batch request.</String>
+          </Annotation>
         </Property>
         <Property Name="ReferencesInRequestBodiesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports Content-ID referencing in request bodies" />
