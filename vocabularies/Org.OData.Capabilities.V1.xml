@@ -573,7 +573,7 @@ supported:
           SHOULD be Null (or unspecified) for single-valued targets. If Null for collection-valued targets, then the same expand capabilities 
           when accessing the collection apply when accessing an instance within the collection by key. Different non-expandable navigation or
           stream properties from the target collection can be specified by providing an instance of the derived `ExpandByKeyRestrictionsType`. 
-          Otherwise, if `Expandable` and `StreamsExpandable` are 'true', then the same set of non-expandable navigation and stream properties 
+          Otherwise, the same set of non-expandable navigation and stream properties 
           specified for the collection apply when accessing an instance within the collection by key." />
         </Property>
       </ComplexType>
