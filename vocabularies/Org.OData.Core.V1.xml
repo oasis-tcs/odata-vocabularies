@@ -578,6 +578,11 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Annotation>
       </Term>
 
+      <Term Name="Subsets" Type="Edm.NavigationPropertyPath" AppliesTo="NavigationProperty">
+        <Annotation Term="Core.Description" String="The annotated navigation property subsets the referenced navigation property." />
+        <Annotation Term="Core.LongDescription" String="Each entity reachable through the annotated navigation property is also reachable through the navigation property specified in the annotation. This term is inspired by the `subsets` UML constraint." />
+      </Term>
+
     </Schema>
   </edmx:DataServices>
 </edmx:Edmx>
