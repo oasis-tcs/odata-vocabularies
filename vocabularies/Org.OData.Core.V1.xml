@@ -521,7 +521,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       </Term>
 
       <Term Name="RequiresExplicitBinding" Type="Core.Tag" DefaultValue="true" AppliesTo="Action Function">
-        <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
+        <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term or for instances where the operation is explicitly advertised in the payload." />
       </Term>
 
       <Term Name="ExplicitOperationBindings" Type="Collection(Core.QualifiedBoundOperationName)">

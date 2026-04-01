@@ -678,7 +678,7 @@
                 "Action",
                 "Function"
             ],
-            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term."
+            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term or for instances where the operation is explicitly advertised in the payload."
         },
         "ExplicitOperationBindings": {
             "$Kind": "Term",
