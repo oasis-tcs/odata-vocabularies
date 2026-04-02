@@ -172,7 +172,15 @@ from capabilities annotations where T matches the canonical resource path.
       </Term>
 
       <Term Name="BatchContinueOnErrorSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term." />
+        <Annotation Term="Core.Description" String="Service supports $batch requests and the `continue-on-error` preference" />
+        <Annotation Term="Core.Revisions">
+          <Collection>
+            <Record>
+              <PropertyValue Property="Kind" EnumMember="Core.RevisionKind/Deprecated" />
+              <PropertyValue Property="Description" String="Deprecated in favor of the [`ContinueOnErrorSupported`](#BatchSupportType) property from the [`BatchSupport`](#BatchSupport) term" />
+            </Record>
+          </Collection>
+        </Annotation>
       </Term>
 
       <Term Name="IsolationSupported" Type="Capabilities.IsolationLevel" Nullable="false" AppliesTo="EntityContainer">
@@ -414,7 +422,11 @@ from capabilities annotations where T matches the canonical resource path.
           <Annotation Term="Core.Description" String="Service supports requests to $batch" />
         </Property>
         <Property Name="ContinueOnErrorSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
-          <Annotation Term="Core.Description" String="Service supports the continue on error preference" />
+          <Annotation Term="Core.Description" String="Service supports the `continue-on-error` preference" />
+          <Annotation Term="Core.LongDescription">
+            <String>When the client specifies the `continue-on-error` preference, the service applies it
+            by processing all requests according to their dependencies, regardless of the format for the $batch request.</String>
+          </Annotation>
         </Property>
         <Property Name="ReferencesInRequestBodiesSupported" Type="Edm.Boolean" Nullable="false" DefaultValue="false">
           <Annotation Term="Core.Description" String="Service supports Content-ID referencing in request bodies" />
@@ -579,12 +591,32 @@ from capabilities annotations where T matches the canonical resource path.
           <Annotation Term="Core.Description" String="The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction." />
         </Property>
       </ComplexType>
-      <ComplexType Name="ExpandRestrictionsType" BaseType="Capabilities.ExpandRestrictionsBase">
+      <ComplexType Name="ExpandCollectionRestrictionsType" BaseType="Capabilities.ExpandRestrictionsBase">
+        <Property Name="ExpandByKeyRestrictions" Type="Capabilities.ExpandByKeyRestrictionsBase" Nullable="true">
+          <Annotation Term="Core.Description" String="Restrictions on expand expressions when accessed by key" />
+          <Annotation Term="Core.LongDescription" String="Restrictions on expand expressions when accessing a member of the collection by key. 
+          SHOULD be Null (or unspecified) for single-valued targets. If Null for collection-valued targets, then the same expand capabilities 
+          when accessing the collection apply when accessing an instance within the collection by key. Different non-expandable navigation or
+          stream properties from the target collection can be specified by providing an instance of the derived `ExpandByKeyRestrictionsType`. 
+          Otherwise, the same set of non-expandable navigation and stream properties 
+          specified for the collection apply when accessing an instance within the collection by key." />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ExpandRestrictionsType" BaseType="Capabilities.ExpandCollectionRestrictionsType">
         <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions" />
         </Property>
         <Property Name="NonExpandableStreamProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
           <Annotation Term="Core.Description" String="These stream properties cannot be used in expand expressions" />
+        </Property>
+      </ComplexType>
+      <ComplexType Name="ExpandByKeyRestrictionsBase" BaseType="Capabilities.ExpandRestrictionsBase"/>
+      <ComplexType Name="ExpandByKeyRestrictionsType" BaseType="Capabilities.ExpandByKeyRestrictionsBase">
+        <Property Name="NonExpandableProperties" Type="Collection(Edm.NavigationPropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These properties cannot be used in expand expressions when accessing by key" />
+        </Property>
+        <Property Name="NonExpandableStreamProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
+          <Annotation Term="Core.Description" String="These stream properties cannot be used in expand expressions when accessing by key" />
         </Property>
       </ComplexType>
 

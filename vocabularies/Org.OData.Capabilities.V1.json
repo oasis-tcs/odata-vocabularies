@@ -103,7 +103,13 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Core.Description": "Service supports the continue on error preference. Supports $batch requests. Services that apply the BatchContinueOnErrorSupported term should also specify the ContinueOnErrorSupported property from the BatchSupport term."
+            "@Core.Description": "Service supports $batch requests and the `continue-on-error` preference",
+            "@Core.Revisions": [
+                {
+                    "Kind": "Deprecated",
+                    "Description": "Deprecated in favor of the [`ContinueOnErrorSupported`](#BatchSupportType) property from the [`BatchSupport`](#BatchSupport) term"
+                }
+            ]
         },
         "IsolationSupported": {
             "$Kind": "Term",
@@ -492,7 +498,8 @@
             "ContinueOnErrorSupported": {
                 "$Type": "Edm.Boolean",
                 "$DefaultValue": false,
-                "@Core.Description": "Service supports the continue on error preference"
+                "@Core.Description": "Service supports the `continue-on-error` preference",
+                "@Core.LongDescription": "When the client specifies the `continue-on-error` preference, the service applies it\n            by processing all requests according to their dependencies, regardless of the format for the $batch request."
             },
             "ReferencesInRequestBodiesSupported": {
                 "$Type": "Edm.Boolean",
@@ -714,9 +721,19 @@
                 "@Core.Description": "The maximum number of levels that can be expanded in a expand expression. A value of -1 indicates there is no restriction."
             }
         },
-        "ExpandRestrictionsType": {
+        "ExpandCollectionRestrictionsType": {
             "$Kind": "ComplexType",
             "$BaseType": "Capabilities.ExpandRestrictionsBase",
+            "ExpandByKeyRestrictions": {
+                "$Type": "Capabilities.ExpandByKeyRestrictionsBase",
+                "$Nullable": true,
+                "@Core.Description": "Restrictions on expand expressions when accessed by key",
+                "@Core.LongDescription": "Restrictions on expand expressions when accessing a member of the collection by key. \n          SHOULD be Null (or unspecified) for single-valued targets. If Null for collection-valued targets, then the same expand capabilities \n          when accessing the collection apply when accessing an instance within the collection by key. Different non-expandable navigation or\n          stream properties from the target collection can be specified by providing an instance of the derived `ExpandByKeyRestrictionsType`. \n          Otherwise, the same set of non-expandable navigation and stream properties \n          specified for the collection apply when accessing an instance within the collection by key."
+            }
+        },
+        "ExpandRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.ExpandCollectionRestrictionsType",
             "NonExpandableProperties": {
                 "$Collection": true,
                 "$Type": "Edm.NavigationPropertyPath",
@@ -726,6 +743,24 @@
                 "$Collection": true,
                 "$Type": "Edm.PropertyPath",
                 "@Core.Description": "These stream properties cannot be used in expand expressions"
+            }
+        },
+        "ExpandByKeyRestrictionsBase": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.ExpandRestrictionsBase"
+        },
+        "ExpandByKeyRestrictionsType": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Capabilities.ExpandByKeyRestrictionsBase",
+            "NonExpandableProperties": {
+                "$Collection": true,
+                "$Type": "Edm.NavigationPropertyPath",
+                "@Core.Description": "These properties cannot be used in expand expressions when accessing by key"
+            },
+            "NonExpandableStreamProperties": {
+                "$Collection": true,
+                "$Type": "Edm.PropertyPath",
+                "@Core.Description": "These stream properties cannot be used in expand expressions when accessing by key"
             }
         },
         "SearchRestrictions": {

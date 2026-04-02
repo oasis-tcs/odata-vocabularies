@@ -13,7 +13,7 @@ Term|Type|Description
 [Revisions](Org.OData.Core.V1.xml#L77)|\[[RevisionType](#RevisionType)\]|<a name="Revisions"></a>List of revisions of a model element
 [Description](Org.OData.Core.V1.xml#L105)|String?|<a name="Description"></a>A brief description of a model element
 [LongDescription](Org.OData.Core.V1.xml#L110)|String?|<a name="LongDescription"></a>A long description of a model element
-[Links](Org.OData.Core.V1.xml#L115)|\[[Link](#Link)\]|<a name="Links"></a>Link to related information
+[Links](Org.OData.Core.V1.xml#L115)|\[[Link](#Link)\]|<a name="Links"></a>Links to related information
 [Example](Org.OData.Core.V1.xml#L129)|[ExampleValue](#ExampleValue)|<a name="Example"></a>Example for an instance of the annotated model element ([Example](Org.OData.Core.V1.xml#L131))
 [Messages](Org.OData.Core.V1.xml#L198)|\[[MessageType](#MessageType)\]|<a name="Messages"></a>Instance annotation for warning and info messages
 [ValueException](Org.OData.Core.V1.xml#L242)|[ValueExceptionType](#ValueExceptionType)|<a name="ValueException"></a>The annotated value is problematic
@@ -77,7 +77,7 @@ Member|Value|Description
 
 <a name="Link"></a>
 ## [Link](Org.OData.Core.V1.xml#L118)
-The Link term is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)
+The Link type is inspired by the `atom:link` element, see [RFC4287](https://tools.ietf.org/html/rfc4287#section-4.2.7), and the `Link` HTTP header, see [RFC5988](https://tools.ietf.org/html/rfc5988)
 
 Property|Type|Description
 :-------|:---|:----------
