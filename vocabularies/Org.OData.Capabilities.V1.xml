@@ -165,22 +165,6 @@ from capabilities annotations where T matches the canonical resource path.
         <Annotation Term="Core.Description" String="List of acceptable compression methods for ($batch) requests, e.g. gzip" />
       </Term>
 
-      <Term Name="JsonStreamingSupport" Type="Capabilities.JsonStreamingSupportType">
-        <Annotation Term="Core.Description" String="Services support for JSON Payload Ordering Constraints" />
-      </Term>
-
-      <EnumType Name="JsonStreamingSupportType" IsFlags="true">
-       <Member Name="StreamingSupported" Value="1">
-          <Annotation Term="Core.Description" String="Service supports the application/json media type with the odata.streaming=true format parameter" />
-        </Member>
-       <Member Name="AlwaysOrdered" Value="2">
-          <Annotation Term="Core.Description" String="JSON Responses always comply with the Payload Ordering Constraints" />
-        </Member>
-       <Member Name="OrderingRequired" Value="4">
-          <Annotation Term="Core.Description" String="JSON Requests must comply with the Payload Ordering Constraints" />
-        </Member>
-      </EnumType>
-
       <!-- Supported Preferences -->
 
       <Term Name="AsynchronousRequestsSupported" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="EntityContainer">
