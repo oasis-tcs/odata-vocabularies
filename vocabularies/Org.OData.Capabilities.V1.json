@@ -87,6 +87,22 @@
             ],
             "@Core.Description": "List of acceptable compression methods for ($batch) requests, e.g. gzip"
         },
+        "JsonStreamingSupport": {
+            "$Kind": "Term",
+            "$Type": "Capabilities.JsonStreamingSupportType",
+            "$Nullable": true,
+            "@Core.Description": "Services support for JSON Payload Ordering Constraints"
+        },
+        "JsonStreamingSupportType": {
+            "$Kind": "EnumType",
+            "$IsFlags": true,
+            "StreamingSupported": 1,
+            "StreamingSupported@Core.Description": "Service supports the application/json media type with the odata.streaming=true format parameter",
+            "AlwaysOrdered": 2,
+            "AlwaysOrdered@Core.Description": "JSON Responses always comply with the Payload Ordering Constraints",
+            "OrderingRequired": 4,
+            "OrderingRequired@Core.Description": "JSON Requests must comply with the Payload Ordering Constraints"
+        },
         "AsynchronousRequestsSupported": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
