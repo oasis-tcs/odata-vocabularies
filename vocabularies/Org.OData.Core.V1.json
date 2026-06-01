@@ -678,7 +678,7 @@
                 "Action",
                 "Function"
             ],
-            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term."
+            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term or for instances where the operation is explicitly advertised in the payload."
         },
         "ExplicitOperationBindings": {
             "$Kind": "Term",
@@ -739,6 +739,15 @@
             "@Core.Description": "Instances of a type are annotated with this tag if they have no common structure in a given response payload",
             "@Core.LongDescription": "The select-list of a context URL MUST be `(@Core.AnyStructure)` if it would otherwise be empty,\n          but this instance annotation SHOULD be omitted from the response value."
         },
+        "Constructor": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Action"
+            ],
+            "@Core.Description": "On success the annotated action creates a new entity"
+        },
         "IsDelta": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -749,6 +758,16 @@
             ],
             "@Core.Description": "The annotated Action or Function Parameter or Return Type is represented as a Delta payload",
             "@Core.LongDescription": "The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related \n          entities and relationships, according to the format-specific delta representation."
+        },
+        "Subsets": {
+            "$Kind": "Term",
+            "$Type": "Edm.NavigationPropertyPath",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Core.Description": "The annotated navigation property subsets the referenced navigation property.",
+            "@Core.LongDescription": "Each entity reachable through the annotated navigation property is also reachable through the navigation property specified in the annotation. This term is inspired by the `subsets` UML constraint."
         }
     }
 }
