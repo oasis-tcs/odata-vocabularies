@@ -148,6 +148,13 @@
         </Property>
       </ComplexType>
 
+      <ComplexType Name="OAuth2SAML2Bearer" BaseType="Authorization.OAuthAuthorization">
+        <Property Name="TokenUrl" Type="Edm.String" Nullable="false">
+          <Annotation Term="Core.Description" String="Token Url" />
+          <Annotation Term="Core.IsURL" />
+        </Property>
+      </ComplexType>
+
       <ComplexType Name="AuthorizationScope">
         <Property Name="Scope" Type="Edm.String" Nullable="false">
           <Annotation Term="Core.Description" String="Scope name" />

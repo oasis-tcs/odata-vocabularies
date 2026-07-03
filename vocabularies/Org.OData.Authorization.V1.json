@@ -139,6 +139,14 @@
                 "@Core.IsURL": true
             }
         },
+        "OAuth2SAML2Bearer": {
+            "$Kind": "ComplexType",
+            "$BaseType": "Authorization.OAuthAuthorization",
+            "TokenUrl": {
+                "@Core.Description": "Token Url",
+                "@Core.IsURL": true
+            }
+        },
         "AuthorizationScope": {
             "$Kind": "ComplexType",
             "Scope": {

@@ -32,6 +32,7 @@ Base type for all Authorization types
   - [OAuth2Implicit](#OAuth2Implicit)
   - [OAuth2Password](#OAuth2Password)
   - [OAuth2AuthCode](#OAuth2AuthCode)
+  - [OAuth2SAML2Bearer](#OAuth2SAML2Bearer)
 - [ApiKey](#ApiKey)
 
 Property|Type|Description
@@ -69,6 +70,7 @@ Property|Type|Description
 - [OAuth2Implicit](#OAuth2Implicit)
 - [OAuth2Password](#OAuth2Password)
 - [OAuth2AuthCode](#OAuth2AuthCode)
+- [OAuth2SAML2Bearer](#OAuth2SAML2Bearer)
 
 Property|Type|Description
 :-------|:---|:----------
@@ -126,39 +128,51 @@ Property|Type|Description
 [AuthorizationUrl](Org.OData.Authorization.V1.xml#L141)|URL|Authorization URL
 [TokenUrl](Org.OData.Authorization.V1.xml#L145)|URL|Token Url
 
-<a name="AuthorizationScope"></a>
-## [AuthorizationScope](Org.OData.Authorization.V1.xml#L151)
-
-
-Property|Type|Description
-:-------|:---|:----------
-[Scope](Org.OData.Authorization.V1.xml#L152)|String|Scope name
-[Grant](Org.OData.Authorization.V1.xml#L155)|String?|Identity that has access to the scope or can grant access to the scope.
-[Description](Org.OData.Authorization.V1.xml#L159)|String|Description of the scope
-
-<a name="ApiKey"></a>
-## [ApiKey](Org.OData.Authorization.V1.xml#L164): [Authorization](#Authorization)
+<a name="OAuth2SAML2Bearer"></a>
+## [OAuth2SAML2Bearer](Org.OData.Authorization.V1.xml#L151): [OAuthAuthorization](#OAuthAuthorization)
 
 
 Property|Type|Description
 :-------|:---|:----------
 [*Name*](Org.OData.Authorization.V1.xml#L84)|String|Name that can be used to reference the authorization scheme
 [*Description*](Org.OData.Authorization.V1.xml#L87)|String?|Description of the authorization scheme
-[KeyName](Org.OData.Authorization.V1.xml#L165)|String|The name of the header or query parameter
-[Location](Org.OData.Authorization.V1.xml#L168)|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
+[*Scopes*](Org.OData.Authorization.V1.xml#L109)|\[[AuthorizationScope](#AuthorizationScope)\]|Available scopes
+[*RefreshUrl*](Org.OData.Authorization.V1.xml#L112)|URL?|Refresh Url
+[TokenUrl](Org.OData.Authorization.V1.xml#L152)|URL|Token Url
+
+<a name="AuthorizationScope"></a>
+## [AuthorizationScope](Org.OData.Authorization.V1.xml#L158)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[Scope](Org.OData.Authorization.V1.xml#L159)|String|Scope name
+[Grant](Org.OData.Authorization.V1.xml#L162)|String?|Identity that has access to the scope or can grant access to the scope.
+[Description](Org.OData.Authorization.V1.xml#L166)|String|Description of the scope
+
+<a name="ApiKey"></a>
+## [ApiKey](Org.OData.Authorization.V1.xml#L171): [Authorization](#Authorization)
+
+
+Property|Type|Description
+:-------|:---|:----------
+[*Name*](Org.OData.Authorization.V1.xml#L84)|String|Name that can be used to reference the authorization scheme
+[*Description*](Org.OData.Authorization.V1.xml#L87)|String?|Description of the authorization scheme
+[KeyName](Org.OData.Authorization.V1.xml#L172)|String|The name of the header or query parameter
+[Location](Org.OData.Authorization.V1.xml#L175)|[KeyLocation](#KeyLocation)|Whether the API Key is passed in the header or as a query option
 
 <a name="KeyLocation"></a>
-## [KeyLocation](Org.OData.Authorization.V1.xml#L173)
+## [KeyLocation](Org.OData.Authorization.V1.xml#L180)
 
 
 Member|Value|Description
 :-----|----:|:----------
-[Header](Org.OData.Authorization.V1.xml#L174)|0|API Key is passed in the header
-[QueryOption](Org.OData.Authorization.V1.xml#L177)|1|API Key is passed as a query option
-[Cookie](Org.OData.Authorization.V1.xml#L180)|2|API Key is passed as a cookie
+[Header](Org.OData.Authorization.V1.xml#L181)|0|API Key is passed in the header
+[QueryOption](Org.OData.Authorization.V1.xml#L184)|1|API Key is passed as a query option
+[Cookie](Org.OData.Authorization.V1.xml#L187)|2|API Key is passed as a cookie
 
 <a name="SchemeName"></a>
-## [SchemeName](Org.OData.Authorization.V1.xml#L185)
+## [SchemeName](Org.OData.Authorization.V1.xml#L192)
 **Type:** String
 
 The name of the authorization scheme.
