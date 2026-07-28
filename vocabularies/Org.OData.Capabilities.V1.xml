@@ -225,6 +225,9 @@ supported:
         <Property Name="Countable" Type="Edm.Boolean" Nullable="false" DefaultValue="true">
           <Annotation Term="Core.Description" String="Instances can be counted in requests targeting a collection" />
         </Property>
+        <Property Name="InlineCountAccuracy" Type="Capabilities.CountAccuracy">
+          <Annotation Term="Core.Description" String="The default accuracy for inline count" />
+        </Property>
       </ComplexType>
       <ComplexType Name="CountRestrictionsType" BaseType="Capabilities.CountRestrictionsBase">
         <Property Name="NonCountableProperties" Type="Collection(Edm.PropertyPath)" Nullable="false">
@@ -234,6 +237,18 @@ supported:
           <Annotation Term="Core.Description" String="Members of these navigation properties cannot be counted" />
         </Property>
       </ComplexType>
+
+      <EnumType Name="CountAccuracy">
+        <Member Name="Counted" Value="1">
+          <Annotation Term="Core.Description" String="The count was exact at the time of calculation" />
+        </Member>
+        <Member Name="Estimated" Value="2">
+          <Annotation Term="Core.Description" String="The count was estimated" />
+        </Member>
+        <Member Name="Partial" Value="3">
+          <Annotation Term="Core.Description" String="The collection contained at least the returned number of items at the time of calculation" />
+        </Member>
+      </EnumType>
 
       <Term Name="NavigationRestrictions" Type="Capabilities.NavigationRestrictionsType" Nullable="false" AppliesTo="EntitySet Singleton Collection">
         <Annotation Term="Core.AppliesViaContainer" />
