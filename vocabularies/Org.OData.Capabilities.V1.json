@@ -242,13 +242,32 @@
             }
         },
         "CountAccuracy": {
-            "$Kind": "EnumType",
-            "Counted": 1,
-            "Counted@Core.Description": "The count was exact at the time of calculation",
-            "Estimated": 2,
-            "Estimated@Core.Description": "The count was estimated",
-            "Partial": 3,
-            "Partial@Core.Description": "The collection contained at least the returned number of items at the time of calculation"
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "The accuracy of the count value",
+            "@Core.LongDescription": "\n            Note that additional values may be defined in the future. Clients should treat any unknown value as an inexact count.\n            If the service changes the default accuracy from `counted` to any other value, it MUST return the actual count accuracy\n            in responses to preserve backward compatibility with existing clients.\n          ",
+            "@Validation.AllowedValues": [
+                {
+                    "Value": "counted",
+                    "@Core.Description": "The count was exact at the time of calculation"
+                },
+                {
+                    "Value": "estimated",
+                    "@Core.Description": "The count was estimated"
+                },
+                {
+                    "Value": "cached",
+                    "@Core.Description": "The count was based on cached values and may no longer be current"
+                },
+                {
+                    "Value": "partial",
+                    "@Core.Description": "The collection contained at least the returned number of items at the time of calculation"
+                },
+                {
+                    "Value": "unavailable",
+                    "@Core.Description": "The count was unavailable and the count value returned (typically 0) should be ignored"
+                }
+            ]
         },
         "NavigationRestrictions": {
             "$Kind": "Term",
