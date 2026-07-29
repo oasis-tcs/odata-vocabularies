@@ -46,7 +46,8 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Core.RevisionType",
-            "@Core.Description": "List of revisions of a model element"
+            "@Core.Description": "List of revisions of a model element",
+            "@Core.LongDescription": "A model element may have multiple `Modified` revisions within the same or different major versions,\n          and may have mulitple `Added` and/or `Deprecated` revisions with different major versions to signify changes\n          made to multiple major versions of the service.\n          "
         },
         "RevisionType": {
             "$Kind": "ComplexType",
