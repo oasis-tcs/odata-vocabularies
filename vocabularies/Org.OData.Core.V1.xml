@@ -83,6 +83,12 @@
 
       <Term Name="Revisions" Type="Collection(Core.RevisionType)" Nullable="false">
         <Annotation Term="Core.Description" String="List of revisions of a model element" />
+        <Annotation Term="Core.LongDescription">
+          <String>A model element may have multiple `Modified` revisions within the same or different major versions,
+          and may have mulitple `Added` and/or `Deprecated` revisions with different major versions to signify changes
+          made to multiple major versions of the service.
+          </String>
+        </Annotation>
       </Term>
       <ComplexType Name="RevisionType">
         <Property Name="Version" Type="Edm.String" Nullable="true">
@@ -528,7 +534,7 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
       </Term>
 
       <Term Name="RequiresExplicitBinding" Type="Core.Tag" DefaultValue="true" AppliesTo="Action Function">
-        <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term." />
+        <Annotation Term="Core.Description" String="This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term or for instances where the operation is explicitly advertised in the payload." />
       </Term>
 
       <Term Name="ExplicitOperationBindings" Type="Collection(Core.QualifiedBoundOperationName)">
@@ -573,12 +579,21 @@ Any simple identifier | Any type listed in `Validation.OpenPropertyTypeConstrain
         </Annotation>
       </Term>
 
+      <Term Name="Constructor" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="Action">
+        <Annotation Term="Core.Description" String="On success the annotated action creates a new entity" />
+      </Term>
+
       <Term Name="IsDelta" Type="Core.Tag" Nullable="false" DefaultValue="true" AppliesTo="ReturnType Parameter">
         <Annotation Term="Core.Description" String="The annotated Action or Function Parameter or Return Type is represented as a Delta payload" />
         <Annotation Term="Core.LongDescription">
           <String>The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related 
           entities and relationships, according to the format-specific delta representation.</String>
         </Annotation>
+      </Term>
+
+      <Term Name="Subsets" Type="Edm.NavigationPropertyPath" AppliesTo="NavigationProperty">
+        <Annotation Term="Core.Description" String="The annotated navigation property subsets the referenced navigation property." />
+        <Annotation Term="Core.LongDescription" String="Each entity reachable through the annotated navigation property is also reachable through the navigation property specified in the annotation. This term is inspired by the `subsets` UML constraint." />
       </Term>
 
     </Schema>
