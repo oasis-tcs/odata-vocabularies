@@ -67,7 +67,14 @@
       <!-- Versioning -->
 
       <Term Name="ODataVersions" Type="Edm.String" Nullable="false" AppliesTo="EntityContainer">
-        <Annotation Term="Core.Description" String="A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed." />
+        <Annotation Term="Core.Description" String="A space-separated list of supported versions of the OData Protocol." />
+        <Annotation Term="Core.LongDescription">
+         <String>As OData supports semantic versioning, clients can assume that services support all Minor versions 
+                 up to and including any reported Minor version for a particular Major version.
+                 In order to interoperate with the greatest number of clients, OData services SHOULD separately advertise
+                 each minor version that they support.
+         </String>
+        </Annotation>
       </Term>
 
       <Term Name="SchemaVersion" Type="Edm.String" Nullable="false" AppliesTo="Schema Reference">

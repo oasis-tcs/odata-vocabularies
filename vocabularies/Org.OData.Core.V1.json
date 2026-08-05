@@ -32,7 +32,8 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Core.Description": "A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed."
+            "@Core.Description": "A space-separated list of supported versions of the OData Protocol.",
+            "@Core.LongDescription": "As OData supports semantic versioning, clients can assume that services support all Minor versions \n                 up to and including any reported Minor version for a particular Major version.\n                 In order to interoperate with the greatest number of clients, OData services SHOULD separately advertise\n                 each minor version that they support.\n         "
         },
         "SchemaVersion": {
             "$Kind": "Term",
