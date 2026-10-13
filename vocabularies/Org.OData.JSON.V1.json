@@ -12,7 +12,8 @@
     },
     "Org.OData.JSON.V1": {
         "$Alias": "JSON",
-        "@Core.Description": "Terms for JSON properties",
+        "@Core.Description": "Terms, types, and functions for JSON data",
+        "@Core.LongDescription": "OData [stream properties](https://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part1-protocol.html#sec_ManagingStreamProperties) allow embedding data of arbitrary media types,\nand the OData JSON format allows [direct embedding of JSON data](https://docs.oasis-open.org/odata/odata-json-format/v4.01/odata-json-format-v4.01.html#sec_StreamProperty) in request and response payloads.\n\nThis vocabulary defines a convenience [type for JSON data](#JSON) as well as a term for referencing a [JSON Schema](#Schema) describing the structure of the JSON data.\n\nIn addition it defines two functions for [querying](#query) JSON data and using a [primitive value](#value) extracted from JSON data in common expressions, for example in `$filter`, `$orderby`, or `$compute`.\n\n**Example**\n\nThe `Employees` entity set has a JSON data property `resume` (see [CSDL JSON](../examples/Org.OData.JSON.V1.Schema-sample.json) or [CSDL XML](../examples/Org.OData.JSON.V1.Schema-sample.xml)).\n\nOne of its entities has a `resume` value of\n```json\n{ \n  \"ssn\": \"1234\", \n  \"lastname\": \"Doe\", \n  \"address\": {\n    \"zipcode\": \"10022\", \n    \"street\": \"ABC st\"\n  },\n  \"experience\": \"excellent\"\n}\n```\n\nThis allows to filter and sort by values in that resume, and extract parts of the resume as a dynamic JSON data property\n```http\nGET http://www.example.com/mycompany/Employees\n      ?$filter=resume/JSON.value(path='$.lastname') eq 'Doe'\n      &$orderby=resume/JSON.valueNumber(path='$.experience')\n      &$compute=resume/JSON.query(path='$.address') as address\n      &$expand=address\n```\nreceiving\n```json\n{ \n  \"@odata.context\": \"$metadata#Employees\", \n  \"value\": [ \n    {\n      \"empid\": 4711,\n      \"address\": {\n        \"zipcode\": \"10022\", \n        \"street\": \"ABC st\"\n      }\n    },\n    ...\n  ]\n}\n```\n        ",
         "@Core.Links": [
             {
                 "rel": "alternate",
@@ -40,8 +41,117 @@
             ],
             "@Core.RequiresType": "Edm.Stream",
             "@Core.Description": "The JSON Schema for JSON values of the annotated media entity type, property, parameter, return type, term, or type definition",
-            "@Core.LongDescription": "The schema can be a schema reference, i.e. `{\"$ref\":\"url/of/schemafile#/path/to/schema/within/schemafile\"}`"
+            "@Core.LongDescription": "The schema can be a reference, i.e. `{\"$ref\":\"url/of/schemafile#/path/to/schema/within/schemafile\"}`"
         },
+        "query": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "$IsComposable": true,
+                "@Core.Description": "Query a stream value of media type `application/json`, returning a stream value of media type `application/json`",
+                "@Core.LongDescription": "Extracts a JSON value, such as an array, object, or a JSON scalar value (string, number, boolean, or `null`) from the `input` JSON value:\n- If `path` only consists of the root identifier followed by name and index selectors, it returns the identified single node within `input`, or `null` if no node is identified. \n- If `path` potentially identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), it returns an array containing the identified nodes, or an empty array if no node is identified. \n- If `input` is not a valid JSON value, the function returns `null`.\n- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`. \n          ",
+                "$Parameter": [
+                    {
+                        "$Name": "input",
+                        "$Type": "JSON.JSON",
+                        "$Nullable": true,
+                        "@Core.Description": "JSON input"
+                    },
+                    {
+                        "$Name": "path",
+                        "$Type": "JSON.Path",
+                        "$Nullable": true,
+                        "@Core.Description": "JSONPath expression to be applied to value of `expr`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "JSON.JSON",
+                    "$Nullable": true,
+                    "@Core.Description": "JSON value resulting from applying `path` to `input`"
+                }
+            }
+        ],
+        "value": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Query a stream value of media type `application/json`, returning a string",
+                "@Core.LongDescription": "Extracts a single OData primitive value from the `input` JSON value and casts it to a string:\n- If `path` only consists of the root identifier followed by name and index selectors and identifies a single scalar JSON value (string, number, boolean, or `null`) within `input`, it returns the identified single value, cast to a string.\n- If `path` identifies multiple nodes within `input` (by using descendant, wildcard, union, array subset, or filter selectors), identifies an object or array, or does not identify any node, the function returns `null`.\n- If `input` is not a valid JSON value, the function returns `null`.\n- If `path` is `null`, not a valid [JSONPath expression](#Path), or does not match the structure of `input` (for example applying an index selector to a scalar value), the function returns `null`.",
+                "$Parameter": [
+                    {
+                        "$Name": "input",
+                        "$Type": "JSON.JSON",
+                        "$Nullable": true,
+                        "@Core.Description": "JSON input"
+                    },
+                    {
+                        "$Name": "path",
+                        "$Type": "JSON.Path",
+                        "$Nullable": true,
+                        "@Core.Description": "JSONPath expression to be applied to value of `expr`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Nullable": true,
+                    "@Core.Description": "String value resulting from applying `path` to `input`"
+                }
+            }
+        ],
+        "valueNumber": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Query a stream value of media type `application/json`, returning a number",
+                "@Core.LongDescription": "Like [`value`](#value), but casts the extracted value to an `Edm.Decimal` with unspecified precision and floating scale.\n          Returns null if that cast fails.",
+                "$Parameter": [
+                    {
+                        "$Name": "input",
+                        "$Type": "JSON.JSON",
+                        "$Nullable": true,
+                        "@Core.Description": "JSON input"
+                    },
+                    {
+                        "$Name": "path",
+                        "$Type": "JSON.Path",
+                        "$Nullable": true,
+                        "@Core.Description": "JSONPath expression to be applied to value of `expr`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Decimal",
+                    "$Nullable": true,
+                    "$Scale": "floating",
+                    "@Core.Description": "Numeric value resulting from applying `path` to `input`"
+                }
+            }
+        ],
+        "valueBoolean": [
+            {
+                "$Kind": "Function",
+                "$IsBound": true,
+                "@Core.Description": "Query a stream value of media type `application/json`, returning a Boolean",
+                "@Core.LongDescription": "Like [`value`](#value), but casts the extracted value to an `Edm.Boolean`.\n          Returns null if that cast fails.",
+                "$Parameter": [
+                    {
+                        "$Name": "input",
+                        "$Type": "JSON.JSON",
+                        "$Nullable": true,
+                        "@Core.Description": "JSON input"
+                    },
+                    {
+                        "$Name": "path",
+                        "$Type": "JSON.Path",
+                        "$Nullable": true,
+                        "@Core.Description": "JSONPath expression to be applied to value of `expr`"
+                    }
+                ],
+                "$ReturnType": {
+                    "$Type": "Edm.Boolean",
+                    "$Nullable": true,
+                    "@Core.Description": "Boolean value resulting from applying `path` to `input`"
+                }
+            }
+        ],
         "JSON": {
             "$Kind": "TypeDefinition",
             "$UnderlyingType": "Edm.Stream",
@@ -50,6 +160,12 @@
             "@Core.AcceptableMediaTypes": [
                 "application/json"
             ]
+        },
+        "Path": {
+            "$Kind": "TypeDefinition",
+            "$UnderlyingType": "Edm.String",
+            "@Core.Description": "[JSONPath](https://datatracker.ietf.org/doc/html/rfc9535) expression",
+            "@Core.LongDescription": "Implementations MUST support at least the following subset of JSONPath:\n\nSyntax Element | Description | Examples\n---------------|-------------|--------\n`$` | [root identifier](https://datatracker.ietf.org/doc/html/rfc9535#root-identifier) | `$`\n`[<selector>]` | [child segment](https://datatracker.ietf.org/doc/html/rfc9535#child-segment) selects one child of a node; contains one [name selector](https://datatracker.ietf.org/doc/html/rfc9535#name-selector) (single- or double-quoted string using JSON escaping rules) or [index selector](https://datatracker.ietf.org/doc/html/rfc9535#index-selector) (non-negative decimal integer) | `$['foo']`, `$.foo[\"bar\"]`, `$.bar[0]`, `$.bar[42]`\n`.name` | shorthand for `['name']` | `$.foo`, `$.foo.bar`, `$.bar[42].baz`\n\nImplementations MAY in addition support other JSONPath constructs, for example:\n\nSyntax Element | Description | Examples\n---------------|-------------|--------\n`[<selector>]` | index selector with negative integer array index (counts from the end of the array) | `$.bar[-1]`\n`[<selectors>]` | non-empty, comma-separated sequence of selectors | `$.foo['bar','baz']`, `$.bar[0,1,2,3,5,7,11]`\n`..[<selectors>]` | [descendant segment](https://datatracker.ietf.org/doc/html/rfc9535#descendant-segment): selects zero or more descendants of a node | `$.foo..[\"bar\"]`\n`..name` | shorthand for `..['name']` | `$.foo..bar`\n`*` | [wildcard selector](https://datatracker.ietf.org/doc/html/rfc9535#name-selector): selects all children of a node | `$.foo[*]`, `$[*]`\n`.*` | shorthand for `[*]` | `$.foo.*`, `$.*`\n`..*` | shorthand for `..[*]` | `$.foo..*`, `$..*`\n`[start:end]` | array subset by range of indices (including the item at _start_ and excluding the item at _end_ | `$.bar[2:5]`, same as `$.bar[2,3,4]`\n`[start:]` | array subset from _start_ to end of array | `$.bar[2:]`\n`[:n]` | the first _n_ array items | `$.bar[:4]`\n`[-n:]` | the last _n_ array items | `$.bar[-3:]`\n`[start:end:step]` | [array slice selector](https://datatracker.ietf.org/doc/html/rfc9535#slice) |\n`[?<logical-expr>]` | [filter selector](https://datatracker.ietf.org/doc/html/rfc9535#filter-selector): selects particular children using a logical expression | \n`@` | [current node identifier](https://datatracker.ietf.org/doc/html/rfc9535#filter-selector) (valid only within filter selectors) | `$.bar[?@.baz==42]`\n\n**References for JSONPath**\n- RFC 9535: https://datatracker.ietf.org/doc/html/rfc9535\n- Historic site: https://goessner.net/articles/JsonPath/\n- Node.js implementation: https://www.npmjs.com/package/jsonpath\n- Java implementation: https://github.com/json-path/JsonPath\n- Online evaluator: https://jsonpath.com/\n          "
         }
     }
 }

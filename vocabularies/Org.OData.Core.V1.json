@@ -32,7 +32,8 @@
             "$AppliesTo": [
                 "EntityContainer"
             ],
-            "@Core.Description": "A space-separated list of supported versions of the OData Protocol. Note that 4.0 is implied by 4.01 and does not need to be separately listed."
+            "@Core.Description": "A space-separated list of supported versions of the OData Protocol.",
+            "@Core.LongDescription": "As OData supports semantic versioning, clients can assume that services support all Minor versions \n                 up to and including any reported Minor version for a particular Major version.\n                 In order to interoperate with the greatest number of clients, OData services SHOULD separately advertise\n                 each minor version that they support.\n         "
         },
         "SchemaVersion": {
             "$Kind": "Term",
@@ -46,7 +47,8 @@
             "$Kind": "Term",
             "$Collection": true,
             "$Type": "Core.RevisionType",
-            "@Core.Description": "List of revisions of a model element"
+            "@Core.Description": "List of revisions of a model element",
+            "@Core.LongDescription": "A model element may have multiple `Modified` revisions within the same or different major versions,\n          and may have mulitple `Added` and/or `Deprecated` revisions with different major versions to signify changes\n          made to multiple major versions of the service.\n          "
         },
         "RevisionType": {
             "$Kind": "ComplexType",
@@ -678,7 +680,7 @@
                 "Action",
                 "Function"
             ],
-            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term."
+            "@Core.Description": "This bound action or function is only available on model elements annotated with the ExplicitOperationBindings term or for instances where the operation is explicitly advertised in the payload."
         },
         "ExplicitOperationBindings": {
             "$Kind": "Term",
@@ -739,6 +741,15 @@
             "@Core.Description": "Instances of a type are annotated with this tag if they have no common structure in a given response payload",
             "@Core.LongDescription": "The select-list of a context URL MUST contain `@Core.AnyStructure` if it contains no structural properties,\n          but this instance annotation SHOULD be omitted from the response value."
         },
+        "Constructor": {
+            "$Kind": "Term",
+            "$Type": "Core.Tag",
+            "$DefaultValue": true,
+            "$AppliesTo": [
+                "Action"
+            ],
+            "@Core.Description": "On success the annotated action creates a new entity"
+        },
         "IsDelta": {
             "$Kind": "Term",
             "$Type": "Core.Tag",
@@ -749,6 +760,16 @@
             ],
             "@Core.Description": "The annotated Action or Function Parameter or Return Type is represented as a Delta payload",
             "@Core.LongDescription": "The parameter or result is represented as a delta payload, which may include deleted entries as well as changes to related \n          entities and relationships, according to the format-specific delta representation."
+        },
+        "Subsets": {
+            "$Kind": "Term",
+            "$Type": "Edm.NavigationPropertyPath",
+            "$Nullable": true,
+            "$AppliesTo": [
+                "NavigationProperty"
+            ],
+            "@Core.Description": "The annotated navigation property subsets the referenced navigation property.",
+            "@Core.LongDescription": "Each entity reachable through the annotated navigation property is also reachable through the navigation property specified in the annotation. This term is inspired by the `subsets` UML constraint."
         }
     }
 }

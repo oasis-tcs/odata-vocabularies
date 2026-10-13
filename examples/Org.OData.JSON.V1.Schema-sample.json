@@ -19,6 +19,27 @@
         }
     },
     "json.schema.sample": {
+        "$Alias": "this",
+        "container": {
+            "$Kind": "EntityContainer",
+            "Employees": {
+                "$Collection": true,
+                "$Type": "this.Employee"
+            }
+        },
+        "Employee": {
+            "$Kind": "EntityType",
+            "$Key": [
+                "empid"
+            ],
+            "empid": {
+                "$Type": "Edm.Int32"
+            },
+            "resume": {
+                "$Type": "JSON.JSON",
+                "$Nullable": true
+            }
+        },
         "example": {
             "$Kind": "ComplexType",
             "CodeDictionary": {
@@ -37,5 +58,6 @@
                 }
             }
         }
-    }
+    },
+    "$EntityContainer": "json.schema.sample.container"
 }
