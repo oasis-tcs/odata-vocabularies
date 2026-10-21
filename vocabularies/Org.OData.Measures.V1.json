@@ -67,7 +67,7 @@
                 "Parameter",
                 "Property"
             ],
-            "@Core.Description": "The unit of measure for this measured quantity, according to the [UN/CEFACT Recommendation 20](http://tfig.unece.org/contents/recommendation-20.htm)"
+            "@Core.Description": "The unit of measure for this measured quantity, according to the [UN/CEFACT Recommendation 20](https://unece.org/trade/documents/2021/06/uncefact-rec20-0)"
         },
         "DurationGranularity": {
             "$Kind": "Term",

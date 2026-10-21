@@ -81,7 +81,7 @@
       </Term>
 
       <Term Name="UNECEUnit" Type="Edm.String" Nullable="false" AppliesTo="Parameter Property">
-        <Annotation Term="Core.Description" String="The unit of measure for this measured quantity, according to the [UN/CEFACT Recommendation 20](http://tfig.unece.org/contents/recommendation-20.htm)" />
+        <Annotation Term="Core.Description" String="The unit of measure for this measured quantity, according to the [UN/CEFACT Recommendation 20](https://unece.org/trade/documents/2021/06/uncefact-rec20-0)" />
       </Term>
 
       <Term Name="DurationGranularity" Type="Measures.DurationGranularityType" Nullable="false" AppliesTo="Parameter Property">
