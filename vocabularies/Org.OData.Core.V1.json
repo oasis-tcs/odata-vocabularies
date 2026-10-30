@@ -542,7 +542,7 @@
                 "NavigationProperty",
                 "Property"
             ],
-            "@Core.Description": "The service will automatically expand this stream property, navigation property, or the media stream of this media entity type even if not requested with $expand"
+            "@Core.Description": "The service will automatically expand this stream property, navigation property, or the media stream of this media entity type even if not requested with `$expand`"
         },
         "AutoExpandReferences": {
             "$Kind": "Term",
@@ -551,7 +551,7 @@
             "$AppliesTo": [
                 "NavigationProperty"
             ],
-            "@Core.Description": "The service will automatically expand this navigation property as entity references even if not requested with $expand=.../$ref"
+            "@Core.Description": "The service will automatically expand this navigation property as entity references even if not requested with `$expand=.../$ref`"
         },
         "MayImplement": {
             "$Kind": "Term",
